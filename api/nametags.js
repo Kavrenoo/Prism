@@ -38,15 +38,28 @@ export default async function handler(req, res) {
               const parts = k.replace('nametags:servers:', '').split(':');
               const placeId = parts[0];
               const jobId = parts[1];
+              const userId = parts[2];
               if (!result[placeId]) result[placeId] = {};
-              result[placeId][jobId] = value;
+              if (!result[placeId][jobId]) result[placeId][jobId] = {};
+              result[placeId][jobId][userId] = value;
             }
           }
           return res.status(200).json(result);
         } else if (pathParts.length >= 3) {
-          // Get all players in a specific server
-          const serverData = await redis.get(serverKey);
-          return res.status(200).json(serverData || {});
+          // Get all players in a specific server (aggregate individual keys)
+          const pattern = `${serverKey}:*`;
+          const keys = await redis.keys(pattern);
+          const result = {};
+          for (const k of keys) {
+            const value = await redis.get(k);
+            if (value) {
+              // Extract userId from key (nametags:servers:place:job:userId)
+              const parts = k.split(':');
+              const userId = parts[parts.length - 1];
+              result[userId] = value;
+            }
+          }
+          return res.status(200).json(result);
         }
         break;
       }
@@ -59,28 +72,26 @@ export default async function handler(req, res) {
           return res.status(400).json({ error: 'UserId required' });
         }
         
-        // Get existing server data or create new
-        let serverData = await redis.get(serverKey) || {};
-        
-        // Add/update this user
-        serverData[userId] = body;
-        
-        // Save back with 30 second TTL (auto-cleanup if no updates)
-        await redis.set(serverKey, serverData, { ex: 30 });
+        // Store each user individually with their own TTL
+        // Key: nametags:servers:placeId:jobId:userId
+        const userKey = `${serverKey}:${userId}`;
+        await redis.set(userKey, body, { ex: 30 });
         
         return res.status(200).json(body);
       }
 
       case 'DELETE': {
         if (pathParts.length >= 4) {
-          // Remove specific user from server
-          let serverData = await redis.get(serverKey) || {};
-          delete serverData[pathParts[3]];
-          await redis.set(serverKey, serverData, { ex: 30 });
+          // Remove specific user
+          const userKey = `${serverKey}:${pathParts[3]}`;
+          await redis.del(userKey);
           return res.status(200).json(null);
         } else {
-          // Delete entire server entry
-          await redis.del(serverKey);
+          // Delete all users in this server (pattern delete)
+          const keys = await redis.keys(`${serverKey}:*`);
+          for (const k of keys) {
+            await redis.del(k);
+          }
           return res.status(200).json(null);
         }
       }
