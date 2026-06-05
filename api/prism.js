@@ -196,9 +196,12 @@ async function handleServers(req, res, pathname) {
         if (pathParts.length === 1) {
           // Get all servers for this game from nametags
           const nametagPattern = `nametags:servers:${placeId}:*`;
+          console.log('[API Debug] Searching for pattern:', nametagPattern);
           const nametagKeys = await redis.keys(nametagPattern);
+          console.log('[API Debug] Found keys:', nametagKeys.length, nametagKeys);
           for (const k of nametagKeys) {
             const value = await redis.get(k);
+            console.log('[API Debug] Key:', k, 'Value exists:', !!value);
             if (value) {
               const parts = k.replace('nametags:servers:', '').split(':');
               const pId = parts[0];
