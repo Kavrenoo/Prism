@@ -14,74 +14,75 @@ export default async function handler(req, res) {
 
   try {
     const url = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-    // Parse path: /api/nametags/players/placeId/jobId/userId
+    // Parse path: /api/nametags/servers/placeId/jobId or /api/nametags/servers/placeId/jobId/userId
     const pathParts = url.pathname
       .replace('/api/nametags/', '')
       .replace('.json', '')
       .split('/')
       .filter(Boolean);
     
-    const key = pathParts.length > 0 ? `nametags:${pathParts.join(':')}` : 'nametags:root';
+    // Key format: nametags:servers:placeId:jobId (stores all players in server)
+    const serverKey = pathParts.length >= 3 
+      ? `nametags:servers:${pathParts[1]}:${pathParts[2]}`
+      : 'nametags:root';
 
     switch (req.method) {
       case 'GET': {
-        if (pathParts.length === 0 || pathParts.length === 1) {
-          // Get all nametags - scan pattern
-          const pattern = pathParts.length === 0 ? 'nametags:*' : `nametags:${pathParts[0]}:*`;
-          const keys = await redis.keys(pattern);
+        if (pathParts.length === 0) {
+          // Get all servers
+          const keys = await redis.keys('nametags:servers:*');
           const result = {};
-          
           for (const k of keys) {
             const value = await redis.get(k);
             if (value) {
-              // Convert nametags:placeId:jobId:userId to nested structure
-              const parts = k.replace('nametags:', '').split(':');
-              let current = result;
-              for (let i = 0; i < parts.length - 1; i++) {
-                if (!current[parts[i]]) current[parts[i]] = {};
-                current = current[parts[i]];
-              }
-              current[parts[parts.length - 1]] = value;
+              const parts = k.replace('nametags:servers:', '').split(':');
+              const placeId = parts[0];
+              const jobId = parts[1];
+              if (!result[placeId]) result[placeId] = {};
+              result[placeId][jobId] = value;
             }
           }
           return res.status(200).json(result);
-        } else if (pathParts.length >= 2) {
-          // Get specific server or user
-          const pattern = pathParts.length === 2 
-            ? `nametags:${pathParts[0]}:${pathParts[1]}:*`
-            : key;
-          
-          if (pathParts.length === 3) {
-            // Single user
-            const value = await redis.get(key);
-            return res.status(200).json(value || null);
-          } else {
-            // All users in a server
-            const keys = await redis.keys(pattern);
-            const result = {};
-            for (const k of keys) {
-              const value = await redis.get(k);
-              if (value) {
-                const userId = k.split(':').pop();
-                result[userId] = value;
-              }
-            }
-            return res.status(200).json(result);
-          }
+        } else if (pathParts.length >= 3) {
+          // Get all players in a specific server
+          const serverData = await redis.get(serverKey);
+          return res.status(200).json(serverData || {});
         }
         break;
       }
 
       case 'PUT': {
         const body = req.body || {};
-        // Set with 30 second TTL (like Firebase)
-        await redis.set(key, body, { ex: 30 });
+        const userId = pathParts[3]; // 4th part is userId
+        
+        if (!userId) {
+          return res.status(400).json({ error: 'UserId required' });
+        }
+        
+        // Get existing server data or create new
+        let serverData = await redis.get(serverKey) || {};
+        
+        // Add/update this user
+        serverData[userId] = body;
+        
+        // Save back with 30 second TTL (auto-cleanup if no updates)
+        await redis.set(serverKey, serverData, { ex: 30 });
+        
         return res.status(200).json(body);
       }
 
       case 'DELETE': {
-        await redis.del(key);
-        return res.status(200).json(null);
+        if (pathParts.length >= 4) {
+          // Remove specific user from server
+          let serverData = await redis.get(serverKey) || {};
+          delete serverData[pathParts[3]];
+          await redis.set(serverKey, serverData, { ex: 30 });
+          return res.status(200).json(null);
+        } else {
+          // Delete entire server entry
+          await redis.del(serverKey);
+          return res.status(200).json(null);
+        }
       }
 
       default:
