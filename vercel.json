@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "rewrites": [
+    { "source": "/api/prism/:path*", "destination": "/api/prism.js" },
+    { "source": "/api/nametags/:path*", "destination": "/api/prism.js" },
+    { "source": "/api/servers/:path*", "destination": "/api/prism.js" }
+  ]
+}
