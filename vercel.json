@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "rewrites": [
-    { "source": "/api/nametags/:path*", "destination": "/api/nametags.js" },
-    { "source": "/api/servers/:path*", "destination": "/api/servers.js" }
-  ]
-}
