@@ -129,11 +129,12 @@ async function handleServers(req, res, pathname) {
   switch (req.method) {
     case 'GET': {
       if (pathParts.length === 0) {
-        // Get all servers across all games
-        const keys = await redis.keys('servers:*');
+        // Get all servers - check both servers: and nametags:servers: keys
         const result = {};
         
-        for (const k of keys) {
+        // Check regular servers: keys
+        const serverKeys = await redis.keys('servers:*');
+        for (const k of serverKeys) {
           const value = await redis.get(k);
           if (value) {
             const parts = k.replace('servers:', '').split(':');
@@ -145,37 +146,97 @@ async function handleServers(req, res, pathname) {
             current[parts[parts.length - 1]] = value;
           }
         }
-        return res.status(200).json(result);
-      } else if (pathParts.length >= 1) {
-        // Get specific game, server, or user
-        const pattern = pathParts.length === 1
-          ? `servers:${pathParts[0]}:*`
-          : pathParts.length === 2
-            ? `servers:${pathParts[0]}:${pathParts[1]}:*`
-            : key;
         
-        if (pathParts.length === 3) {
-          // Single user
-          const value = await redis.get(key);
-          return res.status(200).json(value || null);
-        } else {
-          // Nested data
-          const keys = await redis.keys(pattern);
-          const result = {};
-          for (const k of keys) {
-            const value = await redis.get(k);
-            if (value) {
-              const parts = k.replace('servers:', '').split(':');
-              let current = result;
-              for (let i = 0; i < parts.length - 1; i++) {
-                if (!current[parts[i]]) current[parts[i]] = {};
-                current = current[parts[i]];
-              }
-              current[parts[parts.length - 1]] = value;
+        // Check nametags:servers: keys for join data
+        const nametagKeys = await redis.keys('nametags:servers:*');
+        for (const k of nametagKeys) {
+          const value = await redis.get(k);
+          if (value) {
+            const parts = k.replace('nametags:servers:', '').split(':');
+            const placeId = parts[0];
+            const jobId = parts[1];
+            const userId = parts[2];
+            if (placeId && jobId && userId) {
+              if (!result[placeId]) result[placeId] = {};
+              if (!result[placeId][jobId]) result[placeId][jobId] = {};
+              result[placeId][jobId][userId] = value;
             }
           }
-          return res.status(200).json(result);
         }
+        
+        return res.status(200).json(result);
+      } else if (pathParts.length >= 1) {
+        const placeId = pathParts[0];
+        const jobId = pathParts[1];
+        
+        // Check both key patterns
+        const result = {};
+        
+        // Check regular servers: keys
+        const serverPattern = pathParts.length === 1
+          ? `servers:${placeId}:*`
+          : pathParts.length === 2
+            ? `servers:${placeId}:${jobId}:*`
+            : key;
+        const serverKeys = await redis.keys(serverPattern);
+        for (const k of serverKeys) {
+          const value = await redis.get(k);
+          if (value) {
+            const parts = k.replace('servers:', '').split(':');
+            let current = result;
+            for (let i = 0; i < parts.length - 1; i++) {
+              if (!current[parts[i]]) current[parts[i]] = {};
+              current = current[parts[i]];
+            }
+            current[parts[parts.length - 1]] = value;
+          }
+        }
+        
+        // Check nametags:servers: keys
+        if (pathParts.length === 1) {
+          // Get all servers for this game from nametags
+          const nametagPattern = `nametags:servers:${placeId}:*`;
+          const nametagKeys = await redis.keys(nametagPattern);
+          for (const k of nametagKeys) {
+            const value = await redis.get(k);
+            if (value) {
+              const parts = k.replace('nametags:servers:', '').split(':');
+              const pId = parts[0];
+              const jId = parts[1];
+              const uId = parts[2];
+              if (!result[pId]) result[pId] = {};
+              if (!result[pId][jId]) result[pId][jId] = {};
+              result[pId][jId][uId] = value;
+            }
+          }
+        } else if (pathParts.length === 2 && jobId) {
+          // Get specific job from nametags
+          const nametagPattern = `nametags:servers:${placeId}:${jobId}:*`;
+          const nametagKeys = await redis.keys(nametagPattern);
+          if (!result[placeId]) result[placeId] = {};
+          if (!result[placeId][jobId]) result[placeId][jobId] = {};
+          for (const k of nametagKeys) {
+            const value = await redis.get(k);
+            if (value) {
+              const parts = k.replace('nametags:servers:', '').split(':');
+              const uId = parts[2];
+              result[placeId][jobId][uId] = value;
+            }
+          }
+        }
+        
+        // If looking for specific user
+        if (pathParts.length === 3) {
+          const userId = pathParts[2];
+          // Check nametags first
+          const nametagValue = await redis.get(`nametags:servers:${placeId}:${jobId}:${userId}`);
+          if (nametagValue) return res.status(200).json(nametagValue);
+          // Fall back to regular key
+          const serverValue = await redis.get(key);
+          return res.status(200).json(serverValue || null);
+        }
+        
+        return res.status(200).json(result);
       }
       break;
     }
