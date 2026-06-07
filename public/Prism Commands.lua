@@ -1,7 +1,13 @@
+print("[Prism Debug] Prism Commands.lua loading...")
 local PM = getgenv().PrismMain
-if not PM then return end
+if not PM then 
+    print("[Prism Debug] ERROR: PrismMain not found!")
+    return 
+end
+print("[Prism Debug] PrismMain found")
 
 PM.Commands = PM.Commands or {}
+print("[Prism Debug] PM.Commands initialized")
 
 local function registerCommand(name, desc, aliases, execute)
     PM.Commands[name:lower()] = {
@@ -126,23 +132,42 @@ registerCommand("ping", "Show current ping", {}, function(args)
     end
 end)
 
+local cmdCount = 0
+for name, _ in pairs(PM.Commands) do
+    print("[Prism Debug] Registered command: " .. name)
+    cmdCount = cmdCount + 1
+end
+print("[Prism Debug] All commands registered, total: " .. tostring(cmdCount))
+
 -- ========== COMMANDS PANEL POPULATION ==========
 
 PM.populateCommandsPanel = function()
-    if not PM.UI.CommandsScroll then return end
+    print("[Prism Debug] populateCommandsPanel called")
+    if not PM.UI.CommandsScroll then 
+        print("[Prism Debug] ERROR: CommandsScroll does not exist!")
+        return 
+    end
+    print("[Prism Debug] CommandsScroll found, clearing children...")
 
+    local childCount = 0
     for _, child in ipairs(PM.UI.CommandsScroll:GetChildren()) do
         if child:IsA("TextButton") then
             child:Destroy()
+            childCount = childCount + 1
         end
     end
+    print("[Prism Debug] Cleared " .. childCount .. " old buttons")
 
     PM.UI.CommandButtons = {}
+    print("[Prism Debug] CommandButtons reset")
 
     local sorted = {}
+    local cmdCount = 0
     for _, cmd in pairs(PM.Commands) do
         table.insert(sorted, cmd)
+        cmdCount = cmdCount + 1
     end
+    print("[Prism Debug] Found " .. cmdCount .. " commands to display")
     table.sort(sorted, function(a, b) return a.name:lower() < b.name:lower() end)
 
     for _, cmd in ipairs(sorted) do
@@ -198,6 +223,7 @@ PM.populateCommandsPanel = function()
 
     local count = #PM.UI.CommandButtons
     PM.UI.CommandsScroll.CanvasSize = UDim2.new(0, 0, 0, count * 38)
+    print("[Prism Debug] populateCommandsPanel complete - created " .. count .. " buttons")
 end
 
 -- ========== AUTO EXEC PANEL POPULATION ==========
@@ -205,15 +231,24 @@ end
 PM.autoExecStates = {}
 
 PM.populateAutoExecPanel = function()
-    if not PM.UI.AutoExecScroll then return end
+    print("[Prism Debug] populateAutoExecPanel called")
+    if not PM.UI.AutoExecScroll then 
+        print("[Prism Debug] ERROR: AutoExecScroll does not exist!")
+        return 
+    end
+    print("[Prism Debug] AutoExecScroll found, clearing children...")
 
+    local childCount = 0
     for _, child in ipairs(PM.UI.AutoExecScroll:GetChildren()) do
         if child:IsA("Frame") and child.Name ~= "UIListLayout" then
             child:Destroy()
+            childCount = childCount + 1
         end
     end
+    print("[Prism Debug] Cleared " .. childCount .. " old rows")
 
     PM.UI.AutoExecRows = {}
+    print("[Prism Debug] AutoExecRows reset")
 
     local function makeToggleRow(parent, name, labelText, layoutOrder, defaultState, onToggle)
         local bg = PM.mk("Frame", parent, {
@@ -286,9 +321,12 @@ PM.populateAutoExecPanel = function()
     end
 
     local sorted = {}
+    local cmdCount = 0
     for _, cmd in pairs(PM.Commands) do
         table.insert(sorted, cmd)
+        cmdCount = cmdCount + 1
     end
+    print("[Prism Debug] Found " .. cmdCount .. " commands for auto exec")
     table.sort(sorted, function(a, b) return a.name:lower() < b.name:lower() end)
 
     for i, cmd in ipairs(sorted) do
@@ -305,6 +343,7 @@ PM.populateAutoExecPanel = function()
         )
         table.insert(PM.UI.AutoExecRows, {name = cmd.name, row = row})
     end
+    print("[Prism Debug] populateAutoExecPanel complete - created " .. #PM.UI.AutoExecRows .. " rows")
 end
 
 PM.filterAutoExecPanel = function(query)

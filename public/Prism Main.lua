@@ -55,7 +55,11 @@ PM.C = {
 local C = PM.C
 
 PM.createMainGUI = function()
-    if PM.Svc.CoreGui:FindFirstChild("PrismMainGui") then return end
+    print("[Prism Debug] createMainGUI called")
+    if PM.Svc.CoreGui:FindFirstChild("PrismMainGui") then 
+        print("[Prism Debug] PrismMainGui already exists, returning")
+        return 
+    end
     
     PM.UI.Gui = PM.mk("ScreenGui", PM.Svc.CoreGui, {
         Name = "PrismMainGui",
@@ -267,6 +271,7 @@ PM.createMainGUI = function()
         elseif btn.name == "Commands" then
             PM.isCommandsOpen = false
             button.MouseButton1Click:Connect(function()
+                print("[Prism Debug] Commands button clicked, isCommandsOpen: " .. tostring(PM.isCommandsOpen))
                 PM.playClickSound()
                 if PM.isCommandsOpen then
                     PM.isCommandsOpen = false
@@ -387,6 +392,7 @@ PM.createMainGUI = function()
         elseif btn.name == "Settings" then
             PM.isSettingsOpen = false
             button.MouseButton1Click:Connect(function()
+                print("[Prism Debug] Settings button clicked, isSettingsOpen: " .. tostring(PM.isSettingsOpen))
                 PM.playClickSound()
                 if PM.isSettingsOpen then
                     PM.isSettingsOpen = false
@@ -645,14 +651,20 @@ PM.createMainGUI = function()
     end
     
     PM.openCommandsPanel = function()
+        print("[Prism Debug] openCommandsPanel called")
         if not PM.UI.CommandsPanel then
+            print("[Prism Debug] Creating CommandsPanel (was nil)")
             PM.createCommandsPanel()
         end
-        if PM.UI.CommandsPanel.Visible then return end
+        if PM.UI.CommandsPanel.Visible then 
+            print("[Prism Debug] CommandsPanel already visible, returning")
+            return 
+        end
         
         PM.UI.CommandsPanel.Visible = true
         PM.UI.CommandsPanel.Size = UDim2.new(0, 280, 0, 0)
         PM.tween(PM.UI.CommandsPanel, 0.3, {Size = UDim2.new(0, 280, 0, 320)})
+        print("[Prism Debug] CommandsPanel opened, CommandButtons count: " .. tostring(#(PM.UI.CommandButtons or {})))
     end
     
     PM.closeCommandsPanel = function()
@@ -2093,13 +2105,16 @@ PM.createMainGUI = function()
     end
 
     PM.openSettingsPanel = function()
+        print("[Prism Debug] openSettingsPanel called")
         if not PM.UI.SettingsPanel then
+            print("[Prism Debug] Creating SettingsPanel (was nil)")
             PM.createSettingsPanel()
         end
         PM.isSettingsOpen = true
         PM.UI.SettingsPanel.Visible = true
         PM.UI.SettingsPanel.Size = UDim2.new(0, 280, 0, 0)
         PM.tween(PM.UI.SettingsPanel, 0.3, {Size = UDim2.new(0, 280, 0, 320)})
+        print("[Prism Debug] SettingsPanel opened, AutoExecRows count: " .. tostring(#(PM.UI.AutoExecRows or {})))
     end
 
     PM.closeSettingsPanel = function()
@@ -2796,30 +2811,60 @@ end
 -- Populate commands and auto exec panels after UI is created
 -- These functions are defined in Prism Commands.lua
 task.delay(0.1, function()
+    print("[Prism Debug] Starting panel population...")
+    
     -- Create panels first (they are created lazily)
     if not PM.UI.CommandsPanel then
+        print("[Prism Debug] Creating CommandsPanel...")
         PM.createCommandsPanel()
+        print("[Prism Debug] CommandsPanel created, CommandsScroll exists: " .. tostring(PM.UI.CommandsScroll ~= nil))
+    else
+        print("[Prism Debug] CommandsPanel already exists")
     end
+    
     if not PM.UI.SettingsPanel then
+        print("[Prism Debug] Creating SettingsPanel...")
         PM.createSettingsPanel()
+        print("[Prism Debug] SettingsPanel created, AutoExecScroll exists: " .. tostring(PM.UI.AutoExecScroll ~= nil))
+    else
+        print("[Prism Debug] SettingsPanel already exists")
     end
     
     -- Now populate them
     if PM.populateCommandsPanel then
+        print("[Prism Debug] Calling populateCommandsPanel...")
         PM.populateCommandsPanel()
+        print("[Prism Debug] populateCommandsPanel done, CommandButtons count: " .. tostring(#PM.UI.CommandButtons))
+    else
+        print("[Prism Debug] ERROR: populateCommandsPanel function not found!")
     end
+    
     if PM.populateAutoExecPanel then
+        print("[Prism Debug] Calling populateAutoExecPanel...")
         PM.populateAutoExecPanel()
+        print("[Prism Debug] populateAutoExecPanel done")
+    else
+        print("[Prism Debug] ERROR: populateAutoExecPanel function not found!")
     end
+    
     if PM.createTerminalOutput then
+        print("[Prism Debug] Calling createTerminalOutput...")
         PM.createTerminalOutput()
+    else
+        print("[Prism Debug] ERROR: createTerminalOutput function not found!")
     end
+    
     -- Connect auto exec search filter
     if PM.UI.AutoExecSearch and PM.filterAutoExecPanel then
+        print("[Prism Debug] Connecting AutoExecSearch filter...")
         PM.UI.AutoExecSearch:GetPropertyChangedSignal("Text"):Connect(function()
             PM.filterAutoExecPanel(PM.UI.AutoExecSearch.Text)
         end)
+    else
+        print("[Prism Debug] AutoExecSearch filter NOT connected. AutoExecSearch exists: " .. tostring(PM.UI.AutoExecSearch ~= nil) .. ", filter exists: " .. tostring(PM.filterAutoExecPanel ~= nil))
     end
+    
+    print("[Prism Debug] Panel population complete!")
 end)
 
 return PM
