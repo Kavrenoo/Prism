@@ -12,12 +12,12 @@ getgenv().P = {
     
     -- Valid keys
     Keys = {
-        "PRISM-2024-X7K9-M2P4",
+        "PRISM-A3G4-X7K9-M2P4",
     },
     
     -- Whitelisted UserIds
     Whitelist = {
-        5712636024,
+        --5712636024,
     },
 }
 
@@ -214,9 +214,15 @@ P.createKeyGUI = function()
     P.UI.GetKeyBtn.MouseButton1Click:Connect(function()
         pcall(function() P.UI.ClickSound:Play() end)
         if setclipboard then
-            setclipboard(P.Keys[1])
-            P.UI.Status.Text = "Key copied to clipboard!"
+            setclipboard("https://discord.gg/QfUFaWh2cY")
+            P.UI.Status.Text = " link copied!"
             P.UI.Status.TextColor3 = C.text
+            task.delay(3, function()
+                if P.UI.Status.Text == " link copied!" then
+                    P.UI.Status.Text = "Authentication required"
+                    P.UI.Status.TextColor3 = C.textDim
+                end
+            end)
         end
     end)
     

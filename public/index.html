@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism Executor</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0f0f;
+            color: #e6e6e6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Noise texture overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Top bar matching main GUI */
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(15, 15, 15, 0.85);
+            border: 1px solid rgba(45, 45, 45, 0.4);
+            border-radius: 14px;
+            padding: 12px 20px;
+            margin-bottom: 40px;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, #b4b4b4, #e6e6e6);
+            border-radius: 6px;
+            transform: rotate(45deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: spin 8s linear infinite;
+        }
+
+        .logo-icon::after {
+            content: '';
+            width: 14px;
+            height: 14px;
+            background: #0f0f0f;
+            border-radius: 3px;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(45deg); }
+            to { transform: rotate(405deg); }
+        }
+
+        .logo-text {
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: #e6e6e6;
+        }
+
+        .logo-sub {
+            font-size: 11px;
+            font-weight: 400;
+            color: #5a5a5a;
+            margin-top: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: #e6e6e6;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .nav-btn:hover {
+            background: rgba(28, 28, 28, 0.7);
+        }
+
+        .nav-btn.primary {
+            background: #b4b4b4;
+            color: #0f0f0f;
+            font-weight: 700;
+        }
+
+        .nav-btn.primary:hover {
+            background: #d0d0d0;
+        }
+
+        /* Hero matching key GUI */
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(180, 180, 180, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: #5a5a5a;
+            max-width: 480px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Loadstring box matching terminal input */
+        .loadstring-box {
+            background: rgba(28, 28, 28, 0.5);
+            border: 1px solid rgba(45, 45, 45, 0.4);
+            border-radius: 10px;
+            padding: 14px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            max-width: 600px;
+            margin: 0 auto 16px;
+            position: relative;
+        }
+
+        .loadstring-box::before {
+            content: '>';
+            font-size: 18px;
+            color: #5a5a5a;
+            font-weight: 700;
+            font-family: monospace;
+        }
+
+        .loadstring-text {
+            flex: 1;
+            font-family: 'Roboto Mono', 'Courier New', monospace;
+            font-size: 13px;
+            color: #5a5a5a;
+            background: none;
+            border: none;
+            outline: none;
+            resize: none;
+            height: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            user-select: all;
+        }
+
+        .copy-btn {
+            padding: 8px 18px;
+            border-radius: 6px;
+            border: none;
+            background: #b4b4b4;
+            color: #0f0f0f;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .copy-btn:hover {
+            background: #d0d0d0;
+        }
+
+        .copy-btn.copied {
+            background: #46a846;
+            color: #fff;
+        }
+
+        .discord-link {
+            font-size: 12px;
+            color: #5a5a5a;
+        }
+
+        .discord-link a {
+            color: #8a8a8a;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .discord-link a:hover {
+            color: #e6e6e6;
+        }
+
+        /* Features grid matching commands panel */
+        .features {
+            margin-top: 80px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+            color: #e6e6e6;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 8px;
+        }
+
+        .feature-card {
+            background: rgba(28, 28, 28, 0.5);
+            border: 1px solid rgba(45, 45, 45, 0.4);
+            border-radius: 12px;
+            padding: 18px;
+            transition: all 0.15s ease;
+            cursor: default;
+        }
+
+        .feature-card:hover {
+            background: rgba(28, 28, 28, 0.8);
+        }
+
+        .feature-name {
+            font-size: 13px;
+            font-weight: 700;
+            color: #e6e6e6;
+            margin-bottom: 6px;
+        }
+
+        .feature-desc {
+            font-size: 11px;
+            color: #5a5a5a;
+            line-height: 1.5;
+        }
+
+        /* Stats bar matching main GUI stats */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            padding: 20px;
+            background: rgba(28, 28, 28, 0.3);
+            border: 1px solid rgba(45, 45, 45, 0.4);
+            border-radius: 12px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: #5a5a5a;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: #e6e6e6;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 80px;
+            text-align: center;
+            padding: 30px;
+            border-top: 1px solid rgba(45, 45, 45, 0.4);
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: #3a3a3a;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 32px; }
+            .top-bar { flex-direction: column; gap: 12px; padding: 16px; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            .stats-bar { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="logo-section">
+                <div class="logo-icon"></div>
+                <div>
+                    <div class="logo-text">PRISM</div>
+                    <div class="logo-sub">Executor</div>
+                </div>
+            </div>
+            <div class="nav-links">
+                <a href="https://discord.gg/QfUFaWh2cY" class="nav-btn" target="_blank">Discord</a>
+                <button class="nav-btn primary" onclick="copyLoadstring()">Copy Loadstring</button>
+            </div>
+        </div>
+
+        <!-- Hero -->
+        <div class="hero">
+            <div class="hero-glow"></div>
+            <h1>Prism</h1>
+            <p>A clean, modern Roblox script hub with built-in commands, server browser, nametags, and more.</p>
+
+            <div class="loadstring-box">
+                <textarea class="loadstring-text" id="loadstring" readonly>loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()</textarea>
+                <button class="copy-btn" id="copyBtn" onclick="copyLoadstring()">Copy</button>
+            </div>
+
+            <div class="discord-link">
+                Need a key? Join our <a href="https://discord.gg/QfUFaWh2cY" target="_blank">Discord server</a>
+            </div>
+        </div>
+
+        <!-- Features -->
+        <div class="features">
+            <div class="section-title">Features</div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-name">Commands</div>
+                    <div class="feature-desc">Built-in command terminal with goto, rejoin, serverhop, walkspeed, and more.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Server Browser</div>
+                    <div class="feature-desc">Browse and teleport to public servers sorted by ping, player count, or emptiest.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Prism Tags</div>
+                    <div class="feature-desc">Custom nametags for Prism users with profile pictures and click-to-teleport.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Join Friends</div>
+                    <div class="feature-desc">See where other Prism users are playing and join them directly.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">FPS &amp; Ping</div>
+                    <div class="feature-desc">Live performance stats built into the main hub with color-coded indicators.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-name">Settings</div>
+                    <div class="feature-desc">Auto-execute toggles, custom sound IDs, volume sliders, and click sounds.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-label">COMMANDS</div>
+                <div class="stat-value">10+</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">PANELS</div>
+                <div class="stat-value">6</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">KEY SYSTEM</div>
+                <div class="stat-value">ON</div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-text">Prism Script Hub &mdash; prismscript.vercel.app</div>
+        </div>
+    </div>
+
+    <script>
+        function copyLoadstring() {
+            const el = document.getElementById('loadstring');
+            const btn = document.getElementById('copyBtn');
+            el.select();
+            navigator.clipboard.writeText(el.value).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
