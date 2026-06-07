@@ -1,1 +1,23 @@
-return(function(...)local Z={"MhkrwPRM05yQ+y97UvEtzW9d=","MhkrwPRM05yQ+fJm0v97HoOGHvOgx";"0i^ErS;sQ8","MoJ70of==";"MC7xiGdMRM2dlPZ4kK6==";"ML2oSf2MzKZIK37g5","0+]iAM";"0N*jP#+9hU>Xs(R\\","0]f\\W>+-=tnL\'[";"MhkrwPRM05yQ+LJgthaqkif==","0cP.tJ","0cP./!Lc","MPOKYbOGchwm+baI/vRM8baI+WBtJoR58o9+HiRr+";"0t5TDq";"0cP.,6;N$Q","MW9t+i9Mu","0gM\\\\>]$","0nfCX`LMl`/;N$R";"MLOKYbdWIWn=="}local function M(M)return Z[M+48039]end for M,A in ipairs({{1;19},{1;11};{12;19}})do while A[1]<A[2]do Z[A[1]],Z[A[2]],A[1],A[2]=Z[A[2]],Z[A[1]],A[1]+1,A[2]-1 end end do local M=table.concat local A={B=2,["5"]=9,n=0;h=11;f=16,U=41,z=44,H=46;V=30,w=50,K=17,R=23;p=15;O=7,e=63;S=6,r=1;["/"]=51;i=24;Z=39,N=42,E=34;b=28;["9"]=22;F=62;m=61,W=29,["8"]=35;a=38;J=54;k=53,I=37,M=13,d=4,C=14,v=27,["1"]=56;g=21;G=12,x=33;P=26;l=55,j=59,c=58;D=31;t=57;["4"]=40;["3"]=20;L=18;T=47;u=43,A=60,X=3,Q=8;["2"]=36;q=49,["+"]=48,y=19,["7"]=5,Y=52,s=10,o=25;["6"]=32,["0"]=45}local g=string.char local W=math.floor local o=string.sub local m=table.insert local z=Z local N=type local c=string.len local e={["`"]=74;i=33;I=78,W=63;s=50,["4"]=80;["5"]=31,["#"]=67;["$"]=60;["^"]=19,U=69;C=61,["@"]=6,B=71,o=14,Y=4;D=18,e=66;["6"]=65,G=43;["="]=8,t=38;["["]=5;[":"]=82,["-"]=9;f=72,["2"]=79,["0"]=45;["\\"]=27;["("]=81;["%"]=1,["&"]=70,q=12,h=39;N=22;l=77;["/"]=53,["<"]=48;["?"]=68;L=35;Q=84;F=26;["1"]=7;c=30,["*"]=51,["!"]=59,K=75;n=25;M=10;["+"]=37;j=46;["\""]=3;H=0;u=13,p=58,O=20;_=47;R=24,g=36;["3"]=11;V=54,S=83,b=64;m=28;["\'"]=41,["]"]=34;k=62;a=42,[">"]=76,r=15,X=23;E=57;J=52;P=55;["7"]=49,d=17,T=29;[")"]=73;Z=16;["."]=40;A=21,["9"]=2,["8"]=56;[","]=44,[";"]=32}for Z=1,#z,1 do local b=z[Z]if N(b)=="string"then local N=o(b,1,1)if N=="M"then b=o(b,2)local N=c(b)local e={}local a=1 local K=0 local h=0 while a<=N do local Z=o(b,a,a)local M=A[Z]if M then K=K+M*(64^((3-h)))h=h+1 if h==4 then h=0 local Z=W(K/65536)local M=W((K%65536)/256)local A=K%256 m(e,g(Z,M,A))K=0 end elseif Z=="="then m(e,g(W(K/65536)))if a>=N or o(b,a+1,a+1)~="="then m(e,g(W((K%65536)/256)))end break end a=a+1 end z[Z]=M(e)elseif N=="0"then b=o(b,2)local A=c(b)local N={}local a=1 while a<=A do local Z=(A-a)+1 local M=Z>=5 and 5 or Z local z=0 local c=M>1 for Z=0,4,1 do local A if Z<M then local M=o(b,a+Z,a+Z)A=e[M]if not A then c=false break end else A=84 end z=z*85+A end if c then local Z=W(z/16777216)%256 local A=W(z/65536)%256 local o=W(z/256)%256 local c=z%256 if M==5 then m(N,g(Z,A,o,c))elseif M==4 then m(N,g(Z,A,o))elseif M==3 then m(N,g(Z,A))elseif M==2 then m(N,g(Z))end end a=a+M end z[Z]=M(N)end end end end return(function(m,N,W,z,o,g,Z,i,Q,K,X,a,h,e,A,c,b,p)Q,i,c,p,h,e,a,K,A,X,b=function(Z)e[Z]=e[Z]-1 if 0==e[Z]then e[Z],c[Z]=nil,nil end end,function(Z,M)local g=K(M)local W=function(W)return A(Z,{W},M,g)end return W end,{},function(Z,M)local g=K(M)local W=function()return A(Z,{},M,g)end return W end,function(Z)local M,A=1,Z[1]while A do e[A],M=e[A]-1,1+M if e[A]==0 then e[A],c[A]=nil,nil end A=Z[M]end end,{},0,function(Z)for M=1,#Z,1 do e[Z[M]]=e[Z[M]]+1 end if W then local A=W(true)local g=m(A)g[M(-48032)],g[M(-48036)],g[M(-48035)]=Z,h,function()return-1655009 end return A else return o({},{[M(-48036)]=h;[M(-48032)]=Z,[M(-48035)]=function()return-1655009 end})end end,function(A,W,o,m)local h,K,a,e,N while A do if A>8046057 then if A<12120162 then h=M(-48021)N=Z[h]h=M(-48033)A=N[h]N=A()h=M(-48025)N=Z[h]h=N()N=M(-48029)A=h[N]A=A and 13523115 or 10717210 else h=M(-48027)N=a..h A=K(N)h=M(-48026)N=a..h A=K(N)N,a,K,A={},nil,nil,Z[M(-48023)]end else if A<3740032 then e=b()c[e]=W[1]N=M(-48030)K=p(5374905,{e})A=Z[N]h={A(K)}a,A=h[2],Z[M(-48020)]N=h[1]K=N N={K;a}elseif 4587896>A then A,e=M(-48034),W a=A A=i(3679177,{})K,N=A,M(-48025)A=Z[N]N=A()h,A=10114134>12493245,M(-48029)N[A]=h h=M(-48037)N=a..h A=K(N)A=10717210 else N,h,a=M(-48038),M(-48028),M(-48024)A=Z[N]e=Z[a]h=e[h]K=c[o[1]]a={h(e,K)}N=A(g(a))A={N()}N={g(A)}A=Z[M(-48022)]end end end A=#m return g(N)end,function(Z,M)local g=K(M)local W=function(...)return A(Z,{...},M,g)end return W end,function()a=a+1 e[a]=1 return a end return(X(3800887,{}))(g(N))end)(getmetatable,{...},newproxy,select,setmetatable,unpack or table[M(-48031)],getfenv and getfenv()or _ENV)end)(...)
+local BASE = "https://prismscript.vercel.app"
+
+local function loadScript(url)
+    local ok, result = pcall(function()
+        return loadstring(game:HttpGet(url))()
+    end)
+    return ok, result
+end
+
+-- Reset auth flag so re-executions wait properly
+getgenv().PrismLoaded = false
+
+-- 1. Key system
+loadScript(BASE .. "/Prism%20Key.lua")
+
+-- 2. Wait for auth
+repeat task.wait() until getgenv().PrismLoaded
+
+-- 3. Main UI
+loadScript(BASE .. "/Prism%20Main.lua")
+
+-- 4. Commands
+loadScript(BASE .. "/Prism%20Commands.lua")
