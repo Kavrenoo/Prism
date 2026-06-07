@@ -319,8 +319,6 @@ end
 P.finishKeySystem = function(success)
     if not success then return end
     
-    getgenv().PrismLoaded = true
-    
     P.tween(P.UI.Main, 0.3, {Size = UDim2.new(0, 420, 0, 56)})
     P.UI.InputArea.Visible = false
     
@@ -361,6 +359,7 @@ P.finishKeySystem = function(success)
             P.UI.Gui:Destroy()
             if P.UI.Blur then P.UI.Blur:Destroy() end
         end
+        getgenv().PrismLoaded = true
     end)
 end
 
