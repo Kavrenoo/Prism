@@ -1,5 +1,20 @@
 {
   "version": 2,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Content-Type",
+          "value": "text/plain; charset=utf-8"
+        }
+      ]
+    }
+  ],
   "rewrites": [
     { "source": "/api/prism/:path*", "destination": "/api/prism.js" },
     { "source": "/api/nametags/:path*", "destination": "/api/prism.js" },
