@@ -4,9 +4,6 @@ local function loadScript(url)
     local ok, result = pcall(function()
         return loadstring(game:HttpGet(url))()
     end)
-    if not ok then
-        warn("[Prism] Failed to load: " .. url .. "\nError: " .. tostring(result))
-    end
     return ok, result
 end
 

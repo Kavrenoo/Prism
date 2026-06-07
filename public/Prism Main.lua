@@ -1,5 +1,4 @@
 if not getgenv().PrismLoaded then
-    warn("[Prism] Key system not loaded. Please run the Prism loader first.")
     return
 end
 
@@ -2261,16 +2260,6 @@ PM.createMainGUI = function()
     if PM.UI.ExecutorLabel then
         PM.UI.ExecutorLabel.Text = execName
     end
-    
-    local UserInputService = game:GetService("UserInputService")
-    PM.UI.KeyConnection = UserInputService.InputBegan:Connect(function(input, gameProcessed)
-        if not gameProcessed and input.KeyCode == Enum.KeyCode.P then
-            if PM.UI.Gui then
-                PM.UI.Gui:Destroy()
-                getgenv().PrismMain = nil
-            end
-        end
-    end)
     
     -- Fetch servers on execute and auto-refresh every 5 minutes
     task.spawn(function()
