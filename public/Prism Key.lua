@@ -1,3 +1,5 @@
+getgenv().PrismLoaded = false
+
 getgenv().P = {
     Svc = {
         Players = game:GetService("Players"),

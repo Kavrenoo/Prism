@@ -10,6 +10,9 @@ local function loadScript(url)
     return ok, result
 end
 
+-- Reset auth flag so re-executions wait properly
+getgenv().PrismLoaded = false
+
 -- 1. Key system
 loadScript(BASE .. "/Prism%20Key.lua")
 
