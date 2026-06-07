@@ -234,7 +234,7 @@ local function applyHide(char, savedState)
     return savedState
 end
 
-registerCommand("hide", "Hide a player locally", {"h"}, function(args)
+registerCommand("hide", "Hide a player locally", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -280,7 +280,7 @@ registerCommand("hide", "Hide a player locally", {"h"}, function(args)
     PM.HiddenPlayers[target.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
 end)
 
-registerCommand("unhide", "Unhide a player", {"uh"}, function(args)
+registerCommand("unhide", "Unhide a player", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -318,7 +318,7 @@ registerCommand("unhide", "Unhide a player", {"uh"}, function(args)
     PM.HiddenPlayers[target.UserId] = nil
 end)
 
-registerCommand("hideall", "Hide all other players", {"ha"}, function(args)
+registerCommand("hideall", "Hide all other players", {}, function(args)
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP and not PM.HiddenPlayers[p.UserId] then
             local adi = p:FindFirstChildOfClass("AudioDeviceInput")
@@ -334,7 +334,7 @@ registerCommand("hideall", "Hide all other players", {"ha"}, function(args)
     end
 end)
 
-registerCommand("unhideall", "Unhide all players", {"uha"}, function(args)
+registerCommand("unhideall", "Unhide all players", {}, function(args)
     for uid, data in pairs(PM.HiddenPlayers) do
         if data.connection then pcall(function() data.connection:Disconnect() end) end
         if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
@@ -362,7 +362,7 @@ registerCommand("unhideall", "Unhide all players", {"uha"}, function(args)
     PM.HiddenPlayers = {}
 end)
 
-registerCommand("to", "Teleport to player", {"tp"}, function(args)
+registerCommand("to", "Teleport to player", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
