@@ -319,6 +319,7 @@ registerCommand("unhide", "Unhide a player", {}, function(args)
 end)
 
 registerCommand("hideall", "Hide all other players", {}, function(args)
+    -- Hide all currently existing players
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP and not PM.HiddenPlayers[p.UserId] then
             local adi = p:FindFirstChildOfClass("AudioDeviceInput")
@@ -332,9 +333,30 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
             PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
         end
     end
+    -- Auto-hide new players who join
+    if not PM.HideAllPlayerAddedConn then
+        PM.HideAllPlayerAddedConn = Players.PlayerAdded:Connect(function(p)
+            if p ~= LP and not PM.HiddenPlayers[p.UserId] then
+                local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+                if adi then pcall(function() adi.Muted = true end) end
+                local savedState = nil
+                if p.Character then savedState = applyHide(p.Character, nil) end
+                local conn = p.CharacterAdded:Connect(function(char)
+                    task.wait(0.1)
+                    savedState = applyHide(char, savedState)
+                end)
+                PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
+            end
+        end)
+    end
 end)
 
 registerCommand("unhideall", "Unhide all players", {}, function(args)
+    -- Disconnect the auto-hide connection
+    if PM.HideAllPlayerAddedConn then
+        pcall(function() PM.HideAllPlayerAddedConn:Disconnect() end)
+        PM.HideAllPlayerAddedConn = nil
+    end
     for uid, data in pairs(PM.HiddenPlayers) do
         if data.connection then pcall(function() data.connection:Disconnect() end) end
         if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
@@ -363,10 +385,11 @@ registerCommand("unhideall", "Unhide all players", {}, function(args)
 end)
 
 registerCommand("to", "Teleport to player", {}, function(args)
-    local targetName = args[1] or ""
+    local targetName = table.concat(args, " ")
     if targetName == "" then return end
     local q = targetName:lower()
     local target = nil
+    -- Exact match
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP then
             if p.Name:lower() == q or p.DisplayName:lower() == q then
@@ -375,10 +398,22 @@ registerCommand("to", "Teleport to player", {}, function(args)
             end
         end
     end
+    -- Prefix match
     if not target then
         for _, p in ipairs(Players:GetPlayers()) do
             if p ~= LP then
                 if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    -- Substring match
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
                     target = p
                     break
                 end
