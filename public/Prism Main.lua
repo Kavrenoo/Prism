@@ -1872,6 +1872,7 @@ PM.createMainGUI = function()
                     local settings = game:GetService("HttpService"):JSONDecode(data)
                     PM.autoExecutePrism = settings.autoExecutePrism or false
                     PM.autoExecuteCommands = settings.autoExecuteCommands ~= false -- default true
+                    PM.terminalKeybind = settings.terminalKeybind or "F6"
                 end
             end)
         end
@@ -1886,6 +1887,7 @@ PM.createMainGUI = function()
                 local settings = {
                     autoExecutePrism = PM.autoExecutePrism,
                     autoExecuteCommands = PM.autoExecuteCommands,
+                    terminalKeybind = PM.terminalKeybind,
                 }
                 writefile(SETTINGS_FILE, game:GetService("HttpService"):JSONEncode(settings))
             end)
@@ -1897,6 +1899,7 @@ PM.createMainGUI = function()
         -- Initialize with loaded or default values
         local autoExecPrismDefault = PM.autoExecutePrism or false
         local autoExecCommandsDefault = PM.autoExecuteCommands ~= false
+        PM.terminalKeybind = PM.terminalKeybind or "F6"
         
         PM.autoExecutePrism = autoExecPrismDefault
         PM.autoExecuteCommands = autoExecCommandsDefault
@@ -1911,10 +1914,75 @@ PM.createMainGUI = function()
             saveSettings()
         end)
 
+        -- Keybind row for terminal
+        local keybindBg = PM.mk("Frame", PM.UI.AutoExecContent, {
+            Name = "KeybindBg",
+            Size = UDim2.new(1, -16, 0, 26),
+            Position = UDim2.new(0, 8, 0, 56),
+            BackgroundColor3 = C.card,
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            ZIndex = 102,
+        })
+        PM.corner(keybindBg, 6)
+
+        PM.mk("TextLabel", keybindBg, {
+            Size = UDim2.new(1, -70, 0, 20),
+            Position = UDim2.new(0, 8, 0, 3),
+            BackgroundTransparency = 1,
+            Text = "Terminal keybind",
+            TextColor3 = C.text,
+            TextSize = 10,
+            Font = Enum.Font.Gotham,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            ZIndex = 103,
+        })
+
+        local keybindBtn = PM.mk("TextButton", keybindBg, {
+            Name = "KeybindBtn",
+            Size = UDim2.new(0, 50, 0, 18),
+            Position = UDim2.new(1, -58, 0.5, 0),
+            AnchorPoint = Vector2.new(0, 0.5),
+            BackgroundColor3 = C.card,
+            BackgroundTransparency = 0.3,
+            BorderSizePixel = 0,
+            Text = PM.terminalKeybind,
+            TextColor3 = C.textDim,
+            TextSize = 10,
+            Font = Enum.Font.Gotham,
+            ZIndex = 103,
+        })
+        PM.corner(keybindBtn, 4)
+
+        local waitingForKey = false
+        keybindBtn.MouseButton1Click:Connect(function()
+            if waitingForKey then
+                waitingForKey = false
+                keybindBtn.Text = PM.terminalKeybind
+                keybindBtn.TextColor3 = C.textDim
+            else
+                waitingForKey = true
+                keybindBtn.Text = "..."
+                keybindBtn.TextColor3 = C.accent
+            end
+        end)
+
+        -- Capture keybind
+        game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+            if gameProcessed then return end
+            if waitingForKey and input.UserInputType == Enum.UserInputType.Keyboard then
+                waitingForKey = false
+                PM.terminalKeybind = input.KeyCode.Name
+                keybindBtn.Text = PM.terminalKeybind
+                keybindBtn.TextColor3 = C.textDim
+                saveSettings()
+            end
+        end)
+
         PM.UI.AutoExecSearch = PM.mk("TextBox", PM.UI.AutoExecContent, {
             Name = "AutoExecSearch",
             Size = UDim2.new(1, -16, 0, 28),
-            Position = UDim2.new(0, 8, 0, 56),
+            Position = UDim2.new(0, 8, 0, 88),
             BackgroundColor3 = C.card,
             BackgroundTransparency = 0.5,
             BorderSizePixel = 0,
@@ -1931,8 +1999,8 @@ PM.createMainGUI = function()
 
         PM.UI.AutoExecScroll = PM.mk("ScrollingFrame", PM.UI.AutoExecContent, {
             Name = "AutoExecScroll",
-            Size = UDim2.new(1, -10, 1, -88),
-            Position = UDim2.new(0, 9, 0, 88),
+            Size = UDim2.new(1, -10, 1, -120),
+            Position = UDim2.new(0, 9, 0, 120),
             BackgroundTransparency = 1,
             BorderSizePixel = 0,
             ScrollBarThickness = 3,
@@ -2877,5 +2945,17 @@ if not ok then
 end
 
 -- Panel population is handled by Prism Commands.lua after it loads
+
+-- Global terminal keybind handler
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.UserInputType ~= Enum.UserInputType.Keyboard then return end
+    local keybind = PM.terminalKeybind or "F6"
+    if input.KeyCode.Name == keybind then
+        if PM.openTerminalPanel then
+            PM.openTerminalPanel()
+        end
+    end
+end)
 
 return PM
