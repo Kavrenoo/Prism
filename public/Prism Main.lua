@@ -1817,15 +1817,55 @@ PM.createMainGUI = function()
             return bg
         end
 
-        PM.autoExecutePrism = false
-        PM.autoExecuteCommands = true
+        -- Settings file path
+        local SETTINGS_FILE = "prism/prism_settings.json"
+        
+        -- Load settings from file
+        local function loadSettings()
+            if not readfile then return end
+            pcall(function()
+                local data = readfile(SETTINGS_FILE)
+                if data then
+                    local settings = game:GetService("HttpService"):JSONDecode(data)
+                    PM.autoExecutePrism = settings.autoExecutePrism or false
+                    PM.autoExecuteCommands = settings.autoExecuteCommands ~= false -- default true
+                end
+            end)
+        end
+        
+        -- Save settings to file
+        local function saveSettings()
+            if not writefile then return end
+            pcall(function()
+                if not isfolder("prism") then
+                    makefolder("prism")
+                end
+                local settings = {
+                    autoExecutePrism = PM.autoExecutePrism,
+                    autoExecuteCommands = PM.autoExecuteCommands,
+                }
+                writefile(SETTINGS_FILE, game:GetService("HttpService"):JSONEncode(settings))
+            end)
+        end
+        
+        -- Load saved settings
+        loadSettings()
+        
+        -- Initialize with loaded or default values
+        local autoExecPrismDefault = PM.autoExecutePrism or false
+        local autoExecCommandsDefault = PM.autoExecuteCommands ~= false
+        
+        PM.autoExecutePrism = autoExecPrismDefault
+        PM.autoExecuteCommands = autoExecCommandsDefault
 
-        createToggleRow(PM.UI.AutoExecContent, "AutoExecPrism", "Auto execute prism", 0, false, function(state)
+        createToggleRow(PM.UI.AutoExecContent, "AutoExecPrism", "Auto execute prism", 0, autoExecPrismDefault, function(state)
             PM.autoExecutePrism = state
+            saveSettings()
         end)
 
-        createToggleRow(PM.UI.AutoExecContent, "AutoExecCommands", "Auto execute commands", 28, true, function(state)
+        createToggleRow(PM.UI.AutoExecContent, "AutoExecCommands", "Auto execute commands", 28, autoExecCommandsDefault, function(state)
             PM.autoExecuteCommands = state
+            saveSettings()
         end)
 
         PM.UI.AutoExecSearch = PM.mk("TextBox", PM.UI.AutoExecContent, {

@@ -3,12 +3,13 @@ if not PM then return end
 
 PM.Commands = PM.Commands or {}
 
-local function registerCommand(name, desc, aliases, execute)
+local function registerCommand(name, desc, aliases, execute, excludeFromAutoExec)
     PM.Commands[name:lower()] = {
         name = name,
         desc = desc,
         aliases = aliases or {},
         execute = execute,
+        excludeFromAutoExec = excludeFromAutoExec or false,
     }
 end
 
@@ -67,7 +68,7 @@ registerCommand("destroy", "Destroy Prism UI and cleanup", {}, function(args)
     end
     getgenv().PrismMain = nil
     getgenv().PrismLoaded = false
-end)
+end, true)
 
 registerCommand("reload", "Reload Prism script", {}, function(args)
     -- Clean up existing UI
@@ -78,7 +79,7 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
     getgenv().PrismLoaded = false
     -- Reload from URL
     loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
-end)
+end, true)
 
 -- ========== COMMANDS PANEL POPULATION ==========
 
@@ -248,6 +249,9 @@ PM.populateAutoExecPanel = function()
     table.sort(sorted, function(a, b) return a.name:lower() < b.name:lower() end)
 
     for i, cmd in ipairs(sorted) do
+        -- Skip commands that should not be auto-executed
+        if cmd.excludeFromAutoExec then continue end
+        
         local isEnabled = PM.autoExecStates[cmd.name] or false
         local row, switch, circle, hitBtn = makeToggleRow(
             PM.UI.AutoExecScroll,
@@ -257,6 +261,7 @@ PM.populateAutoExecPanel = function()
             isEnabled,
             function(state)
                 PM.autoExecStates[cmd.name] = state
+                PM.saveAutoExecStates()
             end
         )
         table.insert(PM.UI.AutoExecRows, {name = cmd.name, row = row})
@@ -334,8 +339,70 @@ PM.createTerminalOutput = function()
     })
 end
 
+-- ========== AUTO EXECUTE FUNCTIONALITY ==========
+
+PM.AUTOEXEC_SAVE_FILE = "prism/prism_autoexec.json"
+
+-- Save auto exec states to file
+PM.saveAutoExecStates = function()
+    if not writefile then return end
+    
+    local states = {}
+    for name, cmd in pairs(PM.Commands) do
+        if not cmd.excludeFromAutoExec then
+            states[name] = PM.autoExecStates[name] or false
+        end
+    end
+    
+    pcall(function()
+        if not isfolder("prism") then
+            makefolder("prism")
+        end
+        writefile(PM.AUTOEXEC_SAVE_FILE, game:GetService("HttpService"):JSONEncode(states))
+    end)
+end
+
+-- Load auto exec states from file
+PM.loadAutoExecStates = function()
+    if not readfile then return end
+    
+    pcall(function()
+        local data = readfile(PM.AUTOEXEC_SAVE_FILE)
+        if data then
+            local states = game:GetService("HttpService"):JSONDecode(data)
+            for name, state in pairs(states) do
+                PM.autoExecStates[name] = state
+            end
+        end
+    end)
+end
+
+-- Execute auto exec commands on startup
+PM.executeAutoExecCommands = function()
+    -- Wait for GUI to fully load
+    task.wait(1)
+    
+    -- Check if auto execute is enabled globally
+    if PM.autoExecuteCommands == false then return end
+    
+    for name, cmd in pairs(PM.Commands) do
+        -- Skip excluded commands
+        if not cmd.excludeFromAutoExec then
+            local isEnabled = PM.autoExecStates[name] or false
+            if isEnabled then
+                pcall(function()
+                    cmd.execute({})
+                end)
+            end
+        end
+    end
+end
+
 -- Populate panels after this file loads
 task.delay(0.5, function()
+    -- Load saved auto exec states first
+    PM.loadAutoExecStates()
+    
     if not PM.UI.CommandsPanel then
         if PM.createCommandsPanel then PM.createCommandsPanel() end
     end
@@ -352,6 +419,9 @@ task.delay(0.5, function()
             PM.filterAutoExecPanel(PM.UI.AutoExecSearch.Text)
         end)
     end
+    
+    -- Execute auto exec commands after everything is loaded
+    PM.executeAutoExecCommands()
 end)
 
 return PM.Commands
