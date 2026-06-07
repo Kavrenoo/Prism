@@ -81,6 +81,91 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
     loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
 end, true)
 
+registerCommand("rejoin", "Rejoin current server", {}, function(args)
+    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, LP)
+end, true)
+
+registerCommand("serverhopmost", "Join server with most players", {}, function(args)
+    local ok, result = pcall(function()
+        return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Desc&limit=100"))
+    end)
+    if ok and result and result.data then
+        local best = nil
+        for _, server in ipairs(result.data) do
+            local playing = server.playing or 0
+            local maxP = server.maxPlayers or 0
+            if server.id ~= game.JobId and maxP > 0 and playing < maxP then
+                if not best or playing > (best.playing or 0) then
+                    best = server
+                end
+            end
+        end
+        if best then
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, best.id, LP)
+        end
+    end
+end, true)
+
+registerCommand("serverhopping", "Join server with lowest ping", {}, function(args)
+    local ok, result = pcall(function()
+        return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
+    end)
+    if ok and result and result.data then
+        local best = nil
+        for _, server in ipairs(result.data) do
+            local playing = server.playing or 0
+            local maxP = server.maxPlayers or 0
+            if server.id ~= game.JobId and maxP > 0 and playing < maxP then
+                if not best or (server.ping or math.huge) < (best.ping or math.huge) then
+                    best = server
+                end
+            end
+        end
+        if best then
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, best.id, LP)
+        end
+    end
+end, true)
+
+registerCommand("serverhopfew", "Join server with fewest players", {}, function(args)
+    local ok, result = pcall(function()
+        return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
+    end)
+    if ok and result and result.data then
+        local best = nil
+        for _, server in ipairs(result.data) do
+            local playing = server.playing or 0
+            local maxP = server.maxPlayers or 0
+            if server.id ~= game.JobId and maxP > 0 and playing < maxP then
+                if not best or playing < (best.playing or math.huge) then
+                    best = server
+                end
+            end
+        end
+        if best then
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, best.id, LP)
+        end
+    end
+end, true)
+
+registerCommand("serverhopany", "Join any random server (may be full)", {}, function(args)
+    local ok, result = pcall(function()
+        return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
+    end)
+    if ok and result and result.data then
+        local servers = {}
+        for _, server in ipairs(result.data) do
+            if server.id ~= game.JobId then
+                table.insert(servers, server)
+            end
+        end
+        if #servers > 0 then
+            local randomServer = servers[math.random(1, #servers)]
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, randomServer.id, LP)
+        end
+    end
+end, true)
+
 -- ========== COMMANDS PANEL POPULATION ==========
 
 PM.populateCommandsPanel = function()
