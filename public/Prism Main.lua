@@ -482,6 +482,35 @@ PM.createMainGUI = function()
             ZIndex = 105,
         })
         
+        -- Autofill functionality
+        local function updateAutofill()
+            local input = PM.UI.TerminalInput.Text:lower()
+            if input == "" then
+                PM.UI.TerminalAutofill.Text = ""
+                return
+            end
+            
+            -- Find first matching command
+            for cmdName, cmd in pairs(PM.Commands or {}) do
+                if cmdName:sub(1, #input) == input then
+                    PM.UI.TerminalAutofill.Text = cmd.name
+                    return
+                end
+                -- Check aliases too
+                for _, alias in ipairs(cmd.aliases or {}) do
+                    if alias:lower():sub(1, #input) == input then
+                        PM.UI.TerminalAutofill.Text = cmd.name
+                        return
+                    end
+                end
+            end
+            
+            PM.UI.TerminalAutofill.Text = ""
+        end
+        
+        PM.UI.TerminalInput:GetPropertyChangedSignal("Text"):Connect(updateAutofill)
+        
+        -- Tab to accept autofill
         PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
             if enterPressed then
                 local cmd = PM.UI.TerminalInput.Text
@@ -500,6 +529,20 @@ PM.createMainGUI = function()
             task.delay(0.1, function()
                 PM.closeTerminalPanel()
             end)
+        end)
+        
+        -- Handle Tab key for autofill acceptance
+        game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+            if gameProcessed then return end
+            if not PM.UI.TerminalPanel or not PM.UI.TerminalPanel.Visible then return end
+            if input.KeyCode == Enum.KeyCode.Tab then
+                local suggestion = PM.UI.TerminalAutofill.Text
+                if suggestion and suggestion ~= "" then
+                    PM.UI.TerminalInput.Text = suggestion
+                    PM.UI.TerminalInput.CursorPosition = #suggestion + 1
+                    PM.UI.TerminalAutofill.Text = ""
+                end
+            end
         end)
         
     end
