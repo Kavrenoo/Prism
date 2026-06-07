@@ -166,6 +166,313 @@ registerCommand("serverhopany", "Join any random server (may be full)", {}, func
     end
 end, true)
 
+-- Hidden players state
+PM.HiddenPlayers = {}
+
+local function applyHide(char, savedState)
+    if not char then return savedState end
+    savedState = savedState or { parts = {}, guis = {}, particles = {}, beams = {}, sounds = {}, lights = {}, hum = {} }
+    local hum = char:FindFirstChildOfClass("Humanoid")
+    if hum then
+        pcall(function()
+            savedState.hum.displayDistType = hum.DisplayDistanceType
+            savedState.hum.healthDist = hum.HealthDisplayDistance
+            savedState.hum.nameDist = hum.NameDisplayDistance
+            hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+            hum.HealthDisplayDistance = 0
+            hum.NameDisplayDistance = 0
+        end)
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("BillboardGui") then
+            pcall(function()
+                savedState.guis[desc] = desc.Enabled
+                desc.Enabled = false
+            end)
+        end
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("ParticleEmitter") or desc:IsA("Fire") or desc:IsA("Sparkles") or desc:IsA("Smoke") then
+            pcall(function()
+                savedState.particles[desc] = desc.Enabled
+                desc.Enabled = false
+            end)
+        end
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("Beam") or desc:IsA("Trail") then
+            pcall(function()
+                savedState.beams[desc] = desc.Enabled
+                desc.Enabled = false
+            end)
+        end
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("Sound") then
+            pcall(function()
+                savedState.sounds[desc] = desc.Volume
+                desc.Volume = 0
+            end)
+        end
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("PointLight") or desc:IsA("SpotLight") or desc:IsA("SurfaceLight") then
+            pcall(function()
+                savedState.lights[desc] = desc.Brightness
+                desc.Brightness = 0
+            end)
+        end
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("BasePart") or desc:IsA("Decal") or desc:IsA("Texture") then
+            pcall(function()
+                savedState.parts[desc] = desc.Transparency
+                desc.Transparency = 1
+            end)
+        end
+    end
+    return savedState
+end
+
+registerCommand("hide", "Hide a player locally", {"h"}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+    local q = targetName:lower()
+    local target = nil
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    if not target then return end
+    if PM.HiddenPlayers[target.UserId] then return end
+    local adi = target:FindFirstChildOfClass("AudioDeviceInput")
+    if adi then pcall(function() adi.Muted = true end) end
+    local savedState = nil
+    if target.Character then savedState = applyHide(target.Character, nil) end
+    local conn = target.CharacterAdded:Connect(function(char)
+        task.wait(0.1)
+        savedState = applyHide(char, savedState)
+    end)
+    PM.HiddenPlayers[target.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
+end)
+
+registerCommand("unhide", "Unhide a player", {"uh"}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+    local q = targetName:lower()
+    local target = nil
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                target = p
+                break
+            end
+        end
+    end
+    if not target then return end
+    if not PM.HiddenPlayers[target.UserId] then return end
+    local data = PM.HiddenPlayers[target.UserId]
+    if data.connection then pcall(function() data.connection:Disconnect() end) end
+    if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
+    if target.Character and data.savedState then
+        local state = data.savedState
+        pcall(function()
+            local hum = target.Character:FindFirstChildOfClass("Humanoid")
+            if hum and state.hum then
+                hum.DisplayDistanceType = state.hum.displayDistType or Enum.HumanoidDisplayDistanceType.Viewer
+                hum.HealthDisplayDistance = state.hum.healthDist or 100
+                hum.NameDisplayDistance = state.hum.nameDist or 100
+            end
+        end)
+        for desc, orig in pairs(state.parts or {}) do pcall(function() desc.Transparency = orig end) end
+        for desc, orig in pairs(state.guis or {}) do pcall(function() desc.Enabled = orig end) end
+        for desc, orig in pairs(state.particles or {}) do pcall(function() desc.Enabled = orig end) end
+        for desc, orig in pairs(state.beams or {}) do pcall(function() desc.Enabled = orig end) end
+        for desc, orig in pairs(state.sounds or {}) do pcall(function() desc.Volume = orig end) end
+        for desc, orig in pairs(state.lights or {}) do pcall(function() desc.Brightness = orig end) end
+    end
+    PM.HiddenPlayers[target.UserId] = nil
+end)
+
+registerCommand("hideall", "Hide all other players", {"ha"}, function(args)
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP and not PM.HiddenPlayers[p.UserId] then
+            local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+            if adi then pcall(function() adi.Muted = true end) end
+            local savedState = nil
+            if p.Character then savedState = applyHide(p.Character, nil) end
+            local conn = p.CharacterAdded:Connect(function(char)
+                task.wait(0.1)
+                savedState = applyHide(char, savedState)
+            end)
+            PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
+        end
+    end
+end)
+
+registerCommand("unhideall", "Unhide all players", {"uha"}, function(args)
+    for uid, data in pairs(PM.HiddenPlayers) do
+        if data.connection then pcall(function() data.connection:Disconnect() end) end
+        if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p.UserId == uid and p.Character and data.savedState then
+                local state = data.savedState
+                pcall(function()
+                    local hum = p.Character:FindFirstChildOfClass("Humanoid")
+                    if hum and state.hum then
+                        hum.DisplayDistanceType = state.hum.displayDistType or Enum.HumanoidDisplayDistanceType.Viewer
+                        hum.HealthDisplayDistance = state.hum.healthDist or 100
+                        hum.NameDisplayDistance = state.hum.nameDist or 100
+                    end
+                end)
+                for desc, orig in pairs(state.parts or {}) do pcall(function() desc.Transparency = orig end) end
+                for desc, orig in pairs(state.guis or {}) do pcall(function() desc.Enabled = orig end) end
+                for desc, orig in pairs(state.particles or {}) do pcall(function() desc.Enabled = orig end) end
+                for desc, orig in pairs(state.beams or {}) do pcall(function() desc.Enabled = orig end) end
+                for desc, orig in pairs(state.sounds or {}) do pcall(function() desc.Volume = orig end) end
+                for desc, orig in pairs(state.lights or {}) do pcall(function() desc.Brightness = orig end) end
+                break
+            end
+        end
+    end
+    PM.HiddenPlayers = {}
+end)
+
+registerCommand("to", "Teleport to player", {"tp"}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+    local q = targetName:lower()
+    local target = nil
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    if not target then return end
+    if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+        local myChar = LP.Character
+        local myHRP = myChar and myChar:FindFirstChild("HumanoidRootPart")
+        if myHRP then
+            myHRP.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
+        end
+    end
+end)
+
+registerCommand("tptospawn", "Teleport to spawn", {}, function(args)
+    local char = LP.Character
+    local root = char and char:FindFirstChild("HumanoidRootPart")
+    if not root then return end
+    local spawnPart = workspace:FindFirstChildOfClass("SpawnLocation")
+    if not spawnPart then
+        spawnPart = workspace:FindFirstChild("SpawnLocation", true)
+    end
+    if spawnPart then
+        local h = char:FindFirstChildOfClass("Humanoid")
+        local hipH = h and h.HipHeight or 2.3
+        local hrpHalf = root.Size.Y * 0.5
+        root.CFrame = CFrame.new(spawnPart.Position + Vector3.new(0, spawnPart.Size.Y * 0.5 + hrpHalf + hipH, 0))
+    end
+end)
+
+registerCommand("jerk", "Jerk animation tool", {}, function(args)
+    if PM.JerkActive then return end
+    PM.JerkActive = true
+    local function giveJerk()
+        local char = LP.Character
+        if not char then return end
+        local hum = char:FindFirstChildOfClass("Humanoid")
+        local bp = LP:FindFirstChild("Backpack")
+        if not hum or not bp then return end
+        if bp:FindFirstChild("Jerk") or char:FindFirstChild("Jerk") then return end
+        local tool = Instance.new("Tool")
+        tool.Name = "Jerk"
+        tool.ToolTip = ";)"
+        tool.RequiresHandle = false
+        tool.Parent = bp
+        local jorkin = false
+        local track
+        local function stopJerk()
+            jorkin = false
+            if track then track:Stop() track = nil end
+        end
+        tool.Equipped:Connect(function() jorkin = true end)
+        tool.Unequipped:Connect(stopJerk)
+        hum.Died:Connect(stopJerk)
+        task.spawn(function()
+            while task.wait() do
+                if not (tool and tool.Parent) then break end
+                if jorkin then
+                    local isR15 = hum.RigType == Enum.HumanoidRigType.R15
+                    if not track then
+                        local anim = Instance.new("Animation")
+                        anim.AnimationId = isR15 and "rbxassetid://698251653" or "rbxassetid://72042024"
+                        track = hum:LoadAnimation(anim)
+                    end
+                    track:Play()
+                    track:AdjustSpeed(isR15 and 0.7 or 0.65)
+                    track.TimePosition = 0.6
+                    task.wait(0.1)
+                    while track and track.TimePosition < (isR15 and 0.7 or 0.65) do task.wait(0.1) end
+                    if track then track:Stop() track = nil end
+                end
+            end
+        end)
+    end
+    giveJerk()
+    if PM.JerkRespawnConn then PM.JerkRespawnConn:Disconnect() end
+    PM.JerkRespawnConn = LP.CharacterAdded:Connect(function()
+        task.wait(0.5)
+        giveJerk()
+    end)
+end)
+
+registerCommand("antivcban", "Anti voice chat ban", {}, function(args)
+    if PM.AntiVCBanRan then return end
+    PM.AntiVCBanRan = true
+    game:GetService("VoiceChatService"):rejoinVoice()
+    task.wait(0.02)
+    for _, Connection in ipairs(getconnections(game:GetService("VoiceChatInternal").StateChanged)) do
+        Connection:Disable()
+    end
+end)
+
 -- ========== COMMANDS PANEL POPULATION ==========
 
 PM.populateCommandsPanel = function()
