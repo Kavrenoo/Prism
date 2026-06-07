@@ -63,9 +63,30 @@ end
 -- ========== BUILT-IN COMMANDS ==========
 
 registerCommand("destroy", "Destroy Prism UI and cleanup", {}, function(args)
+    -- Clean up existing UI
     if PM.UI.Gui then
         pcall(function() PM.UI.Gui:Destroy() end)
     end
+    -- Disconnect auto-hide connection if active
+    if PM.HideAllPlayerAddedConn then
+        pcall(function() PM.HideAllPlayerAddedConn:Disconnect() end)
+        PM.HideAllPlayerAddedConn = nil
+    end
+    -- Disconnect jerk respawn connection if active
+    if PM.JerkRespawnConn then
+        pcall(function() PM.JerkRespawnConn:Disconnect() end)
+        PM.JerkRespawnConn = nil
+    end
+    -- Unhide all hidden players
+    for uid, data in pairs(PM.HiddenPlayers or {}) do
+        if data.connection then pcall(function() data.connection:Disconnect() end) end
+        if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
+    end
+    PM.HiddenPlayers = {}
+    -- Clear state flags
+    PM.JerkActive = false
+    PM.AntiVCBanRan = false
+    -- Clear globals
     getgenv().PrismMain = nil
     getgenv().PrismLoaded = false
 end, true)
@@ -444,6 +465,74 @@ registerCommand("tptospawn", "Teleport to spawn", {}, function(args)
         local hrpHalf = root.Size.Y * 0.5
         root.CFrame = CFrame.new(spawnPart.Position + Vector3.new(0, spawnPart.Size.Y * 0.5 + hrpHalf + hipH, 0))
     end
+end)
+
+registerCommand("tptool", "Click to teleport tool", {}, function(args)
+    if PM.TpToolActive then return end
+    PM.TpToolActive = true
+    
+    local function giveTool()
+        local bp = LP.Backpack
+        local char = LP.Character
+        if (bp and bp:FindFirstChild("Teleport Tool")) or (char and char:FindFirstChild("Teleport Tool")) then return end
+        
+        local tool = Instance.new("Tool")
+        tool.Name = "Teleport Tool"
+        tool.RequiresHandle = false
+        tool.ToolTip = "Click to teleport"
+        
+        tool.Activated:Connect(function()
+            local c = LP.Character
+            if not c then return end
+            local h = c:FindFirstChildOfClass("Humanoid")
+            local root = c:FindFirstChild("HumanoidRootPart")
+            if not root then return end
+            
+            local mouse = LP:GetMouse()
+            local hipH = h and h.HipHeight or 2.3
+            local hrpHalfHeight = root.Size.Y * 0.5
+            local sinkBuffer = math.max(0.5, hipH * 0.15) + hrpHalfHeight * 0.25
+            local hit = mouse.Hit.Position
+            
+            local targetPos = Vector3.new(hit.X, hit.Y + hipH + sinkBuffer, hit.Z)
+            local lookDir = (Vector3.new(targetPos.X, root.Position.Y, targetPos.Z) - root.Position)
+            lookDir = lookDir.Magnitude > 0.01 and lookDir.Unit or root.CFrame.LookVector
+            root.CFrame = CFrame.new(targetPos, targetPos + lookDir)
+            if h then h.Sit = false; h.AutoRotate = true end
+        end)
+        
+        tool.Parent = bp
+        
+        -- Detect removal
+        local function checkGone()
+            local bp2 = LP.Backpack
+            local char2 = LP.Character
+            local inBp = bp2 and bp2:FindFirstChild("Teleport Tool")
+            local inChar = char2 and char2:FindFirstChild("Teleport Tool")
+            if not inBp and not inChar then
+                PM.TpToolActive = false
+                if PM.TpToolConn then pcall(function() PM.TpToolConn:Disconnect() end); PM.TpToolConn = nil end
+                if PM.TpWatchConn1 then pcall(function() PM.TpWatchConn1:Disconnect() end); PM.TpWatchConn1 = nil end
+                if PM.TpWatchConn2 then pcall(function() PM.TpWatchConn2:Disconnect() end); PM.TpWatchConn2 = nil end
+            end
+        end
+        
+        local function onRemoved(child)
+            if child == tool then task.defer(checkGone) end
+        end
+        
+        if bp then PM.TpWatchConn1 = bp.ChildRemoved:Connect(onRemoved) end
+        if char then PM.TpWatchConn2 = char.ChildRemoved:Connect(onRemoved) end
+    end
+    
+    giveTool()
+    
+    -- Re-give after respawn
+    if PM.TpToolConn then pcall(function() PM.TpToolConn:Disconnect() end) end
+    PM.TpToolConn = LP.CharacterAdded:Connect(function()
+        task.wait(0.5)
+        giveTool()
+    end)
 end)
 
 registerCommand("jerk", "Jerk animation tool", {}, function(args)
