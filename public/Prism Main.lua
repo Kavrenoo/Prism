@@ -2796,6 +2796,15 @@ end
 -- Populate commands and auto exec panels after UI is created
 -- These functions are defined in Prism Commands.lua
 task.delay(0.1, function()
+    -- Create panels first (they are created lazily)
+    if not PM.UI.CommandsPanel then
+        PM.createCommandsPanel()
+    end
+    if not PM.UI.SettingsPanel then
+        PM.createSettingsPanel()
+    end
+    
+    -- Now populate them
     if PM.populateCommandsPanel then
         PM.populateCommandsPanel()
     end
