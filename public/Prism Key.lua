@@ -17,7 +17,7 @@ getgenv().P = {
     
     -- Whitelisted UserIds
     Whitelist = {
-        --5712636024,
+        5712636024,
     },
 }
 
