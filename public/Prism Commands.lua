@@ -200,6 +200,121 @@ PM.populateCommandsPanel = function()
     PM.UI.CommandsScroll.CanvasSize = UDim2.new(0, 0, 0, count * 38)
 end
 
+-- ========== AUTO EXEC PANEL POPULATION ==========
+
+PM.autoExecStates = {}
+
+PM.populateAutoExecPanel = function()
+    if not PM.UI.AutoExecScroll then return end
+
+    for _, child in ipairs(PM.UI.AutoExecScroll:GetChildren()) do
+        if child:IsA("Frame") and child.Name ~= "UIListLayout" then
+            child:Destroy()
+        end
+    end
+
+    PM.UI.AutoExecRows = {}
+
+    local function makeToggleRow(parent, name, labelText, layoutOrder, defaultState, onToggle)
+        local bg = PM.mk("Frame", parent, {
+            Name = name .. "Bg",
+            Size = UDim2.new(1, -6, 0, 26),
+            BackgroundColor3 = PM.C and PM.C.card or Color3.fromRGB(28, 28, 28),
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            LayoutOrder = layoutOrder,
+            ZIndex = 102,
+        })
+        PM.corner(bg, 6)
+
+        PM.mk("TextLabel", bg, {
+            Size = UDim2.new(1, -56, 0, 20),
+            Position = UDim2.new(0, 8, 0, 3),
+            BackgroundTransparency = 1,
+            Text = labelText,
+            TextColor3 = PM.C and PM.C.text or Color3.fromRGB(230, 230, 230),
+            TextSize = 10,
+            Font = Enum.Font.Gotham,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            ZIndex = 103,
+        })
+
+        local switch = PM.mk("Frame", bg, {
+            Name = name .. "Switch",
+            Size = UDim2.new(0, 26, 0, 13),
+            Position = UDim2.new(1, -36, 0.5, 0),
+            AnchorPoint = Vector2.new(0, 0.5),
+            BackgroundColor3 = defaultState and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50),
+            BorderSizePixel = 0,
+            ZIndex = 103,
+        })
+        PM.corner(switch, 10)
+
+        local circle = PM.mk("Frame", switch, {
+            Name = name .. "Circle",
+            Size = UDim2.new(0, 9, 0, 9),
+            Position = defaultState and UDim2.new(1, -11, 0.5, -4) or UDim2.new(0, 2, 0.5, -4),
+            BackgroundColor3 = Color3.fromRGB(235, 235, 235),
+            BorderSizePixel = 0,
+            ZIndex = 104,
+        })
+        PM.corner(circle, 10)
+
+        local hitBtn = PM.mk("TextButton", switch, {
+            Name = name .. "Hit",
+            Size = UDim2.new(1, 0, 1, 0),
+            BackgroundTransparency = 1,
+            Text = "",
+            ZIndex = 105,
+        })
+
+        local state = defaultState
+        hitBtn.MouseButton1Click:Connect(function()
+            PM.playClickSound()
+            state = not state
+            if state then
+                PM.tween(switch, 0.2, {BackgroundColor3 = Color3.fromRGB(80, 80, 80)})
+                PM.tween(circle, 0.2, {Position = UDim2.new(1, -11, 0.5, -4)})
+            else
+                PM.tween(switch, 0.2, {BackgroundColor3 = Color3.fromRGB(50, 50, 50)})
+                PM.tween(circle, 0.2, {Position = UDim2.new(0, 2, 0.5, -4)})
+            end
+            if onToggle then onToggle(state) end
+        end)
+
+        return bg, switch, circle, hitBtn
+    end
+
+    local sorted = {}
+    for _, cmd in pairs(PM.Commands) do
+        table.insert(sorted, cmd)
+    end
+    table.sort(sorted, function(a, b) return a.name:lower() < b.name:lower() end)
+
+    for i, cmd in ipairs(sorted) do
+        local isEnabled = PM.autoExecStates[cmd.name] or false
+        local row, switch, circle, hitBtn = makeToggleRow(
+            PM.UI.AutoExecScroll,
+            "AutoExec_" .. cmd.name,
+            cmd.name,
+            i,
+            isEnabled,
+            function(state)
+                PM.autoExecStates[cmd.name] = state
+            end
+        )
+        table.insert(PM.UI.AutoExecRows, {name = cmd.name, row = row})
+    end
+end
+
+PM.filterAutoExecPanel = function(query)
+    query = (query or ""):lower()
+    for _, data in ipairs(PM.UI.AutoExecRows or {}) do
+        local match = data.name:lower():find(query, 1, true) or query == ""
+        data.row.Visible = match
+    end
+end
+
 -- ========== TERMINAL EXECUTION ==========
 
 PM.printTerminal = function(text)
@@ -267,6 +382,13 @@ end
 task.delay(0.5, function()
     PM.createTerminalOutput()
     PM.populateCommandsPanel()
+    PM.populateAutoExecPanel()
+
+    if PM.UI.AutoExecSearch then
+        PM.UI.AutoExecSearch:GetPropertyChangedSignal("Text"):Connect(function()
+            PM.filterAutoExecPanel(PM.UI.AutoExecSearch.Text)
+        end)
+    end
 end)
 
 return PM.Commands
