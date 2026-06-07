@@ -55,11 +55,7 @@ PM.C = {
 local C = PM.C
 
 PM.createMainGUI = function()
-    print("[Prism Debug] createMainGUI called")
-    if PM.Svc.CoreGui:FindFirstChild("PrismMainGui") then 
-        print("[Prism Debug] PrismMainGui already exists, returning")
-        return 
-    end
+    if PM.Svc.CoreGui:FindFirstChild("PrismMainGui") then return end
     
     PM.UI.Gui = PM.mk("ScreenGui", PM.Svc.CoreGui, {
         Name = "PrismMainGui",
@@ -271,7 +267,6 @@ PM.createMainGUI = function()
         elseif btn.name == "Commands" then
             PM.isCommandsOpen = false
             button.MouseButton1Click:Connect(function()
-                print("[Prism Debug] Commands button clicked, isCommandsOpen: " .. tostring(PM.isCommandsOpen))
                 PM.playClickSound()
                 if PM.isCommandsOpen then
                     PM.isCommandsOpen = false
@@ -392,7 +387,6 @@ PM.createMainGUI = function()
         elseif btn.name == "Settings" then
             PM.isSettingsOpen = false
             button.MouseButton1Click:Connect(function()
-                print("[Prism Debug] Settings button clicked, isSettingsOpen: " .. tostring(PM.isSettingsOpen))
                 PM.playClickSound()
                 if PM.isSettingsOpen then
                     PM.isSettingsOpen = false
@@ -651,20 +645,14 @@ PM.createMainGUI = function()
     end
     
     PM.openCommandsPanel = function()
-        print("[Prism Debug] openCommandsPanel called")
         if not PM.UI.CommandsPanel then
-            print("[Prism Debug] Creating CommandsPanel (was nil)")
             PM.createCommandsPanel()
         end
-        if PM.UI.CommandsPanel.Visible then 
-            print("[Prism Debug] CommandsPanel already visible, returning")
-            return 
-        end
+        if PM.UI.CommandsPanel.Visible then return end
         
         PM.UI.CommandsPanel.Visible = true
         PM.UI.CommandsPanel.Size = UDim2.new(0, 280, 0, 0)
         PM.tween(PM.UI.CommandsPanel, 0.3, {Size = UDim2.new(0, 280, 0, 320)})
-        print("[Prism Debug] CommandsPanel opened, CommandButtons count: " .. tostring(#(PM.UI.CommandButtons or {})))
     end
     
     PM.closeCommandsPanel = function()
@@ -2105,16 +2093,13 @@ PM.createMainGUI = function()
     end
 
     PM.openSettingsPanel = function()
-        print("[Prism Debug] openSettingsPanel called")
         if not PM.UI.SettingsPanel then
-            print("[Prism Debug] Creating SettingsPanel (was nil)")
             PM.createSettingsPanel()
         end
         PM.isSettingsOpen = true
         PM.UI.SettingsPanel.Visible = true
         PM.UI.SettingsPanel.Size = UDim2.new(0, 280, 0, 0)
         PM.tween(PM.UI.SettingsPanel, 0.3, {Size = UDim2.new(0, 280, 0, 320)})
-        print("[Prism Debug] SettingsPanel opened, AutoExecRows count: " .. tostring(#(PM.UI.AutoExecRows or {})))
     end
 
     PM.closeSettingsPanel = function()
@@ -2809,7 +2794,5 @@ if not ok then
 end
 
 -- Panel population is handled by Prism Commands.lua after it loads
--- This ensures the functions exist before being called
-print("[Prism Debug] Main.lua - UI created, Commands.lua will populate panels")
 
 return PM

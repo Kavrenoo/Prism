@@ -1,13 +1,7 @@
-print("[Prism Debug] Prism Commands.lua loading...")
 local PM = getgenv().PrismMain
-if not PM then 
-    print("[Prism Debug] ERROR: PrismMain not found!")
-    return 
-end
-print("[Prism Debug] PrismMain found")
+if not PM then return end
 
 PM.Commands = PM.Commands or {}
-print("[Prism Debug] PM.Commands initialized")
 
 local function registerCommand(name, desc, aliases, execute)
     PM.Commands[name:lower()] = {
@@ -18,156 +12,92 @@ local function registerCommand(name, desc, aliases, execute)
     }
 end
 
--- ========== UTILITY COMMANDS ==========
+-- ========== CHAT COMMAND HANDLING ==========
 
-registerCommand("help", "List all available commands", {"?", "cmds"}, function(args)
-    PM.printTerminal("Available commands:")
-    for _, cmd in pairs(PM.Commands) do
-        PM.printTerminal("  " .. cmd.name .. " - " .. cmd.desc)
+local Players = game:GetService("Players")
+local LP = Players.LocalPlayer
+local ChatPrefix = "'"
+
+-- Hook into chat
+local function onChat(msg)
+    if not msg:sub(1, 1) == ChatPrefix then return end
+    
+    -- Remove prefix and parse command
+    local input = msg:sub(2):gsub("^%s+", "")
+    if input == "" then return end
+    
+    local parts = {}
+    for part in input:gmatch("%S+") do
+        table.insert(parts, part)
     end
-end)
-
-registerCommand("clear", "Clear the terminal output", {"cls"}, function(args)
-    if PM.UI.TerminalOutput then
-        PM.UI.TerminalOutput.Text = ""
-    end
-end)
-
-registerCommand("rejoin", "Rejoin the current server", {"rj"}, function(args)
-    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, PM.Svc.Players.LocalPlayer)
-end)
-
-registerCommand("serverhop", "Join a different server", {"sh", "hop"}, function(args)
-    local TeleportService = game:GetService("TeleportService")
-    local HttpService = game:GetService("HttpService")
-    local ok, result = pcall(function()
-        return HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
-    end)
-    if ok and result and result.data then
-        for _, server in ipairs(result.data) do
-            if server.id ~= game.JobId and server.playing < server.maxPlayers then
-                TeleportService:TeleportToPlaceInstance(game.PlaceId, server.id, PM.Svc.Players.LocalPlayer)
-                return
+    
+    local cmdName = parts[1]:lower()
+    table.remove(parts, 1)
+    
+    -- Find and execute command
+    local cmd = PM.Commands[cmdName]
+    if not cmd then
+        -- Check aliases
+        for _, c in pairs(PM.Commands) do
+            for _, alias in ipairs(c.aliases) do
+                if alias:lower() == cmdName then
+                    cmd = c
+                    break
+                end
             end
-        end
-        PM.printTerminal("No available servers found.")
-    else
-        PM.printTerminal("Failed to fetch servers.")
-    end
-end)
-
-registerCommand("goto", "Teleport to a player", {"to"}, function(args)
-    local targetName = table.concat(args, " ")
-    if targetName == "" then
-        PM.printTerminal("Usage: goto <player>")
-        return
-    end
-    local Players = game:GetService("Players")
-    local target = Players:FindFirstChild(targetName) or Players:FindFirstChild(targetName:lower())
-    if not target then
-        for _, plr in ipairs(Players:GetPlayers()) do
-            if plr.Name:lower():find(targetName:lower(), 1, true) or plr.DisplayName:lower():find(targetName:lower(), 1, true) then
-                target = plr
-                break
-            end
+            if cmd then break end
         end
     end
-    if target and target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
-        local myChar = PM.Svc.Players.LocalPlayer.Character
-        local myHRP = myChar and myChar:FindFirstChild("HumanoidRootPart")
-        if myHRP then
-            myHRP.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
-            PM.printTerminal("Teleported to " .. target.Name)
-        end
-    else
-        PM.printTerminal("Player not found or no character.")
+    
+    if cmd then
+        pcall(function() cmd.execute(parts) end)
     end
-end)
-
-registerCommand("walkspeed", "Set your walkspeed", {"ws", "speed"}, function(args)
-    local speed = tonumber(args[1]) or 16
-    local myChar = PM.Svc.Players.LocalPlayer.Character
-    local humanoid = myChar and myChar:FindFirstChildOfClass("Humanoid")
-    if humanoid then
-        humanoid.WalkSpeed = speed
-        PM.printTerminal("WalkSpeed set to " .. speed)
-    else
-        PM.printTerminal("Humanoid not found.")
-    end
-end)
-
-registerCommand("jumppower", "Set your jump power", {"jp"}, function(args)
-    local power = tonumber(args[1]) or 50
-    local myChar = PM.Svc.Players.LocalPlayer.Character
-    local humanoid = myChar and myChar:FindFirstChildOfClass("Humanoid")
-    if humanoid then
-        humanoid.JumpPower = power
-        PM.printTerminal("JumpPower set to " .. power)
-    else
-        PM.printTerminal("Humanoid not found.")
-    end
-end)
-
-registerCommand("reset", "Reset your character", {"die"}, function(args)
-    local myChar = PM.Svc.Players.LocalPlayer.Character
-    local humanoid = myChar and myChar:FindFirstChildOfClass("Humanoid")
-    if humanoid then
-        humanoid.Health = 0
-    end
-end)
-
-registerCommand("fps", "Show current FPS", {}, function(args)
-    if PM.UI.FPSLabel then
-        PM.printTerminal("Current FPS: " .. PM.UI.FPSLabel.Text)
-    else
-        PM.printTerminal("FPS counter not available.")
-    end
-end)
-
-registerCommand("ping", "Show current ping", {}, function(args)
-    if PM.UI.PingLabel then
-        PM.printTerminal("Current Ping: " .. PM.UI.PingLabel.Text .. "ms")
-    else
-        PM.printTerminal("Ping counter not available.")
-    end
-end)
-
-local cmdCount = 0
-for name, _ in pairs(PM.Commands) do
-    print("[Prism Debug] Registered command: " .. name)
-    cmdCount = cmdCount + 1
 end
-print("[Prism Debug] All commands registered, total: " .. tostring(cmdCount))
+
+-- Connect to chat
+if LP then
+    LP.Chatted:Connect(onChat)
+end
+
+-- ========== BUILT-IN COMMANDS ==========
+
+registerCommand("destroy", "Destroy Prism UI and cleanup", {}, function(args)
+    if PM.UI.Gui then
+        pcall(function() PM.UI.Gui:Destroy() end)
+    end
+    getgenv().PrismMain = nil
+    getgenv().PrismLoaded = false
+end)
+
+registerCommand("reload", "Reload Prism script", {}, function(args)
+    -- Clean up existing UI
+    if PM.UI.Gui then
+        pcall(function() PM.UI.Gui:Destroy() end)
+    end
+    getgenv().PrismMain = nil
+    getgenv().PrismLoaded = false
+    -- Reload from URL
+    loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
+end)
 
 -- ========== COMMANDS PANEL POPULATION ==========
 
 PM.populateCommandsPanel = function()
-    print("[Prism Debug] populateCommandsPanel called")
-    if not PM.UI.CommandsScroll then 
-        print("[Prism Debug] ERROR: CommandsScroll does not exist!")
-        return 
-    end
-    print("[Prism Debug] CommandsScroll found, clearing children...")
+    if not PM.UI.CommandsScroll then return end
 
     local childCount = 0
     for _, child in ipairs(PM.UI.CommandsScroll:GetChildren()) do
         if child:IsA("TextButton") then
             child:Destroy()
-            childCount = childCount + 1
         end
     end
-    print("[Prism Debug] Cleared " .. childCount .. " old buttons")
 
     PM.UI.CommandButtons = {}
-    print("[Prism Debug] CommandButtons reset")
 
     local sorted = {}
-    local cmdCount = 0
     for _, cmd in pairs(PM.Commands) do
         table.insert(sorted, cmd)
-        cmdCount = cmdCount + 1
     end
-    print("[Prism Debug] Found " .. cmdCount .. " commands to display")
     table.sort(sorted, function(a, b) return a.name:lower() < b.name:lower() end)
 
     for _, cmd in ipairs(sorted) do
@@ -223,7 +153,6 @@ PM.populateCommandsPanel = function()
 
     local count = #PM.UI.CommandButtons
     PM.UI.CommandsScroll.CanvasSize = UDim2.new(0, 0, 0, count * 38)
-    print("[Prism Debug] populateCommandsPanel complete - created " .. count .. " buttons")
 end
 
 -- ========== AUTO EXEC PANEL POPULATION ==========
@@ -231,24 +160,16 @@ end
 PM.autoExecStates = {}
 
 PM.populateAutoExecPanel = function()
-    print("[Prism Debug] populateAutoExecPanel called")
-    if not PM.UI.AutoExecScroll then 
-        print("[Prism Debug] ERROR: AutoExecScroll does not exist!")
-        return 
-    end
-    print("[Prism Debug] AutoExecScroll found, clearing children...")
+    if not PM.UI.AutoExecScroll then return end
 
     local childCount = 0
     for _, child in ipairs(PM.UI.AutoExecScroll:GetChildren()) do
         if child:IsA("Frame") and child.Name ~= "UIListLayout" then
             child:Destroy()
-            childCount = childCount + 1
         end
     end
-    print("[Prism Debug] Cleared " .. childCount .. " old rows")
 
     PM.UI.AutoExecRows = {}
-    print("[Prism Debug] AutoExecRows reset")
 
     local function makeToggleRow(parent, name, labelText, layoutOrder, defaultState, onToggle)
         local bg = PM.mk("Frame", parent, {
@@ -321,12 +242,9 @@ PM.populateAutoExecPanel = function()
     end
 
     local sorted = {}
-    local cmdCount = 0
     for _, cmd in pairs(PM.Commands) do
         table.insert(sorted, cmd)
-        cmdCount = cmdCount + 1
     end
-    print("[Prism Debug] Found " .. cmdCount .. " commands for auto exec")
     table.sort(sorted, function(a, b) return a.name:lower() < b.name:lower() end)
 
     for i, cmd in ipairs(sorted) do
@@ -343,7 +261,6 @@ PM.populateAutoExecPanel = function()
         )
         table.insert(PM.UI.AutoExecRows, {name = cmd.name, row = row})
     end
-    print("[Prism Debug] populateAutoExecPanel complete - created " .. #PM.UI.AutoExecRows .. " rows")
 end
 
 PM.filterAutoExecPanel = function(query)
@@ -418,39 +335,23 @@ PM.createTerminalOutput = function()
 end
 
 -- Populate panels after this file loads
--- Use a longer delay to ensure Prism Main.lua has fully created the UI
 task.delay(0.5, function()
-    print("[Prism Debug] Commands.lua - Starting delayed population...")
-    
-    -- Ensure panels exist
     if not PM.UI.CommandsPanel then
-        print("[Prism Debug] Commands.lua - Creating CommandsPanel...")
         if PM.createCommandsPanel then PM.createCommandsPanel() end
     end
     if not PM.UI.SettingsPanel then
-        print("[Prism Debug] Commands.lua - Creating SettingsPanel...")
         if PM.createSettingsPanel then PM.createSettingsPanel() end
     end
     
-    -- Now populate
-    print("[Prism Debug] Commands.lua - Calling populateCommandsPanel...")
     PM.populateCommandsPanel()
-    
-    print("[Prism Debug] Commands.lua - Calling populateAutoExecPanel...")
     PM.populateAutoExecPanel()
-    
-    print("[Prism Debug] Commands.lua - Calling createTerminalOutput...")
     PM.createTerminalOutput()
     
-    -- Connect auto exec search
     if PM.UI.AutoExecSearch then
-        print("[Prism Debug] Commands.lua - Connecting AutoExecSearch filter...")
         PM.UI.AutoExecSearch:GetPropertyChangedSignal("Text"):Connect(function()
             PM.filterAutoExecPanel(PM.UI.AutoExecSearch.Text)
         end)
     end
-    
-    print("[Prism Debug] Commands.lua - Population complete!")
 end)
 
 return PM.Commands
