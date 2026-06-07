@@ -417,7 +417,40 @@ PM.createTerminalOutput = function()
     })
 end
 
--- Panel population is now explicitly called from Prism Main.lua
--- after the UI is fully created to ensure proper initialization
+-- Populate panels after this file loads
+-- Use a longer delay to ensure Prism Main.lua has fully created the UI
+task.delay(0.5, function()
+    print("[Prism Debug] Commands.lua - Starting delayed population...")
+    
+    -- Ensure panels exist
+    if not PM.UI.CommandsPanel then
+        print("[Prism Debug] Commands.lua - Creating CommandsPanel...")
+        if PM.createCommandsPanel then PM.createCommandsPanel() end
+    end
+    if not PM.UI.SettingsPanel then
+        print("[Prism Debug] Commands.lua - Creating SettingsPanel...")
+        if PM.createSettingsPanel then PM.createSettingsPanel() end
+    end
+    
+    -- Now populate
+    print("[Prism Debug] Commands.lua - Calling populateCommandsPanel...")
+    PM.populateCommandsPanel()
+    
+    print("[Prism Debug] Commands.lua - Calling populateAutoExecPanel...")
+    PM.populateAutoExecPanel()
+    
+    print("[Prism Debug] Commands.lua - Calling createTerminalOutput...")
+    PM.createTerminalOutput()
+    
+    -- Connect auto exec search
+    if PM.UI.AutoExecSearch then
+        print("[Prism Debug] Commands.lua - Connecting AutoExecSearch filter...")
+        PM.UI.AutoExecSearch:GetPropertyChangedSignal("Text"):Connect(function()
+            PM.filterAutoExecPanel(PM.UI.AutoExecSearch.Text)
+        end)
+    end
+    
+    print("[Prism Debug] Commands.lua - Population complete!")
+end)
 
 return PM.Commands

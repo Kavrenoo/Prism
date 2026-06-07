@@ -2808,63 +2808,8 @@ local ok, err = pcall(PM.createMainGUI)
 if not ok then
 end
 
--- Populate commands and auto exec panels after UI is created
--- These functions are defined in Prism Commands.lua
-task.delay(0.1, function()
-    print("[Prism Debug] Starting panel population...")
-    
-    -- Create panels first (they are created lazily)
-    if not PM.UI.CommandsPanel then
-        print("[Prism Debug] Creating CommandsPanel...")
-        PM.createCommandsPanel()
-        print("[Prism Debug] CommandsPanel created, CommandsScroll exists: " .. tostring(PM.UI.CommandsScroll ~= nil))
-    else
-        print("[Prism Debug] CommandsPanel already exists")
-    end
-    
-    if not PM.UI.SettingsPanel then
-        print("[Prism Debug] Creating SettingsPanel...")
-        PM.createSettingsPanel()
-        print("[Prism Debug] SettingsPanel created, AutoExecScroll exists: " .. tostring(PM.UI.AutoExecScroll ~= nil))
-    else
-        print("[Prism Debug] SettingsPanel already exists")
-    end
-    
-    -- Now populate them
-    if PM.populateCommandsPanel then
-        print("[Prism Debug] Calling populateCommandsPanel...")
-        PM.populateCommandsPanel()
-        print("[Prism Debug] populateCommandsPanel done, CommandButtons count: " .. tostring(#PM.UI.CommandButtons))
-    else
-        print("[Prism Debug] ERROR: populateCommandsPanel function not found!")
-    end
-    
-    if PM.populateAutoExecPanel then
-        print("[Prism Debug] Calling populateAutoExecPanel...")
-        PM.populateAutoExecPanel()
-        print("[Prism Debug] populateAutoExecPanel done")
-    else
-        print("[Prism Debug] ERROR: populateAutoExecPanel function not found!")
-    end
-    
-    if PM.createTerminalOutput then
-        print("[Prism Debug] Calling createTerminalOutput...")
-        PM.createTerminalOutput()
-    else
-        print("[Prism Debug] ERROR: createTerminalOutput function not found!")
-    end
-    
-    -- Connect auto exec search filter
-    if PM.UI.AutoExecSearch and PM.filterAutoExecPanel then
-        print("[Prism Debug] Connecting AutoExecSearch filter...")
-        PM.UI.AutoExecSearch:GetPropertyChangedSignal("Text"):Connect(function()
-            PM.filterAutoExecPanel(PM.UI.AutoExecSearch.Text)
-        end)
-    else
-        print("[Prism Debug] AutoExecSearch filter NOT connected. AutoExecSearch exists: " .. tostring(PM.UI.AutoExecSearch ~= nil) .. ", filter exists: " .. tostring(PM.filterAutoExecPanel ~= nil))
-    end
-    
-    print("[Prism Debug] Panel population complete!")
-end)
+-- Panel population is handled by Prism Commands.lua after it loads
+-- This ensures the functions exist before being called
+print("[Prism Debug] Main.lua - UI created, Commands.lua will populate panels")
 
 return PM
