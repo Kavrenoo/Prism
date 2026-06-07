@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prism - Key</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f0f0f;
+            color: #e6e6e6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+        .logo {
+            font-size: 72px;
+            font-weight: 900;
+            letter-spacing: -2px;
+            color: #e6e6e6;
+        }
+        .key-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border-radius: 10px;
+            border: 1px solid #2d2d2d;
+            background: #1c1c1c;
+        }
+        .key-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #e6e6e6;
+            letter-spacing: 0.5px;
+            user-select: all;
+        }
+        .copy-btn {
+            padding: 8px 18px;
+            border-radius: 8px;
+            border: 1px solid #2d2d2d;
+            background: #151515;
+            color: #e6e6e6;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .copy-btn:hover {
+            background: #2a2a2a;
+            border-color: #3d3d3d;
+        }
+        .copy-btn.copied {
+            background: #46a846;
+            border-color: #46a846;
+            color: #fff;
+        }
+        .status {
+            font-size: 12px;
+            color: #5a5a5a;
+            height: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">Prism</div>
+    <div class="key-box">
+        <span class="key-text" id="keyText">PRISM-A3G4-X7K9-M2P4</span>
+        <button class="copy-btn" id="copyBtn">Copy Key</button>
+    </div>
+    <div class="status" id="status"></div>
+
+    <script>
+        const btn = document.getElementById('copyBtn');
+        const status = document.getElementById('status');
+        const key = document.getElementById('keyText').textContent;
+
+        btn.addEventListener('click', () => {
+            navigator.clipboard.writeText(key).then(() => {
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                status.textContent = 'Key copied to clipboard';
+                status.style.color = '#46a846';
+
+                setTimeout(() => {
+                    btn.textContent = 'Copy Key';
+                    btn.classList.remove('copied');
+                    status.textContent = '';
+                    status.style.color = '#5a5a5a';
+                }, 3000);
+            }).catch(() => {
+                status.textContent = 'Failed to copy';
+                status.style.color = '#e05050';
+            });
+        });
+    </script>
+</body>
+</html>
