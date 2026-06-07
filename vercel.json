@@ -7,7 +7,12 @@
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
-        },
+        }
+      ]
+    },
+    {
+      "source": "/(.*\\.lua)",
+      "headers": [
         {
           "key": "Content-Type",
           "value": "text/plain; charset=utf-8"
