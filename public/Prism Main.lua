@@ -653,11 +653,6 @@ PM.createMainGUI = function()
         -- Keybind only opens, never closes (like Mono's bar)
         if PM.UI.TerminalPanel.Visible then return end
         
-        -- Close any other open panels
-        if PM.closeSettingsPanel then PM.closeSettingsPanel() end
-        if PM.closeCommandsPanel then PM.closeCommandsPanel() end
-        if PM.closeNameTagsPanel then PM.closeNameTagsPanel() end
-        
         -- Set flag to prevent immediate close
         PM.panelJustOpened = true
         task.delay(0.3, function()
@@ -3017,6 +3012,26 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
         end
         -- Only open if not already visible (never close with keybind)
         if PM.UI.TerminalPanel and not PM.UI.TerminalPanel.Visible and PM.openTerminalPanel then
+            -- Hide other panels before opening terminal (like button click does)
+            if PM.isCommandsOpen then
+                PM.isCommandsOpen = false
+                PM.hideCommandsPanel()
+            end
+            if PM.isServersOpen then
+                PM.isServersOpen = false
+                PM.hideServersPanel()
+            end
+            if PM.UI.NameTagsPanel and PM.UI.NameTagsPanel.Visible then
+                PM.UI.NameTagsPanel.Visible = false
+            end
+            if PM.isJoinOpen then
+                PM.isJoinOpen = false
+                PM.hideJoinPanel()
+            end
+            if PM.isSettingsOpen then
+                PM.isSettingsOpen = false
+                PM.hideSettingsPanel()
+            end
             PM.openTerminalPanel()
         end
     end
