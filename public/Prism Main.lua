@@ -596,8 +596,8 @@ PM.createMainGUI = function()
         
         -- Handle Tab for autofill and Enter to execute
         PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
-            -- Skip if panel just opened, rebinding, or hovering keybind button
-            if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn then return end
+            -- Skip if panel just opened, rebinding, hovering keybind button, or hovering main buttons
+            if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then return end
             
             if enterPressed then
                 local cmd = PM.UI.TerminalInput.Text
