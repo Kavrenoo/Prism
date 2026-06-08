@@ -603,6 +603,22 @@ PM.createMainGUI = function()
                     PM.UI.TerminalInput.CursorPosition = #suggestion + 1
                     PM.UI.TerminalAutofill.Text = ""
                 end
+            elseif input.KeyCode == Enum.KeyCode.Return or input.KeyCode == Enum.KeyCode.KeypadEnter then
+                -- Execute command on Enter
+                local cmd = PM.UI.TerminalInput.Text
+                if cmd and cmd ~= "" then
+                    PM.UI.TerminalInput.Text = ""
+                    PM.UI.TerminalAutofill.Text = ""
+                    if PM.executeCommand then
+                        PM.executeCommand(cmd)
+                    end
+                end
+                -- Keep focus after executing
+                task.delay(0.05, function()
+                    if PM.UI.TerminalInput then
+                        PM.UI.TerminalInput:CaptureFocus()
+                    end
+                end)
             elseif input.KeyCode == Enum.KeyCode.Escape then
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
@@ -610,8 +626,14 @@ PM.createMainGUI = function()
         end)
         
         -- Close when clicking outside terminal panel
+        PM.terminalJustOpened = false
         PM.UI.Gui.InputBegan:Connect(function(input)
             if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                -- Skip if terminal was just opened (prevents immediate close from button click)
+                if PM.terminalJustOpened then
+                    PM.terminalJustOpened = false
+                    return
+                end
                 if PM.UI.TerminalPanel and PM.UI.TerminalPanel.Visible then
                     local mousePos = input.Position
                     local termPos = PM.UI.TerminalPanel.AbsolutePosition
@@ -638,6 +660,10 @@ PM.createMainGUI = function()
         PM.UI.TerminalPanel.Size = UDim2.new(0, 0, 0, 38)
         PM.tween(PM.UI.TerminalPanel, 0.25, {Size = UDim2.new(0, 340, 0, 38)})
         PM.UI.TerminalInput:CaptureFocus()
+        PM.terminalJustOpened = true
+        task.delay(0.1, function()
+            PM.terminalJustOpened = false
+        end)
     end
     
     -- For button toggle (separate from keybind)
@@ -652,6 +678,10 @@ PM.createMainGUI = function()
             PM.UI.TerminalPanel.Size = UDim2.new(0, 0, 0, 38)
             PM.tween(PM.UI.TerminalPanel, 0.25, {Size = UDim2.new(0, 340, 0, 38)})
             PM.UI.TerminalInput:CaptureFocus()
+            PM.terminalJustOpened = true
+            task.delay(0.1, function()
+                PM.terminalJustOpened = false
+            end)
         end
     end
     
