@@ -1022,25 +1022,25 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
 
         local ToggleSection = Instance.new("Frame")
         ToggleSection.Name = "ToggleSection"
-        ToggleSection.Size = UDim2.new(1, -6, 0, 26)
-        ToggleSection.BackgroundColor3 = PM.C and PM.C.card or Color3.fromRGB(28, 28, 28)
-        ToggleSection.BackgroundTransparency = 0.5
+        ToggleSection.Size = UDim2.new(1, 0, 0, 36)
+        ToggleSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        ToggleSection.BackgroundTransparency = 0.4
         ToggleSection.BorderSizePixel = 0
         ToggleSection.LayoutOrder = 1
         ToggleSection.Parent = ContentFrame
 
         local ToggleSectionCorner = Instance.new("UICorner")
-        ToggleSectionCorner.CornerRadius = UDim.new(0, 6)
+        ToggleSectionCorner.CornerRadius = UDim.new(0, 10)
         ToggleSectionCorner.Parent = ToggleSection
 
         local ToggleLabel = Instance.new("TextLabel")
         ToggleLabel.Name = "Label"
-        ToggleLabel.Size = UDim2.new(1, -56, 0, 20)
-        ToggleLabel.Position = UDim2.new(0, 8, 0, 3)
+        ToggleLabel.Size = UDim2.new(1, -100, 1, 0)
+        ToggleLabel.Position = UDim2.new(0, 12, 0, 0)
         ToggleLabel.BackgroundTransparency = 1
         ToggleLabel.Text = "Enable"
-        ToggleLabel.TextColor3 = PM.C and PM.C.text or Color3.fromRGB(230, 230, 230)
-        ToggleLabel.TextSize = 10
+        ToggleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+        ToggleLabel.TextSize = 12
         ToggleLabel.Font = Enum.Font.Gotham
         ToggleLabel.TextXAlignment = Enum.TextXAlignment.Left
         ToggleLabel.Parent = ToggleSection
