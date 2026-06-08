@@ -261,7 +261,7 @@ PM.createMainGUI = function()
                         PM.isSettingsOpen = false
                         PM.hideSettingsPanel()
                     end
-                    PM.openTerminalPanel()
+                    PM.toggleTerminalPanel()
                 end
             end)
         elseif btn.name == "Commands" then
@@ -606,16 +606,28 @@ PM.createMainGUI = function()
         if not PM.UI.TerminalPanel then
             PM.createTerminalPanel()
         end
-        -- Toggle - close if already open
-        if PM.UI.TerminalPanel.Visible then
-            PM.closeTerminalPanel()
-            return
-        end
+        -- Keybind only opens, never closes (like Mono's bar)
+        if PM.UI.TerminalPanel.Visible then return end
         
         PM.UI.TerminalPanel.Visible = true
         PM.UI.TerminalPanel.Size = UDim2.new(0, 0, 0, 38)
         PM.tween(PM.UI.TerminalPanel, 0.25, {Size = UDim2.new(0, 340, 0, 38)})
         PM.UI.TerminalInput:CaptureFocus()
+    end
+    
+    -- For button toggle (separate from keybind)
+    PM.toggleTerminalPanel = function()
+        if not PM.UI.TerminalPanel then
+            PM.createTerminalPanel()
+        end
+        if PM.UI.TerminalPanel.Visible then
+            PM.closeTerminalPanel()
+        else
+            PM.UI.TerminalPanel.Visible = true
+            PM.UI.TerminalPanel.Size = UDim2.new(0, 0, 0, 38)
+            PM.tween(PM.UI.TerminalPanel, 0.25, {Size = UDim2.new(0, 340, 0, 38)})
+            PM.UI.TerminalInput:CaptureFocus()
+        end
     end
     
     PM.closeTerminalPanel = function()
@@ -2940,13 +2952,14 @@ end
 
 -- Panel population is handled by Prism Commands.lua after it loads
 
--- Global terminal keybind handler
+-- Global terminal keybind handler (only opens, never closes like Mono's bar)
 game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
     if gameProcessed then return end
     if input.UserInputType ~= Enum.UserInputType.Keyboard then return end
     local keybind = PM.terminalKeybind or "F6"
     if input.KeyCode.Name == keybind then
-        if PM.openTerminalPanel then
+        -- Only open if not already visible (never close with keybind)
+        if PM.UI.TerminalPanel and not PM.UI.TerminalPanel.Visible and PM.openTerminalPanel then
             PM.openTerminalPanel()
         end
     end
