@@ -1,11 +1,4 @@
-print("[Prism Commands] LINE 1 EXECUTING")
-local ok, err = pcall(function()
--- Track load time
-local loadStart = tick()
-print("[Prism Commands] ===== SCRIPT START =====")
-
 -- Wait for PrismMain to be initialized by Main.lua
-print("[Prism Commands] Starting, waiting for PrismMain...")
 local PM = getgenv().PrismMain
 if not PM then
     -- Retry for up to 5 seconds waiting for Main.lua to load
@@ -15,17 +8,11 @@ if not PM then
         if PM then break end
     end
 end
-local waitTime = tick() - loadStart
-if not PM then 
-    print("[Prism Commands] ERROR: PrismMain not found after " .. string.format("%.2f", waitTime) .. "s, returning")
-    return 
-end
-print("[Prism Commands] PrismMain found after " .. string.format("%.2f", waitTime) .. "s")
+if not PM then return end
 
 PM.Commands = PM.Commands or {}
 
 local function registerCommand(name, desc, aliases, execute, excludeFromAutoExec)
-    print("[Prism Commands] Registering command: " .. name)
     PM.Commands[name:lower()] = {
         name = name,
         desc = desc,
@@ -779,14 +766,7 @@ end)
 -- ========== COMMANDS PANEL POPULATION ==========
 
 PM.populateCommandsPanel = function()
-    print("[Prism Commands] populateCommandsPanel called")
-    if not PM.UI.CommandsScroll then 
-        print("[Prism Commands] ERROR: CommandsScroll not found")
-        return 
-    end
-    local cmdCount = 0
-    for _ in pairs(PM.Commands or {}) do cmdCount = cmdCount + 1 end
-    print("[Prism Commands] CommandsScroll found, command count: " .. tostring(cmdCount))
+    if not PM.UI.CommandsScroll then return end
 
     local childCount = 0
     for _, child in ipairs(PM.UI.CommandsScroll:GetChildren()) do
@@ -1100,14 +1080,8 @@ PM.executeAutoExecCommands = function()
     end
 end
 
--- Count total registered commands
-local totalCmds = 0
-for _ in pairs(PM.Commands) do totalCmds = totalCmds + 1 end
-print("[Prism Commands] Total commands registered: " .. tostring(totalCmds))
-
 -- Populate panels after this file loads
 task.delay(0.5, function()
-    print("[Prism Commands] Delayed task starting after " .. string.format("%.2f", tick() - loadStart) .. "s")
     -- Wait for Main.lua to create the UI functions if needed
     local retries = 0
     while (not PM.createCommandsPanel or not PM.createSettingsPanel) and retries < 20 do
@@ -1115,7 +1089,6 @@ task.delay(0.5, function()
         retries = retries + 1
     end
     
-    print("[Prism Commands] Starting panel population task...")
     -- Load saved auto exec states first
     if PM.loadAutoExecStates then PM.loadAutoExecStates() end
     
@@ -1128,11 +1101,9 @@ task.delay(0.5, function()
     end
     
     -- Populate the panels
-    print("[Prism Commands] Panels created, populating...")
     PM.populateCommandsPanel()
     PM.populateAutoExecPanel()
     if PM.createTerminalOutput then PM.createTerminalOutput() end
-    print("[Prism Commands] Populate complete!")
     
     if PM.UI.AutoExecSearch then
         PM.UI.AutoExecSearch:GetPropertyChangedSignal("Text"):Connect(function()
@@ -1142,13 +1113,6 @@ task.delay(0.5, function()
     
     -- Execute auto exec commands after everything is loaded
     PM.executeAutoExecCommands()
-    
-    print("[Prism Commands] ===== INIT COMPLETE in " .. string.format("%.2f", tick() - loadStart) .. "s =====")
 end)
 
 return PM.Commands
-end)
-
-if not ok then
-    print("[Prism Commands] CRITICAL ERROR: " .. tostring(err))
-end

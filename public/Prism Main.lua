@@ -710,11 +710,7 @@ PM.createMainGUI = function()
     end
 
     PM.createCommandsPanel = function()
-        print("[Prism Main] createCommandsPanel called")
-        if PM.UI.CommandsPanel then 
-            print("[Prism Main] CommandsPanel already exists")
-            return 
-        end
+        if PM.UI.CommandsPanel then return end
         
         PM.UI.CommandsPanel = PM.mk("Frame", PM.UI.Gui, {
             Name = "CommandsPanel",
@@ -808,7 +804,6 @@ PM.createMainGUI = function()
         end)
         
         PM.UI.CommandButtons = {}
-        print("[Prism Main] CommandsPanel created with CommandsScroll")
         
         PM.UI.CommandsSearch:GetPropertyChangedSignal("Text"):Connect(function()
             local search = PM.UI.CommandsSearch.Text:lower()
@@ -1478,26 +1473,9 @@ PM.createMainGUI = function()
                     return {}
                 end
                 
-                -- Debug: print what we received
-                print("[Prism Join] Raw result.Body:", result.Body)
-                print("[Prism Join] Got data keys:")
-                for k, v in pairs(data) do
-                    print("  Key:", k, "Type:", type(v))
-                end
-                
                 -- API returns { servers: { placeId: { jobId: { userId: data } } } }
                 -- Unwrap the servers key if present
                 local serversData = data.servers or data
-                print("[Prism Join] Using serversData, keys:")
-                for k, v in pairs(serversData) do
-                    print("  Key:", k, "Type:", type(v))
-                    if type(v) == "table" then
-                        print("    Inner keys:")
-                        for k2, v2 in pairs(v) do
-                            print("      ", k2, type(v2))
-                        end
-                    end
-                end
                 
                 local users = {}
                 local now = os.time()
@@ -1507,26 +1485,14 @@ PM.createMainGUI = function()
                 if currentJoinFilter == "This Game" then
                     -- Data structure: { servers: { placeId: { jobId: { userId: data } } } }
                     local placeData = serversData[tostring(game.PlaceId)] or serversData[game.PlaceId]
-                    print("[Prism Join] Looking for placeId:", game.PlaceId, "found:", placeData ~= nil)
                     if type(placeData) == "table" then
-                        print("[Prism Join] placeData has", #placeData, "entries (using #)")
-                        local count = 0
-                        for k, v in pairs(placeData) do 
-                            count = count + 1 
-                            print("[Prism Join]   placeData key:", k, "type:", type(v))
-                        end
-                        print("[Prism Join] placeData has", count, "entries (counted)")
                         for jobId, jobData in pairs(placeData) do
-                            print("[Prism Join] Processing jobId:", jobId, "type:", type(jobData))
                             if type(jobData) == "table" then
                                 for userIdStr, userInfo in pairs(jobData) do
-                                    print("[Prism Join]   Processing userId:", userIdStr, "userInfo type:", type(userInfo))
                                     local userId = tonumber(userIdStr)
-                                    print("[Prism Join]     tonumber result:", userId, "LocalPlayer.UserId:", LocalPlayer.UserId)
                                     if userId and userId ~= LocalPlayer.UserId and type(userInfo) == "table" then
                                         local timestamp = tonumber(userInfo.timestamp) or 0
                                         local age = now - timestamp
-                                        print("[Prism Join]     Age:", age, "TTL:", PLAYER_TTL, "username:", userInfo.username)
                                         if age <= PLAYER_TTL then
                                             table.insert(users, {
                                                 userId = userId,
@@ -1537,18 +1503,11 @@ PM.createMainGUI = function()
                                                 jobId = jobId,
                                                 timestamp = userInfo.timestamp
                                             })
-                                            print("[Prism Join]     ADDED user:", userInfo.username)
-                                        else
-                                            print("[Prism Join]     SKIPPED (too old)")
                                         end
-                                    else
-                                        print("[Prism Join]     SKIPPED - userId:", userId, "isLocal:", userId == LocalPlayer.UserId, "isTable:", type(userInfo) == "table")
                                     end
                                 end
                             end
                         end
-                    else
-                        print("[Prism Join] placeData is not a table!")
                     end
                 else
                     for placeIdStr, placeData in pairs(serversData) do
@@ -1580,20 +1539,15 @@ PM.createMainGUI = function()
                 end
                 
                 if currentJoinFilter == "Friends" then
-                    print("[Prism Join] Filtering for friends, total users:", #users)
                     local friendsOnly = {}
                     for _, user in ipairs(users) do
-                        print("[Prism Join] Checking if friends with:", user.userId)
                         local success, isFriend = pcall(function()
                             return LocalPlayer:IsFriendsWith(user.userId)
                         end)
-                        print("[Prism Join]   success:", success, "isFriend:", isFriend)
                         if success and isFriend then
-                            print("[Prism Join]   -> ADDED as friend")
                             table.insert(friendsOnly, user)
                         end
                     end
-                    print("[Prism Join] Friends only count:", #friendsOnly)
                     users = friendsOnly
                 end
                 
@@ -1601,13 +1555,10 @@ PM.createMainGUI = function()
                     return (a.username or ""):lower() < (b.username or ""):lower()
                 end)
                 
-                print("[Prism Join] Found", #users, "users")
-                
                 return users
             end
             
             local function renderUsers(users, searchQuery)
-                print("[Prism Join] Rendering", #users, "users")
                 local scroll = PM.UI.JoinScroll
                 if not scroll then return end
                 
@@ -2996,17 +2947,10 @@ PM.createMainGUI = function()
 end
 
 repeat task.wait() until LP
-print("[Prism Main] LocalPlayer ready, creating MainGUI...")
 
-local ok, err = pcall(PM.createMainGUI)
-if not ok then
-    print("[Prism Main] ERROR creating MainGUI: " .. tostring(err))
-else
-    print("[Prism Main] MainGUI created successfully")
-end
+pcall(PM.createMainGUI)
 
 -- Panel population is handled by Prism Commands.lua after it loads
-print("[Prism Main] Waiting for Prism Commands.lua to load...")
 
 -- Global terminal keybind handler (only opens, never closes like Mono's bar)
 game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
