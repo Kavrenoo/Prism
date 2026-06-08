@@ -120,6 +120,35 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
     end
     local plat = workspace:FindFirstChild("PrismWalkAirPlatform")
     if plat then pcall(function() plat:Destroy() end) end
+    -- Cleanup external GUIs
+    local externalGUIs = {"Prism_SpeedGUI", "Prism_AntiGUI", "Prism_EmotesGUI", "Prism_WOAGUI"}
+    for _, guiName in ipairs(externalGUIs) do
+        local gui = CoreGui:FindFirstChild(guiName)
+        if gui then pcall(function() gui:Destroy() end) end
+        if LP:FindFirstChild("PlayerGui") then
+            gui = LP.PlayerGui:FindFirstChild(guiName)
+            if gui then pcall(function() gui:Destroy() end) end
+        end
+    end
+    -- Cleanup speed
+    if PM.Speed then
+        PM.Speed.walkSpeed = 16
+        PM.Speed.cframeSpeed = 0
+    end
+    -- Cleanup anti
+    if PM.Anti then
+        for name, conn in pairs(PM.Anti.connections) do
+            if conn then pcall(function() conn:Disconnect() end) end
+        end
+        PM.Anti.connections = {}
+        PM.Anti.afk = false
+        PM.Anti.sit = false
+        PM.Anti.fling = false
+        PM.Anti.headsit = false
+        PM.Anti.ragdoll = false
+        PM.Anti.void = false
+        PM.Anti.fakeout = false
+    end
     -- Clear globals
     getgenv().PrismMain = nil
     getgenv().PrismLoaded = false
@@ -138,6 +167,36 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
     end
     local plat = workspace:FindFirstChild("PrismWalkAirPlatform")
     if plat then pcall(function() plat:Destroy() end) end
+    -- Cleanup external GUIs
+    local CoreGui = game:GetService("CoreGui")
+    local externalGUIs = {"Prism_SpeedGUI", "Prism_AntiGUI", "Prism_EmotesGUI", "Prism_WOAGUI"}
+    for _, guiName in ipairs(externalGUIs) do
+        local gui = CoreGui:FindFirstChild(guiName)
+        if gui then pcall(function() gui:Destroy() end) end
+        if LP:FindFirstChild("PlayerGui") then
+            gui = LP.PlayerGui:FindFirstChild(guiName)
+            if gui then pcall(function() gui:Destroy() end) end
+        end
+    end
+    -- Cleanup speed
+    if PM.Speed then
+        PM.Speed.walkSpeed = 16
+        PM.Speed.cframeSpeed = 0
+    end
+    -- Cleanup anti
+    if PM.Anti then
+        for name, conn in pairs(PM.Anti.connections) do
+            if conn then pcall(function() conn:Disconnect() end) end
+        end
+        PM.Anti.connections = {}
+        PM.Anti.afk = false
+        PM.Anti.sit = false
+        PM.Anti.fling = false
+        PM.Anti.headsit = false
+        PM.Anti.ragdoll = false
+        PM.Anti.void = false
+        PM.Anti.fakeout = false
+    end
     getgenv().PrismMain = nil
     getgenv().PrismLoaded = false
     -- Reload from URL
