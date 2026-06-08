@@ -520,7 +520,7 @@ PM.createMainGUI = function()
             else
                 PM.keybindJustChanged = true
                 keybindBtn.Text = "..."
-                keybindBtn.TextColor3 = C.accent
+                keybindBtn.TextColor3 = C.textDim
             end
         end)
         
@@ -532,6 +532,12 @@ PM.createMainGUI = function()
                 PM.terminalKeybind = input.KeyCode.Name
                 keybindBtn.Text = PM.terminalKeybind
                 keybindBtn.TextColor3 = C.textDim
+                -- Regain focus on input after rebinding
+                task.delay(0.05, function()
+                    if PM.UI.TerminalInput then
+                        PM.UI.TerminalInput:CaptureFocus()
+                    end
+                end)
                 -- Save to settings
                 if writefile then
                     pcall(function()
