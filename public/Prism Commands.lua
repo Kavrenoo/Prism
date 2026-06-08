@@ -847,6 +847,346 @@ local function WOA_Create()
     end)
 end
 
+registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airwalk"}, function(args)
+    local CoreGui = game:GetService("CoreGui")
+    local function guiExists(guiName)
+        if CoreGui:FindFirstChild(guiName) then return true end
+        if LP:FindFirstChild("PlayerGui") and LP.PlayerGui:FindFirstChild(guiName) then return true end
+        if get_hidden_gui or gethui then
+            if (get_hidden_gui or gethui)():FindFirstChild(guiName) then return true end
+        end
+        return false
+    end
+    if guiExists("Prism_WOAGUI") then return end
+
+    local success, err = pcall(function()
+        local UserInputService = game:GetService("UserInputService")
+        local RunService = game:GetService("RunService")
+        local TweenService = game:GetService("TweenService")
+
+        local ScreenGui = Instance.new("ScreenGui")
+        ScreenGui.Name = "Prism_WOAGUI"
+        ScreenGui.ResetOnSpawn = false
+        ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        PM.WOA.Gui = ScreenGui
+
+        if syn and syn.protect_gui then
+            syn.protect_gui(ScreenGui)
+            ScreenGui.Parent = CoreGui
+        elseif gethui then
+            ScreenGui.Parent = gethui()
+        else
+            ScreenGui.Parent = CoreGui
+        end
+
+        local MainFrame = Instance.new("Frame")
+        MainFrame.Name = "MainFrame"
+        MainFrame.Size = UDim2.new(0, 239, 0, 130)
+        MainFrame.Position = UDim2.new(0, 1142, 0, 320)
+        MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+        MainFrame.BackgroundTransparency = 0.3
+        MainFrame.BorderSizePixel = 0
+        MainFrame.ClipsDescendants = true
+        MainFrame.Parent = ScreenGui
+
+        local MainCorner = Instance.new("UICorner")
+        MainCorner.CornerRadius = UDim.new(0, 14)
+        MainCorner.Parent = MainFrame
+
+        local MainStroke = Instance.new("UIStroke")
+        MainStroke.Color = Color3.fromRGB(60, 60, 60)
+        MainStroke.Thickness = 1
+        MainStroke.Parent = MainFrame
+
+        local TitleBar = Instance.new("Frame")
+        TitleBar.Name = "TitleBar"
+        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.BackgroundTransparency = 1
+        TitleBar.Parent = MainFrame
+
+        local dragging = false
+        local dragStart = nil
+        local startPos = nil
+
+        TitleBar.InputBegan:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = true
+                dragStart = input.Position
+                startPos = MainFrame.Position
+            end
+        end)
+
+        TitleBar.InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = false
+            end
+        end)
+
+        UserInputService.InputChanged:Connect(function(input)
+            if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                local delta = input.Position - dragStart
+                MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+            end
+        end)
+
+        local TitleLabel = Instance.new("TextLabel")
+        TitleLabel.Name = "Title"
+        TitleLabel.Size = UDim2.new(1, -80, 1, 0)
+        TitleLabel.Position = UDim2.new(0, 14, 0, 0)
+        TitleLabel.BackgroundTransparency = 1
+        TitleLabel.Text = "Prism  •  Walk On Air"
+        TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TitleLabel.TextSize = 13
+        TitleLabel.Font = Enum.Font.GothamBold
+        TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+        TitleLabel.Parent = TitleBar
+
+        local MinBtn = Instance.new("TextButton")
+        MinBtn.Name = "Minimize"
+        MinBtn.Size = UDim2.new(0, 24, 0, 24)
+        MinBtn.Position = UDim2.new(1, -52, 0.5, -12)
+        MinBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        MinBtn.BackgroundTransparency = 0.4
+        MinBtn.BorderSizePixel = 0
+        MinBtn.Text = "—"
+        MinBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        MinBtn.TextSize = 11
+        MinBtn.Font = Enum.Font.GothamBold
+        MinBtn.Parent = TitleBar
+
+        local MinCorner = Instance.new("UICorner")
+        MinCorner.CornerRadius = UDim.new(0, 6)
+        MinCorner.Parent = MinBtn
+
+        local CloseBtn = Instance.new("TextButton")
+        CloseBtn.Name = "Close"
+        CloseBtn.Size = UDim2.new(0, 24, 0, 24)
+        CloseBtn.Position = UDim2.new(1, -26, 0.5, -12)
+        CloseBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        CloseBtn.BackgroundTransparency = 0.4
+        CloseBtn.BorderSizePixel = 0
+        CloseBtn.Text = "X"
+        CloseBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        CloseBtn.TextSize = 11
+        CloseBtn.Font = Enum.Font.GothamBold
+        CloseBtn.Parent = TitleBar
+
+        local CloseCorner = Instance.new("UICorner")
+        CloseCorner.CornerRadius = UDim.new(0, 6)
+        CloseCorner.Parent = CloseBtn
+
+        CloseBtn.MouseButton1Click:Connect(function()
+            ScreenGui:Destroy()
+            WOA_Destroy()
+            PM.WOA.Gui = nil
+        end)
+
+        local ContentFrame = Instance.new("Frame")
+        ContentFrame.Name = "Content"
+        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.BackgroundTransparency = 1
+        ContentFrame.ClipsDescendants = true
+        ContentFrame.Parent = MainFrame
+
+        local isMinimized = false
+        local originalSize = UDim2.new(0, 239, 0, 130)
+        local minimizedSize = UDim2.new(0, 239, 0, 40)
+        local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+        MinBtn.MouseButton1Click:Connect(function()
+            isMinimized = not isMinimized
+            if isMinimized then
+                MinBtn.Text = "+"
+                local tween = TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize})
+                tween:Play()
+                tween.Completed:Connect(function() ContentFrame.Visible = false end)
+            else
+                MinBtn.Text = "—"
+                ContentFrame.Visible = true
+                TweenService:Create(MainFrame, tweenInfo, {Size = originalSize}):Play()
+            end
+        end)
+
+        local ContentLayout = Instance.new("UIListLayout")
+        ContentLayout.Padding = UDim.new(0, 6)
+        ContentLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        ContentLayout.Parent = ContentFrame
+
+        local ContentPadding = Instance.new("UIPadding")
+        ContentPadding.PaddingTop = UDim.new(0, 4)
+        ContentPadding.PaddingBottom = UDim.new(0, 4)
+        ContentPadding.PaddingLeft = UDim.new(0, 8)
+        ContentPadding.PaddingRight = UDim.new(0, 8)
+        ContentPadding.Parent = ContentFrame
+
+        local ToggleSection = Instance.new("Frame")
+        ToggleSection.Name = "ToggleSection"
+        ToggleSection.Size = UDim2.new(1, 0, 0, 36)
+        ToggleSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        ToggleSection.BackgroundTransparency = 0.4
+        ToggleSection.BorderSizePixel = 0
+        ToggleSection.LayoutOrder = 1
+        ToggleSection.Parent = ContentFrame
+
+        local ToggleSectionCorner = Instance.new("UICorner")
+        ToggleSectionCorner.CornerRadius = UDim.new(0, 10)
+        ToggleSectionCorner.Parent = ToggleSection
+
+        local ToggleLabel = Instance.new("TextLabel")
+        ToggleLabel.Name = "Label"
+        ToggleLabel.Size = UDim2.new(1, -100, 1, 0)
+        ToggleLabel.Position = UDim2.new(0, 12, 0, 0)
+        ToggleLabel.BackgroundTransparency = 1
+        ToggleLabel.Text = "Enable"
+        ToggleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+        ToggleLabel.TextSize = 12
+        ToggleLabel.Font = Enum.Font.Gotham
+        ToggleLabel.TextXAlignment = Enum.TextXAlignment.Left
+        ToggleLabel.Parent = ToggleSection
+
+        local Pill = Instance.new("Frame")
+        Pill.Name = "Pill"
+        Pill.Size = UDim2.new(0, 40, 0, 22)
+        Pill.Position = UDim2.new(1, -52, 0.5, -11)
+        Pill.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        Pill.BorderSizePixel = 0
+        Pill.Parent = ToggleSection
+
+        local PillCorner = Instance.new("UICorner")
+        PillCorner.CornerRadius = UDim.new(0, 11)
+        PillCorner.Parent = Pill
+
+        local Knob = Instance.new("Frame")
+        Knob.Name = "Knob"
+        Knob.Size = UDim2.new(0, 16, 0, 16)
+        Knob.Position = UDim2.new(0, 3, 0.5, -8)
+        Knob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Knob.BorderSizePixel = 0
+        Knob.Parent = Pill
+
+        local KnobCorner = Instance.new("UICorner")
+        KnobCorner.CornerRadius = UDim.new(0, 8)
+        KnobCorner.Parent = Knob
+
+        local PillHit = Instance.new("TextButton")
+        PillHit.Size = UDim2.new(0, 52, 1, 0)
+        PillHit.Position = UDim2.new(1, -56, 0, 0)
+        PillHit.BackgroundTransparency = 1
+        PillHit.Text = ""
+        PillHit.Parent = ToggleSection
+
+        local woaOn = false
+        local function SetWOA(val)
+            woaOn = val
+            ToggleLabel.Text = val and "Disable" or "Enable"
+            local onColor = Color3.fromRGB(100, 40, 140)
+            local offColor = Color3.fromRGB(60, 60, 60)
+            TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = val and onColor or offColor}):Play()
+            TweenService:Create(Knob, TweenInfo.new(0.15), {Position = val and UDim2.new(1, -19, 0.5, -8) or UDim2.new(0, 3, 0.5, -8)}):Play()
+            if val then WOA_Create() else WOA_Destroy() end
+        end
+
+        PillHit.MouseButton1Click:Connect(function() SetWOA(not woaOn) end)
+
+        local BtnSection = Instance.new("Frame")
+        BtnSection.Name = "BtnSection"
+        BtnSection.Size = UDim2.new(1, 0, 0, 36)
+        BtnSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        BtnSection.BackgroundTransparency = 0.4
+        BtnSection.BorderSizePixel = 0
+        BtnSection.LayoutOrder = 2
+        BtnSection.Parent = ContentFrame
+
+        local BtnSectionCorner = Instance.new("UICorner")
+        BtnSectionCorner.CornerRadius = UDim.new(0, 10)
+        BtnSectionCorner.Parent = BtnSection
+
+        local BtnLayout = Instance.new("UIListLayout")
+        BtnLayout.FillDirection = Enum.FillDirection.Horizontal
+        BtnLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+        BtnLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+        BtnLayout.Padding = UDim.new(0, 6)
+        BtnLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        BtnLayout.Parent = BtnSection
+
+        local UpBtn = Instance.new("TextButton")
+        UpBtn.Name = "UpBtn"
+        UpBtn.Size = UDim2.new(0, 62, 0, 24)
+        UpBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        UpBtn.BackgroundTransparency = 0.4
+        UpBtn.BorderSizePixel = 0
+        UpBtn.Text = "▲  Up"
+        UpBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        UpBtn.TextSize = 11
+        UpBtn.Font = Enum.Font.GothamBold
+        UpBtn.LayoutOrder = 1
+        UpBtn.Parent = BtnSection
+
+        local UpBtnCorner = Instance.new("UICorner")
+        UpBtnCorner.CornerRadius = UDim.new(0, 6)
+        UpBtnCorner.Parent = UpBtn
+
+        local ResetBtn = Instance.new("TextButton")
+        ResetBtn.Name = "ResetBtn"
+        ResetBtn.Size = UDim2.new(0, 62, 0, 24)
+        ResetBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        ResetBtn.BackgroundTransparency = 0.4
+        ResetBtn.BorderSizePixel = 0
+        ResetBtn.Text = "Reset"
+        ResetBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        ResetBtn.TextSize = 11
+        ResetBtn.Font = Enum.Font.GothamBold
+        ResetBtn.LayoutOrder = 2
+        ResetBtn.Parent = BtnSection
+
+        local ResetBtnCorner = Instance.new("UICorner")
+        ResetBtnCorner.CornerRadius = UDim.new(0, 6)
+        ResetBtnCorner.Parent = ResetBtn
+
+        local DownBtn = Instance.new("TextButton")
+        DownBtn.Name = "DownBtn"
+        DownBtn.Size = UDim2.new(0, 62, 0, 24)
+        DownBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        DownBtn.BackgroundTransparency = 0.4
+        DownBtn.BorderSizePixel = 0
+        DownBtn.Text = "▼  Down"
+        DownBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        DownBtn.TextSize = 11
+        DownBtn.Font = Enum.Font.GothamBold
+        DownBtn.LayoutOrder = 3
+        DownBtn.Parent = BtnSection
+
+        local DownBtnCorner = Instance.new("UICorner")
+        DownBtnCorner.CornerRadius = UDim.new(0, 6)
+        DownBtnCorner.Parent = DownBtn
+
+        UpBtn.MouseButton1Down:Connect(function() PM.WOA.up = true end)
+        UpBtn.MouseButton1Up:Connect(function() PM.WOA.up = false end)
+        UpBtn.MouseLeave:Connect(function() PM.WOA.up = false end)
+
+        DownBtn.MouseButton1Down:Connect(function() PM.WOA.down = true end)
+        DownBtn.MouseButton1Up:Connect(function() PM.WOA.down = false end)
+        DownBtn.MouseLeave:Connect(function() PM.WOA.down = false end)
+
+        ResetBtn.MouseButton1Click:Connect(function()
+            if PM.WOA.enabled and PM.WOA.startY ~= nil then
+                PM.WOA.baseY = PM.WOA.startY
+            end
+        end)
+
+        ScreenGui.Destroying:Connect(function()
+            WOA_Destroy()
+            local plat = workspace:FindFirstChild("PrismWalkAirPlatform")
+            if plat then pcall(function() plat:Destroy() end) end
+        end)
+    end)
+
+    if not success then
+        warn("[Prism] Failed to load Walk On Air GUI: " .. tostring(err))
+    end
+end, true)
+
 -- ========== COMMANDS PANEL POPULATION ==========
 
 PM.populateCommandsPanel = function()
