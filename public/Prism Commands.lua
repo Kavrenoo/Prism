@@ -1,3 +1,9 @@
+print("[Prism Commands] LINE 1 EXECUTING")
+local ok, err = pcall(function()
+-- Track load time
+local loadStart = tick()
+print("[Prism Commands] ===== SCRIPT START =====")
+
 -- Wait for PrismMain to be initialized by Main.lua
 print("[Prism Commands] Starting, waiting for PrismMain...")
 local PM = getgenv().PrismMain
@@ -9,11 +15,12 @@ if not PM then
         if PM then break end
     end
 end
+local waitTime = tick() - loadStart
 if not PM then 
-    print("[Prism Commands] ERROR: PrismMain not found after 5s, returning")
+    print("[Prism Commands] ERROR: PrismMain not found after " .. string.format("%.2f", waitTime) .. "s, returning")
     return 
 end
-print("[Prism Commands] PrismMain found!")
+print("[Prism Commands] PrismMain found after " .. string.format("%.2f", waitTime) .. "s")
 
 PM.Commands = PM.Commands or {}
 
@@ -286,7 +293,7 @@ local function applyHide(char, savedState)
     return savedState
 end
 
-registerCommand("hide", "Hide a player locally", {}, function(args), true)
+registerCommand("hide", "Hide a player locally", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -330,9 +337,9 @@ registerCommand("hide", "Hide a player locally", {}, function(args), true)
         savedState = applyHide(char, savedState)
     end)
     PM.HiddenPlayers[target.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
-end)
+end, true)
 
-registerCommand("unhide", "Unhide a player", {}, function(args), true)
+registerCommand("unhide", "Unhide a player", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -371,9 +378,9 @@ registerCommand("unhide", "Unhide a player", {}, function(args), true)
     if PM.HiddenPlayers[target.UserId] then
         PM.HiddenPlayers[target.UserId].manuallyUnhidden = true
     end
-end)
+end, true)
 
-registerCommand("hideall", "Hide all other players", {}, function(args), true)
+registerCommand("hideall", "Hide all other players", {}, function(args)
     -- Hide all currently existing players (unless manually unhidden)
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP and not PM.HiddenPlayers[p.UserId] then
@@ -408,9 +415,9 @@ registerCommand("hideall", "Hide all other players", {}, function(args), true)
             end
         end)
     end
-end)
+end, true)
 
-registerCommand("unhideall", "Unhide all players", {}, function(args), true)
+registerCommand("unhideall", "Unhide all players", {}, function(args)
     -- Disconnect the auto-hide connection
     if PM.HideAllPlayerAddedConn then
         pcall(function() PM.HideAllPlayerAddedConn:Disconnect() end)
@@ -441,12 +448,12 @@ registerCommand("unhideall", "Unhide all players", {}, function(args), true)
         end
     end
     PM.HiddenPlayers = {}
-end)
+end, true)
 
 -- Muted players tracking table
 PM.MutedPlayers = {}
 
-registerCommand("mute", "Mute a player's voice chat", {}, function(args), true)
+registerCommand("mute", "Mute a player's voice chat", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -476,9 +483,9 @@ registerCommand("mute", "Mute a player's voice chat", {}, function(args), true)
             PM.MutedPlayers[target.UserId] = adi
         end
     end
-end)
+end, true)
 
-registerCommand("unmute", "Unmute a player's voice chat", {}, function(args), true)
+registerCommand("unmute", "Unmute a player's voice chat", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -511,9 +518,9 @@ registerCommand("unmute", "Unmute a player's voice chat", {}, function(args), tr
             PM.MutedPlayers[target.UserId].manuallyUnmuted = true
         end
     end
-end)
+end, true)
 
-registerCommand("muteall", "Mute all other players", {}, function(args), true)
+registerCommand("muteall", "Mute all other players", {}, function(args)
     -- Mute all currently existing players (unless manually unmuted)
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP and not PM.MutedPlayers[p.UserId] then
@@ -555,9 +562,9 @@ registerCommand("muteall", "Mute all other players", {}, function(args), true)
             end
         end)
     end
-end)
+end, true)
 
-registerCommand("unmuteall", "Unmute all players", {}, function(args), true)
+registerCommand("unmuteall", "Unmute all players", {}, function(args)
     -- Disconnect the auto-mute connection
     if PM.MuteAllPlayerAddedConn then
         pcall(function() PM.MuteAllPlayerAddedConn:Disconnect() end)
@@ -575,9 +582,9 @@ registerCommand("unmuteall", "Unmute all players", {}, function(args), true)
         end
     end
     PM.MutedPlayers = {}
-end)
+end, true)
 
-registerCommand("to", "Teleport to player", {}, function(args), true)
+registerCommand("to", "Teleport to player", {}, function(args)
     local targetName = table.concat(args, " ")
     if targetName == "" then return end
     local q = targetName:lower()
@@ -621,7 +628,7 @@ registerCommand("to", "Teleport to player", {}, function(args), true)
             myHRP.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
         end
     end
-end)
+end, true)
 
 registerCommand("tptospawn", "Teleport to spawn", {}, function(args)
     local char = LP.Character
@@ -1100,6 +1107,7 @@ print("[Prism Commands] Total commands registered: " .. tostring(totalCmds))
 
 -- Populate panels after this file loads
 task.delay(0.5, function()
+    print("[Prism Commands] Delayed task starting after " .. string.format("%.2f", tick() - loadStart) .. "s")
     -- Wait for Main.lua to create the UI functions if needed
     local retries = 0
     while (not PM.createCommandsPanel or not PM.createSettingsPanel) and retries < 20 do
@@ -1134,6 +1142,13 @@ task.delay(0.5, function()
     
     -- Execute auto exec commands after everything is loaded
     PM.executeAutoExecCommands()
+    
+    print("[Prism Commands] ===== INIT COMPLETE in " .. string.format("%.2f", tick() - loadStart) .. "s =====")
 end)
 
 return PM.Commands
+end)
+
+if not ok then
+    print("[Prism Commands] CRITICAL ERROR: " .. tostring(err))
+end
