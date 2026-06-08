@@ -3056,6 +3056,7 @@ local function CreateSpeedSlider(name, defaultValue, minValue, maxValue, layoutO
 
     local isDragging = false
     local currentValue = defaultValue
+    local lastSliderClickTime = 0
 
     local function updateSlider(value)
         currentValue = math.clamp(value, minValue, maxValue)
@@ -3090,12 +3091,20 @@ local function CreateSpeedSlider(name, defaultValue, minValue, maxValue, layoutO
 
     SliderBg.InputBegan:Connect(function(input)
         if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-            local sliderPos = SliderBg.AbsolutePosition.X
-            local sliderWidth = SliderBg.AbsoluteSize.X
-            local mouseX = input.Position.X
-            local relativePos = math.clamp((mouseX - sliderPos) / sliderWidth, 0, 1)
-            updateSlider(minValue + relativePos * (maxValue - minValue))
-            isDragging = true
+            local currentTime = tick()
+            if currentTime - lastSliderClickTime < 0.3 then
+                -- Double click - reset to game default
+                updateSlider(gameDefaultValue or defaultValue)
+                isDragging = false
+            else
+                local sliderPos = SliderBg.AbsolutePosition.X
+                local sliderWidth = SliderBg.AbsoluteSize.X
+                local mouseX = input.Position.X
+                local relativePos = math.clamp((mouseX - sliderPos) / sliderWidth, 0, 1)
+                updateSlider(minValue + relativePos * (maxValue - minValue))
+                isDragging = true
+            end
+            lastSliderClickTime = currentTime
         end
     end)
 
@@ -3315,10 +3324,18 @@ registerCommand("speed", "WalkSpeed and CFrame speed", {}, function(args)
         Padding.PaddingRight = UDim.new(0, 8)
         Padding.Parent = ContentFrame
 
-        -- Load saved values
-        local defaultWalkSpeed = PM.Speed.walkSpeed or 16
-        local currentWalkSpeed = defaultWalkSpeed
+        -- Load saved values - get game default from humanoid
         local char = LP.Character
+        local gameDefaultWalkSpeed = 16
+        if char then
+            local humanoid = char:FindFirstChildOfClass("Humanoid")
+            if humanoid then
+                gameDefaultWalkSpeed = humanoid.WalkSpeed
+            end
+        end
+
+        local defaultWalkSpeed = PM.Speed.walkSpeed or gameDefaultWalkSpeed
+        local currentWalkSpeed = defaultWalkSpeed
         if char then
             local humanoid = char:FindFirstChildOfClass("Humanoid")
             if humanoid then
@@ -3346,7 +3363,7 @@ registerCommand("speed", "WalkSpeed and CFrame speed", {}, function(args)
             end
             startWSLoop(value)
             PM.Speed.walkSpeed = math.floor(value + 0.5)
-        end, 16, ContentFrame, UserInputService)
+        end, gameDefaultWalkSpeed, ContentFrame, UserInputService)
         startWSLoop(currentWalkSpeed)
 
         -- Create CFrame Speed Slider
@@ -3358,6 +3375,7 @@ registerCommand("speed", "WalkSpeed and CFrame speed", {}, function(args)
             cframeSpeed = value
             PM.Speed.cframeSpeed = math.floor(value + 0.5)
         end, 0, ContentFrame, UserInputService)
+        -- (0 is game default for CFrame speed - no movement)
 
         -- CFrame movement loop
         local function StartCFrameMovement()
