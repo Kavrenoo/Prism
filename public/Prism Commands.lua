@@ -71,7 +71,7 @@ end
 
 -- ========== BUILT-IN COMMANDS ==========
 
-registerCommand("destroy", "Destroy Prism UI and cleanup", {}, function(args)
+registerCommand("destroy", "Destroy Prism", {}, function(args)
     -- Clean up existing UI
     if PM.UI.Gui then
         pcall(function() PM.UI.Gui:Destroy() end)
@@ -297,7 +297,7 @@ local function applyHide(char, savedState)
     return savedState
 end
 
-registerCommand("hide", "Hide a player locally", {}, function(args)
+registerCommand("hide", "Hide a player", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -457,7 +457,7 @@ end, true)
 -- Muted players tracking table
 PM.MutedPlayers = {}
 
-registerCommand("mute", "Mute a player's voice chat", {}, function(args)
+registerCommand("mute", "Mute a player's microphone", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -489,7 +489,7 @@ registerCommand("mute", "Mute a player's voice chat", {}, function(args)
     end
 end, true)
 
-registerCommand("unmute", "Unmute a player's voice chat", {}, function(args)
+registerCommand("unmute", "Unmute a player's microphone", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -1922,7 +1922,7 @@ local function SaveEmotesFavorites()
     end)
 end
 
-registerCommand("emotes", "Emotes GUI with favorites", {}, function(args)
+registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
     local CoreGui = game:GetService("CoreGui")
     local UserInputService = game:GetService("UserInputService")
     local RunService = game:GetService("RunService")
@@ -2935,6 +2935,482 @@ task.delay(0.5, function()
     
     -- Execute auto exec commands after everything is loaded
     PM.executeAutoExecCommands()
+end)
+
+-- Speed state management
+PM.Speed = {
+    walkSpeed = 16,
+    cframeSpeed = 0
+}
+
+-- Helper function to create slider section
+local function CreateSpeedSlider(name, defaultValue, minValue, maxValue, layoutOrder, callback, gameDefaultValue, parentFrame)
+    local Section = Instance.new("Frame")
+    Section.Name = name .. "Section"
+    Section.Size = UDim2.new(1, 0, 0, 52)
+    Section.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    Section.BackgroundTransparency = 0.4
+    Section.BorderSizePixel = 0
+    Section.LayoutOrder = layoutOrder
+    Section.Parent = parentFrame
+
+    local SectionCorner = Instance.new("UICorner")
+    SectionCorner.CornerRadius = UDim.new(0, 10)
+    SectionCorner.Parent = Section
+
+    local SectionPadding = Instance.new("UIPadding")
+    SectionPadding.PaddingTop = UDim.new(0, 5)
+    SectionPadding.PaddingBottom = UDim.new(0, 5)
+    SectionPadding.Parent = Section
+
+    local InnerList = Instance.new("UIListLayout")
+    InnerList.Padding = UDim.new(0, 2)
+    InnerList.SortOrder = Enum.SortOrder.LayoutOrder
+    InnerList.Parent = Section
+
+    local LabelRow = Instance.new("Frame")
+    LabelRow.Name = "LabelRow"
+    LabelRow.Size = UDim2.new(1, 0, 0, 20)
+    LabelRow.BackgroundTransparency = 1
+    LabelRow.LayoutOrder = 1
+    LabelRow.Parent = Section
+
+    local LabelPadding = Instance.new("UIPadding")
+    LabelPadding.PaddingLeft = UDim.new(0, 12)
+    LabelPadding.PaddingRight = UDim.new(0, 12)
+    LabelPadding.Parent = LabelRow
+
+    local NameLabel = Instance.new("TextLabel")
+    NameLabel.Name = "Name"
+    NameLabel.Size = UDim2.new(1, -60, 1, 0)
+    NameLabel.BackgroundTransparency = 1
+    NameLabel.Text = name
+    NameLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+    NameLabel.TextSize = 12
+    NameLabel.Font = Enum.Font.Gotham
+    NameLabel.TextXAlignment = Enum.TextXAlignment.Left
+    NameLabel.Parent = LabelRow
+
+    local ValueLabel = Instance.new("TextLabel")
+    ValueLabel.Name = "Value"
+    ValueLabel.Size = UDim2.new(0, 55, 1, 0)
+    ValueLabel.Position = UDim2.new(1, -55, 0, 0)
+    ValueLabel.BackgroundTransparency = 1
+    ValueLabel.Text = tostring(math.floor(defaultValue + 0.5))
+    ValueLabel.TextColor3 = Color3.fromRGB(160, 160, 160)
+    ValueLabel.TextSize = 11
+    ValueLabel.Font = Enum.Font.Gotham
+    ValueLabel.TextXAlignment = Enum.TextXAlignment.Right
+    ValueLabel.Parent = LabelRow
+
+    local SliderRow = Instance.new("Frame")
+    SliderRow.Name = "SliderRow"
+    SliderRow.Size = UDim2.new(1, 0, 0, 18)
+    SliderRow.BackgroundTransparency = 1
+    SliderRow.LayoutOrder = 2
+    SliderRow.Parent = Section
+
+    local SliderPadding = Instance.new("UIPadding")
+    SliderPadding.PaddingLeft = UDim.new(0, 12)
+    SliderPadding.PaddingRight = UDim.new(0, 12)
+    SliderPadding.Parent = SliderRow
+
+    local SliderBg = Instance.new("Frame")
+    SliderBg.Name = "SliderBg"
+    SliderBg.Size = UDim2.new(1, 0, 0, 6)
+    SliderBg.Position = UDim2.new(0, 0, 0.5, -3)
+    SliderBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+    SliderBg.BorderSizePixel = 0
+    SliderBg.Active = true
+    SliderBg.Parent = SliderRow
+
+    local TrackCorner = Instance.new("UICorner")
+    TrackCorner.CornerRadius = UDim.new(0, 3)
+    TrackCorner.Parent = SliderBg
+
+    local SliderFill = Instance.new("Frame")
+    SliderFill.Name = "Fill"
+    local initialScale = (defaultValue - minValue) / (maxValue - minValue)
+    SliderFill.Size = UDim2.new(initialScale, 0, 1, 0)
+    SliderFill.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+    SliderFill.BorderSizePixel = 0
+    SliderFill.Parent = SliderBg
+
+    local FillCorner = Instance.new("UICorner")
+    FillCorner.CornerRadius = UDim.new(0, 3)
+    FillCorner.Parent = SliderFill
+
+    local SliderKnob = Instance.new("Frame")
+    SliderKnob.Name = "Knob"
+    SliderKnob.Size = UDim2.new(0, 14, 0, 14)
+    SliderKnob.Position = UDim2.new(initialScale, 0, 0.5, 0)
+    SliderKnob.AnchorPoint = Vector2.new(0.5, 0.5)
+    SliderKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+    SliderKnob.BorderSizePixel = 0
+    SliderKnob.ZIndex = 3
+    SliderKnob.Parent = SliderBg
+
+    local KnobCorner = Instance.new("UICorner")
+    KnobCorner.CornerRadius = UDim.new(0, 7)
+    KnobCorner.Parent = SliderKnob
+
+    local isDragging = false
+    local currentValue = defaultValue
+
+    local function updateSlider(value)
+        currentValue = math.clamp(value, minValue, maxValue)
+        local scale = (currentValue - minValue) / (maxValue - minValue)
+        SliderFill.Size = UDim2.new(scale, 0, 1, 0)
+        SliderKnob.Position = UDim2.new(scale, 0, 0.5, 0)
+        ValueLabel.Text = tostring(math.floor(currentValue + 0.5))
+        callback(currentValue)
+    end
+
+    SliderKnob.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            isDragging = true
+        end
+    end)
+
+    UserInputService.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            isDragging = false
+        end
+    end)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if isDragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+            local sliderPos = SliderBg.AbsolutePosition.X
+            local sliderWidth = SliderBg.AbsoluteSize.X
+            local mouseX = input.Position.X
+            local relativePos = math.clamp((mouseX - sliderPos) / sliderWidth, 0, 1)
+            updateSlider(minValue + relativePos * (maxValue - minValue))
+        end
+    end)
+
+    SliderBg.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            local sliderPos = SliderBg.AbsolutePosition.X
+            local sliderWidth = SliderBg.AbsoluteSize.X
+            local mouseX = input.Position.X
+            local relativePos = math.clamp((mouseX - sliderPos) / sliderWidth, 0, 1)
+            updateSlider(minValue + relativePos * (maxValue - minValue))
+            isDragging = true
+        end
+    end)
+
+    return {
+        Update = updateSlider,
+        GetValue = function() return currentValue end
+    }
+end
+
+registerCommand("speed", "WalkSpeed and CFrame speed GUI", {}, function(args)
+    local CoreGui = game:GetService("CoreGui")
+    local UserInputService = game:GetService("UserInputService")
+    local RunService = game:GetService("RunService")
+    local TweenService = game:GetService("TweenService")
+    local Players = game:GetService("Players")
+    local LP = Players.LocalPlayer
+
+    local function guiExists(guiName)
+        if CoreGui:FindFirstChild(guiName) then return true end
+        if LP:FindFirstChild("PlayerGui") and LP.PlayerGui:FindFirstChild(guiName) then return true end
+        if get_hidden_gui or gethui then
+            if (get_hidden_gui or gethui)():FindFirstChild(guiName) then return true end
+        end
+        return false
+    end
+    if guiExists("Prism_SpeedGUI") then return end
+
+    local success, err = pcall(function()
+        -- Load saved settings
+        local SPEED_SAVE_FILE = "prism/prism_speed_settings.json"
+        local savedSpeed = {}
+        pcall(function()
+            if readfile and isfile(SPEED_SAVE_FILE) then
+                savedSpeed = game:GetService("HttpService"):JSONDecode(readfile(SPEED_SAVE_FILE))
+            end
+        end)
+        local savedPos = savedSpeed.position or {X = {Scale = 0, Offset = 1142}, Y = {Scale = 0, Offset = 477}}
+        local savedMinimized = savedSpeed.minimized or false
+
+        local currentSpeedSettings = {
+            position = savedPos,
+            minimized = savedMinimized
+        }
+
+        local function SaveSpeedSettings()
+            pcall(function()
+                if writefile then
+                    if makefolder and not isfolder("prism") then makefolder("prism") end
+                    writefile(SPEED_SAVE_FILE, game:GetService("HttpService"):JSONEncode(currentSpeedSettings))
+                end
+            end)
+        end
+
+        local ScreenGui = Instance.new("ScreenGui")
+        ScreenGui.Name = "Prism_SpeedGUI"
+        ScreenGui.ResetOnSpawn = false
+        ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+        if syn and syn.protect_gui then
+            syn.protect_gui(ScreenGui)
+            ScreenGui.Parent = CoreGui
+        elseif gethui then
+            ScreenGui.Parent = gethui()
+        else
+            ScreenGui.Parent = CoreGui
+        end
+
+        local MainFrame = Instance.new("Frame")
+        MainFrame.Name = "MainFrame"
+        MainFrame.Size = UDim2.new(0, 239, 0, 171)
+        MainFrame.Position = UDim2.new(savedPos.X.Scale, savedPos.X.Offset, savedPos.Y.Scale, savedPos.Y.Offset)
+        MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+        MainFrame.BackgroundTransparency = 0.3
+        MainFrame.BorderSizePixel = 0
+        MainFrame.ClipsDescendants = true
+        MainFrame.Parent = ScreenGui
+
+        local MainCorner = Instance.new("UICorner")
+        MainCorner.CornerRadius = UDim.new(0, 14)
+        MainCorner.Parent = MainFrame
+
+        local MainStroke = Instance.new("UIStroke")
+        MainStroke.Color = Color3.fromRGB(60, 60, 60)
+        MainStroke.Thickness = 1
+        MainStroke.Parent = MainFrame
+
+        local TitleBar = Instance.new("Frame")
+        TitleBar.Name = "TitleBar"
+        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.BackgroundTransparency = 1
+        TitleBar.Parent = MainFrame
+
+        local dragging = false
+        local dragStart = nil
+        local startPos = nil
+
+        TitleBar.InputBegan:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = true
+                dragStart = input.Position
+                startPos = MainFrame.Position
+            end
+        end)
+
+        TitleBar.InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = false
+                currentSpeedSettings.position = {
+                    X = {Scale = MainFrame.Position.X.Scale, Offset = MainFrame.Position.X.Offset},
+                    Y = {Scale = MainFrame.Position.Y.Scale, Offset = MainFrame.Position.Y.Offset}
+                }
+                SaveSpeedSettings()
+            end
+        end)
+
+        UserInputService.InputChanged:Connect(function(input)
+            if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                local delta = input.Position - dragStart
+                MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+            end
+        end)
+
+        local TitleLabel = Instance.new("TextLabel")
+        TitleLabel.Name = "Title"
+        TitleLabel.Size = UDim2.new(1, -80, 1, 0)
+        TitleLabel.Position = UDim2.new(0, 14, 0, 0)
+        TitleLabel.BackgroundTransparency = 1
+        TitleLabel.Text = "Prism  •  Speed"
+        TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TitleLabel.TextSize = 13
+        TitleLabel.Font = Enum.Font.GothamBold
+        TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+        TitleLabel.Parent = TitleBar
+
+        local MinBtn = Instance.new("TextButton")
+        MinBtn.Name = "Minimize"
+        MinBtn.Size = UDim2.new(0, 24, 0, 24)
+        MinBtn.Position = UDim2.new(1, -52, 0.5, -12)
+        MinBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        MinBtn.BackgroundTransparency = 0.4
+        MinBtn.BorderSizePixel = 0
+        MinBtn.Text = "—"
+        MinBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        MinBtn.TextSize = 11
+        MinBtn.Font = Enum.Font.GothamBold
+        MinBtn.Parent = TitleBar
+
+        local MinCorner = Instance.new("UICorner")
+        MinCorner.CornerRadius = UDim.new(0, 6)
+        MinCorner.Parent = MinBtn
+
+        local CloseBtn = Instance.new("TextButton")
+        CloseBtn.Name = "Close"
+        CloseBtn.Size = UDim2.new(0, 24, 0, 24)
+        CloseBtn.Position = UDim2.new(1, -26, 0.5, -12)
+        CloseBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        CloseBtn.BackgroundTransparency = 0.4
+        CloseBtn.BorderSizePixel = 0
+        CloseBtn.Text = "X"
+        CloseBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        CloseBtn.TextSize = 11
+        CloseBtn.Font = Enum.Font.GothamBold
+        CloseBtn.Parent = TitleBar
+
+        local CloseCorner = Instance.new("UICorner")
+        CloseCorner.CornerRadius = UDim.new(0, 6)
+        CloseCorner.Parent = CloseBtn
+
+        CloseBtn.MouseButton1Click:Connect(function()
+            ScreenGui:Destroy()
+        end)
+
+        local ContentFrame = Instance.new("Frame")
+        ContentFrame.Name = "Content"
+        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.BackgroundTransparency = 1
+        ContentFrame.ClipsDescendants = true
+        ContentFrame.Parent = MainFrame
+
+        local isMinimized = savedMinimized
+        local originalSize = UDim2.new(0, 239, 0, 171)
+        local minimizedSize = UDim2.new(0, 239, 0, 40)
+        local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+        if isMinimized then
+            MinBtn.Text = "+"
+            MainFrame.Size = minimizedSize
+            ContentFrame.Visible = false
+        end
+
+        MinBtn.MouseButton1Click:Connect(function()
+            isMinimized = not isMinimized
+            currentSpeedSettings.minimized = isMinimized
+            SaveSpeedSettings()
+            if isMinimized then
+                MinBtn.Text = "+"
+                local tween = TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize})
+                tween:Play()
+                tween.Completed:Connect(function() ContentFrame.Visible = false end)
+            else
+                MinBtn.Text = "—"
+                ContentFrame.Visible = true
+                TweenService:Create(MainFrame, tweenInfo, {Size = originalSize}):Play()
+            end
+        end)
+
+        local ListLayout = Instance.new("UIListLayout")
+        ListLayout.Padding = UDim.new(0, 6)
+        ListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        ListLayout.Parent = ContentFrame
+
+        local Padding = Instance.new("UIPadding")
+        Padding.PaddingTop = UDim.new(0, 4)
+        Padding.PaddingBottom = UDim.new(0, 4)
+        Padding.PaddingLeft = UDim.new(0, 8)
+        Padding.PaddingRight = UDim.new(0, 8)
+        Padding.Parent = ContentFrame
+
+        -- Load saved values
+        local defaultWalkSpeed = PM.Speed.walkSpeed or 16
+        local currentWalkSpeed = defaultWalkSpeed
+        local char = LP.Character
+        if char then
+            local humanoid = char:FindFirstChildOfClass("Humanoid")
+            if humanoid then
+                humanoid.WalkSpeed = currentWalkSpeed
+            end
+        end
+
+        -- Create WalkSpeed Slider
+        local wsLoopConn = nil
+        local function startWSLoop(value)
+            if wsLoopConn then wsLoopConn:Disconnect(); wsLoopConn = nil end
+            if value <= 0 then return end
+            wsLoopConn = RunService.Heartbeat:Connect(function()
+                local c = LP.Character
+                local h = c and c:FindFirstChildOfClass("Humanoid")
+                if h and h.WalkSpeed ~= value then h.WalkSpeed = value end
+            end)
+        end
+
+        local walkSpeedSlider = CreateSpeedSlider("Walkspeed", currentWalkSpeed, 0, 500, 1, function(value)
+            local char = LP.Character
+            if char then
+                local humanoid = char:FindFirstChildOfClass("Humanoid")
+                if humanoid then humanoid.WalkSpeed = value end
+            end
+            startWSLoop(value)
+            PM.Speed.walkSpeed = math.floor(value + 0.5)
+        end, 16, ContentFrame)
+        startWSLoop(currentWalkSpeed)
+
+        -- Create CFrame Speed Slider
+        local defaultCFrameSpeed = PM.Speed.cframeSpeed or 0
+        local cframeSpeed = defaultCFrameSpeed
+        local cframeConnection = nil
+
+        local cframeSlider = CreateSpeedSlider("CFrame Speed", defaultCFrameSpeed, 0, 100, 2, function(value)
+            cframeSpeed = value
+            PM.Speed.cframeSpeed = math.floor(value + 0.5)
+        end, 0, ContentFrame)
+
+        -- CFrame movement loop
+        local function StartCFrameMovement()
+            if cframeConnection then cframeConnection:Disconnect() end
+            cframeConnection = RunService.Heartbeat:Connect(function()
+                if cframeSpeed > 0 then
+                    local char = LP.Character
+                    if char then
+                        local hrp = char:FindFirstChild("HumanoidRootPart")
+                        if hrp then
+                            local moveDirection = Vector3.new(0, 0, 0)
+                            local humanoid = char:FindFirstChildOfClass("Humanoid")
+                            if humanoid then
+                                moveDirection = humanoid.MoveDirection
+                            end
+                            if moveDirection.Magnitude > 0 then
+                                hrp.CFrame = hrp.CFrame + (moveDirection * cframeSpeed * 0.01)
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+
+        StartCFrameMovement()
+
+        -- Reconnect on character added
+        LP.CharacterAdded:Connect(function()
+            task.wait(0.5)
+            local char = LP.Character
+            if char then
+                local humanoid = char:FindFirstChildOfClass("Humanoid")
+                if humanoid then humanoid.WalkSpeed = walkSpeedSlider.GetValue() end
+            end
+            startWSLoop(walkSpeedSlider.GetValue())
+            StartCFrameMovement()
+        end)
+
+        -- Cleanup on GUI destroy
+        ScreenGui.Destroying:Connect(function()
+            if wsLoopConn then wsLoopConn:Disconnect(); wsLoopConn = nil end
+            if cframeConnection then cframeConnection:Disconnect() end
+            local c = LP.Character
+            if c then
+                local h = c:FindFirstChildOfClass("Humanoid")
+                if h then h.WalkSpeed = 16 end
+            end
+        end)
+    end)
+
+    if not success then
+        -- Silent fail
+    end
 end)
 
 return PM.Commands
