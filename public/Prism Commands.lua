@@ -882,7 +882,7 @@ local function WOASaveDebounced(settings)
     end)
 end
 
-registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airwalk"}, function(args)
+registerCommand("walkonair", "Walk on invisible platform with height control", {}, function(args)
     local CoreGui = game:GetService("CoreGui")
     local function guiExists(guiName)
         if CoreGui:FindFirstChild(guiName) then return true end
@@ -1279,7 +1279,7 @@ PM.Anti = {
     connections = {}
 }
 
-registerCommand("antiall", "Anti features GUI (AFK, fling, etc)", {"anti"}, function(args)
+registerCommand("antiall", "Anti Everything", {}, function(args)
     local CoreGui = game:GetService("CoreGui")
     local UserInputService = game:GetService("UserInputService")
     local RunService = game:GetService("RunService")
@@ -1313,10 +1313,35 @@ registerCommand("antiall", "Anti features GUI (AFK, fling, etc)", {"anti"}, func
             ScreenGui.Parent = CoreGui
         end
 
+        -- Load saved settings
+        local ANTI_SAVE_FILE = "prism/prism_anti_settings.json"
+        local savedAntiSettings = {}
+        pcall(function()
+            if readfile and isfile(ANTI_SAVE_FILE) then
+                savedAntiSettings = game:GetService("HttpService"):JSONDecode(readfile(ANTI_SAVE_FILE))
+            end
+        end)
+        local savedPos = savedAntiSettings.position or {X = {Scale = 0, Offset = 1142}, Y = {Scale = 0, Offset = 160}}
+        local savedMinimized = savedAntiSettings.minimized or false
+
+        local currentAntiSettings = {
+            position = savedPos,
+            minimized = savedMinimized
+        }
+
+        local function SaveAntiSettings()
+            pcall(function()
+                if writefile then
+                    if makefolder and not isfolder("prism") then makefolder("prism") end
+                    writefile(ANTI_SAVE_FILE, game:GetService("HttpService"):JSONEncode(currentAntiSettings))
+                end
+            end)
+        end
+
         local MainFrame = Instance.new("Frame")
         MainFrame.Name = "MainFrame"
-        MainFrame.Size = UDim2.new(0, 220, 0, 320)
-        MainFrame.Position = UDim2.new(0, 1142, 0, 160)
+        MainFrame.Size = UDim2.new(0, 260, 0, 315)
+        MainFrame.Position = UDim2.new(savedPos.X.Scale, savedPos.X.Offset, savedPos.Y.Scale, savedPos.Y.Offset)
         MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
         MainFrame.BackgroundTransparency = 0.3
         MainFrame.BorderSizePixel = 0
@@ -1353,6 +1378,12 @@ registerCommand("antiall", "Anti features GUI (AFK, fling, etc)", {"anti"}, func
         TitleBar.InputEnded:Connect(function(input)
             if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                 dragging = false
+                -- Save position
+                currentAntiSettings.position = {
+                    X = {Scale = MainFrame.Position.X.Scale, Offset = MainFrame.Position.X.Offset},
+                    Y = {Scale = MainFrame.Position.Y.Scale, Offset = MainFrame.Position.Y.Offset}
+                }
+                SaveAntiSettings()
             end
         end)
 
@@ -1421,13 +1452,22 @@ registerCommand("antiall", "Anti features GUI (AFK, fling, etc)", {"anti"}, func
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
 
-        local isMinimized = false
-        local originalSize = UDim2.new(0, 220, 0, 320)
-        local minimizedSize = UDim2.new(0, 220, 0, 40)
+        local isMinimized = savedMinimized
+        local originalSize = UDim2.new(0, 260, 0, 315)
+        local minimizedSize = UDim2.new(0, 260, 0, 40)
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+        -- Apply saved minimized state
+        if isMinimized then
+            MinBtn.Text = "+"
+            MainFrame.Size = minimizedSize
+            ContentFrame.Visible = false
+        end
 
         MinBtn.MouseButton1Click:Connect(function()
             isMinimized = not isMinimized
+            currentAntiSettings.minimized = isMinimized
+            SaveAntiSettings()
             if isMinimized then
                 MinBtn.Text = "+"
                 local tween = TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize})
@@ -1848,6 +1888,703 @@ registerCommand("antiall", "Anti features GUI (AFK, fling, etc)", {"anti"}, func
         end)
     end)
 
+end)
+
+-- Emotes state management
+PM.Emotes = {
+    speed = 1.0,
+    favorites = {}
+}
+
+-- Load emotes favorites
+local EMOTES_FAVORITES_FILE = "prism/prism_emotes_favorites.json"
+local function LoadEmotesFavorites()
+    if not readfile then return end
+    pcall(function()
+        if isfile(EMOTES_FAVORITES_FILE) then
+            local content = readfile(EMOTES_FAVORITES_FILE)
+            if content and content ~= "" then
+                local data = game:GetService("HttpService"):JSONDecode(content)
+                if data and type(data) == "table" then
+                    PM.Emotes.favorites = data
+                end
+            end
+        end
+    end)
+end
+LoadEmotesFavorites()
+
+local function SaveEmotesFavorites()
+    if not writefile then return end
+    pcall(function()
+        if makefolder and not isfolder("prism") then makefolder("prism") end
+        writefile(EMOTES_FAVORITES_FILE, game:GetService("HttpService"):JSONEncode(PM.Emotes.favorites))
+    end)
+end
+
+registerCommand("emotes", "Emotes GUI with favorites", {}, function(args)
+    local CoreGui = game:GetService("CoreGui")
+    local UserInputService = game:GetService("UserInputService")
+    local RunService = game:GetService("RunService")
+    local TweenService = game:GetService("TweenService")
+    local HttpService = game:GetService("HttpService")
+    local Players = game:GetService("Players")
+    local LocalPlayer = Players.LocalPlayer
+
+    local function guiExists(guiName)
+        if CoreGui:FindFirstChild(guiName) then return true end
+        if LP:FindFirstChild("PlayerGui") and LP.PlayerGui:FindFirstChild(guiName) then return true end
+        if get_hidden_gui or gethui then
+            if (get_hidden_gui or gethui)():FindFirstChild(guiName) then return true end
+        end
+        return false
+    end
+    if guiExists("Prism_EmotesGUI") then return end
+
+    local success, err = pcall(function()
+        -- Load emote data
+        local emotesData = {}
+        local jsonUrl = "https://raw.githubusercontent.com/Kavreno/Emote-Sniper/refs/heads/main/EmoteSniper.json"
+        local httpSuccess, jsonContent = pcall(function()
+            return game:HttpGet(jsonUrl)
+        end)
+        if httpSuccess and jsonContent and jsonContent ~= "" then
+            local decoded = HttpService:JSONDecode(jsonContent)
+            if decoded and decoded.data then
+                emotesData = decoded.data
+            end
+        end
+
+        local ScreenGui = Instance.new("ScreenGui")
+        ScreenGui.Name = "Prism_EmotesGUI"
+        ScreenGui.ResetOnSpawn = false
+        ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 999
+
+        if syn and syn.protect_gui then
+            syn.protect_gui(ScreenGui)
+            ScreenGui.Parent = CoreGui
+        elseif gethui then
+            ScreenGui.Parent = gethui()
+        else
+            ScreenGui.Parent = CoreGui
+        end
+
+        -- Load saved settings
+        local EMOTES_SAVE_FILE = "prism/prism_emotes_gui_settings.json"
+        local savedEmotesGUI = {}
+        pcall(function()
+            if readfile and isfile(EMOTES_SAVE_FILE) then
+                savedEmotesGUI = game:GetService("HttpService"):JSONDecode(readfile(EMOTES_SAVE_FILE))
+            end
+        end)
+        local savedPos = savedEmotesGUI.position or {X = {Scale = 0, Offset = 1142}, Y = {Scale = 0, Offset = 500}}
+        local savedMinimized = savedEmotesGUI.minimized or false
+
+        local currentEmotesSettings = {
+            position = savedPos,
+            minimized = savedMinimized
+        }
+
+        local function SaveEmotesGUISettings()
+            pcall(function()
+                if writefile then
+                    if makefolder and not isfolder("prism") then makefolder("prism") end
+                    writefile(EMOTES_SAVE_FILE, game:GetService("HttpService"):JSONEncode(currentEmotesSettings))
+                end
+            end)
+        end
+
+        local MainFrame = Instance.new("Frame")
+        MainFrame.Name = "MainFrame"
+        MainFrame.Size = UDim2.new(0, 260, 0, 360)
+        MainFrame.Position = UDim2.new(savedPos.X.Scale, savedPos.X.Offset, savedPos.Y.Scale, savedPos.Y.Offset)
+        MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+        MainFrame.BackgroundTransparency = 0.3
+        MainFrame.BorderSizePixel = 0
+        MainFrame.ClipsDescendants = true
+        MainFrame.Parent = ScreenGui
+
+        local MainCorner = Instance.new("UICorner")
+        MainCorner.CornerRadius = UDim.new(0, 14)
+        MainCorner.Parent = MainFrame
+
+        local MainStroke = Instance.new("UIStroke")
+        MainStroke.Color = Color3.fromRGB(60, 60, 60)
+        MainStroke.Thickness = 1
+        MainStroke.Parent = MainFrame
+
+        local TitleBar = Instance.new("Frame")
+        TitleBar.Name = "TitleBar"
+        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.BackgroundTransparency = 1
+        TitleBar.Parent = MainFrame
+
+        local dragging = false
+        local dragStart = nil
+        local startPos = nil
+
+        TitleBar.InputBegan:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = true
+                dragStart = input.Position
+                startPos = MainFrame.Position
+            end
+        end)
+
+        TitleBar.InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = false
+                -- Save position
+                currentEmotesSettings.position = {
+                    X = {Scale = MainFrame.Position.X.Scale, Offset = MainFrame.Position.X.Offset},
+                    Y = {Scale = MainFrame.Position.Y.Scale, Offset = MainFrame.Position.Y.Offset}
+                }
+                SaveEmotesGUISettings()
+            end
+        end)
+
+        UserInputService.InputChanged:Connect(function(input)
+            if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                local delta = input.Position - dragStart
+                MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+            end
+        end)
+
+        local TitleLabel = Instance.new("TextLabel")
+        TitleLabel.Name = "Title"
+        TitleLabel.Size = UDim2.new(1, -80, 1, 0)
+        TitleLabel.Position = UDim2.new(0, 14, 0, 0)
+        TitleLabel.BackgroundTransparency = 1
+        TitleLabel.Text = "Prism  •  Emotes"
+        TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TitleLabel.TextSize = 13
+        TitleLabel.Font = Enum.Font.GothamBold
+        TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+        TitleLabel.Parent = TitleBar
+
+        local MinBtn = Instance.new("TextButton")
+        MinBtn.Name = "Minimize"
+        MinBtn.Size = UDim2.new(0, 24, 0, 24)
+        MinBtn.Position = UDim2.new(1, -52, 0.5, -12)
+        MinBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        MinBtn.BackgroundTransparency = 0.4
+        MinBtn.BorderSizePixel = 0
+        MinBtn.Text = "—"
+        MinBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        MinBtn.TextSize = 11
+        MinBtn.Font = Enum.Font.GothamBold
+        MinBtn.Parent = TitleBar
+
+        local MinCorner = Instance.new("UICorner")
+        MinCorner.CornerRadius = UDim.new(0, 6)
+        MinCorner.Parent = MinBtn
+
+        local CloseBtn = Instance.new("TextButton")
+        CloseBtn.Name = "Close"
+        CloseBtn.Size = UDim2.new(0, 24, 0, 24)
+        CloseBtn.Position = UDim2.new(1, -26, 0.5, -12)
+        CloseBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        CloseBtn.BackgroundTransparency = 0.4
+        CloseBtn.BorderSizePixel = 0
+        CloseBtn.Text = "X"
+        CloseBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        CloseBtn.TextSize = 11
+        CloseBtn.Font = Enum.Font.GothamBold
+        CloseBtn.Parent = TitleBar
+
+        local CloseCorner = Instance.new("UICorner")
+        CloseCorner.CornerRadius = UDim.new(0, 6)
+        CloseCorner.Parent = CloseBtn
+
+        CloseBtn.MouseButton1Click:Connect(function()
+            ScreenGui:Destroy()
+        end)
+
+        local ContentFrame = Instance.new("Frame")
+        ContentFrame.Name = "Content"
+        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.BackgroundTransparency = 1
+        ContentFrame.ClipsDescendants = true
+        ContentFrame.Parent = MainFrame
+
+        local isMinimized = savedMinimized
+        local originalSize = UDim2.new(0, 260, 0, 360)
+        local minimizedSize = UDim2.new(0, 260, 0, 40)
+        local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+        -- Apply saved minimized state
+        if isMinimized then
+            MinBtn.Text = "+"
+            MainFrame.Size = minimizedSize
+            ContentFrame.Visible = false
+        end
+
+        MinBtn.MouseButton1Click:Connect(function()
+            isMinimized = not isMinimized
+            currentEmotesSettings.minimized = isMinimized
+            SaveEmotesGUISettings()
+            if isMinimized then
+                MinBtn.Text = "+"
+                local tween = TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize})
+                tween:Play()
+                tween.Completed:Connect(function() ContentFrame.Visible = false end)
+            else
+                MinBtn.Text = "—"
+                ContentFrame.Visible = true
+                TweenService:Create(MainFrame, tweenInfo, {Size = originalSize}):Play()
+            end
+        end)
+
+        -- Status Bar
+        local StatusBar = Instance.new("Frame")
+        StatusBar.Name = "StatusBar"
+        StatusBar.Size = UDim2.new(1, -16, 0, 20)
+        StatusBar.Position = UDim2.new(0, 8, 0, 0)
+        StatusBar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        StatusBar.BackgroundTransparency = 0.4
+        StatusBar.BorderSizePixel = 0
+        StatusBar.Parent = ContentFrame
+
+        local StatusCorner = Instance.new("UICorner")
+        StatusCorner.CornerRadius = UDim.new(0, 10)
+        StatusCorner.Parent = StatusBar
+
+        local StatusLabel = Instance.new("TextLabel")
+        StatusLabel.Name = "Status"
+        StatusLabel.Size = UDim2.new(1, -20, 1, 0)
+        StatusLabel.Position = UDim2.new(0, 10, 0, 0)
+        StatusLabel.BackgroundTransparency = 1
+        StatusLabel.Text = "Loaded " .. #emotesData .. " emotes"
+        StatusLabel.TextColor3 = Color3.fromRGB(230, 230, 235)
+        StatusLabel.TextSize = 11
+        StatusLabel.Font = Enum.Font.Gotham
+        StatusLabel.TextXAlignment = Enum.TextXAlignment.Left
+        StatusLabel.Parent = StatusBar
+
+        -- Tab Bar
+        local TabContainer = Instance.new("Frame")
+        TabContainer.Name = "TabContainer"
+        TabContainer.Size = UDim2.new(1, -16, 0, 26)
+        TabContainer.Position = UDim2.new(0, 8, 0, 26)
+        TabContainer.BackgroundTransparency = 1
+        TabContainer.Parent = ContentFrame
+
+        local TabList = Instance.new("UIListLayout")
+        TabList.Padding = UDim.new(0, 3)
+        TabList.FillDirection = Enum.FillDirection.Horizontal
+        TabList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+        TabList.SortOrder = Enum.SortOrder.LayoutOrder
+        TabList.Parent = TabContainer
+
+        local Tabs = {"All", "Favorites"}
+        local TabButtons = {}
+        local currentTab = "All"
+
+        for i, tabName in ipairs(Tabs) do
+            local tabBtn = Instance.new("TextButton")
+            tabBtn.Name = tabName .. "Tab"
+            tabBtn.Size = UDim2.new(0, 0, 1, 0)
+            tabBtn.AutomaticSize = Enum.AutomaticSize.X
+            tabBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+            tabBtn.BackgroundTransparency = tabName == "All" and 0.1 or 0.7
+            tabBtn.BorderSizePixel = 0
+            tabBtn.Text = "  " .. tabName .. "  "
+            tabBtn.TextColor3 = tabName == "All" and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(180, 180, 180)
+            tabBtn.TextSize = 10
+            tabBtn.Font = Enum.Font.GothamMedium
+            tabBtn.LayoutOrder = i
+            tabBtn.ZIndex = 10
+            tabBtn.Parent = TabContainer
+
+            local tabCorner = Instance.new("UICorner")
+            tabCorner.CornerRadius = UDim.new(0, 10)
+            tabCorner.Parent = tabBtn
+
+            TabButtons[tabName] = tabBtn
+        end
+
+        -- Search Box
+        local SearchBox = Instance.new("TextBox")
+        SearchBox.Name = "Search"
+        SearchBox.Size = UDim2.new(1, -16, 0, 24)
+        SearchBox.Position = UDim2.new(0, 8, 0, 58)
+        SearchBox.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+        SearchBox.BackgroundTransparency = 0.3
+        SearchBox.BorderSizePixel = 0
+        SearchBox.Text = ""
+        SearchBox.PlaceholderText = "Search emotes..."
+        SearchBox.PlaceholderColor3 = Color3.fromRGB(100, 100, 100)
+        SearchBox.TextColor3 = Color3.fromRGB(255, 255, 255)
+        SearchBox.TextSize = 11
+        SearchBox.Font = Enum.Font.Gotham
+        SearchBox.ClearTextOnFocus = false
+        SearchBox.Parent = ContentFrame
+
+        local SearchCorner = Instance.new("UICorner")
+        SearchCorner.CornerRadius = UDim.new(0, 6)
+        SearchCorner.Parent = SearchBox
+
+        -- List Container
+        local ListContainer = Instance.new("Frame")
+        ListContainer.Name = "ListContainer"
+        ListContainer.Size = UDim2.new(1, -16, 1, -138)
+        ListContainer.Position = UDim2.new(0, 8, 0, 88)
+        ListContainer.BackgroundTransparency = 1
+        ListContainer.ClipsDescendants = true
+        ListContainer.Parent = ContentFrame
+
+        local ScrollFrame = Instance.new("ScrollingFrame")
+        ScrollFrame.Name = "ScrollFrame"
+        ScrollFrame.Size = UDim2.new(1, 0, 1, 0)
+        ScrollFrame.BackgroundTransparency = 1
+        ScrollFrame.BorderSizePixel = 0
+        ScrollFrame.ScrollBarThickness = 4
+        ScrollFrame.ScrollBarImageColor3 = Color3.fromRGB(80, 80, 80)
+        ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+        ScrollFrame.Parent = ListContainer
+
+        local ListLayout = Instance.new("UIListLayout")
+        ListLayout.Padding = UDim.new(0, 4)
+        ListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        ListLayout.Parent = ScrollFrame
+
+        -- Bottom Bar with Animation Speed
+        local BottomBar = Instance.new("Frame")
+        BottomBar.Name = "BottomBar"
+        BottomBar.Size = UDim2.new(1, 0, 0, 52)
+        BottomBar.Position = UDim2.new(0, 0, 1, -52)
+        BottomBar.BackgroundTransparency = 1
+        BottomBar.ZIndex = 25
+        BottomBar.Parent = ContentFrame
+
+        -- Animation Speed Control
+        local function ApplyAnimSpeed(speed)
+            local char = LocalPlayer.Character
+            if not char then return end
+            local humanoid = char:FindFirstChildOfClass("Humanoid")
+            if not humanoid then return end
+            local animator = humanoid:FindFirstChildOfClass("Animator")
+            if not animator then return end
+
+            for _, track in ipairs(animator:GetPlayingAnimationTracks()) do
+                pcall(function()
+                    track:AdjustSpeed(speed)
+                end)
+            end
+        end
+
+        local function HookAnimationSpeed()
+            local char = LocalPlayer.Character
+            if not char then return nil end
+            local humanoid = char:FindFirstChildOfClass("Humanoid")
+            if not humanoid then return nil end
+            local animator = humanoid:FindFirstChildOfClass("Animator")
+            if not animator then return nil end
+
+            return animator.AnimationPlayed:Connect(function(track)
+                if PM.Emotes.speed and PM.Emotes.speed ~= 1 then
+                    pcall(function()
+                        track:AdjustSpeed(PM.Emotes.speed)
+                    end)
+                end
+            end)
+        end
+
+        local animSpeedConn = nil
+        local function SetupAnimSpeed()
+            if animSpeedConn then animSpeedConn:Disconnect() end
+            animSpeedConn = HookAnimationSpeed()
+            ApplyAnimSpeed(PM.Emotes.speed)
+        end
+
+        SetupAnimSpeed()
+        LocalPlayer.CharacterAdded:Connect(function()
+            task.wait(0.3)
+            SetupAnimSpeed()
+        end)
+
+        -- Speed Label
+        local SpeedLabel = Instance.new("TextLabel")
+        SpeedLabel.Size = UDim2.new(1, -20, 0, 16)
+        SpeedLabel.Position = UDim2.new(0, 10, 0, 0)
+        SpeedLabel.BackgroundTransparency = 1
+        SpeedLabel.Text = "Animation Speed: " .. string.format("%.1f", PM.Emotes.speed) .. "x"
+        SpeedLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+        SpeedLabel.TextSize = 11
+        SpeedLabel.Font = Enum.Font.Gotham
+        SpeedLabel.TextXAlignment = Enum.TextXAlignment.Left
+        SpeedLabel.Parent = BottomBar
+
+        -- Speed Slider Background
+        local SliderBg = Instance.new("Frame")
+        SliderBg.Size = UDim2.new(1, -20, 0, 6)
+        SliderBg.Position = UDim2.new(0, 10, 0, 22)
+        SliderBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        SliderBg.BorderSizePixel = 0
+        SliderBg.Parent = BottomBar
+
+        local SliderBgCorner = Instance.new("UICorner")
+        SliderBgCorner.CornerRadius = UDim.new(0, 3)
+        SliderBgCorner.Parent = SliderBg
+
+        -- Speed Slider Fill
+        local initScale = (PM.Emotes.speed - 0.1) / 4.9
+        local SliderFill = Instance.new("Frame")
+        SliderFill.Size = UDim2.new(initScale, 0, 1, 0)
+        SliderFill.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+        SliderFill.BorderSizePixel = 0
+        SliderFill.Parent = SliderBg
+
+        local SliderFillCorner = Instance.new("UICorner")
+        SliderFillCorner.CornerRadius = UDim.new(0, 3)
+        SliderFillCorner.Parent = SliderFill
+
+        -- Speed Slider Knob
+        local SliderKnob = Instance.new("Frame")
+        SliderKnob.Size = UDim2.new(0, 12, 0, 12)
+        SliderKnob.Position = UDim2.new(initScale, -6, 0.5, -6)
+        SliderKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        SliderKnob.BorderSizePixel = 0
+        SliderKnob.ZIndex = 3
+        SliderKnob.Parent = SliderBg
+
+        local SliderKnobCorner = Instance.new("UICorner")
+        SliderKnobCorner.CornerRadius = UDim.new(0, 6)
+        SliderKnobCorner.Parent = SliderKnob
+
+        -- Slider interaction
+        local sliderDragging = false
+        local function updateSlider(value)
+            local speed = math.clamp(math.floor(value * 10) / 10, 0.1, 5.0)
+            PM.Emotes.speed = speed
+            local scale = (speed - 0.1) / 4.9
+            SliderFill.Size = UDim2.new(scale, 0, 1, 0)
+            SliderKnob.Position = UDim2.new(scale, -6, 0.5, -6)
+            SpeedLabel.Text = "Animation Speed: " .. string.format("%.1f", speed) .. "x"
+            ApplyAnimSpeed(speed)
+        end
+
+        SliderBg.InputBegan:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                sliderDragging = true
+                local pos = math.clamp((input.Position.X - SliderBg.AbsolutePosition.X) / SliderBg.AbsoluteSize.X, 0, 1)
+                updateSlider(0.1 + pos * 4.9)
+            end
+        end)
+
+        UserInputService.InputChanged:Connect(function(input)
+            if sliderDragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+                local pos = math.clamp((input.Position.X - SliderBg.AbsolutePosition.X) / SliderBg.AbsoluteSize.X, 0, 1)
+                updateSlider(0.1 + pos * 4.9)
+            end
+        end)
+
+        UserInputService.InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                sliderDragging = false
+            end
+        end)
+
+        -- Favorites functions
+        local function isFavorite(emoteId)
+            return PM.Emotes.favorites[tostring(emoteId)] == true
+        end
+
+        local function toggleFavorite(emoteId)
+            local id = tostring(emoteId)
+            if PM.Emotes.favorites[id] then
+                PM.Emotes.favorites[id] = nil
+                SaveEmotesFavorites()
+                return false
+            else
+                PM.Emotes.favorites[id] = true
+                SaveEmotesFavorites()
+                return true
+            end
+        end
+
+        -- Create emote row
+        local function createEmoteRow(emote, index)
+            local row = Instance.new("Frame")
+            row.Name = tostring(emote.id)
+            row.Size = UDim2.new(1, 0, 0, 32)
+            row.BackgroundTransparency = 1
+            row.LayoutOrder = index
+
+            local nameBtn = Instance.new("TextButton")
+            nameBtn.Name = "NameBtn"
+            nameBtn.Size = UDim2.new(1, -40, 1, 0)
+            nameBtn.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+            nameBtn.BackgroundTransparency = 0.5
+            nameBtn.BorderSizePixel = 0
+            nameBtn.Text = emote.name
+            nameBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+            nameBtn.TextSize = 11
+            nameBtn.Font = Enum.Font.Gotham
+            nameBtn.TextXAlignment = Enum.TextXAlignment.Left
+            nameBtn.Parent = row
+
+            local nameCorner = Instance.new("UICorner")
+            nameCorner.CornerRadius = UDim.new(0, 6)
+            nameCorner.Parent = nameBtn
+
+            local favBtn = Instance.new("TextButton")
+            favBtn.Name = "Fav"
+            favBtn.Size = UDim2.new(0, 32, 1, 0)
+            favBtn.Position = UDim2.new(1, -32, 0, 0)
+            favBtn.BackgroundTransparency = 1
+            local emoteIsFav = isFavorite(emote.id)
+            favBtn.Text = emoteIsFav and "★" or "☆"
+            favBtn.TextColor3 = emoteIsFav and Color3.fromRGB(255, 200, 50) or Color3.fromRGB(120, 120, 120)
+            favBtn.TextSize = 16
+            favBtn.Font = Enum.Font.GothamBold
+            favBtn.Parent = row
+
+            nameBtn.MouseEnter:Connect(function()
+                nameBtn.BackgroundTransparency = 0.3
+            end)
+            nameBtn.MouseLeave:Connect(function()
+                nameBtn.BackgroundTransparency = 0.5
+            end)
+
+            nameBtn.MouseButton1Click:Connect(function()
+                local char = LocalPlayer.Character
+                if not char then return end
+                local humanoid = char:FindFirstChildOfClass("Humanoid")
+                if not humanoid then return end
+
+                pcall(function()
+                    local desc = humanoid:FindFirstChildOfClass("HumanoidDescription") or Instance.new("HumanoidDescription")
+                    desc.Parent = humanoid
+                    desc:AddEmote(emote.name, emote.id)
+                    humanoid:PlayEmoteAndGetAnimTrackById(emote.id)
+                end)
+            end)
+
+            favBtn.MouseButton1Click:Connect(function()
+                local nowFav = toggleFavorite(emote.id)
+                favBtn.Text = nowFav and "★" or "☆"
+                favBtn.TextColor3 = nowFav and Color3.fromRGB(255, 200, 50) or Color3.fromRGB(120, 120, 120)
+            end)
+
+            return row
+        end
+
+        -- Lazy Loading
+        local visibleEmotes = {}
+        local loadedRows = {}
+        local BATCH_SIZE = 20
+        local ROW_HEIGHT = 36
+        local isLoading = false
+
+        local function updateVisibleEmotes(searchTerm)
+            visibleEmotes = {}
+            searchTerm = searchTerm:lower()
+
+            for i, emote in ipairs(emotesData) do
+                local matchesSearch = searchTerm == "" or emote.name:lower():find(searchTerm, 1, true)
+
+                if currentTab == "Favorites" then
+                    if isFavorite(emote.id) and matchesSearch then
+                        table.insert(visibleEmotes, {emote = emote, index = i})
+                    end
+                else
+                    if matchesSearch then
+                        table.insert(visibleEmotes, {emote = emote, index = i})
+                    end
+                end
+            end
+
+            for _, row in ipairs(loadedRows) do
+                row:Destroy()
+            end
+            loadedRows = {}
+
+            ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, 0)
+            StatusLabel.Text = #visibleEmotes .. " emotes found"
+        end
+
+        local function loadBatch(startIdx, count)
+            if isLoading then return end
+            isLoading = true
+
+            local endIdx = math.min(startIdx + count - 1, #visibleEmotes)
+            for i = startIdx, endIdx do
+                local item = visibleEmotes[i]
+                if item then
+                    local row = createEmoteRow(item.emote, item.index)
+                    row.Parent = ScrollFrame
+                    table.insert(loadedRows, row)
+                end
+            end
+
+            local loadedHeight = #loadedRows * ROW_HEIGHT
+            ScrollFrame.CanvasSize = UDim2.new(0, 0, 0, loadedHeight)
+
+            isLoading = false
+        end
+
+        local function checkLoadMore()
+            if isLoading or #loadedRows >= #visibleEmotes then return end
+
+            local scrollPos = ScrollFrame.CanvasPosition.Y
+            local viewHeight = ScrollFrame.AbsoluteWindowSize.Y
+            local canvasHeight = ScrollFrame.CanvasSize.Y.Offset
+
+            local buffer = ROW_HEIGHT * BATCH_SIZE * 2
+            if scrollPos + viewHeight + buffer > canvasHeight then
+                loadBatch(#loadedRows + 1, BATCH_SIZE)
+            end
+        end
+
+        -- Initial load
+        updateVisibleEmotes("")
+        loadBatch(1, BATCH_SIZE)
+
+        -- Tab handlers
+        for tabName, tabBtn in pairs(TabButtons) do
+            tabBtn.MouseButton1Click:Connect(function()
+                currentTab = tabName
+                for name, btn in pairs(TabButtons) do
+                    btn.BackgroundTransparency = (name == tabName) and 0.1 or 0.7
+                    btn.TextColor3 = (name == tabName) and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(180, 180, 180)
+                end
+
+                updateVisibleEmotes(SearchBox.Text)
+                loadBatch(1, BATCH_SIZE)
+                ScrollFrame.CanvasPosition = Vector2.new(0, 0)
+            end)
+        end
+
+        -- Search debounce
+        local searchPending = false
+        local searchThread = nil
+        SearchBox:GetPropertyChangedSignal("Text"):Connect(function()
+            searchPending = true
+            if searchThread then
+                pcall(function() task.cancel(searchThread) end)
+            end
+            searchThread = task.delay(0.3, function()
+                if searchPending then
+                    searchPending = false
+                    updateVisibleEmotes(SearchBox.Text)
+                    loadBatch(1, BATCH_SIZE)
+                    ScrollFrame.CanvasPosition = Vector2.new(0, 0)
+                end
+            end)
+        end)
+
+        -- Scroll check
+        RunService.Heartbeat:Connect(function()
+            checkLoadMore()
+        end)
+    end)
+
+    if not success then
+        -- Silent fail
+    end
 end)
 
 -- ========== COMMANDS PANEL POPULATION ==========
