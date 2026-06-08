@@ -1020,6 +1020,56 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
         ContentPadding.PaddingRight = UDim.new(0, 8)
         ContentPadding.Parent = ContentFrame
 
+        -- Resize Handle
+        local ResizeHandle = Instance.new("TextButton")
+        ResizeHandle.Name = "ResizeHandle"
+        ResizeHandle.Size = UDim2.new(0, 16, 0, 16)
+        ResizeHandle.Position = UDim2.new(1, -18, 1, -18)
+        ResizeHandle.BackgroundTransparency = 1
+        ResizeHandle.Text = ""
+        ResizeHandle.Parent = MainFrame
+
+        local ResizeIcon = Instance.new("ImageLabel")
+        ResizeIcon.Name = "ResizeIcon"
+        ResizeIcon.Size = UDim2.new(0, 10, 0, 10)
+        ResizeIcon.Position = UDim2.new(0, 3, 0, 3)
+        ResizeIcon.BackgroundTransparency = 1
+        ResizeIcon.Image = "rbxassetid://3926305904"
+        ResizeIcon.ImageRectOffset = Vector2.new(924, 724)
+        ResizeIcon.ImageRectSize = Vector2.new(36, 36)
+        ResizeIcon.ImageColor3 = Color3.fromRGB(150, 150, 150)
+        ResizeIcon.Parent = ResizeHandle
+
+        local resizing = false
+        local resizeStart = nil
+        local startSize = nil
+        local MIN_SIZE = Vector2.new(200, 100)
+        local MAX_SIZE = Vector2.new(500, 400)
+
+        ResizeHandle.InputBegan:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                resizing = true
+                resizeStart = input.Position
+                startSize = Vector2.new(MainFrame.AbsoluteSize.X, MainFrame.AbsoluteSize.Y)
+            end
+        end)
+
+        ResizeHandle.InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                resizing = false
+            end
+        end)
+
+        UserInputService.InputChanged:Connect(function(input)
+            if resizing and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                local delta = input.Position - resizeStart
+                local newWidth = math.clamp(startSize.X + delta.X, MIN_SIZE.X, MAX_SIZE.X)
+                local newHeight = math.clamp(startSize.Y + delta.Y, MIN_SIZE.Y, MAX_SIZE.Y)
+                MainFrame.Size = UDim2.new(0, newWidth, 0, newHeight)
+                originalSize = UDim2.new(0, newWidth, 0, newHeight)
+            end
+        end)
+
         local ToggleSection = Instance.new("Frame")
         ToggleSection.Name = "ToggleSection"
         ToggleSection.Size = UDim2.new(1, 0, 0, 36)
