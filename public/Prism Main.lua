@@ -562,7 +562,7 @@ PM.createMainGUI = function()
         
         PM.UI.TerminalInput:GetPropertyChangedSignal("Text"):Connect(updateAutofill)
         
-        -- Tab to accept autofill
+        -- Execute command on Enter
         PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
             if enterPressed then
                 local cmd = PM.UI.TerminalInput.Text
@@ -573,20 +573,20 @@ PM.createMainGUI = function()
                         PM.executeCommand(cmd)
                     end
                 end
+                -- Keep focus after executing
+                task.delay(0.05, function()
+                    if PM.UI.TerminalInput then
+                        PM.UI.TerminalInput:CaptureFocus()
+                    end
+                end)
             end
-            if PM.isHoveringAnyButton then
-                return
-            end
-            PM.isTerminalOpen = false
-            task.delay(0.1, function()
-                PM.closeTerminalPanel()
-            end)
         end)
         
-        -- Handle Tab key for autofill acceptance
+        -- Handle Tab for autofill and Escape to close
         game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
             if gameProcessed then return end
             if not PM.UI.TerminalPanel or not PM.UI.TerminalPanel.Visible then return end
+            
             if input.KeyCode == Enum.KeyCode.Tab then
                 local suggestion = PM.UI.TerminalAutofill.Text
                 if suggestion and suggestion ~= "" then
@@ -594,6 +594,9 @@ PM.createMainGUI = function()
                     PM.UI.TerminalInput.CursorPosition = #suggestion + 1
                     PM.UI.TerminalAutofill.Text = ""
                 end
+            elseif input.KeyCode == Enum.KeyCode.Escape then
+                PM.isTerminalOpen = false
+                PM.closeTerminalPanel()
             end
         end)
         
@@ -603,7 +606,11 @@ PM.createMainGUI = function()
         if not PM.UI.TerminalPanel then
             PM.createTerminalPanel()
         end
-        if PM.UI.TerminalPanel.Visible then return end
+        -- Toggle - close if already open
+        if PM.UI.TerminalPanel.Visible then
+            PM.closeTerminalPanel()
+            return
+        end
         
         PM.UI.TerminalPanel.Visible = true
         PM.UI.TerminalPanel.Size = UDim2.new(0, 0, 0, 38)
