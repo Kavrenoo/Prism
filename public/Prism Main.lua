@@ -503,6 +503,15 @@ PM.createMainGUI = function()
         })
         PM.corner(keybindBtn, 4)
         
+        -- Hover detection to prevent terminal close when rebinding
+        PM.isHoveringKeybindBtn = false
+        keybindBtn.MouseEnter:Connect(function()
+            PM.isHoveringKeybindBtn = true
+        end)
+        keybindBtn.MouseLeave:Connect(function()
+            PM.isHoveringKeybindBtn = false
+        end)
+        
         keybindBtn.MouseButton1Click:Connect(function()
             if PM.keybindJustChanged then
                 PM.keybindJustChanged = false
@@ -567,8 +576,8 @@ PM.createMainGUI = function()
         
         -- Handle Tab for autofill and Enter to execute
         PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
-            -- Skip if panel just opened or rebinding (prevents immediate close)
-            if PM.panelJustOpened or PM.keybindJustChanged then return end
+            -- Skip if panel just opened, rebinding, or hovering keybind button
+            if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn then return end
             
             if enterPressed then
                 local cmd = PM.UI.TerminalInput.Text
