@@ -1,1 +1,1202 @@
-return(function(...)local j={"b2DKkG29znD/xnJRvGXVx1Dbz6QeP1/==",";-Ck+]u$m-!e[e$\\rQ+l!F$LeTu+",";cLHjL";";]^in\"S$j,crOgoNrQ+lF_Br";";^Y)SRcnC.Vcg","bOXe5GQo=",";]s/8KgQP;/2Rj<j",";Yi8V>um)34",";;i^7/c<l?\\ckr",";rOgZ#cAf$OSfC";";G.qpKSG";"b1uefnMKC";"beuyHFQgK","b2DKkGqmHnm9HSXKK1kmkGDekoMyCnx==";";QfGaOcC";"bqqbOFqaooQmk6mGb","bqueHnMmkVm9PNXZYVEZI1uK/Fc==";"bRM1JFdtqGOzpoJF7eXl=";";PI7G]gPtd3-C%hI",";eNZ;fZ]\"YAQ?NH&";"bGDe4S/==";"bGDYGNOmN2eSg2DbgGQ5=","bReZYGMGCSXKG1IK50c==",";rOHjm2uaYX2-S5ZYejV.SqVp";";Y\'9J+^\\]e<Q^J,ue\"","bFE95nMyH",";Qq!\"@Yi98_PZGugum0";";e\\?L?rF<u@-*";";]C`Iq2un(<Sf%^t";"bOumYGo==";";-2-T;e.d\\sP\";X[YEA";";e4\'2+-Heo";";P;tH.St!eMe4UX+u$mk*YiaY>Sq9e*g&A]","b1XKu0qgRQujQGQgm";";PIt-+_-6_Z^W^KF^cJ7o_SCJ7ck6O;-CP!)ckSm";";=JbN<^\\J)X^OX)T";";Z]3g:-C+Yd","bn5eU24FIRBxP2ug0",";BY9u<^&Fm_cJep/]*",";]_ki*-CkHB_-pD--CP!)ckr";";]_l>aYiZG/F$LeTu+",";%eF+2^W^+P%JTa&um9YS2>T>rFDY(*-+i$W2,eE5Yi)A_o\\K*-",";PPJl2cn4BKr]i2>-O","bFlxMRDYb14KC6ub0";";FCGbEJ)FJHQt?]3%-",";]uI1(23,>:g&qmq",";;T_G6e&\'uAr]GoWSG",";-:@;W2>4IZY1%Z.%7`$6=Cl8-J>R",";QSuN";"bXgydS/==";";;J8[2BYk*d]g=\"7";"bSdRC";"b1ueYnJGK";"bnO97nBKw0IK71ltARlS=";"bpPk=";"beDeWFmz9nDKdnugKndo=";";BSkifZk2n<;=*t$eO<",";]^i\\O2uHnb_-J)3gMSMS2dC.-Y1,+!r/+FV";"beQjvNQRKVDlx1Dbz6QeP";"boMbtSMHxFD+xFDeHGX9L1do=",";;=\'@;PJBW[BhbVccg","beDeHGX9L1dRqng9HSQZK2Qj4FDmCSMq=","beueIFDyP0x==",";2SE>lQ2\\lO-j`6!2K\"",";-cIA!S>@ql^*)OV";";B+PY4ri[Q,FaMg%-,Y",";%E\\[2BX(C[Y60R`],9","beqRtnOV=";"bNuePN/==";"bnDyzGlmgFDym6DeIqJRzFDe4",";0Y;s*=q4Pa^.27+",";e4UXDrpfk","boXe5ngaLFDm5Go==","bnDyzGEZ51uKCG/==";";ZpTVn",";=%NpR],Ya4ciD1!02p";"bquefnMKCVDZg1daKndox1MePFueP","bpOq/05GLSem5GBZke5v=";";;775G]SN/B;D2m!eRg",";2[0d7=0[T3;\"&<IPH","bOQyg1Me7FXR5nMWboMbtSMH=";"bGuKHFDePoXe5n5eWGQZoSQjKnc==",";Yiq?U-Hp",";=aU\\:Y=5%@Z*hqcc6!",";;@/9EYiL?)cg","bRMy5NDmY","bNe9wR4zA24KD1XZ7","b1ueHnMmk","bREtBeIzQZmlWNdzu","beuKKFMeP";"bXgytnuRK6c==",";ZAk3iQ^$n3Jae*^QgD";"bo5GPSQgK";"b2EeYSQjLNQR2NQFq6X9K","ba/==","b2Xq/OQYjOuFK1MYz";"bRdaznQq=","b2XZ9","bOB95eXqgRkKdQlb22/==",";Y7.;.rA`et^KS7Q-gm",";u\"BD7-*";";2Sm","boMKPSMbK";";F%>=GFJp8f]Sr8cr?",";S))[Hu$ml&-Hp";";QaXB";"beDeWFEePGo==","bOXe5G29znD/xnJRvGXVx1Dbz6QeP1/==","bSJaKSXRKoMyYnQmCGEZoSQjKnc==";"beE9qnMyHoQZ5NXGK",";eB2cRYeWU5SqHXarQX)3r]CU!r!t",";FHJ-FY$1gp;T-,NJG","bSkthemZSnuyMoXRR";";F\"bTHckSm";";e4?1Fu+","b2mawQQFJRJojGutWZo==",";ZQ8e`";"beeGe1gZgpDYC1dFCpc==","bRKavS5ZjFDFvplbk";";rQX=N^Wo(\"SG";"boumINMFPnJeCGlZLnDyP0/==";";-_!0#","bOXe5GqmHnm9HSXKK1kmkGDekoMyCnx==","b2ER51mZK1dGtSMq=","b1uyJ",";e\\Uqgu-AhQ_-p=JckJA)2]^9SSaI",";F$LY8Y1,!@ZQ[:K2ufq";";YESd$";";Bk","beQjvNQRKVDmHn79/nDmjGXa4",";eNZ;fZ]\"YAQab\"8um!";"bFQjYFXRK",";S:tP_]^<g:%t9G:";"b2uePNP9znuKYSXRtnMWxFDyLnc==";";ePD.AQafin-^IhE2,E",";Z!76";"bGlZWRuqPZktYn5FCRM5=";";Qfj^$cg","bqJFtFDZv",";PP0Necn^8@2P","bqEat1Mg0nMmkGQo=";"bGXzKSJe5GqmgFDym6DeIoMyYnQmCGE0=";";Yo[%4cn(\\";";PIt-+_-6_Z^W^KF^cJ7o_S`4Gck6O;-_!0#";";rp#4`-O";"bGMmYGo==";"bFI9SoqgOSgGKeJeN","beE9XSXRINlZLnuWb";"b2EeYSQjLNQR2nMy5qDmPFc==","b1Dy/FQbzFDe9FXRLRXzKSg9znueH";";S73k\"PkKS/%\">9u";";^WH,p%i++i0#@-BBk";";23=U",";S))B>rQ?`3]^i\\O2ua4","bqJ9LFlbtGMz5";";e&\'=^Sfn[VYiPM";"bNDeznERvRDK4Fc==";";S$od#c6V\'(rEkirQ(";"b1qmHnXZlFkYURmt4";"b1MmMGQROFDm5Go==",";Y1)",";r]g9=Z]\"YAQfi^\"ckq";"bnXe5GQmHnc==";";5($i9Z;S(^G*%e1ZF76l;\'n";"b2DeznERvRDK41Dbz6qRt1JRznuZK";"b0QRJ1KSjZIZUFktO",";Qfi^\"c<ujRSt3D1",";e4UX+u$mk*YiaY>Sq9e*g&A]";";e&\'8\\]XkJXS^@LK";"bOuyCGo==";"bN4RZnMeWZJePSeKQq/==",";c1^HLY\'T(*Y@idq",";;T_\"`]`5HhSfE";"boMmCFum4qMKhGo==","bS55WqQbXF5zMFemK",";eONYm0cDTi-j`5[";"bFgGhouGpGmRUqOZXokl=";"bnDKdNER4";";-_387Y1,!@-O";";F\"XP1SCM^TSG";";F\"u#H2cju+YT<";";-CP!)e\\Uqgu?&)ISqs";"bQIZgZIZDplGNOJFN";";Pk#k1rQ+A8";";clWHO2sh=XSfbGMSqs","bqMKhGo==";";2s>7Cr/(";"bRDZYqORYNMo/ZJx/oQl=";"bQEtT1uRJSOGNpmmoRO1=","bpqboFDFTeDRpNDZBeu5=";"bnueJ";";e&\'uAr]GoWS2Lr";";B#p.XSqAr&FgF$u","bGJcbRqGWeeK92K14","bSJaKSXRKeDePnQKCSQbwFXR/FXo=";";r]g3US:K79Y1,+","bGDeuGXV=",";e4UXESf%g,rO/",";e\\?L?rF<u@-XB5gcA1";";%?=9\\29?LJuq$GnS-)",";";"bGDK41Dbz6qRt1JRq6X9K";";Jg0B?J>)8GZ]J_P","beXZK1kKk",";ZPr410-uYjF7T_tPi1";"bQqgN1QKpekFPO5mJ1c==";";ZlX)n2ugUIFms\'Y";"bQDRfqEmTFOkJ6XFBeo==";"bNER51E0hsPydSQgK1PjPnMaHnJxCSMyYsJSbsMFznQe4s/==";"bGXzInEekGqGPnMg9FXRLRXzKS/==";";^#6Z\"Yo^!<eU.):ZOL";"b1Dmt1d0=";";eB2cR-_3ei","beXeYZujDpqG5FmZoN/==";";e[W3\\Qhh3VBW1Q8Rbl";";Qfg7Hu69Ab";";Z*0%8";"boMyYnQmCGEZOSJaLnD/=";";e4UX+u$mk:rQkT";";eRUVkckuXsgB+Ia^K,9";";-HROCcZA\\(J-o?^R&`",";YTnGP2&1!j-CI[eS%b0jYit7g^W^+,cns(j-C9qC-`kk07I5[B","b2EeYSQjLNQo=",";Z/g8rckS!)r/R";"bFDeWFlRtno==";";Z/g8%YES;L-`%_";"bouKHnDaLSXakRJet";";-:s\"OSf&","bGMgzFDZv";"bae0T",";YerU%",";eRN";";jN,AX";"be5e2Zda90MbK0Ol5Rx==","b2KZwOkRKSMykGo==",";2c<as;JLQ\"^Mg:O";"bFMmtFc==","beDeWFlagFERLnx==";"bnEGdpOK/6qKe1M/g";"boQZ5NXGzFDek";";2G/:>%1<VQSh\\-<","bRK15nlzoqBk/Zqepex==";";ep65:Y\'R]K=)2P\\";";2>\\T0SG",";Yt*:arUJ^1=?c:o","b0XZA2kZNqMK/ZBRKF/==";"beltKGEqW0dZA6eV56lk=",";%a(<WB&_OY]8?bqcC";"beDePnQKCSQbwFXR/FXo=","bFDeWFc==",";2>TJBc;)";"beDyLnc==","bqJ9zFMj0nMZzFDKLnx==";";e[e$\\rQ+l!F$LeTu+";"beqk=";"bRKe2OJZYGdGbnDRlN/==","bouaC1MmwpmtoRdtANko=";"bSXe5n5eWGQZgFDeBnMgYSQjk1/==";";SHk\\tc1jIFS$Gp>Q)+",";P<ZR@PDYuMF6QXAcZ`";";;EW$.";";2,?YPckSq#-CYDZ2P",";PTYt]YD%MOP@\\!K","b1DmPFE0=",";BI";"bFDm4N/==","beDeWFmZt6uq=",";e&\'8\\_-m9Qr/GHVY<Td3rl.j";"bZgRTN4ZZN49zquKL","b05RLO5tvqkH41KF7Ro==",";S))\\",";r/V\",YTT@[ri)=O","boIZZGuzIQEaGeDbJ";"bRmmaGQg40MaHqIme","bRJVPSugtSXeHqgRD1x==",";Js<kdJ7`-I0uZAH","b25FQOqgs2DZSZ5tI2mk=",";e4Uou","bRuKCGlGt1dZ5oMztnDRwGkZHSXZ4","bqgtUFkaHO4GIeMFg";"bRMe5qDbz6QeP1/==";"bOmKRnJ0MedFZ2DSjOo==",";Y1S]E-K\'Y`^9\\PA",";QCf5mZk-#gZnrS/";"b2JtwFlaqZqmdGmmTq/==","boXe5n5agFERLnkZLnDyP";"b2KZwOkeCSMykGo==","boMzzFERKGc==";";]_ad@Y?P8:g&(tg2:B";"bVc==","bFEFKGQW=";"bS4KgNI0gQDz224mmn/==";"b1uaWSXZ4GXRtGBvLs41P0BoP0BV5",";]HQK7r5khOu$b/[%V*",";2,?YPckSq#-C+D7Y>";"beEazNQ/=";"bQmZtnQGCSemeSOel",";e\\\'=6c5[(lS$&+#";"bSMyCSMm5","bGkR06OFoZl0/2D/4","bsJZK1dGK1d0LqEeAnDKIwJZL1dRw1uRK1Ig91M0unDKYNXoy0Oc/";";eD";";;i^7/cEG[S^Wu","bqXRYndV/NkGQRDjQeq0=",";N0","bGMe5SMyCnueIFDKLnd0=","bnQmTGQGLnDRK1x==";";YiPdb-Hh";";;V,Em_uTu0u$ml&-9EID^#6>>c?\\tOr]Q",";29nN3^\\p:b;JXWJ-*";";-CI[=2c($iS7diOu+",";Q?N&h2S@iiStI",";2r+>gB4!1fBcpp=";"bqDbzSMeaGc==",";2>T>r";"bGQbPSqYpFXedREKs",";^+Gs>ZUZkmckl@u",";e!BC5J)I\'b=C2>k2P";";ZQH<uumZC","bFMyPNJZ/SQZK";";]_lQO;<pucu+","bQlbbRKzfFkaVFgkP1o==";";e[e$\\rQ+lY2shhSS?R";";cV)TYPUMs[0cRCR=Jj",";e[5`-YfF3J;1e/5B#I";";S))<M";";PIt-+_-6_Z^W^KF^cJ7o_SiW]2]^<Br]i2>-O","bnXe5Go==";";PIt-+_uk75_-uL)cPH]j2,?YPckcLcS))+orpN[I2h11u","boQjtnQm5NQyC";";Y1hgBFm!e;ZLT\"Qrf";";B#/F@ci3nBrnP2i;?>","bqDmPGQj5",";F)#/H2&n#PY0;FOZf",";S2GUW]gp1^^MCJ)J&";"bQqmLOqgYFqtYoum7nDv=";"beuytSMeBNDm52Qj5GXaCSQ/=",";2uc*Ucg";"boMyYnQmCGE0=";";]C[K1]CNF","bqDbz6o==";"bFQjvNQRKSQbH",";Y\"c6GuC%XTJf>?QS2M",";eB2/gF$LY8",";cIh$CQ2:W";"bREZe2eKOSMmMpES4";"begKLem9NnIKVFMjZ",";]b1)Erp#\\-0jVI;";"bNDKkGQmHnc==","bQc==",";2RHk-J2JR>Z.)8&";"boQRfFXZ5qJ9KGQo=","beueIFDyP0/==";";e[e8[-K8",";]_lQOB9G1]Y5pT4S?^",";Yt@<_Y$@/3]S4m4S(";";;V,Emc5q>DgMS&Q","b1JmjnMYZOBxgQE9C";";]_ki*-CkHB_Y0P4u+","beDy/";";Z/g8=ck6GVSq8%L2-Z";"bqJRL1c==","b1MePFuePNDy/SQjj","bouezno==";"b2uePNgaK1J9zFMjBnMjC";"bODKX6QmwRKzjODREe4x=";"bRMe5OQyg1Mq=","bRuRK1MYfFqKN2QmjFXc=",";F\"bTHcku,qcZ+;","bReZYSMKvNEzpFkjW","bqIauSuyoRBGHGXGS","beKtqelo42qGYplgB2gc=",";2Wl_G=HKd]S2ee6^GB";"b1Dbz6QKCG/==";";Q$d_VrFD1YY16_N",";;=OH%-3WjQPoTG<=+";";F=PdDe4UX+u$mk*YiaY>Sq95";"beQjYFXRKVDmHn79/nDmjGXa4";"bq55j0BKdF55MpeKt";";rnF-%-gip#r/KaeQf6";"bZugERgKGOmoW2QRGGJk=",";rQ?.82,?u";"bXAe4U/==";";Ye70>","bFQjvNQRK";"bGDm5So==",";PL-N\\",";P;cOVZ/gH",";=%e50^b&sAu<WXW-^R",";clWHO2sh%","b2JaSGkYmpmKXSKRYZc==","bZdSPou15GuzENOK/";";;6k</Z;*;#24i!oZ%","belGVGm9lOMma2qjU",";PL-N\\eMRMD^Wu",";cZ+m,-Heo";"boXe5n5eWGQZr",";]_lQO","bnQmCFQmHnEKenuztGDRKnx==",";F8+#cBsLu-rZ0:Y";";ZpT:DZpTV:2r%hlum3","bquKdeEK/Go==","boMyCnueIFc==",";e4\'2+-Heo^F\"XP1SbJm6_uk)(_uf5drQXoC";";-CI[eS,f@?YiaC(r]g9=clWHO7I&g^SG",";Z/g8B-H5I)-HHAIY<E81cALhAY5pjI";";S^o7&Y=95Se/UGc","bnIZbR55JFkjoplekNkv=","bo4VJRdKZnEeVoI9GOo==","bRMy5NDmYouyHGc==",";-CI[eS&","bO49T1kt9oIlMZdKf";"bRevP6XtCOMyoekGzGc==";"b1DZznD/=","b2uyA2Qo=","bFBRNSkygFeRWGKFvnkV=","beQjtFc==";";]C`fkSa/8[Stf",";]_lQOe[e8[-K8","bSQ+J6DK4pEGA1IGUnQ1=",";=t=K6-8S1AeFooFPC";";eNZ;fZ]\"YAQa;Y.r/\\";"bFQjYFXRKSQbH";";54[G=J>Vi@=<__^2k";";2,bebeNZ;fZ]\"YAQfi^\"ckq";";2,?YPckSq#-_*93";"bRBaG0kGm6QbvnKa0";";e/;lWe(5\\0u<bDQ]^m";"beEK/G2cdNDeH171xGuyPVDmMSQKHSQaHG29InMgYSQjk1PW=",";jnGDrg&ABQj\\A,j-NiHGSfT47_S``52]^\'e_ufRCS))]V2MA",";F\"uSm2S5[J";";rOgu3ckr";"bodatGMz5nue41/==","beDeHGX9L1dROGXaMNQZK","bnumYGo==";";cZ+AH^i",";0_.VYB(ns354R?9gR\"";"b1uefnMKCeuytSMq=",";]C(S`2>\\T)cn(Mb","bnumYGqRt1Jo=";"bNEedGo==",";;T_-\'ufM/pgMSd";";]`[pmrpfk";"beuytSMeBNDm5qMePFuKIGo==",";PP07",";]CNJKF\"uSm2S5[J",";-`7[\"cLHbV";";PPJl^_uTu0u$ml&-[f=FrU!=\"^i";";2S(RG2>\\T0SG";"b1X9IeMeOGez4RI9pQdo=","beQjK1Xet1E9KGc==","beDeHGX9L1doxFD+x1J9zFMW=","boXekNQylGXGtSMeand9gFc==";"bQkKCGDeW","bODmjnJe5OJakGXV=","bZXF224Fmo5YOOJaWn/==";"boIZhGDaNRQRgeJFu";";rU!u$";"bGQFO2qYGRltSqqY2eo==","bnQH=";";QaF#VYiZA>F$LeTu+","bNEeY";";0uZ$ccAAtUPEdEmSsZ"}local function X(X)return j[X+6256]end for X,K in ipairs({{1;463};{1,319},{320,463}})do while K[1]<K[2]do j[K[1]],j[K[2]],K[1],K[2]=j[K[2]],j[K[1]],K[1]+1,K[2]-1 end end do local X={Q=22;x=32;K=37;r=31;v=40;n=27,A=34,s=11,T=43,k=36,b=49,j=57;l=4;M=54,["2"]=18;E=7,N=26;C=46;e=21;Z=13;["5"]=52;m=5;t=41;o=16,V=8,L=47;c=0,y=61,I=35,w=15;h=58,X=23,Y=45,p=14;["4"]=51;["3"]=62;u=38;f=42,["1"]=28;O=19;D=6,["9"]=1;["8"]=59,F=29;["6"]=30,P=50,a=9;J=55,G=25;i=63,g=53,S=24;q=20,["+"]=60;H=44,R=17,W=56,["7"]=2;["0"]=12;z=33;B=3,["/"]=48,U=10,d=39}local K=table.insert local R={o=19;[";"]=24,["\\"]=56,T=48,u=34,["*"]=54;["$"]=70;j=12;t=41;g=39;K=59;Y=33,[">"]=8,m=71;R=29;V=76;b=6,[")"]=13,["5"]=20,J=17,d=0;E=47;f=69;["1"]=74,k=51;[","]=7;Q=26,["%"]=15;["/"]=80;C=11,["0"]=18,c=32;["8"]=67,["]"]=27,["^"]=38;["`"]=65;["<"]=46;r=31,l=52;N=3,["["]=57;U=79,h=62;["2"]=37;Z=22,["("]=84,e=21;A=49,F=25;["7"]=14;[":"]=64,["\'"]=43;q=40,["-"]=36,["@"]=73,G=30,a=68,i=75,["\""]=72,I=78,["+"]=60;S=35,["#"]=5;s=63;n=50;["="]=16;["3"]=9;M=1,["6"]=44;["?"]=42,["9"]=58,B=28,H=66;_=10,O=81,["4"]=83,P=23,["&"]=2,W=4;L=77;["!"]=82,X=61;p=53,["."]=55,D=45}local T=string.len local z=j local e=math.floor local U=table.concat local y=type local v=string.sub local I=string.char for j=1,#z,1 do local o=z[j]if y(o)=="string"then local y=v(o,1,1)if y=="b"then o=v(o,2)local R=T(o)local y={}local H=1 local c=0 local w=0 while H<=R do local j=v(o,H,H)local T=X[j]if T then c=c+T*(64^((3-w)))w=w+1 if w==4 then w=0 local j=e(c/65536)local X=e((c%65536)/256)local R=c%256 K(y,I(j,X,R))c=0 end elseif j=="="then K(y,I(e(c/65536)))if H>=R or v(o,H+1,H+1)~="="then K(y,I(e((c%65536)/256)))end break end H=H+1 end z[j]=U(y)elseif y==";"then o=v(o,2)local X=T(o)local y={}local H=1 while H<=X do local j=(X-H)+1 local T=j>=5 and 5 or j local z=0 local U=T>1 for j=0,4,1 do local X if j<T then local K=v(o,H+j,H+j)X=R[K]if not X then U=false break end else X=84 end z=z*85+X end if U then local j=e(z/16777216)%256 local X=e(z/65536)%256 local R=e(z/256)%256 local U=z%256 if T==5 then K(y,I(j,X,R,U))elseif T==4 then K(y,I(j,X,R))elseif T==3 then K(y,I(j,X))elseif T==2 then K(y,I(j))end end H=H+T end z[j]=U(y)end end end end return(function(z,U,T,y,e,R,j,O,w,H,o,p,Y,I,c,F,K,i,E,P,m,v,M,Q)K,I,c,M,P,F,v,Q,w,i,m,Y,H,p,E,o,O=function(K,T,z,e)local x,a,r,m,s,d,W,V,L,H,N,q,J,B,S,I,h,w,l,n,b,G,D,f,u,g,c,C,y,k,A,t while K do if K>8141713 then if 12600169>K then if K>10390847 then if K>11387119 then if K>12015113 then if 12296148>K then if 12110897>K then if K>12056257 then if K<12087116 then c,I=1,T[1]H=I[c]c=X(-6199)y=H or c c,H=X(-6199),y y=H==c K=y and 9740152 or 6409508 elseif K<12104099 then K,y=j[X(-6206)],{}else y,K={},j[X(-6032)]end else if 12019909>K then f=M(5052610,{C})n=X(-5986)m=j[n]K=6556242 n=m(f)elseif K<12022704 then f,K,y=nil,3504896,s s,w=nil,y elseif 12032819>K then y,K={},j[X(-6242)]H=F(H)I=nil else c,C=w(H,c)K=c and 15428624 or 10872345 end end else if K<12216638 then if K<12125968 then y=X(-6081)K=v[z[1]]I=v[z[2]]K[y]=I K,y=j[X(-6029)],{}elseif K<12139436 then w=X(-6062)c=j[w]w=X(-6085)K=c[w]w=M(8269770,{})c=K(H,w)c=X(-5854)K=j[c]C={K(H)}m,c,K,w=C[3],C[1],3241055,C[2]elseif K<12164418 then c=v[z[3]]w=X(-5923)H=c[w]K=not H K=K and 10587424 or 13553110 else c,H,I={},X(-6043),nil K=v[z[1]]y={}K[H]=c K=j[X(-5912)]end else if K<12257270 then K=W K=b and 14166451 or 4724758 elseif K<12270739 then m,H=X(-6031),X(-5814)K=v[z[3]]w=v[z[1]]c=w[m]w=X(-5997)w=c[w]m=P(1771308,{z[2],z[3]})w=w(c,m)K[H]=w K=12665421 else m=f W=v[z[2]]b=s~=W K=b and 9555464 or 7818617 end end end else if K<12495506 then if K>12445158 then if K<12454138 then m=v[z[1]]C,K,n=X(-6043),12936155,X(-6196)w=m[C]C=v[z[2]]m=C[n]c=w[m]w=X(-6246)H=c[w]y=H elseif K<12469768 then N=v[f]h,W,A=X(-5839),K,X(-6245)h=N[h]h=h(N,A)b,K=h,h and 2237955 or 14883991 else n,y,K=X(-6145),X(-5854),0 I=K K=j[y]C=v[z[1]]m=C[n]C=X(-6182)w=m[C]C=X(-6174)C=w[C]m={C(w)}w={K(R(m))}c,K,H,y=w[3],12041483,w[2],w[1]w=y end else if 12336772>K then n=C K=o()v[K]=f N,f,W=X(-6056),K,X(-5839)b=v[f]W=b[W]W=W(b,N)s,K=W,W and 6392008 or 3225505 elseif K<12358159 then W,a,K=nil,nil,13861933 elseif 12400217>K then C,I,y=X(-6119),T[1],X(-5854)K=j[y]w=v[z[1]]C=w[C]m={C(w)}w={K(R(m))}H,y,c=w[2],w[1],w[3]w,K=y,9359916 else N=X(-6043)W=v[z[3]]h=X(-6196)b=W[N]N=v[C]W=N[h]K=12011661 s=b[W]f=not s n=f end end else if K>12593560 then if K<12594867 then m,K=X(-6170),{}c=o()C=X(-6171)C=H[C]v[c]=K C={C(H,m)}K,y=C[1],C[2]m=K K,w=16380159,C[3]C=y elseif K<12596547 then b,n=X(-6062),w s=j[b]b=X(-6092)f=s[b]b=v[c]s=f(b,n)n,K=nil,16380159 else b,K=N,h K=14497886 end else if K<12546683 then m=T[5]C=o()w=T[4]v[C]=T[6]s,n,A=X(-5907),X(-5940),X(-5869)y=v[z[1]]I=T[1]K=y[n]c,H,n,W=T[3],T[2],X(-5840),X(-6168)b=H..W W=X(-6214)h=j[A]l,A,V,a=26,X(-6209),0,-6 N=h[A]A=1 h=N(A,a,V,l)a,N,l=K,X(-5816),K q=v[z[1]]t=X(-6098)L=q[t]K,V=L and 4659859 or 1140422,L elseif 12588117>K then K=N N={m(W)}s,b,f,K=N[2],N[3],N[1],5972240 else n,K=X(-5913),7674364 C=v[z[1]]m=C[n]w=not m H=w end end end end else if K>11731030 then if K<11845209 then if K<11806675 then if K<11741189 then H,n=X(-5854),X(-6119)K=j[H]m=v[z[2]]n=m[n]C={n(m)}m={K(R(C))}H,w,K,c=m[1],m[3],4391235,m[2]elseif K<11748925 then f,n=X(-6134),c y=j[f]f=X(-6163)K=y[f]f=.1 y=K(f)f=X(-5794)y=j[f]f=y()y=X(-6220)K=f[y]v[H]=K y=v[H]K=y and 539894 or 7057 elseif K<11770604 then K=W K=b and 3479650 or 11377030 else K=w and 8704634 or 13909551 end else if 11830641>K then s=X(-6201)N=i(6400585,{z[4],n})m=w[s]A,s=X(-5927),X(-5997)s,a=m[s],X(-6204)s=s(m,N)h,l=X(-5894),X(-6240)N=v[z[3]]H,K=nil,j[X(-5876)]m=N[h]h=X(-6196)N=w[h]V=v[C]L=v[n]w,I=nil,nil n=F(n)c,y,h=nil,{},{[A]=s;[a]=V,[l]=L}C=F(C)s=nil m[N]=h elseif 11836461>K then N=X(-6026)W=s[N]N,A,f=0,X(-5832),C b=W or N N=K h=s[A]A=0 W,V=h or A,X(-6239)a=s[V]L,h=X(-6254),K l=j[L]L=X(-5985)V=l[L]A=a~=V N,K=A,A and 4629684 or 1935554 else N=v[C]h=X(-6240)K=N[h]N=o()A=M(6691692,{W;N})v[N]=K h,t=X(-5986),X(-6136)K=j[h]h=K(A)h=X(-6188)K=j[h]q=v[N]L=q[t]l,V=K,L K=L and 5728417 or 15031832 end end else if K>11900883 then if K<11916970 then m,K,C=nil,9874211,nil elseif 11966207>K then C,s=n(m,C)K=C and 3118127 or 9501309 else K=n and 11536896 or 6764597 end else if K<11859932 then y,K={},j[X(-6189)]elseif K<11877619 then K,y=j[X(-6253)],{}elseif 11888343>K then K,L=13758453,{}V=L else y=X(-6188)K=j[y]m=v[z[1]]C=X(-5894)w=m[C]m={K(w)}K,c,H,y=2689813,m[3],m[2],m[1]w=y end end end else if K<11504964 then if K<11468992 then if 11412374>K then K=10285359 elseif 11435902>K then J=X(-6098)S=v[z[1]]k=S[J]S=X(-6150)B=k[S]t,K=B,8042360 elseif K<11455830 then I=X(-5927)y=v[z[1]]K=y[I]y=X(-6202)y=K[y]y=y(K)y,K={},j[X(-6027)]else f,s=C(n,f)K=f and 2245112 or 15434895 end else if 11477139>K then f=F(f)n,K=nil,2673872 elseif 11491167>K then C=X(-6254)m=j[C]C=X(-6176)C,n,s=m[C],X(-5966),X(-6254)C=C(m,n)f=j[s]s=X(-6086)n=f[s]s,m=X(-6239),X(-5875)f=w[s]m=C[m]s=v[z[1]]K=16767935 m=m(C,n,f,s)else f=M(4369348,{C})n=X(-5986)m=j[n]K=2059112 n=m(f)end end else if 11625889>K then if 11520039>K then K,b=561027,X(-5797)s=m[b]n=s elseif 11532844>K then h=X(-6188)K=j[h]t,l=X(-6149),K q=v[N]L=q[t]V,K=L,L and 12721523 or 8290941 elseif 11546300>K then n,f=X(-6121),X(-5947)K=v[C]n=K[n]n=n(K,f)f=o()v[f]=n K=v[f]K=K and 16700037 or 11151011 else K=w and 6775302 or 4330238 end else if K<11709221 then f,s=C(n,f)K=f and 5831826 or 15400659 elseif K<11723000 then V=b<W K,A=15807162,V else A=X(-6181)h=s[A]A=X(-5836)A,a=h[A],1 A=A(h)h=X(-6247)h=A[h]V=#c h=h(A,a,V)N=h==c b,K=N,11753901 end end end end end else if K>10948394 then if K<11191910 then if 11036285>K then if 10988304>K then if 10954961>K then f,s=C(n,f)K=f and 12275111 or 9067707 elseif K<10968125 then b=v[m]K=b and 1579612 or 5772406 elseif K<10979968 then c=y K=not c K=K and 15980462 or 9313927 else K,m=X(-5865),c m,K=nil,C[K]K=K(C)K,C=9195692,nil end else if K<11002902 then K=N N={m(W)}K,b,f,s=2682390,N[3],N[1],N[2]elseif 11022561>K then m=not w K=m and 4124844 or 7727585 else K=14457366 end end else if K<11104754 then if K<11042109 then K=7727585 elseif 11052075>K then K=X(-5905)K=C[K]K=K(C)K=13991721 elseif K<11061582 then w,m=X(-5999),X(-6013)w=c[w]w=w(c,m)y,K=w,w and 3523004 or 14837756 else K,y=j[X(-6069)],{}end else if K<11149454 then K=2881437 elseif K<11170428 then f=F(f)s=X(-6201)n=v[C]K=n[s]s=i(4423583,{z[3];C})n,W=X(-5997),X(-6196)n=K[n]n=n(K,s)s=v[z[3]]b=X(-6043)K=s[b]b=v[C]s=b[W]W=X(-5927)b={[W]=n}n=nil K[s]=b K=6764597 else n=X(-5986)f=P(7618386,{C})K=j[n]n=K(f)K=8004414 end end end else if K>11306544 then if K>11321690 then if K<11340707 then K=4239368<=11198789 v[z[1]]=K y,K={},j[X(-5941)]elseif K<11367465 then N=X(-5909)m=v[z[4]]s=w[N]K,N=11826043,nil f=m(s,N)v[n]=f else K=7597489 end else if 11310991>K then c=X(-5967)y=v[z[1]]I=X(-6222)K=y[I]y=v[z[2]]H=v[z[2]]I=H[c]K[y]=I I,y=0,X(-5967)K=v[z[2]]K[y]=I K,y=j[X(-6200)],{}elseif K<11316223 then k,D,K,G,q,g,B,J,u=X(-6199),0,L,X(-5946),.5,102,X(-6002),4564271<3082448,X(-6098)L,t,S=X(-5826),X(-6180),X(-6114)W={[N]=h;[A]=V;[a]=l,[L]=q,[t]=D;[B]=k;[S]=J;[G]=g}f=K(s,b,W)b=X(-5968)s=o()v[s]=f f=v[z[1]]K=f[b]B=X(-5965)b=v[s]W=6 f=K(b,W)D=2 f=v[z[1]]h,l,q,b,V=X(-6214),-16,16,X(-5940),X(-5869)K=f[b]W=v[s]J=K a=j[V]V,b,L=X(-6209),X(-6079),0 A=a[V]t,V=0,1 a=A(V,l,L,q)L,k=X(-5869),K l=j[L]A,L=X(-5969),X(-6209)V=l[L]L,q=0,8 l=V(L,q,t,D)D=v[n]L,V,q=1,X(-5826),X(-6002)t=D[B]g=v[z[1]]G=g[u]S,D,K=G,X(-5981),G and 12864908 or 16405624 else y=v[z[1]]I=X(-6149)K=y[I]c=X(-5924)y=v[z[2]]H=v[z[2]]I=H[c]K[y]=I K=v[z[2]]y,I=X(-5924),0 K[y]=I K,y=j[X(-6007)],{}end end else if K<11255811 then if K<11194750 then K,N=4843757,s w=N elseif 11208746>K then y,K={},j[X(-5980)]elseif K<11236898 then N,n=X(-6119),X(-5854)K=j[n]b=v[z[2]]N=b[N]W={N(b)}b={K(R(W))}n,f,s,K=b[1],b[2],b[3],7048793 else a,l=h(A,a)K=a and 13168800 or 1416391 end else if K<11269433 then C=X(-5820)m=j[C]C=X(-5904)w=m[C]m=X(-5847)c=w[m]K,y=3617,c elseif K<11291379 then h={}W,K=h,2746327 else l=X(-5836)l,W=a[l],A l=l(a)V=l==m K=V and 3745770 or 12356359 end end end end else if 10623173>K then if K<10529463 then if K<10492360 then if K<10415419 then H=v[z[1]]c=X(-6145)I=H[c]H=X(-5806)y=I[H]K=not y K=K and 7282375 or 16229435 elseif K<10435274 then n,s=m(C,n)K=n and 5753937 or 16521709 elseif 10461218>K then y=v[m]f=X(-6112)K=y[f]y=X(-5997)y=K[y]y=y(K,n)K=7048631 else y=X(-5854)K=j[y]C=X(-6119)w=v[z[1]]C,I=w[C],T[1]m={C(w)}w={K(R(m))}H,c,y,K=w[2],w[3],w[1],13600486 w=y end else if K<10501856 then C=X(-5854)m=j[C]s=v[z[1]]W=X(-6119)W=s[W]b={W(s)}s={m(R(b))}f,C,n,K=s[3],s[1],s[2],10948632 elseif K<10513008 then b,K,w=nil,7696996,nil else m,y=H,X(-6033)K=v[z[1]]y,C=K[y],K y=y(K)K,w=H and 3411700 or 16376925,y end end else if K<10574227 then if K<10553264 then W,K,b=nil,16611656,nil elseif K<10569574 then K=H K=y and 16194590 or 3140310 elseif K<10572127 then h=X(-6181)N=s[h]K,h=6250174,X(-5836)h=N[h]h=h(N)W=h==c y=W else h,t=X(-6188),X(-6221)K=j[h]q=v[N]l=K L=q[t]K,V=L and 7076003 or 3799162,L end else if K<10581545 then K=b and 3050721 or 15977360 elseif K<10602022 then H,m=X(-5923),X(-6031)K=v[z[3]]w=v[z[1]]c=w[m]m=Y(4409090,{z[2];z[3],z[4]})w=X(-5997)w=c[w]w=w(c,m)K[H]=w K=13553110 else u=v[z[1]]d=X(-6098)g=u[d]K,u=6007644,X(-6175)G=g[u]S=G end end end else if K<10823775 then if K>10774875 then if 10788977>K then f=X(-5894)n=v[z[3]]C=n[f]f=v[w]s=X(-6196)n=f[s]m=C[n]f=X(-5927)C=o()v[C]=m n=v[C]m=n[f]K=m and 2928049 or 14914069 elseif K<10808259 then K=H K=y and 14321310 or 14572450 else W=X(-6201)b=v[C]A,N=X(-6204),X(-5894)K=b[W]b=X(-5997)W=Q(5922651,{z[3],C;z[4];n})b,h=K[b],X(-6196)b=b(K,W)W=v[z[3]]V=X(-6240)K=W[N]N=v[C]W=N[h]h=X(-5927)a=v[f]f=F(f)l=v[n]N={[h]=b,[A]=a;[V]=l}b=nil n=F(n)K[W]=N K=15831042 end else if 10637431>K then w=X(-5814)c=v[z[3]]H=c[w]K=not H K=K and 12266367 or 12665421 elseif 10694636>K then C=X(-6188)c=j[C]b=v[z[1]]W=X(-6061)s=b[W]b={c(s)}C,f,K,n=b[1],b[3],11467397,b[2]elseif K<10755594 then h=X(-5907)N=s[h]h=X(-5836)h=N[h]h=h(N)W=h==c K,b=W and 10575666 or 6250966,W else K,h=14685894,{}W=h end end else if K<10870890 then if 10831844>K then H=v[z[1]]c=X(-6145)K=H[c]c,H={},X(-5917)K[H]=c s=X(-6061)K=E(12509911,{z[1]})w,H=X(-6188),K K={}c=K K=j[w]f=v[z[1]]n=f[s]f={K(n)}w,m,C,K=f[1],f[2],f[3],2327928 elseif K<10839959 then h=X(-6196)N=W[h]b=s K=N==m K=K and 6181762 or 10538847 elseif 10855977>K then n=v[C]a,N,f=X(-6136),K,X(-6240)m=n[f]n=o()f=X(-5986)s=i(2368981,{w;n})v[n]=m m=j[f]f=m(s)f=X(-6188)m=j[f]A=v[n]h=A[a]W,K=h,h and 12583455 or 16753999 else G,g=X(-6046),90 J=j[G]u,G=90,X(-6055)S=J[G]G=90 J=S(G,g,u)K,B=7103185,J end else if K<10882614 then c=X(-6145)H=v[z[1]]K=H[c]H,c=X(-6077),{}K[H]=c f,c,K=X(-6061),X(-6188),{}H=K K=j[c]n=v[z[1]]C=n[f]n={K(C)}K,w,m,c=13786740,n[2],n[3],n[1]elseif 10920520>K then c=v[m]K=c and 5306470 or 3355450 else S,K=X(-6098),8591889 k=v[z[1]]B=k[S]k=X(-6150)D=B[k]q=D end end end end end end else if K>9194017 then if K<9720923 then if K>9416370 then if K<9551510 then if K>9504111 then if K<9514853 then V=a K=o()L=X(-5986)v[K]=V V=K K=o()v[K]=l l=K q=M(13074255,{V,l})l=F(l)V=F(V)K=j[L]L=K(q)K=7857798 elseif K<9535174 then c,I=X(-6081),X(-6255)y=v[z[1]]K=y[I]y=v[z[2]]H=v[z[2]]I=H[c]K[y]=I I=8977795<7571762 K=v[z[2]]y=X(-6081)K[y]=I y,K={},j[X(-6153)]else y,f=X(-6188),X(-5894)K=j[y]n=v[z[1]]C=n[f]m=K K,w=C and 13613547 or 16041832,C end else if 9439785>K then y=v[z[1]]I=X(-5923)K=y[I]y=X(-6202)y=K[y]y=y(K)y,K={},j[X(-5824)]elseif K<9456200 then I=X(-6252)y=v[z[1]]K=y[I]y=X(-6202)y=K[y]y=y(K)y,K={},j[X(-5800)]elseif K<9483226 then K=l A=a<V K,N=10311556,A else K=w and 8898535 or 14000356 end end else if K>9603714 then if 9662860>K then k=X(-5869)B=j[k]k,J=X(-6209),.5 D=B[k]G,S,k,K=-4,-11,1,5911583 B=D(k,S,J,G)q=B elseif 9701394>K then K={}H=o()v[H]=K m,C=X(-6170),X(-6171)C=I[C]C={C(I,m)}w,c,K=C[3],C[2],C[1]m=K K=7518295 else m=X(-5908)y=v[z[2]]K=y[m]K=K and 2819961 or 9876868 end else if 9557857>K then a,A,W,h=2660860<16457311,1,K,X(-5907)N=s[h]h=X(-5836)h=N[h]h=h(N)N=X(-5934)N=h[N]N=N(h,c,A,a)K,b=N and 10279604 or 4480941,N elseif 9565888>K then h=X(-5907)N=s[h]a,h=13776734<16345953,X(-5836)h,A,W=N[h],1,K h=h(N)N=X(-5934)N=h[N]N=N(h,c,A,a)b,K=N,N and 10093218 or 15900912 elseif 9577164>K then c,C=w(H,c)K=c and 3422653 or 10826290 else y=X(-5967)K=v[z[1]]I=v[z[2]]K[y]=I K,y=j[X(-6194)],{}end end end else if 9288240>K then if K>9223038 then if K<9242757 then V,K,a=X(-5799),12597701,X(-5839)A=v[f]a=A[a]a=a(A,V)N=a elseif K<9261247 then h,K=X(-5839),15799653 N=v[f]h,A=N[h],X(-5830)h=h(N,A)b=h else H,I,m=nil,nil,nil c=F(c)K,y=j[X(-6126)],{}C=F(C)end else if 9196432>K then c,C=w(H,c)K=c and 10984977 or 7192346 elseif 9198822>K then s,K,f=nil,13239433,nil elseif K<9202267 then y,K={},j[X(-5872)]else I=v[z[1]]H=X(-6145)y=I[H]I=X(-5801)K=y[I]y=X(-5905)y=K[y]y=y(K)y,K={},j[X(-6044)]end end else if K<9346271 then if K<9304711 then H=v[z[1]]c,K=X(-5795),j[X(-6186)]y=H[c]H=y()I,y=nil,{}elseif 9312932>K then y=v[I]c=X(-6201)K=y[c]m=X(-6196)c=i(678523,{z[2],I})y=X(-5997)H=F(H)y=K[y]y=y(K,c)c,w=y,X(-6043)y=v[z[2]]K=y[w]w=v[I]y=w[m]m=X(-5927)w={[m]=c}K[y]=w K,c=7540322,nil elseif 9323276>K then y,w=X(-6080),X(-6147)K=j[y]y=X(-6121)y=K[y]y=y(K,w)w=y K=not w K=K and 8318491 or 2418348 else m,K,C=nil,9571526,nil end else if 9378763>K then c,C=w(H,c)K=c and 7195498 or 12143733 elseif 9399018>K then y,w,H,I=X(-6254),X(-6254),X(-5966),T[1]K=j[y]y=X(-6176)y,I=K[y],nil y=y(K,H)m=X(-6254)c=j[w]w=X(-6086)H=c[w]w=j[m]m,K=X(-5985),X(-5875)c=w[m]w=v[z[1]]K=y[K]K=K(y,H,c,w)K,y=j[X(-6053)],{}else N,K=s,15668971 w=N end end end end else if K>10198860 then if K<10305579 then if K>10273718 then if K<10282481 then K=W K=b and 8084339 or 1356459 elseif K<10295030 then m=not w K=m and 15331853 or 16232419 else K=v[z[1]]I=v[z[2]]y=X(-5924)K[y]=I y,K={},j[X(-5930)]end else if 10214925>K then w=K K,c=H and 453554 or 7609099,H elseif 10235532>K then K=X(-5905)K=C[K]K=K(C)K=9332626 elseif K<10260088 then y=v[z[1]]c=X(-6035)K=y[c]y=X(-6202)y=K[y]y=y(K)K=8392529 else h={}W,K=h,3874712 end end else if K<10326867 then if 10309006>K then K=y and 12610870 or 1843982 elseif 10312597>K then K=h K=N and 11193976 or 4843757 else H,I=X(-5794),T y=j[H]H=y()y=X(-6220)K=H[y]H=o()v[H]=K y=v[H]K=not y K=K and 5904300 or 14457366 end else if K<10356612 then N,K={},5869413 b=N elseif 10379520>K then n,c=X(-6145),X(-6145)H=v[z[1]]y=H[c]H=X(-6151)K=y[H]y=X(-6002)C=v[z[1]]m=C[n]C=X(-6151)w=m[C]m=X(-6002)c=w[m]m=X(-6095)w=m..I H=c..w I=nil K[y]=H K,y=j[X(-6140)],{}else f,K,s,W,b=nil,599238,nil,nil,nil end end end else if K<9980507 then if 9909642>K then if 9762681>K then K,y=j[X(-5886)],{}elseif K<9829711 then w,n=m(c,w)K=w and 3426275 or 7693515 elseif 9875539>K then c,C=w(H,c)K=c and 3744328 or 2577590 else K=9114487 end else if 9954891>K then y=X(-5986)c=Q(429083,{z[1]})K=j[y]y=K(c)K=5701711 elseif K<9972113 then y=v[z[1]]I=X(-5814)K=y[I]y=X(-6202)y=K[y]y=y(K)y,K={},j[X(-6207)]else K,f,s=1265097,nil,nil end end else if 10085475>K then if 9989914>K then h,W,f=X(-6254),X(-6239),C b=s[W]N=j[h]h=X(-5985)W=N[h]K=b~=W K=K and 14574589 or 9197172 elseif 10018122>K then w=X(-5854)K=j[w]f=X(-6039)f=I[f]n={f(I)}f={K(R(n))}m,K,C,w=f[2],8892408,f[3],f[1]elseif 10059152>K then H,I=X(-5923),T[1]y=v[z[1]]K=y[H]K=K and 3436176 or 11888578 else K=C C={K(m)}w,H,c,K=C[3],C[1],C[2],5231102 end else if 10138790>K then K=W K=b and 349929 or 8866720 elseif K<10185476 then I,c=T[1],1 H=I[c]c=X(-6199)y=H or c c,H=X(-6199),y y=H==c K=y and 12103201 or 4318322 else y=v[z[2]]m=X(-6252)K=y[m]K=K and 14623262 or 9701694 end end end end end else if K>8446224 then if K>8901355 then if K>9062811 then if K<9119466 then if 9071774>K then K=1841204 elseif 9088691>K then c={}K=v[z[1]]H=X(-6043)K[H]=c c=5896278<1290981 K=v[z[1]]H=X(-6005)K[H]=c y,H,c={},X(-6231),15435216<14076155 K=v[z[1]]K[H]=c I,c,H=nil,nil,X(-5794)K=j[H]H=K()K=X(-6220)H[K]=c H,c=X(-5794),282859>=15676891 K=j[H]H=K()K=X(-5796)H[K]=c K=j[X(-6192)]elseif K<9108014 then y=X(-6188)I=o()K={}v[I]=K K=j[y]m=v[z[1]]C=X(-6061)w=m[C]m={K(w)}y,c,K=m[1],m[3],9874211 w,H=y,m[2]else K,H,c,y,I,w=j[X(-6111)],nil,nil,{},nil,nil end else if K<9152446 then y=v[z[1]]I=X(-5927)K=y[I]y=X(-6202)y=K[y]y=y(K)y,K={},j[X(-6021)]elseif K<9186394 then y,K,I={},j[X(-6052)],nil else f,s=C(n,f)K=f and 4083316 or 11397209 end end else if K<8986187 then if K<8914901 then K=y and 549556 or 15437037 elseif 8935889>K then b,N=K,X(-5907)W=s[N]A,h,N=5630011>=316310,1,X(-5836)N=W[N]N=N(W)W=X(-5934)W=N[W]W=W(N,c,h,A)K,y=W and 15526602 or 14142204,W elseif K<8959943 then K=1631928 n=F(n)else y=X(-6121)K=v[I]H,y=X(-5947),K[y]y=y(K,H)H=o()v[H]=y K=v[H]K=K and 4237019 or 9057915 end else if K<9011540 then H,c,s=X(-5894),{},X(-6043)K=v[z[1]]K[H]=c H=X(-6188)K=j[H]C=K f=v[z[1]]n=f[s]K,m=n and 10077733 or 4739315,n elseif 9041178>K then K=9976861 else K,w=nil,X(-5909)c=o()v[c]=K y=v[I]K=y[w]K=K and 6784451 or 8180552 end end end else if K>8793589 then if 8868793>K then if 8821125>K then H,m,w,I=.15,.5,X(-5826),X(-6109)y=v[z[1]]K=y[I]c={[w]=m}I=v[z[2]]y=K(I,H,c)K,y=j[X(-5944)],{}elseif 8843081>K then I=T[1]y=v[z[1]]m,c,n,C,H,s=T[5],T[3],X(-5965),X(-6061),T[2],X(-6018)b,w=c,T[4]K=y[C]f,W=X(-5916),K K,y=c and 5869413 or 10340096,X(-5836)y=I[y]y=y(I)elseif 8860510>K then m,s,K=nil,nil,14403819 else K=8532631 end else if K<8881637 then K=v[z[1]]I=v[z[2]]y=X(-6081)K[y]=I K,y=j[X(-6155)],{}elseif 8895471>K then C,f=w(m,C)K=C and 1138696 or 16208876 else C,n=X(-6254),X(-5966)m=j[C]C,K,s=X(-6176),14000356,X(-6254)C=m[C]C=C(m,n)f=j[s]m,s=X(-5875),X(-6086)n=f[s]s=X(-6239)f=w[s]s=v[z[1]]m=C[m]m=m(C,n,f,s)end end else if K>8648261 then if K<8736613 then C=X(-6254)m=j[C]C,n,K=X(-6176),X(-5966),13909551 C,s=m[C],X(-6254)C=C(m,n)f=j[s]s=X(-6086)n=f[s]s=X(-6239)f=w[s]m=X(-5875)m=C[m]s=v[z[1]]m=m(C,n,f,s)elseif K<8772691 then y,K={},j[X(-5893)]else y=v[z[1]]H=X(-5814)K=y[H]K=K and 7917479 or 3170458 end else if 8507964>K then n=X(-6074)C=j[n]n=X(-6172)m=C[n]n=1 f=#w C=m(n,f)K=w[C]n,s,C,m=X(-5966),X(-6254),X(-6254),K K=j[C]C=X(-6176)C=K[C]C=C(K,n)f=j[s]s,K=X(-6086),X(-5875)n=f[s]s=X(-6239)f=m[s]K=C[K]s=v[z[1]]K=K(C,n,f,s)m,K=nil,46205 elseif K<8550928 then K,m,s=11696073,nil,nil elseif 8580557>K then c,K=y,H and 13017186 or 1250564 y=H else l,K=q,t K=q and 14830327 or 7806349 end end end end else if K<8270548 then if K>8203633 then if K<8245277 then if 8207377>K then V,A=825124<=6387801,X(-6181)h=s[A]A=X(-5836)A,a=h[A],1 A=A(h)h,K=X(-5934),3860636 h=A[h]h=h(A,c,a,V)W=h elseif K<8224174 then K=y and 2061147 or 14860850 elseif K<8241105 then C=F(C)K=15603391 else N,K=h,A K=7711197 end else if K<8251945 then K,m=2749138,{}c=m elseif K<8263405 then K=v[z[1]]y,I=X(-5931),15496268~=158666 K[y]=I y,K={},j[X(-6106)]else c,I,H,w=X(-5965),T[1],T[2],X(-5965)y=I[c]c=X(-5836)c=y[c]c=c(y)y=H[w]w=X(-5836)w=y[w]w=w(y)K=c<w y={K}K=j[X(-6123)]end end else if 8194957>K then if K<8161398 then m,w=K,H K=H and 13533389 or 7149777 elseif 8177555>K then L=X(-6026)l=w[L]L=0 a=l or L A=b>a V=K K,N=5095347,A elseif K<8186089 then m=X(-6201)w=v[I]K=w[m]m=M(14684296,{z[2];I,z[3],c})n,w=X(-6196),X(-5997)w,f=K[w],X(-6204)w=w(K,m)C=X(-5894)m=v[z[2]]K=m[C]b=X(-6240)C=v[I]m=C[n]s=v[H]W=v[c]c=F(c)H=F(H)n=X(-5927)C={[n]=w;[f]=s,[b]=W}K[m]=C K,w=8364745,nil else m=1 w=v[H]c=w[m]C,w=X(-6062),X(-5836)w=c[w]w=w(c)m=j[C]C=X(-5884)c=m[C]n=1 C=v[H]m=c(C,n)n=X(-6061)C=v[z[1]]m=C[n]c=m[w]m=o()v[m]=c C=v[m]c=not C K=c and 10645135 or 10892883 end else if K<8199241 then A=not w N,h=A,K K=A and 3858274 or 1621094 elseif 8201274>K then N=X(-5909)K=v[z[4]]W=v[C]b=W[N]W=nil s=K(b,W)v[n]=s K=10821261 else y=v[z[1]]I=X(-5814)K=y[I]y=X(-6202)y=K[y]y=y(K)K,y=j[X(-5821)],{}end end end else if 8304513>K then if K<8291695 then if 8278601>K then K=n n={y(C)}c,w,K,m=n[1],n[2],4369629,n[3]elseif 8287634>K then f=C b=v[z[2]]K=s~=b K=K and 10744137 or 4520142 elseif K<8290167 then q,L=28,X(-6046)l=j[L]L=X(-6055)V=l[L]L,K,t=28,232921,28 l=V(L,q,t)A=l else L={}V,K=L,12721523 end else if 8294581>K then K,y=j[X(-6249)],{}elseif 8297146>K then y=X(-5986)K=j[y]c=Q(2783557,{H})y=K(c)K=9311938 else K,C=3208375,nil end end else if K>8369260 then if 8383152>K then K=H K=y and 4340039 or 7008813 elseif 8400840>K then y=X(-6035)K=v[z[1]]m=X(-6201)w=v[z[2]]c=w[m]m=Q(6530195,{H})w=X(-5997)H=F(H)I,w=nil,c[w]w=w(c,m)K[y]=w y,K={},j[X(-5892)]else A,I=200,X(-6145)y=v[z[1]]V=38 K=y[I]y,t,k,c,N,f,W,n=X(-6151),K,X(-6098),X(-5940),-20,X(-6214),X(-5869),X(-6145)H=v[z[1]]I=H[c]c=X(-6079)C=v[z[1]]m=C[n]C,n=X(-5896),X(-6151)w=m[C]h,C=0,X(-5907)b=j[W]W=X(-6209)s=b[W]L,W=K,1 b=s(W,N,h,A)s,h=X(-5969),X(-5869)N=j[h]h=X(-6209)W=N[h]A,a,h=10,0,0 N=W(h,A,a,V)B=v[z[1]]V,A,a,h,W=X(-5981),X(-6002),X(-5971),1,X(-5826)D=B[k]K,q=D and 10948157 or 8591889,D end else if 8314969>K then W=F(W)b,K=nil,7048793 elseif 8335261>K then y,C=X(-6080),7233436<=8172817 K=j[y]y=X(-5999)y,m=K[y],X(-6147)y=y(K,m,C)K,w=2418348,y elseif 8358388>K then n=X(-6188)w=j[n]W=v[z[2]]N=X(-6061)b=W[N]W={w(b)}f,s,n,K=W[2],W[3],W[1],13552989 else K,y=j[X(-6166)],{}I=F(I)end end end end end end end else if 14548687>K then if K>13790166 then if K<14133227 then if K<13938339 then if 13847648>K then if K<13817058 then if K<13798829 then n,s=m(C,n)K=n and 3901268 or 1380317 elseif K<13805001 then y=X(-5931)K=v[z[1]]I=3592517>=15495243 K[y]=I y,K={},j[X(-6124)]elseif 13810887>K then K=8238507 f=v[z[3]]s=X(-6043)n=f[s]s=X(-6196)f=w[s]m=n[f]n,f=X(-6246),8649334>6840984 m[n]=f else c,I=1,T[1]H=I[c]c=X(-6199)y=H or c H,c=y,X(-6199)y=H==c K=y and 1297765 or 13352632 end else if 13820650>K then N,f,a=K,X(-6188),X(-6255)m=j[f]A=v[n]h=A[a]K,W=h and 3874712 or 10267833,h elseif 13834015>K then s=X(-5940)K=o()C,a=m,X(-5965)v[K]=n h,t=X(-6145),36 f=v[z[1]]n=K K=f[s]s=X(-6162)N=v[z[1]]L=-6 W=N[h]N=X(-6182)b=W[N]N=X(-5907)A=v[n]h=A[a]l=X(-5869)V=j[l]A,q,l=X(-6214),0,X(-6209)a=V[l]l=1 V=a(l,L,q,t)L,a,t=K,X(-5816),K B=v[z[1]]k=X(-6098)D=B[k]K,q=D and 6029914 or 6135302,D else a,l=h(A,a)K=a and 3464062 or 4789461 end end else if 13895885>K then if K<13854914 then f=p(6345773,{C,c})n=X(-5986)w=j[n]K=9278996 n=w(f)elseif 13860736>K then K,L=4579875,{}V=L elseif K<13872076 then A,a=N(h,A)K=A and 11303686 or 6478235 else N,K=A,a K=1935554 end else if 13919252>K then K,w=3147162,nil elseif K<13929387 then f,s,W,b,K=nil,nil,nil,nil,11920753 else n,K=X(-6014),539575 C=H[n]w=C end end end else if K>13996038 then if K>14077279 then if K<14093930 then K=v[z[2]]y=X(-6121)y,H=K[y],X(-5947)y=y(K,H)H=o()v[H]=y K=v[H]K=K and 14819510 or 245508 elseif K<14117550 then c,y,I=nil,{},nil w=F(w)H=nil C=F(C)K=j[X(-6116)]else a,l=h(A,a)K=a and 6166514 or 10572789 end else if K<14001180 then K,w=598679,nil elseif K<14030635 then K,y=j[X(-5837)],{}elseif 14065227>K then K,s=f,X(-5812)f=y y=n[s]s,n,b=X(-5957),nil,f y[s]=b f,C,K=nil,nil,4369629 else K=4797358 end end else if 13988185>K then if K<13948920 then N=v[z[2]]m=f W=s~=N K=W and 14543396 or 8854300 elseif 13957626>K then h,K=X(-6181),13383422 N=s[h]h=X(-5836)h=N[h]h=h(N)W=h==c y=W elseif 13975950>K then s=X(-6063)K=v[z[1]]H,y,f=5466288<10670043,X(-6231),X(-6254)K[y]=H H,y=X(-5956),X(-6254)K=j[y]y=X(-6176)y=K[y]y=y(K,H)K=X(-5962)K=y[K]K=K(y)H=X(-6134)y=j[H]H=X(-6163)K=y[H]H=.02 y=K(H)m,y=X(-6094),X(-5854)K=j[y]w=j[m]n=j[f]f=X(-6176)f=n[f]f=f(n,s)n=X(-6233)C=f[n]m={w(C)}w={K(R(m))}H,K,y,c=w[2],9195692,w[1],w[3]w=y else C,K=X(-5854),6418878 m=j[C]W=X(-6119)s=v[z[1]]W=s[W]b={W(s)}s={m(R(b))}C,f,n=s[1],s[3],s[2]end else if 13989506>K then C,f=w(m,C)K=C and 12317186 or 15684433 elseif 13990996>K then K=l l={K(V)}A,K,h,a=l[2],11251828,l[1],l[3]else K,C,m=12041483,nil,nil end end end end else if K<14368063 then if K<14232105 then if 14166464>K then if K<14139025 then K=0 I=K K=466403 elseif 14153279>K then K,N,A=15526602,X(-6181),3607788<16315313 W=s[N]N=X(-5836)N,h=W[N],1 N=N(W)W=X(-5934)W=N[W]W=W(N,c,h,A)y=W elseif K<14165402 then n=X(-6145)C=v[z[1]]m=C[n]C,H=X(-6146),K w=m[C]c=not w K,y=c and 13717556 or 8373775,c else m,b=nil,s s,K,w=nil,14071189,b end else if K<14166868 then w,K,c=X(-6041),8569225,X(-5999)c=I[c]c=c(I,w)y=c elseif K<14186689 then w,f=X(-5854),X(-6039)K=j[w]f=I[f]n={f(I)}f={K(R(n))}C,w,m,K=f[3],f[1],f[2],6004050 else K=o()n,N=C,X(-6219)v[K]=f W,f=X(-5839),K b=v[f]W=b[W]W=W(b,N)s,K=W,W and 12865663 or 12458435 end end else if K>14321399 then if 14325477>K then K,m,W=11397209,nil,s w,s=W,nil elseif 14330887>K then C,y=X(-6043),X(-6188)K=j[y]m=v[z[1]]w=m[C]m={K(w)}H,c,K,y=m[2],m[3],1968411,m[1]w=y else y=X(-6081)K=v[z[1]]I=v[z[2]]K[y]=I y,K={},j[X(-6143)]end else if K<14275637 then m=P(14645324,{z[2]})y=X(-5986)K=j[y]y=K(m)y,m=X(-5982),nil K=v[z[2]]K[y]=m K=10186591 elseif K<14301819 then y=v[z[1]]I=X(-6218)K=y[I]y=K()y=v[z[2]]K=not y v[z[2]]=K y=v[z[2]]K=y and 12839560 or 3688720 elseif K<14315882 then I=X(-6134)y=j[I]I=X(-6163)K=y[I]I=.5 y=K(I)K=v[z[1]]y=K()y,K={},j[X(-6158)]else H=v[z[1]]K,c=14572450,X(-5913)y=H[c]H=y()end end end else if 14489136>K then if 14464045>K then if 14409980>K then f,s=C(n,f)K=f and 13946858 or 3504785 elseif 14417763>K then V=a K=o()v[K]=V V=K K=o()L=X(-5986)v[K]=l l=K K=j[L]q=P(222944,{V,l})V=F(V)L=K(q)l=F(l)K=12827310 elseif K<14438375 then I,y=X(-5989),X(-6093)K=j[y]y=K(I)K=3118393 else y=v[H]K=not y K=K and 14494775 or 7013255 end else if 14475975>K then K,y=X(-6121),X(-6177)K=I[K]K=K(I,y)H,y=K,X(-6251)K=X(-5999)K=I[K]K=K(I,y)c=K K=not c K=K and 9200472 or 10520080 elseif 14482565>K then K=2881437 else C,s=n(m,C)K=C and 8285875 or 11014173 end end else if 14505694>K then if 14494571>K then y,I=X(-5931),16502341~=10079244 K=v[z[1]]K[y]=I y,K={},j[X(-6193)]elseif K<14496330 then K,y=j[X(-6217)],{}else K,s=W,b K=4542608 end else if 14517328>K then y={}m=F(m)w,I,K=nil,nil,j[X(-6034)]H=F(H)elseif 14532275>K then s=v[z[1]]b=X(-6238)f=s[b]n=f[w]f=15883223<7002178 C=n or f K=C and 4615162 or 8297578 else a,N,V,A=1,K,7362058<=8647261,X(-5907)h=s[A]A=X(-5836)A=h[A]A=A(h)h=X(-5934)h=A[h]h=h(A,c,a,V)K,W=h and 3860636 or 8204912,h end end end end end else if 13142135>K then if 12865285>K then if K<12723971 then if K<12647688 then if 12606754>K then K=13882219 V=b<W A=V elseif K<12618468 then f,K=X(-6014),nil w,y=K,X(-5854)K=j[y]n=H[f]f={K(n)}m,y,K=f[2],f[1],599238 n,C=y,f[3]elseif K<12629030 then H=o()I=T[1]v[H]=T[2]K=not I K=K and 4103186 or 5926598 else w,f=X(-5854),X(-6039)f=I[f]K=j[w]n={f(I)}f={K(R(n))}m,w,K,C=f[2],f[1],13988740,f[3]end else if 12664401>K then K=o()v[K]=f N,W,n,f=X(-6036),X(-5839),C,K b=v[f]W=b[W]W=W(b,N)K,s=W and 5340340 or 3226279,W elseif 12693472>K then K,I,y=j[X(-6020)],nil,{}else K=l l={K(V)}a,A,K,h=l[3],l[2],12827310,l[1]end end else if 12831140>K then if 12730170>K then n=X(-5986)K=j[n]s=i(3750986,{f})n=K(s)K=6183610 elseif 12757219>K then I=X(-5953)y=j[I]K=not y K=K and 2990963 or 6121078 elseif 12803914>K then c=X(-6145)H=v[z[1]]I=T[1]y=H[c]H=X(-5801)K=y[H]K=K and 7604833 or 15754338 else a,l=h(A,a)K=a and 14416142 or 1400725 end else if 12837265>K then K,m=65147,not w y=m elseif 12852234>K then f,m,H,s=X(-6046),X(-5816),X(-6109),80 I=v[z[1]]y=I[H]W,c,K=-4,.2,280458 H=v[z[3]]n=j[f]f,b=X(-6055),80 C=n[f]f=80 n=C(f,s,b)s,w=-11,{[m]=n}I=y(H,c,w)c=.2 I=v[z[1]]H,b=X(-6109),.5 y=I[H]H=v[z[4]]f,m=X(-5869),X(-5969)n=j[f]f=X(-6209)C=n[f]f=1 n=C(f,s,b,W)w={[m]=n}I=y(H,c,w)else d=X(-6098)u=v[z[1]]K=16405624 g=u[d]u=X(-6150)G=g[u]S=G end end end else if K<12986518 then if K<12958033 then if 12899909>K then K=s and 14567586 or 2114020 elseif 12935155>K then K=y and 13679410 or 14652651 elseif 12942896>K then K=y and 509259 or 14083369 else K=7991195 end else if 12967521>K then K,y=j[X(-5861)],{}elseif K<12975791 then c=v[z[2]]K,w=1865189,X(-5938)H=c[w]y=H else K,y=j[X(-6084)],{}end end else if K<13043782 then if K<12995408 then K=o()N,n=X(-5810),C v[K]=f f=K b=v[f]W=X(-5839)W=b[W]W=W(b,N)K,s=W and 4542608 or 4190629,W elseif K<13008967 then m=X(-6062)w=j[m]m=X(-6085)K=w[m]m=i(7318023,{})w=K(c,m)w=X(-5854)K=j[w]n={K(c)}C,m,K,w=n[3],n[2],1964853,n[1]elseif 13027998>K then m,w=X(-6041),X(-5999)w=H[w]w=w(H,m)K,y=1250564,w else l,a=0,K V=W>l K,A=V and 11722369 or 15807162,V end else if K<13061504 then y,K={},j[X(-5871)]elseif K<13094862 then y=X(-6081)K=v[z[1]]I=v[z[2]]K[y]=I y,K={},j[X(-5976)]else I=X(-5908)y=v[z[1]]K=y[I]y=X(-6202)y=K[y]y=y(K)y,K={},j[X(-6234)]end end end end else if K>13544703 then if 13669904>K then if K>13607016 then if K<13635890 then K=m m={K(w)}H,c,y=m[2],m[3],m[1]w,K=y,2772478 elseif 13659316>K then I,c=T[1],X(-6145)H=v[z[1]]y=H[c]H=X(-5801)K=y[H]K=K and 6865293 or 14580713 else H,I,c=X(-6238),T[1],X(-5965)y=v[z[1]]K=y[H]H=v[z[2]]y=H[c]H=I K[y]=H H=X(-5975)y=v[z[1]]K=y[H]I=nil y=K()y,K={},j[X(-6125)]end else if K<13553049 then s,b=n(f,s)K=s and 5733402 or 7696996 elseif K<13574505 then y,K,I={},j[X(-6078)],nil elseif 13598193>K then H=v[z[1]]c=X(-6145)I=H[c]H=X(-5896)y=I[H]K=not y K=K and 11867130 or 8409151 else c,C=w(H,c)K=c and 7144255 or 10629727 end end else if 13740356>K then if 13688387>K then y,K={},j[X(-6185)]elseif K<13707460 then f=v[z[3]]s=X(-5894)n=f[s]s=v[w]b=X(-6196)f=s[b]C=n[f]m=not C K=m and 11195525 or 10782698 elseif K<13719907 then m=X(-5828)w=v[z[1]]c=w[m]K,y=8373775,c else a=X(-5983)A=b[a]N,K=A,2130221 end else if 13759231>K then K=l l={K(V)}a,h,K,A=l[3],l[1],7857798,l[2]elseif 13773374>K then H=X(-5998)I=v[z[3]]w=X(-5820)y=I[H]c=j[w]w=X(-5843)H=c[w]c=X(-5888)I=H[c]K=y==I I=K y=v[z[4]]K=not y K=K and 2163470 or 5172673 else m,n=c(w,m)K=m and 5977161 or 12135140 end end end else if K>13349110 then if K>13430624 then if 13483689>K then l=v[z[1]]L,q=X(-6238),X(-5965)V=l[L]L=v[f]l=L[q]a=V[l]D,V=X(-6145),3642766<1618084 A=a or V s=A t=v[z[1]]q=t[D]k,t=X(-5965),X(-5806)L=q[t]t=X(-6003)B=v[f]D=B[k]q=t..D B=X(-5965)D=v[f]t=D[B]D=O(13660399,{z[1],f})B={H(L,q,t,n,s,D)}V,l,A=B[3],B[4],B[1]N,a,s=V,B[2],nil W,V=a,X(-6062)a=j[V]b,V,q,h,K,N,n=A,X(-6092),X(-6145),l,1964853,nil,nil A=a[V]L=v[z[1]]l=L[q]L=X(-5917)V=l[L]t=v[f]L,D,W=X(-5965),X(-5965),nil q=t[D]t=X(-5812)l={[L]=q;[t]=b}f=F(f)b=nil a=A(V,l)h=nil elseif K<13534903 then n,K=X(-6014),7149777 C=H[n]w=C else y,K,c=X(-6177),X(-6121),X(-6187)H=o()K=I[K]K=K(I,y)v[H]=K y=X(-5999)K=v[z[1]]y=K[y]y=y(K,c)m=v[H]w,c=not m,y y,K=w,w and 3439545 or 15921992 end else if 13367040>K then b,y,K,m=X(-6119),X(-5836),2876421,X(-5854)y=H[y]y=y(H)c=y y=nil w=y y=j[m]f=v[z[1]]b=f[b]s={b(f)}f={y(R(s))}C,m,n=f[2],f[1],f[3]elseif K<13382435 then K=1964853 f=F(f)s,h,N,W,b,n=nil,nil,nil,nil,nil,nil elseif K<13405340 then K=b K=y and 16213214 or 12949637 else K,C=16217353,X(-5820)m=j[C]C=X(-5904)w=m[C]m=X(-5847)c=w[m]y=c end end else if 13260722>K then if 13179934>K then K=o()V,L=a,X(-5986)v[K]=V V=K K=o()v[K]=l l=K K=j[L]q=Q(14623618,{V;l})l=F(l)V=F(V)L=K(q)K=11251828 elseif K<13206595 then f,s,W,b,K=nil,nil,nil,nil,1933414 elseif K<13230778 then C,f=w(m,C)K=C and 14206120 or 12631994 else C,s=n(m,C)K=C and 9984154 or 2894386 end else if K<13306442 then w=H K=o()v[K]=m f,m=X(-6190),K n=v[m]C=n[f]K=not C K=K and 14521154 or 3208375 elseif 13338231>K then y=X(-5931)K=v[z[1]]I=11795722>8506300 K[y]=I K,y=j[X(-6159)],{}else c=v[z[1]]w=X(-6145)H=c[w]c=X(-5978)y=H[c]K=y and 15621998 or 9297485 end end end end end end else if K>15742542 then if K>16236256 then if K>16484242 then if K>16691905 then if 16736123>K then if K<16699476 then c,I=1,T[1]H=I[c]c=X(-6199)y=H or c c,H=X(-6199),y y=H==c K=y and 13048754 or 4822055 elseif K<16709741 then s=p(3413646,{f})n=X(-5986)K=j[n]n=K(s)K=11151011 else K,y=1380317,s s,f,w=nil,nil,y end else if 16753400>K then K=4391235 n=F(n)m,C=nil,nil elseif 16760967>K then h={}W,K=h,12583455 else K,w=1843982,nil end end else if K<16611930 then if 16513565>K then C,N=X(-5854),X(-6119)m=j[C]s=v[z[1]]N=s[N]W={N(s)}s={m(R(W))}n,f,C,K=s[2],s[3],s[1],14403819 elseif K<16557505 then m=not w K=m and 10497775 or 1841204 elseif K<16602479 then K=10385912 else s,W=n(f,s)K=s and 10837399 or 2799014 end else if K<16644365 then K=y and 3432467 or 3147162 elseif 16680710>K then K,W,m=3504785,s,nil s,w=nil,W else C,s=w,X(-6062)f=j[s]s=X(-6092)n=f[s]s=v[H]f=n(s,C)K,C=7518295,nil end end end else if K>16378542 then if 16411622>K then if 16383322>K then w=m(C,w)K=w and 12595393 or 15191648 elseif K<16392816 then I,H,y=X(-5813),X(-6254),X(-6254)K=j[y]y=X(-6176)y=K[y]y=y(K,I)f=X(-6254)I=j[H]n=j[f]f,w=X(-6086),X(-6191)C=n[f]n=X(-6099)m=C..n c=w..m w=X(-6012)w=I[w]H={w(I,c)}I=X(-6165)I=y[I]K={I(y,R(H))}y={R(K)}K=j[X(-5918)]elseif K<16402385 then K=y and 1479279 or 598679 else K=J K,B=S and 15632455 or 15148431,S end else if 16425433>K then N,K=s,16593302 w=N elseif K<16448154 then K,y=j[X(-5859)],{}else f,s=C(n,f)K=f and 894104 or 11041621 end end else if 16274094>K then if K<16250775 then b=X(-5907)s=C[b]K,b=5426045,X(-5891)f=s~=b n=f elseif K<16265043 then K=o()m,f=c,X(-5927)v[K]=C C=K n=v[C]K=n[f]K=K and 11189845 or 8004414 elseif 16270743>K then m=X(-6121)m,C=w[m],X(-5947)m=m(w,C)C=o()v[C]=m m=v[C]K=m and 7288814 or 1489367 else C,m=X(-6041),X(-5999)m=I[m]m=m(I,C)K,c=7724933,m end else if 16318092>K then K=h K=N and 6710585 or 13928954 elseif 16368920>K then n,b=C,X(-6062)s=j[b]b=X(-6092)K=s[b]s=K(c,f)n,K,f=nil,2327928,nil else K,f=C,X(-6214)n=c[f]C=2.3 y,s=m or C,X(-6074)m,f=y,X(-5808)C=n[f]n=.5 y=C*n C,W=y,.15 f=j[s]s=X(-6129)n=f[s]s,A=.5,X(-5808)b=m*W f=n(s,b)s=.25 n=C*s y=f+n s,n=X(-5955),y f=w[s]s=X(-5969)y=f[s]b=X(-6047)s=j[b]b,f,W=X(-6209),y,X(-6050)y=s[b]b=f[W]h=f[A]N=h+m W=N+n h=X(-6135)N=f[h]s=y(b,W,N)N=X(-6047)a,h=X(-5969),X(-6050)W=j[N]N=X(-6209)b=W[N]N=s[h]A=c[a]a,V=X(-5808),X(-5852)h=A[a]a=X(-6135)A=s[a]W=b(N,h,A)N=X(-5969)b=c[N]y=W-b h,W,b=K,K,y a=b[V]V=.01 A=a>V K,N=A and 13722259 or 2130221,A end end end end else if 16044598>K then if 15865977>K then if K<15803407 then if K<15749923 then K=N K=W and 14321489 or 3780404 elseif K<15768311 then y=X(-5794)K=j[y]H=nil y=K()K=X(-6220)y[K]=H H,w,c,y,m=16002550<=12526614,X(-6178),X(-6254),X(-5794),X(-6012)K=j[y]y=K()K=X(-5796)y[K]=H y=X(-5863)K=j[y]H=j[c]m=H[m]c={m(H,w)}y=K(R(c))K=y()y,K,I={},j[X(-6100)],nil elseif K<15790968 then I=X(-5855)y=v[z[1]]K=y[I]w=v[z[1]]m=X(-6145)c=w[m]w=X(-5978)H=c[w]c=X(-6002)I=H[c]y=K(I)K,y=j[X(-6019)],{}else s,K=b,W K=6392008 end else if K<15809869 then N,K=A,a K=7768705 elseif 15821809>K then m,C=X(-6121),X(-5947)m=w[m]m=m(w,C)C=o()v[C]=m m=v[C]K=m and 12018566 or 6556242 else C=F(C)m,K=nil,9359916 end end else if K>16002802 then if 16031532>K then s=X(-5986)b=Y(6952359,{H;f})K=j[s]s=K(b)K=294338 elseif K<16039877 then A=X(-5907)h=s[A]V,a,A,N=544295<=7682302,1,X(-5836),K A=h[A]A=A(h)h=X(-5934)h=A[h]h=h(A,c,a,V)K,W=h and 15745508 or 1712891,h else C,K={},13613547 w=C end else if 15911452>K then h,A=X(-6181),1 N=s[h]h=X(-5836)h,K=N[h],10093218 h=h(N)N=X(-5934)N,a=h[N],14274689>12601722 N=N(h,c,A,a)b=N elseif K<15949676 then w,K=not c,3439545 y=w elseif K<15978911 then K=4520142 else y,K={},j[X(-6197)]end end end else if 16201733>K then if K<16103927 then if 16058680>K then I,K,y=nil,j[X(-6195)],{}elseif 16077691>K then h=X(-5907)N=s[h]b,h=K,X(-5836)h=N[h]h=h(N)W=h==c y,K=W,W and 2350115 or 15005538 elseif K<16094617 then K=N N={m(W)}b,K,s,f=N[3],7082588,N[2],N[1]else K,w,b=13552989,nil,nil end else if K<16137029 then I,y,H=X(-5813),X(-6254),X(-6254)K=j[y]y,f=X(-6176),X(-6254)y=K[y]y=y(K,I)w=X(-6191)I=j[H]n=j[f]f=X(-6086)C=n[f]n=X(-6099)m=C..n c=w..m w=X(-6012)w=I[w]H={w(I,c)}I=X(-6165)I=y[I]K={I(y,R(H))}y={R(K)}K=j[X(-6057)]elseif K<16182321 then K,f,s=13793593,nil,nil else K,w=1529324,X(-6134)H=j[w]w=X(-6163)y=H[w]w=.1 H=y(w)end end else if 16226047>K then if K<16211045 then w,f=X(-5854),X(-6039)f=I[f]K=j[w]n={f(I)}f={K(R(n))}C,m,K,w=f[3],f[2],13222123,f[1]elseif 16215283>K then f,y=nil,s s,K,w=nil,16521709,y elseif 16220006>K then C,K=X(-5938),H I[K]=y K=X(-6235)m=v[z[2]]w=m[C]H,m=K,X(-6243)c=w[m]w=100 y=c or w I[K]=y C=v[z[2]]c,y,n=K,X(-6023),X(-5938)m=C[n]C=X(-5960)w=m[C]m,K=100,6339640 H=w or m I[y]=H else N=o()m=b v[N]=m m=N N=o()v[N]=W W,K=N,1179443 A=Q(9582803,{m,W})h=X(-5986)W=F(W)N=j[h]m=F(m)h=N(A)end else if K<16230927 then y,K=X(-5854),0 I,n=K,X(-6145)K=j[y]C=v[z[1]]m=C[n]C=X(-5806)w=m[C]C=X(-6174)C=w[C]m={C(w)}w={K(R(m))}H,c,K,y=w[2],w[3],9571526,w[1]w=y elseif K<16232449 then C,f=K,X(-5909)n=w[f]K,m=n and 6369362 or 3326887,n else V=b<W K,A=1981085,V end end end end end else if K>15093560 then if 15492539>K then if K>15339584 then if K>15435966 then if 15447619>K then I,y,K=nil,{},j[X(-5903)]elseif K<15471116 then A=X(-5907)h=s[A]A=X(-5836)A,W,a=h[A],K,1 A=A(h)h=X(-6247)h=A[h]V=#c h=h(A,a,V)N=h==c b,K=N,N and 11753901 or 11723632 else y=X(-5986)c=M(16386485,{})K=j[y]w={K(c)}y,H,I=w[1],w[2],T[1]c=y y=c K=c and 8148238 or 16612205 end else if 15373987>K then y,K={},j[X(-6211)]elseif K<15414641 then K=11555705 elseif K<15431759 then K,n=X(-5839),X(-6162)K,m=C[K],c K=K(C,n)K=K and 11042597 or 13991721 else K=10892883 end end else if 15271584>K then if K<15122462 then f,K,s=X(-5999),6295684,X(-6251)f=m[f]f=f(m,s)C=f elseif 15170039>K then K,G=15632455,X(-6046)J=j[G]u,G=230,X(-6055)S=J[G]g,G=230,230 J=S(G,g,u)B=J elseif K<15210864 then m=v[c]f,n,C=1,X(-6062),1 w=m[C]m=X(-5836)m=w[m]m=m(w)C=j[n]n=X(-5884)w=C[n]n=v[c]C=w(n,f)f=X(-6061)n=v[z[2]]C=n[f]w=C[m]C=o()v[C]=w n=v[C]w=not n K=w and 8352032 or 6120955 else I,y,K=nil,{},j[X(-5950)]c=F(c)w=F(w)m,H=nil,nil end else if 15314781>K then b,A=y,X(-5844)h=j[A]A=X(-6209)N=h[A]K=W W=X(-5844)A=s+b h=N(s,A)c[W]=h K=H and 7010139 or 2291090 elseif 15324164>K then m=b N=o()v[N]=m m,K=N,3677884 N=o()v[N]=W W=N A=i(2094321,{m,W})h=X(-5986)N=j[h]m=F(m)h=N(A)W=F(W)else y,K={},j[X(-5819)]end end end else if K>15647574 then if K<15700321 then if K<15665832 then f,m=X(-5927),w K=o()v[K]=C C=K n=v[C]K=n[f]K=K and 6310396 or 7416495 elseif K<15676702 then K=13928954 else K=v[H]y={K}K=j[X(-6075)]end else if K<15725727 then K,H,y,I=X(-6016),X(-6199),X(-6017),T[1]K=I[K]K=K(I,y,H)y,c,H=X(-6016),X(-6199),X(-6167)y=K[y]y=y(K,H,c)H,I=X(-6199),y K=I==H K=K and 12982969 or 9701095 elseif K<15737410 then q=X(-6074)L=j[q]q=X(-5959)l=L[q]K,a=7105822,l else K=I K=not y K=K and 4556151 or 582443 end end else if K<15607135 then if K<15501489 then C,f=w(m,C)K=C and 12663382 or 9995674 elseif 15514266>K then V,b=X(-6196),s K=o()v[K]=W W=K a=v[W]A=a[V]h=A==m N,K=h,h and 14713407 or 7711197 elseif 15564996>K then K=b K=y and 2220444 or 9024441 else H,K,w,y,I,c=nil,j[X(-6144)],nil,{},nil,nil end else if 15616439>K then m=not w K=m and 12966429 or 5407036 elseif K<15627226 then w=X(-6145)c=v[z[1]]H=c[w]c=X(-5978)y=H[c]H=X(-5994)H,c=y[H],X(-6002)H=H(y,c)c=P(15782284,{z[1]})y,K=X(-5997),9297485 y=H[y]y=y(H,c)else d=X(-5820)u=j[d]J,K=X(-6183),k k,d=X(-6133),X(-6183)g=u[d]u=X(-5990)G=g[u]S,g,x=11,X(-5881),X(-5820)r=j[x]x=X(-5881)d=r[x]r=X(-6139)u=d[r]d,r=X(-5946),103 N={[h]=a,[A]=l,[V]=L,[q]=t;[D]=B;[k]=S;[J]=G,[g]=u;[d]=r}D=18 f=K(b,W,N)f=v[z[1]]l,V,b,L,h=-16,X(-5869),X(-5940),0,X(-6214)K=f[b]W=v[s]b=X(-6079)a=j[V]u,V,q=X(-6098),X(-6209),14 A=a[V]V,t=1,0 a=A(V,l,L,q)B,A,L=X(-5916),X(-5969),X(-5869)l=j[L]q,L=8,X(-6209)V=l[L]L,k=0,K l=V(L,q,t,D)J,L,V,q=K,1,X(-5826),X(-6002)D=v[n]t=D[B]g=v[z[1]]D=X(-5981)G=g[u]S,K=G,G and 10616620 or 6007644 end end end end else if K<14747466 then if K>14634471 then if K<14685095 then if 14647044>K then y=v[z[1]]I=X(-5982)K=y[I]y=X(-6202)y=K[y]y=y(K)K,y=j[X(-6009)],{}elseif 14650707>K then f=i(5883343,{C})n=X(-5986)K=j[n]n=K(f)K=6350852 elseif K<14668473 then K=v[z[3]]H=v[z[4]]y=K(I,H)K,I=j[X(-5866)],nil v[z[4]]=y y={}else I,H,C=T[1],X(-6134),X(-6196)y=j[H]H,m=X(-6163),X(-5894)K=y[H]H=.1 y=K(H)w=v[z[1]]c=w[m]m=v[z[2]]w=m[C]H=c[w]K,y=H and 14785969 or 12934155,H end else if 14699650>K then K=N N={m(W)}f,s,b,K=N[1],N[2],N[3],2077429 elseif K<14723531 then l,A=X(-5909),K V=v[W]a=V[l]K,h=a and 6204568 or 8243704,a else y=X(-6254)K=j[y]y,H=X(-6176),X(-6254)y,I,w=K[y],X(-5813),X(-6191)y=y(K,I)f=X(-6254)I=j[H]n=j[f]f=X(-6086)C=n[f]n=X(-6099)m=C..n c=w..m w=X(-6012)w=I[w]H={w(I,c)}I=X(-6165)I=y[I]K={I(y,R(H))}y={R(K)}K=j[X(-6225)]end end else if K<14577651 then if 14560782>K then b=v[z[2]]f=n y=s~=b K=y and 8925627 or 9976861 elseif K<14570018 then b=Q(11309402,{H,f})s=X(-5986)K=j[s]s=K(b)K=2114020 elseif K<14573519 then c=X(-5935)H=v[z[1]]y=H[c]c=X(-6250)H=y()H=v[z[1]]y=H[c]H=y()c=X(-6205)H=v[z[1]]y=H[c]K=y and 2651031 or 13345588 else W=X(-6062)b=j[W]W=X(-6092)K=b[W]b=K(w,s)K=9197172 end else if 14601987>K then y=v[z[1]]H=X(-5923)K=y[H]K=K and 7466369 or 8776791 elseif 14623440>K then y=X(-5986)m=M(9447258,{z[2]})K=j[y]y=K(m)m=nil K=v[z[2]]y=X(-6252)K[y]=m K=9701694 else y=X(-5967)K=v[z[1]]I=v[z[2]]K[y]=I y,K={},j[X(-5984)]end end end else if K>14872420 then if K<14986032 then if K<14887758 then A=X(-6025)N=v[f]h=X(-5839)h,K=N[h],2237955 h=h(N,A)b=h elseif K<14902797 then y,H,I,K,w,c={},nil,nil,j[X(-5898)],nil,nil elseif 14940297>K then n=v[C]f=X(-6204)m=n[f]K=m and 11498642 or 2059112 else c,K=20,6674187 H=I<c y=H end else if K<15018685 then h=X(-6181)N=s[h]h=X(-5836)h=N[h]h=h(N)W=h==c K,y=2350115,W elseif 15061229>K then L,K={},5728417 V=L else n,b,s=X(-5954),.7,K C=v[z[4]]f,s=I and b,.65 m=C[n]C,n=f or s,K w=m<C y,K=w,10567682 end end else if K>14824918 then if K<14834041 then K=L L,G,S,u=X(-6133),X(-5820),X(-5820),X(-5820)k=j[S]q,S=11,X(-6183)B=k[S]k=X(-6088)D=B[k]J=j[G]G,B=X(-5881),X(-5881)S=J[G]J=X(-6139)k=S[J]g=j[u]u,S=X(-6045),X(-6045)G=g[u]t,g=X(-6183),X(-6040)J=G[g]g,G=101,X(-5946)m={[C]=n;[f]=b;[s]=N,[W]=h;[A]=a,[V]=l,[L]=q,[t]=D;[B]=k,[S]=J,[G]=g}H=I(c,w,m)K[y]=H K,y=j[X(-6082)],{}elseif 14849303>K then K,m,w=3523004,X(-6013),X(-5999)w=I[w]w=w(I,m)y=w else w,c=X(-6041),X(-6216)y=j[c]c=X(-6209)K=y[c]c=X(-6148)y=K(c)c=o()v[c]=y y=X(-5907)K=v[c]K[y]=w y=X(-5910)K=v[c]w=4029518>=11859031 K[y]=w y,w=X(-6060),X(-5877)K=v[c]K[y]=w y=v[c]w=X(-6160)K=y[w]w=Y(2686231,{z[1]})y=X(-5997)y=K[y]y=y(K,w)w,y=I,X(-6067)K=v[c]K[y]=w K=Y(7377717,{z[1],z[2]})w=o()v[w]=K K=i(6752522,{c,w})m=K K=I and 5403252 or 7102155 end else if K<14773623 then b=X(-6199)s=I==b K,y=14059266,s elseif K<14795064 then m=v[z[1]]C=X(-5894)w=m[C]K,n=12934155,X(-6196)C=v[z[2]]m=C[n]c=w[m]w=X(-6001)H=c[w]y=H elseif 14811835>K then D=X(-6046)t=j[D]B,D=28,X(-6055)q=t[D]D,k=28,28 t=q(D,B,k)l,K=t,11312581 else c=P(13330874,{H})y=X(-5986)K=j[y]y=K(c)K=245508 end end end end end end end end else if K<3859455 then if 2162949>K then if K<1254780 then if K<555291 then if K>275314 then if K>452665 then if 539265>K then if K<459978 then C,m=X(-6041),X(-5999)m=H[m]m=m(H,C)c,K=m,7609099 elseif 487831>K then c,n=K,X(-5828)C=v[z[1]]m=C[n]w=not m H,K=w,w and 7674364 or 12592780 elseif K<524107 then y,K={},j[X(-6042)]else y,K={},j[X(-5841)]end else if K<539734 then K,y=m,w K=3454155 elseif K<544725 then n,K=nil,11030950 else K,C=X(-6232),X(-5938)H=K m=v[z[2]]w=m[C]m=X(-6198)c=w[m]K,y=c and 3617 or 11259795,c end end else if K>353840 then if 393417>K then I=X(-6204)y=v[z[1]]K=y[I]y,I=X(-5931),10090218>14331309 K[y]=I K,y=j[X(-5845)],{}elseif K<440430 then y=v[z[1]]I=X(-5982)K=y[I]y=X(-6202)y=K[y]y=y(K)y,K={},j[X(-5850)]else y,I,K={},nil,j[X(-6118)]end else if 286098>K then y=v[z[5]]K=y and 6880618 or 1216550 elseif K<293038 then q=X(-6074)L=j[q]q=X(-5959)l=L[q]K,a=4531525,l elseif K<322133 then n=nil f=F(f)K=6004050 else b=s s,K,m,w=nil,15400659,nil,b end end end else if K>162645 then if K<236675 then if K<200020 then K=7082588 N=o()h,m=X(-5986),b v[N]=m m=N N=o()v[N]=W W=N N=j[h]A=p(8870867,{m;W})h=N(A)W=F(W)m=F(m)elseif K<215803 then s=X(-5986)K=j[s]b=Q(9522792,{H;f})s=K(b)K=2025295 elseif K<227932 then y=X(-5924)K=v[z[1]]I=v[z[2]]K[y]=I K,y=j[X(-6154)],{}else L,q,K,V,t=0,X(-5945),a,.5,X(-5946)a,D,l=X(-5826),102,X(-6180)f={[s]=b,[W]=h,[N]=A;[a]=V,[l]=L;[q]=w;[t]=D}a=0 y=K(n,I,f)n,f=y,X(-5968)y=v[z[1]]V=20 K=y[f]b,f=X(-6214),6 y=K(n,f)h,l,A,f=X(-5869),0,-56,X(-5940)y=v[z[1]]K=y[f]N=j[h]f,h=X(-6079),X(-6209)W=N[h]h=1 N=W(h,A,a,V)a,q=X(-5869),K A=j[a]a=X(-6209)h=A[a]S,a,L,V,D=X(-6098),0,3,8,K A=h(a,V,l,L)a,V,l=1,X(-6002),X(-5981)k=v[z[1]]W,h=X(-5969),X(-5826)B=k[S]K,t=B and 11427540 or 8042360,B end else if K<242968 then W,A=K,X(-5907)h=s[A]a,A=1,X(-5836)A=h[A]A=A(h)h=X(-6247)V=#c h=A[h]h=h(A,a,V)N=h==c b,K=N,N and 12248173 or 2925820 elseif K<257839 then y,K,I={},j[X(-5937)],nil H=F(H)else K,h=10991631,{}W=h end end else if K>55676 then if 78489>K then K=y and 1819312 or 9114487 elseif K<112873 then K,y=j[X(-5901)],{}else t=X(-6074)q=j[t]t=X(-5959)L=q[t]V,K=L,9465143 end else if K<5337 then K,C=H,X(-5938)I[K]=y K=X(-6235)m=v[z[2]]w=m[C]m=X(-6243)c=w[m]H,w,n=K,100,X(-5938)y=c or w I[K]=y C=v[z[2]]m=C[n]y,C,c=X(-6023),X(-5960),K w=m[C]m,K=100,15437037 H=w or m I[y]=H elseif 8472>K then K,n=3365356,nil elseif K<28046 then b,h=K,X(-5907)N=s[h]h=X(-5836)h=N[h]h=h(N)W=h==c K,y=W and 13383422 or 13950983,W else K,w=7043046,nil end end end end else if 907718>K then if K>665665 then if K>760792 then if K<799235 then K=v[z[3]]H=v[z[4]]y=K(I,H)K=j[X(-6120)]v[z[4]]=y I,y=nil,{}elseif 864381>K then y=v[z[1]]I=X(-5927)K=y[I]y=X(-6202)y=K[y]y=y(K)y,K={},j[X(-6065)]else m=f W=v[z[2]]b=s~=W K=b and 15458202 or 7597489 end else if K<683532 then C,H,I,m=X(-6196),X(-6134),T[1],X(-6043)y=j[H]H=X(-6163)K=y[H]H=.1 y=K(H)w=v[z[1]]c=w[m]m=v[z[2]]w=m[C]H=c[w]y,K=H,H and 4149159 or 1936425 elseif 700396>K then t,D,K,J=10,X(-6183),q,X(-5820)q=X(-6133)S=j[J]J=X(-6183)k=S[J]S,g=X(-5851),X(-5820)B=k[S]k=X(-5881)G=j[g]g=X(-5881)J=G[g]G=X(-6139)S=J[G]J,G=X(-5946),103 s={[b]=N;[W]=A;[h]=a;[V]=c;[l]=L,[q]=t;[D]=B,[k]=S;[J]=G}y=K(f,n,s)V,N,a,f,l=26,X(-5798),X(-5869),X(-5940),0 y=v[z[1]]K=y[f]W=H..N t,f,b,L=0,X(-5840),X(-5907),13 A=j[a]a,N=X(-6209),X(-6214)h=A[a]D,a=m,0 A=h(a,V,l,L)l=X(-5869)V=j[l]q,h,l,L=.5,X(-5969),X(-6209),-36 a=V[l]l=1 V=a(l,L,q,t)a,q=X(-6244),X(-5874)L=j[q]q=X(-6209)l=L[q]q,t=0,.5 L=l(q,t)t,l,B=K,X(-5816),K K=m and 2175984 or 5459934 elseif K<735011 then H=6994496<14178219 K=v[z[1]]y=X(-6005)K[y]=H K=M(2439029,{z[2]})H=o()v[H]=K K=v[H]y=K()y=v[z[1]]c=X(-6035)K=y[c]K=K and 10252343 or 8392529 else w,H,c,I=1,X(-6247),1,T[1]H=I[H]H=H(I,c,w)y=not H H=v[z[1]]K=y==H K=K and 91832 or 2032647 end end else if 605738>K then if K<571735 then b,W=X(-6214),X(-5844)s=c[b]b,K=X(-5808),f f=2.3 C,a=n or f,X(-6047)f=s[b]h,m,s=X(-5969),nil,.5 n=f*s b=j[W]D=X(-6214)f,W=X(-5844),X(-6209)s=b[W]N=w[h]A=j[a]a=X(-6209)h=A[a]a=0 t=w[D]D=X(-5808)q=t[D]t=.5 L=q*t l=L+n V=l+C l=0 A=h(a,V,l)W=N+A n=nil b=s(W)C,K=nil,14891526 c[f]=b elseif K<590561 then K=v[z[2]]K=K and 13760009 or 11147897 elseif 598958>K then I,y,K,H,c=nil,{},j[X(-5883)],nil,nil else C,s=n(m,C)K=C and 7835402 or 6879615 end else if K<614806 then w=X(-6145)c=v[z[1]]H=c[w]c=X(-6151)y=H[c]K,I=not y,T[1]K=K and 1262684 or 10373128 elseif K<635090 then s=X(-5986)b=P(2597580,{H,f})K=j[s]s=K(b)K=6121325 else y,K={},j[X(-6179)]end end end else if K<1148067 then if K>1080114 then if 1122193>K then f=X(-6204)n=v[C]K=n[f]K=K and 14648764 or 6350852 elseif K<1139559 then K=o()n,s=C,X(-5839)v[K]=f f=K K=v[f]b,s=X(-5922),K[s]s=s(K,b)K=s and 5768540 or 1881519 else A,K=V,l K=V and 232921 or 8289394 end else if K<926730 then y,K={},j[X(-5853)]elseif K<991436 then K=X(-5836)K=H[K]K=K(H)c=K K,y,s=nil,X(-5854),X(-6119)w=K K=j[y]n=v[z[1]]s=n[s]f={s(n)}n={K(R(f))}m,y,C,K=n[2],n[1],n[3],14483905 n=y elseif K<1052641 then c,y=X(-6236),X(-5953)K=j[y]H=v[z[1]]I=H[c]y=K(I)I=y K=I and 5652453 or 16047364 else I,y=T[1],X(-5986)K=j[y]c=p(4941938,{})w={K(c)}y=w[1]c=y K,H,y=c and 7547340 or 16399147,w[2],c end end else if K>1224266 then if K<1241273 then I=K H=v[z[1]]y,K=H,H and 1639844 or 15739577 elseif 1252504>K then m=not c K,w=m and 12834970 or 65147,y y=m else I,H=X(-6134),X(-6142)y=j[I]I=X(-6163)K=y[I]I=1 y=K(I)I=v[z[1]]y=I[H]I=7501702>12262078 K=y==I K=K and 11852735 or 7145197 end else if K<1167578 then f,a=X(-6188),X(-6222)m=j[f]A=v[n]h=A[a]N=K K,W=h and 2746327 or 11279072,h elseif 1195955>K then b,W=f(s,b)K=b and 16222660 or 8946151 elseif 1214509>K then H,c=X(-5894),{}K=v[z[1]]K[H]=c I,K,y=nil,j[X(-5880)],{}else K,y=j[X(-5873)],{}end end end end end else if K<1795310 then if K>1465136 then if K<1583578 then if K>1509345 then if 1545457>K then H=K w=v[z[4]]K,y=w and 15090627 or 10567682,w elseif K<1570601 then D,K=X(-6046),L t=j[D]B,D,k,L=235,X(-6055),235,X(-5816)q=t[D]D=235 t=q(D,B,k)D,q,k,B=0,X(-6180),104,X(-5946)W={[N]=h;[A]=V;[a]=l;[L]=t,[q]=D;[B]=k}y=K(s,b,W)b=X(-5968)s=o()v[s]=y W,D=10,0 y=v[z[1]]K=y[b]a,L=X(-5955),X(-5869)b=v[s]y=K(b,W)h,b,t,q=X(-5907),X(-5940),1,0 y=v[z[1]]K=y[b]b=X(-6162)W=v[f]A=H..a a=X(-6214)l=j[L]L=X(-6209)V=l[L]L=1 l=V(L,q,t,D)L,V,B,q,D,t=1,X(-5826),105,X(-6002),X(-5946),X(-6199)N={[h]=A;[a]=l;[V]=L;[q]=t,[D]=B}y=K(b,W,N)W=o()v[W]=m b=y y=X(-5856)K=b[y]N=p(14293184,{z[1];W;f;s,C})y=X(-5997)y=K[y]y=y(K,N)K=v[f]y=v[s]y={n,K;y,b}K=j[X(-6164)]else c,K,s=nil,15434895,nil end else if K<1474310 then V,L=K,X(-5815)l=s[L]a,K=l,l and 4531525 or 291739 elseif 1483024>K then y,K=X(-5854),nil w,f=K,X(-6014)K=j[y]n=H[f]f={K(n)}K,m,y,C=11920753,f[2],f[1],f[3]n=y elseif K<1488068 then n,a,K,A=X(-5844),3,6605594,X(-5909)h=w[A]A=X(-6251)N=h[A]A,h,V=X(-6047),X(-5844),0 s=N[h]h=j[A]A=X(-6209)N=h[A]A=0 h=N(A,a,V)f=s+h C[n]=f else f=v[z[3]]s=X(-6043)n=f[s]s=X(-6196)f=w[s]m=n[f]K=m and 13805937 or 8238507 end end else if K<1676367 then if K<1604319 then n,C,K=X(-6196),X(-6043),2750936 m=v[z[2]]w=m[C]C=v[I]m=C[n]c=w[m]H=not c y=H elseif K<1626511 then V,L=K,X(-6026)l=w[L]a,K=l,l and 7105822 or 15735244 elseif 1635886>K then f=v[z[3]]s=X(-5894)n=f[s]b=X(-6196)s=v[w]f=s[b]m=n[f]K=m and 2368120 or 14104491 else w=X(-6067)c=v[z[1]]K=15739577 H=c[w]y=H end else if 1714803>K then K,A,V=15745508,X(-6181),15612371>8298859 h=s[A]A=X(-5836)A,a=h[A],1 A=A(h)h=X(-5934)h=A[h]h=h(A,c,a,V)W=h elseif 1744011>K then f=X(-6039)f,w=I[f],X(-5854)K=j[w]n={f(I)}f={K(R(n))}K,m,w,C=2673872,f[2],f[1],f[3]else I=o()v[I]=T[1]c=v[I]w=v[z[1]]H=c~=w K,y=H and 1587545 or 2750936,H end end end else if 1327112>K then if K>1265330 then if K<1277866 then C=X(-5854)m=j[C]N=X(-6119)s=v[z[1]]N,K=s[N],9192342 W={N(s)}s={m(R(W))}C,f,n=s[1],s[3],s[2]elseif 1293967>K then f,a,N=X(-6188),X(-6169),K m=j[f]A=v[n]h=A[a]W,K=h,h and 16085386 or 5017114 else K,y=j[X(-5993)],{}end else if 1258900>K then K,A=15313087,X(-5844)h=c[A]A=X(-6227)N=h[A]y=N elseif K<1263845 then K,y=j[X(-6131)],{}elseif 1265052>K then K=v[z[2]]y=X(-6121)y,H=K[y],X(-5947)y=y(K,H)H=o()v[H]=y K=v[H]K=K and 3491503 or 12024155 else n,s=m(C,n)K=n and 14553979 or 2893080 end end else if K<1408558 then if 1368388>K then K=7818617 elseif K<1385880 then m=not w K=m and 13987631 or 4797358 elseif 1396084>K then K,w=8904176,X(-5938)c=v[z[2]]H=c[w]y=H else t,h=X(-6222),X(-6188)K=j[h]l=K q=v[N]L=q[t]V,K=L,L and 13990272 or 6877218 end else if K<1425885 then K=3326460 N=F(N)W=F(W)b=nil elseif 1448155>K then H,I=X(-6005),T[1]y=v[z[1]]K=y[H]K=K and 8768592 or 712250 else y,H,c,K,I={},nil,nil,j[X(-5973)],nil end end end end else if K<2028971 then if 1934484>K then if 1867878>K then if K<1830258 then K=v[z[2]]m,y=4787177>=9358907,X(-5827)K[y]=m m=X(-5982)y=v[z[2]]K=y[m]K=K and 14258091 or 10186591 elseif K<1842593 then K=w and 16268569 or 15603391 elseif K<1854585 then c,K,I,y,H=nil,j[X(-6064)],nil,{},nil else K=y and 4805156 or 6339640 end else if 1876043>K then I,K=nil,11147897 elseif K<1907466 then K,n=8892408,nil f=F(f)else C,s=n(m,C)K=C and 11835239 or 11787307 end end else if 1972019>K then if K<1935989 then K=h K=N and 2885146 or 13191068 elseif K<1950639 then K=y and 8292449 or 1265007 elseif K<1966632 then C,f=w(m,C)K=C and 4207495 or 1460931 else c,C=w(H,c)K=c and 3718460 or 12185103 end else if 1978356>K then y,K={},j[X(-5857)]elseif K<2003190 then K,N=a,A K=16275270 else n=nil f=F(f)K=15501048 end end end else if K>2104170 then if 2127538>K then if 2118900>K then n=nil f=F(f)K=13222123 elseif 2124317>K then n=X(-5986)K=j[n]f=Q(11444264,{C})n=K(f)K=6160636 else N=o()m=b v[N]=m m=N N=o()K,h=2077429,X(-5986)v[N]=W W=N N=j[h]A=Q(2365800,{m;W})m=F(m)W=F(W)h=N(A)end else if 2142692>K then K,y=h,N K=N and 15313087 or 1255117 elseif K<2158796 then N=o()m=b v[N]=m m,K=N,2682390 N=o()h=X(-5986)v[N]=W W=N A=P(10304702,{m;W})m=F(m)N=j[h]W=F(W)h=N(A)else K=n K=m and 10842520 or 1631928 end end else if K>2060129 then if 2069288>K then K,y=j[X(-6152)],{}elseif 2085875>K then b,W=f(s,b)K=b and 2124855 or 13818278 else y=X(-6081)K=v[z[1]]I=v[z[2]]K[y]=I K,y=j[X(-6161)],{}end else if 2034480>K then K=X(-6247)K,c,H,y=I[K],X(-6199),X(-6017),2 K=K(I,y)y=X(-6016)y=K[y]y=y(K,H,c)H=y y=X(-6199)K=H==y K=K and 6921755 or 12594341 elseif K<2037598 then K=8854300 elseif 2048998>K then H,I=X(-6199),T[1]y=I or H H=X(-5836)H=y[H]H=H(y)c,n,W,I=X(-5854),K,X(-6145),H y=j[c]b=v[z[1]]s=b[W]b=X(-5917)f=s[b]C,K=f,f and 8271327 or 2929555 else s=v[w]b,n=X(-5909),K f=s[b]K,m=f and 4803406 or 2162429,f end end end end end end else if 3020133>K then if 2617908>K then if 2319759>K then if 2238327>K then if K>2216012 then if 2219204>K then m,K=X(-6177),X(-6121)K=H[K]K=K(H,m)m=K n,f=m,K K=m and 11511286 or 561027 elseif 2229199>K then y,K=s,2893080 s=nil v[w]=y f=nil else K,s=W,b K=12865663 end else if K<2169727 then H=X(-6216)y=j[H]H=X(-6209)K=y[H]H=X(-6070)y=K(H)H,K=y,X(-6208)m,C,c=K,X(-5889),K w,m=I and C,X(-6107)y=w or m H[K]=y c,K=X(-5890),5172673 y=v[z[3]]c=y[c]c=c(y,H)v[z[4]]=c H=nil elseif 2193753>K then G,J,K=80,X(-6046),5459934 S=j[J]g,J=80,X(-6055)k=S[J]J=80 S=k(J,G,g)D=S elseif K<2212791 then K=y and 8973735 or 8364745 else K=4330238 C=F(C)end end else if K>2277631 then if 2300373>K then w,y,b,I,K,f,c,m,H,C,n,s=nil,{},nil,nil,j[X(-6127)],nil,nil,nil,nil,nil,nil,nil elseif 2310623>K then H=X(-5814)y=v[z[1]]I=T[1]K=y[H]K=K and 7774946 or 14329466 else w=v[z[1]]m,K=X(-5913),10795257 c=w[m]y=c end else if 2241906>K then H=X(-6134)y=j[H]H=X(-6163)K=y[H]H=.1 y=K(H)y=1 K=I+y I=K K=466403 elseif K<2253710 then c,a,W=f,X(-6018),X(-5854)b=j[W]A=s[a]a={b(A)}N,h,K,W=a[2],a[3],5083403,a[1]elseif K<2263241 then K=10538847 N=F(N)else y,K={},j[X(-6000)]end end end else if 2390983>K then if 2368550>K then if 2339021>K then C,f=w(m,C)K=C and 16360915 or 13000749 elseif 2357957>K then K=b K=y and 12021253 or 6647676 elseif K<2366960 then y=X(-6081)K=v[z[1]]I=v[z[2]]K[y]=I y,K={},j[X(-5987)]else b,K,s=X(-6196),14104491,X(-5894)f=v[z[3]]n=f[s]s=v[w]f=s[b]m=n[f]f,n=400942<1226306,X(-6001)m[n]=f end else if 2375919>K then y=v[z[1]]I=X(-5909)K=y[I]I,y=X(-6177),X(-6121)y=K[y]y=y(K,I)I=y K,y=I and 12968613 or 1865189,I elseif K<2385253 then V=a K=o()v[K]=V V=K K=o()v[K]=l L,l=X(-5986),K q=p(14332308,{V;l})K=j[L]l=F(l)V=F(V)L=K(q)K=6883860 else f=X(-5947)K=v[C]n=X(-6121)n=K[n]n=n(K,f)f=o()v[f]=n K=v[f]K=K and 12726419 or 6183610 end end else if K>2508309 then if K<2587585 then c,y=X(-5986),{}H=j[c]K=j[X(-5991)]w=Y(6584026,{z[1];I})c=H(w)I=F(I)elseif K<2605835 then I=X(-6136)y=v[z[1]]K=y[I]y=v[z[2]]c=X(-5961)H=v[z[2]]I=H[c]K[y]=I y=X(-5961)K=v[z[2]]I=1 K[y]=I K,y=j[X(-6137)],{}else f=Q(8257041,{C})n=X(-5986)m=j[n]n=m(f)f=X(-6043)n=v[z[3]]m=n[f]f=X(-6196)n=w[f]K=2214060 f=v[C]m[n]=f end else if 2406332>K then m=c K=o()v[K]=C f,C=X(-5927),K n=v[C]K=n[f]K=K and 3908764 or 1105691 elseif 2420485>K then K=w and 2217965 or 14891526 elseif 2430826>K then K,y=j[X(-5988)],{}else y=v[z[1]]I=X(-5909)K=y[I]I=K K=not I K=K and 2422623 or 13536417 end end end end else if K>2809487 then if 2894637>K then if K<2883291 then if 2821054>K then y=X(-5986)K=j[y]m=p(13115470,{z[2]})y=K(m)K=v[z[2]]m,y=nil,X(-5908)K[y]=m K=9876868 elseif K<2849284 then H,I=X(-5827),T[1]y=v[z[1]]K=y[H]K=K and 11061611 or 8135188 elseif K<2878929 then n,s=m(C,n)K=n and 4831253 or 3504896 else I=X(-6134)y=j[I]I=X(-6163)K=y[I]y=K()K=y and 1231983 or 2264173 end else if K<2889113 then h,A=K,not w K,N=A and 10311556 or 1469341,A elseif K<2893733 then C=v[w]m=not C K=m and 12104997 or 13697365 else C=0 m=#w K=m>C K=K and 8483298 or 46205 end end else if 2943392>K then if K<2910354 then y=v[z[1]]I=X(-6218)K=y[I]y=K()I=X(-6010)y=v[z[2]]K=y[I]I={}y=K(I)K,y=j[X(-6030)],{}elseif 2926934>K then A=X(-6181)h=s[A]A=X(-5836)A,a,K=h[A],1,12248173 A=A(h)V=#c h=X(-6247)h=A[h]h=h(A,a,V)N=h==c b=N elseif K<2928802 then n,K=X(-5986),14914069 m=j[n]f=p(9124446,{C})n=m(f)else f,K={},8271327 C=f end else if 2974096>K then C=v[z[2]]n=X(-5909)m=C[n]n=K C,K=m,m and 15096493 or 6295684 elseif 2997020>K then K,y=j[X(-6228)],{}else K=t t,B,D,k=X(-6180),X(-5946),0,103 s={[b]=W,[N]=A;[h]=V;[a]=L,[l]=q;[t]=D,[B]=k}A=X(-5834)y=K(f,n,s)L=9 f=o()v[f]=y s,b,t=X(-5968),10,9 y=v[z[1]]N,q=X(-5907),0 K=y[s]s=v[f]y=K(s,b)s=X(-5940)y=v[z[1]]l=X(-5869)K=y[s]s=X(-5840)b=v[f]h=H..A A=X(-6214)V=j[l]l=X(-6209)a=V[l]l=0 V=a(l,L,q,t)a,t,L,q=X(-5969),K,K,m K=m and 9624626 or 5911583 end end end else if K>2726102 then if K>2771218 then if 2778017>K then c,C=w(H,c)K=c and 2394317 or 8998639 elseif 2791285>K then y,I=X(-5931),12996070>8342309 K=v[z[1]]K[y]=I K,y=j[X(-6028)],{}else C=F(C)m,K=nil,1968411 end else if K<2747732 then K=N N={m(W)}f,K,s,b=N[1],1179443,N[2],N[3]elseif K<2750037 then K=w K[y]=c K=E(8831862,{H})m,w,c,y=X(-5958),X(-5823),K,X(-6254)K=j[y]C=o()y=X(-6176)y=K[y]y=y(K,w)w=o()v[w]=y y=v[w]K=y[m]m=o()v[m]=K K=X(-5842)v[C]=K K=Q(757772,{C;H})n=K K=v[m]K=K and 10435491 or 7048631 elseif K<2760447 then K=y and 5968769 or 7540322 else b=M(3295177,{H;f})s=X(-5986)K=j[s]s=K(b)K=11470587 end end else if K<2684310 then if 2636378>K then I=T[1]y=v[z[1]]H=X(-6231)K=y[H]K=K and 7002100 or 13964270 elseif K<2662451 then H=v[z[1]]c=X(-6205)y=H[c]K=13345588 H=y()elseif 2678131>K then C,f=w(m,C)K=C and 12990068 or 3149226 else b,W=f(s,b)K=b and 2155164 or 1155713 end else if K<2688022 then y=v[z[1]]I=X(-5909)K=y[I]I=K K=not I K=K and 3653512 or 14470725 elseif 2697845>K then c,C=w(H,c)K=c and 16261518 or 1212468 else h=X(-5986)A=i(3423438,{N})K=j[h]h=K(A)K=2262309 end end end end end else if 3424856>K then if 3233667>K then if 3148194>K then if K>3118260 then if 3129351>K then c,y=X(-6236),X(-5932)K=j[y]H=v[z[1]]m,w=X(-6113),X(-5813)I=H[c]c=X(-6254)H=j[c]c=X(-6176)c=H[c]c=c(H,w)w=v[z[2]]m=c[m]H={m(c,w)}y=K(I,R(H))K,y=j[X(-6229)],{}elseif K<3143736 then y=v[z[4]]K=y and 5539586 or 1870568 else I,H,K,c,y=nil,nil,j[X(-5921)],nil,{}end else if K<3041030 then N,f,a=K,X(-6188),X(-6149)m=j[f]A=v[n]h=A[a]K,W=h and 10991631 or 270170,h elseif 3047796>K then K,k=3003078,X(-6046)B=j[k]k=X(-6055)D=B[k]J,k,S=50,50,50 B=D(k,S,J)q=B elseif K<3084424 then f,K=nil,s s,w=nil,K K=11014173 else f,N,A=C,X(-6026),X(-5832)W=s[N]N=0 h=s[A]b=W or N N,L,A,V=K,X(-6254),0,X(-6239)W=h or A h=K a=s[V]l=j[L]L=X(-5985)V=l[L]A=a~=V N,K=A,A and 4474431 or 16275270 end end else if 3193074>K then if 3152751>K then f,w=X(-6039),X(-5854)K=j[w]f=I[f]n={f(I)}f={K(R(n))}m,K,w,C=f[2],15501048,f[1],f[3]elseif 3163367>K then y=v[z[1]]I=X(-5927)K=y[I]y=X(-6202)y=K[y]y=y(K)K,y=j[X(-6096)],{}elseif 3174115>K then y=v[z[1]]H=X(-6035)K=y[H]K=K and 4038973 or 9547557 else K=y and 5301452 or 763813 end else if 3216940>K then K,w=4855079,nil m=F(m)elseif K<3225892 then N=v[f]A,W,h=X(-5822),K,X(-5839)h=N[h]h=h(N,A)K,b=h and 15799653 or 9243499,h else W=X(-5839)b=v[f]K,W,N=5340340,b[W],X(-6104)W=W(b,N)s=W end end end else if K>3326673 then if K<3412673 then if 3341168>K then K=C K=m and 2957229 or 3848446 elseif 3360403>K then b=X(-5970)C=v[z[1]]n=X(-6089)c=C[n]K,f=14513502,X(-5933)s=w..b n=f..s C=c(n)elseif K<3388528 then c,n=c+m,not C y=w>=c y=n and y n=w<=c n=C and n y=n or y n=11743949 K=y and n y=11030950 K=K or y else f=X(-5797)n=H[f]K,m=16376925,n end else if K<3418149 then y=X(-5931)K=v[z[1]]I=8281421~=6575372 K[y]=I K,y=j[X(-6090)],{}elseif 3423045>K then m,f=c,X(-5839)f,s=C[f],X(-5840)f=f(C,s)n,K=f,f and 16240033 or 5426045 else K=v[z[1]]I,y=253058>=8890537,X(-5931)K[y]=I y,K={},j[X(-5914)]end end else if K>3292629 then if K<3296243 then c=X(-6081)y=v[z[1]]I=X(-6221)K=y[I]y=v[z[2]]H=v[z[2]]I=H[c]K[y]=I K=v[z[2]]I,y=16022791<15127524,X(-6081)K[y]=I y,K={},j[X(-6006)]elseif 3311884>K then a,b,A=s,nil,nil v[m]=a K=10961290 else m=nil C=F(C)K=2689813 end else if K<3246803 then m,n=c(w,m)K=m and 13823022 or 5278557 elseif 3256749>K then m=v[z[2]]n,C=X(-6196),X(-5894)w=m[C]C=v[I]K=2211523 m=C[n]c=w[m]H=not c y=H elseif 3275514>K then I,H=T[1],X(-5909)y=v[z[1]]K=y[H]H=K y,K=H,H and 4002295 or 10974960 else b,h=K,X(-5907)N=s[h]h=X(-5836)h=N[h]h=h(N)W=h==c K,y=W and 6250174 or 10571466,W end end end end else if K>3665698 then if 3765695>K then if 3745049>K then if K<3683302 then b,W=f(s,b)K=b and 15316476 or 3037189 elseif K<3703590 then I=v[z[1]]f,b,H,s,c,m=X(-6046),50,X(-6109),50,.2,X(-5816)y=I[H]H=v[z[3]]n=j[f]f=X(-6055)C=n[f]f=50 n=C(f,s,b)f,w=X(-5869),{[m]=n}I=y(H,c,w)H,s,W,c=X(-6109),2,-4,.2 I=v[z[1]]m=X(-5969)y=I[H]H=v[z[4]]n=j[f]b,f=.5,X(-6209)C=n[f]f=0 n=C(f,s,b,W)w={[m]=n}I=y(H,c,w)K=280458 elseif 3731394>K then m=c K=o()v[K]=C C,f=K,X(-5927)n=v[C]K=n[f]K=K and 2123780 or 6160636 else f,m=X(-6190),c n=C[f]K=not n K=K and 7779109 or 11913188 end else if K<3748298 then K,V=6478235,b v[C]=V W,a=nil,nil elseif K<3750906 then N=o()m=b v[N]=m m=N N=o()v[N]=W h,K,W=X(-5986),5972240,N N=j[h]A=p(4622012,{m;W})m=F(m)h=N(A)W=F(W)else I,y=14961338>13667012,X(-5931)K=v[z[1]]K[y]=I K,y=j[X(-6054)],{}end end else if K>3821872 then if K<3846514 then K,y=m,w K=16399147 elseif K<3853360 then I,H,w,c,K,y=nil,nil,nil,nil,j[X(-6108)],{}else K=h K=N and 16417621 or 16593302 end else if 3781007>K then K=8097705 elseif K<3790386 then C=X(-5854)m=j[C]s=v[z[1]]W=X(-6119)W=s[W]b={W(s)}s={m(R(b))}K,f,C,n=11696073,s[3],s[1],s[2]else L={}V,K=L,7076003 end end end else if 3459108>K then if 3439792>K then if K<3429371 then C,s=w,X(-6238)f=v[z[1]]K=f[s]f=n K[C]=f n,K,C=nil,9785211,nil elseif 3434321>K then K,f,y=nil,X(-6014),X(-5854)w=K K=j[y]n=H[f]f={K(n)}m,C,y=f[2],f[3],f[1]n,K=y,1933414 elseif 3437860>K then H=Y(7777007,{z[1]})y=X(-5986)K=j[y]y=K(H)y,H=X(-5923),nil K=v[z[1]]K[y]=H K=11888578 else K=y and 15347315 or 11061553 end else if K<3444005 then K,y=j[X(-5972)],{}elseif K<3451063 then w,m=H,K K=H and 4618989 or 6489891 else K=y and 6822765 or 7043046 end end else if K<3504840 then if K<3471856 then K=o()V=a v[K]=V V=K K=o()v[K]=l l,L=K,X(-5986)K=j[L]q=M(3874289,{V,l})V=F(V)L=K(q)K=13845009 l=F(l)elseif K<3485576 then K,b=11041621,s s,w,m=nil,b,nil elseif K<3498144 then y=X(-5986)c=i(5561088,{H})K=j[y]y=K(c)K=12024155 else K=15610880 end else if K<3513950 then m=not w K=m and 3781611 or 11555705 elseif 3588258>K then K=y and 1975627 or 7994709 else K,y=j[X(-6141)],{}end end end end end end end else if K>6182686 then if K<7079295 then if K<6665252 then if K>6381852 then if 6484178>K then if 6414193>K then if 6387994>K then I=X(-6035)y=v[z[1]]K=y[I]y=X(-6202)y=K[y]y=y(K)K,y=j[X(-5979)],{}elseif K<6396296 then K=s and 617373 or 6121325 elseif 6405046>K then H,I=X(-6134),T[1]y=j[H]H=X(-6163)K=y[H]H=.1 y=K(H)K=v[z[1]]H=v[z[2]]y=K(I,H)I,K=nil,j[X(-6008)]v[z[2]]=y y={}else y=X(-5836)y=H[y]y=y(H)c=y y,m=nil,X(-5854)w=y y=j[m]f=v[z[1]]b=X(-6119)b=f[b]s={b(f)}f={y(R(s))}m,C,K,n=f[1],f[2],13793593,f[3]end else if K<6448556 then f,s=C(n,f)K=f and 5605190 or 14071189 elseif K<6478350 then W=v[C]K=W and 10505937 or 16103849 else K,A,b=5083403,nil,nil end end else if K<6594810 then if K<6510043 then K=m K,y=10306456,w elseif K<6543218 then I=X(-6134)y=j[I]I=X(-6163)K=y[I]I=.5 y=K(I)K=v[z[1]]y=K()y,K={},j[X(-6117)]elseif K<6570134 then f=X(-5909)n=o()m=nil v[n]=m m=w[f]K=m and 11357901 or 11826043 else I,H=X(-5929),X(-5989)y=j[I]I=y(H)K=not I K=K and 14419385 or 3118393 end else if 6626635>K then m,K,C=nil,3848446,nil elseif 6651996>K then K=4439293 else m,n,K=w,X(-5947),X(-6121)K=C[K]K=K(C,n)n=o()v[n]=K K=v[n]K=K and 6245004 or 16752801 end end end else if 6303040>K then if K<6250570 then if K<6194089 then K=nil n=o()v[n]=K s=v[C]b=X(-5909)K=s[b]K=K and 8200194 or 10821261 elseif K<6224786 then l=X(-6240)V=v[C]a=V[l]h,K=a,8243704 elseif K<6247589 then s=Q(13804066,{n})f=X(-5986)K=j[f]f=K(s)K=16752801 else K=b K=y and 16719446 or 6758402 end else if 6271165>K then h=X(-6181)N=s[h]h,K=X(-5836),10575666 h=N[h]h=h(N)W=h==c b=W elseif 6293524>K then H=v[z[1]]K,c=14164354,X(-5867)y=H[c]H=y()else K=n K=C and 1486769 or 6605594 end end else if 6348312>K then if K<6323267 then n=X(-5986)f=M(834658,{C})K=j[n]n=K(f)K=7416495 elseif 6337889>K then D,k,S=X(-5869),.5,-4 t=j[D]B,D=2,X(-6209)q=t[D]K,D=1561590,0 t=q(D,B,k,S)l=t elseif K<6342706 then I,K,y=nil,j[X(-5804)],{}else I=X(-6010)y=v[z[1]]K=y[I]I=v[z[2]]y=K(I)K,y=j[X(-6210)],{}end else if K<6360107 then K,m=2772478,nil C=F(C)elseif 6374542>K then f=X(-5909)n=w[f]K,s,f=3326887,X(-6251),X(-5999)f=n[f]f=f(n,s)m=f else I,w=X(-6109),X(-5826)y=v[z[1]]K=y[I]I=v[z[2]]m=.2 c,H={[w]=m},.15 y=K(I,H,c)K,y=j[X(-5870)],{}end end end end else if K<6878416 then if 6761499>K then if K>6717615 then if K<6738583 then c=X(-5867)H=v[z[1]]y=H[c]K=y and 6291364 or 14164354 elseif 6755462>K then y=v[z[1]]I=T[1]K=I==y K=K and 7941867 or 451777 else K=16170053 end else if K<6674762 then K=y and 2238700 or 6724645 elseif 6683515>K then c=X(-6232)y=v[z[1]]I=X(-5938)K=y[I]y=X(-6198)H=v[z[2]]I=H[c]K[y]=I y=v[z[1]]I=X(-5938)K=y[I]y=X(-6243)H=v[z[2]]w,c=X(-5820),X(-6235)I=H[c]K[y]=I y=v[z[1]]I,c=X(-5938),X(-6023)K=y[I]y=X(-5960)H=v[z[2]]I=H[c]K[y]=I K=v[z[2]]y=X(-6232)c=j[w]w=X(-5904)H=c[w]c=X(-6230)I=H[c]K[y]=I y,I=X(-6235),0 K=v[z[2]]K[y]=I y,I=X(-6023),0 K=v[z[2]]K[y]=I y,K={},j[X(-5899)]elseif 6701138>K then y=v[z[1]]I=X(-5909)K=y[I]I,y=X(-6177),X(-6121)y=K[y]y=y(K,I)I=y K,y=I and 1391443 or 8904176,I else h,A=K,not w K,N=A and 5095347 or 8174558,A end end else if K<6813682 then if K<6769949 then C=F(C)m,K=nil,13600486 elseif K<6779876 then C,m=X(-5947),X(-6121)m=w[m]m=m(w,C)C=o()v[C]=m m=v[C]K=m and 2614090 or 2214060 elseif K<6794525 then C=X(-5909)K=v[z[3]]m=v[I]w=m[C]m=nil y=K(w,m)v[c]=y K=8180552 else I=v[z[1]]H=X(-6145)y=I[H]I=X(-5801)K=y[I]y=X(-5905)y=K[y]y=y(K)K,y=j[X(-5818)],{}end else if K<6844029 then K={}w,y=K,X(-5854)K=j[y]f=X(-6014)n=H[f]f={K(n)}C,y,K=f[3],f[1],13239433 n,m=y,f[2]elseif K<6871255 then H=P(6804599,{z[1]})y=X(-5986)K=j[y]y=K(H)K=14580713 else L,K={},13990272 V=L end end end else if K>7009476 then if 7045838>K then if K<7011697 then N,W=8914697<1044334,X(-5831)H[W]=N K,W,N=2291090,X(-5864),7150619>=5071678 H[W]=N elseif 7028150>K then n,y=X(-6061),X(-6061)K=v[H]w=K C=v[H]m=C[n]c,K=m,m and 2749138 or 8246850 else y,I,c,K,H={},nil,nil,j[X(-6241)],nil end else if K<7048712 then y,s,W=X(-6004),{},12092367>12088968 b=O(13658234,{H,w})f=X(-5996)K=c(y,f,s,b,W)s,y,f,W={},X(-5849),X(-5920),1625384<1764945 b=i(12780518,{H})K=c(y,f,s,b,W)W,s,y,f=85890~=2327594,{},X(-5925),X(-5860)b=O(9397610,{m})K=c(y,f,s,b,W)W=10362640<=11520212 b=Y(1054537,{m})f,s,y=X(-6073),{},X(-6138)K=c(y,f,s,b,W)y=X(-6105)b=Y(15484030,{m})W,s,f=10124559<=15630766,{},X(-5793)K=c(y,f,s,b,W)s,y,W,N,f={},X(-5974),9655255<10932774,14248602>2684127,X(-5902)b=Y(5012022,{m})K=c(y,f,s,b,W)W,f,y,s=11778718<12349687,X(-6071),X(-6037),{}b=Y(7539396,{m})K=c(y,f,s,b,W)y,b,f=X(-5894),{},{}K=v[H]K[y]=f f=o()K=E(12626066,{})s,y=X(-5952),X(-5809)v[f]=K W=Q(12071032,{w;m;H,f})K=c(y,s,b,W,N)W=O(10184362,{w,m;H})N,y,s,b=7974854~=13325441,X(-6015),X(-5878),{}K=c(y,s,b,W,N)W=Q(12359959,{w;m;H,f})y,b,N,s=X(-6051),{},1069777<=10223012,X(-5936)K=c(y,s,b,W,N)s,N,b,y=X(-5807),3625760<4508210,{},X(-6058)W=O(10040571,{H;w})K=c(y,s,b,W,N)y,s,N=X(-6043),{},15160376~=13295444 K=v[H]K[y]=s y,b,s=X(-6072),{},X(-6091)W=i(13815838,{w,m,H})K=c(y,s,b,W,N)y,b,s=X(-5805),{},X(-5879)W=M(16698915,{w,m,H})N=7162560<13204515 K=c(y,s,b,W,N)y,N=X(-6237),16393164>=10648114 W=P(10486946,{w,m,H})s,b=X(-5829),{}K=c(y,s,b,W,N)b,y={},X(-5977)W=M(2309656,{H;w})s,N=X(-6022),5588354>=1595179 K=c(y,s,b,W,N)b,N,s={},14376499<15228866,X(-5897)W=Q(4665194,{w;m})y=X(-5835)K=c(y,s,b,W,N)s,b,y=X(-5948),{},X(-5951)W=Y(3260946,{m})K=c(y,s,b,W)y,b,s=X(-5911),{},X(-5811)W=i(2822148,{H,m})K=c(y,s,b,W)W=i(1435380,{H,m})s,b,y=X(-5803),{},X(-5868)K=c(y,s,b,W)y=X(-5817)W=P(2621726,{H})b,s={},X(-6132)K=c(y,s,b,W)s=Y(5212483,{H})K=v[H]y=X(-5935)K[y]=s K=v[H]s,y={},X(-6238)K[y]=s s=Y(10395782,{H})y=X(-6250)K=v[H]K[y]=s K=v[H]y=X(-5855)s=O(2038884,{H})K[y]=s s=P(612239,{H})K=v[H]y=X(-6089)K[y]=s K=v[H]s=Y(15716210,{H})y=X(-6215)K[y]=s s=i(4076282,{H})K=v[H]y=X(-6205)K[y]=s K=v[H]s,y=X(-5995),X(-6236)K[y]=s y=X(-5975)K=v[H]s=M(3869432,{H})K[y]=s y=X(-5867)K=v[H]s=P(12733921,{H})b=i(14135846,{H})K[y]=s K=v[H]s=Y(1254444,{H})y=X(-5795)K[y]=s s=X(-6134)y=j[s]s=X(-5964)K=y[s]s=.5 y=K(s,b)y=v[H]s=X(-6061)K=y[s]y={K}K=j[X(-5848)]elseif 7062398>K then s,W=n(f,s)K=s and 15501931 or 3326460 else K=l l={K(V)}A,a,K,h=l[2],l[3],6883860,l[1]end end else if 6937057>K then if K<6880116 then K=w and 11483692 or 16767935 elseif K<6882239 then K=1216550 y=v[z[5]]H=v[z[2]]I=y(H)elseif K<6902807 then a,l=h(A,a)K=a and 2382857 or 7571331 else y,K={},j[X(-6157)]end else if K<6977229 then c,I=X(-6081),X(-6169)y=v[z[1]]K=y[I]y=v[z[2]]H=v[z[2]]I=H[c]K[y]=I y=X(-6081)K=v[z[2]]I=2258123>10704982 K[y]=I K,y=j[X(-5838)],{}elseif 7005456>K then y,K={},j[X(-5906)]else n,H=X(-6145),K C=v[z[1]]m=C[n]C=X(-5939)w=m[C]c=not w y,K=c,c and 2311591 or 10795257 end end end end end else if K<7613742 then if 7329073>K then if K>7171061 then if K>7273845 then if 7285594>K then y,K={},j[X(-6083)]elseif K<7303418 then f=Q(4409634,{C})n,K=X(-5986),1489367 m=j[n]n=m(f)else H,I,w,c=T[2],T[1],X(-5965),X(-5965)y=I[c]c=X(-5836)c=y[c]c=c(y)y=H[w]w=X(-5836)w=y[w]w=w(y)K=c<w y={K}K=j[X(-6068)]end else if K<7193922 then K,I,y=j[X(-6024)],nil,{}elseif K<7221494 then m=c K=o()v[K]=C C=K s=v[C]b=v[z[2]]f=s~=b n,K=f,f and 5276817 or 4804338 elseif K<7256403 then K=X(-6121)v[H]=y c,K=X(-6177),I[K]K=K(I,c)c=o()v[c]=K K=v[c]K=K and 5075862 or 14167259 else n=X(-5986)f=Q(357751,{C})K=j[n]n=K(f)K=11221968 end end else if K<7125038 then if 7092371>K then b,W=f(s,b)K=b and 191377 or 4465147 elseif 7102670>K then K=H and 7340124 or 15230081 elseif 7104503>K then S,K,d=9,k,X(-5820)u=j[d]J,d,k=X(-6183),X(-6183),X(-6133)g=u[d]x,u=X(-5820),X(-5851)G=g[u]C=nil r=j[x]g,x=X(-5881),X(-5881)d=r[x]r=X(-6139)u=d[r]d,r=X(-5946),103 N={[h]=a,[A]=l;[V]=L;[q]=t,[D]=B,[k]=S,[J]=G,[g]=u,[d]=r}f=K(b,W,N)b=X(-5928)f=v[s]K=f[b]f=X(-5997)f=K[f]b=p(6379723,{z[1];s})f=f(K,b)f=v[s]b=X(-6097)K=f[b]b=Q(8810388,{z[1];s})f,h=X(-5997),X(-6145)f=K[f]f=f(K,b)f=v[s]l,b=X(-5916),X(-5856)K=f[b]f=X(-5997)f=K[f]b=Q(2894889,{z[1];n})f=f(K,b)b=X(-6062)f=j[b]b,a=X(-6092),X(-5965)K=f[b]N=v[z[1]]W=N[h]N=X(-6077)b=W[N]A=v[n]N=X(-5965)h=A[a]V=v[n]a=V[l]A,V=X(-5916),X(-5885)l=v[s]n=F(n)W={[N]=h;[A]=a;[V]=l}f=K(b,W)K=3241055 s=F(s)else K=V A=b<a N,K=A,3858274 end else if K<7144726 then K=o()v[K]=C C,m=K,c s=v[C]b=v[z[2]]f=s~=b n,K=f,f and 12440475 or 12011661 elseif K<7147487 then m,y=X(-6061),X(-6188)K=j[y]w=v[z[1]]c=w[m]w={K(c)}H,I,y=w[3],w[2],w[1]c,K=y,4855079 else y,K=w,m K=16612205 end end end else if 7539859>K then if 7483724>K then if 7358920>K then y=X(-5908)K=v[z[2]]n=X(-6102)C=H[n]n=X(-5997)n=C[n]n=n(C,m)K[y]=n K=15230081 elseif 7397106>K then H,I=X(-5909),X(-6187)y=v[z[1]]K=y[I]I=K y=v[z[1]]K=y[H]y,H=I,K K=I and 14166478 or 8569225 elseif K<7441432 then K,m=5231102,nil C=F(C)else H=p(9432313,{z[1]})y=X(-5986)K=j[y]y=K(H)H=nil K=v[z[1]]y=X(-5923)K[y]=H K=8776791 end else if 7509687>K then I=X(-6010)y=v[z[1]]K=y[I]I={}y=K(I)K,y=j[X(-6128)],{}elseif K<7528845 then w=m(c,w)K=w and 16684896 or 8191626 else y=X(-5986)K=j[y]c=M(16104006,{})w={K(c)}I,H,y=T[1],w[2],w[1]c=y K,y=c and 5181833 or 3454155,c end end else if 7597987>K then if 7543831>K then y={}I=F(I)K=j[X(-6076)]elseif K<7559335 then m=K K,w=H and 4753356 or 3844582,H elseif 7584410>K then h=X(-6188)K=j[h]l,t=K,X(-6255)q=v[N]L=q[t]K,V=L and 13758453 or 11888109,L else s,m,K=nil,nil,16463063 end else if K<7601659 then b,V=h,X(-5836)V=A[V]V=V(A)a=V==w K=a and 3297309 or 6478466 elseif 7606966>K then H=Q(9204062,{z[1]})y=X(-5986)K=j[y]y=K(H)K=15754338 else y,K=c,w K=8209842 end end end end else if 7827009>K then if K<7726259 then if 7697336>K then if K<7646375 then I=X(-5927)y=v[z[1]]K=y[I]y=X(-6202)y=K[y]y=y(K)y,K={},j[X(-6049)]elseif 7683939>K then K=c K,y=H and 14966526 or 6674187,H elseif K<7695255 then K,H=16047364,nil else K=6120955 end else if 7704437>K then a,V,h=X(-5839),X(-6184),K A=v[f]a=A[a]a=a(A,V)K,N=a and 12597701 or 9242015,a elseif 7718065>K then K=N and 11837683 or 8311448 else K=w K,y=c and 8209842 or 10211129,c end end else if K>7778058 then if 7792729>K then N=X(-6238)K=v[I]f=K W=v[z[1]]b=W[N]s=b[m]b=2529647>=11629283 n=s or b K[m]=n K=11913188 elseif 7812483>K then k,B,K,D=230,230,14830327,X(-6046)t=j[D]D=X(-6055)q=t[D]D=230 t=q(D,B,k)l=t else m,K,s=nil,10948632,nil end else if K<7748145 then m=not w K=m and 1265563 or 10285359 elseif K<7771825 then K=h K=N and 8198289 or 10385912 elseif 7775976>K then y=X(-5986)H=Q(8202354,{z[1]})K=j[y]y=K(H)H,y=nil,X(-5814)K=v[z[1]]K[y]=H K=14329466 else y=v[z[1]]I=X(-5923)K=y[I]y=X(-6202)y=K[y]y=y(K)K,y=j[X(-6248)],{}end end end else if K<7999561 then if K<7963838 then if K<7846600 then N,f=X(-6026),C W=s[N]N=0 b,V=W or N,X(-6239)N,A=K,X(-5832)h=s[A]L=X(-6254)a=s[V]A=0 W=h or A h=K l=j[L]L=X(-5985)V=l[L]A=a~=V N,K=A,A and 13038810 or 7768705 elseif 7887638>K then a,l=h(A,a)K=a and 9506914 or 11528793 elseif 7929673>K then H=Y(9967365,{z[1]})y=X(-5986)K=j[y]y=K(H)y=X(-5814)K=v[z[1]]H=nil K[y]=H K=3170458 else H=X(-6134)y=j[H]H=X(-6203)K=y[H]H=v[z[2]]y=K(H)K=451777 end else if 7988502>K then w,s,A,l,m,a,N,V,h,n,f,C,W,b=X(-6136),{},X(-6222),{},{},{},X(-6149),X(-5938),{},{},X(-6221),X(-6169),{},X(-6255)c={[w]=m;[C]=n,[f]=s,[b]=W;[N]=h,[A]=a;[V]=l}y,K=c,7247491 elseif 7992952>K then s,K,f=nil,10435057,nil else w=X(-6216)y=j[w]w=X(-6209)K=y[w]w=X(-6148)y=K(w)w=o()v[w]=y K=v[w]m,y=X(-6013),X(-5907)K[y]=m y=X(-6060)K=v[w]m=X(-5882)K[y]=m K=v[w]y,m=X(-5910),5808674<5552179 K[y]=m C=o()m=c K=v[w]f,y=X(-5900),X(-6067)K[y]=m m=o()K=5951445>12983050 v[m]=K K=nil v[C]=K y=v[w]K=P(4460744,{m;C})n=K K=y[f]y=X(-5997)y=K[y]f=Y(11323514,{m})y=y(K,f)f=X(-5949)y=v[w]I=nil K=y[f]y=X(-5997)y,c=K[y],nil y=y(K,n)y=v[H]f=X(-6122)K=y[f]f,y=X(-6134),X(-5997)y=K[y]y=y(K,n)n=nil y=j[f]f=X(-6156)K=y[f]f=i(14481225,{w;m;H,C})m=F(m)C=F(C)w=F(w)y=K(f)y,K={},j[X(-6130)]H=F(H)end end else if K<8063349 then if K<8020853 then f=X(-6204)n=v[C]K=n[f]K=K and 7265315 or 11221968 elseif 8039826>K then K,y=j[X(-6103)],{}else L,K=t,D K=t and 688542 or 5491929 end else if K<8091022 then K,m,b=9067707,nil,s s,w=nil,b elseif K<8116446 then m,K,s=nil,9192342,nil else K=v[z[1]]c,H,y=X(-5982),10060942>9264402,X(-5827)K[y]=H H=o()K=Q(5156557,{z[2];z[1]})v[H]=K K=v[H]y=K()y=v[z[1]]K=y[c]K=K and 9942417 or 5701711 end end end end end end else if K<4898508 then if K<4446245 then if K<4151163 then if K>4020634 then if K<4093251 then if 4053113>K then y=X(-5986)H=M(6383981,{z[1]})K=j[y]y=K(H)H=nil K=v[z[1]]y=X(-6035)K[y]=H K=9547557 elseif 4071767>K then n=C K=o()v[K]=f s,f,b=X(-5839),K,X(-6173)K=v[f]s=K[s]s=s(K,b)K=s and 16025142 or 294338 elseif 4079799>K then I=v[z[1]]H=X(-6145)y=I[H]I=X(-6151)K=y[I]K=K and 921333 or 13595901 else m=f N=v[z[2]]W=s~=N K=W and 16037923 or 8097705 end else if 4114015>K then K=v[H]y={K}K=j[X(-6212)]elseif K<4137001 then K,C=16463063,X(-5854)m=j[C]s=v[z[1]]W=X(-6119)W=s[W]b={W(s)}s={m(R(b))}n,C,f=s[2],s[1],s[3]else m=v[z[1]]C=X(-6043)w=m[C]C=v[z[2]]n=X(-6196)m=C[n]K=1936425 c=w[m]w=X(-6246)H=c[w]y=H end end else if K>3887990 then if K<3905016 then b=v[z[2]]y=s~=b K,f=y and 3290082 or 16170053,n elseif 3955529>K then f=i(3156277,{C})n=X(-5986)K=j[n]n=K(f)K=1105691 else c,w=X(-5999),X(-6251)c,K=H[c],10974960 c=c(H,w)y=c end else if 3865034>K then K=N K=W and 16676525 or 2036313 elseif K<3871860 then I=X(-5932)y=j[I]K=not y K=K and 14002004 or 9101541 elseif 3874500>K then K=v[z[1]]I=v[z[2]]y=X(-5961)K[y]=I y,K={},j[X(-5992)]else K=N N={m(W)}b,K,s,f=N[3],3677884,N[2],N[1]end end end else if 4354693>K then if 4277670>K then if 4171898>K then y=v[z[2]]I=X(-6038)I,K=y[I],3440040 I=I(y)y=nil v[z[2]]=y elseif K<4199062 then h,A=X(-5839),X(-5862)N=v[f]W,h=K,N[h]h=h(N,A)K,b=h and 14497886 or 7697677,h elseif K<4222257 then K=o()n=C v[K]=f f=K s=v[f]b=X(-6190)K=s[b]K=K and 13381448 or 13433990 else y=X(-5986)K=j[y]c=p(14494368,{H})y=K(c)K=9057915 end else if 4324280>K then y,b=X(-5836),X(-6119)y=H[y]y=y(H)m,c=X(-5854),y y=nil w=o()v[w]=y y=j[m]f=v[z[1]]b=f[b]s={b(f)}f={y(R(s))}K,C,n,m=1265097,f[2],f[3],f[1]elseif 4335138>K then y,I,w,K,c,H={},nil,nil,j[X(-5943)],nil,nil else c,K=X(-5828),7008813 H=v[z[1]]y=H[c]H=y()end end else if K<4409362 then if K<4369488 then I=X(-6204)y=v[z[1]]K=y[I]y,I=X(-5931),3720836>=11389318 K[y]=I K,y=j[X(-5825)],{}elseif K<4380432 then m,n=c(w,m)K=m and 5779982 or 9180446 elseif 4400162>K then w,C=H(c,w)K=w and 6656317 or 9075842 else I=o()v[I]=T[1]c=v[I]w=v[z[1]]H=c~=w K,y=H and 3252552 or 2211523,H end else if 4416608>K then y=X(-5931)K=v[z[1]]I=3617511>=5123498 K[y]=I y,K={},j[X(-5915)]elseif 4431438>K then H,I,C=X(-6134),T[1],X(-6196)y=j[H]H=X(-6163)K=y[H]H=.1 y=K(H)m=X(-6043)w=v[z[1]]c=w[m]m=v[z[2]]w=m[C]H=c[w]y,K=H,H and 12449841 or 12936155 else K,f,s=2876421,nil,nil end end end end else if K<4644771 then if K<4537066 then if K<4477686 then if 4456970>K then m=v[z[1]]K,C=3177773,X(-5894)w=m[C]n=X(-6196)C=v[z[2]]m=C[n]c=w[m]w=X(-6001)H=c[w]y=H elseif K<4462945 then K=5987681>=15862866 v[z[1]]=K y=v[z[2]]K=y and 4153167 or 3440040 elseif K<4469789 then a,N,f=X(-6221),K,X(-6188)m=j[f]A=v[n]h=A[a]W,K=h,h and 14685894 or 10767052 else l=0 V=W>l A,a=V,K K=V and 16232480 or 1981085 end else if 4500541>K then h,K,a=X(-6181),10279604,12048789<=12634227 N=s[h]h=X(-5836)h,A=N[h],1 h=h(N)N=X(-5934)N=h[N]N=N(h,c,A,a)b=N elseif K<4525833 then K,s,f=14483905,nil,nil else K,q=V,X(-5815)L=w[q]V,l=L,K K=L and 9465143 or 133914 end end else if K>4617075 then if 4620500>K then K,n=6489891,X(-6014)C=H[n]w=C elseif 4625848>K then K=v[z[1]]I=v[z[2]]y=X(-5961)K[y]=I y,K={},j[X(-5963)]else a,l=K,0 V=W>l A,K=V,V and 12602638 or 13882219 end else if 4549379>K then K=s and 2769959 or 11470587 elseif K<4568013 then K=2264173 elseif K<4597518 then K=l l={K(V)}K,h,A,a=14130609,l[1],l[2],l[3]else f=X(-5986)n=j[f]s=i(7501080,{m})f=n(s)K=8297578 end end end else if K<4800382 then if K<4746335 then if 4662526>K then D,K=X(-6098),1140422 t=v[z[1]]q=t[D]t=X(-5942)L=q[t]V=L elseif 4694976>K then I,H=T[1],X(-6062)y=j[H]H=X(-6101)K=y[H]H=X(-6110)y=K(I,H)H=y y=X(-6199)K=H==y K=K and 16433246 or 932127 elseif K<4732036 then K=5096519 else K,n=10077733,{}m=n end else if K<4771408 then n=X(-6014)C=H[n]w,K=C,3844582 elseif 4793409>K then h=X(-6188)K=j[h]l,t=K,X(-6169)q=v[N]L=q[t]V,K=L,L and 4579875 or 13859540 else m=not w K=m and 16505421 or 15610880 end end else if K<4826654 then if K<4803872 then K=2162429 s=v[C]b=X(-6240)f=s[b]m=f elseif K<4804747 then K=n and 2387649 or 15831042 elseif 4813605>K then K=X(-6232)m=v[z[2]]H,C=K,X(-5938)w=m[C]m=X(-6198)c=w[m]y,K=c,c and 16217353 or 13427258 else y=X(-5836)y,m=H[y],X(-5854)y=y(H)c=y y,b=nil,X(-6119)w=y y=j[m]f=v[z[1]]b=f[b]s={b(f)}f={y(R(s))}C,n,K,m=f[2],f[3],10435057,f[1]end else if 4837505>K then f=n b=v[z[2]]y=s~=b K=y and 16069996 or 4439293 elseif 4849418>K then K=13191068 else H,m=c(I,H)K=H and 13282011 or 8037292 end end end end end else if K>5715064 then if K>5970504 then if K>6121016 then if K<6147969 then if 6121201>K then y=X(-5986)K=j[y]I=M(1050745,{z[1]})y=K(I)y,K={},j[X(-5833)]elseif K<6128313 then f=F(f)K,n=13988740,nil else K=t K,l=q and 11312581 or 14804160,q end else if 6163575>K then N,n=X(-6119),X(-5854)K=j[n]b=v[z[2]]N=b[N]W={N(b)}b={K(R(W))}K,f,n,s=16611656,b[2],b[1],b[3]elseif 6174138>K then K=o()V,L=a,X(-5986)v[K]=V V=K K=o()v[K]=l l=K K=j[L]q=Y(12116797,{V;l})l=F(l)V=F(V)L=K(q)K=14130609 else K=X(-6121)K,N=W[K],X(-5947)K=K(W,N)N=o()v[N]=K K=v[N]K=K and 2705877 or 2262309 end end else if K<6005847 then if 5974700>K then b,W=f(s,b)K=b and 3750826 or 1290169 elseif 5980299>K then s=X(-6062)f=j[s]C=m C,s=nil,X(-6092)K=f[s]f=K(H,n)K,n=13786740,nil elseif 5993744>K then I=X(-6010)y=v[z[1]]K=y[I]I=v[z[2]]y=K(I)y,K={},j[X(-6066)]else C,f=w(m,C)K=C and 4067253 or 1716715 end else if 6018779>K then K,B=J,S K=S and 7103185 or 10869435 elseif K<6075434 then k=v[z[1]]S,K=X(-6098),6135302 B=k[S]k=X(-5942)D=B[k]q=D else w=v[C]K=w and 13850288 or 9278996 end end end else if 5850619>K then if 5770473>K then if K<5730909 then K=l l={K(V)}h,K,A,a=l[1],13845009,l[2],l[3]elseif 5743669>K then V,w,N=X(-6018),s,X(-5854)W=j[N]a=b[V]V={W(a)}N,h,A,K=V[1],V[2],V[3],13861933 elseif 5761238>K then f=n b=v[z[2]]y=s~=b K=y and 9887 or 7991195 else s=X(-5986)K=j[s]b=P(11319866,{H;f})s=K(b)K=1881519 end else if 5776194>K then c,s,K=nil,nil,11467397 elseif K<5805904 then f,W,b,C=K,1,X(-5965),m s=n[b]b,N=X(-5836),14769500>=9028470 b=s[b]b=b(s)s=X(-5934)s=b[s]s=s(b,I,W,N)K,y=s and 14059266 or 14761277,s else m=f W=v[z[2]]b=s~=W K=b and 9560251 or 8532631 end end else if 5917117>K then if 5876378>K then c,K,a,N=nil,W,5149728>7096597,X(-6190)A,W,h=K,X(-6010),m or a C={[n]=I;[f]=H,[s]=b,[W]=w,[N]=h}I=nil K[y]=C K,m,y,w,H=j[X(-6087)],nil,{},nil,nil elseif 5893821>K then I=X(-6204)y=v[z[1]]K=y[I]y,I=X(-5931),6794118>14815932 K[y]=I K,y=j[X(-6224)],{}elseif 5907941>K then c,K,y=50,3365356,1 w=c c=1 m=c c=0 C=c>m c=y-m else l,K=q,t K=q and 1561590 or 6336138 end else if K<5924624 then I,H,C=T[1],X(-6134),X(-6196)y=j[H]H=X(-6163)K=y[H]m,H=X(-5894),.1 y=K(H)w=v[z[1]]c=w[m]m=v[z[2]]w=m[C]H=c[w]K,y=H and 4453197 or 3177773,H elseif 5947683>K then c=v[H]K,y=c and 7247491 or 7985810,c else y,H=X(-6121),X(-5947)K=v[I]y=K[y]y=y(K,H)H=o()v[H]=y K=v[H]K=K and 8296714 or 9311938 end end end end else if K>5277687 then if K<5442989 then if K<5371796 then if 5290004>K then I,W=nil,38 m=v[z[1]]f,C=0,X(-6145)w=m[C]n,m,C=X(-5869),X(-6077),X(-6145)c=w[m]H,y=nil,{}K=#c c=K m=v[z[1]]s=0 w=m[C]m=X(-6182)K=w[m]w=X(-6226)C=j[n]n=X(-6209)m=C[n]b=c*W n=0 C=m(n,f,s,b)K[w]=C K,c=j[X(-6223)],nil elseif 5303961>K then y,K={},j[X(-5858)]elseif 5323405>K then K,C=14513502,X(-5986)n=i(5983438,{m,H})c=j[C]C=c(n)else K=s and 208663 or 2025295 end else if K<5405144 then K=v[z[2]]y,n=X(-6252),X(-6102)C=I[n]n=X(-5997)n=C[n]n=n(C,m)K[y]=n K=7102155 elseif 5416540>K then n=v[z[3]]f=X(-5894)C=n[f]f=X(-6196)n=w[f]m=C[n]K=m and 538956 or 15812577 else K=n and 10218722 or 9332626 end end else if K<5583139 then if K<5475931 then K=B K,q=D and 3003078 or 3044871,D elseif K<5515757 then B=X(-6046)D=j[B]S,B,K,k=230,X(-6055),688542,230 t=D[B]B=230 D=t(B,k,S)L=D elseif 5550337>K then H,K=X(-6038),1870568 y=v[z[4]]H=y[H]H=H(y)y=nil v[z[4]]=y else y,I=X(-5931),2795860~=10033908 K=v[z[1]]K[y]=I y,K={},j[X(-5802)]end else if 5628821>K then m=f W=v[z[2]]b=s~=W K=b and 240429 or 5096519 elseif 5677082>K then H,y=X(-5813),X(-6254)K=j[y]y=X(-6176)y=K[y]y=y(K,H)K=X(-6165)K=y[K]K=K(y,I)y,H=X(-6188),K K=j[y]m={K(H)}w,K,c,y=m[3],9785211,m[2],m[1]m=y else y=X(-5982)K=v[z[1]]w=v[z[2]]m=X(-6201)c=w[m]w,I=X(-5997),nil m=p(14310454,{H})w=c[w]H=F(H)w=w(c,m)K[y]=w K,y=j[X(-6011)],{}end end end else if 5095933>K then if 5064236>K then if K<4976980 then y,I=X(-6254),X(-5813)K=j[y]y,f,w,H=X(-6176),X(-6254),X(-6191),X(-6254)y=K[y]y=y(K,I)I=j[H]n=j[f]f=X(-6086)C=n[f]n=X(-5895)m=C..n c=w..m w=X(-6012)w=I[w]H={w(I,c)}I=X(-6165)I=y[I]K={I(y,R(H))}y={R(K)}K=j[X(-5919)]elseif K<5014568 then I,y=T[1],X(-5986)K=j[y]c=p(14733656,{})w={K(c)}H,y=w[2],w[1]c=y K,y=c and 3447971 or 10306456,c elseif K<5034862 then h={}W,K=h,16085386 else K=v[z[1]]y,I=X(-5931),3304007>283476 K[y]=I K,y=j[X(-6115)],{}end else if 5079632>K then w=X(-5986)m=i(6675338,{H;c})K=j[w]w=K(m)K=14167259 elseif 5089375>K then h,A=W(N,h)K=h and 7598485 or 10961290 else K=h K=N and 9400427 or 15668971 end end else if 5197158>K then if K<5126538 then K,s,m=6418878,nil,nil elseif K<5164615 then I=X(-6187)y=v[z[1]]K=y[I]H,I=X(-5909),K y=v[z[1]]c=I K=y[H]H,w=K,K K=I and 16272918 or 7724933 elseif 5177253>K then H=X(-6059)y=v[z[4]]m,n,H=K,K,y[H]H=H(y)n=.65 y=v[z[4]]f=.7 C,K,H=I and f,1529324,X(-6048)H,w=y[H],C or n H=H(y,w)w,H=.6,X(-5954)y=v[z[4]]y[H]=w w=X(-6134)H=j[w]w=X(-6163)y=H[w]w=.1 H=y(w)else m,w=K,H K=H and 13929820 or 539575 end else if 5221792>K then H=v[z[1]]c=X(-6145)I=H[c]H=X(-6182)y=I[H]K=not y K=K and 652807 or 12481102 elseif K<5253959 then w,C=H(c,w)K=w and 15662693 or 11738429 else N,h=X(-5894),X(-6196)W=v[z[3]]b=W[N]K=4804338 N=v[C]W=N[h]s=b[W]f=not s n=f end end end end end end end end end end K=#e return R(y)end,{},function(j)for X=1,#j,1 do I[j[X]]=1+I[j[X]]end if T then local K=T(true)local R=e(K)R[X(-5846)],R[X(-5887)],R[X(-5926)]=j,w,function()return-1538310 end return K else return z({},{[X(-5887)]=w;[X(-5846)]=j,[X(-5926)]=function()return-1538310 end})end end,function(j,X)local R=c(X)local T=function(T,z,e)return K(j,{T;z,e},X,R)end return T end,function(j,X)local R=c(X)local T=function(T,z,e,U)return K(j,{T,z;e,U},X,R)end return T end,function(j)I[j]=I[j]-1 if 0==I[j]then I[j],v[j]=nil,nil end end,{},function(j,X)local R=c(X)local T=function(T)return K(j,{T},X,R)end return T end,function(j)local X,K=1,j[1]while K do I[K],X=I[K]-1,1+X if 0==I[K]then I[K],v[K]=nil,nil end K=j[X]end end,function(j,X)local R=c(X)local T=function(T,z,e,U,y)return K(j,{T,z;e,U;y},X,R)end return T end,function(j,X)local R=c(X)local T=function(...)return K(j,{...},X,R)end return T end,function(j,X)local R=c(X)local T=function(T,z)return K(j,{T,z},X,R)end return T end,0,function(j,X)local R=c(X)local T=function()return K(j,{},X,R)end return T end,function(j,X)local R=c(X)local T=function(T,z,e,U,y,v,I)return K(j,{T;z,e,U,y;v,I},X,R)end return T end,function()H=H+1 I[H]=1 return H end,function(j,X)local R=c(X)local T=function(T,z,e,U,y,v)return K(j,{T,z;e,U;y,v},X,R)end return T end return(m(10313639,{}))(R(y))end)(setmetatable,select,newproxy,{...},getmetatable,unpack or table[X(-6213)],getfenv and getfenv()or _ENV)end)(...)
+-- Wait for PrismMain to be initialized by Main.lua
+local PM = getgenv().PrismMain
+if not PM then
+    -- Retry for up to 5 seconds waiting for Main.lua to load
+    for i = 1, 50 do
+        task.wait(0.1)
+        PM = getgenv().PrismMain
+        if PM then break end
+    end
+end
+if not PM then return end
+
+PM.Commands = PM.Commands or {}
+
+local function registerCommand(name, desc, aliases, execute, excludeFromAutoExec)
+    PM.Commands[name:lower()] = {
+        name = name,
+        desc = desc,
+        aliases = aliases or {},
+        execute = execute,
+        excludeFromAutoExec = excludeFromAutoExec or false,
+    }
+end
+
+-- ========== CHAT COMMAND HANDLING ==========
+
+local Players = game:GetService("Players")
+local LP = Players.LocalPlayer
+local ChatPrefix = "'"
+
+-- Hook into chat
+local function onChat(msg)
+    if not msg:sub(1, 1) == ChatPrefix then return end
+    
+    -- Remove prefix and parse command
+    local input = msg:sub(2):gsub("^%s+", "")
+    if input == "" then return end
+    
+    local parts = {}
+    for part in input:gmatch("%S+") do
+        table.insert(parts, part)
+    end
+    
+    local cmdName = parts[1]:lower()
+    table.remove(parts, 1)
+    
+    -- Find and execute command
+    local cmd = PM.Commands[cmdName]
+    if not cmd then
+        -- Check aliases
+        for _, c in pairs(PM.Commands) do
+            for _, alias in ipairs(c.aliases) do
+                if alias:lower() == cmdName then
+                    cmd = c
+                    break
+                end
+            end
+            if cmd then break end
+        end
+    end
+    
+    if cmd then
+        pcall(function() cmd.execute(parts) end)
+    end
+end
+
+-- Connect to chat
+if LP then
+    LP.Chatted:Connect(onChat)
+end
+
+-- ========== BUILT-IN COMMANDS ==========
+
+registerCommand("destroy", "Destroy Prism UI and cleanup", {}, function(args)
+    -- Clean up existing UI
+    if PM.UI.Gui then
+        pcall(function() PM.UI.Gui:Destroy() end)
+    end
+    -- Disconnect auto-hide connection if active
+    if PM.HideAllPlayerAddedConn then
+        pcall(function() PM.HideAllPlayerAddedConn:Disconnect() end)
+        PM.HideAllPlayerAddedConn = nil
+    end
+    -- Disconnect auto-mute connection if active
+    if PM.MuteAllPlayerAddedConn then
+        pcall(function() PM.MuteAllPlayerAddedConn:Disconnect() end)
+        PM.MuteAllPlayerAddedConn = nil
+    end
+    -- Disconnect jerk respawn connection if active
+    if PM.JerkRespawnConn then
+        pcall(function() PM.JerkRespawnConn:Disconnect() end)
+        PM.JerkRespawnConn = nil
+    end
+    -- Unhide all hidden players
+    for uid, data in pairs(PM.HiddenPlayers or {}) do
+        if data.connection then pcall(function() data.connection:Disconnect() end) end
+        if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
+    end
+    PM.HiddenPlayers = {}
+    -- Unmute all muted players
+    for uid, data in pairs(PM.MutedPlayers or {}) do
+        if data.connection then pcall(function() data.connection:Disconnect() end) end
+    end
+    for _, p in ipairs(Players:GetPlayers()) do
+        local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+        if adi then
+            pcall(function() adi.Muted = false end)
+        end
+    end
+    PM.MutedPlayers = {}
+    -- Clear state flags
+    PM.JerkActive = false
+    PM.AntiVCBanRan = false
+    -- Cleanup Walk On Air
+    if PM.WOA then
+        if PM.WOA.renderConn then pcall(function() PM.WOA.renderConn:Disconnect() end) end
+        if PM.WOA.platform then pcall(function() PM.WOA.platform:Destroy() end) end
+        if PM.WOA.Gui then pcall(function() PM.WOA.Gui:Destroy() end) end
+        PM.WOA = nil
+    end
+    local plat = workspace:FindFirstChild("PrismWalkAirPlatform")
+    if plat then pcall(function() plat:Destroy() end) end
+    -- Clear globals
+    getgenv().PrismMain = nil
+    getgenv().PrismLoaded = false
+end, true)
+
+registerCommand("reload", "Reload Prism script", {}, function(args)
+    -- Clean up existing UI
+    if PM.UI.Gui then
+        pcall(function() PM.UI.Gui:Destroy() end)
+    end
+    -- Cleanup Walk On Air
+    if PM.WOA then
+        if PM.WOA.renderConn then pcall(function() PM.WOA.renderConn:Disconnect() end) end
+        if PM.WOA.platform then pcall(function() PM.WOA.platform:Destroy() end) end
+        if PM.WOA.Gui then pcall(function() PM.WOA.Gui:Destroy() end) end
+    end
+    local plat = workspace:FindFirstChild("PrismWalkAirPlatform")
+    if plat then pcall(function() plat:Destroy() end) end
+    getgenv().PrismMain = nil
+    getgenv().PrismLoaded = false
+    -- Reload from URL
+    loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
+end, true)
+
+registerCommand("rejoin", "Rejoin current server", {}, function(args)
+    game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, LP)
+end, true)
+
+registerCommand("serverhopmost", "Join server with most players", {}, function(args)
+    local ok, result = pcall(function()
+        return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Desc&limit=100"))
+    end)
+    if ok and result and result.data then
+        local best = nil
+        for _, server in ipairs(result.data) do
+            local playing = server.playing or 0
+            local maxP = server.maxPlayers or 0
+            if server.id ~= game.JobId and maxP > 0 and playing < maxP then
+                if not best or playing > (best.playing or 0) then
+                    best = server
+                end
+            end
+        end
+        if best then
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, best.id, LP)
+        end
+    end
+end, true)
+
+registerCommand("serverhopping", "Join server with lowest ping", {}, function(args)
+    local ok, result = pcall(function()
+        return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
+    end)
+    if ok and result and result.data then
+        local best = nil
+        for _, server in ipairs(result.data) do
+            local playing = server.playing or 0
+            local maxP = server.maxPlayers or 0
+            if server.id ~= game.JobId and maxP > 0 and playing < maxP then
+                if not best or (server.ping or math.huge) < (best.ping or math.huge) then
+                    best = server
+                end
+            end
+        end
+        if best then
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, best.id, LP)
+        end
+    end
+end, true)
+
+registerCommand("serverhopfew", "Join server with fewest players", {}, function(args)
+    local ok, result = pcall(function()
+        return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
+    end)
+    if ok and result and result.data then
+        local best = nil
+        for _, server in ipairs(result.data) do
+            local playing = server.playing or 0
+            local maxP = server.maxPlayers or 0
+            if server.id ~= game.JobId and maxP > 0 and playing < maxP then
+                if not best or playing < (best.playing or math.huge) then
+                    best = server
+                end
+            end
+        end
+        if best then
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, best.id, LP)
+        end
+    end
+end, true)
+
+registerCommand("serverhopany", "Join any random server (may be full)", {}, function(args)
+    local ok, result = pcall(function()
+        return game:GetService("HttpService"):JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
+    end)
+    if ok and result and result.data then
+        local servers = {}
+        for _, server in ipairs(result.data) do
+            if server.id ~= game.JobId then
+                table.insert(servers, server)
+            end
+        end
+        if #servers > 0 then
+            local randomServer = servers[math.random(1, #servers)]
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, randomServer.id, LP)
+        end
+    end
+end, true)
+
+-- Hidden players state
+PM.HiddenPlayers = {}
+
+local function applyHide(char, savedState)
+    if not char then return savedState end
+    savedState = savedState or { parts = {}, guis = {}, particles = {}, beams = {}, sounds = {}, lights = {}, hum = {} }
+    local hum = char:FindFirstChildOfClass("Humanoid")
+    if hum then
+        pcall(function()
+            savedState.hum.displayDistType = hum.DisplayDistanceType
+            savedState.hum.healthDist = hum.HealthDisplayDistance
+            savedState.hum.nameDist = hum.NameDisplayDistance
+            hum.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+            hum.HealthDisplayDistance = 0
+            hum.NameDisplayDistance = 0
+        end)
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("BillboardGui") then
+            pcall(function()
+                savedState.guis[desc] = desc.Enabled
+                desc.Enabled = false
+            end)
+        end
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("ParticleEmitter") or desc:IsA("Fire") or desc:IsA("Sparkles") or desc:IsA("Smoke") then
+            pcall(function()
+                savedState.particles[desc] = desc.Enabled
+                desc.Enabled = false
+            end)
+        end
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("Beam") or desc:IsA("Trail") then
+            pcall(function()
+                savedState.beams[desc] = desc.Enabled
+                desc.Enabled = false
+            end)
+        end
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("Sound") then
+            pcall(function()
+                savedState.sounds[desc] = desc.Volume
+                desc.Volume = 0
+            end)
+        end
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("PointLight") or desc:IsA("SpotLight") or desc:IsA("SurfaceLight") then
+            pcall(function()
+                savedState.lights[desc] = desc.Brightness
+                desc.Brightness = 0
+            end)
+        end
+    end
+    for _, desc in ipairs(char:GetDescendants()) do
+        if desc:IsA("BasePart") or desc:IsA("Decal") or desc:IsA("Texture") then
+            pcall(function()
+                savedState.parts[desc] = desc.Transparency
+                desc.Transparency = 1
+            end)
+        end
+    end
+    return savedState
+end
+
+registerCommand("hide", "Hide a player locally", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+    local q = targetName:lower()
+    local target = nil
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    if not target then return end
+    if PM.HiddenPlayers[target.UserId] then return end
+    local adi = target:FindFirstChildOfClass("AudioDeviceInput")
+    if adi then pcall(function() adi.Muted = true end) end
+    local savedState = nil
+    if target.Character then savedState = applyHide(target.Character, nil) end
+    local conn = target.CharacterAdded:Connect(function(char)
+        task.wait(0.1)
+        savedState = applyHide(char, savedState)
+    end)
+    PM.HiddenPlayers[target.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
+end, true)
+
+registerCommand("unhide", "Unhide a player", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+    local q = targetName:lower()
+    local target = nil
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                target = p
+                break
+            end
+        end
+    end
+    if not target then return end
+    if not PM.HiddenPlayers[target.UserId] then return end
+    local data = PM.HiddenPlayers[target.UserId]
+    if data.connection then pcall(function() data.connection:Disconnect() end) end
+    if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
+    if target.Character and data.savedState then
+        local state = data.savedState
+        pcall(function()
+            local hum = target.Character:FindFirstChildOfClass("Humanoid")
+            if hum and state.hum then
+                hum.DisplayDistanceType = state.hum.displayDistType or Enum.HumanoidDisplayDistanceType.Viewer
+                hum.HealthDisplayDistance = state.hum.healthDist or 100
+                hum.NameDisplayDistance = state.hum.nameDist or 100
+            end
+        end)
+        for desc, orig in pairs(state.parts or {}) do pcall(function() desc.Transparency = orig end) end
+        for desc, orig in pairs(state.guis or {}) do pcall(function() desc.Enabled = orig end) end
+        for desc, orig in pairs(state.particles or {}) do pcall(function() desc.Enabled = orig end) end
+        for desc, orig in pairs(state.beams or {}) do pcall(function() desc.Enabled = orig end) end
+        for desc, orig in pairs(state.sounds or {}) do pcall(function() desc.Volume = orig end) end
+        for desc, orig in pairs(state.lights or {}) do pcall(function() desc.Brightness = orig end) end
+    end
+    -- Mark as manually unhidden so hideall won't re-hide
+    if PM.HiddenPlayers[target.UserId] then
+        PM.HiddenPlayers[target.UserId].manuallyUnhidden = true
+    end
+end, true)
+
+registerCommand("hideall", "Hide all other players", {}, function(args)
+    -- Hide all currently existing players (unless manually unhidden)
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP and not PM.HiddenPlayers[p.UserId] then
+            local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+            if adi then pcall(function() adi.Muted = true end) end
+            local savedState = nil
+            if p.Character then savedState = applyHide(p.Character, nil) end
+            local conn = p.CharacterAdded:Connect(function(char)
+                task.wait(0.1)
+                -- Skip if player was manually unhidden
+                if PM.HiddenPlayers[p.UserId] and PM.HiddenPlayers[p.UserId].manuallyUnhidden then return end
+                savedState = applyHide(char, savedState)
+            end)
+            PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
+        end
+    end
+    -- Auto-hide new players who join
+    if not PM.HideAllPlayerAddedConn then
+        PM.HideAllPlayerAddedConn = Players.PlayerAdded:Connect(function(p)
+            if p ~= LP and not PM.HiddenPlayers[p.UserId] then
+                local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+                if adi then pcall(function() adi.Muted = true end) end
+                local savedState = nil
+                if p.Character then savedState = applyHide(p.Character, nil) end
+                local conn = p.CharacterAdded:Connect(function(char)
+                    task.wait(0.1)
+                    -- Skip if player was manually unhidden
+                    if PM.HiddenPlayers[p.UserId] and PM.HiddenPlayers[p.UserId].manuallyUnhidden then return end
+                    savedState = applyHide(char, savedState)
+                end)
+                PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
+            end
+        end)
+    end
+end, true)
+
+registerCommand("unhideall", "Unhide all players", {}, function(args)
+    -- Disconnect the auto-hide connection
+    if PM.HideAllPlayerAddedConn then
+        pcall(function() PM.HideAllPlayerAddedConn:Disconnect() end)
+        PM.HideAllPlayerAddedConn = nil
+    end
+    for uid, data in pairs(PM.HiddenPlayers) do
+        if data.connection then pcall(function() data.connection:Disconnect() end) end
+        if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p.UserId == uid and p.Character and data.savedState then
+                local state = data.savedState
+                pcall(function()
+                    local hum = p.Character:FindFirstChildOfClass("Humanoid")
+                    if hum and state.hum then
+                        hum.DisplayDistanceType = state.hum.displayDistType or Enum.HumanoidDisplayDistanceType.Viewer
+                        hum.HealthDisplayDistance = state.hum.healthDist or 100
+                        hum.NameDisplayDistance = state.hum.nameDist or 100
+                    end
+                end)
+                for desc, orig in pairs(state.parts or {}) do pcall(function() desc.Transparency = orig end) end
+                for desc, orig in pairs(state.guis or {}) do pcall(function() desc.Enabled = orig end) end
+                for desc, orig in pairs(state.particles or {}) do pcall(function() desc.Enabled = orig end) end
+                for desc, orig in pairs(state.beams or {}) do pcall(function() desc.Enabled = orig end) end
+                for desc, orig in pairs(state.sounds or {}) do pcall(function() desc.Volume = orig end) end
+                for desc, orig in pairs(state.lights or {}) do pcall(function() desc.Brightness = orig end) end
+                break
+            end
+        end
+    end
+    PM.HiddenPlayers = {}
+end, true)
+
+-- Muted players tracking table
+PM.MutedPlayers = {}
+
+registerCommand("mute", "Mute a player's voice chat", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+    local q = targetName:lower()
+    local target = nil
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    if target then
+        local adi = target:FindFirstChildOfClass("AudioDeviceInput")
+        if adi then
+            pcall(function() adi.Muted = true end)
+            PM.MutedPlayers[target.UserId] = adi
+        end
+    end
+end, true)
+
+registerCommand("unmute", "Unmute a player's voice chat", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+    local q = targetName:lower()
+    local target = nil
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    if target then
+        local adi = target:FindFirstChildOfClass("AudioDeviceInput")
+        if adi then
+            pcall(function() adi.Muted = false end)
+        end
+        -- Mark as manually unmuted so muteall won't re-mute
+        if PM.MutedPlayers[target.UserId] then
+            PM.MutedPlayers[target.UserId].manuallyUnmuted = true
+        end
+    end
+end, true)
+
+registerCommand("muteall", "Mute all other players", {}, function(args)
+    -- Mute all currently existing players (unless manually unmuted)
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP and not PM.MutedPlayers[p.UserId] then
+            local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+            if adi then
+                pcall(function() adi.Muted = true end)
+            end
+            -- Hook CharacterAdded for respawns
+            local conn = p.CharacterAdded:Connect(function(char)
+                task.wait(0.1)
+                -- Skip if player was manually unmuted
+                if PM.MutedPlayers[p.UserId] and PM.MutedPlayers[p.UserId].manuallyUnmuted then return end
+                local newAdi = p:FindFirstChildOfClass("AudioDeviceInput")
+                if newAdi then
+                    pcall(function() newAdi.Muted = true end)
+                end
+            end)
+            PM.MutedPlayers[p.UserId] = { connection = conn }
+        end
+    end
+    -- Auto-mute new players who join (unless manually unmuted)
+    if not PM.MuteAllPlayerAddedConn then
+        PM.MuteAllPlayerAddedConn = Players.PlayerAdded:Connect(function(p)
+            if p ~= LP and not PM.MutedPlayers[p.UserId] then
+                local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+                if adi then
+                    pcall(function() adi.Muted = true end)
+                end
+                local conn = p.CharacterAdded:Connect(function(char)
+                    task.wait(0.1)
+                    -- Skip if player was manually unmuted
+                    if PM.MutedPlayers[p.UserId] and PM.MutedPlayers[p.UserId].manuallyUnmuted then return end
+                    local newAdi = p:FindFirstChildOfClass("AudioDeviceInput")
+                    if newAdi then
+                        pcall(function() newAdi.Muted = true end)
+                    end
+                end)
+                PM.MutedPlayers[p.UserId] = { connection = conn }
+            end
+        end)
+    end
+end, true)
+
+registerCommand("unmuteall", "Unmute all players", {}, function(args)
+    -- Disconnect the auto-mute connection
+    if PM.MuteAllPlayerAddedConn then
+        pcall(function() PM.MuteAllPlayerAddedConn:Disconnect() end)
+        PM.MuteAllPlayerAddedConn = nil
+    end
+    for uid, data in pairs(PM.MutedPlayers) do
+        if data.connection then pcall(function() data.connection:Disconnect() end) end
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p.UserId == uid then
+                local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+                if adi then
+                    pcall(function() adi.Muted = false end)
+                end
+            end
+        end
+    end
+    PM.MutedPlayers = {}
+end, true)
+
+registerCommand("to", "Teleport to player", {}, function(args)
+    local targetName = table.concat(args, " ")
+    if targetName == "" then return end
+    local q = targetName:lower()
+    local target = nil
+    -- Exact match
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+    -- Prefix match
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    -- Substring match
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    if not target then return end
+    if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+        local myChar = LP.Character
+        local myHRP = myChar and myChar:FindFirstChild("HumanoidRootPart")
+        if myHRP then
+            myHRP.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
+        end
+    end
+end, true)
+
+registerCommand("tptospawn", "Teleport to spawn", {}, function(args)
+    local char = LP.Character
+    local root = char and char:FindFirstChild("HumanoidRootPart")
+    if not root then return end
+    local spawnPart = workspace:FindFirstChildOfClass("SpawnLocation")
+    if not spawnPart then
+        spawnPart = workspace:FindFirstChild("SpawnLocation", true)
+    end
+    if spawnPart then
+        local h = char:FindFirstChildOfClass("Humanoid")
+        local hipH = h and h.HipHeight or 2.3
+        local hrpHalf = root.Size.Y * 0.5
+        root.CFrame = CFrame.new(spawnPart.Position + Vector3.new(0, spawnPart.Size.Y * 0.5 + hrpHalf + hipH, 0))
+    end
+end)
+
+registerCommand("tptool", "Click to teleport tool", {}, function(args)
+    if PM.TpToolActive then return end
+    PM.TpToolActive = true
+    
+    local function giveTool()
+        local bp = LP.Backpack
+        local char = LP.Character
+        if (bp and bp:FindFirstChild("Teleport Tool")) or (char and char:FindFirstChild("Teleport Tool")) then return end
+        
+        local tool = Instance.new("Tool")
+        tool.Name = "Teleport Tool"
+        tool.RequiresHandle = false
+        tool.ToolTip = "Click to teleport"
+        
+        tool.Activated:Connect(function()
+            local c = LP.Character
+            if not c then return end
+            local h = c:FindFirstChildOfClass("Humanoid")
+            local root = c:FindFirstChild("HumanoidRootPart")
+            if not root then return end
+
+            local mouse = LP:GetMouse()
+            local hipH = h and h.HipHeight or 2.3
+            local hrpHalfHeight = root.Size.Y * 0.5
+            local sinkBuffer = math.max(0.5, hipH * 0.15) + hrpHalfHeight * 0.25
+            local hit = mouse.Hit.Position
+
+            local targetPos
+            if mouse.Target and PM.WOA and PM.WOA.enabled then
+                -- WOA active: confirm real ground below the hit point
+                local rcParams = RaycastParams.new()
+                local excludes = { c }
+                if PM.WOA.platform then table.insert(excludes, PM.WOA.platform) end
+                rcParams.FilterDescendantsInstances = excludes
+                rcParams.FilterType = Enum.RaycastFilterType.Exclude
+                local groundCheck = workspace:Raycast(Vector3.new(hit.X, hit.Y + 0.5, hit.Z), Vector3.new(0, -15000, 0), rcParams)
+                if groundCheck then
+                    targetPos = Vector3.new(hit.X, hit.Y + hipH + sinkBuffer, hit.Z)
+                else
+                    targetPos = Vector3.new(hit.X, PM.WOA.baseY + hipH + 0.5, hit.Z)
+                end
+            else
+                targetPos = Vector3.new(hit.X, hit.Y + hipH + sinkBuffer, hit.Z)
+            end
+
+            local lookDir = (Vector3.new(targetPos.X, root.Position.Y, targetPos.Z) - root.Position)
+            lookDir = lookDir.Magnitude > 0.01 and lookDir.Unit or root.CFrame.LookVector
+            root.CFrame = CFrame.new(targetPos, targetPos + lookDir)
+            if h then h.Sit = false; h.AutoRotate = true end
+        end)
+        
+        tool.Parent = bp
+        
+        -- Detect removal
+        local function checkGone()
+            local bp2 = LP.Backpack
+            local char2 = LP.Character
+            local inBp = bp2 and bp2:FindFirstChild("Teleport Tool")
+            local inChar = char2 and char2:FindFirstChild("Teleport Tool")
+            if not inBp and not inChar then
+                PM.TpToolActive = false
+                if PM.TpToolConn then pcall(function() PM.TpToolConn:Disconnect() end); PM.TpToolConn = nil end
+                if PM.TpWatchConn1 then pcall(function() PM.TpWatchConn1:Disconnect() end); PM.TpWatchConn1 = nil end
+                if PM.TpWatchConn2 then pcall(function() PM.TpWatchConn2:Disconnect() end); PM.TpWatchConn2 = nil end
+            end
+        end
+        
+        local function onRemoved(child)
+            if child == tool then task.defer(checkGone) end
+        end
+        
+        if bp then PM.TpWatchConn1 = bp.ChildRemoved:Connect(onRemoved) end
+        if char then PM.TpWatchConn2 = char.ChildRemoved:Connect(onRemoved) end
+    end
+    
+    giveTool()
+    
+    -- Re-give after respawn
+    if PM.TpToolConn then pcall(function() PM.TpToolConn:Disconnect() end) end
+    PM.TpToolConn = LP.CharacterAdded:Connect(function()
+        task.wait(0.5)
+        giveTool()
+    end)
+end)
+
+registerCommand("jerk", "Jerk animation tool", {}, function(args)
+    if PM.JerkActive then return end
+    PM.JerkActive = true
+    local function giveJerk()
+        local char = LP.Character
+        if not char then return end
+        local hum = char:FindFirstChildOfClass("Humanoid")
+        local bp = LP:FindFirstChild("Backpack")
+        if not hum or not bp then return end
+        if bp:FindFirstChild("Jerk") or char:FindFirstChild("Jerk") then return end
+        local tool = Instance.new("Tool")
+        tool.Name = "Jerk"
+        tool.ToolTip = ";)"
+        tool.RequiresHandle = false
+        tool.Parent = bp
+        local jorkin = false
+        local track
+        local function stopJerk()
+            jorkin = false
+            if track then track:Stop() track = nil end
+        end
+        tool.Equipped:Connect(function() jorkin = true end)
+        tool.Unequipped:Connect(stopJerk)
+        hum.Died:Connect(stopJerk)
+        task.spawn(function()
+            while task.wait() do
+                if not (tool and tool.Parent) then break end
+                if jorkin then
+                    local isR15 = hum.RigType == Enum.HumanoidRigType.R15
+                    if not track then
+                        local anim = Instance.new("Animation")
+                        anim.AnimationId = isR15 and "rbxassetid://698251653" or "rbxassetid://72042024"
+                        track = hum:LoadAnimation(anim)
+                    end
+                    track:Play()
+                    track:AdjustSpeed(isR15 and 0.7 or 0.65)
+                    track.TimePosition = 0.6
+                    task.wait(0.1)
+                    while track and track.TimePosition < (isR15 and 0.7 or 0.65) do task.wait(0.1) end
+                    if track then track:Stop() track = nil end
+                end
+            end
+        end)
+    end
+    giveJerk()
+    if PM.JerkRespawnConn then PM.JerkRespawnConn:Disconnect() end
+    PM.JerkRespawnConn = LP.CharacterAdded:Connect(function()
+        task.wait(0.5)
+        giveJerk()
+    end)
+end)
+
+registerCommand("antivcban", "Anti voice chat ban", {}, function(args)
+    if PM.AntiVCBanRan then return end
+    PM.AntiVCBanRan = true
+    game:GetService("VoiceChatService"):rejoinVoice()
+    task.wait(0.02)
+    for _, Connection in ipairs(getconnections(game:GetService("VoiceChatInternal").StateChanged)) do
+        Connection:Disable()
+    end
+end)
+
+-- Walk On Air state
+PM.WOA = { enabled = false, platform = nil, baseY = 0, startY = nil, up = false, down = false, renderConn = nil, Gui = nil }
+
+local function WOA_GetHR()
+    local char = LP.Character
+    if not char then return nil, nil end
+    local h = char:FindFirstChildOfClass("Humanoid")
+    local r = char:FindFirstChild("HumanoidRootPart")
+    return h, r
+end
+
+local function WOA_GetFootY(h, root)
+    local char = LP.Character
+    local rcParams = RaycastParams.new()
+    rcParams.FilterDescendantsInstances = char and {char} or {}
+    rcParams.FilterType = Enum.RaycastFilterType.Exclude
+    local hit = workspace:Raycast(root.Position, Vector3.new(0, -50, 0), rcParams)
+    if hit then return hit.Position.Y end
+    local hipH = h and h.HipHeight or 2.3
+    local hrpHalf = root.Size.Y * 0.5
+    return root.Position.Y - hrpHalf - hipH
+end
+
+local function WOA_Destroy()
+    if PM.WOA.renderConn then PM.WOA.renderConn:Disconnect(); PM.WOA.renderConn = nil end
+    if PM.WOA.platform then PM.WOA.platform:Destroy(); PM.WOA.platform = nil end
+    PM.WOA.enabled = false; PM.WOA.up = false; PM.WOA.down = false
+end
+
+local function WOA_Create()
+    local h, root = WOA_GetHR(); if not root then return end
+    WOA_Destroy(); PM.WOA.enabled = true; PM.WOA.startY = WOA_GetFootY(h, root); PM.WOA.baseY = PM.WOA.startY
+    local part = Instance.new("Part")
+    part.Name = "PrismWalkAirPlatform"
+    part.Size = Vector3.new(20, 5, 20)
+    part.Anchored = true; part.CanCollide = true; part.Material = Enum.Material.SmoothPlastic
+    part.Transparency = 1; part.CastShadow = false
+    part.CFrame = CFrame.new(root.Position.X, PM.WOA.baseY - 2.5, root.Position.Z)
+    part.Parent = workspace
+    PM.WOA.platform = part
+    local RunService = game:GetService("RunService")
+    PM.WOA.renderConn = RunService.RenderStepped:Connect(function()
+        if not PM.WOA.enabled then return end
+        local _, r = WOA_GetHR(); if not r or not PM.WOA.platform then return end
+        if PM.WOA.up   then PM.WOA.baseY = PM.WOA.baseY + 0.2 end
+        if PM.WOA.down then PM.WOA.baseY = PM.WOA.baseY - 0.2 end
+        PM.WOA.platform.CFrame = CFrame.new(r.Position.X, PM.WOA.baseY - 2.5, r.Position.Z)
+    end)
+end
+
+-- ========== COMMANDS PANEL POPULATION ==========
+
+PM.populateCommandsPanel = function()
+    if not PM.UI.CommandsScroll then return end
+
+    local childCount = 0
+    for _, child in ipairs(PM.UI.CommandsScroll:GetChildren()) do
+        if child:IsA("TextButton") then
+            child:Destroy()
+        end
+    end
+
+    PM.UI.CommandButtons = {}
+
+    local sorted = {}
+    for _, cmd in pairs(PM.Commands) do
+        table.insert(sorted, cmd)
+    end
+    table.sort(sorted, function(a, b) return a.name:lower() < b.name:lower() end)
+
+    for _, cmd in ipairs(sorted) do
+        local btn = PM.mk("TextButton", PM.UI.CommandsScroll, {
+            Name = cmd.name,
+            Size = UDim2.new(1, -6, 0, 36),
+            BackgroundColor3 = PM.C and PM.C.card or Color3.fromRGB(28, 28, 28),
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            Text = "",
+            AutoButtonColor = false,
+            ZIndex = 102,
+        })
+        PM.corner(btn, 6)
+
+        PM.mk("TextLabel", btn, {
+            Size = UDim2.new(1, -16, 0, 16),
+            Position = UDim2.new(0, 8, 0, 2),
+            BackgroundTransparency = 1,
+            Text = cmd.name,
+            TextColor3 = PM.C and PM.C.text or Color3.fromRGB(230, 230, 230),
+            TextSize = 11,
+            Font = Enum.Font.GothamBold,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            ZIndex = 103,
+        })
+
+        PM.mk("TextLabel", btn, {
+            Size = UDim2.new(1, -16, 0, 14),
+            Position = UDim2.new(0, 8, 0, 18),
+            BackgroundTransparency = 1,
+            Text = cmd.desc,
+            TextColor3 = PM.C and PM.C.textDim or Color3.fromRGB(90, 90, 90),
+            TextSize = 9,
+            Font = Enum.Font.Gotham,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            ZIndex = 103,
+        })
+
+        btn.MouseEnter:Connect(function()
+            PM.tween(btn, 0.15, {BackgroundTransparency = 0.2})
+        end)
+        btn.MouseLeave:Connect(function()
+            PM.tween(btn, 0.15, {BackgroundTransparency = 0.5})
+        end)
+        btn.MouseButton1Click:Connect(function()
+            PM.playClickSound()
+            cmd.execute({})
+        end)
+
+        table.insert(PM.UI.CommandButtons, {name = cmd.name, desc = cmd.desc, btn = btn})
+    end
+
+    local count = #PM.UI.CommandButtons
+    PM.UI.CommandsScroll.CanvasSize = UDim2.new(0, 0, 0, count * 38)
+end
+
+-- ========== AUTO EXEC PANEL POPULATION ==========
+
+PM.autoExecStates = {}
+
+PM.populateAutoExecPanel = function()
+    if not PM.UI.AutoExecScroll then return end
+
+    local childCount = 0
+    for _, child in ipairs(PM.UI.AutoExecScroll:GetChildren()) do
+        if child:IsA("Frame") and child.Name ~= "UIListLayout" then
+            child:Destroy()
+        end
+    end
+
+    PM.UI.AutoExecRows = {}
+
+    local function makeToggleRow(parent, name, labelText, layoutOrder, defaultState, onToggle)
+        local bg = PM.mk("Frame", parent, {
+            Name = name .. "Bg",
+            Size = UDim2.new(1, -6, 0, 26),
+            BackgroundColor3 = PM.C and PM.C.card or Color3.fromRGB(28, 28, 28),
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            LayoutOrder = layoutOrder,
+            ZIndex = 102,
+        })
+        PM.corner(bg, 6)
+
+        PM.mk("TextLabel", bg, {
+            Size = UDim2.new(1, -56, 0, 20),
+            Position = UDim2.new(0, 8, 0, 3),
+            BackgroundTransparency = 1,
+            Text = labelText,
+            TextColor3 = PM.C and PM.C.text or Color3.fromRGB(230, 230, 230),
+            TextSize = 10,
+            Font = Enum.Font.Gotham,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            ZIndex = 103,
+        })
+
+        local switch = PM.mk("Frame", bg, {
+            Name = name .. "Switch",
+            Size = UDim2.new(0, 26, 0, 13),
+            Position = UDim2.new(1, -36, 0.5, 0),
+            AnchorPoint = Vector2.new(0, 0.5),
+            BackgroundColor3 = defaultState and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50),
+            BorderSizePixel = 0,
+            ZIndex = 103,
+        })
+        PM.corner(switch, 10)
+
+        local circle = PM.mk("Frame", switch, {
+            Name = name .. "Circle",
+            Size = UDim2.new(0, 9, 0, 9),
+            Position = defaultState and UDim2.new(1, -11, 0.5, -4) or UDim2.new(0, 2, 0.5, -4),
+            BackgroundColor3 = Color3.fromRGB(235, 235, 235),
+            BorderSizePixel = 0,
+            ZIndex = 104,
+        })
+        PM.corner(circle, 10)
+
+        local hitBtn = PM.mk("TextButton", switch, {
+            Name = name .. "Hit",
+            Size = UDim2.new(1, 0, 1, 0),
+            BackgroundTransparency = 1,
+            Text = "",
+            ZIndex = 105,
+        })
+
+        local state = defaultState
+        hitBtn.MouseButton1Click:Connect(function()
+            PM.playClickSound()
+            state = not state
+            if state then
+                PM.tween(switch, 0.2, {BackgroundColor3 = Color3.fromRGB(80, 80, 80)})
+                PM.tween(circle, 0.2, {Position = UDim2.new(1, -11, 0.5, -4)})
+            else
+                PM.tween(switch, 0.2, {BackgroundColor3 = Color3.fromRGB(50, 50, 50)})
+                PM.tween(circle, 0.2, {Position = UDim2.new(0, 2, 0.5, -4)})
+            end
+            if onToggle then onToggle(state) end
+        end)
+
+        return bg, switch, circle, hitBtn
+    end
+
+    local sorted = {}
+    for _, cmd in pairs(PM.Commands) do
+        table.insert(sorted, cmd)
+    end
+    table.sort(sorted, function(a, b) return a.name:lower() < b.name:lower() end)
+
+    for i, cmd in ipairs(sorted) do
+        -- Skip commands that should not be auto-executed
+        if cmd.excludeFromAutoExec then continue end
+        
+        local isEnabled = PM.autoExecStates[cmd.name] or false
+        local row, switch, circle, hitBtn = makeToggleRow(
+            PM.UI.AutoExecScroll,
+            "AutoExec_" .. cmd.name,
+            cmd.name,
+            i,
+            isEnabled,
+            function(state)
+                PM.autoExecStates[cmd.name] = state
+                PM.saveAutoExecStates()
+            end
+        )
+        table.insert(PM.UI.AutoExecRows, {name = cmd.name, row = row})
+    end
+end
+
+PM.filterAutoExecPanel = function(query)
+    query = (query or ""):lower()
+    for _, data in ipairs(PM.UI.AutoExecRows or {}) do
+        local match = data.name:lower():find(query, 1, true) or query == ""
+        data.row.Visible = match
+    end
+end
+
+-- ========== TERMINAL EXECUTION ==========
+
+PM.printTerminal = function(text)
+    if not PM.UI.TerminalOutput then return end
+    PM.UI.TerminalOutput.Text = PM.UI.TerminalOutput.Text .. "\n" .. text
+end
+
+PM.executeCommand = function(input)
+    input = input:gsub("^%s+", ""):gsub("%s+$", "")
+    if input == "" then return end
+
+    local parts = {}
+    for part in input:gmatch("%S+") do
+        table.insert(parts, part)
+    end
+
+    local cmdName = parts[1]:lower()
+    table.remove(parts, 1)
+
+    local cmd = PM.Commands[cmdName]
+    if not cmd then
+        -- check aliases
+        for _, c in pairs(PM.Commands) do
+            for _, alias in ipairs(c.aliases) do
+                if alias:lower() == cmdName then
+                    cmd = c
+                    break
+                end
+            end
+            if cmd then break end
+        end
+    end
+
+    if cmd then
+        pcall(function()
+            cmd.execute(parts)
+        end)
+    else
+        PM.printTerminal("Unknown command: '" .. cmdName .. "'. Type 'help' for a list of commands.")
+    end
+end
+
+-- ========== TERMINAL OUTPUT LABEL ==========
+
+PM.createTerminalOutput = function()
+    if PM.UI.TerminalOutput then return end
+    if not PM.UI.TerminalPanel then return end
+
+    PM.UI.TerminalOutput = PM.mk("TextLabel", PM.UI.TerminalPanel, {
+        Name = "TerminalOutput",
+        Size = UDim2.new(1, -20, 0, 200),
+        Position = UDim2.new(0, 10, 0, 38),
+        BackgroundTransparency = 1,
+        Text = "Type 'help' for available commands.",
+        TextColor3 = PM.C and PM.C.text or Color3.fromRGB(230, 230, 230),
+        TextSize = 11,
+        Font = Enum.Font.RobotoMono,
+        TextXAlignment = Enum.TextXAlignment.Left,
+        TextYAlignment = Enum.TextYAlignment.Top,
+        ZIndex = 101,
+    })
+end
+
+-- ========== AUTO EXECUTE FUNCTIONALITY ==========
+
+PM.AUTOEXEC_SAVE_FILE = "prism/prism_autoexec.json"
+
+-- Save auto exec states to file
+PM.saveAutoExecStates = function()
+    if not writefile then return end
+    
+    local states = {}
+    for name, cmd in pairs(PM.Commands) do
+        if not cmd.excludeFromAutoExec then
+            states[name] = PM.autoExecStates[name] or false
+        end
+    end
+    
+    pcall(function()
+        if not isfolder("prism") then
+            makefolder("prism")
+        end
+        writefile(PM.AUTOEXEC_SAVE_FILE, game:GetService("HttpService"):JSONEncode(states))
+    end)
+end
+
+-- Load auto exec states from file
+PM.loadAutoExecStates = function()
+    if not readfile then return end
+    
+    pcall(function()
+        local data = readfile(PM.AUTOEXEC_SAVE_FILE)
+        if data then
+            local states = game:GetService("HttpService"):JSONDecode(data)
+            for name, state in pairs(states) do
+                PM.autoExecStates[name] = state
+            end
+        end
+    end)
+end
+
+-- Execute auto exec commands on startup
+PM.executeAutoExecCommands = function()
+    -- Wait for GUI to fully load
+    task.wait(1)
+    
+    -- Check if auto execute is enabled globally
+    if PM.autoExecuteCommands == false then return end
+    
+    for name, cmd in pairs(PM.Commands) do
+        -- Skip excluded commands
+        if not cmd.excludeFromAutoExec then
+            local isEnabled = PM.autoExecStates[name] or false
+            if isEnabled then
+                pcall(function()
+                    cmd.execute({})
+                end)
+            end
+        end
+    end
+end
+
+-- Populate panels after this file loads
+task.delay(0.5, function()
+    -- Wait for Main.lua to create the UI functions if needed
+    local retries = 0
+    while (not PM.createCommandsPanel or not PM.createSettingsPanel) and retries < 20 do
+        task.wait(0.1)
+        retries = retries + 1
+    end
+    
+    -- Load saved auto exec states first
+    if PM.loadAutoExecStates then PM.loadAutoExecStates() end
+    
+    -- Create panels if they don't exist
+    if not PM.UI.CommandsPanel and PM.createCommandsPanel then
+        PM.createCommandsPanel()
+    end
+    if not PM.UI.SettingsPanel and PM.createSettingsPanel then
+        PM.createSettingsPanel()
+    end
+    
+    -- Populate the panels
+    PM.populateCommandsPanel()
+    PM.populateAutoExecPanel()
+    if PM.createTerminalOutput then PM.createTerminalOutput() end
+    
+    if PM.UI.AutoExecSearch then
+        PM.UI.AutoExecSearch:GetPropertyChangedSignal("Text"):Connect(function()
+            PM.filterAutoExecPanel(PM.UI.AutoExecSearch.Text)
+        end)
+    end
+    
+    -- Execute auto exec commands after everything is loaded
+    PM.executeAutoExecCommands()
+end)
+
+return PM.Commands
