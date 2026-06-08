@@ -581,6 +581,11 @@ PM.createMainGUI = function()
             
             if enterPressed then
                 local cmd = PM.UI.TerminalInput.Text
+                local suggestion = PM.UI.TerminalAutofill.Text
+                -- If there's an autofill suggestion, use it (like Mono)
+                if suggestion and suggestion ~= "" then
+                    cmd = suggestion
+                end
                 if cmd and cmd ~= "" then
                     PM.UI.TerminalInput.Text = ""
                     PM.UI.TerminalAutofill.Text = ""
