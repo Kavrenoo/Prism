@@ -1114,45 +1114,45 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
 
         local Pill = Instance.new("Frame")
         Pill.Name = "Pill"
-        Pill.Size = UDim2.new(0, 26, 0, 13)
-        Pill.Position = UDim2.new(1, -36, 0.5, 0)
-        Pill.AnchorPoint = Vector2.new(0, 0.5)
-        Pill.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        Pill.Size = UDim2.new(0, 40, 0, 22)
+        Pill.Position = UDim2.new(1, -52, 0.5, -11)
+        Pill.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
         Pill.BorderSizePixel = 0
         Pill.Parent = ToggleSection
 
         local PillCorner = Instance.new("UICorner")
-        PillCorner.CornerRadius = UDim.new(0, 10)
+        PillCorner.CornerRadius = UDim.new(0, 11)
         PillCorner.Parent = Pill
 
         local Knob = Instance.new("Frame")
         Knob.Name = "Knob"
-        Knob.Size = UDim2.new(0, 9, 0, 9)
-        Knob.Position = UDim2.new(0, 2, 0.5, -4)
-        Knob.BackgroundColor3 = Color3.fromRGB(235, 235, 235)
+        Knob.Size = UDim2.new(0, 16, 0, 16)
+        Knob.Position = UDim2.new(0, 3, 0.5, -8)
+        Knob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         Knob.BorderSizePixel = 0
         Knob.Parent = Pill
 
         local KnobCorner = Instance.new("UICorner")
-        KnobCorner.CornerRadius = UDim.new(0, 10)
+        KnobCorner.CornerRadius = UDim.new(0, 8)
         KnobCorner.Parent = Knob
 
         local PillHit = Instance.new("TextButton")
-        PillHit.Size = UDim2.new(1, 0, 1, 0)
+        PillHit.Size = UDim2.new(0, 52, 1, 0)
+        PillHit.Position = UDim2.new(1, -56, 0, 0)
         PillHit.BackgroundTransparency = 1
         PillHit.Text = ""
-        PillHit.Parent = Pill
+        PillHit.Parent = ToggleSection
 
         local woaOn = savedToggle
         local function SetWOA(val, save)
             woaOn = val
             ToggleLabel.Text = val and "Disable" or "Enable"
             if val then
-                TweenService:Create(Pill, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
-                TweenService:Create(Knob, TweenInfo.new(0.2), {Position = UDim2.new(1, -11, 0.5, -4)}):Play()
+                TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
+                TweenService:Create(Knob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -8)}):Play()
             else
-                TweenService:Create(Pill, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
-                TweenService:Create(Knob, TweenInfo.new(0.2), {Position = UDim2.new(0, 2, 0.5, -4)}):Play()
+                TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(60, 60, 60)}):Play()
+                TweenService:Create(Knob, TweenInfo.new(0.15), {Position = UDim2.new(0, 3, 0.5, -8)}):Play()
             end
             if val then WOA_Create() else WOA_Destroy() end
             -- Save toggle state (skip on initial load)
@@ -1265,10 +1265,590 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
         end)
     end)
 
-    if not success then
-        warn("[Prism] Failed to load Walk On Air GUI: " .. tostring(err))
-    end
 end, true)
+
+-- Anti state management
+PM.Anti = {
+    afk = false,
+    sit = false,
+    fling = false,
+    headsit = false,
+    ragdoll = false,
+    void = false,
+    fakeout = false,
+    connections = {}
+}
+
+registerCommand("antiall", "Anti features GUI (AFK, fling, etc)", {"anti"}, function(args)
+    local CoreGui = game:GetService("CoreGui")
+    local UserInputService = game:GetService("UserInputService")
+    local RunService = game:GetService("RunService")
+    local TweenService = game:GetService("TweenService")
+    local Players = game:GetService("Players")
+    local LocalPlayer = Players.LocalPlayer
+
+    local function guiExists(guiName)
+        if CoreGui:FindFirstChild(guiName) then return true end
+        if LP:FindFirstChild("PlayerGui") and LP.PlayerGui:FindFirstChild(guiName) then return true end
+        if get_hidden_gui or gethui then
+            if (get_hidden_gui or gethui)():FindFirstChild(guiName) then return true end
+        end
+        return false
+    end
+    if guiExists("Prism_AntiGUI") then return end
+
+    local success, err = pcall(function()
+        local ScreenGui = Instance.new("ScreenGui")
+        ScreenGui.Name = "Prism_AntiGUI"
+        ScreenGui.ResetOnSpawn = false
+        ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 999
+
+        if syn and syn.protect_gui then
+            syn.protect_gui(ScreenGui)
+            ScreenGui.Parent = CoreGui
+        elseif gethui then
+            ScreenGui.Parent = gethui()
+        else
+            ScreenGui.Parent = CoreGui
+        end
+
+        local MainFrame = Instance.new("Frame")
+        MainFrame.Name = "MainFrame"
+        MainFrame.Size = UDim2.new(0, 220, 0, 320)
+        MainFrame.Position = UDim2.new(0, 1142, 0, 160)
+        MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+        MainFrame.BackgroundTransparency = 0.3
+        MainFrame.BorderSizePixel = 0
+        MainFrame.ClipsDescendants = true
+        MainFrame.Parent = ScreenGui
+
+        local MainCorner = Instance.new("UICorner")
+        MainCorner.CornerRadius = UDim.new(0, 14)
+        MainCorner.Parent = MainFrame
+
+        local MainStroke = Instance.new("UIStroke")
+        MainStroke.Color = Color3.fromRGB(60, 60, 60)
+        MainStroke.Thickness = 1
+        MainStroke.Parent = MainFrame
+
+        local TitleBar = Instance.new("Frame")
+        TitleBar.Name = "TitleBar"
+        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.BackgroundTransparency = 1
+        TitleBar.Parent = MainFrame
+
+        local dragging = false
+        local dragStart = nil
+        local startPos = nil
+
+        TitleBar.InputBegan:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = true
+                dragStart = input.Position
+                startPos = MainFrame.Position
+            end
+        end)
+
+        TitleBar.InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = false
+            end
+        end)
+
+        UserInputService.InputChanged:Connect(function(input)
+            if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                local delta = input.Position - dragStart
+                MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+            end
+        end)
+
+        local TitleLabel = Instance.new("TextLabel")
+        TitleLabel.Name = "Title"
+        TitleLabel.Size = UDim2.new(1, -80, 1, 0)
+        TitleLabel.Position = UDim2.new(0, 14, 0, 0)
+        TitleLabel.BackgroundTransparency = 1
+        TitleLabel.Text = "Prism  •  Anti"
+        TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TitleLabel.TextSize = 13
+        TitleLabel.Font = Enum.Font.GothamBold
+        TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+        TitleLabel.Parent = TitleBar
+
+        local MinBtn = Instance.new("TextButton")
+        MinBtn.Name = "Minimize"
+        MinBtn.Size = UDim2.new(0, 24, 0, 24)
+        MinBtn.Position = UDim2.new(1, -52, 0.5, -12)
+        MinBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        MinBtn.BackgroundTransparency = 0.4
+        MinBtn.BorderSizePixel = 0
+        MinBtn.Text = "—"
+        MinBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        MinBtn.TextSize = 11
+        MinBtn.Font = Enum.Font.GothamBold
+        MinBtn.Parent = TitleBar
+
+        local MinCorner = Instance.new("UICorner")
+        MinCorner.CornerRadius = UDim.new(0, 6)
+        MinCorner.Parent = MinBtn
+
+        local CloseBtn = Instance.new("TextButton")
+        CloseBtn.Name = "Close"
+        CloseBtn.Size = UDim2.new(0, 24, 0, 24)
+        CloseBtn.Position = UDim2.new(1, -26, 0.5, -12)
+        CloseBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        CloseBtn.BackgroundTransparency = 0.4
+        CloseBtn.BorderSizePixel = 0
+        CloseBtn.Text = "X"
+        CloseBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        CloseBtn.TextSize = 11
+        CloseBtn.Font = Enum.Font.GothamBold
+        CloseBtn.Parent = TitleBar
+
+        local CloseCorner = Instance.new("UICorner")
+        CloseCorner.CornerRadius = UDim.new(0, 6)
+        CloseCorner.Parent = CloseBtn
+
+        CloseBtn.MouseButton1Click:Connect(function()
+            ScreenGui:Destroy()
+        end)
+
+        local ContentFrame = Instance.new("Frame")
+        ContentFrame.Name = "Content"
+        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.BackgroundTransparency = 1
+        ContentFrame.ClipsDescendants = true
+        ContentFrame.Parent = MainFrame
+
+        local isMinimized = false
+        local originalSize = UDim2.new(0, 220, 0, 320)
+        local minimizedSize = UDim2.new(0, 220, 0, 40)
+        local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+        MinBtn.MouseButton1Click:Connect(function()
+            isMinimized = not isMinimized
+            if isMinimized then
+                MinBtn.Text = "+"
+                local tween = TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize})
+                tween:Play()
+                tween.Completed:Connect(function() ContentFrame.Visible = false end)
+            else
+                MinBtn.Text = "—"
+                ContentFrame.Visible = true
+                TweenService:Create(MainFrame, tweenInfo, {Size = originalSize}):Play()
+            end
+        end)
+
+        local ContentLayout = Instance.new("UIListLayout")
+        ContentLayout.Padding = UDim.new(0, 6)
+        ContentLayout.SortOrder = Enum.SortOrder.LayoutOrder
+        ContentLayout.Parent = ContentFrame
+
+        local ContentPadding = Instance.new("UIPadding")
+        ContentPadding.PaddingTop = UDim.new(0, 4)
+        ContentPadding.PaddingBottom = UDim.new(0, 4)
+        ContentPadding.PaddingLeft = UDim.new(0, 8)
+        ContentPadding.PaddingRight = UDim.new(0, 8)
+        ContentPadding.Parent = ContentFrame
+
+        -- Function to create toggle row matching WOA style
+        local function CreateToggle(name, label, layoutOrder, initialState, onToggle)
+            local ToggleRow = Instance.new("Frame")
+            ToggleRow.Name = name .. "Row"
+            ToggleRow.Size = UDim2.new(1, 0, 0, 36)
+            ToggleRow.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+            ToggleRow.BackgroundTransparency = 0.4
+            ToggleRow.BorderSizePixel = 0
+            ToggleRow.LayoutOrder = layoutOrder
+            ToggleRow.Parent = ContentFrame
+
+            local RowCorner = Instance.new("UICorner")
+            RowCorner.CornerRadius = UDim.new(0, 10)
+            RowCorner.Parent = ToggleRow
+
+            local ToggleLabel = Instance.new("TextLabel")
+            ToggleLabel.Name = "Label"
+            ToggleLabel.Size = UDim2.new(1, -100, 1, 0)
+            ToggleLabel.Position = UDim2.new(0, 12, 0, 0)
+            ToggleLabel.BackgroundTransparency = 1
+            ToggleLabel.Text = label
+            ToggleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+            ToggleLabel.TextSize = 12
+            ToggleLabel.Font = Enum.Font.Gotham
+            ToggleLabel.TextXAlignment = Enum.TextXAlignment.Left
+            ToggleLabel.Parent = ToggleRow
+
+            local Pill = Instance.new("Frame")
+            Pill.Name = "Pill"
+            Pill.Size = UDim2.new(0, 40, 0, 22)
+            Pill.Position = UDim2.new(1, -52, 0.5, -11)
+            Pill.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+            Pill.BorderSizePixel = 0
+            Pill.Parent = ToggleRow
+
+            local PillCorner = Instance.new("UICorner")
+            PillCorner.CornerRadius = UDim.new(0, 11)
+            PillCorner.Parent = Pill
+
+            local Knob = Instance.new("Frame")
+            Knob.Name = "Knob"
+            Knob.Size = UDim2.new(0, 16, 0, 16)
+            Knob.Position = UDim2.new(0, 3, 0.5, -8)
+            Knob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+            Knob.BorderSizePixel = 0
+            Knob.Parent = Pill
+
+            local KnobCorner = Instance.new("UICorner")
+            KnobCorner.CornerRadius = UDim.new(0, 8)
+            KnobCorner.Parent = Knob
+
+            local PillHit = Instance.new("TextButton")
+            PillHit.Size = UDim2.new(0, 52, 1, 0)
+            PillHit.Position = UDim2.new(1, -56, 0, 0)
+            PillHit.BackgroundTransparency = 1
+            PillHit.Text = ""
+            PillHit.Parent = ToggleRow
+
+            local state = initialState
+            local function SetToggle(val)
+                state = val
+                if val then
+                    TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
+                    TweenService:Create(Knob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -8)}):Play()
+                else
+                    TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(60, 60, 60)}):Play()
+                    TweenService:Create(Knob, TweenInfo.new(0.15), {Position = UDim2.new(0, 3, 0.5, -8)}):Play()
+                end
+                if onToggle then onToggle(val) end
+            end
+
+            PillHit.MouseButton1Click:Connect(function() SetToggle(not state) end)
+
+            if initialState then SetToggle(true) end
+
+            return ToggleRow, SetToggle
+        end
+
+        -- Disconnect all anti connections
+        local function DisconnectAnti(name)
+            if PM.Anti.connections[name] then
+                PM.Anti.connections[name]:Disconnect()
+                PM.Anti.connections[name] = nil
+            end
+            if PM.Anti.connections[name .. "Char"] then
+                PM.Anti.connections[name .. "Char"]:Disconnect()
+                PM.Anti.connections[name .. "Char"] = nil
+            end
+        end
+
+        -- Anti AFK: prevents Roblox from kicking you for idling
+        CreateToggle("afk", "Anti AFK", 1, PM.Anti.afk, function(on)
+            PM.Anti.afk = on
+            DisconnectAnti("afk")
+            if on then
+                local VU = game:GetService("VirtualUser")
+                PM.Anti.connections.afk = LocalPlayer.Idled:Connect(function()
+                    VU:Button2Down(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+                    task.wait(1)
+                    VU:Button2Up(Vector2.new(0, 0), workspace.CurrentCamera.CFrame)
+                end)
+            end
+        end)
+
+        -- Anti Sit: prevents forced sitting
+        CreateToggle("sit", "Anti Sit", 2, PM.Anti.sit, function(on)
+            PM.Anti.sit = on
+            DisconnectAnti("sit")
+            if on then
+                local function applyAntiSit(char)
+                    local hum = char:FindFirstChildOfClass("Humanoid")
+                    if hum then
+                        PM.Anti.connections.sit = hum.Seated:Connect(function()
+                            hum.Sit = false
+                        end)
+                    end
+                end
+                if LocalPlayer.Character then applyAntiSit(LocalPlayer.Character) end
+                PM.Anti.connections.sitChar = LocalPlayer.CharacterAdded:Connect(function(newChar)
+                    task.wait(0.1)
+                    applyAntiSit(newChar)
+                end)
+            end
+        end)
+
+        -- Anti Fling: position rewind when flung
+        CreateToggle("fling", "Anti Fling", 3, PM.Anti.fling, function(on)
+            PM.Anti.fling = on
+            DisconnectAnti("fling")
+            if on then
+                local function applyAntiFling(char)
+                    local root = char:FindFirstChild("HumanoidRootPart") or char:WaitForChild("HumanoidRootPart", 5)
+                    if not root then return end
+                    DisconnectAnti("fling")
+                    local lastSafePos = root.Position
+                    local lastSafeVel = Vector3.zero
+                    local isRewinding = false
+
+                    PM.Anti.connections.fling = RunService.Heartbeat:Connect(function()
+                        if not root or not root.Parent then
+                            DisconnectAnti("fling")
+                            return
+                        end
+                        if isRewinding then return end
+
+                        local vel = root.AssemblyLinearVelocity
+                        local speed = vel.Magnitude
+
+                        if speed > 500 then
+                            isRewinding = true
+                            local rewindStart = tick()
+                            while tick() - rewindStart < 0.3 do
+                                if root and root.Parent then
+                                    root.AssemblyLinearVelocity = Vector3.zero
+                                    root.CFrame = CFrame.new(lastSafePos)
+                                end
+                                RunService.Heartbeat:Wait()
+                            end
+                            isRewinding = false
+                        else
+                            if speed < 100 then
+                                lastSafePos = root.Position
+                                lastSafeVel = vel
+                            end
+                        end
+                    end)
+                end
+                if LocalPlayer.Character then task.spawn(applyAntiFling, LocalPlayer.Character) end
+                PM.Anti.connections.flingChar = LocalPlayer.CharacterAdded:Connect(function(newChar)
+                    task.wait(0.1)
+                    task.spawn(applyAntiFling, newChar)
+                end)
+            end
+        end)
+
+        -- Anti Headsit: prevents headsitting
+        CreateToggle("headsit", "Anti Headsit", 4, PM.Anti.headsit, function(on)
+            PM.Anti.headsit = on
+            DisconnectAnti("headsit")
+            if on then
+                PM.Anti.connections.headsit = RunService.Heartbeat:Connect(function()
+                    local char = LocalPlayer.Character
+                    local head = char and char:FindFirstChild("Head")
+                    if not head then return end
+                    for _, player in ipairs(Players:GetPlayers()) do
+                        if player ~= LocalPlayer and player.Character then
+                            local hrp = player.Character:FindFirstChild("HumanoidRootPart")
+                            if hrp then
+                                local dist = (hrp.Position - head.Position).Magnitude
+                                if dist < 3 then
+                                    hrp.AssemblyLinearVelocity = Vector3.new(0, 50, 0)
+                                end
+                            end
+                        end
+                    end
+                end)
+            end
+        end)
+
+        -- Anti Ragdoll: prevents ragdolling
+        CreateToggle("ragdoll", "Anti Ragdoll", 5, PM.Anti.ragdoll, function(on)
+            PM.Anti.ragdoll = on
+            DisconnectAnti("ragdoll")
+            if on then
+                local function applyAntiRagdoll(char)
+                    local hum = char:FindFirstChildOfClass("Humanoid")
+                    if hum then
+                        PM.Anti.connections.ragdoll = hum.StateChanged:Connect(function(old, new)
+                            if new == Enum.HumanoidStateType.Physics or new == Enum.HumanoidStateType.FallingDown then
+                                hum:ChangeState(Enum.HumanoidStateType.GettingUp)
+                                hum.PlatformStand = false
+                            end
+                        end)
+                    end
+                end
+                if LocalPlayer.Character then applyAntiRagdoll(LocalPlayer.Character) end
+                PM.Anti.connections.ragdollChar = LocalPlayer.CharacterAdded:Connect(function(newChar)
+                    task.wait(0.1)
+                    applyAntiRagdoll(newChar)
+                end)
+            end
+        end)
+
+        -- Anti Void: saves you from falling in void
+        CreateToggle("void", "Anti Void", 6, PM.Anti.void, function(on)
+            PM.Anti.void = on
+            DisconnectAnti("void")
+            if on then
+                PM.Anti.connections.void = RunService.Heartbeat:Connect(function()
+                    local char = LocalPlayer.Character
+                    local root = char and char:FindFirstChild("HumanoidRootPart")
+                    if root and root.Position.Y < -100 then
+                        local hum = char:FindFirstChildOfClass("Humanoid")
+                        if hum then
+                            hum.Sit = false
+                            hum.PlatformStand = false
+                        end
+                        root.AssemblyLinearVelocity = Vector3.zero
+                        root.CFrame = CFrame.new(root.Position.X, 50, root.Position.Z)
+                    end
+                end)
+            end
+        end)
+
+        -- Auto Fake Out: clones character for fake death
+        local foActive = false
+        local foHoldConn = nil
+        CreateToggle("fakeout", "Auto Fake Out", 7, PM.Anti.fakeout, function(on)
+            PM.Anti.fakeout = on
+            if foHoldConn then foHoldConn:Disconnect() foHoldConn = nil end
+            if foActive then
+                foActive = false
+                local realChar = LocalPlayer.Character
+                if realChar then
+                    realChar.Archivable = true
+                    for _, obj in ipairs(realChar:GetDescendants()) do
+                        pcall(function()
+                            if obj:IsA("BasePart") or obj:IsA("Decal") or obj:IsA("Texture") then
+                                obj.Transparency = 0
+                            elseif obj:IsA("PointLight") or obj:IsA("SpotLight") or obj:IsA("SurfaceLight") then
+                                obj.Enabled = true
+                            end
+                        end)
+                    end
+                    local hum = realChar:FindFirstChildOfClass("Humanoid")
+                    if hum then
+                        hum.PlatformStand = false
+                        hum:ChangeState(Enum.HumanoidStateType.GettingUp)
+                    end
+                end
+                LocalPlayer.CameraMode = Enum.CameraMode.Classic
+                workspace.CurrentCamera.CameraSubject = realChar:FindFirstChildOfClass("Humanoid")
+            end
+            if not on then return end
+
+            local function EndFakeOut()
+                if not foActive then return end
+                foActive = false
+                if foHoldConn then foHoldConn:Disconnect() foHoldConn = nil end
+                local realChar = LocalPlayer.Character
+                if realChar then
+                    realChar.Archivable = true
+                    for _, obj in ipairs(realChar:GetDescendants()) do
+                        pcall(function()
+                            if obj:IsA("BasePart") or obj:IsA("Decal") or obj:IsA("Texture") then
+                                obj.Transparency = 0
+                            elseif obj:IsA("PointLight") or obj:IsA("SpotLight") or obj:IsA("SurfaceLight") then
+                                obj.Enabled = true
+                            end
+                        end)
+                    end
+                    local hum = realChar:FindFirstChildOfClass("Humanoid")
+                    if hum then
+                        hum.PlatformStand = false
+                        hum:ChangeState(Enum.HumanoidStateType.GettingUp)
+                    end
+                end
+                LocalPlayer.CameraMode = Enum.CameraMode.Classic
+                local subj = realChar and realChar:FindFirstChildOfClass("Humanoid")
+                if subj then workspace.CurrentCamera.CameraSubject = subj end
+            end
+
+            local function BeginFakeOut()
+                if foActive then return end
+                local realChar = LocalPlayer.Character
+                local myRoot = realChar and realChar:FindFirstChild("HumanoidRootPart")
+                if not myRoot then return end
+                foActive = true
+                realChar.Archivable = true
+                for _, obj in ipairs(realChar:GetDescendants()) do
+                    pcall(function()
+                        if obj:IsA("BasePart") or obj:IsA("Decal") or obj:IsA("Texture") then
+                            obj.Transparency = 1
+                        elseif obj:IsA("PointLight") or obj:IsA("SpotLight") or obj:IsA("SurfaceLight") then
+                            obj.Enabled = false
+                        end
+                    end)
+                end
+                realChar.Archivable = true
+                local fakeChar = realChar:Clone()
+                if not fakeChar then foActive = false return end
+                fakeChar.Name = "PrismFakeOutClone"
+                for _, obj in ipairs(fakeChar:GetDescendants()) do
+                    pcall(function()
+                        if obj:IsA("LocalScript") or obj:IsA("Script") then
+                            obj:Destroy()
+                        elseif obj:IsA("BasePart") then
+                            obj.Anchored = true
+                        end
+                    end)
+                end
+                local platform = Instance.new("Part")
+                platform.Name = "PrismFakeOutPlatform"
+                platform.Anchored = true
+                platform.CanCollide = true
+                platform.Size = Vector3.new(3, 5, 3)
+                platform.Transparency = 1
+                platform.Parent = workspace
+                local fakeHRP = fakeChar:FindFirstChild("HumanoidRootPart")
+                if fakeHRP then
+                    fakeHRP.CFrame = CFrame.new(myRoot.Position.X, -653, myRoot.Position.Z)
+                    fakeChar:PivotTo(fakeHRP.CFrame)
+                end
+                fakeChar.Parent = workspace
+                workspace.CurrentCamera.CameraSubject = fakeChar:FindFirstChildOfClass("Humanoid")
+                foHoldConn = RunService.Heartbeat:Connect(function()
+                    if not fakeHRP or not fakeHRP.Parent then EndFakeOut() return end
+                    if platform and platform.Parent then
+                        platform.CFrame = CFrame.new(fakeHRP.Position.X, -653, fakeHRP.Position.Z)
+                    end
+                    if (myRoot.Position - fakeHRP.Position).Magnitude > 500 then
+                        myRoot.CFrame = CFrame.new(fakeHRP.Position.X, fakeHRP.Position.Y + 5, fakeHRP.Position.Z)
+                    end
+                end)
+                local fakeHum = fakeChar:FindFirstChildOfClass("Humanoid")
+                if fakeHum then
+                    fakeHum.Died:Connect(function()
+                        if foActive then EndFakeOut() end
+                    end)
+                end
+            end
+
+            DisconnectAnti("fakeout")
+            if on then
+                PM.Anti.connections.fakeout = RunService.Heartbeat:Connect(function()
+                    local c = LocalPlayer.Character
+                    local hrp = c and c:FindFirstChild("HumanoidRootPart")
+                    if not hrp then return end
+                    local inRange = false
+                    for _, p in ipairs(Players:GetPlayers()) do
+                        if p ~= LocalPlayer and p.Character then
+                            local theirHRP = p.Character:FindFirstChild("HumanoidRootPart")
+                            if theirHRP and (theirHRP.Position - hrp.Position).Magnitude < 3 then
+                                inRange = true
+                                break
+                            end
+                        end
+                    end
+                    if inRange and not foActive then
+                        BeginFakeOut()
+                    elseif not inRange and foActive then
+                        EndFakeOut()
+                    end
+                end)
+            end
+        end)
+
+        -- Cleanup on close
+        ScreenGui.Destroying:Connect(function()
+            for name, conn in pairs(PM.Anti.connections) do
+                if conn then pcall(function() conn:Disconnect() end) end
+            end
+            PM.Anti.connections = {}
+        end)
+    end)
+
+end)
 
 -- ========== COMMANDS PANEL POPULATION ==========
 
@@ -1502,8 +2082,6 @@ PM.executeCommand = function(input)
         pcall(function()
             cmd.execute(parts)
         end)
-    else
-        PM.printTerminal("Unknown command: '" .. cmdName .. "'. Type 'help' for a list of commands.")
     end
 end
 
