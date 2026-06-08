@@ -3012,4 +3012,27 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
     end
 end)
 
+-- Auto execute prism on teleport (like Mono's auto load)
+local queueTeleport = queue_on_teleport or (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or (krnl and krnl.queue_on_teleport)
+
+-- Setup auto execute for teleport using queue_on_teleport
+local function setupAutoExecuteForTeleport()
+    if queueTeleport and PM.autoExecutePrism then
+        pcall(function()
+            queueTeleport([[loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()]])
+        end)
+    end
+end
+
+setupAutoExecuteForTeleport()
+
+-- Also use OnTeleport as fallback
+LP.OnTeleport:Connect(function()
+    if PM.autoExecutePrism then
+        pcall(function()
+            loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
+        end)
+    end
+end)
+
 return PM
