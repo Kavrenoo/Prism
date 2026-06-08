@@ -562,7 +562,8 @@ PM.createMainGUI = function()
         
         PM.UI.TerminalInput:GetPropertyChangedSignal("Text"):Connect(updateAutofill)
         
-        -- Execute command on Enter
+        -- Execute command on Enter, close on focus loss (unless rebinding)
+        local waitingForKey = false
         PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
             if enterPressed then
                 local cmd = PM.UI.TerminalInput.Text
@@ -579,6 +580,14 @@ PM.createMainGUI = function()
                         PM.UI.TerminalInput:CaptureFocus()
                     end
                 end)
+            else
+                -- Close on focus loss (unless waiting for keybind)
+                if not waitingForKey then
+                    PM.isTerminalOpen = false
+                    task.delay(0.1, function()
+                        PM.closeTerminalPanel()
+                    end)
+                end
             end
         end)
         
@@ -597,6 +606,22 @@ PM.createMainGUI = function()
             elseif input.KeyCode == Enum.KeyCode.Escape then
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
+            end
+        end)
+        
+        -- Close when clicking outside terminal panel
+        PM.UI.Gui.InputBegan:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                if PM.UI.TerminalPanel and PM.UI.TerminalPanel.Visible then
+                    local mousePos = input.Position
+                    local termPos = PM.UI.TerminalPanel.AbsolutePosition
+                    local termSize = PM.UI.TerminalPanel.AbsoluteSize
+                    if mousePos.X < termPos.X or mousePos.X > termPos.X + termSize.X or
+                       mousePos.Y < termPos.Y or mousePos.Y > termPos.Y + termSize.Y then
+                        PM.isTerminalOpen = false
+                        PM.closeTerminalPanel()
+                    end
+                end
             end
         end)
         
