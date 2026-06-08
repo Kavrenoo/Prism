@@ -299,9 +299,9 @@ registerCommand("hide", "Hide a player locally", {}, function(args)
         savedState = applyHide(char, savedState)
     end)
     PM.HiddenPlayers[target.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
-end, true)
+end)
 
-registerCommand("unhide", "Unhide a player", {}, function(args), true)
+registerCommand("unhide", "Unhide a player", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -370,7 +370,7 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
             end
         end)
     end
-end, true)
+end)
 
 registerCommand("unhideall", "Unhide all players", {}, function(args)
     -- Disconnect the auto-hide connection
@@ -403,7 +403,7 @@ registerCommand("unhideall", "Unhide all players", {}, function(args)
         end
     end
     PM.HiddenPlayers = {}
-end, true)
+end)
 
 registerCommand("to", "Teleport to player", {}, function(args)
     local targetName = table.concat(args, " ")
@@ -449,7 +449,7 @@ registerCommand("to", "Teleport to player", {}, function(args)
             myHRP.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
         end
     end
-end, true)
+end)
 
 registerCommand("tptospawn", "Teleport to spawn", {}, function(args)
     local char = LP.Character
