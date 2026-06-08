@@ -2944,7 +2944,7 @@ PM.Speed = {
 }
 
 -- Helper function to create slider section
-local function CreateSpeedSlider(name, defaultValue, minValue, maxValue, layoutOrder, callback, gameDefaultValue, parentFrame)
+local function CreateSpeedSlider(name, defaultValue, minValue, maxValue, layoutOrder, callback, gameDefaultValue, parentFrame, UserInputService)
     local Section = Instance.new("Frame")
     Section.Name = name .. "Section"
     Section.Size = UDim2.new(1, 0, 0, 52)
@@ -3105,7 +3105,7 @@ local function CreateSpeedSlider(name, defaultValue, minValue, maxValue, layoutO
     }
 end
 
-registerCommand("speed", "WalkSpeed and CFrame speed GUI", {}, function(args)
+registerCommand("speed", "WalkSpeed and CFrame speed", {}, function(args)
     local CoreGui = game:GetService("CoreGui")
     local UserInputService = game:GetService("UserInputService")
     local RunService = game:GetService("RunService")
@@ -3346,7 +3346,7 @@ registerCommand("speed", "WalkSpeed and CFrame speed GUI", {}, function(args)
             end
             startWSLoop(value)
             PM.Speed.walkSpeed = math.floor(value + 0.5)
-        end, 16, ContentFrame)
+        end, 16, ContentFrame, UserInputService)
         startWSLoop(currentWalkSpeed)
 
         -- Create CFrame Speed Slider
@@ -3357,7 +3357,7 @@ registerCommand("speed", "WalkSpeed and CFrame speed GUI", {}, function(args)
         local cframeSlider = CreateSpeedSlider("CFrame Speed", defaultCFrameSpeed, 0, 100, 2, function(value)
             cframeSpeed = value
             PM.Speed.cframeSpeed = math.floor(value + 0.5)
-        end, 0, ContentFrame)
+        end, 0, ContentFrame, UserInputService)
 
         -- CFrame movement loop
         local function StartCFrameMovement()
