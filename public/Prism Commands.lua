@@ -847,6 +847,41 @@ local function WOA_Create()
     end)
 end
 
+-- ========== WALK ON AIR SAVE/LOAD ==========
+local WOA_SAVE_FILE = "prism/prism_woa_settings.json"
+local WOA_SAVE_DEBOUNCE = nil
+
+local function WOASave(settings)
+    if not writefile then return end
+    pcall(function()
+        if makefolder and not isfolder("prism") then makefolder("prism") end
+        writefile(WOA_SAVE_FILE, game:GetService("HttpService"):JSONEncode(settings))
+    end)
+end
+
+local function WOALoad()
+    if not readfile then return nil end
+    local success, data = pcall(function()
+        if not isfile(WOA_SAVE_FILE) then return nil end
+        return readfile(WOA_SAVE_FILE)
+    end)
+    if success and data then
+        local decoded = game:GetService("HttpService"):JSONDecode(data)
+        return decoded
+    end
+    return nil
+end
+
+local function WOASaveDebounced(settings)
+    if WOA_SAVE_DEBOUNCE then
+        task.cancel(WOA_SAVE_DEBOUNCE)
+    end
+    WOA_SAVE_DEBOUNCE = task.delay(0.5, function()
+        WOASave(settings)
+        WOA_SAVE_DEBOUNCE = nil
+    end)
+end
+
 registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airwalk"}, function(args)
     local CoreGui = game:GetService("CoreGui")
     local function guiExists(guiName)
@@ -863,6 +898,20 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
         local UserInputService = game:GetService("UserInputService")
         local RunService = game:GetService("RunService")
         local TweenService = game:GetService("TweenService")
+        local HttpService = game:GetService("HttpService")
+
+        -- Load saved settings
+        local savedSettings = WOALoad() or {}
+        local savedPos = savedSettings.position or {X = {Scale = 0, Offset = 1142}, Y = {Scale = 0, Offset = 320}}
+        local savedMinimized = savedSettings.minimized or false
+        local savedToggle = savedSettings.enabled or false
+
+        -- Current settings table for saving
+        local currentSettings = {
+            position = savedPos,
+            minimized = savedMinimized,
+            enabled = savedToggle
+        }
 
         local ScreenGui = Instance.new("ScreenGui")
         ScreenGui.Name = "Prism_WOAGUI"
@@ -882,7 +931,7 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
         local MainFrame = Instance.new("Frame")
         MainFrame.Name = "MainFrame"
         MainFrame.Size = UDim2.new(0, 239, 0, 130)
-        MainFrame.Position = UDim2.new(0, 1142, 0, 320)
+        MainFrame.Position = UDim2.new(savedPos.X.Scale, savedPos.X.Offset, savedPos.Y.Scale, savedPos.Y.Offset)
         MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
         MainFrame.BackgroundTransparency = 0.3
         MainFrame.BorderSizePixel = 0
@@ -919,6 +968,12 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
         TitleBar.InputEnded:Connect(function(input)
             if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                 dragging = false
+                -- Save position when drag ends
+                currentSettings.position = {
+                    X = {Scale = MainFrame.Position.X.Scale, Offset = MainFrame.Position.X.Offset},
+                    Y = {Scale = MainFrame.Position.Y.Scale, Offset = MainFrame.Position.Y.Offset}
+                }
+                WOASaveDebounced(currentSettings)
             end
         end)
 
@@ -976,6 +1031,9 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
         CloseCorner.Parent = CloseBtn
 
         CloseBtn.MouseButton1Click:Connect(function()
+            -- Save final state before closing
+            currentSettings.enabled = woaOn
+            WOASave(currentSettings)
             ScreenGui:Destroy()
             WOA_Destroy()
             PM.WOA.Gui = nil
@@ -989,13 +1047,22 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
 
-        local isMinimized = false
+        local isMinimized = savedMinimized
         local originalSize = UDim2.new(0, 239, 0, 130)
         local minimizedSize = UDim2.new(0, 239, 0, 40)
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
+        -- Apply saved minimized state
+        if isMinimized then
+            MinBtn.Text = "+"
+            MainFrame.Size = minimizedSize
+            ContentFrame.Visible = false
+        end
+
         MinBtn.MouseButton1Click:Connect(function()
             isMinimized = not isMinimized
+            currentSettings.minimized = isMinimized
+            WOASave(currentSettings)
             if isMinimized then
                 MinBtn.Text = "+"
                 local tween = TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize})
@@ -1019,56 +1086,6 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
         ContentPadding.PaddingLeft = UDim.new(0, 8)
         ContentPadding.PaddingRight = UDim.new(0, 8)
         ContentPadding.Parent = ContentFrame
-
-        -- Resize Handle
-        local ResizeHandle = Instance.new("TextButton")
-        ResizeHandle.Name = "ResizeHandle"
-        ResizeHandle.Size = UDim2.new(0, 16, 0, 16)
-        ResizeHandle.Position = UDim2.new(1, -18, 1, -18)
-        ResizeHandle.BackgroundTransparency = 1
-        ResizeHandle.Text = ""
-        ResizeHandle.Parent = MainFrame
-
-        local ResizeIcon = Instance.new("ImageLabel")
-        ResizeIcon.Name = "ResizeIcon"
-        ResizeIcon.Size = UDim2.new(0, 10, 0, 10)
-        ResizeIcon.Position = UDim2.new(0, 3, 0, 3)
-        ResizeIcon.BackgroundTransparency = 1
-        ResizeIcon.Image = "rbxassetid://3926305904"
-        ResizeIcon.ImageRectOffset = Vector2.new(924, 724)
-        ResizeIcon.ImageRectSize = Vector2.new(36, 36)
-        ResizeIcon.ImageColor3 = Color3.fromRGB(150, 150, 150)
-        ResizeIcon.Parent = ResizeHandle
-
-        local resizing = false
-        local resizeStart = nil
-        local startSize = nil
-        local MIN_SIZE = Vector2.new(200, 100)
-        local MAX_SIZE = Vector2.new(500, 400)
-
-        ResizeHandle.InputBegan:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-                resizing = true
-                resizeStart = input.Position
-                startSize = Vector2.new(MainFrame.AbsoluteSize.X, MainFrame.AbsoluteSize.Y)
-            end
-        end)
-
-        ResizeHandle.InputEnded:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-                resizing = false
-            end
-        end)
-
-        UserInputService.InputChanged:Connect(function(input)
-            if resizing and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
-                local delta = input.Position - resizeStart
-                local newWidth = math.clamp(startSize.X + delta.X, MIN_SIZE.X, MAX_SIZE.X)
-                local newHeight = math.clamp(startSize.Y + delta.Y, MIN_SIZE.Y, MAX_SIZE.Y)
-                MainFrame.Size = UDim2.new(0, newWidth, 0, newHeight)
-                originalSize = UDim2.new(0, newWidth, 0, newHeight)
-            end
-        end)
 
         local ToggleSection = Instance.new("Frame")
         ToggleSection.Name = "ToggleSection"
@@ -1126,8 +1143,8 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
         PillHit.Text = ""
         PillHit.Parent = Pill
 
-        local woaOn = false
-        local function SetWOA(val)
+        local woaOn = savedToggle
+        local function SetWOA(val, save)
             woaOn = val
             ToggleLabel.Text = val and "Disable" or "Enable"
             if val then
@@ -1138,9 +1155,19 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
                 TweenService:Create(Knob, TweenInfo.new(0.2), {Position = UDim2.new(0, 2, 0.5, -4)}):Play()
             end
             if val then WOA_Create() else WOA_Destroy() end
+            -- Save toggle state (skip on initial load)
+            if save ~= false then
+                currentSettings.enabled = val
+                WOASave(currentSettings)
+            end
         end
 
         PillHit.MouseButton1Click:Connect(function() SetWOA(not woaOn) end)
+
+        -- Apply saved toggle state (visual only, don't auto-enable)
+        if savedToggle then
+            SetWOA(true, false)
+        end
 
         local BtnSection = Instance.new("Frame")
         BtnSection.Name = "BtnSection"
@@ -1229,6 +1256,9 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
         end)
 
         ScreenGui.Destroying:Connect(function()
+            -- Save final state on destroy
+            currentSettings.enabled = woaOn
+            WOASave(currentSettings)
             WOA_Destroy()
             local plat = workspace:FindFirstChild("PrismWalkAirPlatform")
             if plat then pcall(function() plat:Destroy() end) end
