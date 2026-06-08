@@ -442,6 +442,10 @@ PM.createMainGUI = function()
         PM.corner(PM.UI.TerminalPanel, 10)
         PM.stroke(PM.UI.TerminalPanel, C.border, 1, 0.5)
         
+        -- Flag to prevent FocusLost from closing immediately after panel opens
+        PM.panelJustOpened = false
+        PM.keybindJustChanged = false
+        
         PM.mk("TextLabel", PM.UI.TerminalPanel, {
             Size = UDim2.new(0, 24, 0, 38),
             Position = UDim2.new(0, 8, 0, 0),
@@ -499,14 +503,13 @@ PM.createMainGUI = function()
         })
         PM.corner(keybindBtn, 4)
         
-        local waitingForKey = false
         keybindBtn.MouseButton1Click:Connect(function()
-            if waitingForKey then
-                waitingForKey = false
+            if PM.keybindJustChanged then
+                PM.keybindJustChanged = false
                 keybindBtn.Text = PM.terminalKeybind or "F6"
                 keybindBtn.TextColor3 = C.textDim
             else
-                waitingForKey = true
+                PM.keybindJustChanged = true
                 keybindBtn.Text = "..."
                 keybindBtn.TextColor3 = C.accent
             end
@@ -515,8 +518,8 @@ PM.createMainGUI = function()
         -- Capture keybind from terminal panel
         game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
             if gameProcessed then return end
-            if waitingForKey and input.UserInputType == Enum.UserInputType.Keyboard then
-                waitingForKey = false
+            if PM.keybindJustChanged and input.UserInputType == Enum.UserInputType.Keyboard then
+                PM.keybindJustChanged = false
                 PM.terminalKeybind = input.KeyCode.Name
                 keybindBtn.Text = PM.terminalKeybind
                 keybindBtn.TextColor3 = C.textDim
@@ -562,9 +565,11 @@ PM.createMainGUI = function()
         
         PM.UI.TerminalInput:GetPropertyChangedSignal("Text"):Connect(updateAutofill)
         
-        -- Execute command on Enter, close on focus loss (unless rebinding)
-        local waitingForKey = false
+        -- Handle Tab for autofill and Enter to execute
         PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
+            -- Skip if panel just opened or rebinding (prevents immediate close)
+            if PM.panelJustOpened or PM.keybindJustChanged then return end
+            
             if enterPressed then
                 local cmd = PM.UI.TerminalInput.Text
                 if cmd and cmd ~= "" then
@@ -574,20 +579,13 @@ PM.createMainGUI = function()
                         PM.executeCommand(cmd)
                     end
                 end
-                -- Keep focus after executing
-                task.delay(0.05, function()
-                    if PM.UI.TerminalInput then
-                        PM.UI.TerminalInput:CaptureFocus()
-                    end
-                end)
+                -- Close after executing command
+                PM.isTerminalOpen = false
+                PM.closeTerminalPanel()
             else
-                -- Close on focus loss (unless waiting for keybind)
-                if not waitingForKey then
-                    PM.isTerminalOpen = false
-                    task.delay(0.1, function()
-                        PM.closeTerminalPanel()
-                    end)
-                end
+                -- Close on focus loss (clicking outside)
+                PM.isTerminalOpen = false
+                PM.closeTerminalPanel()
             end
         end)
         
@@ -596,6 +594,9 @@ PM.createMainGUI = function()
             if gameProcessed then return end
             if not PM.UI.TerminalPanel or not PM.UI.TerminalPanel.Visible then return end
             
+            -- Skip keybind handling if panel just opened (prevents F6 from immediately closing)
+            if PM.panelJustOpened then return end
+            
             if input.KeyCode == Enum.KeyCode.Tab then
                 local suggestion = PM.UI.TerminalAutofill.Text
                 if suggestion and suggestion ~= "" then
@@ -603,47 +604,9 @@ PM.createMainGUI = function()
                     PM.UI.TerminalInput.CursorPosition = #suggestion + 1
                     PM.UI.TerminalAutofill.Text = ""
                 end
-            elseif input.KeyCode == Enum.KeyCode.Return or input.KeyCode == Enum.KeyCode.KeypadEnter then
-                -- Execute command on Enter
-                local cmd = PM.UI.TerminalInput.Text
-                if cmd and cmd ~= "" then
-                    PM.UI.TerminalInput.Text = ""
-                    PM.UI.TerminalAutofill.Text = ""
-                    if PM.executeCommand then
-                        PM.executeCommand(cmd)
-                    end
-                end
-                -- Keep focus after executing
-                task.delay(0.05, function()
-                    if PM.UI.TerminalInput then
-                        PM.UI.TerminalInput:CaptureFocus()
-                    end
-                end)
             elseif input.KeyCode == Enum.KeyCode.Escape then
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
-            end
-        end)
-        
-        -- Close when clicking outside terminal panel
-        PM.terminalJustOpened = false
-        PM.UI.Gui.InputBegan:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
-                -- Skip if terminal was just opened (prevents immediate close from button click)
-                if PM.terminalJustOpened then
-                    PM.terminalJustOpened = false
-                    return
-                end
-                if PM.UI.TerminalPanel and PM.UI.TerminalPanel.Visible then
-                    local mousePos = input.Position
-                    local termPos = PM.UI.TerminalPanel.AbsolutePosition
-                    local termSize = PM.UI.TerminalPanel.AbsoluteSize
-                    if mousePos.X < termPos.X or mousePos.X > termPos.X + termSize.X or
-                       mousePos.Y < termPos.Y or mousePos.Y > termPos.Y + termSize.Y then
-                        PM.isTerminalOpen = false
-                        PM.closeTerminalPanel()
-                    end
-                end
             end
         end)
         
@@ -656,32 +619,39 @@ PM.createMainGUI = function()
         -- Keybind only opens, never closes (like Mono's bar)
         if PM.UI.TerminalPanel.Visible then return end
         
+        -- Set flag to prevent immediate close
+        PM.panelJustOpened = true
+        task.delay(0.3, function()
+            PM.panelJustOpened = false
+        end)
+        
+        PM.isTerminalOpen = true
         PM.UI.TerminalPanel.Visible = true
         PM.UI.TerminalPanel.Size = UDim2.new(0, 0, 0, 38)
         PM.tween(PM.UI.TerminalPanel, 0.25, {Size = UDim2.new(0, 340, 0, 38)})
         PM.UI.TerminalInput:CaptureFocus()
-        PM.terminalJustOpened = true
-        task.delay(0.1, function()
-            PM.terminalJustOpened = false
-        end)
     end
     
-    -- For button toggle (separate from keybind)
+    -- For button toggle (opens and closes)
     PM.toggleTerminalPanel = function()
         if not PM.UI.TerminalPanel then
             PM.createTerminalPanel()
         end
         if PM.UI.TerminalPanel.Visible then
+            PM.isTerminalOpen = false
             PM.closeTerminalPanel()
         else
+            -- Set flag to prevent immediate close
+            PM.panelJustOpened = true
+            task.delay(0.3, function()
+                PM.panelJustOpened = false
+            end)
+            
+            PM.isTerminalOpen = true
             PM.UI.TerminalPanel.Visible = true
             PM.UI.TerminalPanel.Size = UDim2.new(0, 0, 0, 38)
             PM.tween(PM.UI.TerminalPanel, 0.25, {Size = UDim2.new(0, 340, 0, 38)})
             PM.UI.TerminalInput:CaptureFocus()
-            PM.terminalJustOpened = true
-            task.delay(0.1, function()
-                PM.terminalJustOpened = false
-            end)
         end
     end
     
@@ -3013,6 +2983,8 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
     if input.UserInputType ~= Enum.UserInputType.Keyboard then return end
     local keybind = PM.terminalKeybind or "F6"
     if input.KeyCode.Name == keybind then
+        -- Skip if panel just opened (prevents immediate close after opening)
+        if PM.panelJustOpened then return end
         -- Only open if not already visible (never close with keybind)
         if PM.UI.TerminalPanel and not PM.UI.TerminalPanel.Visible and PM.openTerminalPanel then
             PM.openTerminalPanel()
