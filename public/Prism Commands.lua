@@ -77,15 +77,6 @@ registerCommand("destroy", "Destroy Prism UI and cleanup", {}, function(args)
         pcall(function() PM.MuteAllPlayerAddedConn:Disconnect() end)
         PM.MuteAllPlayerAddedConn = nil
     end
-    -- Destroy walk on air if active
-    if PM.WOA_Destroy then
-        pcall(PM.WOA_Destroy)
-        PM.WOA_Destroy = nil
-    end
-    if PM.WOA_Panel then
-        pcall(function() PM.WOA_Panel:Destroy() end)
-        PM.WOA_Panel = nil
-    end
     -- Disconnect jerk respawn connection if active
     if PM.JerkRespawnConn then
         pcall(function() PM.JerkRespawnConn:Disconnect() end)
@@ -280,7 +271,7 @@ local function applyHide(char, savedState)
     return savedState
 end
 
-registerCommand("hide", "Hide a player locally", {}, function(args)
+registerCommand("hide", "Hide a player locally", {}, function(args), true)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -324,9 +315,9 @@ registerCommand("hide", "Hide a player locally", {}, function(args)
         savedState = applyHide(char, savedState)
     end)
     PM.HiddenPlayers[target.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
-end, true)
+end)
 
-registerCommand("unhide", "Unhide a player", {}, function(args)
+registerCommand("unhide", "Unhide a player", {}, function(args), true)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -365,9 +356,9 @@ registerCommand("unhide", "Unhide a player", {}, function(args)
     if PM.HiddenPlayers[target.UserId] then
         PM.HiddenPlayers[target.UserId].manuallyUnhidden = true
     end
-end, true)
+end)
 
-registerCommand("hideall", "Hide all other players", {}, function(args)
+registerCommand("hideall", "Hide all other players", {}, function(args), true)
     -- Hide all currently existing players (unless manually unhidden)
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP and not PM.HiddenPlayers[p.UserId] then
@@ -402,9 +393,9 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
             end
         end)
     end
-end, true)
+end)
 
-registerCommand("unhideall", "Unhide all players", {}, function(args)
+registerCommand("unhideall", "Unhide all players", {}, function(args), true)
     -- Disconnect the auto-hide connection
     if PM.HideAllPlayerAddedConn then
         pcall(function() PM.HideAllPlayerAddedConn:Disconnect() end)
@@ -435,12 +426,12 @@ registerCommand("unhideall", "Unhide all players", {}, function(args)
         end
     end
     PM.HiddenPlayers = {}
-end, true)
+end)
 
 -- Muted players tracking table
 PM.MutedPlayers = {}
 
-registerCommand("mute", "Mute a player's voice chat", {}, function(args)
+registerCommand("mute", "Mute a player's voice chat", {}, function(args), true)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -470,9 +461,9 @@ registerCommand("mute", "Mute a player's voice chat", {}, function(args)
             PM.MutedPlayers[target.UserId] = adi
         end
     end
-end, true)
+end)
 
-registerCommand("unmute", "Unmute a player's voice chat", {}, function(args)
+registerCommand("unmute", "Unmute a player's voice chat", {}, function(args), true)
     local targetName = args[1] or ""
     if targetName == "" then return end
     local q = targetName:lower()
@@ -505,9 +496,9 @@ registerCommand("unmute", "Unmute a player's voice chat", {}, function(args)
             PM.MutedPlayers[target.UserId].manuallyUnmuted = true
         end
     end
-end, true)
+end)
 
-registerCommand("muteall", "Mute all other players", {}, function(args)
+registerCommand("muteall", "Mute all other players", {}, function(args), true)
     -- Mute all currently existing players (unless manually unmuted)
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP and not PM.MutedPlayers[p.UserId] then
@@ -549,9 +540,9 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
             end
         end)
     end
-end, true)
+end)
 
-registerCommand("unmuteall", "Unmute all players", {}, function(args)
+registerCommand("unmuteall", "Unmute all players", {}, function(args), true)
     -- Disconnect the auto-mute connection
     if PM.MuteAllPlayerAddedConn then
         pcall(function() PM.MuteAllPlayerAddedConn:Disconnect() end)
@@ -569,9 +560,9 @@ registerCommand("unmuteall", "Unmute all players", {}, function(args)
         end
     end
     PM.MutedPlayers = {}
-end, true)
+end)
 
-registerCommand("to", "Teleport to player", {}, function(args)
+registerCommand("to", "Teleport to player", {}, function(args), true)
     local targetName = table.concat(args, " ")
     if targetName == "" then return end
     local q = targetName:lower()
@@ -615,7 +606,7 @@ registerCommand("to", "Teleport to player", {}, function(args)
             myHRP.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
         end
     end
-end, true)
+end)
 
 registerCommand("tptospawn", "Teleport to spawn", {}, function(args)
     local char = LP.Character
