@@ -15,6 +15,20 @@ getgenv().PrismMain = {
 local PM = getgenv().PrismMain
 local LP = PM.Svc.Players.LocalPlayer
 
+-- Early settings loading (before UI creation)
+local SETTINGS_FILE = "prism/prism_settings.json"
+if readfile then
+    pcall(function()
+        local data = readfile(SETTINGS_FILE)
+        if data then
+            local settings = game:GetService("HttpService"):JSONDecode(data)
+            PM.autoExecutePrism = settings.autoExecutePrism or false
+            PM.autoExecuteCommands = settings.autoExecuteCommands ~= false
+            PM.terminalKeybind = settings.terminalKeybind or "F6"
+        end
+    end)
+end
+
 PM.mk = function(class, parent, props)
     local i = Instance.new(class)
     i.Parent = parent
@@ -1976,24 +1990,7 @@ PM.createMainGUI = function()
             return bg
         end
 
-        -- Settings file path
-        local SETTINGS_FILE = "prism/prism_settings.json"
-        
-        -- Load settings from file
-        local function loadSettings()
-            if not readfile then return end
-            pcall(function()
-                local data = readfile(SETTINGS_FILE)
-                if data then
-                    local settings = game:GetService("HttpService"):JSONDecode(data)
-                    PM.autoExecutePrism = settings.autoExecutePrism or false
-                    PM.autoExecuteCommands = settings.autoExecuteCommands ~= false -- default true
-                    PM.terminalKeybind = settings.terminalKeybind or "F6"
-                end
-            end)
-        end
-        
-        -- Save settings to file
+        -- Save settings to file (settings already loaded at top of script)
         local function saveSettings()
             if not writefile then return end
             pcall(function()
@@ -2005,14 +2002,11 @@ PM.createMainGUI = function()
                     autoExecuteCommands = PM.autoExecuteCommands,
                     terminalKeybind = PM.terminalKeybind,
                 }
-                writefile(SETTINGS_FILE, game:GetService("HttpService"):JSONEncode(settings))
+                writefile("prism/prism_settings.json", game:GetService("HttpService"):JSONEncode(settings))
             end)
         end
         
-        -- Load saved settings
-        loadSettings()
-        
-        -- Initialize with loaded or default values
+        -- Initialize with loaded or default values (loaded at top of script)
         local autoExecPrismDefault = PM.autoExecutePrism or false
         local autoExecCommandsDefault = PM.autoExecuteCommands ~= false
         PM.terminalKeybind = PM.terminalKeybind or "F6"
@@ -2023,9 +2017,16 @@ PM.createMainGUI = function()
         createToggleRow(PM.UI.AutoExecContent, "AutoExecPrism", "Auto execute prism", 0, autoExecPrismDefault, function(state)
             PM.autoExecutePrism = state
             saveSettings()
+            -- Setup/clear auto execute on teleport when toggle changes
+            local queueTeleport = queue_on_teleport or (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or (krnl and krnl.queue_on_teleport)
+            if queueTeleport and state then
+                pcall(function()
+                    queueTeleport([[loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()]])
+                end)
+            end
         end)
 
-        createToggleRow(PM.UI.AutoExecContent, "AutoExecCommands", "Auto execute commands", 28, autoExecCommandsDefault, function(state)
+        createToggleRow(PM.UI.AutoExecContent, "AutoExecuteCommands", "Auto execute commands", 28, autoExecCommandsDefault, function(state)
             PM.autoExecuteCommands = state
             saveSettings()
         end)
@@ -3015,24 +3016,10 @@ end)
 -- Auto execute prism on teleport (like Mono's auto load)
 local queueTeleport = queue_on_teleport or (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or (krnl and krnl.queue_on_teleport)
 
--- Setup auto execute for teleport using queue_on_teleport
-local function setupAutoExecuteForTeleport()
-    if queueTeleport and PM.autoExecutePrism then
-        pcall(function()
-            queueTeleport([[loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()]])
-        end)
-    end
+if queueTeleport and PM.autoExecutePrism then
+    pcall(function()
+        queueTeleport([[loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()]])
+    end)
 end
-
-setupAutoExecuteForTeleport()
-
--- Also use OnTeleport as fallback
-LP.OnTeleport:Connect(function()
-    if PM.autoExecutePrism then
-        pcall(function()
-            loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
-        end)
-    end
-end)
 
 return PM
