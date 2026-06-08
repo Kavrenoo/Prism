@@ -253,7 +253,7 @@ PM.createMainGUI = function()
                 PM.playClickSound()
                 if PM.isTerminalOpen then
                     PM.isTerminalOpen = false
-                    PM.closeTerminalPanel()
+                    PM.hideTerminalPanel()
                 else
                     PM.isTerminalOpen = true
                     if PM.isCommandsOpen then

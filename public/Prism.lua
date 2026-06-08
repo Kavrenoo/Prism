@@ -1,1 +1,23 @@
-return(function(...)local M={"Ca9who9v=";"!/>^nWbeK\"i/1(t7MMJjomR";"CpYh3lGVHpgw71ZKR";"C19XDOv==","!37Kc]b_e[FMoT";"CPJ5MOFwxKlnvLG4mPu+JzV==","C1GXQ1T==","!0hd=@","CE/KQaGJcoGXRbpV=","CFJUQouI30T==";"!L=!InML";"!L=![N";"!/>^nWbeK\"i/?g\'.MppK]bSIsfmR","C1pmvzpwd";"COErMpXIdauQLOqhSoRa=","Cpp1kcDbMo9IxOJwlEv==","!0^uLVbJD\\CGrA%5M/W\"C0+oRP[-[`);uc:CGri";"CL/IZat131T==";"CbG4ZbG4716=="}for Y,d in ipairs({{1;19},{1;5},{6,19}})do while d[1]<d[2]do M[d[1]],M[d[2]],d[1],d[2]=M[d[2]],M[d[1]],d[1]+1,d[2]-1 end end local function Y(Y)return M[Y-54660]end do local Y={["6"]=73,["5"]=21;["^"]=48,["0"]=33,J=2;h=19,["-"]=4;R=14;c=63;U=10;W=6,a=26;M=35;["\\"]=82;["@"]=70;["\""]=18,["!"]=40,["["]=38,L=30,["+"]=75;["$"]=81,S=1,["7"]=72;["("]=47,K=27,["#"]=67,_=9,r=11;t=83;k=66;["8"]=0;Z=51;O=61;["1"]=44,o=41,g=42,["4"]=28;["]"]=76;b=37,[")"]=7;["?"]=43;["<"]=58;H=54,P=39;p=13,["&"]=45,C=12;["2"]=22,Y=69;l=71,["."]=80,F=25;["*"]=77;[">"]=17,["/"]=15;e=8,I=53,u=50;[";"]=32,A=78,[":"]=84;E=68;n=59;m=31;G=36;["3"]=34,["="]=55,D=74;j=64;["`"]=60;X=3;d=20,i=56;q=16,["\'"]=65;B=49,T=5,["9"]=29,N=52;[","]=79,s=24,["%"]=57,f=46,Q=62;V=23}local d={K=9;Q=41;c=12,["1"]=29,y=14;j=44;h=33;t=4;T=0;u=38;D=51,g=3;a=28,p=22;["2"]=55;b=25,J=53,Y=39;d=43;V=16,W=40;G=54,m=57,L=18;I=17;N=47;s=15;F=23;i=31;E=20,A=62,w=13;R=36;o=27;S=2,Z=52,k=58;M=50;x=45,n=8,["8"]=34;P=11,v=48;C=10,["9"]=6;["5"]=1;X=5;["4"]=21;["3"]=37,["7"]=46;["/"]=7,z=24,r=60;e=63;["0"]=30,q=35;O=26,H=56;l=19,["+"]=49,U=61,B=59,f=42;["6"]=32}local U=M local C=string.sub local B=string.char local O=type local H=table.insert local A=string.len local i=math.floor local X=table.concat for M=1,#U,1 do local z=U[M]if O(z)=="string"then local O=C(z,1,1)if O=="C"then z=C(z,2)local Y=A(z)local O={}local f=1 local q=0 local x=0 while f<=Y do local M=C(z,f,f)local U=d[M]if U then q=q+U*(64^((3-x)))x=x+1 if x==4 then x=0 local M=i(q/65536)local Y=i((q%65536)/256)local d=q%256 H(O,B(M,Y,d))q=0 end elseif M=="="then H(O,B(i(q/65536)))if f>=Y or C(z,f+1,f+1)~="="then H(O,B(i((q%65536)/256)))end break end f=f+1 end U[M]=X(O)elseif O=="!"then z=C(z,2)local d=A(z)local O={}local f=1 while f<=d do local M=(d-f)+1 local U=M>=5 and 5 or M local A=0 local X=U>1 for M=0,4,1 do local d if M<U then local U=C(z,f+M,f+M)d=Y[U]if not d then X=false break end else d=84 end A=A*85+d end if X then local M=i(A/16777216)%256 local Y=i(A/65536)%256 local d=i(A/256)%256 local C=A%256 if U==5 then H(O,B(M,Y,d,C))elseif U==4 then H(O,B(M,Y,d))elseif U==3 then H(O,B(M,Y))elseif U==2 then H(O,B(M))end end f=f+U end U[M]=X(O)end end end end return(function(A,M,C,O,U,B,H,D,X,F,K,x,q,z,d,i,f)D,K,d,z,i,X,q,x,F,f=function(M,Y)local U=q(Y)local C=function(C,B,O)return d(M,{C;B;O},Y,U)end return C end,function(M)X[M]=X[M]-1 if 0==X[M]then X[M],i[M]=nil,nil end end,function(d,C,B,O)local f,A,x,q,X while d do if d<13177794 then if d<2942024 then X=z()q=D(15979192,{X})i[X]=C[1]A=Y(54666)d=M[A]x={d(q)}A=x[1]q,f=A,x[2]A,d={q;f},M[Y(54668)]elseif 8069855>d then A,d=Y(54665),Y(54663)f=d d=D(1857723,{})X,x,q=C,13644277<8609376,d d=M[A]A=d()d=Y(54674)A[d]=x x=Y(54671)A=f..x d=q(A)d=12113385 else x=Y(54669)A=M[x]x=Y(54672)d=A[x]A=d()x=Y(54665)A=M[x]x=A()A=Y(54674)d=x[A]d=d and 14242203 or 12113385 end else if d<15110697 then x=Y(54667)A=f..x d=q(A)x=Y(54678)A=f..x d=q(A)A,q,d,f={},nil,M[Y(54661)],nil else A,f=Y(54670),Y(54673)d=M[A]X=M[f]x=Y(54664)q=i[B[1]]x=X[x]f={x(X,q)}A=d(U(f))d={A()}A={U(d)}d=M[Y(54662)]end end end d=#O return U(A)end,function()f=f+1 X[f]=1 return f end,{},{},function(M)for Y=1,#M,1 do X[M[Y]]=X[M[Y]]+1 end if C then local d=C(true)local U=O(d)U[Y(54675)],U[Y(54677)],U[Y(54676)]=M,x,function()return-3936200 end return d else return B({},{[Y(54677)]=x;[Y(54675)]=M;[Y(54676)]=function()return-3936200 end})end end,function(M)local Y,d=1,M[1]while d do X[d],Y=X[d]-1,1+Y if X[d]==0 then X[d],i[d]=nil,nil end d=M[Y]end end,function(M,Y)local U=q(Y)local C=function(...)return d(M,{...},Y,U)end return C end,0 return(F(4026326,{}))(U(A))end)({...},getfenv and getfenv()or _ENV,newproxy,getmetatable,unpack or table[Y(54679)],setmetatable,select)end)(...)
+local BASE = "https://prismscript.vercel.app"
+
+local function loadScript(url)
+    local ok, result = pcall(function()
+        return loadstring(game:HttpGet(url))()
+    end)
+    return ok, result
+end
+
+-- Reset auth flag so re-executions wait properly
+getgenv().PrismLoaded = false
+
+-- 1. Key system
+loadScript(BASE .. "/Prism%20Key.lua")
+
+-- 2. Wait for auth
+repeat task.wait() until getgenv().PrismLoaded
+
+-- 3. Main UI
+loadScript(BASE .. "/Prism%20Main.lua")
+
+-- 4. Commands
+loadScript(BASE .. "/Prism%20Commands.lua")
