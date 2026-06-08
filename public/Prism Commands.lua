@@ -1022,68 +1022,71 @@ registerCommand("walkonair", "Walk on air with adjustable height", {"woa", "airw
 
         local ToggleSection = Instance.new("Frame")
         ToggleSection.Name = "ToggleSection"
-        ToggleSection.Size = UDim2.new(1, 0, 0, 36)
-        ToggleSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-        ToggleSection.BackgroundTransparency = 0.4
+        ToggleSection.Size = UDim2.new(1, -6, 0, 26)
+        ToggleSection.BackgroundColor3 = PM.C and PM.C.card or Color3.fromRGB(28, 28, 28)
+        ToggleSection.BackgroundTransparency = 0.5
         ToggleSection.BorderSizePixel = 0
         ToggleSection.LayoutOrder = 1
         ToggleSection.Parent = ContentFrame
 
         local ToggleSectionCorner = Instance.new("UICorner")
-        ToggleSectionCorner.CornerRadius = UDim.new(0, 10)
+        ToggleSectionCorner.CornerRadius = UDim.new(0, 6)
         ToggleSectionCorner.Parent = ToggleSection
 
         local ToggleLabel = Instance.new("TextLabel")
         ToggleLabel.Name = "Label"
-        ToggleLabel.Size = UDim2.new(1, -100, 1, 0)
-        ToggleLabel.Position = UDim2.new(0, 12, 0, 0)
+        ToggleLabel.Size = UDim2.new(1, -56, 0, 20)
+        ToggleLabel.Position = UDim2.new(0, 8, 0, 3)
         ToggleLabel.BackgroundTransparency = 1
         ToggleLabel.Text = "Enable"
-        ToggleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
-        ToggleLabel.TextSize = 12
+        ToggleLabel.TextColor3 = PM.C and PM.C.text or Color3.fromRGB(230, 230, 230)
+        ToggleLabel.TextSize = 10
         ToggleLabel.Font = Enum.Font.Gotham
         ToggleLabel.TextXAlignment = Enum.TextXAlignment.Left
         ToggleLabel.Parent = ToggleSection
 
         local Pill = Instance.new("Frame")
         Pill.Name = "Pill"
-        Pill.Size = UDim2.new(0, 40, 0, 22)
-        Pill.Position = UDim2.new(1, -52, 0.5, -11)
-        Pill.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        Pill.Size = UDim2.new(0, 26, 0, 13)
+        Pill.Position = UDim2.new(1, -36, 0.5, 0)
+        Pill.AnchorPoint = Vector2.new(0, 0.5)
+        Pill.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
         Pill.BorderSizePixel = 0
         Pill.Parent = ToggleSection
 
         local PillCorner = Instance.new("UICorner")
-        PillCorner.CornerRadius = UDim.new(0, 11)
+        PillCorner.CornerRadius = UDim.new(0, 10)
         PillCorner.Parent = Pill
 
         local Knob = Instance.new("Frame")
         Knob.Name = "Knob"
-        Knob.Size = UDim2.new(0, 16, 0, 16)
-        Knob.Position = UDim2.new(0, 3, 0.5, -8)
-        Knob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        Knob.Size = UDim2.new(0, 9, 0, 9)
+        Knob.Position = UDim2.new(0, 2, 0.5, -4)
+        Knob.BackgroundColor3 = Color3.fromRGB(235, 235, 235)
         Knob.BorderSizePixel = 0
         Knob.Parent = Pill
 
         local KnobCorner = Instance.new("UICorner")
-        KnobCorner.CornerRadius = UDim.new(0, 8)
+        KnobCorner.CornerRadius = UDim.new(0, 10)
         KnobCorner.Parent = Knob
 
         local PillHit = Instance.new("TextButton")
-        PillHit.Size = UDim2.new(0, 52, 1, 0)
-        PillHit.Position = UDim2.new(1, -56, 0, 0)
+        PillHit.Size = UDim2.new(1, 0, 1, 0)
         PillHit.BackgroundTransparency = 1
         PillHit.Text = ""
-        PillHit.Parent = ToggleSection
+        PillHit.Parent = Pill
 
         local woaOn = false
         local function SetWOA(val)
             woaOn = val
             ToggleLabel.Text = val and "Disable" or "Enable"
-            local onColor = Color3.fromRGB(100, 40, 140)
-            local offColor = Color3.fromRGB(60, 60, 60)
-            TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = val and onColor or offColor}):Play()
-            TweenService:Create(Knob, TweenInfo.new(0.15), {Position = val and UDim2.new(1, -19, 0.5, -8) or UDim2.new(0, 3, 0.5, -8)}):Play()
+            if val then
+                TweenService:Create(Pill, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
+                TweenService:Create(Knob, TweenInfo.new(0.2), {Position = UDim2.new(1, -11, 0.5, -4)}):Play()
+            else
+                TweenService:Create(Pill, TweenInfo.new(0.2), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
+                TweenService:Create(Knob, TweenInfo.new(0.2), {Position = UDim2.new(0, 2, 0.5, -4)}):Play()
+            end
             if val then WOA_Create() else WOA_Destroy() end
         end
 
