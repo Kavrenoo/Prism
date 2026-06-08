@@ -710,7 +710,11 @@ PM.createMainGUI = function()
     end
 
     PM.createCommandsPanel = function()
-        if PM.UI.CommandsPanel then return end
+        print("[Prism Main] createCommandsPanel called")
+        if PM.UI.CommandsPanel then 
+            print("[Prism Main] CommandsPanel already exists")
+            return 
+        end
         
         PM.UI.CommandsPanel = PM.mk("Frame", PM.UI.Gui, {
             Name = "CommandsPanel",
@@ -804,6 +808,7 @@ PM.createMainGUI = function()
         end)
         
         PM.UI.CommandButtons = {}
+        print("[Prism Main] CommandsPanel created with CommandsScroll")
         
         PM.UI.CommandsSearch:GetPropertyChangedSignal("Text"):Connect(function()
             local search = PM.UI.CommandsSearch.Text:lower()
@@ -2991,12 +2996,17 @@ PM.createMainGUI = function()
 end
 
 repeat task.wait() until LP
+print("[Prism Main] LocalPlayer ready, creating MainGUI...")
 
 local ok, err = pcall(PM.createMainGUI)
 if not ok then
+    print("[Prism Main] ERROR creating MainGUI: " .. tostring(err))
+else
+    print("[Prism Main] MainGUI created successfully")
 end
 
 -- Panel population is handled by Prism Commands.lua after it loads
+print("[Prism Main] Waiting for Prism Commands.lua to load...")
 
 -- Global terminal keybind handler (only opens, never closes like Mono's bar)
 game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
