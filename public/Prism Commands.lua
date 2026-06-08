@@ -1,4 +1,13 @@
+-- Wait for PrismMain to be initialized by Main.lua
 local PM = getgenv().PrismMain
+if not PM then
+    -- Retry for up to 5 seconds waiting for Main.lua to load
+    for i = 1, 50 do
+        task.wait(0.1)
+        PM = getgenv().PrismMain
+        if PM then break end
+    end
+end
 if not PM then return end
 
 PM.Commands = PM.Commands or {}
@@ -1073,19 +1082,28 @@ end
 
 -- Populate panels after this file loads
 task.delay(0.5, function()
+    -- Wait for Main.lua to create the UI functions if needed
+    local retries = 0
+    while (not PM.createCommandsPanel or not PM.createSettingsPanel) and retries < 20 do
+        task.wait(0.1)
+        retries = retries + 1
+    end
+    
     -- Load saved auto exec states first
-    PM.loadAutoExecStates()
+    if PM.loadAutoExecStates then PM.loadAutoExecStates() end
     
-    if not PM.UI.CommandsPanel then
-        if PM.createCommandsPanel then PM.createCommandsPanel() end
+    -- Create panels if they don't exist
+    if not PM.UI.CommandsPanel and PM.createCommandsPanel then
+        PM.createCommandsPanel()
     end
-    if not PM.UI.SettingsPanel then
-        if PM.createSettingsPanel then PM.createSettingsPanel() end
+    if not PM.UI.SettingsPanel and PM.createSettingsPanel then
+        PM.createSettingsPanel()
     end
     
+    -- Populate the panels
     PM.populateCommandsPanel()
     PM.populateAutoExecPanel()
-    PM.createTerminalOutput()
+    if PM.createTerminalOutput then PM.createTerminalOutput() end
     
     if PM.UI.AutoExecSearch then
         PM.UI.AutoExecSearch:GetPropertyChangedSignal("Text"):Connect(function()
