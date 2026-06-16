@@ -1,12 +1,71 @@
 import { Redis } from "@upstash/redis";
+import crypto from 'crypto';
 
 const redis = Redis.fromEnv();
+const ANTI_BYPASS_TOKEN = 'b7c7c3a5dd0580495d9e185e973791366fa1597cac1ed6ae5a64c15a1646776e';
+
+// ========== WEEKLY KEY SYSTEM ==========
+function getCurrentWeekKey() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const week = getISOWeek(now);
+  const seed = `prism-key-${year}-${week}`;
+  return crypto.createHash('sha256').update(seed).digest('hex').substring(0, 32);
+}
+
+function getISOWeek(date) {
+  const d = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
+  const dayNum = d.getUTCDay() || 7;
+  d.setUTCDate(d.getUTCDate() + 4 - dayNum);
+  const yearStart = new Date(Date.UTC(d.getUTCFullYear(), 0, 1));
+  return Math.ceil((((d - yearStart) / 86400000) + 1) / 7);
+}
+
+async function verifyWeeklyKey(providedKey) {
+  const currentKey = getCurrentWeekKey();
+  return providedKey === currentKey;
+}
+
+// ========== ANTI-BYPASS VERIFICATION ==========
+async function verifyAntiBypass(req) {
+  const referer = req.headers.referer || req.headers.referrer || '';
+  const userAgent = req.headers['user-agent'] || '';
+  
+  // Check if request has anti-bypass token in headers or query
+  const headerToken = req.headers['x-anti-bypass-token'] || req.headers['anti-bypass-token'];
+  const queryToken = req.query?.token || req.query?.anti_bypass_token;
+  const providedToken = headerToken || queryToken;
+  
+  // Verify the token matches
+  if (providedToken !== ANTI_BYPASS_TOKEN) {
+    return false;
+  }
+  
+  // Additional checks based on Linkvertise documentation
+  // Check if coming from a valid source (not direct access from Discord/Telegram etc)
+  const validReferers = [
+    'linkvertise.com',
+    'link-to.net',
+    'direct-link.net',
+    'link-center.net'
+  ];
+  
+  // If referer exists, check if it's from a valid source
+  if (referer) {
+    const isValidReferer = validReferers.some(domain => referer.includes(domain));
+    if (!isValidReferer) {
+      return false;
+    }
+  }
+  
+  return true;
+}
 
 export default async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, X-API-Key, X-Anti-Bypass-Token');
   
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -17,12 +76,52 @@ export default async function handler(req, res) {
     const pathname = url.pathname.replace('.json', '');
     
     // Route to appropriate handler based on path prefix
-    if (pathname.startsWith('/api/prism/nametags/')) {
-      return await handleNametags(req, res, pathname);
-    } else if (pathname.startsWith('/api/prism/servers/')) {
-      return await handleServers(req, res, pathname);
+    if (pathname === '/api/prism/key') {
+      // Special endpoint to get current weekly key (only requires anti-bypass)
+      if (!(await verifyAntiBypass(req))) {
+        return res.status(403).json({ 
+          error: 'Anti-bypass verification failed',
+          message: 'Please access this endpoint through the official Linkvertise link'
+        });
+      }
+      const currentKey = getCurrentWeekKey();
+      const now = new Date();
+      const year = now.getFullYear();
+      const week = getISOWeek(now);
+      return res.status(200).json({ 
+        key: currentKey,
+        week: week,
+        year: year,
+        expiresAt: new Date(now.getTime() + (7 - now.getDay() + 1) * 24 * 60 * 60 * 1000).toISOString()
+      });
+    } else if (pathname.startsWith('/api/prism/nametags/') || pathname.startsWith('/api/prism/servers/')) {
+      // Verify weekly key and anti-bypass for protected endpoints
+      // Get API key from header or query
+      const apiKey = req.headers['x-api-key'] || req.query?.key || req.query?.api_key;
+      
+      // Verify weekly key
+      if (!apiKey || !(await verifyWeeklyKey(apiKey))) {
+        return res.status(401).json({ 
+          error: 'Invalid or expired API key', 
+          message: 'Please use the current weekly key'
+        });
+      }
+      
+      // Verify anti-bypass
+      if (!(await verifyAntiBypass(req))) {
+        return res.status(403).json({ 
+          error: 'Anti-bypass verification failed',
+          message: 'Please access this endpoint through the official Linkvertise link'
+        });
+      }
+      
+      if (pathname.startsWith('/api/prism/nametags/')) {
+        return await handleNametags(req, res, pathname);
+      } else if (pathname.startsWith('/api/prism/servers/')) {
+        return await handleServers(req, res, pathname);
+      }
     } else {
-      return res.status(404).json({ error: 'Unknown endpoint. Use /api/prism/nametags/... or /api/prism/servers/...' });
+      return res.status(404).json({ error: 'Unknown endpoint. Use /api/prism/key, /api/prism/nametags/... or /api/prism/servers/...' });
     }
   } catch (error) {
     console.error('Error:', error);
