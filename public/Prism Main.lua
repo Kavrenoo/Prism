@@ -1,1 +1,3003 @@
-return(function(...)local s={"RPZ4N4DX1","wQ-H_o4:3aA`CG-loA=";"w\"(T.\'&Zj[P\"*!7@t\'bQr4F","wSV/YFZR8[W<[&,3<i;\"u";"wLQtF<0,0FSL[","wB5+GWQ@\"%&&AnlEL:1";"RB3Q9nYXArYFNrw1maA5k7w50XhPi7wWfXwWk";"Rr3efn2jhrYQ2rYQA","RK3pNglFN4Dsl";"wg(,\'UQp-\'mR!Fs";"wSn@W;R=tGF<T*#";"wL:B8[0Dp\'l`:U,5!;","w!B8+mY9P8udh)%#dBFj51lq","wS%7C0!b_N*gEm5$0\"?","wQU?@j<MI,NTP.-`","R46N0KhQYhIjoKfXP","wgH@?q","w!nW\\edtYP?","w\"rn7S<\\k2CYaV9QTL6+C\"*/1)0,0FiRnMOCYa_$DYZ-pYYf]]+Luf+SR]X7bYh";"RSw47XPeSFAR1nPklefS=","RF2pfUDR8";"wRbO>WLr].T&)jM3dq-";"RXIz7U6RIglFATPenP/x=","wZg","RK3pNgx==";"w0A:]9BaJ^fSu=ts4F","wB:7KOtG\"OeYe";"w)&Bk7`)`pmoA9@f","wBPtAW\"*!q[t\'bQr4F";"RKPeTq6jrBlraB252PW==";"RX5jABtl14PQiq5eDPRW=","RP2ef4Dl+rZXPnTQhgZe+rW==";"RKIpTFevxPfpeh5L=","wQ7q\"*T:5-KT;;&#T$Wl","w<4R:FRjAt","wSV/YFQm-_cR)";"RhDpmUzrlnZFmBx==","RXIkD4hQzL/4rX5kF4i==";"RL2p8gTR+r6XhnZQmgDi=","wdbjFq)\\5TQSESR3d:","RrIXMBIjNPTsleIr64en=";"RhTpzB2eRg/FlBx==","wg%M\"U\"*!)/<TN";"wDT^*g<N?gQR`!NB&[+";"w7U$0j","w<Y@loT/A","RKDp2rYvxe3po4Tzl";"RnfsiqTsFF3QnPhR/";"wB/\"se<dgl8\"k^8@";"w%V","wDKlR^Rgc<5deO]X\"M","Re3et4Dp0Sx==";"RrDRfnL==","RK6e8nTkmUTFIUYXigDRkFDlA4DR+n2ePqYGl";"w&Zj[P\"*!7@","RF3logIFNB3et4Dlmgx==";"RPDl+rA1x","w!e+L8","REW==","RXDj7U2Xzh5F3qPe7Pzn=";"wd&)_^!&E\"q<MN^cT:673T$8P";"RP2e043e0BfXogZXl";"RePFNgL==";"w7U$XKT7","wt^S.G<4R\'6ZR9]F","RUA4Yg5p3rzrZg3rlTL==","R4tXYe2PsTP49FZF7Kx==","ReDRu","wRVN\'atIZ+_R]q","wS!s%7R]Tl";"w!&B2$YZ;","RB3Q9nYXArYFNrw1maAIAStLfSwLZ7w52St5sXx==";"RPZrt";"RBZeTe6jRhRrPU2z5";"wT03010_?sR+<8u+YaO","RUZQ+gW==","RgTR9PDsjqTe0Bi==","Rh3R8reFjrZXSnTQlgW==","RnPN0ntG2ehjrBIl5";"Rq/NvSzXugTlOBtr0SW==";"RP6RASlGmKfNzqDpeLPI=","wSSE9NYMQb.T$M";"ReDjNn28+rYXA","wBPgOWR]TEF\"*,WAYNJ^\'<S";"Rn3B=","wT$$\"b";"RP2ef4Dl+rZS=";"w&sBP2T5G";"RP3l/U6FDB3R8rL==";"w&aOTe4\"";"w!&E&m<N\\Ar<NkkbTPYc.R)","RP3e+rDe0PZFlB6GlrW==","w+)F$cd!H,L\"/h?c","w^14m0`0r@F!bq0p","ReDe94IQmqW==";"wT:m";"wBL7BU","wt`.5&g+<uUtHo&rDKR","Rh3p+rL==","wdhCi[R=4\"rT55&W<AQtNRnN","RnZQlnYFleDe0gTl+nTsLnTklgW==";"wSgbM8TPYU.";"RFtFeFDi2FzrkBPzr";"wY?MEhT:\\","RUDp2rYQhgZe+rIe+nTQorTL=";"wT$$\"b<4R\'6!Bs=44l!a";"wdhCi[Rr>1c<Tue><AQtNRnN","wSV/YFBP6E84l2","Re6Qjg/XinYQlg3Xk","w4aKW<`;cEe03(N!","RUYX3g2s5rYv=";"w0O#l6+Z9+g+[<;s0*","wR(f!1S*K*>L(%;<Tik","wt\'WW<\"*!(";"w^Gr\\20m`5%\"%%[I","RLTXfUYrl","RnYWsrzlMT6N3STQtPhP=";"w\"rd#1`8AP3^s$D,";"wDR>c&g^HDK&Y^p-Ddh","RhDp/gfr0nTzl";"w<T*AoT5!62";"RK3jF45o9e5jGh5zsr/5=";"wT55=3","wQo-4_";"Rr3eZrYXf";"wQ\\]A5t)t%%)DcE><S","RhTpzB2ey4YFfg29sFDpZgx==","RF3QRhlQYnfNTgArnhx==","wYfA#U!![[OgI;[B","RFTkzgL==";"RP2X0g2soL3R0eDjNn28+rYXA","RBtrRnfjmFtGXK5r74/n=";"RBDsjqPjm43e0P2pzg3L=";"w^E!BYdX\'.?BCS>n`s:";"wSSEGN)o8K4dB/u0\"kID\\RnOn","w<\"e>s\"\'*;GYK-D6!2%";"w<A78*4:m\'*0Kj#.","wB<Z`dRQ[E;YK-*m&&";"ReTkdg3pZgx==";"wQ\\c890O/\'>TPEVmTP>T","RP2pzg3Fy4D9=";"wD[l`aSkB;$B:fm*gIp";"RL2jNgDFGrDFlrW==";"wRj,sh<MN^cT:673T$M","RLTFmB3klrL==";"wT1L","RBZGj429=","wL[";"RS5pkehx9F5NS4fkf";"RLYefgfe9rTXz4Dewg2z8nTk5Bi==";"RPDsjqTe0Bi==";"RPP8lP3nze6rwTl4/eP1=";"wQ9Q\'mdBFj2","wB\'Y!lYC\\nuDg","w4E&MW<>[0tT/iR^dB]qtSgRhW!@)sHa,Oi7YC3AbLuph0<[oO5Yf];!1-t:)d@\"$1dB-LDtEcSkTiFU$d+qCJCba";"wBTtJDYi0^PTsAT\'","wSV/L^Ra","wL(kE%gIVjc4+[cnB\\","wQ7$>(";"RKTki4YFyrT4jgx==";"wQ9Q-)4\'\'$o!b\\HE\"M";"w&4V(hYsa)1";"wSq94GTsVmGL*6V/Qp9","ReDR/F/QjgTP=","wtEcSkT6`E3R]d";"w&?::PR(7GRRnN","w1ln?","w","w!&E&m<N\\Ar<NkkW0R`11\"Y";"RP2lugDl+ri==","wQ3%bq4E2E`Q9QH?RnO]\'\"W=D","wtEcSkTa30rT7";"wSj%EIQbh=&0F8p;";"w&4-a`YsuM[";"w!21I","w4EDG1Ye","RPZjDURFCXZjHK2kr7R1=";"wdtGPmT;0";"RFlGhhDRurTsPrYjf","RgZQ5rYv=","w\"*S.6YsN","ReDe94R40nYGirTL=","RT5l+rDe9";"RnfzCBTBsU5l6URQvri==","R4De0gTl+nTsarYluUTk5","RKheSKDN5n286qYeR","wdhCi[Rr>1K0,0FSt\'bQr4F","Rn3z+gTXanZ4YLhFk","R45XhqYRfT552BeG0";"RP3eorTRArPrmnZeA","RnYXoh3bz4I4YT5RKh2L=","RUYXPrYQ8UTkjgIpirT9=";"RLYrj4DR0","w<d\'q]^l;-Qt\'O%Ed:";"ReTFCBfFahll97Dse","wRVN\'aBP6Q(R)";"wQ9W)*T:A)c\"QZ";"RL2p+4De+4yzPqYGl";"wSVKF?YZ&]d\"=s6@\"M","w4\'ljC<M_","wB8E\"O0c+3R4H\"pm!uD","wYf19ERbs6W","wBP6E9Rnp3K\"M","wB;#ms<Tu9`";"RF/j14TLzSteirfXmFt5=";"RgZGlglXl46FNg34APDR+rTi=","wd]$fG^;,3E!e4N7";"wt1r%j^$<;L\"=UKq\"Em";"RhDe34W==","wQp-cF4\'l]e\"*P\"[T$_Qe)\\q&";"RF2efh3ef42p0UzGNg3B=","w)3:#%)&0/@<T%:=TZ%","RP6QNB2zXnTl+FZeN","wR=J\"!ta%8?Y$6;#";"wdeCgpR]d","w`;EZ_!(b_T)SnnPDN5","RL2p8gTR+rIQz46Fmg/S=","RP2ejB3X1vDXmgTzjg3FAau9+";"w<4:FD";"wQ#!g:!&E\"qBPg\"Ud@m","w&ZjBh&aOTf<[mr5RnO36","wS]A;E<dLNIT/>Gk","w&s&a\\D9S6AtHd\\i`7";"ReeI0S5o9LPv2SwRz";"wQo-W]R]d","wRV[j!<Mq";"RB3Q9nYXArYFNrw1maAIiShIs7hLi7wvZStBfXx==","w<i;\"SR]TEF\"*,WAYe";"RePeCX3s9qwQnBwXQPL==","RF2efP6QmBDe046lwUDR+r2e5P2l/g3Ro";"wg/485\"r(pZg*M>?Yh";"RrlWiUwRFPYWsKDjrX35=","RPfnkqYrv4/4Xh5sj","RPTpCezNXeeNmPDzLgIf=";"RgZGlglXlB/rlB/XLnTklgW==";"wt^S.G","RP2ef4Dl+rZXwgDpArL==";"wQ3%bq4E2E`tE4Tl<Tu9`";"Re64lrTkhrYQ2UTXl";"Rn2sNn28Tg2szgTP=","RLZQlnYFl";"wTsbb@^5=+$&a*\\e0.O";"wS*/IK!BsjqR!m","wg`KIm";"wQo#";"R7eXznPB0q3evq/Q2rTP=","wQ9QH_Rq::";"wRn2<sY[JZgYM7_:";"wY6sd6`[A:Ndn4YKgY","wYZ&&W4F","w071_.0mM;NQV8Sq";"RrTr3rTXf";"RSlRvgRruUTQTX6Nz";"RT6XlXYIkgzvzTPbkei==";"wt1mc@TTpGG0_HE]TL0";"wQ7q\"*T:LXE\"*Pd","RUYXwg2z8nTk5BfpirT9=";"w&ZjBhg=X4R4F","wSWC4!L\'-iMQ\\ASS","RhDptnTsLgDRkrYv=";"RePFNghv=";"RU3puKTL=";"RgRFIPZ19Lh5AFevinL==","RL2e+4De0","w\"H*5^4=AFmgQhGe","RL2p0g3e0P3R5UYeA";"RKDejB/FurTRf";"wBPgOWR]TEHdhsJi4F";"wdB;U8<i;4","Rr2efr2e+4x==","w&Z-Tkde\\j\'4:0K.R)","w+A*\\.^fNYO`\'!:i45/";"wSn@W;R)","RF3logW==","w&YYFO)BCZp&AVa!L:S","wSS+1","w4$^Y<S(BYl<K0uoRs","RQ/BpXwx3Uwff7W==";"wT55+kRVT;hR]d","wQ\\t7_!@#!0Yh","RF/QjgTP=";"RL3RtU240gZe+rIXmgDp0Si==";"w<Tf*!dt@V&DifY\"T5E";"w&ZjBhB:W,O4J-$sdBc5>d&a-2d2/";"wdh)4>R]d";"wgEO$6^G_N=Rn2/^Lrd","w\"(T.\'Q9Q\'mdBFj2t\'bQr4F";"RS54KSPN6gtXAnYv9eL==";"RrzQ+gY4XThjLB6e/g/v=";"wTLJ,l\"^)*gtHa/Ot5k";"wBPgOWR]Ta","wRVN\'aB<?,";"wdhCi[R(C*]T0Uf9RnN","RXRXtUPpoUel6gRBz","RgPsG4Ye+4RNfrT8v";"RStjQhzrFhfzwSTj1XL==","wR-#Gp4:md`<\"^d2T9","RB3pzg3L=";"w\"\'kert:]Rs^5&Ve!;";"w0h,4\\4EUg!glS1m","wBPtAW\"*!q[Q7q\"*T:5-KT;;&#T$Wl";"wYf1f","RnTSAPDeRT5FGhDkv";"w!@)8D4\'lj\\YsX";"RK2ekn3pjB3L=";"R4ZQN4De3UTsl";"wQ3%bq4E2E`BPc(l";"wQ_BUGtI%CXR+EbC!e1";"RBhLkgf41gDk2FPRzSi==";"ReDe94IXmgDp0Si==";"wSgRhWBPgOW\"kiF","w!Xr?G!XrW?<dLNj4l>","RSIzQ4fePX3FhKfp1","wQpJ^Xd1","wS]q1","wBPtAW\"*!q[&ZLQ,<MN=H0Kid","w\"`j)&+ZrMS!h\'$q";"RL2sNn28PrTslBDp04W==","RT5FhLelfXe4UnT8Qr2x=";"w<MXa!Sq@","RnZQPh38Z4hXlS6lwr35=";"RK3pNg5sNBZL=","RB3Q9nYXArYLMa0p3g2kfB0p3nTzNgDllB0pwg2zNnfkl4TeGg34zgDR0a3NAg29=";"RPYQIP2kGXAFoX2l1qW==";"RB3es4TeA4W==","RnYefgfe9rTXz4DeLB3lAgL==","RKTXmgx==","RKDp0UYNmg/FjgW==","wZ_d!pC.lV/Cb1Jq1GW&T)_jg6+K`W0u.JFJ7E","Rn2sNn28hgZe+rIe+nTQorTL=","w0Bh+C^aHR(<,jUk<S";"RB2e043e0hDlA4IFj4DI=","wg*01@R($[8Rn*.h<S","Rn2sNn28hgZe+rIlI";"wQm-$)4Yr(V<MiN%S=G";"RhTR0U2efBDsjn2ehrYQ2UTXl","R4DpA46QNg3B=","Rg/eogW==","RKTzjr2eSnTQlgW==";"Rr2R8rL==","ReDe0gTl+nTsLnTklgW==","w<4Re-R)","wQ9Q\'mdBFj2g(/rE","w!Xr?G!XrW?<dLNj4lCDqQm-^(Yh","wR=]=t&$CO^B82M$DV";"RrwGNBYlzF2roUlrY7TB=";"w\"rWQoT0p3c\"=UpU","w<4\"QZ";"RL3logDQmnYQ5FZeN";"w0KJPH!(W(TS%W9R";"wQpJ<FYsQ%","w+RMFr+ReGG`Y>rnL/h";"wde9/","wSSE9NYMq>-<Np_","wLEXUJ&[ra6SkH$\'L/e","RTtFfFtXzPlGYg2zMB6n=";"w\"*s\'M0,0F5T/[!r029U@<T*#","wt^S.G&ZLYKt\'bQr4F","wdhsCl<4PL]\"*Q<dS)";"wSV/YFBPg\"Ud@m";"w\"rA6>YMQb.T$sDa";"RL2R+43RAP2lMrL==","RPDsjn2e1g2s5rYQwg2smBtS=";"RKDejrW==","RP2lMrhIiS6xsSwW=","w4J@8\\\"*!)q<MXU*\"=(8kRqk";"RPDl+rfsjn3eoeDe94W==","RTRFzF6FygTzXrYF5","RB2jm4Ts5P2jm4zFjri==","w&4VkO<>i[?)\\$l$";"RP2e043e0Bi==";"R4YXlB3kjgTP=";"Rq/eP4DpPX38OeIkfgtB=";"w4EDGt\"*!(","RB2e043e0Bfrl4DX1rTL=","wgEmDH)3NRoQBcMm\"JM","RK3pNg5rNg6FlB5r0nTzl";"w<4:FDQp-;";"RSwQfUPXMeZQHBTI9";"wQB\"$5d-h(U!($TI&&","RP2XjgDePqYGl","w40$n7g%Xid^5kon)Su","wYf1H6R]IGeTPU[l<i;\"u","RPDri";"RBDsjqPXoUTXdP2pzg3L=";"w&ZjBh!tcZndt<,?";"w\"I\'sMt`2+C&ZK,L","RFzXigleznfzsgTleXZW=";"wSn@W;R=4\"(T:qe","RT3rHhDQhq5p+q/ea4x==";"wQ#!g:!&E\"qtEcSkT\\","w<>XU","wQ#!g:Q7q\"*T:5-K4EDD","wQm-$)4;\\5VT$M";"wdhsCl<4P+jT5r_]\"QCWUT$WX","w4Jjc;!gG0RB0iZr^0F";"RrTbiTDizhTe54wQh","RF2pfUDR8L3porW==","RBwlISerZUPFsBTRR4YS=";"wt^PQU!(8m_!uS=q","wB:7PhRusOmTP2%","RPDsjqTe0LTF5rTL=";"wB$H:7`Z^bcQ-*`:","RrTXTL2XHqhS2TDNv","Rr3p0gTRf";"RLZe0B2p0PDpAUYFNg29=";"wg(/Cr<d\'dc4E2&ad@o","RF2efPDsjqTe0L/leB2e0KTL=","w\"*8#UT5r_]\"QCJ9dt<,?Ra","wR!FdF<N*5-dB]qpdthIKd&7i,";"RL2sNn28hgZe+rRFmr24orL==";"w<Tk:[4lQdIT5r_]\"QCWUT$WX";"w1V\\)0T7","wuhG([S-e<+\"PHZ&T/A";"wSVS>Ng%IJeB[hSP\"H\'";"w\"(T.\'SV/YFt\'bQr4F";"w\"r_2.";"w&4W","ReIjjX5FIqYrZhZNXBx==","ReDjNB0G6nTzl","wYaShWR(#T";"RhTpoUIQdLeN0LlRzLhB=";"wQj*>[T5G","wd2]b`tPOiAS]q=&0p,","wYfLC.R]4cKYsO\\!g(/rE","wS]qdR\"kBLW<6.6p\"Y";"wT1U;B","wY)%9<t1oKSLrBu5u*","wg/j78QBc6E+a&I/<]";"RFRlTBPffKTXAnAGDgfv=","wtE6rIR(#T","RhTpzB2eSrTR2rL==";"RrDeonY5=";"w!@)8L\"(TgbYfLZ";"RPDsjqTe0P3e8gZrNg3B=","w&a9c";"RSwFwKZehg/jLgeeN","wYaV9QTi:H;\"*PaO<i;)S\"*!q[1V\\)0T7","Rh3R8reFjrZS=","RL3pf4Dp8";"w`1Z2=SnE7/`P3?u\"IK";"w<M-mRTZ_]/gE)ZgB7","w!ri","Re2R2rL==";"Rr2sN4DX1";"wQ9Q89YMQ=l<Na)\\R(Q]_Ya])5<S";"RnZQlnYFlK3pNglGjg3eo","RgZGlg5XmgTzjg3FAPDR+rTi=";"RSTXfhhQIgwXYUYB2Ki==","Re2NeUPst4eXuP3jRg/B=","Rv6GonYllB/S=","RP2lCKR48P2FsF5eISW==";"wQ9Q\'mdBFj2Qm-_cR)","w&ZjBhD_7k&\"uXrpT;0";"wdt=4b0,<]M<YTu!\"Q5#Kd;","RgZGlg5NmUTkLnTklgW==","wQ#!g:ZT\\P1d2[W[Z4:oaT55&WYh","RB3Q9nYXArYFNrw1maABAXhBZShWzXwI2XhS2","w<Yj[N\"`XmP\"`42ZdWc","wBPgOWR]TEs\"*Pd";"Rq3i245BieeGTe5nZgW==","RhZef","RFfeP";"w<\\deuD#c\\%gGk`STM5";"ReDe0gTl+nTsG4YFmr3logW==","RK3pNglGjg3eo";"wglnonRgj3CTahRN";"wdhsCl<48\'UT1Yc.Rg^qjT$WX";"wtE6rIRn7.OR!F8KRjAt";"RP2pzg3L=","RKl4eFPsTn/G/geQFKfL=","RB3Q9nYXArYFNrw1maAxfXwSZSAWzXhIkSwni","R4TkinTXd","RKT8tq/XAXzQFn/rn4L==","Rn2R+n2eo","wSg/sUT/2Q3B;#/@t\'b\"8","RUYXHg2l+hZGlgx==","wQ9Q\'mdBFj2BPg\"Ud@m","RTW==","wd@\"J/^aB\'\"Ya$]ltA","RPIl7Fi==";"wTTD5WdeH<k<R\\1G\"%^","wdS^rGo\\d?$D#\'JEY&";"RFwldBl4DPfL9FDb0B39=";"ReYQo";"w^\'+_]\"`cMpT<KK_T5+";"ReDe94RjGgDl/g3zlg/L=","w\"%uU\'t^S.G";"RU3rLFP8iXDNhLA4K";"R4Dp/r2sleDe0gTl+nTsLnTklgW==";"w&aOKsT:a","ReYXlB5l+B6efe6lirL==","wY?Hg,<[pV!\"kL!UL1u!\"^s$>T+AM]IL;T#J","RBZF0UTk/";"wYZ2+A","RFDlABDsjqPkjgTP=";"RUYXvgZrlB3l+rf8lqTQNg3Fy4D9=","ReDe94W==";"RQK90rx==","wRj,c#<N\\Ar<NkkWR]T2>YsX";"wQ#!g:!&E\"qg(/rE";"wQ7q\"*T:Lj","RL2p5rYx=";"RnYQtrYeA","wgraZptl?:_";"w\"k5","RgZGlglFlB3zNg3RoPDR+rTi=";"RrDeo4DI=";"w4)\\<ZQtHUcD>_@)T7","w4IrJ,d&7s\'Q_4j$`fU","wQo-W]R]4cM)DFVP0Ki_","wYZ>$#Yh";"wdB-^,\"kiqb\"*d*\"4+Z&`","wg=e+f<McY3R!Fs";"Rr3R5rPpz4RFjB2o=";"wQ9!.X!21I";"RLW==","Rq5lmeDF1ghSZrTl2Tx==","w!jFZ*!B=Ke!gZB7Ye","wB/\"se<S";"wQoc<&Y6b0P<#Murg1#";"wQm-$j<#2nKd@\"=\'dBc^5";"RhTpA4W==","wYcTssDKTZkgQZ#\\","RF2efP2e043ltrL==","w4I,;o`MU:_<K3&10DI";"RhtQ3KAXuPPn9SRGNTTf=","wSSE9NY9PB.<MiN%S=G";"wgH@?q!eI-nR)","w<Y`[5T:a";"RFDlABDsjqPp0rDe0","RXfReeTpz42X5elRyhL==","RU6l5B3p/rT9=";"w^+71N4P8ER&<:L5LM","RPDR0rTkf";"w\"rn7S<\\k2CYaV9QTL6+C\"*/1)0,0FiRnMOCYa_$DYZ-pYYf]]+LQtF<0,0FS";"wQ#!g:!&E\"qQ9QH?RnOn","RLeRAXIsfnhPkqYearRI=";"RUYGsTRN3KTpRXIF2UTv=","wDoku6)\\5^ND\"AOEt\"","wBPgOWR]TE\'dBFUW";"wtEcSkT6`XOT$Wl";"wSSE9NYMQb.T$sDa";"RL2pogZvA";"w!Bs=44l%N_T\'\\F%Z\">+#T$M";"RF2efeYXlBlF14Tzug3RNgIRAqTkt","RPReP","wg%M\"gTP>T","wY0d8qQg1%m\"\'kH!<[X";"w!qJ&K&[CDV\"IX&dT$e";"w&)TN*Sq@","wB;#\\N<TH**T/V";"w!ql)ARrcH`\"Qr+W";"w!Bs=44l%NX4l_\"-Z\">+#T$M";"w&4VF#dtUiMT;0","wLQtF<0,0FSL`rP\\4l_\"T<[r[dtG\"OeYF*cLdH9\\ZT13[]LPfg";"w<i;\"SR]Tl";"wBPgOWR]TEk\"*bLA","RUIj1PeXQL3ljheNzXR1=","wB;o7&\"EAk)4`qH,","R439Ah/lZShFYTYr9gW==";"wBPc(l","w<Yi@sRHF._`LN[lD]","w\"*$;-YsX";"wB:7PhR%igr<4:7+";"w&f9XldX:]";"wY?Hg,<[pV!+KGCOT:L9&L%bUL\"*,;-<3c36RqVc-dS4s(1V\\)0T7","wtG1Hg)7Etc41,9ASs","w4aV-,0#!-i`1raM`a%";"RnArDT/G1e54KUZNy","w&F%]gt)^,q)&0;^";"RBDR+rTsH4YXfhZGlg3e5","RK6FfBI4l4W==";"ReDeorYGmB/FhrYQ2UTXl","wYaV9QT\\","RFDlAn2p+g3et4W==","wgrZrcQo#","wY?Hg,<[pV!\"kL!UL[","ReDe0gTl+nTsQg/Gz4W==","RFYjtg6e5rPrzgDsyri==","Rg3R8reFjrfXmg3klnZFNg2kA","RFYjtg6e5rKG34Tsov6XlB/rlB/S=","RF2pfUDR8L3sjn2o=";"wdhsCl<4P\"c<YTu!\"QCWUT$WX";"wQG","Re3e04DltnTsGgDl/g3zlg/L=","wQm-D\"YM7j-<R)8TTP.-`","w!2ne\'gQfmed@J#eYh","wTL\\";"RntXrS2rwBZQRBAGd7W==","RFDeA46QmqTl+ri==","wSnIHe4:DA`T0HuCQtl";"w!XC8]<>,";"w!Bs=44l!a";"wY?HgS\"rKL#+KG55)\\qDUQ#7_md&ZbIdteBIT:8D7R+\"";"wYaS25\"*!(";"w&Nmp-)3BaLYCD]ALM";"RPZFj46XDB3R8rL==","RhTpzB2ey4YFfg29s";"RFYjlnZefgZQSnTQlgW==","R4Dl8rL==";"RFYjlnZefgZv=";"RL3RtU240gZe+rRF0nTkABDR0rTktqL==","wBPgOWR]TEF\"*,WAYc<bH<T*A&";"RUfzyr547XljHP2XyTx==","RPDl+rfsjn3eo";"wT$b3","RLfsQLfoxPfpeh5L=","RUDp2rYQTg2szgTP=","RgfkCBhrh4feoUTo0qx==","RhTR/g3lf4TFl","RrDeAni==","RgYjNTRl3F3XlUDr+ni==";"R464lrT9=","RghXHelNlhZlAnzN6","RL2sNn28hgZe+rIlI";"wgkRY_TPA";"RF3pt4YXSgZXf","wT$$\"b&ZLYZ\"*,ja";"w<Tu]6<>iECTO","RL2p8gTR+r6XPUYForL==","wdh0Wl0r";"wB0:1t^$Oq$Y??1l\"*.","w!t4!=T/[d=Yf1?A\"*dk","wQ9Q89YMQ=l<Na)\\R)";"Rg6eyK3nintlhSlX0";"wB$2VK<R)8rYZ>25","RL2pogZv=","RLTsZnYlAh2kPgZW=","RPZFzr6XCr3rArYFYgZQorRXinTXl","RBZeu";"w&Z]*eYa]sD&am]JdtGk7T;\"V5T$_u";"wQm;b;dt=4HYcDu)Rqk";"w<>[0d4JW","wT::9iYNj$ETsJHEYsX","w\"Q,r-T7","wB:7PhR%cB","RLZe0B3e+4W==","RLYefg0GRqDet4YFl","w!@)8DYsu;`dhpt_RVd";"wBPg\"Ud@_.C<i;\"u1ln?";"wt^S.G<4R\'6ZR9k";"RPZ4iBPXyKI8jhheH";"w^HU3^dul5M!g%%fLY";"RFlGh","w!Bpir!bO9/D?3?TRa";"wRSCZi4\'l]?dB]r";"wgE9&VS!7!$)BnON","RYzpNg3FlqW==","wtE6rs","RP6WzLhXKr/QoetWfrW==";"RUDl5reXl46FNg34APDR+rTi=";"wtE4Tl<Tu9`","RPIXML2QfSTQRgIkd";"RThW9UDsLhtjCrYj2","RPfP0TDRjBZSAP3XiB2b=","w<>[ooQpi^0djUDlB\'Y!H","w<Y[isg/j5#T)61[","wB?2P40e6TL<iV[bDFo";"RUYXhrYFfUTk/BfpirT9=";"w0me.^B0A:#0.]Xi","wD]";"RXRX0KtrN4lQY7eeOqD9=";"RBtFFShjABZnzX29fKL==","R42R2rL==";"w\"rn7S<\\k2C\"%uU\'<3X;=dX:pC1bS\'tLQ]66\"%uU\'<3_","Rn2smB2ePrYQ8UTkjgRGjg3eo","wQmjqG4l+","RU2SfP3zKX2fZXDFeex==","wg*01@R=tGF<T*,=&),";"RKlXCh5Fln2p5rL==","RB2p04W==","RnlXlPtrGeley7eeuhfL=";"RUTFlg/FNr/llqDet4YFmBx==","wT1.k";"RP6QNB2zSg2R5rTL=";"ReDR/eDe94W==","wYsCi2YR^)2T)6RT+[]";"RL2p8gTR+r6XLnTklgW==";"ReDe94IQz46Fmgx==","wg^4U%TaZpt0O)jF\"[","wLIaoRTY6D<tIH+A";"wg`KIm7X<QFQ@6;","R4ZXe4flkX6NKFlND";"wSg/sUT/2Q3","RK34leAWZKDp/UwRO";"wQm-$)4Yrmh4E2]Z";"RLZQmBW==","w!e+L8!jFP&","wT:1Oe!ht\'bQo/S;Rs","w!&E&m<N\\Ar<Nkk:dtYP?","RL/ef4Dp+Bfr0nTzl","RFlltBDj3hDv0hf8O";"RUTzjr2P=";"RP2e043e0BfrNg6FlB5r0nTzl","RP2ef4Dl+rZXPUYForL==","Rh3R8reFlq6L=";"w<Y@lt";"RhTpzB2ey4YFfg29sL2sNn2o=";"wSr\',)t$WLUguWjDRE\"";"RPRQQPff=","wSr6[Dt1Ze`<9.+R0r","w`LYKm+6\'Sc`T$:Kdb#";"wYRL5\'Y8[iM^0JqN","RXTXaeRXre/NUeDL2hL==";"RFYjtg6e5rPrzgDswUYQtgDP=","RnZQlnYFlP2e043e0BzGjg3eo","RSAXkS3rCr2XIUYej","w&)TN*S]KGK7G";"R4DltUi==","wL*::4!.M)&Rn<@=Ysl","w!&2A)!S,lcB:OKIdn8","RLYefgfe9rTXhnZQmgDi=";"Re3XAnhGlLZFvSlQP4W==";"wguK9e";"ReDjzgTQ+nTloP2lMrL==","wd&Q)YQB`CoL*V6LQ3c","wSSE9NYMQb.T$scf\"%*#*";"Rn2R0rW==","w!t4!=T/[WE)\\5#";"Rn2sjgYW=";"RShWZXhIsSwI0XtvsShSA";"wQ\\-$)<Mn_C","Re64lrTkQg3rm";"w&fusNT:qe","wQm;b;dt=4HYe","RelGhqTNmSIsSh/Ls";"Re2R3LfSzefrSP5sOF2o=";"RL2sNn28Tg2szgTP=","Rr3l+rW==";"wtEcSkTa?@X7G","wQ\\J^0T:n9W\"*S3","wSV/YFS]A6rd-2$pYe";"wQ#!g:!&E\"qQ7$[";"RBYel4TeEg2kE4DeorYGmB/L=","RUDl5reXlB/rlB/XLnTklgW==","RF3szq6eA";"w0do+C";"Rr6Q5L3XlrIsTB/joP/L=";"w\"%9Lh0Ki\"C<T*`BdB]r";"wBP6E84E.\'6\"^7VIT5G","RKTki4YFRg3FlrW==","wo3Gj\"Rj#=r\"=r6OT:(","RKTkA4DR+n2P=","wBP6E84lO<)YN^ZX\"%U0;4EDoI","ReYXlB5l+B6efP2e043ltrL==";"w&ZjBhBPc(l","wQ#7_md&ZKe<>,";"wYF)ebDYW(F!uK\'/","RK3pNg5rNg6FlB5Qz46Fmg/S=","wY?Hg,<[pV!\"kL!UL1f?<^s!L;^f-h","wgu/s-!h[QhdhO*/","wS]S]\'up=UVd2icd<9\"","wQ#!g:ZT\\P1d2[W[ZY`dS<[t","ReIrYhD87r5RYBZrw";"wtEcSkTZbR$RnN","wB;9kjR]T25d@o";"RSIp7nhFOUTNRee4T","w!eG+nT$8P";"R4Y42FTkHL2eQnzrQS59=","wB:7PhRLDL9<i;0gS=(LM1s","RUYXhrYQ2rYQAhZGlgx=="}local function r(r)return s[r-4233]end for r,v in ipairs({{1,762};{1;747},{748,762}})do while v[1]<v[2]do s[v[1]],s[v[2]],v[1],v[2]=s[v[2]],s[v[1]],v[1]+1,v[2]-1 end end do local r=string.len local v=type local A=table.concat local c=math.floor local y=s local G=table.insert local Y={o=29;[">"]=9,R=32;["\\"]=2,C=12,M=63;["`"]=17;U=55,g=24;P=68;K=59;B=26;["."]=0;D=28;["#"]=3;e=54;["<"]=37;["1"]=14,t=25;["0"]=38;F=60;r=48;["7"]=30,["*"]=75,q=49,c=61,["%"]=19;W=76,p=83;m=56,["("]=47,["["]=8;["4"]=34;["]"]=51,[":"]=69,[";"]=42,["$"]=40,I=44;["="]=46,V=78;["&"]=27;k=74,n=50,[","]=4;Z=10,S=23;h=81;["?"]=64;i=7,u=20;f=65,["\""]=33;Y=36,d=31;["!"]=22,["8"]=67;b=77;["2"]=82,["@"]=80,Q=21;a=11,["6"]=6,G=45;["^"]=16;["+"]=18,["-"]=79;E=72;N=62,H=73,J=43,L=15;T=35;_=58,s=66;["5"]=13,X=53;[")"]=39,l=71;["/"]=41,j=52,O=84;["\'"]=70;A=5,["9"]=57,["3"]=1}local Z={["6"]=7;p=61;j=33,o=44;V=63;G=1,H=10;J=59,Y=23,f=52,["1"]=40,Q=9,d=43;["/"]=39;u=34,M=58;A=51;B=28,r=25,W=0;P=20;w=3,F=17,a=11;s=49;["5"]=36;n=24;I=4;["2"]=54,["9"]=56;S=12,k=57;K=18,t=35;["3"]=38,i=48,O=42,U=26,y=2;E=31,["7"]=14,b=60;m=47;["0"]=50,c=62;R=5,q=30,h=19,z=53;l=37,g=27,["+"]=46,T=22;x=32,Z=55;["8"]=45,e=21,X=13;L=16,["4"]=29,v=8,C=15;D=6,N=41}local T=string.sub local l=string.char for s=1,#y,1 do local X=y[s]if v(X)=="string"then local v=T(X,1,1)if v=="R"then X=T(X,2)local v=r(X)local Y={}local m=1 local e=0 local M=0 while m<=v do local s=T(X,m,m)local r=Z[s]if r then e=e+r*(64^((3-M)))M=M+1 if M==4 then M=0 local s=c(e/65536)local r=c((e%65536)/256)local v=e%256 G(Y,l(s,r,v))e=0 end elseif s=="="then G(Y,l(c(e/65536)))if m>=v or T(X,m+1,m+1)~="="then G(Y,l(c((e%65536)/256)))end break end m=m+1 end y[s]=A(Y)elseif v=="w"then X=T(X,2)local v=r(X)local Z={}local m=1 while m<=v do local s=(v-m)+1 local r=s>=5 and 5 or s local A=0 local y=r>1 for s=0,4,1 do local v if s<r then local r=T(X,m+s,m+s)v=Y[r]if not v then y=false break end else v=84 end A=A*85+v end if y then local s=c(A/16777216)%256 local v=c(A/65536)%256 local y=c(A/256)%256 local Y=A%256 if r==5 then G(Z,l(s,v,y,Y))elseif r==4 then G(Z,l(s,v,y))elseif r==3 then G(Z,l(s,v))elseif r==2 then G(Z,l(s))end end m=m+r end y[s]=A(Z)end end end end return(function(s,A,G,Y,y,c,Z,B,J,b,l,v,S,g,K,X,Q,t,m,M,T,F,L,e,p,N)N,e,b,S,F,M,p,K,l,m,L,t,T,J,X,g,v,B,Q=function(s,r)local A=e(r)local c=function(c,y,G,Y,Z,T,l)return v(s,{c,y;G;Y;Z,T;l},r,A)end return c end,function(s)for r=1,#s,1 do l[s[r]]=1+l[s[r]]end if c then local v=c(true)local A=G(v)A[r(4867)],A[r(4263)],A[r(4282)]=s,M,function()return-620939 end return v else return y({},{[r(4263)]=M;[r(4867)]=s,[r(4282)]=function()return-620939 end})end end,function(s,r)local A=e(r)local c=function(...)return v(s,{...},r,A)end return c end,function(s,r)local A=e(r)local c=function(c,y,G,Y,Z,T)return v(s,{c;y;G;Y;Z,T},r,A)end return c end,function(s,r)local A=e(r)local c=function(c,y,G,Y,Z)return v(s,{c,y;G;Y;Z},r,A)end return c end,function(s)local r,v=1,s[1]while v do l[v],r=l[v]-1,r+1 if 0==l[v]then l[v],T[v]=nil,nil end v=s[r]end end,function(s,r)local A=e(r)local c=function(c,y,G,Y)return v(s,{c;y,G,Y},r,A)end return c end,function(s,r)local A=e(r)local c=function(c,y)return v(s,{c,y},r,A)end return c end,{},0,function(s,r)local A=e(r)local c=function()return v(s,{},r,A)end return c end,function(s,r)local A=e(r)local c=function(c)return v(s,{c},r,A)end return c end,{},function(s,r)local A=e(r)local c=function(c,y,G,Y,Z,T,l,X)return v(s,{c,y;G,Y;Z,T,l,X},r,A)end return c end,function()m=1+m l[m]=1 return m end,function(s,r)local A=e(r)local c=function(c,y,G,Y,Z,T,l,X,m,e)return v(s,{c;y;G,Y,Z,T,l;X;m;e},r,A)end return c end,function(v,c,y,G)local k,w,m2,s2,y2,M2,A2,j,v2,R,q,z,G2,T2,c2,D,o,E,H,X2,Z,b,U,m,f,n,i,O,M,e,a,x,V,C,l,Y2,h,l2,d,e2,Z2,r2,u,I,P,W while v do if v>8585842 then if 12757066>v then if 10684203>v then if v>9532368 then if 10194283>v then if v>9842754 then if 9955521>v then if 9896692>v then if 9880964>v then if v<9857614 then v,l,e=13477642,nil,nil elseif v<9868689 then v=Z and 3900485 or 13070950 else e,M=m(l,e)v=e and 2128488 or 11460075 end else if 9888253>v then E=T[y[1]]u=r(4587)V=E[u]u=T[b]E=V(u)v,O=4463399,E else v,o,b=8159601,nil,nil end end else if v<9906472 then v,V,u=b,r(4369),r(4638)b,R={},r(4314)O=s[R]R=r(4819)o=O[R]R=r(4558)O=o()o=s[R]R=r(4743)R=o[R]R=R(o,V)V=r(4478)o=R[V]V=X()T[V]=o E=T[y[1]]o=E==u v=o and 15663115 or 11790202 elseif 9920024>v then e=T[y[1]]m,C=r(4636),r(4762)Z=e[m]e=r(4824)v=Z[e]Z=r(4528)m=s[C]C,z,M=r(4510),80,80 e=m[C]C=255 m=e(C,M,z)v[Z]=m v=8657795 elseif v<9940725 then u=r(4590)E=R[u]O,u=o,r(4386)V=E or u E=r(4394)E=V[E]E=E(V)u,I=v,r(4865)f=R[I]I=r(4386)V,n,u=f or I,9921606<13733120,r(4394)I,u,U=r(4948),V[u],1 u=u(V)f=v I=E[I]I=I(E,M,U,n)V,v=I,I and 7208804 or 16736385 else m=r(4753)e=T[y[1]]l=e[m]Z,v=l,l and 5024984 or 2695623 end end else if v<10113921 then if v<9962560 then v,Z=s[r(4881)],{}elseif v<9982283 then z,E,U=O,v,r(4639)V=X()T[V]=R R=V I=T[R]n=r(4558)f=I[U]U=s[n]n=r(4649)I=U[n]u=f==I V,v=u,u and 11425486 or 9325856 elseif v<10038023 then M=r(4769)Z=T[y[1]]C=r(4837)v=Z[C]C=T[y[2]]Z=C[M]C=m v[Z]=C v=9171379 else m=T[y[1]]C=r(4636)e=m[C]v,m=7094856,r(4300)l=e[m]Z=l end else if v<10156838 then V=r(4479)Z=T[y[1]]D,l=1134837>8396492,r(4636)v=Z[l]e=T[y[1]]m=r(4364)l=e[m]m=r(4499)z=T[y[1]]o,b,Z=r(4780),r(4636),r(4684)M=z[b]z,b=r(4393),r(4684)C=M[z]E,z,f,H=280,r(4454),0,r(4740)R=s[V]U,V,u=35,r(4825),0 O=R[V]V,I=0,0 R=O(V,E,u,f)O,u,W=r(4871),r(4479),r(4401)E=s[u]a,u=r(4784),r(4825)V=E[u]f,u,n,j=-140,.5,0,13496418<16232750 E=V(u,f,I,U)I=r(4303)f=T[y[2]]u=f[I]k,V,f,U,I=100,r(4500),r(4821),r(4729),.2 M={[z]=b,[o]=R;[O]=E;[V]=u,[f]=I,[U]=n,[a]=D;[W]=k,[H]=j}V=0 e=l(m,C,M)C=r(4636)v[Z]=e u,H=0,r(4348)Z=T[y[1]]l=r(4503)v=Z[l]m=T[y[1]]e=m[C]m=r(4684)l=e[m]e=12 Z=v(l,e)R,C=0,r(4636)Z=T[y[1]]b,n,O,l=r(4636),r(4437),r(4479),r(4852)v=Z[l]m=T[y[1]]e=m[C]m,C=r(4684),r(4433)l=e[m]m=T[y[2]]q=r(4348)e=m[C]m,C=1,.4 Z=v(l,e,m,C)Z=T[y[1]]l=r(4636)v=Z[l]Z=r(4989)e=T[y[1]]m=r(4364)l=e[m]z=T[y[1]]M=z[b]z=r(4684)C=M[z]E,m=36,r(4476)o=s[O]z,O=r(4780),r(4825)b=o[O]f,O=0,1 o=b(O,R,V,E)a,b,V=r(4276),r(4871),r(4479)R=s[V]V=r(4825)O=R[V]E,V=0,0 R=O(V,E,u,f)E,f,V,u,O=r(4716),r(4528),1,r(4984),r(4821)U=T[y[2]]I=U[n]U,n=r(4965),14 k=s[H]H=r(4276)W=k[H]k=r(4801)D=W[k]W=r(4672)j=s[q]q=r(4672)H=j[q]j=r(4482)k=H[j]H,j=r(4401),101 M={[z]=o,[b]=R;[O]=V;[E]=u;[f]=I,[U]=n;[a]=D;[W]=k,[H]=j}e=l(m,C,M)v[Z]=e m,E,l=r(4364),24,r(4636)Z=T[y[1]]v=Z[l]Z=r(4254)e=T[y[1]]W,f=r(4276),6 l=e[m]z=T[y[1]]b,O=r(4636),r(4479)M=z[b]m,D,z=r(4898),r(4437),r(4684)C=M[z]o=s[O]z,u,O=r(4780),0,r(4825)b=o[O]V,I,O,R=0,r(4697),0,24 o=b(O,R,V,E)U,E,b,V=r(4528),-30,r(4871),r(4479)R=s[V]V=r(4825)O=R[V]V=1 R=O(V,E,u,f)u,V=0,1 a=T[y[2]]n=a[D]D,E,a,f,O,q=11,r(4729),r(4965),r(4716),r(4821),r(4348)j=s[q]q=r(4276)H=j[q]j=r(4616)k=H[j]H,j=r(4401),101 M={[z]=o,[b]=R;[O]=V;[E]=u;[f]=I,[U]=n;[a]=D,[W]=k;[H]=j}O=r(4479)e=l(m,C,M)v[Z]=e Z=T[y[1]]l=r(4503)v=Z[l]C,b=r(4636),r(4636)m=T[y[1]]e=m[C]m=r(4254)l=e[m]m,e=r(4636),6 Z=v(l,e)e=T[y[1]]l=e[m]e,U=r(4254),r(4401)Z=l[e]l,I=r(4260),0 v=Z[l]Z=r(4465)l=K(3913606,{y[1]})Z=v[Z]Z=Z(v,l)m=r(4636)e=T[y[1]]l=e[m]e=r(4254)Z=l[e]l,m=r(4650),r(4636)v=Z[l]l=t(1345507,{y[1];y[2]})V,Z=0,r(4465)Z=v[Z]Z=Z(v,l)e=T[y[1]]l=e[m]u,e=0,r(4254)Z=l[e]l=r(4917)v=Z[l]Z=r(4465)Z=v[Z]l=L(4071458,{y[1]})Z=Z(v,l)l,R=r(4636),-16 Z=T[y[1]]v=Z[l]m=r(4364)e=T[y[1]]l=e[m]z=T[y[1]]Z=r(4595)M=z[b]E,m,f,z=28,r(4499),38,r(4684)C=M[z]o=s[O]O=r(4825)b=o[O]z,O=r(4780),1 o=b(O,R,V,E)V,n,E,b=r(4479),101,8,r(4871)R=s[V]V=r(4825)O=R[V]V=0 R=O(V,E,u,f)u,O,f=r(4937),r(4500),r(4729)E=T[y[2]]V=E[u]u,E=.5,r(4821)M={[z]=o;[b]=R;[O]=V;[E]=u,[f]=I,[U]=n}b,f=r(4281),r(4348)e=l(m,C,M)v[Z]=e C,l=r(4636),r(4503)Z=T[y[1]]v=Z[l]m=T[y[1]]e=m[C]m,M=r(4595),r(4636)l=e[m]e,E=6,r(4348)Z=v(l,e)Z=T[y[1]]l=r(4364)v=Z[l]R=r(4348)C=T[y[1]]o=4 m=C[M]C=r(4595)e=m[C]z=s[b]l,C,b=r(4588),r(4332),r(4825)M=z[b]b=0 z=M(b,o)O=s[R]M,R=r(4274),r(4274)o=O[R]O=r(4546)b=o[O]V=s[E]o,E=r(4353),r(4353)R=V[E]V=r(4482)O=R[V]R=r(4804)u=s[f]f=r(4804)E=u[f]u=r(4482)V=E[u]m={[C]=z,[M]=b;[o]=O;[R]=V}Z=v(l,e,m)C,l,e=r(4724),Z,r(4636)Z=T[y[1]]b,M=r(4977),r(4638)v=Z[e]z,Z,m,e=r(4498),r(4968),r(4638),{}v[Z]=e e=r(4304)Z={[e]=m;[C]=M}M,m,C=r(4724),r(4304),r(4498)e={[m]=C,[M]=z}C,z,M=r(4304),r(4724),r(4977)m={[C]=M,[z]=b}v={Z;e,m}e,Z=v,r(4782)v=s[Z]M={v(e)}C,Z,m=M[3],M[1],M[2]M,v=Z,8252405 elseif v<10167343 then Z=r(4468)m=Q(945734,{e})v=s[Z]Z=v(m)v=3175249 elseif v<10173472 then v,C=r(4428),r(4348)m=s[C]C=r(4272)e=m[C]m=r(4317)Z=e[m]l[v]=Z v=6054763 else Z,o=r(4468),r(4577)v=s[Z]b=T[e]z=b[o]Z=v(z)z=r(4558)Z=s[z]b,z=r(4964),r(4743)z=Z[z]z=z(Z,b)Z=r(4378)v=z[Z]b=r(4953)z=K(8770796,{e})Z=r(4465)Z=v[Z]Z=Z(v,z)z=s[b]v,Z=z and 9732850 or 11792612,z end end end else if v>9729434 then if 9762595>v then if v<9736598 then z=X()T[z]=Z b=T[z]Z,v=b,b and 14104681 or 11791163 elseif 9748377>v then M=r(4980)C=T[y[1]]Z=C[M]v=Z and 6097106 or 5832827 elseif 9758391>v then Z=r(4386)z=#l M=Z Z,b=1,z z=1 o=z z=0 O,v=o<z,11778097 z=Z-o else v,Z=s[r(4806)],{}end else if v<9772951 then M,o=z(C,M)v=M and 15047024 or 2906372 elseif v<9792953 then I=r(4341)f=s[I]z,I=O,r(4322)u=f[I]I=1 U=#l f=u(I,U)u=r(4849)U,u=r(4242),M[u]u=u(M,f,f)I=u~=U v=I and 7013509 or 5749652 elseif v<9816436 then R=r(4294)O=s[R]R=r(4953)o=O[R]z,v=o,15204257 else v,M=13372602,l C=M end end else if v>9680144 then if 9687504>v then U,C=r(4454),e z=T[y[1]]O,b,C,a=r(4821),r(4832),nil,r(4724)v=z[b]b,u=.15,v I=M[U]V=v n=T[y[2]]U=n[a]f=I==U I=.3 E,u=f and I,.7 R=E or u o={[O]=R}z=v(M,b,o)M,v=nil,4016324 elseif v<9703790 then v=1744209 elseif v<9719547 then z=T[y[3]]b=r(4636)M=z[b]z=r(4236)C=M[z]M,z=r(4716),e C[M]=z M=30 C=e<M v=C and 15869482 or 6349471 else v=l and 14656380 or 10714675 end else if v>9608570 then if v<9645116 then Z=r(4878)v=T[y[1]]l=6668546>=7433701 v[Z]=l l=r(4870)Z=T[y[1]]v=Z[l]Z=v()v=4941290 else v,Z=s[r(4376)],{}end else if 9578189>v then v=T[y[1]]Z,l=r(4878),9464763<=1590627 v[Z]=l l=r(4870)Z=T[y[1]]v=Z[l]Z=v()v=13580691 elseif v<9604946 then n=r(4730)U=s[n]W={U(I)}v,a,n,D=16057876,W[2],W[1],W[3]else b=r(4799)C=F(14036311,{})m=r(4361)v=e[m]m,M=r(4465),r(4560)m=v[m]m=m(v,C)C=s[M]M=r(4399)v=C[M]z=T[y[3]]M=z[b]C=v(M,m)m,v=nil,4091193 end end end end end else if v>10395078 then if 10510706>v then if v>10467033 then if 10475929>v then e,Z,v,l=nil,{},s[r(4973)],nil elseif 10478648>v then v=z z=r(4386)m=M or z l=v(e,m)Z,v={},s[r(4771)]elseif 10495243>v then H,j,q=r(4762),200,80 k=s[H]H,v=r(4510),10983358 W=k[H]H=255 k=W(H,j,q)a=k else z,M,v=nil,nil,11159122 end else if v<10446353 then if v<10402569 then v=T[y[3]]C=T[y[2]]M=r(4769)m=C[M]Z=v(l,m)v=T[y[4]]m=T[y[2]]Z=v(m,e)m=Z v=m and 9995342 or 9171379 elseif 10423785>v then m,M=l(e,m)v=m and 2182074 or 9760376 else v,Z=s[r(4344)],{}end else if v<10455811 then Z=r(4562)v=T[y[1]]l,Z=r(4903),v[Z]Z=Z(v,l)l=Z v=l and 11887904 or 12862540 else v=T[y[1]]R,V=r(4980),7012136>13997004 v[R]=V R=r(4917)V=t(14317253,{y[1]})v=b[R]R=r(4465)R=v[R]R=R(v,V)v=10291297 end end end else if v<10597184 then if v<10518246 then z=r(4753)M=T[y[2]]Z=M[z]v=Z and 8815575 or 3480072 elseif v<10533707 then m,e,o=r(4962),c[2],6 Z=s[m]M,l,m=r(4281),c[1],r(4825)v=Z[m]m=r(4380)Z=v(m)C=s[M]m,z,v,M=Z,e or o,r(4484),r(4825)Z=C[M]M=0 C=Z(M,z)m[v]=C C,Z,b=l,r(4753),v m[Z]=C Z,v={m},s[r(4501)]elseif v<10567161 then b,O,C,H,W,e,m,l=r(4364),r(4454),c[4],102,0,c[2],c[3],c[1]z=X()T[z]=c[6]V=r(4463)Z=T[y[1]]f,a,M=r(4479),0,c[5]v=Z[b]U=0 R=e..V I,n=-16,26 u=s[f]b,f,V=r(4499),r(4825),r(4780)E=u[f]f=1 u=E(f,I,U,n)U=r(4479)I=s[U]U,n,D,E=r(4825),8,r(4729),r(4871)f=I[U]U=0 I=f(U,n,a,C)f=r(4500)n=T[y[2]]a,k=r(4937),r(4401)U=n[a]d,a,n=r(4348),.5,r(4821)o={[O]=R,[V]=u,[E]=I,[f]=U;[n]=a,[D]=W,[k]=H}Z=v(b,l,o)b,u,o,R,a,U=Z,r(4479),r(4503),r(4780),3,20 Z=T[y[1]]v=Z[o]o,I=6,0 Z=v(b,o)Z=T[y[1]]o=r(4364)v=Z[o]o,n=r(4476),0 E=s[u]u,x=r(4825),r(4348)V=E[u]u,f=1,-56 E=V(u,f,I,U)V,U,k,I=r(4871),8,r(4276),r(4479)f=s[I]I=r(4825)u=f[I]W,I=r(4437),0 f=u(I,U,n,a)u,I=r(4821),1 D=T[y[2]]n=r(4528)a=D[W]U=r(4716)q=s[d]D,W,d=r(4965),10,r(4276)j=q[d]q=r(4239)H=j[q]j=r(4705)P=s[x]x=r(4705)d=P[x]P=r(4427)q=d[P]d,P=r(4401),103 O={[R]=E,[V]=f,[u]=I,[U]=m,[n]=a;[D]=W,[k]=H,[j]=q;[d]=P}E=r(4981)Z=v(o,b,O)Z=T[y[1]]I,o=r(4479),r(4364)v=Z[o]n,U,R,o=0,26,r(4454),r(4499)V=e..E a=13 f=s[I]E,I=r(4780),r(4825)u=f[I]I,D=0,.5 f=u(I,U,n,a)u,n=r(4871),r(4479)U=s[n]n,W=r(4825),0 I=U[n]a,n=-36,1 U=I(n,a,D,W)I,D,W,k=r(4950),r(4270),.5,M a=s[D]D=r(4825)n=a[D]D,H=0,v a=n(D,W)n,W=r(4500),v v=M and 12362722 or 8134476 else v=r(4955)Z={v}v=s[r(4831)]end else if v<10616808 then C,b=r(4710),r(4348)m=l[C]v=5575706 z=s[b]b=r(4710)M=z[b]z=r(4551)C=M[z]e=m==C Z=e elseif v<10639449 then M=80 l=T[y[1]]e=r(4636)Z=l[e]l,m=r(4455),r(4762)v=Z[l]e=s[m]Z,m,C=r(4528),r(4510),80 l=e[m]m=255 e=l(m,C,M)v[Z]=e Z,v={},s[r(4935)]elseif v<10665686 then v=T[y[1]]R,V=r(4878),15610203<8589715 v[R]=V R=r(4917)v=b[R]V=Q(5051883,{y[1]})R=r(4465)R=v[R]R=R(v,V)v=10291297 else Z=r(4782)v=s[Z]m=T[y[1]]M=r(4522)M=m[M]C={M(m)}m={v(A(C))}e,Z,l,v=m[3],m[1],m[2],4743359 m=Z end end end else if 10287928>v then if 10265643>v then if v<10222661 then if v<10213038 then v,b=13524003,r(4944)z=T[y[6]]M=z[b]z=r(4530)z,b=M[z],r(4694)z=z(M,b)m=z elseif 10218379>v then Z=T[y[1]]l=r(4695)v=Z[l]v=v and 5578315 or 1981761 else v=T[y[1]]Z,l={},r(4733)M=Q(8037982,{y[1]})C=r(4566)m=s[C]C=r(4651)e=m[C]C=1.5 m=e(C,M)v[l]=m v=s[r(4608)]end else if 10244639>v then Z=T[y[1]]l=r(4603)v=Z[l]C=r(4724)Z=v()Z=r(4558)v=s[Z]Z,l=r(4743),r(4792)Z,m=v[Z],r(4558)Z=Z(v,l)e=s[m]m=r(4649)l=e[m]m=T[y[2]]e=m[C]v,b=r(4850),r(4291)z=T[y[1]]M=z[b]z=r(4369)C=M[z]v,M=Z[v],r(4478)m=C[M]v=v(Z,l,e,m)v,Z=s[r(4597)],{}else E=r(4944)V=T[o]R=V[E]E,v,V=r(4582),8989712,r(4530)V=R[V]V=V(R,E)O=V end end else if 10268888>v then l,v,e,Z=nil,s[r(4879)],nil,{}elseif v<10271392 then m=r(4710)Z=l[m]z=r(4348)M=s[z]z=r(4710)C=M[z]M=r(4523)m=C[M]v=Z~=m v=v and 766758 or 7321943 elseif 10278223>v then l,b,C=c[1],r(4348),r(4710)m=l[C]z=s[b]b=r(4710)M=z[b]z=r(4817)C=M[z]e=m==C Z,v=e,e and 965159 or 2701232 else Z,v={},s[r(4756)]end end else if v>10352178 then if 10376891>v then u=r(4636)E=T[y[1]]V=E[u]E=r(4578)v=V[E]v=v and 5475091 or 11575115 elseif 10388034>v then m,b=v,r(4610)z=s[b]M=v v,C=z and 1645367 or 12330028,z elseif v<10390699 then Z=r(4751)v=s[Z]v=v and 16254560 or 1238733 else v=V V={v(R)}o,v,b,O=V[2],1824516,V[1],V[3]end else if v<10297464 then E=r(4636)V=T[y[1]]R=V[E]o=B(o)V=r(4720)v=R[V]V,M=r(4304),nil R=z[V]V=b O=B(O)b=nil v[R]=V z,v=nil,4369521 elseif 10306440>v then v,o=15732065,e elseif 10323501>v then M=r(4962)Z=s[M]m,e,l,C,M=c[3],c[2],c[1],c[4],r(4825)v=Z[M]M=r(4392)Z=v(M)M,v=Z,r(4846)z=v v,Z=e and 4507810 or 15753600,e else e=r(4636)l=T[y[1]]M,C,m,V=0,0,r(4479),r(4636)Z=l[e]l=r(4486)v=Z[l]Z=r(4580)e=s[m]m=r(4825)l=e[m]m=0 R=T[y[1]]O=R[V]R=r(4678)o=O[R]O=r(4389)b=o[O]o=r(4880)z=b[o]e=l(m,C,M,z)v[Z]=e v,Z=s[r(4352)],{}end end end end end else if 9033670>v then if 8810027>v then if v>8714029 then if v>8773063 then if 8785427>v then e=Q(14352598,{l;y[2],y[3];y[4]})Z=r(4365)v=s[Z]Z=v(e)v=6834143 elseif v<8799262 then M=0 v=T[y[1]]l,Z=12646790<9569926,r(4695)v[Z]=l l=T[y[1]]e=r(4636)Z=l[e]l=r(4684)v=Z[l]C,Z,l,e=280,r(4784),12013951>14948723,r(4636)v[Z]=l l=T[y[1]]Z=l[e]l,m=r(4684),r(4479)v=Z[l]Z=r(4780)e=s[m]z,m=320,r(4825)l=e[m]m=0 e=l(m,C,M,z)v[Z]=e Z,v={},s[r(4266)]elseif 8803740>v then e,l,V,C=c[2],c[1],0,r(4364)Z=T[y[1]]m=c[3]v=Z[C]U,R,C,z,u,O=r(4596),-16,r(4476),r(4780),0,r(4479)o=s[O]O,j=r(4825),r(4348)b=o[O]O,E=1,14 o=b(O,R,V,E)V,E,b=r(4479),8,r(4871)R=s[V]V,n=r(4825),r(4276)O=R[V]V=0 R=O(V,E,u,m)E,O,u=r(4716),r(4821),r(4528)I=T[y[2]]V=1 f=I[U]U,k=9,r(4348)W=s[k]m,I,k=nil,r(4965),r(4276)D=W[k]W=r(4616)a=D[W]D=r(4705)H=s[j]j=r(4705)k=H[j]H=r(4427)W=k[H]H,k=103,r(4401)M={[z]=o,[b]=R;[O]=V;[E]=e;[u]=f,[I]=U;[n]=a,[D]=W,[k]=H}e=nil Z=v(C,l,M)v,l,Z=s[r(4423)],nil,{}else Z,C=r(4550),{}v=T[y[1]]v[Z]=C Z,b=r(4782),r(4271)v=s[Z]z=e[b]b={v(z)}M,C,Z,v=b[3],b[2],b[1],9764815 z=Z end else if 8722440>v then Z=T[y[2]]m,e=r(4769),r(4628)v=Z[e]e=T[y[1]]Z=e[m]m=r(4428)e=l[m]v[Z]=e v=10168148 elseif 8733646>v then v=C v=Z and 15057222 or 6663500 elseif 8754504>v then m,v,e=r(4694),13053794,r(4530)e=l[e]e=e(l,m)Z=e else l,e=c[1],c[2]v=e and 9097972 or 10270897 end end else if v>8645385 then if 8659470>v then v=3850341 elseif v<8669316 then n=r(4769)I=T[y[3]]U,v=r(4837),13694342 f=I[U]U=T[o]I=U[n]u=f[I]E=not u R=E elseif 8694873>v then v,Z=s[r(4285)],{}else l,e=r(4832),.15 Z=T[y[1]]v=Z[l]M=.5 l=T[y[2]]C=r(4821)m={[C]=M}Z=v(l,e,m)v=994537 end else if v<8625048 then if v<8599707 then Z=r(4468)l=L(10722930,{y[1]})v=s[Z]Z=v(l)v=2467208 elseif v<8612383 then R,v=r(4949),o o,j=r(4264),40 z=X()Z=b or o T[z]=Z o=r(4962)b=s[o]o=r(4825)Z=b[o]u,o=r(4769),r(4567)b=Z(o)o=X()T[o]=b Z=T[o]b=r(4454)E=T[l]V=E[u]O=R..V Z[b]=O E,k,b,O=75,60,r(4334),15014621~=8692545 Z=T[o]V=r(4479)Z[b]=O O,b=1881945<=4127038,r(4847)Z=T[o]Z[b]=O O,b=16522789<=16017052,r(4740)Z=T[o]Z[b]=O O,H,b,u=1,60,r(4625),0 Z=T[o]Z[b]=O Z=T[o]b=r(4780)R=s[V]v,V=m and 2566597 or 14518627,r(4287)O=R[V]V=250 R=O(V,E)E=2.5 Z[b]=R Z=T[o]V,b=r(4943),r(4848)R=s[V]V=r(4825)O=R[V]V=0 R=O(V,E,u)Z[b]=R b,O=r(4845),4907822>6474454 Z=T[o]Z[b]=O b=r(4363)Z=T[o]E=r(4348)O=T[e]Z[b]=O u,b=40,r(4961)Z=T[o]V=s[E]E=r(4961)R=V[E]V=r(4388)O=R[V]Z[b]=O b=r(4753)Z=T[o]E=r(4636)V=T[y[1]]R=V[E]V,E=r(4393),40 O=R[V]Z[b]=O O=r(4962)b=s[O]O=r(4825)Z=b[O]O=r(4499)b=Z(O)W,Z=r(4762),r(4454)O,V=r(4382),r(4762)b[Z]=O R=s[V]Z,V=r(4500),r(4510)O=R[V]V=40 R=O(V,E,u)b[Z]=R f,Z,V,O=r(4843),r(4821),r(4479),.1 b[Z]=O R=s[V]Z,V=r(4780),r(4414)O=R[V]E,V=1,1 R=O(V,E)b[Z]=R O=T[o]Z,q=r(4753),25 b[Z]=O R=r(4962)O=s[R]R=r(4825)Z=O[R]E,u,R=r(4281),0,r(4380)O=Z(R)V=s[E]E=r(4825)R=V[E]E=.2 V=R(E,u)R,Z=b,r(4484)O[Z]=V Z=r(4753)O[Z]=R V=r(4962)R=s[V]V=r(4825)Z=R[V]V=r(4773)R=Z(V)V=X()T[V]=R R=r(4846)Z=T[V]n=r(4664)u=s[f]f=r(4825)E=u[f]U=s[n]n=r(4825)I=U[n]n=0 D=s[W]W=r(4510)a=D[W]W=60 D={a(W,k,H)}a,H,k=r(4664),40,r(4762)U=I(n,A(D))n=s[a]a=r(4825)I=n[a]a=.5 W=s[k]k=r(4510)D=W[k]k=40 W={D(k,H,j)}n=I(a,A(W))D=r(4664)a=s[D]H,D,j,d=r(4762),r(4825),25,180 I=a[D]D=1 k=s[H]H=r(4510)W=k[H]H=25 k={W(H,j,q)}a={I(D,A(k))}f={U;n,A(a)}u=E(f)E,I=b,r(4348)Z[R]=u R=r(4753)Z=T[V]Z[R]=E E=r(4962)R=s[E]E=r(4825)Z=R[E]E=r(4392)R=Z(E)f=s[I]Z,I=r(4358),r(4358)u=f[I]f=r(4443)E=u[f]R[Z]=E Z,I,U,f=r(4846),200,200,r(4762)u=s[f]H,P,f,j=r(4762),255,r(4510),255 E=u[f]f=200 u=E(f,I,U)R[Z]=u U,u,Z,E=r(4843),r(4962),r(4301),2 R[Z]=E E,Z=b,r(4753)R[Z]=E E=s[u]q,D,u=255,r(4664),r(4825)Z=E[u]u=r(4773)E=Z(u)u=X()T[u]=E Z=T[u]I=s[U]U,E=r(4825),r(4846)f=I[U]a=s[D]D=r(4825)n=a[D]k=s[H]D,H=0,r(4510)W=k[H]H=255 k={W(H,j,q)}W=r(4664)a=n(D,A(k))q=180 D=s[W]W=r(4825)n=D[W]W,j=.5,r(4762)H=s[j]j=r(4510)k=H[j]j=180 H={k(j,q,d)}k,q=r(4664),r(4762)D=n(W,A(H))W=s[k]k=r(4825)n=W[k]j=s[q]q,k=r(4510),1 H=j[q]q,d=255,255 j={H(q,d,P)}W={n(k,A(j))}U={a;D,A(W)}I=f(U)Z[E]=I E,D=r(4753),50 Z=T[u]f=R Z[E]=f f=r(4962)E=s[f]f=r(4825)Z=E[f]f,a=r(4557),50 E=Z(f)n=r(4762)f=X()T[f]=E Z=T[f]I,E=r(4602),r(4454)Z[E]=I Z=T[f]E=r(4500)U=s[n]n=r(4510)I=U[n]n=50 U=I(n,a,D)Z[E]=U Z=T[f]I,n,E=0,r(4479),r(4821)Z[E]=I Z=T[f]U=s[n]E,a,n=r(4871),.167,r(4414)I=U[n]n=.05 U=I(n,a)Z[E]=U a=.7 Z=T[f]E,n=r(4780),r(4479)U=s[n]n=r(4414)I=U[n]n=.215 U=I(n,a)Z[E]=U a,E=r(4348),r(4401)Z=T[f]I=5 Z[E]=I E=r(4599)Z=T[f]n=s[a]a=r(4599)U=n[a]D,n=r(4348),r(4906)I=U[n]Z[E]=I Z=T[f]a,E,n,I=0,r(4753),r(4281),b Z[E]=I I=r(4962)E=s[I]k,I=0,r(4825)Z=E[I]I=r(4380)E=Z(I)Z=r(4484)U=s[n]n=r(4825)I=U[n]n=1 U=I(n,a)E[Z]=U I=T[f]U,Z=r(4962),r(4753)E[Z]=I I=s[U]U=r(4825)Z=I[U]U=r(4392)I=Z(U)Z=r(4358)a=s[D]D=r(4358)n=a[D]D,a=220,r(4443)U=n[a]I[Z]=U Z,a=r(4846),r(4762)n=s[a]a=r(4510)U=n[a]W,a,H=220,220,255 n=U(a,D,W)I[Z]=n Z,U=r(4301),2 I[Z]=U Z=r(4753)U=T[f]n=t(14663289,{y[2];l;f})a=r(4895)I[Z]=U U=r(4365)Z=s[U]U=Z(n)n=r(4962)U=s[n]n=r(4825)Z=U[n]n=r(4476)U=Z(n)n=X()T[n]=U Z=T[n]U=r(4454)Z[U]=a a,U,W=1,r(4821),r(4276)Z=T[n]Z[U]=a Z=T[n]D=s[W]W=r(4825)a=D[W]U,W=r(4907),r(4785)D=a(W)Z[U]=D U=r(4871)Z=T[n]W=r(4479)D=s[W]W=r(4414)a=D[W]W=.29955 D=a(W,k)W=r(4479)Z[U]=D Z=T[n]D=s[W]W,U=r(4414),r(4780)a=D[W]W,k=.7,.5 D=a(W,k)Z[U]=D U,W=r(4716),r(4762)Z=T[n]a=T[M]k=255 Z[U]=a Z=T[n]D=s[W]U,W=r(4528),r(4510)a=D[W]W=255 D=a(W,k,H)Z[U]=D a=22 Z=T[n]U=r(4965)Z[U]=a U,a,k=r(4502),0,r(4348)Z=T[n]Z[U]=a Z=T[n]a,U=2640061<5135071,r(4400)Z[U]=a U=r(4705)Z=T[n]W=s[k]k=r(4705)D=W[k]W=r(4427)a=D[W]Z[U]=a U=r(4672)Z=T[n]k=r(4348)W=s[k]k=r(4672)D=W[k]W=r(4658)a=D[W]Z[U]=a Z=T[n]U,a=r(4401),6 Z[U]=a a=b Z=T[n]U=r(4753)Z[U]=a else v=13847969 end else if v<8629470 then Z,v={},s[r(4946)]else Z=T[y[1]]m=r(4790)v=Z[m]v=v and 14415550 or 4616953 end end end end else if v<8902649 then if v<8850346 then if v<8836693 then if 8818890>v then M=r(4716)Z=T[y[2]]b,z=r(4341),l Z[M]=z z=s[b]b=r(4322)M=z[b]z=M()M=.04 Z=z<M v=Z and 9756407 or 2084620 elseif v<8828850 then Z=T[y[2]]l,e,v=r(4956),.5,not Z T[y[2]]=v v=13167012 Z=s[l]l=Z(e)else e=T[y[1]]m=r(4636)Z=e[m]e=r(4300)v=Z[e]m=r(4796)e=m..l Z=r(4855)v[Z]=e v=6665081 end else if v<8838160 then Z=r(4878)v=T[y[1]]b,l=r(4479),13635764<4383413 v[Z]=l C,o=r(4636),280 Z=T[y[1]]l=r(4832)v=Z[l]m=T[y[1]]R=0 e=m[C]m,C=r(4247),r(4780)l=e[m]e=.3 z=s[b]O,b=0,r(4825)M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)e=t(10814307,{y[1]})l=r(4566)Z=s[l]l=r(4651)v=Z[l]l=.3 Z=v(l,e)Z,v={},s[r(4789)]else Z=T[y[1]]l=r(4603)v=Z[l]Z=v()v,Z=s[r(4269)],{}end end else if 8865345>v then Z=r(4901)v=s[Z]v=v and 8476150 or 7018303 elseif 8882839>v then e=T[y[1]]m=r(4548)l=e[m]Z,v=l,l and 9218305 or 7850607 elseif v<8899936 then e=r(4638)l=X()v=nil T[l]=v Z=T[y[1]]v=Z==e v=v and 1748942 or 13246022 else n=I v=u(a)a,n,v=nil,nil,184491 end end else if 8999618>v then if v<8940012 then C=T[y[1]]M=r(4636)m=C[M]V,b=r(4636),r(4364)z=T[y[1]]U=-16 M=z[b]I=r(4479)R=T[y[1]]b,A2=r(4313),r(4348)O=R[V]C,a,V,R,E,W,n,s2=r(4578),28,r(4578),r(4684),r(4780),70,0,120 o=O[R]R=r(4454)f=s[I]q,D,H,I=r(4528),0,r(4687),r(4825)u=f[I]j,I=r(4859),1 f=u(I,U,n,a)k,h,u,a,n,x=r(4386),120,r(4871),8,r(4479),r(4437)U=s[n]n=r(4825)I=U[n]n=0 U=I(n,a,D,W)I,W,D,y2=r(4500),r(4716),r(4937),101 a=T[y[2]]n=a[D]D,v,a,i=.5,s[r(4742)],r(4821),r(4762)P=T[y[2]]d=P[x]P=r(4581)w=s[i]i=r(4510)x=w[i]Z,i={},120 w=x(i,h,s2)x=r(4965)v2=s[A2]A2,i,h=r(4276),10,r(4276)r2=v2[A2]v2=r(4239)s2=r2[v2]v2,r2,A2=4226685<3416643,r(4805),r(4401)O={[R]=V,[E]=f,[u]=U,[I]=n,[a]=D;[W]=k;[H]=j,[q]=d;[P]=w;[x]=i,[h]=s2,[r2]=v2;[A2]=y2}z=M(b,o,O)M,D=r(4503),0 m[C]=z C=T[y[1]]m=C[M]b=T[y[1]]U,o=-10,r(4636)z=b[o]E,b=r(4780),r(4578)M=z[b]W,z=102,6 C=m(M,z)i=0 C=T[y[1]]b,n,M=r(4364),1,r(4636)m=C[M]d,w,x,C=r(4433),0,r(4479),r(4326)z=T[y[1]]V=r(4636)M=z[b]b=r(4959)R=T[y[1]]O=R[V]I,V,R=r(4479),r(4326),r(4684)o=O[R]R=r(4454)f=s[I]I=r(4825)u=f[I]H,I,a=r(4963),1,-106 f=u(I,U,n,a)n,a,u=r(4479),9,r(4871)U=s[n]n=r(4825)I=U[n]n=0 U=I(n,a,D,W)D,W,k,n,a,I,h=0,r(4349),3,1,r(4729),r(4821),0 q=T[y[2]]j=q[d]P=s[x]q,x=r(4580),r(4825)d=P[x]x=0 P=d(x,w,i,h)x,d=101,r(4401)O={[R]=V;[E]=f,[u]=U,[I]=n,[a]=D;[W]=k,[H]=j;[q]=P;[d]=x}z=M(b,o,O)m[C]=z f=2 C=T[y[1]]U,b,M=r(4348),r(4364),r(4636)m=C[M]z=T[y[1]]C=r(4540)M=z[b]V=r(4636)R=T[y[1]]b=r(4588)O=R[V]R,u=r(4326),r(4281)o=O[R]R=r(4332)E=s[u]u=r(4825)V=E[u]l,u=nil,0 E=V(u,f)V=r(4245)I=s[U]U=r(4245)f=I[U]I=r(4732)u=f[I]O={[R]=E;[V]=u}z=M(b,o,O)m[C]=z z=r(4636)M=T[y[1]]C=M[z]M=r(4540)m=C[M]C,M=r(4448),r(4389)C=m[C]C=C(m,M)M=K(11252102,{y[1]})m=r(4465)m=C[m]m=m(C,M)e=nil M=L(14604547,{y[1],y[2]})C=r(4365)m=s[C]C=m(M)elseif 8983530>v then Z,v={},s[r(4335)]elseif 8991045>v then v=O and 8277136 or 15994088 else m=T[y[1]]C=r(4636)e=m[C]m=r(4576)l=e[m]v,Z=l and 117366 or 1831950,l end else if 9017247>v then v=T[y[1]]Z,l=r(4695),3125418>=16485031 v[Z]=l Z=T[y[1]]l=r(4511)v=Z[l]Z=v()v=7757717 elseif 9029519>v then m=r(4636)e=T[y[1]]l=e[m]e=r(4559)Z=l[e]v=not Z v=v and 8625965 or 14313179 elseif v<9031504 then v,l,Z=s[r(4920)],nil,{}else Z=T[y[5]]v=822337 e=T[y[2]]l=Z(e)end end end end else if 9219247>v then if v>9133855 then if v>9177203 then if v<9184317 then m=T[y[1]]C=r(4636)e=m[C]m=r(4393)l=e[m]v,Z=l and 3751960 or 7037931,l elseif 9200351>v then o=r(4468)v=s[o]O=F(9363759,{b,z})o=v(O)v=14723677 elseif v<9214440 then m=r(4636)e=T[y[1]]l=e[m]e=r(4296)v=l[e]l,e=r(4716),r(4283)v[l]=e v=13461176 else C=r(4636)m=T[y[1]]e=m[C]m=r(4612)l=e[m]v,Z=7850607,l end else if v<9150548 then l=r(4925)Z=T[y[1]]v=Z[l]Z=v()v=1823616 elseif v<9167754 then v=Z and 5927852 or 13479666 elseif v<9173638 then m,v=nil,10475070 else l=c[1]e=l v=T[y[1]]Z,m=r(4552),r(4636)v[Z]=e e=T[y[1]]Z=e[m]e=r(4612)v=Z[e]v=v and 4487205 or 9031401 end end else if v<9099051 then if v<9052819 then if v<9039365 then v=1029700>5204971 T[y[1]]=v v=9130743 elseif v<9043134 then W,k=r(4762),80 D=s[W]H,v,W=80,11980058,r(4510)a=D[W]W=255 D=a(W,k,H)U=D else m,C=r(4341),25 e=s[m]m=r(4893)v=e[m]m=#l e=v(m,C)v,m=6898999,1 C,M=e,1 z=M M=0 b=z<M M=m-z end else if v<9080170 then l,Z=10315689<7351808,r(4790)v=T[y[1]]v[Z]=l Z,v={},s[r(4450)]else Z,v={},s[r(4297)]end end else if v<9100220 then Y2,c2=140,r(4762)y2=s[c2]c2,G2=r(4510),140 A2=y2[c2]c2=140 y2=A2(c2,G2,Y2)v,r2=5164019,y2 elseif v<9114589 then v,Z=m,e v=11146800 elseif 9129805>v then v=9301141~=1808211 v=v and 3993433 or 1835262 else l,Z,v=nil,{},s[r(4568)]end end end else if v>9374866 then if 9422574>v then if 9391168>v then M=r(4386)C=m~=M v,Z=14971276,C elseif v<9402089 then Z=r(4420)v=s[Z]l=T[y[1]]Z=v(l)l=Z v=l and 948342 or 16084167 elseif 9410487>v then v=X()C=e T[v]=M M=v o=T[M]O=T[y[2]]b=o~=O z,v=b,b and 2464945 or 2217645 else G2=r(4590)c2=k[G2]G2,y2=r(4357),v A2,v=c2 or G2,14576357 r2=A2 end else if 9447494>v then e,M,m,l=c[2],r(4590),v,c[1]C=l[M]z,M=r(4590),r(4386)Z=C or M C,m=v,r(4394)m=Z[m]m=m(Z)M=e[z]z,C=r(4386),r(4394)Z=M or z C=Z[C]C=C(Z)v=m<C Z={v}v=s[r(4779)]elseif v<9480989 then m,z=C(e,m)v=m and 12305464 or 7932263 elseif v<9505270 then o=T[y[1]]R,E=r(4636),r(4364)v=o[R]n=r(4796)V=T[y[1]]R=V[E]o,U=r(4300),r(4636)I=T[y[1]]W,E=r(4579),r(4688)f=I[U]I=r(4393)u=f[I]D=T[y[1]]a=D[W]W=r(4827)U=n..a n,I=r(4306),r(4855)D=T[y[1]]a=D[W]f={[I]=U,[n]=a}V=R(E,u,f)v[o]=V v=2433437 else Z=T[y[1]]l=r(4944)v=Z[l]Z,l=r(4562),r(4903)Z=v[Z]Z=Z(v,l)l=Z v=l and 13637503 or 6029848 end end else if v>9323576 then if 9337343>v then f=T[R]U=r(4558)h,H,v,I,x,D=14694371<8648471,r(4538),E,r(4639),r(4716),r(4927)u=f[I]I=s[U]U=r(4649)f=I[U]I,n=r(4364),r(4454)E=u==f j=-6 f=T[y[1]]u=f[I]k=T[R]I=r(4898)W=k[H]a=D..W P,d,q,H=0,46,0,r(4479)k=s[H]w,D,H=r(4386),r(4780),r(4825)W=k[H]H=1 k=W(H,j,q,d)j=T[y[2]]q=r(4937)H=j[q]q,i,d,W,Y2,j=.5,r(4611),r(4729),r(4500),r(4348),r(4821)U={[n]=a,[D]=k;[W]=H,[j]=q,[d]=P,[x]=w,[i]=h}w,D,P=.5,r(4454),0 f=u(I,m,U)i,U=-16,r(4503)u=X()T[u]=f n=6 I=T[y[1]]f=I[U]k,x,v2=r(4780),32,r(4538)U=T[u]I=f(U,n)I=T[y[1]]U=r(4364)f=I[U]U,W,q,d=r(4557),r(4411),r(4479),32 n=T[u]j=s[q]q=r(4825)H=j[q]h,q=50,0 j=H(q,d,P,x)H,P=r(4871),r(4479)d=s[P]P,x=r(4825),8 q=d[P]P=0 d=q(P,x,w,i)q,w=r(4500),r(4762)x=s[w]w=r(4510)P=x[w]i,w=50,50 x=P(w,i,h)i=r(4813)r2=T[R]s2=r2[v2]v2,P,r2=r(4348),r(4491),r(4496)h=s2 ..r2 w=i..h i=r(4599)r2=s[v2]v2=r(4599)s2=r2[v2]r2=r(4906)h=s2[r2]a={[D]=W;[k]=j;[H]=d;[q]=x;[P]=w;[i]=h}I=f(U,n,a)U=T[y[1]]n=r(4503)f=U[n]n,P,j,d=16,14,r(4479),0 U=f(I,n)U=T[y[1]]q,W,n=-110,r(4780),r(4364)f=U[n]a=T[u]s2=r(4590)H=s[j]n,j,w=r(4476),r(4825),5 k=H[j]j,x,c2=1,0,r(4348)H=k(j,q,d,P)r2,d=r(4276),r(4479)q=s[d]k,d,P=r(4871),r(4825),48 j=q[d]d=0 q=j(d,P,x,w)w,j,d,P=r(4735),r(4821),1,r(4716)h=T[R]i=h[s2]x=w..i s2,w=r(4437),r(4528)h=T[y[2]]i=h[s2]y2=s[c2]c2=r(4276)A2=y2[c2]h,s2,y2=r(4965),11,r(4616)v2=A2[y2]A2=r(4705)G2=s[Y2]Y2=r(4705)c2=G2[Y2]G2=r(4427)y2=c2[G2]D={[W]=H,[k]=q;[j]=d;[P]=x;[w]=i,[h]=s2,[r2]=v2,[A2]=y2}U=f(n,a,D)P,q=0,r(4479)n=T[y[1]]a=r(4364)f=n[a]v2=v D=T[u]a,d,w=r(4476),-110,0 j=s[q]i=20 k,q=r(4780),r(4825)H=j[q]q,x,r2=1,12,r(4706)j=H(q,d,P,x)x,H,P=48,r(4871),r(4479)d=s[P]P=r(4825)q=d[P]P=0 d=q(P,x,w,i)q=r(4821)s2=T[R]h=s2[r2]x,P,s2,i=r(4716),1,r(4357),v i,r2,w=r(4528),V,h or s2 s2=v v=V and 5866105 or 5270289 elseif 9354952>v then m,z,e,l,M=v,r(4814),c[2],c[1],r(4814)C=l[M]M=0 Z=C or M C=v M=e[z]z=0 m=M or z v=Z>m Z={v}v=s[r(4594)]elseif 9362416>v then o=M z=T[y[2]]b=r(4716)z[b]=o o,b,v=.3,r(4956),14736105 z=s[b]b=z(o)o=l z=T[y[2]]b,M=r(4716),nil z[b]=o else Z=T[y[1]]l=r(4944)v=Z[l]Z,l=r(4562),r(4903)Z=v[Z]Z=Z(v,l)l=Z v=l and 14590386 or 6927360 end else if v<9277935 then if v<9229080 then v,m=s[r(4877)],r(4643)e=T[y[1]]Z={}l=e[m]e=l()elseif 9255615>v then v=Z and 10166539 or 3175249 else v=T[y[1]]Z,l=r(4695),4369016<2924816 v[Z]=l Z=T[y[1]]l=r(4634)v=Z[l]Z=v()v=827738 end else if 9301953>v then l=r(4944)Z=T[y[1]]v=Z[l]Z,l=r(4562),r(4903)Z=v[Z]Z=Z(v,l)l=Z v=l and 5896412 or 6054763 else j,n,v,k=nil,nil,14882173,nil end end end end end end end else if 11754997>v then if v<11234420 then if v<10948863 then if 10793052>v then if v>10732517 then if 10744478>v then Z=T[y[1]]l=r(4319)v=Z[l]Z=v()v=6150458 elseif 10748501>v then Z=T[y[1]]l=r(4475)v=Z[l]v=v and 4803382 or 13984277 elseif v<10766903 then l=T[y[1]]e=r(4636)Z=l[e]l=r(4559)v=Z[l]v=v and 6719770 or 15759368 else O,v=V,E v=V and 981071 or 5753971 end else if v<10713315 then if 10694036>v then l=T[y[1]]v,Z=l and 5426307 or 5020525,l elseif 10707656>v then E,v=o,7706764 o,b=nil,E else V=r(4944)R=T[b]O=R[V]v,o=2666672,O end else if v<10718802 then e,v=r(4410),6480337 Z=T[y[1]]m=15012756<2569375 Z[e]=m m=r(4885)e=T[y[1]]Z=e[m]e=Z()else e=r(4636)l=T[y[1]]Z=l[e]l=r(4300)v=Z[l]Z=r(4868)Z=v[Z]Z=Z(v)Z,v={},s[r(4752)]end end end else if 10820364>v then if v<10805210 then l=T[y[1]]e=r(4636)Z=l[e]l=r(4576)v=Z[l]Z,l=r(4784),4223971>=16323634 v[Z]=l v=5966878 elseif 10811139>v then a,D=nil,nil U=B(U)v,E=5184237,nil elseif v<10814962 then C=280 l=T[y[1]]e=r(4636)Z=l[e]l,M=r(4247),0 v=Z[l]l,e,z,Z=7317135>=14132109,r(4636),320,r(4784)v[Z]=l l=T[y[1]]Z=l[e]m,l=r(4479),r(4247)v=Z[l]e=s[m]Z,m=r(4780),r(4825)l=e[m]m=0 e=l(m,C,M,z)v[Z]=e v,Z=s[r(4986)],{}else l,m=c[1],r(4636)v=T[y[1]]Z,e=r(4579),l v[Z]=e e=T[y[1]]Z=e[m]e=r(4300)v=Z[e]v=v and 8835496 or 6665081 end else if v<10839827 then M=r(4636)C=T[y[1]]m=C[M]C=r(4576)e=m[C]m=r(4784)l=e[m]v,Z=11632215,l elseif v<10856349 then l=r(4695)Z=T[y[1]]v=Z[l]v=v and 9273259 or 827738 elseif 10893616>v then z=T[y[6]]C,b=v,r(4944)M=z[b]m,v=M,M and 10209769 or 13524003 else I,f=r(4557),r(4533)f,v=o[f],3568486 f=f(o,I)E=f end end end else if 11117207>v then if v>11038018 then if v<11044699 then C=T[y[1]]M=r(4636)m=C[M]C=r(4247)e=m[C]l=not e Z,v=l,l and 14332072 or 11252414 elseif v<11076912 then v,M=3872118,r(4319)C=T[y[1]]Z=C[M]C=Z()elseif 11110713>v then u,v=r(4348),7943800 E=s[u]u=r(4938)V=E[u]E=r(4315)R=V[E]o=R else E=T[e]u=r(4342)V=E[u]R,O=not V,v o,v=R,R and 1566655 or 8263613 end else if v>11006287 then if v<11026114 then v,E,u,R,O=2649154,nil,nil,nil,nil else z,v=o,O v=o and 7211722 or 2458956 end else if v<10976003 then v=T[y[1]]Z,l=r(4821),.3 v[Z]=l Z,v={},s[r(4549)]elseif 10989185>v then U,v=a,D v=a and 11980058 or 9042998 else m=r(4636)e=T[y[1]]l=e[m]e=r(4559)Z=l[e]v=not Z v=v and 11507302 or 16409555 end end end else if v>11142807 then if v<11148782 then v=Z and 15835328 or 5557181 elseif v<11154943 then Z,l=r(4673),c[1]v=T[y[1]]e=l v[Z]=e Z,o=r(4782),r(4636)v=s[Z]b=T[y[1]]z=b[o]b=r(4534)M=z[b]O=r(4636)o=T[y[1]]b=o[O]o=r(4250)z=b[o]C={M;z}M={v(C)}v,e,m,Z=16737808,M[2],M[3],M[1]C=Z elseif 11195357>v then m,z=C(e,m)v=m and 13148793 or 14469077 else v2,A2,y2=v,E,v v=E and 7941575 or 15024303 end else if v<11122028 then o=r(4560)b=s[o]o=r(4399)v=b[o]M=C M=nil b=v(l,z)v,z=2838548,nil elseif 11127984>v then v=T[y[1]]e=T[y[2]]m=r(4538)l=e[m]e=r(4644)e=v[e]Z={e(v,l)}v,Z=s[r(4900)],{A(Z)}elseif 11134754>v then f,v=r(4916),E u=s[f]f=u(o)u=r(4560)E=f==u v=E and 15390879 or 12227087 else v=Z and 2783623 or 15769737 end end end end else if v<11527916 then if 11379651>v then if v>11324893 then if v<11331842 then u,I,f=v,r(4898),r(4533)f=o[f]f=f(o,I)v,E=f and 3568486 or 10929077,f elseif v<11342512 then m=r(4944)v=T[y[1]]e=T[y[2]]l=e[m]m=T[y[2]]C=r(4769)e=m[C]Z=v(l,e)v=T[y[3]]M=r(4944)l=T[y[2]]C=T[y[2]]m=C[M]C=r(4582)e=m[C]Z=v(l,e)l=Z v=l and 4959323 or 298579 elseif v<11353483 then Z=r(4722)v=s[Z]v=v and 6028568 or 8208106 else f=T[u]v,D,W=759863,r(4334),4452285>=5095459 f[D]=W end else if v<11253340 then if 11244674>v then l,C=7231447>=12990542,r(4636)v=T[y[1]]Z=r(4695)v[Z]=l Z=T[y[1]]l=r(4832)v=Z[l]m=T[y[1]]e=m[C]o,C,m,b=280,r(4780),r(4684),r(4479)l=e[m]e,O=.3,0 z=s[b]b=r(4825)M=z[b]R,b=0,0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)l=r(4566)e=L(12345124,{y[1]})Z=s[l]l=r(4651)v=Z[l]l=.3 Z=v(l,e)v,Z=s[r(4614)],{}elseif 11252258>v then e=r(4636)l=T[y[1]]Z=l[e]l,m=r(4326),r(4479)v=Z[l]Z=r(4580)e=s[m]C,m=0,r(4825)l=e[m]V,m=r(4636),0 R=T[y[1]]O=R[V]R,M=r(4540),0 o=O[R]O=r(4389)b=o[O]o=r(4880)z=b[o]e=l(m,C,M,z)v[Z]=e Z,v={},s[r(4256)]else M=T[y[1]]v,z=14332072,r(4636)C=M[z]M=r(4247)m=C[M]C=r(4784)e=m[C]l=not e Z=l end else if v<11287518 then v=T[y[1]]l,Z=15836865<=4691162,r(4475)v[Z]=l Z=T[y[1]]l=r(4505)v=Z[l]Z=v()v=12424896 else m=r(4488)e=s[m]l=c m=e()e=r(4894)Z=m[e]v=not Z v=v and 9679786 or 980332 end end end else if 11474949>v then if 11403982>v then o,u={},r(4782)E=s[u]v=5184237 U={E(b)}I,u,f=U[3],U[1],U[2]elseif v<11415379 then m=T[y[1]]C=r(4837)Z=m[C]m=T[e]v=Z[m]m,Z=r(4837),r(4569)Z=v[Z]Z=Z(v)Z=T[y[1]]v=Z[m]Z=T[e]m=nil v[Z]=m v=13096283 elseif 11442780>v then U=r(4480)I=T[R]f=I[U]n=r(4558)U=s[n]n=r(4375)I=U[n]v=9325856 u=f==I V=u else v,e={},r(4782)l,b=v,r(4550)v=s[e]z=T[y[1]]M=z[b]z={v(M)}e,v,m,C=z[1],2838548,z[2],z[3]end else if 11494197>v then v,C=9694506,nil elseif 11501114>v then e=r(4636)l=T[y[1]]Z=l[e]l=r(4897)v=Z[l]l,m,Z,M=3897087~=10459661,r(4479),r(4784),0 v[Z]=l l=T[y[1]]o,e,z=280,r(4636),0 Z=l[e]R,l=320,r(4897)v=Z[l]C,b,Z=280,r(4479),r(4780)e=s[m]m=r(4825)l=e[m]m=0 e=l(m,C,M,z)v[Z]=e Z=T[y[1]]C,l=r(4636),r(4832)v=Z[l]m=T[y[1]]e=m[C]m,O,C=r(4897),0,r(4780)l=e[m]z=s[b]b,e=r(4825),.3 M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)Z,v={},s[r(4828)]elseif v<11505480 then G2,v=T2,Z2 v=T2 and 2291764 or 11724153 else Z=T[y[1]]l=r(4319)v=Z[l]Z=v()v=16409555 end end end else if 11633487>v then if v>11591778 then if v<11596965 then I,U=u(f,I)v=I and 13077834 or 5981354 elseif v<11615669 then Z=T[y[1]]l=r(4603)v=Z[l]Z=v()v=T[y[1]]Z,C=r(4718),r(4718)m=T[y[1]]e=m[C]l=not e v[Z]=l l=r(4718)Z=T[y[1]]v=Z[l]v=v and 4060619 or 15958939 elseif v<11632385 then v=Z and 10802450 or 5966878 else M=r(4636)C=T[y[1]]m=C[M]C=r(4897)e=m[C]l=not e v,Z=l and 7375262 or 882959,l end else if v>11577143 then if 11583961>v then T2=v v,l2=272222,r(4590)Z2=d[l2]l2=r(4357)Y2=Z2 or l2 c2=Y2 else C=T[y[3]]M=r(4663)Z=C==M v=Z and 8273335 or 1744209 end else if v<11554367 then V,u=v,r(4294)E=s[u]R,v=E,E and 1142580 or 5596770 elseif v<11567660 then Z=r(4363)v=T[y[4]]m=T[y[6]]C=r(4944)e=m[C]m=r(4582)l=e[m]v[Z]=l v=12191810 else Z={}z=B(z)R=nil M=B(M)e=B(e)b=B(b)E=r(4498)o=B(o)v=T[O]V=v(E)O=B(O)m=B(m)v=s[r(4737)]C=B(C)l=B(l)end end end else if 11702940>v then if v<11643273 then Z=r(4468)v=s[Z]M=F(9396364,{C,e})Z=v(M)v=2558985 elseif v<11663247 then l=r(4832)Z=T[y[1]]e,C=.15,r(4821)v=Z[l]M=.5 m={[C]=M}l=T[y[2]]Z=v(l,e,m)Z,v={},s[r(4615)]elseif v<11683031 then m=r(4468)M=F(5666530,{l})e=s[m]z={e(M)}m,M=z[1],v C=z[2]e=X()T[e]=C z=not m v,C=z and 15526595 or 7750917,z else l=r(4730)v=s[l]z=r(4837)M=T[y[1]]C=M[z]M={v(C)}e,m,v,l=M[2],M[3],10407490,M[1]end else if 11719169>v then m=T[y[1]]C=r(4636)e=m[C]m=r(4576)l=e[m]v,Z=l and 7140874 or 9857774,l elseif v<11726086 then l2=r(4762)Z2=s[l2]l2,X2=r(4510),0 T2=Z2[l2]l2,m2,v=0,0,2291764 Z2=T2(l2,m2,X2)G2=Z2 elseif v<11735838 then Z=r(4892)v=s[Z]Z={v()}Z,v={A(Z)},s[r(4481)]else V=T[y[1]]z,E=v,r(4636)R=V[E]V=r(4559)O=R[V]R=r(4784)o=O[R]b=not o v,M=b and 1300790 or 12409445,b end end end end end else if v<12187473 then if v<11917514 then if v>11827941 then if v>11892067 then if v<11898354 then o,R=C,r(4753)O=T[y[2]]Z=O[R]v=not Z v=v and 3969178 or 6646787 elseif 11902767>v then e,m=r(4636),r(4479)l=T[y[1]]M=0 Z=l[e]l,e=r(4897),r(4636)v=Z[l]Z,l=r(4784),14366274<14254840 v[Z]=l z=320 l=T[y[1]]Z=l[e]l=r(4897)v=Z[l]C=280 e=s[m]Z,m=r(4780),r(4825)l=e[m]m=0 e=l(m,C,M,z)v[Z]=e Z,v={},s[r(4467)]elseif 11911260>v then v,Z=s[r(4887)],{}else a=r(4730)n=s[a]k={n(U)}W,v,a,D=k[3],14882173,k[1],k[2]end else if 11834561>v then Z,l=r(4410),12091649<10071164 v=T[y[1]]v[Z]=l Z=T[y[1]]l=r(4885)v=Z[l]Z=v()v=3045183 elseif v<11855725 then O,b=r(4294),v o=s[O]z,v=o,o and 9804818 or 15204257 elseif v<11881087 then O,v=R,V v=4276373 else e=T[y[2]]Z,v=e,e and 4959813 or 15087708 end end else if v<11790682 then if 11783438>v then if v<11766619 then e,l=c[2],c[1]v=e and 2777282 or 16460343 elseif v<11772499 then e=r(4636)l=T[y[1]]Z=l[e]l=r(4576)v=Z[l]l,Z=5186522>=12405129,r(4784)v[Z]=l v=4373136 else z=o+z Z,R=b>=z,not O Z=R and Z R=b<=z R=O and R Z=R or Z R=7249689 v=Z and R Z=9361073 v=v or Z end else if v<11789491 then m,Z=l,r(4491)v=T[y[3]]v[Z]=m v=1065418 else v,E=8389004,r(4730)o=s[E]I={o(C)}E,u,f=I[1],I[2],I[3]end end else if 11791887>v then v=Z and 505402 or 16725855 elseif v<11795883 then V,O=r(4610),v R=s[V]o,b=R,v v=R and 6323570 or 11034668 elseif 11811548>v then C=Z Z,v=e,e and 4610026 or 11138814 else l=r(4566)Z=s[l]l=r(4365)v=Z[l]l=K(7122316,{y[1]})Z=v(l)v=16644048 end end end else if v<12068108 then if v<11987967 then if v>11966472 then if 11975099>v then v=13395699 Z=T[y[6]]M=Z(C)else f,v=U,n v=5663977 end else if 11925817>v then v=o R,V,E,o=v,e,v,r(4780)v=e and 16263560 or 10783655 elseif 11948437>v then k=r(4560)W=s[k]k=r(4399)n=W[k]k=T[U]W=n(o,k)v=10807971 else b,Z=r(4652),r(4782)v=s[Z]b=m[b]z={b(m)}b={v(A(z))}v,Z=8159601,b[1]z,C,M=Z,b[2],b[3]end end else if v<12005564 then z=T[y[1]]b,v=r(4319),5338936 M=z[b]Z=M elseif 12025419>v then v=X()z=M T[v]=b b=v R=T[b]O=R~=e o,v=O,O and 14967986 or 3387464 elseif v<12045156 then V,b,R=r(4499),M,r(4533)R=o[R]R=R(o,V)v,O=R and 4276373 or 12311625,R else l=T[y[1]]e=r(4636)Z=l[e]l=r(4576)v=Z[l]l,Z=7296726>13015223,r(4784)v[Z]=l v=1706212 end end else if v<12147243 then if v<12081942 then v,Z,l=s[r(4447)],{},nil elseif v<12101720 then l,Z=9730714<9459143,r(4475)v=T[y[1]]v[Z]=l l=r(4505)Z=T[y[1]]v=Z[l]Z=v()v=12546574 elseif 12131000>v then z,v={},15540776 C=z else v,Z=s[r(4521)],{}end else if 12160610>v then Z,v={},s[r(4876)]elseif 12168538>v then Z,v={},s[r(4632)]elseif v<12176262 then v=Z and 4960892 or 13007590 else O=T[b]v,R=5850791,r(4944)o=O[R]z=o end end end end else if v<12386832 then if 12315632>v then if v>12252489 then if v<12281632 then C,v=z,9899202 elseif 12300313>v then m,e=r(4479),r(4636)l=T[y[1]]V=r(4636)Z=l[e]M,C,l=0,0,r(4257)v=Z[l]e=s[m]m,Z=r(4825),r(4580)l=e[m]R=T[y[1]]m=0 O=R[V]R=r(4561)o=O[R]O=r(4389)b=o[O]o=r(4880)z=b[o]e=l(m,C,M,z)v[Z]=e Z,v={},s[r(4354)]elseif v<12308544 then d,o,n,f=r(4276),r(4364),24,r(4479)v=X()M=m T[v]=z z,q,E=v,r(4437),r(4636)b=T[y[1]]U=0 v=b[o]r2,j=r(4398),r(4724)V=T[y[1]]D,o=v,r(4898)R=V[E]V=r(4913)O=R[V]I,V=80,r(4780)u=s[f]f=r(4825)E=u[f]f=0 u=E(f,I,U,n)U,E,n,i=r(4303),r(4500),v,r(4348)n=r(4729)I=T[y[2]]f=I[U]H=T[z]k=H[j]H,I=r(4645),r(4821)W=k==H k=.3 a,D=W and k,.7 k=T[z]U,H=a or D,r(4304)D=r(4716)W=k[H]j=T[y[2]]a,k=0,r(4528)H=j[q]j,q=r(4965),9 w=s[i]i=r(4276)x=w[i]h,w=r(4724),r(4239)P=x[w]i=T[z]x=r(4454)w=i[h]i=r(4732)s2=T[z]h=s2[r2]s2,r2,M=r(4401),102,nil R={[V]=u;[E]=f;[I]=U,[n]=a,[D]=W,[k]=H;[j]=q,[d]=P,[x]=w;[i]=h;[s2]=r2}u=r(4636)b=v(o,O,R)R=r(4503)O=T[y[1]]v=9462998 o=O[R]R=4 O=o(b,R)R=t(3714740,{y[1];z})O=r(4917)o=b[O]O=r(4465)O=o[O]O=O(o,R)R=r(4560)O=s[R]R=r(4399)o=O[R]z=B(z)E=T[y[1]]V=E[u]E=r(4822)R=V[E]O=o(R,b)b=nil else V,u,E=v,r(4476),r(4533)E=o[E]E=E(o,u)v,R=E and 11874270 or 11329016,E end else if v>12215253 then if 12231982>v then v,o=16088894,nil else Z,v={},s[r(4618)]end else if v<12194966 then m=r(4944)e=T[y[7]]l=e[m]Z,v=l,l and 16102484 or 5148328 elseif 12200771>v then Z=T[y[1]]l=r(4475)v=Z[l]v=v and 12831131 or 4412463 else v,Z=s[r(4350)],{}end end end else if 12345639>v then if v<12324834 then m,l=r(4429),r(4341)Z=s[l]l=r(4516)v=Z[l]e=T[y[2]]m=e[m]m=m(e)e=1000 l=m*e Z=v(l)m=r(4636)e=T[y[1]]l=Z Z=e[m]e=r(4824)v=Z[e]v=v and 641011 or 3850341 elseif v<12333005 then v=M v,e=C and 14740602 or 2810467,C elseif 12340553>v then Z=r(4475)v=T[y[1]]l=6236089>4750528 v[Z]=l Z=T[y[1]]l=r(4410)v=Z[l]v=v and 2001678 or 8086638 else C=280 l=T[y[1]]e,M=r(4636),0 Z=l[e]e,l=r(4636),r(4684)v=Z[l]Z,l=r(4784),16567460<=5888521 v[Z]=l l=T[y[1]]m=r(4479)Z=l[e]l=r(4684)v=Z[l]Z=r(4780)e=s[m]m=r(4825)l=e[m]z,m=320,0 e=l(m,C,M,z)v[Z]=e Z,v={},s[r(4292)]end else if v<12354438 then Z,v={},s[r(4994)]elseif v<12367958 then d=r(4762)q=s[d]d,P,x,v=r(4510),80,80,8134476 j=q[d]d=80 q=j(d,P,x)k=q elseif v<12375469 then Z=r(4695)v=T[y[1]]l=9687764<=5748035 v[Z]=l Z=T[y[1]]l=r(4634)v=Z[l]Z=v()v=5082613 else Z=T[y[1]]l=r(4475)v=Z[l]v=v and 12082395 or 12546574 end end end else if v>12536592 then if v>12675444 then if v<12686151 then v=q v=H and 14875708 or 9321296 elseif 12699105>v then o=r(4636)b=T[y[1]]z=b[o]v,b=15007101,r(4559)M=z[b]z=r(4784)C=M[z]m=not C Z=m elseif 12724635>v then m,e=r(4769),r(4799)l=T[y[1]]Z=l[e]e=T[y[2]]l=e[m]v=Z[l]v=v and 5297792 or 4759843 else v=13167012 end else if v<12586747 then l=r(4980)Z=T[y[1]]v=Z[l]v=v and 4805302 or 10854543 elseif v<12644705 then z,O=b(M,z)v=z and 4936398 or 2627256 elseif 12664831>v then Z=T[y[1]]l=r(4603)v=Z[l]Z=v()C=r(4636)v=T[y[2]]m=T[y[1]]e=m[C]m=r(4250)l=e[m]Z=v(l)Z,v={},s[r(4930)]else Z=T[y[2]]C=r(4753)v=Z[C]v=v and 16370955 or 9694506 end end else if 12446265>v then if 12402682>v then m=X()v=T[y[1]]l=v v,Z=r(4277),r(4365)e=v C=Q(12739645,{y[2],m})v=13983547~=5195733 T[m]=v v=s[Z]Z=v(C)Z=T[y[3]]C=r(4264)v=Z==C v=v and 2677021 or 11588751 elseif 12413771>v then v,Z=z,M v=8729080 elseif 12421496>v then z,Z=38,r(4790)e=F(9062369,{y[1]})R=38 v=T[y[1]]l=16150012~=4882807 v[Z]=l m,l=r(4479),r(4566)Z=s[l]l=r(4651)v=Z[l]l=.3 Z=v(l,e)e,C,Z,l=r(4636),0,r(4410),5548194<15042413 v=T[y[1]]v[Z]=l l=T[y[1]]o=340 Z=l[e]O,e,l=0,r(4636),r(4559)v=Z[l]l,Z=10406882~=2468618,r(4784)v[Z]=l l=T[y[1]]Z=l[e]M,l=0,r(4559)v=Z[l]Z=r(4780)e=s[m]m=r(4825)l=e[m]m=0 e=l(m,C,M,z)v[Z]=e l,C=r(4832),r(4636)Z=T[y[1]]v=Z[l]m=T[y[1]]e=m[C]C,m=r(4780),r(4559)l=e[m]b,e=r(4479),.25 z=s[b]b=r(4825)M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)l=T[y[1]]e=r(4636)Z=l[e]l=r(4797)v=Z[l]Z=r(4995)Z=v[Z]Z=Z(v)Z,v={},s[r(4866)]else Z=T[y[1]]l=r(4980)v=Z[l]v=v and 14055775 or 8992379 end else if v<12473373 then m=r(4560)e=s[m]m=r(4890)v=e[m]m=S(9348831,{})e=v(l,m)v=9043270 elseif 12498373>v then E=r(4242)Z=M..E M,v=Z,4900845 elseif 12522121>v then Z=T[y[5]]v=Z and 9031608 or 822337 else C=T[y[1]]M=r(4790)Z=C[M]v=Z and 14782555 or 6372126 end end end end end end end else if v<14630463 then if v<13658366 then if v>13243690 then if v>13522226 then if v>13592167 then if 13622080>v then if 13594920>v then v=T[y[1]]l,Z=8055679>=8560493,r(4410)v[Z]=l Z=T[y[1]]l=r(4983)v=Z[l]Z=v()v=14715072 elseif 13598671>v then M,C=5705164>14406924,r(4878)Z=T[y[1]]Z[C]=M M=r(4870)C=T[y[1]]Z=C[M]C=Z()v=3491244 elseif v<13607984 then Z=T[y[1]]m,e,b=l,Z,r(4636)Z=0 T[y[1]]=Z T[y[2]]=m z=T[y[3]]M=z[b]z=r(4236)C=M[z]v=C and 9713075 or 16294908 else m,C,l,Z,e,z=r(4479),280,14909022<=695573,r(4980),r(4636),320 v=T[y[1]]v[Z]=l l=T[y[1]]Z=l[e]l=r(4759)v=Z[l]Z,l=r(4784),15036558<14331547 v[Z]=l l=T[y[1]]e=r(4636)Z=l[e]l=r(4759)v=Z[l]Z=r(4780)e=s[m]M,m=0,r(4825)l=e[m]m=0 e=l(m,C,M,z)v[Z]=e Z,v={},s[r(4899)]end else if 13633480>v then Z,l=r(4715),14320126>=8687272 v=T[y[1]]v[Z]=l v,Z=s[r(4517)],{}elseif 13645635>v then Z=T[y[2]]v=r(4428)l[v]=Z v=6029848 elseif 13654006>v then H,q,v=nil,nil,9321296 else v=6148677 e=T[y[2]]m=e()e=T[y[3]]Z=0 l=Z m=e()end end else if 13574382>v then if v>13549351 then if v<13560028 then e=r(4636)l=T[y[1]]Z=l[e]l=r(4576)v=Z[l]l,Z=2019262>=3318587,r(4784)v[Z]=l Z,v={},s[r(4872)]else l,v,Z,m,e,C=nil,s[r(4241)],{},nil,nil,nil end else if 13526688>v then v=C v,l=13202935,m elseif v<13538046 then e=T[y[1]]z,o,m=r(4871),r(4456),r(4525)Z=e[m]m,l,e=r(4341),c[1],r(4697)v=Z[e]e=v Z=s[m]m=r(4939)v=Z[m]M=l[z]z=r(4697)C=M[z]b=T[y[1]]R=0 z=b[o]b=r(4697)M=z[b]O=1 m=C-M C,M=0,r(4780)Z=v(m,C,e)m=Z v=m/e o,C=r(4479),v v=C T[y[2]]=v Z=T[y[3]]b=s[o]o=r(4825)z=b[o]o=0 b=z(C,o,O,R)Z[M]=b M=r(4871)Z=T[y[4]]o,O=r(4479),.5 b=s[o]o,R=r(4825),-5 z=b[o]o=-5 b=z(C,o,O,R)Z[M]=b M=r(4716)Z=T[y[5]]o=r(4712)b=s[o]o=r(4623)z=b[o]o=r(4717)b=z(o,C)Z[M]=b Z=T[y[6]]v=Z and 11970140 or 13395699 else R=r(4695)v=T[y[1]]V=14799809<=1387589 v[R]=V R=r(4917)V=p(5529161,{y[1]})v=b[R]R=r(4465)R=v[R]R=R(v,V)v=10291297 end end else if 13582468>v then Z=T[y[1]]l=r(4674)v=Z[l]Z=v()v=7757717 elseif 13586105>v then k,W=220,r(4762)D=s[W]W=r(4510)a=D[W]W,H=80,120 D=a(W,k,H)U,v=D,6436668 elseif 13589268>v then v=Z and 14041002 or 1657614 else Z=r(4468)v=s[Z]M=t(9955145,{e,y[1],l})Z=v(M)z,M=v,m v=m and 246760 or 8085805 end end end else if 13385495>v then if v<13355342 then if v<13306366 then if v<13260031 then e=T[y[2]]m=r(4366)Z=e..m v=11674367 T[l]=Z elseif 13285102>v then Z=T[y[1]]l=r(4603)v=Z[l]Z=v()l=r(4410)Z=T[y[1]]v=Z[l]v=v and 6008149 or 12832324 else P,h=v,r(4769)i=T[V]w=i[h]x=j~=w d,v=x,x and 4401086 or 5222911 end else if 13330878>v then v=r(4532)Z={v}v=s[r(4929)]else O=t(16420282,{y[3],M})o=r(4468)v=s[o]o=v(O)o=r(4468)v=s[o]O=Q(12709625,{y[3];M})o=v(O)O=F(2942915,{M,y[3]})o=r(4468)v=s[o]o=v(O)v=2194644 end end else if v<13368203 then Z=r(4928)v=s[Z]Z=v()v,C=16454618,Z elseif v<13371756 then T2,G2,v,r2,v2=r(4348),r(4348),s2,9,r(4276)c2=s[G2]s2,G2=r(4965),r(4276)y2=c2[G2]c2=r(4239)A2=y2[c2]Y2=s[T2]y2,T2=r(4705),r(4705)G2=Y2[T2]Y2=r(4427)c2=G2[Y2]W={[k]=j;[H]=d,[q]=P;[x]=w,[i]=h,[s2]=r2,[v2]=A2,[y2]=c2}n=f(a,D,W)s2,D=.5,r(4364)v2,H,r2,A2=V,r(4454),0,v a=T[y[1]]h=20 f=a[D]x,i=r(4479),0 W=T[u]D,q,j=r(4476),r(4780),r(4951)P=s[x]x,w=r(4825),50 d=P[x]x=0 P=d(x,w,i,h)d,i=r(4871),r(4479)w=s[i]i,h=r(4825),-58 x=w[i]i=1 w=x(i,h,s2,r2)s2=r(4270)h=s[s2]s2,r2=r(4825),.5 i=h[s2]x,s2=r(4950),0 h=i(s2,r2)r2,i=v,r(4500)v=V and 7682970 or 15423065 elseif v<13373946 then b=r(4782)z=s[b]R={z(C)}b,o,v,O=R[1],R[2],3768762,R[3]else m,z=r(4832),.3 e=T[y[1]]M=r(4821)v=e[m]C,m={[M]=z},.15 e=v(l,m,C)m=T[y[1]]C=r(4636)e=m[C]m=r(4755)v=e[m]v=v and 5424841 or 16363774 end end else if 13478654>v then if v<13398633 then m,C,e,Z,v,l=nil,nil,nil,{},s[r(4874)],nil elseif v<13431372 then z=C o=T[y[1]]f,n,O=r(4724),r(4479),r(4364)v=o[O]a,H,D,u=76,v,0,r(4636)E=T[y[1]]r2,W=r(4348),24 V=E[u]O,E=r(4898),r(4595)R=V[E]E=r(4454)u=b[f]U=s[n]n=r(4825)I=U[n]n=0 U=I(n,a,D,W)f,d,W,D,I=r(4780),r(4724),v,r(4303),r(4500)a=T[y[2]]n=a[D]q=b[d]a,d=r(4821),r(4498)j=q==d W,H,q=r(4729),.7,.3 k=j and q D,q=k or H,r(4304)H=r(4716)j=b[q]k,x,w,q=0,r(4437),r(4276),r(4528)P=T[y[2]]d=P[x]P,x=r(4965),9 s2=s[r2]r2=r(4276)h=s2[r2]s2=r(4239)i=h[s2]h,s2,z=r(4401),102,nil V={[E]=u;[f]=U;[I]=n;[a]=D,[W]=k,[H]=j;[q]=d,[P]=x;[w]=i,[h]=s2}o=v(O,R,V)R=T[y[1]]V,v=r(4503),8252405 O=R[V]f,V=r(4636),4 R=O(o,V)V=r(4560)R=s[V]V=r(4399)O=R[V]u=T[y[1]]E=u[f]u=r(4968)V=E[u]R=O(V,o)o,b=nil,nil elseif v<13469409 then e=r(4733)l=T[y[1]]v=l[e]v=v and 4875864 or 7711367 else l=T[y[1]]e=r(4627)v=l[e]v=v and 14844389 or 9210576 end else if 13485646>v then Z=r(4357)Z,v={Z},s[r(4745)]elseif 13501387>v then Z,l,M=r(4875),10505072<=10607831,r(4628)v=T[y[1]]v[Z]=l Z=r(4730)v=s[Z]C=T[y[1]]m=C[M]C={v(m)}Z=C[1]m,v,e,l=Z,6054334,C[3],C[2]elseif v<13515799 then m,e,C=c[3],c[2],r(4962)Z=s[C]C,l=r(4825),c[1]v=Z[C]Z=v(l)C=Z Z,v,b=e,r(4753),m C[v]=Z Z=r(4730)v=s[Z]o=v v=m and 16071520 or 7970935 else z,o=r(4636),0 M=T[y[1]]C=M[z]O,Z,M,b=0,{},r(4257),r(4479)m=C[M]l=nil z=s[b]b=r(4825)M=z[b]b,v,C,V=0,s[r(4606)],r(4580),38 R=e*V z=M(b,o,O,R)m[C]=z e=nil end end end end else if 13042308>v then if 12948157>v then if 12847432>v then if v<12827038 then if v<12782017 then o=r(4575)b=T[y[1]]z=b[o]v,C=13031361,z elseif v<12806245 then l=4144411>=14057027 v=T[y[1]]Z=r(4475)v[Z]=l Z=T[y[1]]l=r(4318)v=Z[l]Z=v()v=10284559 else E,v={},10392508 R=E end else if v<12831727 then v=T[y[1]]Z,l=r(4475),9645453<636932 v[Z]=l Z=T[y[1]]l=r(4505)v=Z[l]Z=v()v=4412463 else Z,l=r(4410),7373354<11689046 v=T[y[1]]v[Z]=l l=r(4475)Z=T[y[1]]v=Z[l]v=v and 11254266 or 12424896 end end else if 12878918>v then Z=r(4530)v=T[y[1]]e,Z=r(4582),v[Z]Z=Z(v,e)e=Z v=e and 6457488 or 4091193 elseif 12897642>v then C=T[y[1]]M=r(4636)Z=C[M]M,C=r(4636),r(4797)v=Z[C]C,Z=m,r(4716)v[Z]=C z=1 C=T[y[1]]Z=C[M]C=r(4797)v=Z[C]Z=r(4624)M=#m C=M+z v[Z]=C M=r(4636)C=T[y[1]]Z=C[M]C=r(4683)v=Z[C]C,Z=r(4386),r(4716)v[Z]=C v=2485083 elseif 12919860>v then n=X()T[n]=U a,U,E=r(4468),n,I W=F(11125274,{V;U})n=s[a]k={n(W)}a,D,W=k[1],k[2],v n,v=a,a and 7938908 or 5098865 else v=m C,z=v,r(4713)M=e[z]v,m=M and 4265943 or 16126025,M end end else if 13009976>v then if v<12968168 then m,M,l,e,z=v,r(4814),c[1],c[2],r(4814)C=l[M]M=0 Z=C or M M=e[z]z,C=0,v m=M or z v=Z<m Z={v}v=s[r(4728)]elseif 12985332>v then f,u=50,r(4479)E=s[u]u=r(4287)V=E[u]u,v=50,15189289 E=V(u,f)O=E elseif v<12999251 then v=r(4662)Z={v}v=s[r(4702)]else v,l,Z,e=s[r(4258)],nil,{},nil end else if v<13020391 then V=r(4479)R=s[V]V,E=r(4414),.167 O=R[V]v,V=11917565,.05 R=O(V,E)b=R elseif v<13029891 then m=T[y[1]]C=r(4446)e=m[C]m=r(4592)v=e==m v=v and 8352280 or 16634752 elseif v<13036789 then v,e=M,C v=3700653 else M=r(4636)C=T[y[1]]m=C[M]C=r(4684)e=m[C]l=not e v,Z=l and 7013805 or 3089070,l end end end else if 13128715>v then if v<13075681 then if v>13062372 then if v<13072239 then l=r(4695)Z=T[y[1]]v=Z[l]v=v and 1273757 or 6788522 else e=r(4636)l=T[y[1]]Z=l[e]l=r(4247)v=Z[l]v=v and 7453598 or 15023776 end else if v<13044543 then l=r(4524)Z=s[l]v=not Z v=v and 12203419 or 1534641 elseif v<13050240 then v=Z and 3838288 or 3265620 else e=Z Z=T[y[2]]m=r(4944)v=Z[m]m=v Z,v=m,m and 3524339 or 11799155 end end else if v<13079434 then E,D=I,r(4916)a=s[D]D=a(U)a=r(4560)n=D==a v=n and 11917464 or 4436610 elseif v<13088658 then v=V v[O]=R R=r(4571)O=b[R]R=r(4784)v=O[R]v=v and 2059052 or 6205273 elseif v<13102460 then m=T[y[1]]C=r(4799)Z=m[C]m=T[e]v=Z[m]v=v and 4136757 or 682437 else Z,v={},s[r(4670)]end end else if 13193229>v then if 13153120>v then O=#l o,M,b=1,m,r(4849)b=M[b]b=b(M,o,O)v=b==l v=v and 3785132 or 4153570 elseif v<13162229 then M=T[y[2]]z=r(4753)Z=M[z]v=not Z v=v and 6159418 or 3529895 elseif 13175268>v then Z=T[y[1]]l=r(4753)v=Z[l]v=v and 8822205 or 7255764 else n=r(4713)U=T[o]I=U[n]n=T[o]D,a,U=50,r(4814),0 f=I or U O=f U=n[a]n=0 f,I,a=U or n,v,r(4295)R,I=f,v n=T[o]U=n[a]n=0 f=U or n a=O<D U,V,I,n=a,f,v,v v=a and 13584245 or 6436668 end else if v<13214104 then v=e v,Z=5148328,l elseif v<13227519 then v=X()T[v]=z b=X()z=v v=r(4626)v,M=l[v],m v=v(l,M)T[b]=v O=T[b]o,v=O,O and 10711955 or 2666672 elseif 13235562>v then v,C=b,z v=z and 16682654 or 11837181 else v,m,z=690444,r(4479),18 e=s[m]m,C=r(4825),18 l=e[m]M,m=0,0 e=l(m,C,M,z)Z=e end end end end end else if v<14102486 then if v<13867129 then if v>13775840 then if v>13821371 then if 13839138>v then Z,v={},s[r(4278)]elseif v<13851164 then W,v,U=nil,16057876,nil elseif 13859479>v then M,v=nil,13372602 else H,v,j,k=r(4401),W,103,0 W=r(4729)O={[R]=V;[E]=f;[u]=U,[I]=a,[n]=D;[W]=k,[H]=j}Z=v(o,b,O)o=X()R,f=10,r(4886)T[o]=Z Z=T[y[1]]O=r(4503)v=Z[O]W=9 O=T[o]E=r(4454)Z=v(O,R)O=r(4364)Z=T[y[1]]v=Z[O]R=T[o]u=e..f a,D,f,O,n=9,0,r(4780),r(4499),r(4479)U=s[n]n=r(4825)I=U[n]n=0 U=I(n,a,D,W)D,W,a=M,v,v v,I=M and 6219722 or 3004233,r(4871)end else if 13782497>v then M,b=m(C,M)v=M and 12015253 or 9857454 elseif v<13789893 then Z=r(4593)v=T[y[1]]l=6107211>12444617 v[Z]=l Z=T[y[1]]l=r(4988)v=Z[l]Z=v()v,Z=s[r(4311)],{}elseif v<13802306 then Z=r(4468)v=s[Z]e=K(13900212,{y[2],l,y[3];y[1];y[4],y[5],y[6],y[7];y[8];y[9];y[10]})Z=v(e)l=B(l)Z,v={},s[r(4869)]else V=L(8838429,{y[1]})R=r(4917)v=b[R]R=r(4465)R=v[R]R=R(v,V)v=10291297 end end else if v<13692258 then if 13670436>v then if v<13663170 then m=r(4636)e=T[y[1]]l=e[m]e=r(4696)Z=l[e]l=r(4716)v=Z[l]Z=r(4394)Z,o=v[Z],r(4636)Z=Z(v)l=Z Z,v=r(4782),0 e=v v=s[Z]b=T[y[1]]z=b[o]b=r(4435)M=z[b]z={v(M)}C,v,Z,m=z[3],127078,z[1],z[2]M=Z elseif 13665382>v then O,u=O+R,not V z=O<=o z=u and z u=O>=o u=V and u z=u or z u=9781088 v=z and u z=16062888 v=v or z else Z=r(4790)v=T[y[1]]l=16498175<=6284695 v[Z]=l Z,v={},s[r(4370)]end else if v<13682068 then l=r(4944)Z=T[y[1]]v=Z[l]v=v and 8250023 or 13830308 else Z=r(4468)l=X()e=X()m=p(10452626,{l;e,y[1]})T[l]=c[1]T[e]=c[2]v=s[Z]e=B(e)l=B(l)Z=v(m)Z,v={},s[r(4490)]end end else if v<13713380 then v=V v,O=1638439,R elseif 13750750>v then O=not z v,o=O and 14128018 or 1805888,O elseif v<13771688 then v=T[y[1]]Z,l=r(4980),13150866<7810969 v[Z]=l Z=T[y[1]]l=r(4954)v=Z[l]Z=v()v=10216308 else l=r(4603)Z=T[y[1]]v=Z[l]m=r(4454)Z=v()v=T[y[2]]e=T[y[3]]l=e[m]Z=v(l)Z,v={},s[r(4526)]end end end else if v>14011255 then if 14059559>v then if 14033448>v then e=r(4636)l=T[y[1]]O,M,m=0,0,r(4479)Z=l[e]l,z=r(4235),-120 v=Z[l]e=s[m]C,m=-230,r(4825)l=e[m]Z,m=r(4871),.5 e=l(m,C,M,z)R,l,C=-30,r(4566),r(4636)v[Z]=e Z=s[l]l=r(4956)v=Z[l]o,l=-230,.2 Z=v(l)l=r(4832)Z=T[y[1]]b=r(4479)v=Z[l]m=T[y[1]]e=m[C]C,m=r(4871),r(4235)l=e[m]e=.6 z=s[b]b=r(4825)M=z[b]b=.5 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)Z,v={},s[r(4586)]elseif 14038656>v then v,l=r(4533),c[1]v,Z=l[v],r(4567)v=v(l,Z)v=v and 16448332 or 6643199 elseif v<14048388 then v,Z=s[r(4512)],{}else Z,l=r(4980),14510720<=2411307 v=T[y[1]]v[Z]=l Z=T[y[1]]l=r(4954)v=Z[l]Z=v()v=8992379 end else if 14064787>v then o,m=r(4636),v b=T[y[1]]z=b[o]b=r(4393)M=z[b]C=not M v,e=C and 9100311 or 7958965,C elseif 14075353>v then l=15993176<2074785 v=T[y[1]]Z=r(4410)v[Z]=l Z=T[y[1]]l=r(4983)v=Z[l]Z=v()v=10746851 elseif 14092384>v then Z=T[y[1]]l=r(4453)v=Z[l]Z=v()v=13108638 else Z,l=r(4558),r(4529)v=s[Z]Z=r(4743)Z=v[Z]Z=Z(v,l)l=X()T[l]=Z m=L(15346771,{l})Z=r(4468)v=s[Z]C={v(m)}Z=C[1]m=Z Z,e,v=m,C[2],m and 3042789 or 3150518 end end else if v<13968219 then if 13897528>v then if v<13879124 then l=r(4424)Z=T[y[1]]v=Z[l]Z=v()v=6492188 elseif v<13891716 then C=r(4636)m=T[y[1]]e=m[C]m=r(4576)l=e[m]Z,v=l,l and 10825111 or 11632215 else e,Z,v,l=nil,{},s[r(4413)],nil end else if v<13930552 then Z=r(4422)v=T[y[1]]C=T[y[1]]M=r(4422)m=C[M]z=T[y[2]]M=120 C=M*z e=m+C m,M=360,r(4422)l=e%m v[Z]=l Z=r(4422)v=T[y[3]]C=T[y[3]]m=C[M]M=60 z=T[y[2]]C=M*z e=m+C m=360 l=e%m v[Z]=l m=r(4324)v=T[y[4]]Z=r(4812)e=T[y[5]]l=e[m]v[Z]=l m=r(4944)e=T[y[6]]l=e[m]v,Z=l and 602666 or 505960,l else O=r(4571)v=b[O]O,V=r(4784),v v,R=o and 13081034 or 1743204,o end end else if 13979911>v then e=r(4636)l=T[y[1]]Z=l[e]l=r(4671)v=Z[l]Z,m=r(4528),r(4437)e=T[y[2]]l=e[m]v[Z]=l Z,v={},s[r(4918)]elseif v<13987642 then l=r(4980)Z=T[y[1]]v=Z[l]v=v and 14986904 or 4018966 elseif v<13991466 then Z,v=e,m v=1936833 else e,l,v,Z=nil,nil,s[r(4404)],{}end end end end else if v>14366517 then if 14493852>v then if v>14409570 then if 14426761>v then v,Z=s[r(4240)],{}elseif 14439609>v then Z,v={},s[r(4739)]elseif v<14455161 then Z,l=r(4878),13659318<4707906 v=T[y[1]]v[Z]=l Z=T[y[1]]l=r(4870)v=Z[l]Z=v()v=2890637 else m=T[y[1]]C=r(4636)e=m[C]m=r(4683)v=e[m]e,l,Z,m=r(4716),nil,{},r(4386)v[e]=m v=s[r(4331)]end else if v<14379674 then O,e=0,r(4636)l=T[y[1]]Z=l[e]R,o,l=38,0,r(4797)v=Z[l]e,Z=r(4636),r(4408)Z=v[Z]Z=Z(v)l=T[y[1]]Z=l[e]e,l,C=r(4636),r(4797),r(4636)v=Z[l]Z,b,l=r(4716),r(4479),r(4386)v[Z]=l l=T[y[1]]Z=l[e]l=r(4683)v=Z[l]l,Z=r(4386),r(4716)v[Z]=l l=r(4832)Z=T[y[1]]v=Z[l]m=T[y[1]]e=m[C]C,m=r(4780),r(4559)l=e[m]z=s[b]e,b=.25,r(4825)M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)l=r(4566)Z=s[l]l=r(4651)v=Z[l]e=L(880460,{y[1]})l=.25 Z=v(l,e)Z,v={},s[r(4598)]elseif v<14385594 then C={}Z,v={C},s[r(4506)]elseif v<14395764 then v=T[y[1]]l,Z=9466424<7064467,r(4410)v[Z]=l l=r(4983)Z=T[y[1]]v=Z[l]Z=v()v=12377745 else f,n=E,r(4898)v=X()U=r(4533)T[v]=I I=v v=T[I]U=v[U]U=U(v,n)v=U and 3981680 or 15138831 end end else if 14564769>v then if 14519418>v then a=r(4962)U=s[a]a=r(4825)Z=U[a]D,a=r(4915),r(4476)U=Z(a)a=X()T[a]=U k,U=r(4276),r(4454)Z=T[a]Z[U]=D D,U=1,r(4821)Z=T[a]Z[U]=D U=r(4907)Z=T[a]W=s[k]H,k=.5,r(4825)D=W[k]k=r(4541)W=D(k)Z[U]=W U,k=r(4871),r(4479)Z=T[a]W=s[k]k=r(4414)D=W[k]k=.29955 W=D(k,H)Z[U]=W Z=T[a]U,H,k=r(4780),.5,r(4479)W=s[k]k=r(4414)D=W[k]k=.7 W=D(k,H)j=r(4454)Z[U]=W U=r(4716)Z=T[a]H=T[l]W=r(4735)k=H[j]D=W..k k=r(4762)Z[U]=D Z=T[a]j,H=1,1 W=s[k]k,U=r(4825),r(4528)D=W[k]k=1 W=D(k,H,j)Z[U]=W Z=T[a]D,U,H=16,r(4965),r(4348)Z[U]=D D,U=0,r(4502)Z=T[a]Z[U]=D D=14148791>10737458 Z=T[a]U=r(4400)Z[U]=D U=r(4705)Z=T[a]k=s[H]H=r(4705)W=k[H]v,k=s[r(4495)],r(4427)D=W[k]Z[U]=D Z=T[a]H=r(4348)k=s[H]H,U=r(4672),r(4672)W=k[H]k=r(4654)D=W[k]Z[U]=D U,D=r(4401),6 Z=T[a]Z[U]=D U=r(4753)Z=T[a]D=b Z[U]=D D,k=r(4962),r(4479)U=s[D]D=r(4825)Z=U[D]H,D=1,r(4898)U=Z(D)Z,D=r(4454),r(4536)U[Z]=D Z,D=r(4821),1 U[Z]=D Z,D=r(4716),r(4386)U[Z]=D W=s[k]k=r(4414)D=W[k]Z,k=r(4780),1 W=D(k,H)k,H=r(4479),0 U[Z]=W Z=r(4871)W=s[k]k=r(4414)D=W[k]k=0 W=D(k,H)U[Z]=W D,Z=20,r(4401)U[Z]=D Z,D=r(4611),11762189>13351384 U[Z]=D Z,D=r(4753),b U[Z]=D k=r(4799)W=F(5810373,{l,y[3]})D=r(4917)Z=U[D]D=r(4465)D=Z[D]D=D(Z,W)W=r(4485)D=T[y[4]]Z=D[W]W=F(8126802,{o;u;V,y[1];l,y[3];n,a;y[5];f})D=r(4465)D=Z[D]D=D(Z,W)W=T[y[1]]Z=W[k]k=T[l]H=r(4769)W=k[H]k=D Z[W]=k Z=T[o]Z={Z}elseif v<14522984 then Z,l,v={},nil,s[r(4781)]elseif v<14539470 then m=r(4636)e=T[y[1]]l=e[m]e=r(4897)Z=l[e]v=not Z v=v and 14196014 or 4934034 else e=F(16173278,{})Z=r(4468)v=s[Z]m={v(e)}Z,l=m[1],m[2]e=Z Z,v=e,e and 5168016 or 9164129 end else if v<14583371 then G2,v=r(4706),v2 v2,y2=r(4706),v c2=k[G2]y2,Y2,G2,Z2=r(4639),r(4558),r(4357),r(4838)A2=c2 or G2 G2=s[Y2]Y2=r(4649)c2=G2[Y2]G2,Y2,v=r(4480),r(4838),13653767 T2=k[Z2]x={[w]=j;[i]=h,[s2]=r2;[v2]=A2;[y2]=c2;[G2]=E;[Y2]=T2}P=d(b,x)elseif v<14596618 then Z=T[y[2]]v=r(4428)l[v]=Z v=6927360 elseif v<14603699 then Z=T[y[3]]e=r(4628)v=Z[e]m=r(4428)Z=T[y[2]]e=l[m]v[Z]=e v=5812945 else l,Z=r(4529),r(4558)v=s[Z]Z,V,e=r(4743),r(4636),r(4792)Z=v[Z]Z=Z(v,l)l=X()T[l]=Z Z=r(4558)m=X()v=s[Z]z=X()Z=r(4743)Z=v[Z]b=X()Z=Z(v,e)e=X()T[e]=Z v=r(4754)T[m]=v v=35 o=X()M=X()C=X()T[C]=v v=r(4498)T[M]=v v={}T[z]=v v=Q(8897251,{M;m,l,C})O=p(6608264,{b;z;o;y[1]})Z=r(4601)T[b]=v v=F(15292034,{y[1],y[2];e})T[o]=v v=T[y[1]]v[Z]=O v=S(15220241,{M,y[1]})O=X()T[O]=v R=T[y[1]]Z=R[V]R=r(4595)v=Z[R]R=v v=R and 3504010 or 10366605 end end end else if 14226015>v then if v<14193219 then if v>14161788 then if v<14192417 then m=r(4636)e=T[y[1]]l=e[m]e=r(4759)Z=l[e]v=not Z v=v and 9136968 or 1823616 else l=X()e=r(4769)T[l]=c[1]Z=T[l]v=Z[e]e=X()Z,C=r(4468),r(4837)T[e]=v m=p(13673961,{l;y[1];e})v=s[Z]Z=v(m)m=T[y[1]]Z=m[C]m=T[e]v=Z[m]v=v and 11405272 or 13096283 end else if 14116349>v then o=T[e]O,v=r(4544),11791163 b=o[O]Z=b elseif v<14129824 then v,o=1805888,b else m,z=r(4766),r(4348)Z=l[m]M=s[z]z=r(4766)C=M[z]M=r(4289)m=C[M]v=Z==m v=v and 14968209 or 10266880 end end else if v<14194707 then v=e v=Z and 13654245 or 6148677 elseif v<14195940 then l=T[y[1]]e=r(4636)Z=l[e]l=r(4576)v=Z[l]l,Z=9803778>16544401,r(4784)v[Z]=l v=13869660 elseif 14209692>v then v,Z=s[r(4347)],{}else M,v,C=nil,9879604,nil end end else if v>14315216 then if v<14324662 then l=r(4603)Z=T[y[1]]v=Z[l]l=r(4980)Z=v()Z=T[y[1]]v=Z[l]v=v and 15901872 or 2287159 elseif 14342335>v then v=Z and 596324 or 8837891 elseif v<14354766 then Z=r(4956)v=s[Z]l=.1 Z=v(l)m=r(4944)e=T[y[1]]l=e[m]Z,v=l,l and 2816759 or 2648257 else C=T[y[2]]M=r(4628)m=C[M]C=T[y[3]]e=m[C]Z,v=e,6868543 end else if v<14241968 then M,l=r(4636),c[1]C=T[y[1]]m=C[M]C=r(4393)e=m[C]v,Z=e and 15117163 or 1936833,e elseif 14281554>v then q,j=v,r(4339)H=s[j]n=W j=H(n)H,v=j,j and 13296165 or 12683717 elseif 14310505>v then e=T[y[1]]m=r(4636)l=e[m]e=r(4559)Z=l[e]v=not Z v=v and 10742105 or 6150458 else e=r(4636)l=T[y[1]]Z=l[e]l=r(4797)v=Z[l]e,Z,C=r(4636),r(4408),340 Z=v[Z]Z=Z(v)l=T[y[1]]Z=l[e]l=r(4559)v=Z[l]Z,l,e=r(4784),3380767>5652601,r(4636)v[Z]=l M=0 l=T[y[1]]Z=l[e]z,l,m=38,r(4559),r(4479)v=Z[l]e=s[m]m=r(4825)l=e[m]m=0 e=l(m,C,M,z)Z=r(4780)v[Z]=e Z,v={},s[r(4976)]end end end end end end else if 15667102>v then if v<15196773 then if v>14968097 then if 15067291>v then if 15015438>v then if v<14981062 then if 14969742>v then Z=r(4410)v=T[y[1]]m=5104541>=16529183 v[Z]=m Z=T[y[1]]m=r(4885)v=Z[m]Z=v()v=10266880 elseif 14973248>v then v=Z and 7968469 or 5123073 else Z=r(4610)v=s[Z]v=v and 15540252 or 8862264 end else if v<14997002 then l=2514504>5658744 v=T[y[1]]Z=r(4980)v[Z]=l l=r(4954)Z=T[y[1]]v=Z[l]Z=v()v=4018966 else v=Z and 1853413 or 8632976 end end else if 15024039>v then n,f,j,E=0,320,8241167<=14159101,280 Z=T[y[1]]l,k=r(4636),100 v=Z[l]e=T[y[1]]m,a=r(4364),r(4784)l=e[m]b=r(4636)z=T[y[1]]D,W=3468708>9937326,r(4401)M=z[b]H,u,Z,o,z,m=r(4740),0,r(4247),r(4780),r(4393),r(4499)C=M[z]b,V,z=r(4247),r(4479),r(4454)R=s[V]V=r(4825)O=R[V]V=0 R=O(V,E,u,f)O,u,f=r(4871),r(4479),-140 E=s[u]U,I,u=35,0,r(4825)V=E[u]u=.5 E=V(u,f,I,U)V,U=r(4500),r(4729)f=T[y[2]]I=r(4303)u=f[I]f,I=r(4821),.2 M={[z]=b,[o]=R,[O]=E;[V]=u;[f]=I,[U]=n;[a]=D;[W]=k,[H]=j}e=l(m,C,M)v[Z]=e l,q=r(4503),r(4348)Z=T[y[1]]b=r(4636)v=Z[l]H=r(4348)m=T[y[1]]C=r(4636)e=m[C]m=r(4247)l=e[m]C,e=r(4636),12 Z=v(l,e)a=r(4276)Z=T[y[1]]l=r(4852)v=Z[l]m=T[y[1]]e=m[C]m=r(4247)l=e[m]C=r(4433)m=T[y[2]]e=m[C]C,m=.4,1 Z=v(l,e,m,C)l=r(4636)Z=T[y[1]]R,f=0,0 v=Z[l]m,Z=r(4364),r(4914)e=T[y[1]]O=r(4479)l=e[m]z=T[y[1]]n=r(4437)M=z[b]z,E,m=r(4247),36,r(4476)C=M[z]z=r(4780)o=s[O]O=r(4825)b=o[O]V,O=0,1 o=b(O,R,V,E)b,V=r(4871),r(4479)R=s[V]E,V=0,r(4825)O=R[V]u,V=0,0 R=O(V,E,u,f)U=T[y[2]]u,O,V,f=r(4305),r(4821),1,r(4528)I=U[n]n=14 k=s[H]E,U,H=r(4716),r(4965),r(4276)W=k[H]k=r(4801)D=W[k]W=r(4672)j=s[q]q=r(4672)H=j[q]j=r(4482)k=H[j]j,H=101,r(4401)M={[z]=o,[b]=R;[O]=V;[E]=u;[f]=I;[U]=n;[a]=D,[W]=k,[H]=j}e=l(m,C,M)l,q,f=r(4636),r(4348),6 v[Z]=e Z=T[y[1]]O,b=r(4479),r(4636)v=Z[l]e=T[y[1]]m,Z=r(4364),r(4455)l=e[m]R,m=24,r(4898)z=T[y[1]]I=r(4697)M=z[b]W,u,z,V=r(4276),0,r(4247),0 C=M[z]z=r(4780)o=s[O]O,E=r(4825),24 b=o[O]O=0 o=b(O,R,V,E)V,E,b,D=r(4479),-30,r(4871),r(4437)R=s[V]V,U=r(4825),r(4528)O=R[V]V=1 R=O(V,E,u,f)E,f,V,O=r(4729),r(4716),1,r(4821)a=T[y[2]]u=0 n=a[D]j=s[q]D,a,q=11,r(4965),r(4276)H=j[q]j=r(4616)k=H[j]H,j=r(4401),101 M={[z]=o;[b]=R,[O]=V,[E]=u,[f]=I,[U]=n,[a]=D,[W]=k;[H]=j}e=l(m,C,M)v[Z]=e u,C=0,r(4636)Z=T[y[1]]l=r(4503)v=Z[l]V=r(4479)m=T[y[1]]k=28 e=m[C]m,w,b,f=r(4455),r(4436),r(4636),28 l=e[m]e=6 Z=v(l,e)e=T[y[1]]m=r(4636)l=e[m]e=r(4455)Z=l[e]l=r(4260)v=Z[l]l=t(10631216,{y[1]})m,Z=r(4636),r(4465)Z=v[Z]Z=Z(v,l)e=T[y[1]]l=e[m]e=r(4455)Z=l[e]l,I=r(4650),0 v=Z[l]E,Z=-16,r(4465)Z=v[Z]l=Q(109698,{y[1];y[2]})m=r(4636)Z=Z(v,l)e=T[y[1]]l=e[m]e=r(4455)Z=l[e]l=r(4917)v=Z[l]Z=r(4465)l=Q(6246399,{y[1]})Z=v[Z]Z=Z(v,l)Z=T[y[1]]l,D=r(4636),101 v=Z[l]e=T[y[1]]Z,m,y2=r(4519),r(4364),r(4276)l=e[m]z=T[y[1]]H,n=0,0 M=z[b]m,b,o,z=r(4499),r(4252),r(4780),r(4247)C=M[z]R=s[V]U,V=38,r(4825)O=R[V]V,z=1,r(4454)R=O(V,E,u,f)u,f,O=r(4479),8,r(4871)E=s[u]u=r(4825)V=E[u]u=0 E=V(u,f,I,U)V,U,I=r(4500),r(4729),r(4937)f=T[y[2]]u=f[I]f,P,a,I,x=r(4821),r(4386),r(4401),.5,r(4687)M={[z]=b,[o]=R;[O]=E,[V]=u;[f]=I;[U]=n;[a]=D}e=l(m,C,M)C,R=r(4636),r(4348)v[Z]=e U,l=r(4348),r(4503)Z=T[y[1]]M=r(4636)v=Z[l]m=T[y[1]]e=m[C]m,E=r(4519),r(4348)l=e[m]e,f,b,o=6,r(4348),r(4281),4 Z=v(l,e)l=r(4364)Z=T[y[1]]v=Z[l]l=r(4588)C=T[y[1]]m=C[M]j,C=56,r(4519)e=m[C]C=r(4332)z=s[b]b=r(4825)M=z[b]a,b=70,0 z=M(b,o)O=s[R]M,R=r(4274),r(4274)o=O[R]O=r(4546)b=o[O]o=r(4353)V=s[E]E=r(4353)R=V[E]V=r(4482)O=R[V]R=r(4804)u=s[f]f=r(4804)E=u[f]u=r(4482)V=E[u]I=s[U]E,U=r(4245),r(4245)f=I[U]I=r(4732)u=f[I]m={[C]=z,[M]=b,[o]=O;[R]=V,[E]=u}Z=v(l,e,m)O=r(4636)v=N(16345397,{y[1],y[2]})l,e,M,U,C,m=v,r(4636),1,240,r(4857),r(4952)Z=T[y[1]]z=11803224~=7651153 v=Z[e]e=l(m,C,M,z)Z2,m,Z,M=102,r(4359),r(4534),2 v[Z]=e Z=T[y[1]]r2,e,C=r(4596),r(4636),r(4688)v=Z[e]R,Z,n,z=r(4780),r(4250),0,16218335<4891117 e=l(m,C,M,z)v[Z]=e Z=r(4673)v=T[y[1]]M=r(4636)C=T[y[1]]m=C[M]C=r(4534)e=m[C]v[Z]=e W=0 v=K(11150765,{y[1]})e=X()T[e]=v M=r(4636)C=T[y[1]]m=C[M]C=r(4534)Z=m[C]m=r(4917)v=Z[m]m=K(2112691,{y[1],e})Z=r(4465)Z,M=v[Z],r(4636)Z=Z(v,m)C=T[y[1]]m=C[M]C,q=r(4250),0 Z=m[C]m=r(4917)v=Z[m]m=F(12662490,{y[1];e})Z=r(4465)Z=v[Z]Z=Z(v,m)D,m=-16,r(4636)Z=T[y[1]]f=0 v=Z[m]C=T[y[1]]M,I,Z=r(4364),0,r(4755)m=C[M]u,M=r(4479),r(4499)o=T[y[1]]b=o[O]o,O=r(4247),r(4755)z=b[o]o=r(4454)E=s[u]u=r(4825)V=E[u]u,d=1,r(4716)E=V(u,f,I,U)V,I=r(4871),r(4479)f=s[I]U,I=0,r(4825)u=f[I]I=0 f=u(I,U,n,a)n,U,i,u,I=101,r(4401),r(4581),r(4821),1 b={[o]=O;[R]=E,[V]=f;[u]=I;[U]=n}C=m(M,z,b)v[Z]=C v=J(10542356,{y[1];y[2]})o=r(4279)C=X()m=v v=t(13042399,{y[1]})O=v T[C]=v z=T[y[1]]b=r(4544)M=z[b]b=T[y[1]]z=14925449<=3560750 Z=M or z z=b[o]M,f,b=Z,r(4636),13881644<11156599 Z=z~=b z,b,E=Z,r(4403),r(4403)Z=T[y[1]]V=T[y[1]]R=V[E]V=r(4661)o=R or V Z[b]=o Z=T[y[1]]R,b,o=r(4636),r(4544),M Z[b]=o o=z Z=T[y[1]]b=r(4279)V=K(17566,{y[1],C})Z[b]=o O=T[y[1]]o=O[R]O=r(4755)b=o[O]O,R,o=r(4972),0,r(4609)Z=m(b,o,O,R,M,V)O=T[y[1]]R=r(4636)o=O[R]O=r(4755)b=o[O]I,O,o,R,A2=r(4780),r(4675),r(4368),28,r(4437)V=t(3813925,{y[1];C})Z=m(b,o,O,R,z,V)b=T[y[1]]R,o=r(4364),r(4636)Z=b[o]O=T[y[1]]o=O[R]b=r(4438)u=T[y[1]]R=r(4313)E=u[f]f,u,a=r(4438),r(4755),r(4479)V=E[u]u=r(4454)n=s[a]a=r(4825)U=n[a]a=1 n=U(a,D,W,k)U,W=r(4871),r(4479)D=s[W]W=r(4825)a=D[W]k,W=8,0 D=a(W,k,H,j)H,a=r(4937),r(4500)k=T[y[2]]W=k[H]k=r(4821)s2=T[y[2]]T2,H,j=r(4348),.5,r(4729)h=s2[r2]s2=r(4528)v2=T[y[2]]r2=v2[A2]A2=12 Y2=s[T2]v2,T2=r(4965),r(4276)G2=Y2[T2]Y2=r(4239)c2=G2[Y2]Y2,G2,T2=10238301<=13554190,r(4805),r(4401)E={[u]=f,[I]=n;[U]=D,[a]=W;[k]=H,[j]=q,[d]=P,[x]=w;[i]=h;[s2]=r2;[v2]=A2;[y2]=c2,[G2]=Y2,[T2]=Z2}O=o(R,V,E)Z[b]=O V,W,a,o=r(4636),1,r(4479),r(4503)b=T[y[1]]Z=b[o]z,q=nil,3 R=T[y[1]]O=R[V]R=r(4438)o=O[R]O,R,I,f=6,r(4364),r(4780),r(4636)b=Z(o,O)o=r(4636)b=T[y[1]]Z=b[o]b=r(4931)O=T[y[1]]o=O[R]u=T[y[1]]R=r(4959)E=u[f]u=r(4755)V=E[u]u,d,r2,j=r(4454),r(4963),0,88 n=s[a]a=r(4825)U=n[a]D,k,f,s2,h,H,a=-10,-88,r(4931),0,r(4479),0,1 n=U(a,D,W,k)W=r(4479)D=s[W]k,U,W,v2=9,r(4871),r(4825),0 a=D[W]W=0 D=a(W,k,H,j)j,k,H,a=r(4349),r(4729),0,r(4821)x=T[y[2]]W,w=1,r(4433)P=x[w]x=r(4580)i=s[h]h=r(4825)w=i[h]h=0 i=w(h,s2,r2,v2)M,h,w=nil,102,r(4401)E={[u]=f,[I]=n;[U]=D;[a]=W;[k]=H,[j]=q;[d]=P;[x]=i;[w]=h}O=o(R,V,E)o=r(4636)Z[b]=O j,U=70,r(4281)b=T[y[1]]R=r(4364)Z=b[o]b=r(4719)O=T[y[1]]f=r(4636)o=O[R]u=T[y[1]]E=u[f]D,u=r(4348),r(4931)V=E[u]I=s[U]U,R=r(4825),r(4588)f=I[U]u,n,U=r(4332),2,0 I=f(U,n)f=r(4245)a=s[D]D=r(4245)n=a[D]a=r(4732)U=n[a]D,E=0,{[u]=I;[f]=U}O=o(R,V,E)Z[b]=O O=r(4636)o=T[y[1]]b=o[O]o,l,I=r(4719),nil,r(4780)Z=b[o]f,b=r(4636),r(4448)b,o,d=Z[b],r(4389),r(4963)b=b(Z,o)Z=r(4465)Z=b[Z]o=Q(8085491,{y[1]})q,k=101,240 Z=Z(b,o)b=T[y[1]]o,a=r(4636),r(4479)Z=b[o]b=r(4783)O=T[y[1]]R=r(4364)o=O[R]u=T[y[1]]v2,R,W,H=266,r(4499),0,0 E=u[f]u,f,v=r(4247),r(4783),s[r(4808)]V=E[u]u=r(4454)n=s[a]a=r(4825)U=n[a]a=1 C=B(C)n=U(a,D,W,k)U,W=r(4871),r(4479)D=s[W]W=r(4825)a=D[W]W,k=0,0 D=a(W,k,H,j)W,H,k,a,w,j=1,10379037<=9418679,r(4784),r(4821),r(4433),r(4401)E={[u]=f,[I]=n,[U]=D,[a]=W,[k]=H;[j]=q}O=o(R,V,E)q,o,D,j,R=3,r(4636),-10,0,r(4364)Z[b]=O f=r(4636)b=T[y[1]]Z=b[o]O=T[y[1]]b=r(4619)o=O[R]R=r(4959)u=T[y[1]]W=1 E=u[f]u=r(4783)V=E[u]a,I,u,H,f=r(4479),r(4780),r(4454),0,r(4619)n=s[a]a=r(4825)U=n[a]k,r2,a,h=0,0,1,r(4479)n=U(a,D,W,k)U,k,W=r(4871),9,r(4479)D=s[W]W=r(4825)a=D[W]W=0 D=a(W,k,H,j)j,a,H,W,k=r(4349),r(4821),0,1,r(4729)x=T[y[2]]P=x[w]i=s[h]h=r(4825)w=i[h]s2,x,h=0,r(4580),0 i=w(h,s2,r2,v2)w,h=r(4401),102 E={[u]=f;[I]=n;[U]=D,[a]=W;[k]=H,[j]=q;[d]=P,[x]=i,[w]=h}O=o(R,V,E)Z[b]=O Z=p(8803002,{y[1];y[2]})b,U=Z,r(4548)Z=g(684386,{y[1],y[2]})E=T[y[1]]o=Z Z=N(8077211,{y[1],y[2]})O,u=Z,r(4636)V=E[u]E=r(4619)R=V[E]E,V,u=0,r(4826),r(4636)Z=b(R,V,E)E=T[y[1]]V=E[u]u,E=16,r(4619)R=V[E]V=r(4629)I=T[y[1]]f=I[U]E=r(4772)I=S(1379764,{y[1]})Z=m(R,V,E,u,f,I)u=r(4636)E=T[y[1]]V=E[u]E,U=r(4619),r(4458)R=V[E]V,u=r(4947),44 I=T[y[1]]f=I[U]I=F(6753321,{y[1]})E=r(4905)Z=o(R,V,E,u,f,I)E=T[y[1]]u=r(4636)V=E[u]u,U,E=84,r(4552),r(4619)R=V[E]I=T[y[1]]V,E=r(4834),r(4553)f=I[U]I=p(9175898,{y[1]})Z=O(R,V,E,u,f,I)u=r(4636)E=T[y[1]]V=E[u]E=r(4619)R=V[E]u,E,V=r(4636),134,r(4251)Z=b(R,V,E)E=T[y[1]]V=E[u]E,u=r(4619),150 R=V[E]E,V=r(4763),r(4936)I=T[y[1]]U=r(4323)f=I[U]I=t(1852366,{y[1]})Z=m(R,V,E,u,f,I)b,u=nil,r(4636)E=T[y[1]]V=E[u]E=r(4619)R=V[E]u,E,U,m=178,r(4265),r(4827),nil I=T[y[1]]V=r(4572)f=I[U]I=F(2596413,{y[1]})Z=o(R,V,E,u,f,I)E=T[y[1]]U,u=r(4579),r(4636)V=E[u]E=r(4619)R=V[E]V,u,E=r(4761),218,r(4746)I=T[y[1]]f=I[U]I=F(10815618,{y[1]})Z=O(R,V,E,u,f,I)O=nil Z=T[e]u=T[y[1]]f=r(4636)e=B(e)o=nil E=u[f]u=r(4534)V=E[u]R=Z(V)Z={}elseif 15035663>v then v=y2 v,r2=A2 and 5164019 or 9100130,A2 elseif v<15052123 then b,u=M,r(4718)E=T[y[1]]V=E[u]R=not V O,v=R,R and 15439746 or 4181349 else C=T[y[1]]M=r(4475)Z=C[M]v=Z and 284499 or 9740347 end end else if v<15102435 then if v<15078641 then M=r(4636)C=T[y[1]]m=C[M]C=r(4559)e=m[C]l=not e Z,v=l,l and 94139 or 15825972 elseif 15081682>v then v,b=R,O v=O and 11917565 or 13012362 elseif 15085575>v then v,Z=e,l v=l and 690444 or 13241358 else v=Z and 14602851 or 5812945 end else if v<15127997 then m,o=v,r(4636)b=T[y[1]]z=b[o]b=r(4393)M=z[b]z=r(4753)C=M[z]e,v=C,C and 3620507 or 13991007 elseif 15142396>v then f,v=nil,666851 I=B(I)elseif v<15167625 then v=T[y[2]]C=r(4342)m=e[C]Z=r(4889)Z=v[Z]Z=Z(v,m)m=Z C=m v=T[y[3]]M,Z=v,r(4853)v=m and 15540776 or 12121046 else v,b=R,O v=O and 4031966 or 4946715 end end end else if v>14778104 then if v<14873524 then if 14813472>v then v,Z=s[r(4246)],{}elseif v<14847273 then m=r(4636)e=T[y[1]]l=e[m]e=r(4296)v=l[e]e,l=r(4860),r(4716)v[l]=e v=13461176 elseif 14860749>v then Z,v={Z},s[r(4412)]else j=r(4762)H=s[j]j,v=r(4510),13864599 k=H[j]d,q,j=50,50,50 H=k(j,q,d)D=H end else if 14876147>v then w,P=r(4838),r(4339)d=s[P]q=v x=k[w]P=d(x)d=0 H=P or d q=O-H P=T[y[4]]d=q<=P v=d and 5021416 or 13653767 elseif 14879380>v then e=r(4673)l=T[y[1]]Z=l[e]l=T[y[2]]v=Z~=l v=v and 8712259 or 994537 elseif v<14925079 then W,k=a(D,W)v=W and 14255277 or 1216107 else R=v E=T[b]u=r(4944)V=E[u]v,O=V and 9882324 or 4463399,V end end else if 14727802>v then if 14701061>v then if 14659834>v then C=r(4636)m=T[y[1]]e=m[C]m,M=r(4797),r(4636)Z=e[m]e=r(4716)v=Z[e]C=T[y[1]]m=C[M]e,C=v,r(4683)Z=m[C]m=r(4716)v=Z[m]m=v v,Z=m and 9385973 or 14971276,m elseif 14675169>v then e=Q(2637541,{y[1];y[2]})Z=r(4468)v=s[Z]m={v(e)}l,Z=m[2],m[1]e=Z Z,v=e,e and 5368765 or 16595313 else C,v=nil,4743359 M=B(M)end else if 14719374>v then Z=T[y[1]]l=r(4475)v=Z[l]v=v and 380025 or 13888588 else z=B(z)v=15271266 b=B(b)M=nil end end else if 14734016>v then v=10366605 elseif 14738353>v then b,v,z=.18,10511434,r(4956)M=s[z]z=M(b)elseif v<14757128 then v=m v,Z=15748371,e else e=v C=T[y[1]]e,b,M=r(4279),r(4403),r(4544)m=C[M]Z=r(4544)M=T[y[1]]C=12738886<=9883562 l,z=m or C,r(4279)C=M[z]M=4665040>15021813 m=C~=M z=T[y[1]]M=z[b]z,C=r(4529),r(4403)v={[Z]=l,[e]=m,[C]=M}e,m,M=r(4524),r(4656),r(4558)Z=s[e]C=s[M]l,M=v,r(4743)M=C[M]M=M(C,z)v,z=s[r(4700)],r(4461)z=M[z]C={z(M,l)}e=Z(m,A(C))Z,l={},nil end end end end else if 15423109>v then if v<15321940 then if v<15279434 then if 15249391>v then if 15212249>v then v=b v,C=16682654,z elseif 15231950>v then e,l=r(4782),c[1]v,o=l,r(4636)T[y[1]]=v Z=s[e]b=T[y[2]]z=b[o]b,v=r(4968),15255123 M=z[b]z={Z(M)}e,m,C=z[1],z[2],z[3]else v=M v,Z=3150518,C end else if v<15263194 then C,z=e(m,C)v=C and 2651421 or 5442373 else m,z=C(e,m)v=m and 13225273 or 16687654 end end else if 15289327>v then Z,v={},s[r(4493)]elseif v<15291543 then m=T[y[2]]v,M,C=r(4428),r(4769),r(4628)e=m[C]C=T[y[1]]m=C[M]Z=e[m]l[v]=Z v=22798 elseif 15301521>v then m=T[y[1]]l,e,C=c[1],c[2],r(4636)Z=m[C]m=r(4326)v=Z[m]m=v v=not m v=v and 5727891 or 11962805 else C=80 l=T[y[1]]m,e=r(4762),r(4636)Z=l[e]l=r(4280)v=Z[l]e=s[m]Z,m=r(4528),r(4510)l=e[m]M,m=80,255 e=l(m,C,M)v[Z]=e v,Z=s[r(4767)],{}end end else if 15354913>v then if 15336049>v then m=r(4636)e=T[y[1]]l=e[m]e=r(4684)Z=l[e]v=not Z v=v and 6599410 or 8795523 elseif 15342999>v then o,e=r(4762),r(4832)l=T[y[1]]m=.2 Z=l[e]R,M,O=80,r(4500),80 e=T[y[3]]b=s[o]o=r(4510)z=b[o]o=80 b=z(o,O,R)C={[M]=b}l=Z(e,m,C)m,O,M=.2,-11,r(4871)l=T[y[1]]e=r(4832)Z=l[e]V=-4 e=T[y[4]]o,v=r(4479),12517633 b=s[o]R,o=.5,r(4825)z=b[o]o=1 b=z(o,O,R,V)C={[M]=b}l=Z(e,m,C)elseif v<15348529 then o,e=r(4558),r(4558)v=T[y[1]]C=r(4884)l=s[e]b=s[o]o=r(4649)z=b[o]b=r(4774)M=z..b m=C..M C=r(4791)C=l[C]e={C(l,m)}l=r(4889)l=v[l]Z={l(v,A(e))}Z,v={A(Z)},s[r(4660)]else M,l,e=r(4348),c[1],r(4710)Z=l[e]C=s[M]M=r(4710)m=C[M]C=r(4817)e=m[C]v=Z==e v=v and 7070270 or 15671090 end else if v<15370184 then Z=r(4715)v=T[y[1]]l=11458225>13693265 v[Z]=l Z,v={},s[r(4932)]elseif v<15385854 then z=r(4626)v=X()T[v]=M M=v b=X()C=e v=T[y[2]]z=v[z]z=z(v,C)T[b]=z o=T[b]v,z=o and 12183137 or 5850791,o elseif v<15406972 then v,u=11594806,r(4730)E=s[u]U={E(o)}I,u,f=U[3],U[1],U[2]else v,s2=A2,v2 v=v2 and 3164098 or 108093 end end end else if v>15537718 then if 15579917>v then if v<15540514 then v=r(4372)Z={v}v=s[r(4391)]elseif 15551866>v then v,o=M,r(4522)v[Z]=C Z=r(4782)v=s[Z]z=T[y[4]]o=z[o]b={o(z)}z={v(A(b))}Z,M,C=z[1],z[3],z[2]z,v=Z,2220721 elseif 15565477>v then R,V=r(4410),9887459<=4840582 v=T[y[1]]v[R]=V V=p(13274040,{y[1]})R=r(4917)v=b[R]R=r(4465)R=v[R]R=R(v,V)v=10291297 else v=T[y[1]]e=T[y[2]]m=r(4342)l=e[m]e=r(4889)e=v[e]Z={e(v,l)}v,Z=s[r(4542)],{A(Z)}end else if v<15595197 then l,e=r(4584),4470715~=4662356 Z=T[y[1]]Z[l]=e C,e,v,l=r(4596),r(4385),12346155,r(4716)Z=T[y[2]]Z[l]=e Z=T[y[2]]l=r(4528)m=T[y[3]]e=m[C]Z[l]=e elseif v<15628631 then Z=T[y[1]]o,b,I,l=r(4780),r(4636),0,r(4636)v=Z[l]D=15706550<=13040392 e=T[y[1]]V,m=r(4479),r(4364)l=e[m]z=T[y[1]]Z,f,m=r(4759),0,r(4499)M=z[b]z,U=r(4393),35 C=M[z]b,E=r(4759),280 R=s[V]V,q,z=r(4825),r(4348),r(4454)O=R[V]u,V=0,0 R=O(V,E,u,f)O,f,W,u,k=r(4871),-140,r(4401),r(4479),100 E=s[u]u,n,j,a=r(4825),0,4796624<=11427552,r(4784)V=E[u]u=.5 E=V(u,f,I,U)U=r(4729)f=T[y[2]]V,H,I=r(4500),r(4740),r(4303)u=f[I]I,f=.2,r(4821)M={[z]=b,[o]=R;[O]=E;[V]=u,[f]=I,[U]=n,[a]=D,[W]=k,[H]=j}e=l(m,C,M)v[Z]=e Z=T[y[1]]l,O=r(4503),r(4479)v=Z[l]m=T[y[1]]C=r(4636)e=m[C]m=r(4759)l=e[m]V,e=0,12 Z=v(l,e)b=r(4636)Z=T[y[1]]f,l,E=0,r(4852),36 v=Z[l]C=r(4636)m=T[y[1]]e=m[C]m=r(4759)l=e[m]m=T[y[2]]C=r(4433)e=m[C]R,m,C=0,1,.4 Z=v(l,e,m,C)l=r(4636)Z=T[y[1]]v=Z[l]e=T[y[1]]m=r(4364)l=e[m]z=T[y[1]]m=r(4476)M=z[b]n,Z,z=r(4437),r(4776),r(4759)C=M[z]z=r(4780)o=s[O]O=r(4825)b=o[O]u,O=0,1 o=b(O,R,V,E)H,V=r(4348),r(4479)R=s[V]b,E,a,V=r(4871),0,r(4276),r(4825)O=R[V]V=0 R=O(V,E,u,f)f,E,O=r(4528),r(4716),r(4821)U=T[y[2]]u,V=r(4589),1 I=U[n]n,U=14,r(4965)k=s[H]H=r(4276)W=k[H]k=r(4801)D=W[k]j=s[q]q,W=r(4672),r(4672)H=j[q]j=r(4482)k=H[j]q,j,H=r(4348),101,r(4401)M={[z]=o,[b]=R,[O]=V;[E]=u;[f]=I;[U]=n;[a]=D;[W]=k,[H]=j}e=l(m,C,M)l=r(4636)v[Z]=e Z=T[y[1]]v=Z[l]Z,m=r(4280),r(4364)e=T[y[1]]l=e[m]b,I,V=r(4636),r(4697),0 z=T[y[1]]u,m=0,r(4898)M=z[b]z,O,U=r(4759),r(4479),r(4528)C=M[z]o=s[O]O=r(4825)b=o[O]R,E,O,f=24,24,0,6 o=b(O,R,V,E)V,W,z,b=r(4479),r(4276),r(4780),r(4871)R=s[V]V=r(4825)O=R[V]E,V=-30,1 R=O(V,E,u,f)E=r(4729)a=T[y[2]]O,V,f,D,u=r(4821),1,r(4716),r(4437),0 n=a[D]j=s[q]q=r(4276)H=j[q]a,D,j=r(4965),11,r(4616)k=H[j]H,j=r(4401),101 M={[z]=o,[b]=R,[O]=V;[E]=u;[f]=I,[U]=n;[a]=D;[W]=k,[H]=j}I=0 e=l(m,C,M)l=r(4503)v[Z]=e C=r(4636)Z=T[y[1]]v=Z[l]O=r(4479)m=T[y[1]]e=m[C]m=r(4280)l=e[m]e,V=6,0 Z=v(l,e)e=T[y[1]]m=r(4636)l=e[m]e=r(4280)Z=l[e]l,n=r(4260),101 v=Z[l]Z=r(4465)l=L(15311009,{y[1]})u,Z,m,f=0,v[Z],r(4636),38 Z=Z(v,l)e=T[y[1]]E=28 l=e[m]e=r(4280)Z=l[e]m,l=r(4636),r(4650)v=Z[l]l=p(1333653,{y[1],y[2]})Z=r(4465)Z=v[Z]Z=Z(v,l)U=r(4401)e=T[y[1]]l=e[m]e,m=r(4280),r(4364)Z=l[e]l=r(4917)v=Z[l]b=r(4636)l=t(5759460,{y[1]})q,Z=r(4348),r(4465)Z=v[Z]Z=Z(v,l)Z=T[y[1]]l=r(4636)v=Z[l]Z=r(4913)e=T[y[1]]l=e[m]R,m=-16,r(4499)z=T[y[1]]M=z[b]z=r(4759)C=M[z]o=s[O]z,O=r(4780),r(4825)b=o[O]O=1 o=b(O,R,V,E)V=r(4479)R=s[V]b,E,V=r(4871),8,r(4825)O=R[V]V=0 R=O(V,E,u,f)u=r(4937)E=T[y[2]]f,O=r(4729),r(4500)V=E[u]u,a,E=.5,r(4348),r(4821)M={[z]=o,[b]=R;[O]=V;[E]=u;[f]=I,[U]=n}b=r(4636)e=l(m,C,M)l=r(4503)v[Z]=e E,C=r(4348),r(4636)Z=T[y[1]]v=Z[l]m=T[y[1]]O=r(4281)e=m[C]m=r(4913)l=e[m]e=6 Z=v(l,e)Z=T[y[1]]m,l,R=r(4364),r(4636),4 v=Z[l]e=T[y[1]]l=e[m]m=r(4588)z=T[y[1]]Z=r(4302)M=z[b]f,z=r(4348),r(4913)C=M[z]z=r(4332)o=s[O]O=r(4825)b=o[O]O=0 o=b(O,R)V=s[E]E=r(4274)R=V[E]b,V=r(4274),r(4546)O=R[V]R,H=r(4353),r(4348)u=s[f]f,U=r(4353),r(4348)E=u[f]u=r(4482)V=E[u]I=s[U]E,U=r(4804),r(4804)f=I[U]I=r(4482)u=f[I]f=r(4245)n=s[a]a=r(4245)U=n[a]n=r(4732)I=U[n]M,U={[z]=o,[b]=O,[R]=V;[E]=u;[f]=I},r(4401)I=0 e=l(m,C,M)l=r(4636)v[Z]=e Z=T[y[1]]V,m=0,r(4364)v=Z[l]Z=r(4798)e=T[y[1]]b=r(4636)l=e[m]R,E,n,m=-16,26,100,r(4499)z=T[y[1]]M=z[b]z=r(4759)C=M[z]O,z=r(4479),r(4780)o=s[O]a,O=r(4276),r(4825)b=o[O]O=1 o=b(O,R,V,E)V,u,E=r(4479),0,8 R=s[V]V,b=r(4825),r(4871)O=R[V]V,f=0,70 R=O(V,E,u,f)E=T[y[2]]u,f,O=r(4937),r(4729),r(4500)V=E[u]E,u=r(4821),.5 M={[z]=o;[b]=R,[O]=V;[E]=u,[f]=I,[U]=n}e=l(m,C,M)C,l=r(4636),r(4503)v[Z]=e Z=T[y[1]]V,R=0,-56 v=Z[l]m=T[y[1]]e=m[C]m=r(4798)l=e[m]e,m,u=6,r(4364),0 Z=v(l,e)l=r(4636)Z=T[y[1]]v=Z[l]e=T[y[1]]b=r(4636)l=e[m]m,Z=r(4476),r(4909)z=T[y[1]]M=z[b]n,E,z=r(4437),20,r(4759)C=M[z]f,z,O=72,r(4780),r(4479)o=s[O]O=r(4825)b=o[O]O=1 o=b(O,R,V,E)V,E=r(4479),13 R=s[V]V=r(4825)O=R[V]V,b=0,r(4871)R=O(V,E,u,f)u,E,O,V=r(4800),r(4716),r(4821),1 U=T[y[2]]f=r(4528)I=U[n]n,U=10,r(4965)k=s[H]H=r(4276)W=k[H]k=r(4239)D=W[k]W=r(4705)j=s[q]q=r(4705)H=j[q]j=r(4427)k=H[j]j,H=101,r(4401)M={[z]=o;[b]=R;[O]=V,[E]=u,[f]=I;[U]=n,[a]=D,[W]=k;[H]=j}e=l(m,C,M)v[Z]=e Z=T[y[1]]m,l=r(4364),r(4636)v=Z[l]e=T[y[1]]u,O,I,V,Z=0,r(4479),r(4762),0,r(4387)l=e[m]b,f,m=r(4636),81,r(4499)z=T[y[1]]M=z[b]U,z=50,r(4759)C=M[z]E=13 o=s[O]O,R=r(4825),26 b=o[O]z,O=r(4780),0 o=b(O,R,V,E)b,E,n,V=r(4871),-39,50,r(4479)R=s[V]V=r(4825)O=R[V]V=1 R=O(V,E,u,f)f,O,u=.5,r(4950),r(4270)E=s[u]u=r(4825)V=E[u]u=0 E=V(u,f)V=r(4500)f=s[I]I=r(4510)u=f[I]I=50 f=u(I,U,n)u,I,n,U=r(4729),0,101,r(4401)M={[z]=o;[b]=R;[O]=E;[V]=f,[u]=I;[U]=n}e=l(m,C,M)C=r(4636)v[Z]=e V,E,l=0,9,r(4503)Z=T[y[1]]v=Z[l]m=T[y[1]]e=m[C]b,m=r(4636),r(4387)l=e[m]e=10 Z=v(l,e)l=r(4636)Z=T[y[1]]u=.5 v=Z[l]R,m,Z=9,r(4364),r(4924)e=T[y[1]]l=e[m]m=r(4499)z=T[y[1]]O=r(4479)M=z[b]z=r(4387)C=M[z]o=s[O]O=r(4825)b=o[O]z,f,O=r(4780),-4,0 o=b(O,R,V,E)b,V=r(4871),r(4479)R=s[V]V=r(4825)O=R[V]E,I,V=2,235,0 R=O(V,E,u,f)O,u,f=r(4500),r(4762),235 E=s[u]u=r(4510)V=E[u]u=235 E=V(u,f,I)u,V,f,I=0,r(4729),r(4401),102 M={[z]=o;[b]=R;[O]=E,[V]=u,[f]=I}e=l(m,C,M)v[Z]=e Z=T[y[1]]O,l=r(4479),r(4503)v=Z[l]C=r(4636)m=T[y[1]]e=m[C]m=r(4924)l=e[m]e,R=10,0 Z=v(l,e)Z=T[y[1]]l=r(4636)v=Z[l]Z,b=r(4309),r(4636)e=T[y[1]]m=r(4364)l=e[m]m=r(4898)z=T[y[1]]M=z[b]z,V=r(4387),1 C=M[z]o=s[O]E,z,O=0,r(4780),r(4825)b=o[O]u,O=103,1 o=b(O,R,V,E)E,b,V,O,R=r(4401),r(4821),r(4386),1,r(4716)M={[z]=o;[b]=O;[R]=V;[E]=u}e=l(m,C,M)v[Z]=e l=T[y[1]]e=r(4636)Z=l[e]l=r(4387)v=Z[l]b,M,z,m,Z,C=2,80,-4,r(4762),r(4500),80 e=s[m]m=r(4510)l=e[m]m=80 e=l(m,C,M)v[Z]=e m=r(4479)l=T[y[1]]C,e,M=-11,r(4636),.5 Z=l[e]l=r(4924)v=Z[l]Z=r(4871)e=s[m]o,m=3,r(4825)l=e[m]m=1 e=l(m,C,M,z)m=r(4636)v[Z]=e e=T[y[1]]l=e[m]e=r(4309)Z=l[e]z,l=1,r(4917)v=Z[l]l=Q(11599124,{y[1]})Z=r(4465)Z,e=v[Z],r(4741)Z=Z(v,l)m,Z,l=r(4724),r(4446),r(4645)v=T[y[1]]C=r(4645)v[Z]=l l=5152636>=939962 v=T[y[1]]Z,M=r(4718),r(4398)v[Z]=l l,Z={},r(4550)v=T[y[1]]v[Z]=l Z=r(4593)v=T[y[1]]l=3685491>13763809 v[Z]=l l=r(4304)Z={[l]=e;[m]=C;[M]=z}C,m,z,e,M=r(4724),r(4723),r(4398),r(4304),r(4592)l={[e]=m,[C]=M;[z]=b}z,b,m,C,M=r(4343),r(4398),r(4304),r(4811),r(4724)e={[m]=C,[M]=z;[b]=o}v={Z,l,e}l=v Z=T[y[1]]e=r(4636)v=Z[e]Z,e=r(4822),{}v[Z]=e Z=r(4782)v=s[Z]C={v(l)}e,Z,m,v=C[2],C[1],C[3],9462998 C=Z elseif 15660910>v then Z,v={Z},s[r(4689)]else I,E,a=r(4555),v,r(4558)f=s[I]n=s[a]a=r(4649)U=n[a]I=f(U)u=C[I]v,o=u and 11130694 or 3830150,u end end else if v>15483328 then if v<15505651 then z=T[y[3]]b=r(4587)v=z[b]E=r(4769)b=T[M]z=v(b)R=T[y[3]]V=r(4837)O=R[V]V=T[M]R=V[E]o=O[R]v,b=o and 2088569 or 13732418,o elseif 15526634>v then v=M v=C and 1940492 or 1259610 elseif 15530928>v then e=T[y[1]]m=r(4636)l=e[m]e=r(4486)Z=l[e]v=not Z v=v and 12153532 or 6926636 else l=r(4636)Z=T[y[1]]v=Z[l]Z,b,j,m=r(4897),r(4636),3059072>308152,r(4364)e=T[y[1]]a,o,V=r(4784),r(4780),r(4479)l=e[m]u,E,m=0,280,r(4499)z=T[y[1]]D=12362670<=5993903 M=z[b]n,z=0,r(4393)C=M[z]z,U,b=r(4454),35,r(4897)R=s[V]V=r(4825)O=R[V]V,f=0,320 R=O(V,E,u,f)f,O,u=-140,r(4871),r(4479)E=s[u]u,W=r(4825),r(4401)V=E[u]I,u,q=0,.5,r(4348)E=V(u,f,I,U)H=r(4740)f=T[y[2]]I=r(4303)u=f[I]V,k,U,f,I=r(4500),100,r(4729),r(4821),.2 M={[z]=b,[o]=R;[O]=E;[V]=u;[f]=I,[U]=n;[a]=D;[W]=k;[H]=j}e=l(m,C,M)v2=101 v[Z]=e Z=T[y[1]]l,C=r(4503),r(4636)v=Z[l]m=T[y[1]]e=m[C]m=r(4897)l=e[m]C,e=r(4636),12 Z=v(l,e)Z=T[y[1]]b,V,l,n,u=r(4636),0,r(4852),r(4437),0 v=Z[l]m=T[y[1]]e=m[C]O,m=r(4479),r(4897)l=e[m]E,R=36,0 m=T[y[2]]C=r(4433)e=m[C]m,C=1,.4 Z=v(l,e,m,C)Z=T[y[1]]m,l=r(4364),r(4636)v=Z[l]e=T[y[1]]Z=r(4839)l=e[m]m=r(4476)z=T[y[1]]M=z[b]z=r(4897)C=M[z]z=r(4780)o=s[O]O=r(4825)b=o[O]O=1 o=b(O,R,V,E)V,b,f=r(4479),r(4871),0 R=s[V]V=r(4825)O=R[V]V,E,H=0,0,r(4348)R=O(V,E,u,f)a,u=r(4276),r(4371)U=T[y[2]]r2,O,E,f=r(4348),r(4821),r(4716),r(4528)I=U[n]V=1 k=s[H]n,U,H=14,r(4965),r(4276)W=k[H]k=r(4801)D=W[k]W=r(4672)j=s[q]q=r(4672)H=j[q]j=r(4482)k=H[j]H,j=r(4401),101 M,q={[z]=o,[b]=R,[O]=V,[E]=u;[f]=I,[U]=n;[a]=D;[W]=k;[H]=j},r(4348)e=l(m,C,M)D,W,R,I=r(4437),r(4276),24,r(4697)v[Z]=e m,b,l=r(4364),r(4636),r(4636)Z=T[y[1]]v=Z[l]x,Z,V=r(4437),r(4671),0 e=T[y[1]]l=e[m]E,m=24,r(4898)z=T[y[1]]M=z[b]O,U,z=r(4479),r(4528),r(4897)C=M[z]o=s[O]z,f,O=r(4780),6,r(4825)b=o[O]O=0 o=b(O,R,V,E)V=r(4479)R=s[V]V,b,E=r(4825),r(4871),-30 O=R[V]V,u=1,0 R=O(V,E,u,f)O,E,u,V=r(4821),r(4729),0,1 a=T[y[2]]f=r(4716)n=a[D]D=11 j=s[q]q=r(4276)H=j[q]j,a=r(4616),r(4965)k=H[j]j,H=101,r(4401)M={[z]=o,[b]=R,[O]=V;[E]=u,[f]=I;[U]=n;[a]=D,[W]=k,[H]=j}D=r(4386)e=l(m,C,M)v[Z]=e V=r(4479)Z=T[y[1]]C,l=r(4636),r(4503)v=Z[l]m=T[y[1]]e=m[C]m,H=r(4671),r(4581)l=e[m]e=6 Z=v(l,e)e=T[y[1]]m,d=r(4636),r(4596)l=e[m]f,e,E=28,r(4671),-16 Z=l[e]l=r(4260)v=Z[l]l=K(6190148,{y[1]})Z=r(4465)Z=v[Z]Z=Z(v,l)m=r(4636)e=T[y[1]]l=e[m]e,u,n=r(4671),0,0 Z=l[e]l,U=r(4650),38 v=Z[l]l=F(13975546,{y[1],y[2]})m,Z=r(4636),r(4465)Z=v[Z]Z=Z(v,l)I=0 e=T[y[1]]a=r(4716)l=e[m]e,b=r(4671),r(4636)Z=l[e]l,m=r(4917),r(4364)v=Z[l]l=t(3577908,{y[1]})Z=r(4465)Z=v[Z]Z=Z(v,l)Z=T[y[1]]l,o=r(4636),r(4780)v=Z[l]e=T[y[1]]Z=r(4696)l=e[m]z=T[y[1]]w=r(4276)M=z[b]b,k,z=r(4696),r(4436),r(4897)C=M[z]z=r(4454)R=s[V]m,V=r(4313),r(4825)O=R[V]V=1 R=O(V,E,u,f)u=r(4479)E=s[u]O,f,u=r(4871),8,r(4825)V=E[u]u=0 E=V(u,f,I,U)f=T[y[2]]V,W,I,U=r(4500),r(4687),r(4937),r(4729)u=f[I]I=.5 q=T[y[2]]f=r(4821)j=q[d]q=r(4528)P=T[y[2]]d=P[x]P=r(4965)s2=s[r2]r2=r(4276)h=s2[r2]r2,x,s2=r(4401),12,r(4239)i=h[s2]h,s2=r(4805),2430321~=11144797 M={[z]=b;[o]=R,[O]=E;[V]=u;[f]=I;[U]=n;[a]=D;[W]=k;[H]=j,[q]=d,[P]=x,[w]=i;[h]=s2,[r2]=v2}e=l(m,C,M)V,l,D=1,r(4503),r(4433)v[Z]=e Z=T[y[1]]C=r(4636)v=Z[l]m=T[y[1]]e=m[C]m=r(4696)l=e[m]e=6 Z=v(l,e)I,m,k=3,r(4364),r(4479)Z=T[y[1]]H,u,l=0,0,r(4636)v=Z[l]e=T[y[1]]l=e[m]O,b,m,Z,q=r(4479),r(4636),r(4959),r(4257),0 z=T[y[1]]M=z[b]z,E=r(4897),-80 C=M[z]o=s[O]U,z,O,R=r(4963),r(4780),r(4825),-10 b=o[O]f,O=70,1 o=b(O,R,V,E)b,V,j=r(4871),r(4479),0 R=s[V]V=r(4825)O=R[V]E,V=9,0 R=O(V,E,u,f)E,f,u,V,O=r(4729),r(4349),0,1,r(4821)a=T[y[2]]n=a[D]a=r(4580)W=s[k]k=r(4825)D=W[k]k=0 W=D(k,H,j,q)k,D=101,r(4401)M={[z]=o;[b]=R,[O]=V,[E]=u,[f]=I;[U]=n;[a]=W;[D]=k}e=l(m,C,M)b,l=r(4636),r(4636)v[Z]=e O,E=r(4281),r(4348)Z=T[y[1]]v=Z[l]Z=r(4561)e=T[y[1]]m=r(4364)l=e[m]z=T[y[1]]M=z[b]R,z,m=2,r(4257),r(4588)C=M[z]o=s[O]O,z=r(4825),r(4332)b=o[O]O=0 o=b(O,R)V=s[E]E,b=r(4245),r(4245)R=V[E]V=r(4454)O=R[V]M={[z]=o,[b]=O}e=l(m,C,M)v[Z]=e e=r(4636)l=T[y[1]]Z=l[e]l=r(4561)v=Z[l]Z,l=r(4448),r(4389)Z=v[Z]Z=Z(v,l)v=r(4465)l=t(12295163,{y[1]})v=Z[v]v=v(Z,l)l,e=r(4636),r(4636)Z=T[y[1]]v=Z[l]l,Z={},r(4435)v[Z]=l l=T[y[1]]Z=l[e]l=r(4696)v=Z[l]l,Z=r(4716),r(4448)Z=v[Z]Z=Z(v,l)v=r(4465)v=Z[v]l=p(13662487,{y[1]})v=v(Z,l)v,Z=s[r(4515)],{}end else if v>15452590 then if 15473691>v then Z,M=r(4544),r(4279)e=T[y[1]]m=r(4544)l=e[m]b=r(4403)C=T[y[1]]e=r(4279)m=C[M]C=r(4403)z=T[y[1]]M=z[b]v={[Z]=l;[e]=m;[C]=M}M,C,Z,l,e=r(4529),r(4558),r(4524),v,r(4656)v=s[Z]m=s[C]C=r(4743)C=m[C]C=C(m,M)M=r(4461)M=C[M]m={M(C,l)}Z=v(e,A(m))l,Z,v=nil,{},s[r(4259)]else v=1184318~=14548126 v=v and 5861747 or 2850922 end else if 15429955>v then C=T[y[1]]M=r(4636)m=C[M]C=r(4576)e=m[C]m,v=r(4784),8018512 l=e[m]Z=l elseif v<15438252 then l=r(4603)Z=T[y[1]]v=Z[l]m=r(4639)Z=v()v=T[y[2]]e=T[y[3]]l=e[m]m=T[y[3]]C=r(4480)e=m[C]Z,C=r(4850),r(4478)m=s[C]Z=v[Z]Z=Z(v,l,e,m)v,Z=s[r(4921)],{}else v=O and 3877706 or 4191731 end end end end end end else if 16230412>v then if v<15959842 then if 15823345>v then if v>15750985 then if v<15756484 then O=r(4762)o=s[O]v,R,O,V=4507810,40,r(4510),40 b=o[O]O=40 o=b(O,R,V)Z=o elseif v<15764552 then Z=T[y[1]]b,l=r(4636),r(4636)v=Z[l]u,m=0,r(4364)e=T[y[1]]U,Z=35,r(4559)l=e[m]P=r(4348)z=T[y[1]]m=r(4499)M=z[b]n,o,V,z,q=r(4303),r(4780),r(4479),r(4393),r(4740)C=M[z]z=r(4454)R=s[V]b,V,E=r(4559),r(4825),340 O=R[V]V,f=0,38 R=O(V,E,u,f)f,O,u,I=0,r(4871),r(4479),0 E=s[u]u=r(4825)V=E[u]u=.5 E=V(u,f,I,U)V,I,U,W,D,k=r(4950),r(4270),0,r(4784),0,9118009<=5600233 f=s[I]I=r(4825)u=f[I]I,H=.5,r(4401)f=u(I,U)u=r(4500)U=T[y[2]]d=12558004<12576197 I=U[n]j,a,n,U=100,r(4729),.18,r(4821)M={[z]=b,[o]=R;[O]=E;[V]=f;[u]=I;[U]=n;[a]=D,[W]=k,[H]=j;[q]=d}e=l(m,C,M)O,l=0,r(4503)v[Z]=e Z=T[y[1]]C=r(4636)v=Z[l]m=T[y[1]]e=m[C]m=r(4559)l=e[m]I,v2,e=r(4596),105,10 Z=v(l,e)C,l=r(4636),r(4852)Z=T[y[1]]v=Z[l]m=T[y[1]]e=m[C]m,C,M=r(4559),r(4433),r(4636)l=e[m]m=T[y[2]]R=38 e=m[C]C,E,m=.5,0,1 Z=v(l,e,m,C)l=5367817>6553039 v=T[y[1]]b,Z=r(4479),r(4790)v[Z]=l v=T[y[1]]U,q,l,Z,o=r(4276),r(4348),12222158<4657503,r(4584),24 v[Z]=l l=r(4364)Z=T[y[1]]v=Z[l]C=T[y[1]]V,l=0,r(4476)m=C[M]C=r(4559)e=m[C]z=s[b]C,b=r(4780),r(4825)M=z[b]b=0 z=M(b,o,O,R)O,W,R=r(4479),r(4348),8 o=s[O]M,O=r(4871),r(4825)b=o[O]O=0 o=b(O,R,V,E)b,R,V=r(4821),r(4716),r(4268)f=T[y[2]]O,E,w=1,r(4528),r(4348)u=f[I]f,I=r(4965),18 D=s[W]W=r(4276)a=D[W]D=r(4239)n=a[D]a,D=r(4401),101 m={[C]=z;[M]=o;[b]=O;[R]=V;[E]=u,[f]=I;[U]=n,[a]=D}Z=v(l,e,m)b,E,D,l=r(4636),38,60,r(4636)Z=T[y[1]]m=r(4364)v=Z[l]e=T[y[1]]l=e[m]z=T[y[1]]M=z[b]H,m,z,O=r(4348),r(4476),r(4559),r(4479)C=M[z]V,Z,z,R,n=0,r(4683),r(4780),-40,r(4762)o=s[O]O=r(4825)b=o[O]O=1 o=b(O,R,V,E)a,f,V,b=60,0,r(4479),r(4871)R=s[V]u,V=0,r(4825)O=R[V]E,V=32,0 R=O(V,E,u,f)u,f,V,O,E=r(4386),r(4528),1,r(4821),r(4716)U=s[n]n=r(4510)I=U[n]n=60 U=I(n,a,D)s2,I,n=1,r(4965),13 k=s[H]a,H=r(4276),r(4276)W=k[H]k=r(4770)D=W[k]j=s[q]q=r(4705)H=j[q]W,j=r(4705),r(4427)k=H[j]H,j=r(4401),102 M={[z]=o;[b]=R,[O]=V;[E]=u;[f]=U,[I]=n;[a]=D,[W]=k;[H]=j}e=l(m,C,M)V,R,m=0,-90,r(4364)v[Z]=e Z=T[y[1]]l=r(4636)v=Z[l]Z,i=r(4797),10866485>6031490 e=T[y[1]]l=e[m]O=r(4479)z=T[y[1]]D,m,H,f,b=r(4596),r(4313),r(4276),0,r(4636)M=z[b]z=r(4559)C=M[z]z=r(4780)o=s[O]O=r(4825)b=o[O]E,O,k,U=38,1,r(4596),r(4581)o=b(O,R,V,E)b,V,u,I=r(4871),r(4479),0,r(4993)R=s[V]V=r(4825)O=R[V]E,V=32,0 R=O(V,E,u,f)V=1 a=T[y[2]]n=a[D]E,f,a,O,u,r2=r(4716),r(4687),r(4528),r(4821),r(4386),r(4401)W=T[y[2]]D=W[k]k,W=13,r(4965)d=s[P]P=r(4276)q=d[P]h,d=r(4502),r(4770)j=q[d]x=s[w]w,q=r(4705),r(4705)P=x[w]x=r(4427)d=P[x]P,w,x=r(4805),r(4604),9876086<=4314087 M={[z]=o;[b]=R,[O]=V,[E]=u,[f]=I;[U]=n;[a]=D,[W]=k;[H]=j;[q]=d;[P]=x,[w]=i;[h]=s2,[r2]=v2}R,O=46,r(4479)e=l(m,C,M)v[Z]=e l=r(4364)Z=T[y[1]]v=Z[l]M,l=r(4636),r(4898)C=T[y[1]]V=0 m=C[M]C,M,I=r(4559),r(4261),r(4937)e=m[C]z,E,C=r(4780),22,r(4454)o=s[O]O=r(4825)b=o[O]O=0 o=b(O,R,V,E)V=r(4479)R=s[V]n,f,w,a,V,U,u=0,0,r(4348),r(4716),r(4825),r(4729),.5 O=R[V]b,E,V=r(4871),-52,1 R=O(V,E,u,f)u,O,f=r(4270),r(4950),.5 E=s[u]j,u=r(4403),r(4825)V=E[u]u=0 E=V(u,f)f=T[y[2]]u=f[I]V,W,I,f=r(4500),v,.3,r(4821)W=r(4528)H=T[y[1]]k=H[j]H,q,j=r(4661),r(4276),r(4596)D=k or H H=T[y[2]]k=H[j]j=10 x=s[w]H,w=r(4965),r(4276)P=x[w]x=r(4616)d=P[x]P,x=r(4401),106 m={[C]=M,[z]=o,[b]=R,[O]=E;[V]=u;[f]=I,[U]=n;[a]=D;[W]=k;[H]=j;[q]=d;[P]=x}Z=v(l,e,m)C=4 l=X()T[l]=Z e=T[y[1]]m=r(4503)Z=e[m]m=T[l]e=Z(m,C)e,m=r(4715),8741213<2027420 Z=T[y[1]]Z[e]=m e=T[l]m=r(4260)Z=e[m]e=r(4465)m=Q(13629457,{y[1]})e=Z[e]e=e(Z,m)C=r(4964)e=T[l]m=r(4650)Z=e[m]v=s[r(4248)]m=Q(15359539,{y[1]})e=r(4465)e=Z[e]e=e(Z,m)m=r(4917)e=T[l]M=r(4636)Z=e[m]m=F(7946104,{y[1];l,y[2]})e=r(4465)e=Z[e]e=e(Z,m)m=r(4558)e=s[m]m=r(4743)m=e[m]m=m(e,C)e=r(4378)Z=m[e]z,e=r(4636),r(4465)m=F(16678936,{y[1],l,y[2]})e=Z[e]e=e(Z,m)C=T[y[1]]Z=K(3306697,{y[1]})l=B(l)m=C[M]C,e=r(4797),Z Z=m[C]m,C=r(4448),r(4716)m=Z[m]m=m(Z,C)Z=r(4465)Z=m[Z]Z=Z(m,e)M=T[y[1]]C=M[z]M,e=r(4797),nil m=C[M]C=r(4836)Z=m[C]M=r(4964)C=K(4429553,{y[1]})m=r(4465)m=Z[m]m=m(Z,C)C=r(4558)m=s[C]C=r(4743)C=m[C]C=C(m,M)m=r(4378)Z=C[m]m=r(4465)C=p(11766337,{y[1]})m=Z[m]m=m(Z,C)Z={}elseif 15795227>v then e,l,C,v,Z,m=nil,nil,nil,s[r(4736)],{},nil else W=r(4260)D=T[u]f=D[W]W=Q(10968649,{u})D=r(4465)D=f[D]D=D(f,W)D=T[u]W=r(4650)f=D[W]W=t(3827462,{u})D=r(4465)D=f[D]D=D(f,W)W=r(4917)D=T[u]f=D[W]D=r(4465)D=f[D]W=t(15436758,{y[1],y[3],R})D=D(f,W)v=759863 end else if v>15728769 then if v<15740218 then v=O O=r(4386)z=o or O M=l..z z=.05 v[Z]=M M=r(4956)Z=s[M]M=Z(z)v=16454618 else e=X()T[e]=Z m=T[e]Z,v=m,m and 5471029 or 9237971 end else if v<15690459 then l,v,Z=nil,s[r(4861)],{}elseif v<15717651 then v,R=13229766,r(4444)O=s[R]R=r(4953)o=O[R]z=o else v,Z=s[r(4704)],{}end end end else if 15885677>v then if v<15830451 then z=r(4636)M=T[y[1]]C=M[z]M=r(4559)m=C[M]C,v=r(4784),94139 e=m[C]l=not e Z=l elseif 15835129>v then v=i v=P and 2515792 or 1304108 elseif v<15852405 then v=2850922 else z=T[y[3]]O,b=80,r(4636)M=z[b]z=r(4236)C=M[z]R,o=80,r(4762)b=s[o]M,v,o=r(4528),1909938,r(4510)z=b[o]o=255 b=z(o,O,R)C[M]=b end else if 15904536>v then l=8482051>=10427940 v=T[y[1]]Z=r(4980)v[Z]=l l=r(4405)Z=T[y[1]]v=Z[l]Z=v()v=13108638 elseif 15917815>v then Z=T[y[1]]l=r(4686)v=Z[l]Z=v()v=118474 elseif 15943684>v then Z,l,v={},nil,s[r(4356)]else Z=T[y[1]]l=r(4832)v=Z[l]C,O=r(4636),50 m=T[y[1]]R=-4 e=m[C]m=r(4387)l=e[m]C,b,e=r(4500),r(4762),.2 z=s[b]o,b=50,r(4510)M=z[b]b=50 z=M(b,o,O)m={[C]=z}Z=v(l,e,m)Z=T[y[1]]l,C,b=r(4832),r(4636),r(4479)v=Z[l]m=T[y[1]]e=m[C]m=r(4924)l=e[m]e,C,O=.2,r(4871),.5 z=s[b]b,o=r(4825),2 M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)v=13787607 end end end else if v<16086530 then if v<16058741 then if v>16008561 then if v<16040455 then m=r(4636)e=T[y[1]]l=e[m]e=r(4247)Z=l[e]v=not Z v=v and 8117863 or 3610841 else D,W=n(a,D)v=D and 3947163 or 3499009 end else if 15966251>v then e=r(4636)l=T[y[1]]Z=l[e]l=r(4684)v=Z[l]v=v and 8284813 or 10147138 elseif v<15982922 then b,R,v=r(4636),80,1909938 z=T[y[3]]M=z[b]o,z=r(4762),r(4236)C=M[z]b=s[o]M,o,O=r(4528),r(4510),200 z=b[o]o=255 b=z(o,O,R)C[M]=b else v=5910762 end end else if v<16061247 then e,m=nil,nil l=B(l)v,Z=s[r(4316)],{}elseif 16067204>v then O,b,o=M,nil,r(4716)z=T[y[2]]v=14736105 z[o]=O o=r(4956)z=s[o]O=.15 o=z(O)O,o=l,r(4716)z=T[y[2]]M=nil z[o]=O elseif v<16077843 then v=o o={v(b)}v,Z,z=12626920,o[1],o[3]b,M=Z,o[2]else v,Z,l=s[r(4574)],{},nil end end else if v<16149651 then if v<16095689 then u=r(4977)E=T[y[1]]o=E==u v=o and 11402693 or 7706764 elseif 16106993>v then e=v C=T[y[7]]M=r(4944)m=C[M]M,C=r(4694),r(4530)C=m[C]C=C(m,M)l,v=C,C and 10858155 or 13202935 elseif v<16118764 then R=r(4470)O=m[R]b,v=O,8600634 else b=r(4341)z=s[b]b=r(4635)M=z[b]v,m=4265943,M end else if 16183520>v then Z=r(4558)v=s[Z]Z=r(4743)Z,l=v[Z],r(4554)Z=Z(v,l)m=r(4558)e=s[m]v=r(4858)v,m=Z[v],r(4649)l=e[m]v=v(Z,l)l=v v,Z=l and 16754085 or 15658705,l elseif 16195272>v then D,k,n=v,100,v W=O<k a,v=W,W and 10480509 or 10983358 elseif v<16204198 then Z,v,l={},s[r(4862)],nil else v,b=4672060,r(4386)z=e~=b M=z end end end end else if v<16472528 then if v<16361223 then if v<16318668 then if v<16279057 then if v<16251886 then l=T[y[1]]e=r(4636)Z=l[e]l=r(4612)v=Z[l]Z=r(4868)Z=v[Z]Z=Z(v)Z,v={},s[r(4640)]elseif v<16259060 then v=r(4320)Z={v}v=s[r(4472)]else I=r(4479)f=s[I]I,U=r(4414),.8 u=f[I]I=.8 f=u(I,U)v,V=10783655,f end else if v<16294731 then v=T[y[1]]l=T[y[2]]z=r(4636)M=T[y[3]]C=M[z]M=r(4578)m=C[M]C=r(4716)e=m[C]Z=v(l,e)v,Z=s[r(4425)],{}else v,e=16196783,nil end end else if 16343912>v then C=T[y[1]]M=r(4636)m=C[M]C=r(4683)Z=m[C]m=r(4716)v=Z[m]m=v Z,v=m,m and 3215253 or 3602647 elseif v<16348741 then l,O,M,I,m,C,e=c[1],r(4636),r(4364),-6,c[3],c[4],c[2]Z=T[y[1]]a=.3 v=Z[M]M,x=r(4898),r(4401)o=T[y[1]]b=o[O]E,o,O=r(4479),r(4519),r(4780)z=b[o]o=r(4454)V=s[E]U,E=C and a,r(4825)R=V[E]u,E,f=-6,.5,1 V=R(E,u,f,I)H,f,R=r(4276),r(4303),r(4500)u=T[y[2]]n=v n=.7 E=u[f]f=U or n n,P,a,k,I=r(4716),r(4348),r(4528),r(4437),v I=r(4729)W=T[y[2]]U=0 D=W[k]W=r(4965)d=s[P]u,k,P=r(4821),9,r(4276)q=d[P]w,d=102,r(4239)j=q[d]P,d,q=r(4732),540099>=3840576,r(4611)b={[o]=l,[O]=V,[R]=E,[u]=f,[I]=U;[n]=e,[a]=D;[W]=k,[H]=j,[q]=d,[P]=m;[x]=w}o=4 Z=v(M,z,b)M=X()b=r(4503)T[M]=Z z=T[y[1]]Z=z[b]b=T[M]z=Z(b,o)z=T[M]b=r(4260)Z=z[b]z=r(4465)b=t(14876587,{y[1];M})z=Z[z]z=z(Z,b)b=r(4650)z=T[M]Z=z[b]b=K(1310187,{y[1],M})z=r(4465)z=Z[z]z=z(Z,b)Z=T[M]v,Z=s[r(4299)],{Z}elseif v<16355379 then l=X()T[l]=c[1]Z=T[l]e=T[y[1]]v=Z==e v=v and 11905056 or 16717420 else v,M=2401112,not C Z=M end end else if v<16434307 then if 16367364>v then C=r(4636)m=T[y[1]]e=m[C]m=r(4783)v=e[m]v=v and 3356901 or 3546586 elseif v<16390255 then Z=1 C=#l M=C C,v=1,516770 z=C C=0 b=z<C C=Z-z elseif v<16414918 then m=r(4636)e=T[y[1]]l=e[m]e=r(4559)Z=l[e]l=r(4784)v=Z[l]v=v and 11831941 or 7762819 else l=T[y[1]]e=r(4837)Z=l[e]m=r(4769)e=T[y[2]]l=e[m]v=Z[l]Z=r(4569)Z,l=v[Z],r(4837)Z=Z(v)Z=T[y[1]]v=Z[l]l=T[y[2]]e=r(4769)Z=l[e]l=nil v[Z]=l Z,v={},s[r(4337)]end else if 16451475>v then v=r(4569)v=l[v]v=v(l)v=6643199 elseif v<16457480 then z=r(4928)M=s[z]z=M()Z=z-C M=5 v=Z<M v=v and 13157447 or 1584668 elseif v<16464039 then b=r(4636)z=T[y[1]]M=z[b]z=r(4559)C=M[z]m=not C v,Z=m and 15007101 or 12688586,m else Z=r(4748)v=s[Z]v=v and 236758 or 10388891 end end end else if 16661492>v then if v>16603796 then if v<16618906 then M=r(4628)C=T[y[2]]m=C[M]v,z=7711056,r(4769)M=T[y[1]]C=M[z]e=m[C]Z=e elseif 16630142>v then m=r(4636)e=T[y[1]]l=e[m]e=r(4576)Z=l[e]v=not Z v=v and 1022118 or 7969368 elseif v<16639400 then m=T[y[1]]C=r(4446)e=m[C]m=r(4645)v=e==m v=v and 12467634 or 8405261 else v,Z=s[r(4508)],{}end else if v<16499123 then c2=r(4916)y2=s[c2]v=8320825 c2=y2(d)y2=r(4560)A2=c2==y2 r2=A2 elseif 16527318>v then o,M=r(4715),v b=T[y[1]]z=b[o]v,C=z and 13031361 or 12774488,z elseif v<16564512 then v,Z=s[r(4312)],{}else v=Z and 11788780 or 1065418 end end else if v<16721637 then if v<16680795 then l,e=c[1],c[2]v=e and 8677487 or 3042967 elseif 16685154>v then v,e=M,C v=14740602 elseif 16702537>v then l,v=nil,13477642 else Z=T[l]e=r(4851)v=Z[e]Z=r(4465)Z=v[Z]e=t(6385894,{y[2];l;y[3],y[4]})Z=Z(v,e)e=r(4944)Z=T[l]v=Z[e]v=v and 8775331 or 6834143 end else if v<16731120 then v=T[e]Z={v}v=s[r(4432)]elseif 16737096>v then n,I=8496663~=2264055,r(4948)I,U=u[I],1 I=I(u,M,U,n)V,v=I,7208804 elseif v<16745946 then m,z=C(e,m)v=m and 551946 or 13375291 else v,m=15658705,r(4454)e=l[m]Z=e end end end end end end end end else if 4186540>v then if v>2176765 then if 3228847>v then if v<2644018 then if v>2443970 then if v>2562791 then if v>2611834 then if v<2632398 then Z,v={C},s[r(4617)]elseif 2637838>v then v=T[y[1]]m,z,M=r(4769),r(4348),r(4348)e=T[y[2]]l=e[m]C=s[M]M=r(4489)m=C[M]C=r(4966)e=m[C]M=s[z]z=r(4934)C=M[z]M=r(4583)m=C[M]C=r(4764)C=v[C]Z={C(v,l,e,m)}v,Z=s[r(4336)],{A(Z)}elseif 2638957>v then M,b,z,v=r(4479),0,22,15083442 C=s[M]M,o=r(4825),22 m=C[M]M=0 C=m(M,z,b,o)l=C else m,l=r(4364),r(4636)Z=T[y[1]]v=Z[l]W,V,E,f,Z,o,k=r(4401),r(4479),120,26,r(4576),r(4780),100 e=T[y[1]]l=e[m]z=T[y[1]]m,b=r(4499),r(4636)M=z[b]z=r(4393)C=M[z]b=r(4576)R=s[V]u,z,I,V,U=0,r(4454),0,r(4825),35 O=R[V]V=0 R=O(V,E,u,f)O,n,u=r(4871),0,r(4479)E=s[u]f,u=-60,r(4825)V=E[u]u=.5 E=V(u,f,I,U)a=r(4784)f=T[y[2]]I,D,V,U=r(4303),3980982<=960739,r(4500),r(4729)u=f[I]f,I=r(4821),1 M={[z]=b,[o]=R;[O]=E,[V]=u,[f]=I,[U]=n,[a]=D,[W]=k}e=l(m,C,M)v[Z]=e l,C=r(4503),r(4636)Z=T[y[1]]v=Z[l]O=r(4479)m=T[y[1]]e=m[C]C,m,U=r(4636),r(4576),r(4276)l=e[m]e=6 Z=v(l,e)j,V=101,1 Z=T[y[1]]l=r(4852)v=Z[l]R=0 m=T[y[1]]e=m[C]m=r(4576)l=e[m]C=r(4433)m=T[y[2]]e=m[C]C,b,m,I=1,r(4636),1,r(4437)Z=v(l,e,m,C)l=r(4636)Z=T[y[1]]v=Z[l]e=T[y[1]]Z,m=r(4296),r(4364)l=e[m]m=r(4476)z=T[y[1]]M=z[b]z=r(4576)C=M[z]o=s[O]z,O=r(4780),r(4825)b=o[O]W,O,E=r(4348),1,0 o=b(O,R,V,E)E,b,R=r(4528),r(4821),r(4716)f=T[y[2]]V,O=r(4860),1 u=f[I]H=r(4348)D=s[W]f,I,W=r(4965),11,r(4276)a=D[W]D=r(4801)n=a[D]a=r(4705)k=s[H]H=r(4705)W=k[H]k,H=r(4482),r(4401)D=W[k]k,W=1,r(4439)M={[z]=o;[b]=O,[R]=V;[E]=u;[f]=I,[U]=n,[a]=D;[W]=k;[H]=j}e=l(m,C,M)v[Z]=e v,Z=s[r(4957)],{}end else if 2568627>v then U=r(4365)Z=s[U]a=L(12395919,{M;n,z})v=14518627 U=Z(a)elseif 2575668>v then V=r(4304)R=z[V]V=r(4243)v=R==V v=v and 13546719 or 6558246 elseif 2588546>v then l,v=c[1],5983951<=8335258 T[y[1]]=v v=s[r(4355)]Z=T[y[2]]e=Z(l)l,Z=nil,{}else v=T[y[1]]l,Z=c[1],r(4827)e,m=l,r(4636)v[Z]=e e=T[y[1]]Z=e[m]e=r(4300)v=Z[e]v=v and 5675899 or 15928430 end end else if v>2471797 then if 2480734>v then e,m,l,Z,v=nil,nil,nil,{},s[r(4605)]elseif 2500437>v then m,v=nil,10266880 elseif 2537388>v then h,A2,r2=v,r(4838),r(4339)s2=s[r2]v2=d[A2]r2=s2(v2)s2=0 i=r2 or s2 P=O-i h=T[y[4]]i=P<=h v=i and 4713581 or 6734411 else Z,H=r(4364),170 M=Q(13511148,{})D=90 v=T[e]v[Z]=M k=45 v=T[e]M=p(10525059,{})W,Z,E=45,r(4503),28 v[Z]=M Z=r(4852)M=J(10309250,{})u=28 v=T[e]I=180 v[Z]=M O=r(4762)v=T[e]z=r(4303)M=p(5910510,{e})V,Z,R=15,r(4832),15 v[Z]=M v=T[e]Z=r(4803)o=s[O]O,n,j=r(4510),230,70 b=o[O]f,O=180,15 o=b(O,R,V)q,b,a,V=70,r(4937),90,r(4762)R=s[V]V=r(4510)O=R[V]V=28 R=O(V,E,u)u,O=r(4762),r(4396)E=s[u]u=r(4510)V=E[u]u,U=180,230 E=V(u,f,I)I=r(4762)f=s[I]V,I=r(4437),r(4510)u=f[I]I,d=230,70 f=u(I,U,n)n,u=r(4762),r(4596)U=s[n]n=r(4510)I=U[n]n=90 U=I(n,a,D)I,D=r(4433),r(4762)a=s[D]D=r(4510)n=a[D]D=45 a=n(D,W,k)n,k=r(4854),r(4762)W=s[k]k=r(4510)D=W[k]k=70 W=D(k,H,j)j=r(4762)H=s[j]D,j=r(4520),r(4510)k=H[j]j=170 H=k(j,q,d)M={[z]=o,[b]=R;[O]=E,[V]=f,[u]=U,[I]=a,[n]=W;[D]=H}v[Z]=M Z=T[e]M=r(4803)v=Z[M]M=X()T[M]=v v=T[e]z=F(6027659,{e;M,m})Z=r(4577)v[Z]=z v=1104339 end else if v>2462697 then if v<2466076 then v=2217645 o=T[M]O=r(4944)b=o[O]z=b else v,Z=s[r(4340)],{}end else if 2456730>v then v,o=4711686,not z C=o elseif v<2459703 then O,V,u=v,v,r(4444)E=s[u]R,v=E,E and 2027148 or 4749710 else C,l=r(4627),r(4603)Z=T[y[1]]v=Z[l]Z=v()Z=r(4627)v=T[y[1]]m=T[y[1]]e=m[C]l=not e v[Z]=l l=r(4410)Z=T[y[1]]v=Z[l]v=v and 14387939 or 12377745 end end end end else if v<2289461 then if v<2219183 then if v>2199300 then if 2208681>v then v,Z=s[r(4667)],{}else v=z and 15484708 or 14687050 end else if v<2188359 then v=X()z=r(4468)T[v]=M M=v v=s[z]b=t(10684716,{M})M=B(M)z=v(b)v,C=10407490,m C=nil elseif 2196763>v then z,v,b=nil,14687050,nil else C=r(4716)m=T[y[1]]e=m[C]m=r(4386)l=e~=m v,Z=l and 177527 or 6827403,l end end else if v<2250073 then M,o=z(C,M)v=M and 6879154 or 7871316 elseif 2282487>v then l=r(4630)Z=T[y[1]]v=Z[l]Z=v()Z,v={},s[r(4426)]elseif 2286354>v then l=r(4601)Z=T[y[1]]v=Z[l]Z=v()v=2309171 else Z,l=r(4980),8303748~=4141306 v=T[y[1]]v[Z]=l l=r(4410)Z=T[y[1]]v=Z[l]v=v and 13593763 or 14715072 end end else if 2387042>v then if 2300467>v then e2,v,T2=r(4348),Y2,9 Y2=r(4965)X2=s[e2]e2,Z2=r(4276),r(4276)m2=X2[e2]X2=r(4616)l2=m2[X2]k={[H]=j,[q]=P,[d]=w;[x]=h;[i]=s2,[r2]=v2;[A2]=y2;[c2]=G2;[Y2]=T2;[Z2]=l2}a=f(D,W,k)D=T[y[1]]W=r(4503)f=D[W]W=4 D=f(a,W)f=not V v=f and 15820718 or 11356610 elseif v<2334328 then Z,v={},s[r(4473)]elseif v<2367998 then v=82491 C=T[y[1]]M=r(4636)m=C[M]C=r(4576)e=m[C]m=r(4784)l=e[m]Z=l else Z=r(4878)v=T[y[1]]l=4867334>=6161973 v[Z]=l l=r(4870)Z=T[y[1]]v=Z[l]Z=v()v=14084476 end else if v<2399343 then Z,v={},s[r(4419)]elseif 2411490>v then v=Z and 567486 or 13590571 elseif 2427652>v then k=r(4762)W=s[k]v=a a,j,H,k=r(4500),235,235,r(4510)D=W[k]k=235 W=D(k,H,j)k,H,D,j=0,r(4401),r(4729),104 V={[E]=u;[f]=U;[I]=n,[a]=W;[D]=k;[H]=j}Z=v(O,R,V)O=X()T[O]=Z a=r(4479)Z=T[y[1]]V,u,R=10,r(4454),r(4503)v=Z[R]R=T[O]I,k=r(4494),0 Z=v(R,V)Z=T[y[1]]R=r(4364)v=Z[R]R,D=r(4898),0 V=T[o]f=e..I I=r(4780)n=s[a]a,W=r(4825),1 U=n[a]a=1 n=U(a,D,W,k)a,D,H,U,W,k=1,r(4716),105,r(4821),r(4386),r(4401)E={[u]=f;[I]=n,[U]=a,[D]=W;[k]=H}Z=v(R,V,E)R=Z V=X()E=L(514423,{y[1],V,o,O;z})Z=r(4917)T[V]=M v=R[Z]Z=r(4465)Z=v[Z]Z=Z(v,E)v,Z=s[r(4750)],{b}else E=r(4636)V=T[y[1]]R=V[E]V=r(4612)o=R[V]v=not o v=v and 8119274 or 4215605 end end end end else if v>2898504 then if v<3044532 then if 3028669>v then if v>2973574 then if v<3009396 then n,v=D,W v=D and 2421868 or 3990426 else M,v=e,{}C=v v=e and 16211613 or 4672060 end else if v<2914736 then C=r(4593)v=T[y[1]]M=5221160~=11624426 v[C]=M C=T[y[1]]M=r(4643)v=C[M]C=v()v=7454885~=2006677 Z={v}v=s[r(4777)]elseif 2933008>v then v=r(4721)Z={v}v=s[r(4600)]else Z=T[y[1]]l=r(4944)v=Z[l]l,Z=r(4903),r(4562)Z=v[Z]Z=Z(v,l)l=Z Z,v=l,l and 16612280 or 7711056 end end else if v<3042784 then l=t(4029840,{y[1],y[2];y[3],y[4]})Z=r(4468)v=s[Z]Z=v(l)Z,v={},s[r(4573)]elseif 3042878>v then M=v v,C=e and 7774073 or 15243659,e elseif v<3043424 then C=T[y[1]]M=r(4584)m=C[M]v,Z=m and 5155558 or 12169387,m else C=r(4695)Z=T[y[1]]v,M=241177,15501540<14995095 Z[C]=M M=r(4634)C=T[y[1]]Z=C[M]C=Z()end end else if v<3162864 then if v<3067126 then v,Z=s[r(4815)],{}elseif v<3119794 then z=r(4636)M=T[y[1]]C=M[z]v,M=7013805,r(4684)m=C[M]C=r(4784)e=m[C]l=not e Z=l elseif 3156074>v then v=Z and 8804479 or 5105725 else M=T[y[1]]m,z=v,r(4584)C=M[z]v,e=C and 3700653 or 16520925,C end else if 3169673>v then v=r2 Y2,c2,T2=v,v,r(4856)c2,Z2,r2,Y2,A2,v2,G2=r(4528),v,r(4821),r(4243),r(4716),0,V and T2 T2,y2=V,G2 or Y2 Y2=v v=V and 3300168 or 11503659 elseif v<3195251 then Z,l={},nil e=B(e)v=s[r(4409)]elseif v<3220020 then M,v=r(4386),3602647 C=m~=M Z=C else e=T[y[1]]m=r(4636)l=e[m]e=r(4247)Z=l[e]v=not Z v=v and 1416090 or 7032481 end end end else if v<2780452 then if v>2681519 then if 2690820>v then v,z=6159557,{}C=z elseif v<2698427 then l=Z v,Z=l and 516571 or 13046687,l elseif 2739257>v then v=Z and 9035732 or 9130743 else v,Z=s[r(4469)],{}end else if v<2659046 then if 2648705>v then l=Z Z,v=l,l and 1611768 or 5834150 elseif v<2650287 then o,R=z(b,o)v=o and 9926305 or 13854360 else o,n=r(4832),r(4454)b=T[y[2]]R=r(4821)Z=b[o]M,f=C,v f,M,E=.7,nil,v U=z[n]o=.15 I=U==l U=.3 u,v=I and U,15255123 V=u or f O={[R]=V}b=Z(z,o,O)z=nil end else if v<2671846 then v=o and 9190126 or 14723677 else v=12667172 end end end else if v>2829086 then if v<2842234 then C,z=e(m,C)v=C and 11118783 or 13028421 elseif v<2848421 then l=r(4832)Z=T[y[1]]v=Z[l]b,R,C=r(4479),16,r(4780)l=T[y[2]]e=.08 z=s[b]o,b=16,r(4825)M=z[b]b,O=0,0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)Z,v={},s[r(4407)]elseif 2870779>v then v,Z,l=s[r(4677)],{},nil else Z=T[y[1]]l=r(4666)v=Z[l]Z=v()v=10284559 end else if 2797045>v then z,o=r(4641),r(4871)M=s[z]v,z,V=r(4641),r(4825),r(4641)Z=M[z]b=e[o]R=e[V]V=r(4255)O=R[V]R=3 o=O*R O=r(4871)z=b-o o=e[O]V=r(4641)R=e[V]V=r(4255)O=R[V]b=o+O M=Z(z,b)C[v]=M v=15769737 elseif v<2813613 then M,O,b=v,r(4444),v o=s[O]z,v=o,o and 15709828 or 13229766 elseif 2818191>v then e=T[y[1]]m=r(4944)l=e[m]v,e,m=2648257,r(4530),r(4582)e=l[e]e=e(l,m)Z=e else v,Z=s[r(4434)],{}end end end end end else if 3762591>v then if 3527117>v then if 3412794>v then if v<3314095 then if v>3282894 then if 3303432>v then e2,X2,M2,v=140,r(4762),140,11503659 m2=s[X2]X2=r(4510)l2=m2[X2]X2=140 m2=l2(X2,e2,M2)T2=m2 else m=r(4636)e=T[y[1]]l=e[m]e=r(4797)Z=l[e]l=r(4716)v=Z[l]Z=r(4394)Z=v[Z]Z=Z(v)l=Z Z=r(4386)v=l==Z v=v and 5755236 or 1349952 end else if v<3246572 then e,v=nil,169195 elseif v<3262928 then C,v=z,b v=15526595 else v,l,Z=s[r(4685)],nil,{}end end else if v<3333575 then Z=r(4468)v=s[Z]l=Q(16249212,{y[1]})Z=v(l)v=4862965 elseif 3351279>v then Z=T[y[1]]l=r(4603)v=Z[l]Z=v()l=r(4475)Z=T[y[1]]v=Z[l]v=v and 12789546 or 12335983 elseif v<3372182 then C=r(4636)m=T[y[1]]e=m[C]m,b=r(4783),r(4636)v=e[m]e=r(4784)z=T[y[1]]M=z[b]z=r(4250)C=M[z]m=l==C v[e]=m v=3546586 else v=o and 7318317 or 6706076 end end else if v<3495126 then if 3453615>v then Z=r(4444)v=s[Z]v=v and 10591967 or 7072117 elseif 3474589>v then e=T[y[1]]m=r(4636)l=e[m]e=r(4759)Z=l[e]v=not Z v=v and 8977348 or 13614704 elseif v<3485658 then C,v=nil,1744209 else C=T[y[1]]v,M=6663500,r(4725)Z=C[M]C=Z()end else if v<3501509 then v=876480 elseif v<3505080 then Z,f=r(4782),r(4652)v=s[Z]f=R[f]u={f(R)}f={v(A(u))}V,Z,E,v=f[2],f[1],f[3],666851 u=Z elseif 3515244>v then Z=150 v=l<Z v=v and 6164207 or 9913743 else C,M=r(4530),r(4694)C=m[C]C=C(m,M)Z,v=C,11799155 end end end else if v<3606744 then if 3573197>v then if 3545136>v then if v<3533660 then Z=r(4716)v=T[y[2]]b=v R=T[m]o,O=R,v v=R and 10303631 or 15732065 elseif 3540556>v then b,z,v=nil,nil,535365 else v=9178508 end else if 3557536>v then v,Z,l=s[r(4982)],{},nil else v=u v,R=11874270,E end end else if v<3578478 then l=r(4603)Z=T[y[1]]v=Z[l]Z=v()v=T[y[1]]Z,l=r(4475),11542519<=8653686 v[Z]=l e=r(4636)l=T[y[1]]Z=l[e]l=r(4696)v=Z[l]Z,l=r(4716),r(4386)v[Z]=l Z=T[y[1]]l=r(4318)v=Z[l]Z=v()Z,v={},s[r(4637)]elseif 3590403>v then M=r(4944)C=T[y[7]]m=C[M]C,R=r(4694),r(4348)e=m[C]m,z=r(4871),r(4944)l=e[m]M=T[y[6]]C=M[z]M=r(4694)m=C[M]C=r(4871)e=m[C]Z=l-e l=r(4829)v=Z[l]Z,l=50,v v=l>Z Z,e,z=r(4784),v,r(4942)m=not e v=T[y[8]]v[Z]=m v=T[y[9]]Z,m,V=r(4784),not e,r(4348)v[Z]=m v=T[y[10]]m=T[y[4]]M=s[z]z=r(4825)C=M[z]O=s[R]z,R=.1,r(4938)o=O[R]O=r(4315)b=o[O]R=s[V]V=r(4842)O=R[V]R=r(4680)o=O[R]O=e M=C(z,b,o)o,z,R=v,r(4780),v v=e and 12979753 or 15189289 elseif v<3602202 then b,o,v=r(4636),r(4762),1909938 z=T[y[3]]R,O=120,220 M=z[b]z=r(4236)C=M[z]b=s[o]o,M=r(4510),r(4528)z=b[o]o=80 b=z(o,O,R)C[M]=b else v=Z and 12895296 or 2485083 end end else if v<3707696 then if v<3615674 then Z,l=r(4878),3438686>9157635 v=T[y[1]]v[Z]=l e,M=r(4636),0 l=T[y[1]]Z=l[e]l=r(4247)v=Z[l]e,Z,z,l,m=r(4636),r(4784),320,3778913<1677776,r(4479)v[Z]=l l=T[y[1]]Z=l[e]C,l=280,r(4247)v=Z[l]e=s[m]Z,m=r(4780),r(4825)l=e[m]m=0 e=l(m,C,M,z)v[Z]=e v,Z=s[r(4978)],{}elseif 3645615>v then z=T[y[1]]b=r(4636)M=z[b]z=r(4338)C=M[z]e,v=C,13991007 elseif v<3685688 then e=r(4636)l=T[y[1]]Z=l[e]l=r(4759)v=Z[l]v=v and 12167689 or 15598558 else Z,v=e,m v=8279824 end else if v<3719896 then l,z=r(4603),r(4636)Z=T[y[1]]v=Z[l]Z=v()Z=r(4446)v=T[y[1]]m=r(4724)e=T[y[2]]l=e[m]v[Z]=l Z=r(4782)v=s[Z]M=T[y[1]]C=M[z]M=r(4822)m=C[M]C={v(m)}v,Z=4016324,C[1]m,e,l=Z,C[3],C[2]elseif v<3738506 then e,v,R=540260>6013371,5925650<952797,0 T[y[1]]=v o=r(4479)Z=T[y[2]]m,l=.15,r(4575)Z[l]=e l=T[y[2]]e=r(4832)Z=l[e]e=T[y[3]]M=r(4780)b=s[o]o,O=r(4825),18 z=b[o]V,o,E=18,0,255 b=z(o,O,R,V)R,V,z=r(4762),255,r(4607)O=s[R]v,R=s[r(4449)],r(4510)o=O[R]R=255 O=o(R,V,E)C={[M]=b,[z]=O}l=Z(e,m,C)Z={}elseif v<3754190 then C=T[y[1]]M,v=r(4636),7037931 m=C[M]C=r(4393)e=m[C]m=r(4753)l=e[m]Z=l else H=r(4730)k=s[H]v=1878381 d={k(W)}q,j,H=d[3],d[2],d[1]end end end end else if v<4004878 then if 3874912>v then if v<3828827 then if v>3820693 then if v<3827483 then v=T[y[1]]l,Z=.5,r(4821)v[Z]=l Z,v={},s[r(4841)]else b,O=v,r(4775)o=z[O]v,C=o and 9899202 or 12268101,o end else if 3776947>v then O,R=b(o,O)v=O and 9969224 or 13568074 elseif v<3799528 then o=T[y[1]]Z,O={},r(4636)b=o[O]o=r(4683)v=b[o]b,O=r(4716),r(4304)o=z[O]v[b]=o v=s[r(4727)]else l,Z=c[1],r(4279)e=l v=T[y[1]]v[Z]=e v=T[y[2]]l=nil Z=v()Z,v={},s[r(4682)]end end else if v<3834219 then U=r(4558)I=s[U]U=r(4649)f=I[U]v=11130694 u=C[f]o=u elseif 3844314>v then Z=T[y[2]]e,m=r(4628),r(4769)v=Z[e]e=T[y[3]]Z=e[m]m=r(4428)e=l[m]v[Z]=e v=3265620 elseif 3861229>v then e=r(4566)Z=s[e]l,e=nil,r(4956)v=Z[e]e=2 Z=v(e)v=9178508 else C=v b=T[y[1]]o=r(4636)z=b[o]b=r(4559)M=z[b]v,Z=M and 11743658 or 8729080,M end end else if v<3958170 then if 3889095>v then R=r(4560)O=s[R]E,R=r(4550),r(4399)v=O[R]V=T[y[1]]R=V[E]O=v(R,o)v=4191731 elseif v<3907045 then e=r(4636)l=T[y[1]]Z=l[e]l=r(4576)v=Z[l]Z,l=r(4784),15590520<=8915789 v[Z]=l v=13070950 elseif v<3930384 then l=T[y[1]]e=r(4636)Z=l[e]l,C=r(4254),80 v=Z[l]m=r(4762)e=s[m]m=r(4510)l=e[m]M,Z,m=80,r(4528),255 e=l(m,C,M)v[Z]=e v,Z=s[r(4298)],{}else j,U=r(4916),D H=s[j]j=H(W)H=r(4560)k=j==H v=k and 3756421 or 13847969 end else if 3975429>v then o,v=nil,8258068 elseif v<3986053 then n=r(4917)U=T[I]v=U[n]n=p(13774293,{y[1],O;I})U=r(4465)U=v[U]U=U(v,n)v=15138831 elseif v<3991929 then k,q,j,v=r(4479),-4,.5,2421868 W=s[k]k=r(4825)D=W[k]H,k=2,0 W=D(k,H,j,q)n=W else l=r(4566)Z=s[l]l=r(4956)v=Z[l]l=300 Z=v(l)l=r(4988)Z=T[y[1]]v=Z[l]Z=v()v=9128867 end end end else if v>4055957 then if v<4113975 then if 4061021>v then l,b=r(4832),r(4762)Z=T[y[1]]v=Z[l]C,o=r(4636),80 m=T[y[1]]e=m[C]m=r(4387)l=e[m]e=.2 z=s[b]b,O=r(4510),80 M=z[b]b,C=80,r(4500)z=M(b,o,O)m={[C]=z}C=r(4636)Z=v(l,e,m)l=r(4832)Z=T[y[1]]v=Z[l]m=T[y[1]]e=m[C]m=r(4924)l=e[m]b,O,o=r(4479),.5,-11 z=s[b]b,C,e,R=r(4825),r(4871),.2,-4 M=z[b]b=1 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)v=13787607 elseif 4066441>v then o=X()m=M v=l[m]T[o]=v O=T[o]v=not O v=v and 1663393 or 13183524 elseif v<4081325 then l=r(4603)Z=T[y[1]]v=Z[l]Z=v()l=166639>=13111267 v=T[y[1]]Z=r(4695)v[Z]=l l=r(4511)Z=T[y[1]]v=Z[l]Z=v()Z,v={},s[r(4622)]else Z,v,l,e={},s[r(4518)],nil,nil end else if v<4143466 then C=r(4799)m=T[y[1]]Z=m[C]m=T[e]v=Z[m]Z=r(4794)Z,m=v[Z],r(4799)Z=Z(v)Z=T[y[1]]v=Z[m]Z=T[e]m=nil v[Z]=m v=682437 elseif 4151873>v then m=r(4323)e=T[y[1]]l=e[m]Z,v=l,l and 10080704 or 7094856 elseif 4167459>v then b=r(4782)v=s[b]u,V=r(4487),v E=z[u]v,R=E and 10392508 or 12822945,E else u,E=r(4295),r(4814)V=o[E]E=o[u]v=15439746 R=V<E O=R end end else if v>4028542 then if 4030903>v then o=r(4558)Z=T[y[1]]e,M=r(4985),r(4555)C=s[M]b=s[o]o=r(4649)z=b[o]U,O,u,n=r(4769),r(4555),r(4555),r(4714)M=C(z)E,z=r(4558),r(4366)o=s[O]W=r(4555)V=s[E]E=r(4375)R=V[E]O=o(R)E=s[u]R=r(4366)I=T[y[2]]f=I[U]u=E(f)E,I=r(4631),r(4454)V=u..E o=R..V j=r(4558)b=O..o C=z..b m=M..C l=e..m v=Z..l o,E,z,O,Z,l,m=r(4416),r(4590),r(4288),r(4731),r(4543),v,r(4703)v=s[Z]D,M,b,C=r(4314),r(4765),{[o]=O},r(4835)o=r(4342)O=T[y[3]]R=r(4461)f=T[y[2]]u=f[I]f=r(4865)U=T[y[2]]R=O[R]I=U[n]U=r(4838)a=s[D]D=r(4819)n=a[D]a=n()D=s[W]n=r(4480)H=s[j]j=r(4375)k=H[j]W=D(k)D=r(4706)k=T[y[4]]H=k()V={[E]=u,[f]=I;[U]=a,[n]=W,[D]=H}R=R(O,V)e={[m]=l,[C]=M;[z]=b,[o]=R}Z=v(e)v,l,Z=s[r(4833)],nil,{}elseif v<4039477 then Z,C,v=r(4459),{[z]=b},o Z,V=v[Z],r(4348)Z=Z(v,m,M,C)v=r(4868)v=Z[v]v=v(Z)v=T[y[10]]z=r(4942)m=T[y[11]]M=s[z]z,R=r(4825),r(4348)C=M[z]O=s[R]z,R=.1,r(4938)o=O[R]O=r(4315)b=o[O]R=s[V]V=r(4842)O=R[V]R=r(4680)o=O[R]M=C(z,b,o)z,R,o=r(4871),v,v v,O=e and 7628927 or 15079922,e elseif v<4049142 then m=r(4636)e=T[y[1]]l=e[m]e=r(4897)Z=l[e]v=not Z v=v and 15907201 or 118474 else I,Z=r(4620),{}f=T[l]O=B(O)n=r(4636)v=f[I]f=r(4465)f=v[f]f=f(v,u)U=T[y[1]]I=U[n]U=r(4393)C=B(C)b=B(b)f=I[U]I=r(4809)R=B(R)e=B(e)o=B(o)v=f[I]V=B(V)E=B(E)f=r(4465)z=B(z)f=v[f]I=F(13491627,{y[1],l})l=B(l)f=f(v,I)u,v=nil,s[r(4346)]M=B(M)m=B(m)end else if v<4017645 then e,M=m(l,e)v=e and 9680502 or 9220189 elseif 4022750>v then C=r(4636)m=T[y[1]]e=m[C]m=r(4576)l=e[m]v,Z=l and 2359486 or 82491,l elseif v<4026890 then v=T[y[1]]l,Z=481995~=3560986,r(4878)v[Z]=l Z=T[y[1]]l=r(4410)v=Z[l]v=v and 5336161 or 12198123 else R,V=r(4830),1 O=b[R]E,R=8073670~=9100879,r(4394)R=O[R]R=R(O)O=r(4948)O=R[O]O=O(R,l,V,E)o,v=O,13960892 end end end end end end else if v<1160896 then if v>543655 then if v>874262 then if 980701>v then if v<947038 then if 881709>v then if v<876171 then m=T[y[2]]v,C=r(4428),r(4628)e=m[C]m=T[y[3]]Z=e[m]l[v]=Z v=8235369 elseif 878470>v then o,I,v=nil,nil,8389004 else m,e=r(4479),r(4636)l=T[y[1]]Z=l[e]C,l=340,r(4559)v=Z[l]l,e,Z,z=12080507<1977745,r(4636),r(4784),38 v[Z]=l l=T[y[1]]Z=l[e]l=r(4559)v=Z[l]Z=r(4780)e=s[m]m=r(4825)l=e[m]m,M=0,0 e=l(m,C,M,z)v[Z]=e Z,v={},s[r(4971)]end else if v<914346 then M=T[y[1]]z=r(4636)C=M[z]M=r(4897)m=C[M]C=r(4784)e=m[C]l,v=not e,7375262 Z=l else l=r(4373)v=T[y[1]]Z=v(l)v,Z=s[r(4758)],{}end end else if v<956750 then Z,e=r(4558),r(4529)v=s[Z]z,b,Z=r(4544),r(4403),r(4743)Z=v[Z]Z=Z(v,e)v=r(4889)v=Z[v]v=v(Z,l)e,Z=v,r(4544)v=T[y[2]]C=v M=e[z]z=15345443<=11714543 m=M or z v[Z]=m m=r(4279)Z=T[y[2]]z=r(4279)M=e[z]z=6681374<=1185169 C=M~=z Z[m]=C m,M=r(4403),v Z=T[y[2]]z=e[b]e,b,v=nil,r(4661),16084167 C=z or b Z[m]=C elseif v<969541 then e=T[y[1]]Z,v=e,2701232 elseif 977128>v then v=5399335 o=T[y[1]]O=r(4636)b=o[O]o=r(4576)z=b[o]b=r(4784)M=z[b]Z=M else m,Z=r(4291),r(4488)v=s[Z]Z=v()b,R,v,M=r(4558),r(4457),r(4390),r(4369)z=s[b]V,b=r(4558),r(4743)b,o=z[b],r(4369)b=b(z,o)O,f=r(4558),r(4734)o=s[O]O=r(4743)O,z=o[O],r(4457)O=O(o,R)u=r(4558)R=s[V]E,V=r(4975),r(4743)V=R[V]V=V(R,E)E=s[u]R,u,o=r(4734),r(4743),r(4975)u=E[u]u=u(E,f)C={[M]=b,[z]=O;[o]=V;[R]=u}z,M={},r(4636)e={[m]=C,[M]=z}Z[v]=e e=r(4488)Z=s[e]e=Z()M,Z=r(4291),r(4390)v=e[Z]e=X()T[e]=v C=T[e]m=C[M]C=r(4369)Z=m[C]m=r(4478)v=Z[m]m=X()T[m]=v C=X()v,Z=r(4656),r(4420)T[C]=v v=s[Z]v=v and 11634419 or 2558985 end end else if v>1078156 then if 1097616>v then l=1 Z=T[y[1]]v=Z+l T[y[1]]=v l=r(4928)Z=s[l]l=Z()m=T[y[2]]e=l-m m=1 Z=e>=m v=Z and 13601265 or 16196783 elseif v<1118224 then z=r(4566)Z=s[z]z=r(4956)v=Z[z]Z=v()v=T[m]v=v and 10178797 or 1104339 elseif 1137345>v then l=X()T[l]=c[1]e=X()C=r(4415)T[e]=c[2]m=T[y[1]]Z=m[C]C=T[l]M=r(4769)m=C[M]v=Z[m]o,m,M=r(4769),v,r(4853)C=T[y[1]]Z=C[M]M=r(4555)C=s[M]b=T[l]z=b[o]M=C(z)v=Z[M]C,M=v,not m v,Z=M and 16358672 or 2401112,M else f=r(4294)u=s[f]f=r(4953)E=u[f]v,R=5596770,E end else if v<987804 then Z,C,v=r(4459),{[z]=b;[o]=O},R Z=v[Z]Z=Z(v,m,M,C)v=r(4868)v,e=Z[v],nil v=v(Z)v,l=10440080,nil elseif v<1008327 then Z,v={},s[r(4330)]elseif v<1043768 then Z=T[y[1]]l=r(4613)v=Z[l]Z=v()v=7969368 else v,l,e,Z=s[r(4452)],nil,nil,{}end end end else if 697622>v then if v<653931 then if 599495>v then if v<559716 then M,o,V=m,r(4832),.7 b=T[y[1]]M=nil v=b[o]o,R=.15,r(4821)O={[R]=V}b=v(z,o,O)v,z=16737808,nil elseif 581905>v then v=nil Z={v}v=s[r(4970)]else Z,v={},s[r(4633)]end else if v<621838 then v=505960 e=T[y[6]]m=r(4944)l=e[m]e,m=r(4530),r(4582)e=l[e]e=e(l,m)Z=e else m=r(4636)e=T[y[1]]Z=e[m]e=r(4824)v=Z[e]Z,e=r(4716),l v[Z]=e Z=50 v=l<Z v=v and 1325592 or 3506150 end end else if v<674644 then E,I=u(V,E)v=E and 14403590 or 14731928 elseif 683411>v then l=B(l)m=r(4628)Z=T[y[1]]v=Z[m]m=nil Z=T[e]e=B(e)v[Z]=m Z,v={},s[r(4882)]elseif v<687415 then W,l,M,O=0,c[1],c[5],r(4454)z=X()m,C,b,f=c[3],c[4],r(4364),r(4479)T[z]=c[6]V=r(4463)Z=T[y[1]]n,U,e=38,0,c[2]v=Z[b]I,b,a,D,H=-16,r(4499),0,r(4729),103 R=e..V u=s[f]V,f=r(4780),r(4825)E=u[f]f=1 u=E(f,I,U,n)E,U,n,k=r(4871),r(4479),8,r(4401)I=s[U]U=r(4825)f=I[U]U=0 I=f(U,n,a,C)a,f=r(4937),r(4500)n=T[y[2]]U=n[a]a,n=.5,r(4821)o={[O]=R;[V]=u;[E]=I;[f]=U,[n]=a,[D]=W;[k]=H}Z=v(b,l,o)b,w=Z,r(4348)Z=T[y[1]]U,o=16,r(4503)v=Z[o]o=6 Z=v(b,o)Z=T[y[1]]n,k,R,o=0,r(4276),r(4780),r(4364)v=Z[o]o,u,W,x=r(4476),r(4479),r(4437),r(4348)E=s[u]u,f=r(4825),-80 V=E[u]a,u,I=4,1,0 E=V(u,f,I,U)I,V,U=r(4479),r(4871),8 f=s[I]I=r(4825)u=f[I]I=0 f=u(I,U,n,a)u,U,n=r(4821),r(4716),r(4528)D=T[y[2]]I=1 a=D[W]D,d,W=r(4965),r(4348),10 q=s[d]d=r(4276)j=q[d]q=r(4239)H=j[q]j=r(4705)P=s[x]x=r(4705)d=P[x]P=r(4427)q=d[P]P,d=104,r(4401)O={[R]=E;[V]=f;[u]=I;[U]=m,[n]=a,[D]=W;[k]=H;[j]=q,[d]=P}Z=v(o,b,O)U=40 Z=T[y[1]]V,I,o=r(4384),r(4479),r(4364)v=Z[o]a,j,o,D=16,r(4596),r(4476),0 f=s[I]E,I=r(4780),r(4825)u=f[I]R,I,n=r(4454),0,0 f=u(I,U,n,a)u,n=r(4871),r(4479)U=s[n]k,n,W=r(4712),r(4825),4 I=U[n]n,a=1,-48 U=I(n,a,D,W)n=1 W=s[k]I,a,k=r(4821),r(4716),r(4623)D=W[k]k=r(4717)W=D(k,M)H=T[y[2]]D=r(4528)k=H[j]q,j=r(4276),9 x=s[w]w,H=r(4276),r(4965)P=x[w]x=r(4239)d=P[x]h,P=r(4348),r(4705)i=s[h]h=r(4705)w=i[h]i=r(4738)x=w[i]w,i=r(4401),104 O={[R]=V;[E]=f,[u]=U;[I]=n;[a]=W;[D]=k;[H]=j,[q]=d;[P]=x,[w]=i}Z=v(o,b,O)o=X()U,V,k=r(4479),r(4454),26 T[o]=Z O,H,a,u,j=r(4364),38,0,r(4308),r(4611)Z=T[y[1]]v=Z[O]O=r(4898)E=e..u u,P=r(4780),104 I=s[U]D,U=4,r(4825)f=I[U]q,n,d,U=3646655>=12051293,-20,r(4401),1 I=f(U,n,a,D)a=r(4479)n=s[a]f,W,D,a=r(4871),0,10,r(4825)U=n[a]a=0 n=U(a,D,W,k)U,k,W=r(4500),30,r(4762)D=s[W]W=r(4510)a=D[W]W=30 D=a(W,k,H)a,k,H,W=r(4729),r(4716),r(4386),0 R={[V]=E;[u]=I;[f]=n,[U]=D,[a]=W;[k]=H;[j]=q;[d]=P}Z=v(O,b,R)k,R=r(4401),r(4503)O=X()V=4 T[O]=Z Z=T[y[1]]d=106 v=Z[R]I=r(4492)R=T[O]a=r(4479)Z=v(R,V)u=r(4454)Z=T[y[1]]H,R=105,r(4364)v=Z[R]W=0 V=T[O]f=e..I I=r(4780)n=s[a]a,D,q=r(4825),1,r(4401)U=n[a]a,R,j=0,r(4499),-5 n=U(M,a,D,W)W,U=r(4437),r(4500)D=T[y[2]]a=D[W]W,D=0,r(4729)E={[u]=f,[I]=n,[U]=a,[D]=W,[k]=H}Z=v(R,V,E)R=X()D,W,E,k,f,V=r(4479),10,4,0,r(4454),r(4503)T[R]=Z Z=T[y[1]]v=Z[V]V=T[R]U=r(4933)Z=v(V,E)Z=T[y[1]]V=r(4364)v=Z[V]E=T[O]I=e..U H,U,V=10,r(4780),r(4499)a=s[D]D=r(4825)n=a[D]D=0 a=n(D,W,k,H)k,n=r(4479),r(4871)W=s[k]k=r(4825)D=W[k]k,H=-5,.5 W=D(M,k,H,j)D,j=r(4500),r(4437)H=T[y[2]]k=H[j]H,j=r(4729),0 u={[f]=I;[U]=a;[n]=W,[D]=k;[H]=j;[q]=d}Z=v(V,E,u)E=r(4503)V=X()u,I=6,r(4378)T[V]=Z f=X()Z=T[y[1]]v=Z[E]E=T[V]Z=v(E,u)v=9881717>14005178 u=X()E=X()T[E]=M T[u]=v v=F(13529373,{O;E;R,V;o,z})U=r(4964)T[f]=v Z=T[V]v=Z[I]I=p(15350287,{u})Z=r(4465)Z=v[Z]Z=Z(v,I)I=r(4345)Z=T[O]v=Z[I]Z=r(4465)Z=v[Z]I=S(2580679,{u;f})Z=Z(v,I)I=r(4558)Z=s[I]I=r(4743)I=Z[I]I=I(Z,U)Z=r(4960)v=I[Z]I=F(10271887,{u})U,Z=r(4964),r(4465)Z=v[Z]Z=Z(v,I)I=r(4558)Z=s[I]I=r(4743)I=Z[I]I=I(Z,U)Z=r(4440)v=I[Z]Z=r(4465)I=p(1543448,{u;f})Z=v[Z]Z=Z(v,I)v,Z=s[r(4381)],{b}else m,e,l,M=.08,r(4832),Z,r(4780)C={[M]=l}Z=T[y[2]]v=Z[e]e=T[y[3]]Z=v(e,m,C)l,Z,v=nil,{},s[r(4441)]end end else if v<794547 then if 724590>v then v=O v,z=7211722,o elseif v<752121 then f=T[y[3]]I,V=r(4853),v u=f[I]I=r(4555)f=s[I]n=T[o]a=r(4769)U=n[a]I=f(U)E=u[I]v,R=E and 8661146 or 13694342,E elseif v<763310 then R=B(R)v,a,U,E,n,I,z,V=3768762,nil,nil,nil,nil,nil,nil,nil u=B(u)else v,Z=s[r(4945)],{}end else if v<825037 then v,Z=s[r(4535)],{}elseif v<847290 then l=r(4878)Z=T[y[1]]v=Z[l]v=v and 5675372 or 2279425 elseif v<869753 then I=r(4560)f=s[I]I=r(4399)V=f[I]v=11017561 f=V(C,R)else M=r(4695)C=T[y[1]]Z=C[M]v=Z and 3043881 or 241177 end end end end else if v<238967 then if 117920>v then if 90637>v then if 78524>v then if 20182>v then m=r(4953)v=T[y[1]]Z,l=r(4544),c[1]e=l v[Z]=e v=T[y[2]]Z=v()e=s[m]v,Z=e and 15748371 or 10387178,e elseif v<48677 then l,v,Z=nil,s[r(4395)],{}else Z,v={},s[r(4908)]end else if v<84813 then v=Z and 11766902 or 4373136 else V=r(4304)R=z[V]V=r(4371)v=R==V v=v and 5610843 or 5451590 end end else if 101116>v then v=Z and 12236878 or 14376099 elseif v<108895 then y2=r(4762)A2=s[y2]y2=r(4510)v2=A2[y2]G2,y2,v,c2=200,200,3164098,200 A2=v2(y2,c2,G2)s2=A2 elseif v<113532 then e=r(4636)l=T[y[1]]Z=l[e]l=r(4455)v=Z[l]e=T[y[2]]m,Z=r(4437),r(4528)l=e[m]v[Z]=l v,Z=s[r(4707)],{}else C=T[y[1]]M=r(4636)m=C[M]v,C=1831950,r(4576)e=m[C]m=r(4784)l=e[m]Z=l end end else if v<173361 then if v<122776 then m=r(4636)e=T[y[1]]l=e[m]e=r(4897)Z=l[e]l=r(4784)v=Z[l]v=v and 6115242 or 11498570 elseif v<128145 then C,b=M(m,C)v=C and 2159429 or 13520450 elseif 149203>v then v=T[y[1]]v=v and 5340542 or 14553181 else v,l,Z=s[r(4460)],nil,{}end else if v<181009 then v=6827403 l=T[y[2]]Z=l elseif v<206083 then I,a=U(f,I)v=I and 8902622 or 4051296 elseif 232217>v then Z=r(4958)v=s[Z]Z={v()}v,Z=s[r(4477)],{A(Z)}else v=r(4709)Z={v}v=s[r(4238)]end end end else if v<364588 then if v<291539 then if v<260534 then if v<243968 then M=r(4878)C=T[y[1]]Z=C[M]v=Z and 13596078 or 3491244 elseif 247803>v then o,v=r(4253),8085805 b=m[o]M=b else v=Z and 15145961 or 13894844 end else if 278360>v then v,X2=G2,r(4838)T2=v T2,l2=r(4639),r(4706)Z2=d[l2]v,l2=6734411,r(4357)Y2=Z2 or l2 Z2=r(4480)m2=d[X2]l2,G2=r(4838),r(4706)s2={[r2]=x;[v2]=A2,[y2]=c2;[G2]=Y2;[T2]=w;[Z2]=U,[l2]=m2}h=i(b,s2)else M,C=7728406<6386201,r(4475)Z=T[y[1]]Z[C]=M M=r(4505)C=T[y[1]]v=9740347 Z=C[M]C=Z()end end else if v<313853 then Z,l,v={},nil,s[r(4655)]elseif v<344364 then e,l=r(4369),r(4558)v=s[l]l=r(4743)l=v[l]l=l(v,e)e=r(4478)v=l[e]b,m,e=r(4522),r(4782),v v=s[m]b=l[b]z={b(l)}b={v(A(z))}v,C,M,m=13777387,b[2],b[3],b[1]elseif 361527>v then v2,r2=v,w v=w and 16477321 or 8320825 else e,M=r(4636),0 l=T[y[1]]Z=l[e]e,l=r(4636),r(4759)v=Z[l]l,Z=5372987>=14564102,r(4784)v[Z]=l l=T[y[1]]Z=l[e]m,l,C=r(4479),r(4759),280 v=Z[l]Z=r(4780)e=s[m]m=r(4825)l=e[m]z,m=320,0 e=l(m,C,M,z)v[Z]=e Z,v={},s[r(4514)]end end else if 510191>v then if 372873>v then Z,v={},s[r(4778)]elseif v<442713 then Z=r(4475)v=T[y[1]]l=13562567<12229643 v[Z]=l l=r(4505)Z=T[y[1]]v=Z[l]Z=v()v=13888588 elseif 505681>v then Z=r(4468)v=s[Z]b=F(1509100,{z})Z=v(b)v=16725855 else v=Z and 11560205 or 12191810 end else if v<515497 then l=r(4603)Z=T[y[1]]v=Z[l]Z=v()Z=T[y[2]]v=not Z T[y[2]]=v Z=T[y[2]]v=Z and 15339227 or 8273213 elseif 516670>v then z=r(4628)M=T[y[2]]C=M[z]v,b=13046687,r(4769)z=T[y[3]]M=z[b]m=C[M]e=not m Z=e elseif 526067>v then o,C=not b,z+C Z=C<=M Z=o and Z o=M<=C o=b and o Z=o or Z o=11896230 v=Z and o Z=8258068 v=v or Z else C,b=M(m,C)v=C and 5956509 or 9606693 end end end end end else if 1724708>v then if v>1440992 then if 1598218>v then if v>1537598 then if v<1542001 then m=T[y[1]]l,e=m,v v=m and 2638135 or 15083442 elseif 1555051>v then e=T[y[1]]l,Z,v=c[1],e,e and 10602401 or 5575706 elseif v<1575661 then z,v=o,O v=3260236 else Z=#l M=1 z=M M,v=-1,4486030 b=M M=0 o=b<M M=Z-b end else if v<1521530 then if 1487497>v then o=L(9511559,{b;M})z=r(4468)v=s[z]z=v(o)v=7626039 elseif 1511080>v then l=r(4373)v=T[y[1]]Z=v(l)v,Z=s[r(4922)],{}else a,o=r(4916),f n=s[a]a=n(I)n=r(4560)U=a==n v=U and 9603200 or 876480 end else if v<1532320 then e=r(4636)l=T[y[1]]Z=l[e]l=r(4797)v=Z[l]Z=r(4995)Z=v[Z]Z=Z(v)v=16533711 else Z=r(4468)l=t(8143771,{y[1]})v=s[Z]Z=v(l)v,Z=s[r(4513)],{}end end end else if v<1660503 then if v<1625103 then C=r(4587)m=T[y[2]]e=m[C]C=T[y[1]]m=e(C)v,Z=5834150,m elseif v<1641903 then v=O and 7855920 or 5910762 elseif v<1651490 then o=r(4610)b=s[o]o,v=r(4953),12330028 z=b[o]C=z else Z=r(4980)v=T[y[1]]l=13457636>=15617512 v[Z]=l C=r(4636)Z=T[y[1]]l=r(4832)v=Z[l]m=T[y[1]]b=r(4479)e=m[C]C,m=r(4780),r(4759)l=e[m]z=s[b]e,R,b,o,O=.3,0,r(4825),280,0 M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)e=p(363454,{y[1]})l=r(4566)Z=s[l]l=r(4651)v=Z[l]l=.3 Z=v(l,e)Z,v={},s[r(4701)]end else if 1670798>v then V,m,R,E=nil,nil,nil,nil o=B(o)O=nil u=B(u)v=13991926 elseif 1688465>v then l,m=r(4636),r(4364)Z=T[y[1]]v=Z[l]R=r(4845)e=T[y[1]]n,I=0,0 l=e[m]o=r(4749)z=T[y[1]]E,q,W,V,Z,b,O,m=460,r(4348),r(4276),3906351>=8011827,r(4393),r(4291),1000,r(4421)M=z[b]z=r(4734)C=M[z]z,b=r(4454),r(4431)M,f={[z]=b;[o]=O;[R]=V},56 e=l(m,C,M)v[Z]=e m,U,D,l=r(4364),-30,10165829>=7616678,r(4636)Z=T[y[1]]v=Z[l]e=T[y[1]]Z=r(4235)l=e[m]V,o,m,b=r(4479),r(4780),r(4499),r(4636)z=T[y[1]]u,a=0,r(4740)M=z[b]z=r(4393)C=M[z]b=r(4747)R=s[V]z,V=r(4454),r(4825)O=R[V]V=0 R=O(V,E,u,f)f,u=-230,r(4479)E=s[u]u,O=r(4825),r(4871)V=E[u]u=.5 E=V(u,f,I,U)I,U=r(4303),r(4729)f=T[y[2]]V=r(4500)u=f[I]f,I=r(4821),.15 M={[z]=b,[o]=R;[O]=E,[V]=u;[f]=I;[U]=n;[a]=D}e=l(m,C,M)v[Z]=e Z=T[y[1]]l,U=r(4503),-22 v=Z[l]m=T[y[1]]C=r(4636)e=m[C]m=r(4235)l=e[m]C,e=r(4636),14 Z=v(l,e)Z=T[y[1]]l,I=r(4852),.5 v=Z[l]m=T[y[1]]e=m[C]b,u,o,C,f,m=r(4636),0,r(4780),r(4433),44,r(4235)l=e[m]m=T[y[2]]e=m[C]C,m=.4,1 Z=v(l,e,m,C)l,m=r(4636),r(4364)Z=T[y[1]]v=Z[l]Z=r(4816)e=T[y[1]]l=e[m]D,m=r(4437),r(4499)z=T[y[1]]E=75 M=z[b]z=r(4235)C=M[z]V,z=r(4479),r(4454)R=s[V]V=r(4825)O=R[V]b,V=r(4816),0 R=O(V,E,u,f)O,u=r(4871),r(4479)E=s[u]u=r(4825)V=E[u]f,u=14,0 E=V(u,f,I,U)I,f,u,P,V=10,r(4401),1,r(4348),r(4821)M={[z]=b,[o]=R;[O]=E,[V]=u,[f]=I}o,E=r(4780),35 e=l(m,C,M)m,l,f=r(4364),r(4636),14 v[Z]=e Z=T[y[1]]v=Z[l]e=T[y[1]]l=e[m]b,u,Z=r(4636),0,r(4397)z=T[y[1]]m=r(4476)M=z[b]z,b=r(4816),r(4397)C=M[z]V=r(4479)R=s[V]U,z,V=2,r(4454),r(4825)O=R[V]V=0 R=O(V,E,u,f)I,O,u=0,r(4871),r(4479)E=s[u]u=r(4825)V=E[u]u,f=0,0 E=V(u,f,I,U)u,V,f,I=1,r(4821),r(4716),r(4863)a=T[y[2]]U=r(4528)n=a[D]j=s[q]q,D,a=r(4276),11,r(4965)H=j[q]j=r(4239)k=H[j]H=r(4705)d=s[P]P=r(4705)q=d[P]d=r(4427)j=q[d]M={[z]=b,[o]=R;[O]=E,[V]=u;[f]=I,[U]=n;[a]=D,[W]=k,[H]=j}e=l(m,C,M)q,f=r(4348),14 v[Z]=e Z=T[y[1]]u,l,U,V,o,m=0,r(4636),2,r(4479),r(4780),r(4364)v=Z[l]b,D,W=r(4636),r(4437),r(4276)e=T[y[1]]l=e[m]m=r(4476)z=T[y[1]]M=z[b]z=r(4816)C=M[z]R=s[V]b,E,z,V,P=r(4236),40,r(4454),r(4825),r(4348)O=R[V]Z,V=r(4236),0 R=O(V,E,u,f)I,f,u=0,35,r(4479)E=s[u]O,u=r(4871),r(4825)V=E[u]u=0 E=V(u,f,I,U)f,V,U=r(4716),r(4821),r(4528)a=T[y[2]]I=r(4242)n=a[D]a,u,D=r(4965),1,11 j=s[q]q=r(4276)H=j[q]j=r(4239)k=H[j]d=s[P]P,H=r(4705),r(4705)q=d[P]d=r(4427)j=q[d]M={[z]=b,[o]=R;[O]=E;[V]=u;[f]=I;[U]=n,[a]=D;[W]=k,[H]=j}b=r(4636)e=l(m,C,M)l,m=r(4636),r(4364)v[Z]=e Z=T[y[1]]v=Z[l]o,V,Z=r(4780),r(4479),r(4585)e=T[y[1]]l=e[m]f,m=14,r(4476)z=T[y[1]]P,u=r(4348),0 M=z[b]b,I,z,E=r(4585),0,r(4816),35 C=M[z]z=r(4454)R=s[V]V=r(4825)O=R[V]V=0 R=O(V,E,u,f)O,f,u,W,U=r(4871),0,r(4479),r(4276),23 E=s[u]u,D=r(4825),r(4437)V=E[u]u=0 E=V(u,f,I,U)U=r(4528)a=T[y[2]]u,V=1,r(4821)n=a[D]D,a,I,q,f=11,r(4965),r(4699),r(4348),r(4716)j=s[q]q=r(4276)H=j[q]j=r(4239)k=H[j]d=s[P]P=r(4705)q=d[P]d,H=r(4427),r(4705)j=q[d]M={[z]=b,[o]=R;[O]=E;[V]=u,[f]=I,[U]=n,[a]=D,[W]=k,[H]=j}e=l(m,C,M)b=r(4636)v[Z]=e m,P,D,o,l=r(4364),r(4348),r(4437),r(4780),r(4636)Z=T[y[1]]v=Z[l]Z,u=r(4824),0 e=T[y[1]]q=r(4348)l=e[m]z=T[y[1]]M=z[b]W,m,V,z,b=r(4276),r(4476),r(4479),r(4816),r(4824)C=M[z]E=40 R=s[V]V=r(4825)O=R[V]z,f,I,V=r(4454),14,0,0 R=O(V,E,u,f)O,u,f=r(4871),r(4479),35 E=s[u]u=r(4825)V=E[u]U,u=23,0 E=V(u,f,I,U)u,U,I,f=1,r(4528),r(4242),r(4716)a=T[y[2]]V=r(4821)n=a[D]j=s[q]D,q=11,r(4276)H=j[q]j=r(4239)k=H[j]d=s[P]a,P=r(4965),r(4705)q=d[P]H,d=r(4705),r(4427)j=q[d]M={[z]=b,[o]=R;[O]=E;[V]=u,[f]=I,[U]=n;[a]=D,[W]=k;[H]=j}V=r(4479)e=l(m,C,M)l,o=r(4636),r(4780)v[Z]=e Z=T[y[1]]v=Z[l]Z,b,u,I=r(4910),r(4636),0,.5 e=T[y[1]]m,E=r(4364),220 l=e[m]z=T[y[1]]M=z[b]b,m,z=r(4910),r(4499),r(4235)C=M[z]R=s[V]z,V=r(4454),r(4825)O=R[V]f,U,V=36,-18,0 R=O(V,E,u,f)u=r(4479)E=s[u]f,O,u=-110,r(4871),r(4825)V=E[u]u=.5 E=V(u,f,I,U)I,u,V,f=10,1,r(4821),r(4401)M={[z]=b,[o]=R,[O]=E;[V]=u,[f]=I}e=l(m,C,M)v[Z]=e m,l=r(4364),r(4636)Z=T[y[1]]v=Z[l]b=r(4636)e=T[y[1]]l=e[m]z=T[y[1]]Z=r(4474)M=z[b]z,O,m=r(4910),r(4281),r(4588)C=M[z]o=s[O]a,O=r(4348),r(4825)b=o[O]z,f,R,O=r(4332),r(4348),8,0 o=b(O,R)U,E=r(4348),r(4348)V=s[E]E,b=r(4274),r(4274)R=V[E]V=r(4546)O=R[V]R=r(4353)u=s[f]f=r(4353)E=u[f]u=r(4482)V=E[u]I=s[U]E,U=r(4804),r(4804)f=I[U]I=r(4482)u=f[I]n=s[a]a=r(4245)U=n[a]n,f=r(4732),r(4245)I=U[n]M={[z]=o;[b]=O,[R]=V,[E]=u,[f]=I}e=l(m,C,M)b,C,o,l=r(4676),1,r(4987),r(4304)v[Z]=e e,R,m,M,z,O=r(4371),r(4711),r(4418),r(4912),r(4290),r(4690)Z,V={[l]=e;[m]=C,[M]=z},r(4445)e,z,m,C,M=r(4304),r(4912),r(4273),r(4418),3 l={[e]=m,[C]=M,[z]=b}b,z,C,m,M=r(4912),5,r(4657),r(4304),r(4418)e={[m]=C,[M]=z;[b]=o}M,C,o,b,z=r(4243),r(4304),r(4912),7,r(4418)m={[C]=M,[z]=b;[o]=O}M,O,b,o,z=r(4304),r(4912),r(4418),9,r(4589)C={[M]=z,[b]=o;[O]=R}o,O,R,z,b=r(4418),11,r(4912),r(4304),r(4305)M={[z]=b,[o]=O;[R]=V}v={Z,l;e,m,C;M}e=r(4636)Z=T[y[1]]l=v v=Z[e]e,Z={},r(4720)v[Z]=e Z=r(4782)v=s[Z]C={v(l)}Z,e,m=C[1],C[2],C[3]C,v=Z,4369521 elseif v<1702469 then l=r(4665)Z=T[y[1]]v=Z[l]Z=v()v=4922155 else Z=T[y[1]]l=r(4695)v=Z[l]v=v and 2033825 or 5155089 end end end else if v<1302449 then if v>1249171 then if 1266683>v then b=L(15567999,{y[3];e})M=r(4468)C=s[M]o={C(b)}z,M=o[2],o[1]o=not M C,b=o,v v=o and 4711686 or 2454504 elseif v<1279492 then v=T[y[1]]l,Z=7571793>=7917655,r(4695)v[Z]=l l=r(4634)Z=T[y[1]]v=Z[l]Z=v()v=6788522 elseif 1293008>v then f=r(4341)u=s[f]f,v=r(4322),4900845 E=u[f]f=1 I=#C u=E(f,I)f=r(4849)f=C[f]f=f(C,u,u)u=nil E=M..f M=E else o=T[y[1]]O,v=r(4725),12409445 b=o[O]M=b end else if v<1216058 then if v<1193216 then v=T[y[1]]Z=r(4569)Z=v[Z]Z=Z(v)v=7360605 elseif v<1211614 then e=T[y[1]]m=r(4636)Z=e[m]e=r(4612)v=Z[e]e,Z=l,r(4306)v[Z]=e v=12081490 else l=T[y[1]]e=r(4636)Z=l[e]l=r(4897)v=Z[l]v=v and 2199718 or 15535184 end else if v<1227420 then v=4436610 else v=r(4357)Z={v}v=s[r(4284)]end end end else if v>1339580 then if v<1347729 then l=T[y[1]]e=r(4636)Z=l[e]l=r(4254)v=Z[l]e=T[y[2]]m,Z=r(4437),r(4528)l=e[m]v[Z]=l v,Z=s[r(4902)],{}elseif 1364858>v then Z,o=r(4730),r(4371)v=s[Z]M=v b=T[y[1]]z=b[o]v,C=z and 6159557 or 2686017,z elseif v<1397927 then l=c[1]e=l l,Z=nil,r(4548)v=T[y[1]]v[Z]=e v,Z=s[r(4744)],{}else l=r(4802)Z=T[y[1]]v=Z[l]Z=v()v=7032481 end else if v<1307147 then x,w,d,v,k=nil,nil,nil,1878381,nil elseif 1317889>v then e=r(4673)l=T[y[1]]Z=l[e]l=T[y[2]]v=Z~=l v=v and 4714561 or 14437973 elseif 1329622>v then e=T[y[1]]m,M=r(4636),220 Z=e[m]e=r(4824)v=Z[e]z,Z,C=120,r(4528),r(4762)m=s[C]C=r(4510)e=m[C]C=80 m=e(C,M,z)v[Z]=m v=8657795 else l=T[y[1]]e=r(4636)Z=l[e]l=r(4280)v=Z[l]m=r(4437)e=T[y[2]]l=e[m]Z=r(4528)v[Z]=l v,Z=s[r(4911)],{}end end end end else if v>1911663 then if v<2046438 then if v<1986272 then if v<1938662 then if 1916383>v then m=r(4560)e=s[m]m=r(4890)v=e[m]m=K(12956583,{})e=v(l,m)v=9043270 elseif 1928105>v then v=T[y[2]]Z=v(l)v=6031638 else v=Z and 5410041 or 14520209 end else if v<1961126 then C,v={},s[r(4417)]Z={C}else m=T[y[1]]C=r(4636)e=m[C]m=r(4576)l=e[m]v,Z=l and 15423153 or 8018512,l end end else if v<1996231 then v=T[y[2]]m=r(4716)e=T[y[1]]l=e[m]Z=v(l)v=74557 elseif v<2014413 then v=T[y[1]]Z,l=r(4410),12353988<=10695488 v[Z]=l l=r(4983)Z=T[y[1]]v=Z[l]Z=v()v=8086638 elseif v<2030486 then f,v=r(4444),4749710 u=s[f]f=r(4953)E=u[f]R=E else Z,l=r(4695),9695601<=90708 v=T[y[1]]v[Z]=l Z=T[y[1]]l=r(4634)v=Z[l]Z=v()v=5155089 end end else if v<2120589 then if 2071836>v then O=1 v=e+O e=v v=6205273 elseif v<2086594 then o=r(4341)b=s[o]o=r(4322)z=b[o]b=z()z=.12 M=b<z v=M and 6341919 or 14736105 elseif v<2100630 then V=T[y[3]]E=r(4837)R=V[E]u,v=r(4769),13732418 E=T[M]V=E[u]O=R[V]R=r(4753)o=O[R]b=o else Z=T[y[1]]l=r(4603)v=Z[l]Z=v()v=T[y[2]]m=T[y[1]]C=r(4636)e=m[C]m=r(4534)l=e[m]Z=v(l)v,Z=s[r(4367)],{}end else if v<2143958 then z,v,C=r(4898),r(4533),e v=M[v]v=v(M,z)v=v and 1856399 or 14223371 elseif 2160783>v then R,z=r(4304),C O=b[R]V,E,R=1,7520070~=12355891,r(4394)R=O[R]R=R(O)O=r(4948)O=R[O]O=O(R,l,V,E)o,v=O,O and 13960892 or 4027245 elseif v<2166796 then e=T[y[1]]m=r(4636)l=e[m]e=r(4684)Z=l[e]v=not Z v=v and 1698727 or 4922155 else e=r(4636)l=T[y[1]]Z=l[e]l=r(4797)v=Z[l]v=v and 1530000 or 16533711 end end end else if 1828233>v then if v<1788622 then if 1758300>v then if 1743706>v then u,v=r(4386),13081034 E=l==u R=E elseif 1746575>v then v,e,Z,l=s[r(4787)],nil,{},nil m=B(m)else z,O,m=r(4555),r(4558),r(4366)Z=T[y[2]]M=s[z]o=s[O]O=r(4649)b=o[O]z=M(b)M=r(4631)C=z..M e=m..C v=Z..e T[l]=v v=11674367 end else if v<1769508 then v=T[y[1]]l,Z=16421967<=3836069,r(4584)v[Z]=l v=T[y[2]]Z,M,e=r(4716),r(4403),v C=T[y[1]]m=C[M]C=r(4661)l=m or C v[Z]=l v,C,l=12346155,r(4596),r(4528)Z=T[y[2]]m=T[y[3]]e=m[C]Z[l]=e else M=r(4636)e=T[y[1]]m=r(4636)l=e[m]e,C,m=r(4576),r(4636),r(4636)v=l[e]e,l=11688915<=16548881,r(4784)v[l]=e e=T[y[1]]l=e[m]z,e=.15,r(4576)v=l[e]e,l,m=1,r(4821),r(4636)v[l]=e e=T[y[1]]l=e[m]e=r(4296)v=l[e]e,l=1,r(4439)v[l]=e m=T[y[1]]e=m[C]m=r(4576)l=e[m]e=r(4392)v=l[e]e,l=1,r(4327)v[l]=e l=T[y[1]]e=r(4832)v=l[e]C=T[y[1]]m=C[M]C=r(4576)e=m[C]M,m=r(4821),.2 C={[M]=z}l=v(e,m,C)z=r(4636)l=T[y[1]]e=r(4832)v=l[e]M=T[y[1]]C=M[z]M=r(4576)m=C[M]C=r(4392)e=m[C]M,z,m=r(4327),.4,.2 C={[M]=z}l=v(e,m,C)e,M=r(4832),r(4636)l=T[y[1]]v=l[e]C=T[y[1]]m=C[M]C,M,z=r(4296),r(4439),0 e=m[C]C,m={[M]=z},.2 l=v(e,m,C)v=10220451 end end else if 1813863>v then v=o and 13345189 or 2194644 elseif v<1822727 then Z=T[y[1]]l=r(4988)v=Z[l]Z=v()v=9128867 elseif 1824066>v then l,Z,e=15749688~=4699940,r(4980),r(4636)v=T[y[1]]v[Z]=l R,M=320,0 l=T[y[1]]m=r(4479)Z=l[e]l=r(4759)v=Z[l]b,l,Z,e=r(4479),16702068>=12151578,r(4784),r(4636)v[Z]=l l=T[y[1]]Z=l[e]l,C=r(4759),280 v=Z[l]Z,z=r(4780),0 e=s[m]m=r(4825)l=e[m]m=0 e=l(m,C,M,z)O=0 v[Z]=e l=r(4832)Z=T[y[1]]v=Z[l]m=T[y[1]]C=r(4636)e=m[C]m,o=r(4759),280 l=e[m]e=.3 z=s[b]b,C=r(4825),r(4780)M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)l=T[y[1]]e=r(4593)Z=l[e]v=not Z v=v and 11823942 or 16644048 else O,V=b(o,O)v=O and 6887032 or 10509978 end end else if v<1852889 then if 1833606>v then v=Z and 12054727 or 1706212 elseif v<1835356 then v,Z=s[r(4926)],{}elseif v<1843908 then O=r(4636)o=T[y[1]]b=o[O]o=r(4818)v=b[o]o,b=z,r(4716)v[b]=o v=5180592 else Z=r(4323)v=T[y[1]]l=c[1]e=l v[Z]=e v,Z,l=s[r(4379)],{},nil end else if 1854906>v then v,Z=s[r(4788)],{}elseif 1867390>v then v=r(4569)v=M[v]v=v(M)v=14223371 elseif 1894159>v then q,d=H(j,q)v=q and 6293838 or 8624132 else v=16294908 end end end end end end end else if v<6177364 then if v>5223258 then if v>5738771 then if 5961693>v then if 5856269>v then if v>5811659 then if v<5822886 then C,v=r(4348),r(4428)m=s[C]C=r(4272)e=m[C]m=r(4317)Z=e[m]l[v]=Z v=12862540 elseif v<5833488 then b=T[y[1]]C,o=v,r(4636)z=b[o]b=r(4576)M=z[b]Z,v=M,M and 973924 or 5399335 elseif v<5842470 then v=Z and 6166205 or 169195 else v=z and 1465895 or 7626039 end else if v<5757348 then if 5751811>v then f,v,z,u=nil,13663853,nil,nil elseif v<5754603 then v,u=981071,r(4479)E=s[u]u=r(4414)V=E[u]f,u=.7,.215 E=V(u,f)O=E else m=r(4636)e=T[y[1]]Z=e[m]e=r(4683)v=Z[e]Z,e=r(4716),r(4386)v[Z]=e v,Z=s[r(4504)],{}end else if 5784916>v then Z=T[y[1]]l=r(4603)v=Z[l]Z=v()l,Z=12645605<=2482353,r(4980)v=T[y[1]]v[Z]=l Z=T[y[1]]l=r(4405)v=Z[l]Z=v()v,Z=s[r(4471)],{}else Z=r(4468)l=K(7290443,{y[1],y[2]})v=s[Z]Z=v(l)Z,v={},s[r(4757)]end end end else if v<5903461 then if v<5863926 then Z,e=r(4956),1 v=s[Z]Z=v(e)m=T[y[1]]C=r(4875)e=m[C]Z,v=e,e and 11146800 or 14063344 elseif v<5866219 then c2=r(4762)y2=s[c2]G2,c2,v=200,r(4510),5270289 A2=y2[c2]Y2,c2=140,140 y2=A2(c2,G2,Y2)r2=y2 elseif 5881372>v then Z,z,l=r(4558),r(4628),r(4369)v=s[Z]Z=r(4743)Z=v[Z]Z=Z(v,l)l=Z Z=r(4730)v=s[Z]M=T[y[1]]C=M[z]M={v(C)}v,m,Z,e=15271266,M[3],M[1],M[2]C=Z else M=r(4769)m=T[y[2]]C=r(4628)e=m[C]C=T[y[1]]m=C[M]Z=e[m]v=not Z v=v and 8715800 or 10168148 end else if v<5910636 then m=c[3]M=T[y[1]]z,l,e=r(4291),c[1],c[2]Z=M[z]b,M=r(4942),r(4457)v=Z[M]z=s[b]C,O,o,b=c[4],.3,v,r(4825)o=C M=z[b]b=e or O O=v v=C and 7943800 or 11105796 elseif 5919307>v then v,b=2220721,nil o=B(o)elseif 5942180>v then v=l T[y[1]]=v Z,v={l},s[r(4904)]else o,z,v=r(4567),C,r(4533)v=b[v]v=v(b,o)v=v and 5542528 or 3537425 end end end else if v<6075934 then if 6029208>v then if v>6017904 then if v<6028113 then l=T[y[1]]e=r(4291)Z=l[e]l=r(4734)v=Z[l]Z=r(4530)Z,l=v[Z],r(4431)Z=Z(v,l)v=Z and 9955897 or 1678204 else v=r(4941)Z={v}v=s[r(4648)]end else if 5974116>v then Z=T[y[1]]l=r(4695)v=Z[l]v=v and 12373194 or 5082613 elseif 5994751>v then v=12227087 else l=8030988<=2644341 v=T[y[1]]Z=r(4410)v[Z]=l Z=T[y[1]]l=r(4983)v=Z[l]Z=v()v=6960476 end end else if 6030743>v then l,Z,v=nil,{},s[r(4679)]elseif 6042986>v then Z,l,v={},nil,s[r(4692)]elseif 6054548>v then e,M=m(l,e)v=e and 15380830 or 11691695 else v,Z,l=s[r(4698)],{},nil end end else if v<6154938 then if 6106174>v then M=15190659<=3424155 Z=T[y[1]]C,v=r(4980),5832827 Z[C]=M M=r(4954)C=T[y[1]]Z=C[M]C=Z()elseif v<6131959 then v,Z=s[r(4923)],{}elseif v<6149567 then v=15481949 else e=T[y[1]]m=r(4636)l=e[m]e=r(4559)Z=l[e]l=r(4784)v=Z[l]v=v and 15725474 or 12418097 end else if v<6159487 then v=1584668 elseif 6161882>v then v=M M={v(C)}e,Z=M[2],M[1]C,m,v=Z,M[3],11159122 elseif 6165206>v then e=T[y[1]]m=r(4636)Z=e[m]z,C,e,M=80,r(4762),r(4824),200 v=Z[e]m=s[C]C,Z=r(4510),r(4528)e=m[C]C=255 m=e(C,M,z)v[Z]=m v=8657795 else v=T[y[3]]C,M=r(4944),r(4769)m=T[y[1]]e=m[C]C=T[y[1]]m=C[M]Z=v(e,m)v=T[y[4]]e=T[y[1]]Z=v(e,l)e=Z v=e and 5698394 or 3232908 end end end end else if v>5502126 then if 5637410>v then if 5584255>v then if 5566443>v then if v<5535844 then l=r(4603)Z=T[y[1]]v=Z[l]Z=v()l=r(4695)Z=T[y[1]]v=Z[l]v=v and 9006858 or 8168452 elseif v<5549854 then v=r(4569)v=b[v]v=v(b)v=3537425 else Z=1 v=l+Z C,e,l=25,v,v m=l>=C Z,v=m,m and 5327451 or 14193549 end else if 5577010>v then v=Z and 1919377 or 6031638 else v=T[y[1]]l,Z=9265974>12134718,r(4695)v[Z]=l l=r(4634)Z=T[y[1]]v=Z[l]Z=v()v=1981761 end end else if 5593483>v then e=r(4319)m=t(10750152,{y[1],y[2]})v=T[y[1]]v[e]=m m=L(14307831,{y[1]})e=r(4725)v=T[y[1]]I=0 v[e]=m e=r(4708)m=K(10995013,{y[1]})v=T[y[1]]v[e]=m m=K(15077361,{y[1]})v=T[y[1]]e=r(4885)v[e]=m v=T[y[1]]e=r(4983)m=L(9027637,{y[1]})v[e]=m v=T[y[1]]m=t(1216009,{y[1];y[2]})e=r(4686)v[e]=m v=T[y[1]]m=L(4046989,{y[1]})e=r(4666)v[e]=m e=r(4318)m=p(11632555,{y[1]})v=T[y[1]]v[e]=m e=r(4505)m=L(14525760,{y[1]})v=T[y[1]]v[e]=m v=T[y[1]]m=F(7920215,{y[1];y[2]})e,O=r(4613),r(4636)v[e]=m v=T[y[1]]k=10 m=Q(16625532,{y[1]})e=r(4630)v[e]=m M=r(4364)m=L(3670724,{y[1],y[2]})e=r(4925)v=T[y[1]]v[e]=m m=L(14100292,{y[1]})v=T[y[1]]W,u,e=r(4401),r(4479),r(4988)v[e]=m m=p(15526673,{y[1];y[2]})v=T[y[1]]e=r(4643)v[e]=m e=r(4453)m=Q(14191945,{y[1]})v=T[y[1]]v[e]=m e=r(4405)v=T[y[1]]m=K(6189026,{y[1]})v[e]=m m=F(3469106,{y[1]})v=T[y[1]]e=r(4954)v[e]=m n=.5 m=p(15960746,{y[1],y[2]})v=T[y[1]]e=r(4665)v[e]=m v=T[y[1]]m=t(2162137,{y[1]})e=r(4674)v[e]=m m=F(13042218,{y[1]})v=T[y[1]]e=r(4511)v[e]=m v=T[y[1]]D=0 m=t(15332872,{y[1]})e=r(4634)v[e]=m v=T[y[1]]m=F(13073529,{y[1];y[2]})R,e=r(4780),r(4802)v[e]=m v=T[y[1]]e=r(4424)m=F(3224787,{y[1]})v[e]=m e=r(4325)m=Q(11041369,{y[1]})v=T[y[1]]v[e]=m e=r(4870)v=T[y[1]]m=L(16023035,{y[1]})v[e]=m m=r(4636)e=T[y[1]]v=e[m]f,e=1,r(4990)C=T[y[1]]m=C[M]M=r(4499)o=T[y[1]]b=o[O]U,o,O=44,r(4235),r(4990)z=b[o]o=r(4454)E=s[u]u=r(4825)V=E[u]u=0 E=V(u,f,I,U)I,a=r(4479),-22 f=s[I]V,I,U=r(4871),r(4825),70 u=f[I]I=0 f=u(I,U,n,a)u=r(4500)U=T[y[2]]n=r(4433)I=U[n]n,U,a=.5,r(4821),r(4729)b={[o]=O,[R]=E,[V]=f,[u]=I,[U]=n;[a]=D,[W]=k}C=m(M,z,b)v[e]=C m=r(4636)e=T[y[1]]v=e[m]C=T[y[1]]a,w,O,U,n,e,M=-22,r(4348),r(4636),44,.5,r(4267),r(4364)m=C[M]M,f=r(4499),1 o=T[y[1]]I=0 b=o[O]o=r(4235)z=b[o]u,o=r(4479),r(4454)E=s[u]O,u=r(4267),r(4825)V=E[u]u=0 E=V(u,f,I,U)R,I,U=r(4780),r(4479),-70 f=s[I]I=r(4825)u=f[I]k,I=10,1 f=u(I,U,n,a)n=r(4433)U=T[y[2]]D,W,u=0,r(4401),r(4500)I=U[n]V,a,n,U=r(4871),r(4729),.5,r(4821)b={[o]=O;[R]=E;[V]=f,[u]=I,[U]=n,[a]=D,[W]=k}C=m(M,z,b)M,a,k,n=r(4364),-22,r(4437),.5 v[e]=C m=r(4636)e=T[y[1]]v=e[m]u=r(4479)C=T[y[1]]O,R=r(4636),r(4780)m=C[M]M,f,I,U,e=r(4499),130,0,44,r(4307)o=T[y[1]]b=o[O]O,o=r(4307),r(4235)z=b[o]P,H=r(4348),r(4276)E=s[u]o,u=r(4454),r(4825)V=E[u]u=0 E=V(u,f,I,U)V,U,I=r(4871),-136,r(4479)f=s[I]I=r(4825)u=f[I]I=1 f=u(I,U,n,a)n,u,U,I=10,r(4821),r(4401),1 b={[o]=O;[R]=E;[V]=f,[u]=I;[U]=n}C=m(M,z,b)n,a,M,f,m=0,2,r(4364),-32,r(4636)v[e]=C I=0 e=T[y[1]]R,O=r(4780),r(4636)v=e[m]C=T[y[1]]u=r(4479)m=C[M]e=r(4974)o=T[y[1]]b=o[O]M,o,U=r(4476),r(4307),14 z=b[o]o,O=r(4454),r(4974)E=s[u]u=r(4825)V=E[u]u=1 E=V(u,f,I,U)V,I=r(4871),r(4479)f=s[I]I,U=r(4825),25 u=f[I]I=0 f=u(I,U,n,a)a,u,U,n=r(4528),r(4821),r(4716),r(4919)W=T[y[2]]D=W[k]k=11 d=s[P]I,P,W=1,r(4276),r(4965)q=d[P]d=r(4801)j=q[d]q=r(4705)x=s[w]w=r(4705)P=x[w]x=r(4738)d=P[x]b={[o]=O,[R]=E;[V]=f;[u]=I;[U]=n;[a]=D;[W]=k,[H]=j;[q]=d}U=14 C=m(M,z,b)k,m,I=r(4437),r(4636),0 v[e]=C e=T[y[1]]M,O=r(4364),r(4636)v=e[m]R=r(4780)C=T[y[1]]f,u,e=-32,r(4479),r(4818)m=C[M]M=r(4476)o=T[y[1]]b=o[O]O,o=r(4818),r(4307)z=b[o]P=r(4348)E=s[u]u,o=r(4825),r(4454)V=E[u]u=1 E=V(u,f,I,U)I,V,a=r(4479),r(4871),23 f=s[I]n,I=0,r(4825)u=f[I]I,U,H=0,25,r(4276)f=u(I,U,n,a)U,u,w=r(4716),r(4821),r(4348)W=T[y[2]]I,a,n=1,r(4528),r(4820)D=W[k]d=s[P]W,P,k=r(4965),r(4276),11 q=d[P]d=r(4239)j=q[d]x=s[w]w,q=r(4705),r(4705)P=x[w]x=r(4738)d=P[x]b={[o]=O;[R]=E,[V]=f;[u]=I;[U]=n;[a]=D;[W]=k,[H]=j;[q]=d}f=26 C=m(M,z,b)v[e]=C m=r(4636)e=T[y[1]]a,O=0,r(4636)v=e[m]I,M,e=0,r(4364),r(4338)C=T[y[1]]m=C[M]M=r(4499)o=T[y[1]]b=o[O]O,o=r(4338),r(4307)z=b[o]R,o,u=r(4780),r(4454),r(4479)E=s[u]u=r(4825)V=E[u]u,n,U=0,.5,26 E=V(u,f,I,U)U,V,I=-26,r(4871),r(4479)f=s[I]I=r(4825)u=f[I]I=1 f=u(I,U,n,a)a,u,n=.5,r(4950),r(4270)U=s[n]D,n=315,r(4825)I=U[n]n=0 U=I(n,a)a,I,n=r(4422),r(4821),1 b={[o]=O,[R]=E,[V]=f,[u]=U;[I]=n,[a]=D}C=m(M,z,b)m,u=r(4636),r(4479)v[e]=C e=T[y[1]]U=0 v=e[m]M=r(4364)C=T[y[1]]m=C[M]O=r(4636)o=T[y[1]]e=r(4795)b=o[O]f,R,M,D,o=0,r(4780),r(4557),r(4396),r(4338)z=b[o]O=r(4795)E=s[u]o,u=r(4454),r(4825)V=E[u]I,u=1,1 E=V(u,f,I,U)U,I,V,u=r(4607),r(4969),r(4821),1 a=T[y[2]]f=r(4491)n=a[D]b={[o]=O;[R]=E;[V]=u,[f]=I,[U]=n}C=m(M,z,b)v[e]=C e=X()v,z=315,r(4291)T[e]=v M=T[y[1]]C=M[z]M=r(4975)m=C[M]C=r(4485)v=m[C]o=r(4291)C=Q(14228660,{y[1],e})m=r(4465)m=v[m]m=m(v,C)C=r(4566)M=X()m=s[C]C=r(4365)v=m[C]C=L(14030585,{y[1]})m=v(C)C,v=r(4928),0 m=X()T[m]=v v=s[C]C=v()T[M]=C b=T[y[1]]O=r(4636)z=b[o]b=r(4975)C=z[b]z=r(4310)v=C[z]C=r(4465)C=v[C]z=p(1090894,{m,M;y[1]})C=C(v,z)z=r(4566)C=s[z]z=r(4365)v=C[z]z=F(3543687,{y[1];y[3]})C=v(z)v=t(14975221,{})C=v v=C()o=T[y[1]]b=o[O]z,o=v,r(4818)v=b[o]v=v and 1835451 or 5180592 elseif v<5599194 then o,v=R,V v=704801 elseif 5606230>v then C=T[y[1]]M=r(4415)m=C[M]l,M=c[1],r(4769)C=l[M]e=m[C]Z,v=e,e and 14850158 or 6239291 else V=11544236<4712963 v=T[y[1]]R=r(4475)v[R]=V R=r(4917)V=t(3345657,{y[1]})v=b[R]R=r(4465)R=v[R]R=R(v,V)v=10291297 end end else if v>5676753 then if 5688000>v then C,v=nil,12667172 elseif v<5706630 then m,C=r(4837),r(4769)Z=T[y[2]]v=Z[m]m=T[y[1]]Z=m[C]m=e v[Z]=m v=3232908 elseif 5721379>v then z=r(4636)M=T[y[1]]C=M[z]M=r(4759)m=C[M]v,C=13587966,r(4784)e=m[C]l=not e Z=l else v,Z=s[r(4406)],{}end else if 5665253>v then v,H,E,U=I,r(4479),f,r(4364)I=T[y[1]]x=r(4716)f=I[U]s2,d=r(4509),32 D=T[y[1]]U,q,W=r(4898),0,r(4636)a=D[W]D=r(4486)n=a[D]j=-6 k=s[H]D,c2,H=r(4780),r(4348),r(4825)W=k[H]H=1 k=W(H,j,q,d)j=T[y[2]]W,q,w,d,A2,i=r(4500),r(4937),r(4386),r(4729),r(4348),r(4454)H=j[q]h=s2 ..m j,s2,r2,P,q=r(4821),r(4401),102,0,.5 a={[D]=k;[W]=H,[j]=q,[d]=P,[x]=w;[i]=h;[s2]=r2}I=f(U,n,a)U,H,j=r(4503),r(4479),0 u=X()x=0 T[u]=I h,D=r(4276),r(4780)I=T[y[1]]P,n=0,6 f=I[U]U=T[u]I=f(U,n)I=T[y[1]]U=r(4364)f=I[U]U=r(4476)n=T[u]k=s[H]H,d,q=r(4825),0,1 W=k[H]H=.4 k=W(H,j,q,d)q,W=r(4479),r(4871)j=s[q]q=r(4825)H=j[q]d,q=8,0 j=H(q,d,P,x)d,q,H,i=r(4716),1,r(4821),r(4807)w=O..i x=r(4275)P=x..w w,i=r(4965),10 v2=s[A2]v,O,x,A2=6898999,nil,r(4528),r(4276)r2=v2[A2]v2=r(4616)s2=r2[v2]r2=r(4705)y2=s[c2]c2=r(4705)A2=y2[c2]y2=r(4427)v2=A2[y2]A2,G2,y2=r(4401),r(4348),103 a={[D]=k,[W]=j,[H]=q,[d]=P;[x]=E,[w]=i;[h]=s2,[r2]=v2,[A2]=y2}s2,x,q=r(4276),0,1 I=f(U,n,a)P,j,H,U=0,0,r(4479),r(4364)I=T[y[1]]D=r(4780)f=I[U]n=T[u]k=s[H]w,U,d,H,E=r(4366),r(4476),0,r(4825),nil W=k[H]H=.5 k=W(H,j,q,d)q,W=r(4479),r(4871)j=s[q]q,d=r(4825),-8 H=j[q]q=.5 j=H(q,d,P,x)h,H,d,y2,q=r(4669),r(4821),r(4716),r(4348),1 i=V..h x=w..i h=r(4437)P=R..x x=r(4528)i=T[y[2]]w=i[h]R=nil A2=s[y2]h,y2=10,r(4276)v2=A2[y2]A2=r(4239)r2=v2[A2]v2,i=r(4705),r(4965)c2=s[G2]G2=r(4705)y2=c2[G2]c2=r(4738)A2=y2[c2]c2,y2=103,r(4401)a={[D]=k,[W]=j,[H]=q,[d]=P;[x]=w;[i]=h,[s2]=r2,[v2]=A2,[y2]=c2}I=f(U,n,a)I=T[u]U=r(4260)f=I[U]I=r(4465)I=f[I]U=p(5145395,{y[1];u})I=I(f,U)m,U=nil,r(4650)I=T[u]f=I[U]U=F(11652128,{y[1];u})I=r(4465)I=f[I]I=I(f,U)U=r(4917)I=T[u]f=I[U]U=t(10224871,{y[1];o})I=r(4465)u=B(u)o=B(o)I=f[I]I=I(f,U)V=nil elseif 5670951>v then C,e,Z=r(4835),r(4703),r(4543)v=s[Z]M=r(4681)m=T[y[1]]l={[e]=m;[C]=M}Z={v(l)}Z,v={A(Z)},s[r(4430)]elseif v<5675635 then l=15706911<=7069500 v=T[y[1]]Z=r(4878)v[Z]=l l=r(4870)Z=T[y[1]]v=Z[l]Z=v()v=2279425 else m=r(4636)e=T[y[1]]Z=e[m]e=r(4300)v=Z[e]e,Z=l,r(4306)v[Z]=e v=15928430 end end end else if v>5384273 then if v<5434340 then if 5404688>v then v=C v=Z and 8073899 or 872663 elseif v<5417441 then Z=T[y[2]]C,m=r(4636),120 e=m*l v=Z+e T[y[2]]=v m=T[y[1]]e=m[C]v,m=14520209,r(4338)Z=e[m]m=T[y[2]]e=r(4422)Z[e]=m elseif v<5425574 then C=r(4636)m=T[y[1]]e=m[C]m=r(4755)v=e[m]z=T[y[1]]b=r(4636)M=z[b]e,z=r(4784),r(4534)C=M[z]m=l==C v[e]=m v=16363774 else m,v=r(4753),5020525 e=T[y[1]]l=e[m]Z=l end else if v<5446981 then m,l,v=r(4601),nil,s[r(4293)]e=T[y[2]]Z=e[m]e=Z()Z={}elseif v<5461309 then V=r(4304)R=z[V]V=r(4657)v=R==V v=v and 5369212 or 5135725 elseif v<5473060 then v,Z=9237971,l else u=r(4636)E=T[y[1]]V=E[u]E=r(4578)v=V[E]V=r(4448)V,E=v[V],r(4716)V=V(v,E)v=r(4465)E=L(16294554,{o;z,y[1]})v=V[v]v=v(V,E)v=11575115 end end else if 5337548>v then if v>5312621 then if v<5331806 then v=14193549 C=T[y[1]]M=r(4324)m=C[M]Z=m else Z,l=r(4410),7261680<6984822 v=T[y[1]]v[Z]=l l=r(4983)Z=T[y[1]]v=Z[l]Z=v()v=12198123 end else if 5246947>v then v=16088894 elseif 5284040>v then h,v=r2,v2 v=r2 and 13370911 or 11231593 else l=T[y[1]]e,m=r(4799),r(4769)Z=l[e]e=T[y[2]]l=e[m]e=r(4769)v=Z[l]Z=r(4794)Z=v[Z]Z=Z(v)l=r(4799)Z=T[y[1]]v=Z[l]l=T[y[2]]Z=l[e]l=nil v[Z]=l v=4759843 end end else if v<5339739 then v=C v=Z and 11048029 or 3872118 elseif v<5354653 then v=T[y[1]]Z={v}v=s[r(4402)]elseif 5368988>v then m,C=l,v v=l and 6750854 or 7965590 else v=T[y[1]]R,V=r(4627),15788530>1934226 v[R]=V R=r(4917)v=b[R]V=Q(2460450,{y[1]})R=r(4465)R=v[R]R=R(v,V)v=10291297 end end end end end else if 4808993>v then if v<4486617 then if 4371328>v then if 4271158>v then if v>4243498 then if 4256718>v then l,M=c[1],r(4713)C=l[M]Z,m=C,v v,e=C and 12939731 or 6375618,c[2]else v=C v=Z<m Z={v}v=s[r(4539)]end else if 4203668>v then v,o,b=9764815,nil,nil elseif v<4227554 then o=r(4603)v=T[y[1]]R=F(8868427,{y[1]})v[o]=R o=r(4351)R=K(4150176,{y[1]})v=T[y[1]]v[o]=R v=16200929<=7897166 o=X()R=r(4260)T[o]=v V=F(8222683,{o;y[1];O})v=b[R]R=r(4465)R=v[R]R=R(v,V)R=r(4650)V=F(3725052,{o,y[1],O})v=b[R]R=r(4465)R=v[R]R=R(v,V)R=r(4345)V=Q(2845920,{y[1];O})v=b[R]R=r(4465)R=v[R]R=R(v,V)R=r(4888)v=b[R]V=p(1540555,{o;y[1],O})R=r(4465)R=v[R]R=R(v,V)V=r(4304)R=z[V]V=r(4273)v=R==V v=v and 15562956 or 87136 else v,Z=s[r(4466)],{}end end else if 4292361>v then v=O and 6929371 or 9894183 elseif 4315204>v then v=T[y[1]]l,Z=7914140<=4482948,r(4980)v[Z]=l Z=T[y[1]]l=r(4954)v=Z[l]Z=v()v=11714186 elseif v<4345789 then z=r(4386)M=e~=z Z,v=M,4624214 else m,z=C(e,m)v=m and 5117119 or 5590196 end end else if 4421008>v then if 4386546>v then l=r(4878)Z=T[y[1]]v=Z[l]v=v and 9553178 or 13580691 elseif 4400521>v then M,e,C,v=5178323>=11928339,nil,r(4410),6480337 Z=T[y[1]]Z[C]=M M=r(4885)C=T[y[1]]m=nil Z=C[M]C=Z()elseif v<4406774 then i=r(4916)w=s[i]i=w(k)w,v=r(4560),5222911 x=i==w d=x else Z=T[y[1]]l=r(4980)v=Z[l]v=v and 13769083 or 10216308 end else if v<4433081 then l=c[1]m=T[y[1]]C=r(4790)e=m[C]v,Z=e and 8279824 or 3161631,e elseif v<4450004 then v,E,U=11594806,nil,nil elseif 4474714>v then v=R v,o=3387464,O else M=b+M Z,O=M<=z,not o Z=O and Z O=z<=M O=o and O Z=O or Z O=6222675 v=Z and O Z=5677607 v=v or Z end end end else if v>4691873 then if 4746534>v then if 4712633>v then v=b v=C and 14383250 or 3827505 elseif 4714071>v then v2,T2,s2,y2=r(4590),r(4865),r(4560),v h=s[s2]y2,r2,G2,s2=r(4865),r(4538),r(4590),r(4399)i=h[s2]c2=d[G2]Y2=d[T2]G2=r(4357)A2=c2 or G2 G2,c2=v,Y2 v=Y2 and 272222 or 11579172 elseif 4728960>v then Z=T[y[1]]l=r(4832)v=Z[l]M,e,C=.7,.15,r(4821)l=T[y[2]]m={[C]=M}Z=v(l,e,m)v=14437973 else e,M=m(l,e)v=e and 9407815 or 7996686 end else if v<4754776 then v=V v,o=R and 704801 or 11548530,R elseif 4781612>v then Z,v={},s[r(4464)]elseif 4804342>v then l,Z=8219887<4545231,r(4475)v=T[y[1]]v[Z]=l Z=T[y[1]]l=r(4505)v=Z[l]Z=v()v=13984277 else Z,l=r(4980),5815066>13550266 v=T[y[1]]v[Z]=l l=r(4954)Z=T[y[1]]v=Z[l]Z=v()v=10854543 end end else if 4620583>v then if v<4605363 then if v<4497507 then m=r(4636)e=T[y[1]]Z=e[m]m,e=r(4796),r(4612)v=Z[e]e=m..l Z=r(4855)v[Z]=e v=9031401 elseif 4554255>v then v,b=z,1 M[v]=Z o,Z,v=0,m or b,r(4301)M[v]=Z Z,z=r(4327),v z=C or o M[Z]=z z,Z,b=l,r(4753),v M[Z]=z v,Z=s[r(4262)],{M}else v=4399957 end else if 4613489>v then Z,v=C,11138814 else m,z=r(4766),r(4348)Z=l[m]M=s[z]z=r(4766)C=M[z]M=r(4286)m=C[M]v=Z==m v=v and 16342428 or 14131631 end end else if 4643441>v then v=C v=Z and 8010756 or 4399957 elseif 4664438>v then Z=r(4468)v=s[Z]m=Q(14773654,{y[1]})Z=v(m)v=8534516 elseif v<4669134 then O,v=nil,5677607 else v=M and 6382647 or 9828054 end end end end else if 5038433>v then if v>4953019 then if 4999289>v then if 4959568>v then e,m=r(4837),r(4769)Z=T[y[4]]v=Z[e]e=T[y[2]]Z=e[m]e=l v[Z]=e v=298579 elseif v<4960352 then z=r(4628)M=T[y[3]]C=M[z]M=T[y[2]]v=15087708 m=C[M]e=not m Z=e elseif v<4969473 then Z=r(4584)v=T[y[1]]M,m=r(4766),9719726<=2560855 v[Z]=m v=T[y[1]]Z=r(4403)C=l[M]M=r(4454)m=C[M]v[Z]=m v=T[y[2]]C=T[y[1]]Z,M=r(4716),r(4403)m=C[M]M=r(4596)v[Z]=m v=T[y[2]]Z=r(4528)C=T[y[3]]m=C[M]v[Z]=m m=r(4566)Z=s[m]m=r(4651)C=K(2171456,{y[1]})v=Z[m]m=.05 Z=v(m,C)Z=r(4524)v=s[Z]v=v and 4662669 or 8534516 else V,R,v=nil,nil,1824516 end else if v<5020970 then v=Z and 1179213 or 7360605 elseif 5022358>v then x,w=r(4560),r(4538)P=s[x]y2,s2,v2,i,x=r(4865),v,r(4590),r(4590),r(4399)d=P[x]r2=k[v2]s2,v2=r(4865),r(4357)h=r2 or v2 v2=v A2=k[y2]r2,v=A2,A2 and 14576357 or 9413159 elseif 5024142>v then R=T[y[4]]V=r(4636)O=R[V]R=r(4578)o=O[R]v,O=10476788,r(4716)b=o[O]M=b else e=T[y[1]]m=r(4753)l=e[m]m,e,v=r(4903),r(4562),2695623 e=l[e]e=e(l,m)Z=e end end else if 4928094>v then if 4888354>v then if v<4837824 then v,P=s2,h v=15834930 elseif v<4869414 then Z,v={},s[r(4891)]else e=r(4566)l=s[e]e=r(4693)v=l[e]C=r(4733)m=T[y[1]]e=m[C]l=v(e)v=7711367 end else if 4911500>v then R,V,v=nil,nil,11778097 else Z=r(4695)v=T[y[1]]e,l,m=r(4636),9670082<=12033887,r(4479)v[Z]=l C=280 l=T[y[1]]Z=l[e]l,O=r(4684),0 v=Z[l]e,Z,l=r(4636),r(4784),9480465>=7703355 v[Z]=l l=T[y[1]]Z=l[e]l=r(4684)v=Z[l]e=s[m]Z,m,R=r(4780),r(4825),320 l=e[m]z,m,M=0,0,0 e=l(m,C,M,z)o=280 v[Z]=e Z=T[y[1]]l=r(4832)v=Z[l]m=T[y[1]]b,C=r(4479),r(4636)e=m[C]C,m=r(4780),r(4684)l=e[m]z=s[b]e,b=.3,r(4825)M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)Z=T[y[1]]l=r(4601)v=Z[l]v=v and 2285550 or 2309171 end end else if v<4935216 then l=T[y[1]]e=r(4636)Z=l[e]l,e=r(4696),r(4636)v=Z[l]l,z,M,Z=r(4386),320,0,r(4716)v[Z]=l l=T[y[1]]Z=l[e]e,l=r(4636),r(4897)v=Z[l]l,Z=9780623<=4326104,r(4784)v[Z]=l l=T[y[1]]Z=l[e]l,C=r(4897),280 v=Z[l]Z,m=r(4780),r(4479)e=s[m]m=r(4825)l=e[m]m=0 e=l(m,C,M,z)v[Z]=e Z,v={},s[r(4992)]elseif 4938844>v then v,o=O,z C[o]=v v,O,o=12626920,nil,nil elseif v<4944002 then l=r(4708)Z=T[y[1]]v=Z[l]Z=v()v=6960476 else V=r(4479)R=s[V]E,V=75,r(4287)O=R[V]V=250 R=O(V,E)v,b=4031966,R end end end else if v<5146861 then if v>5111422 then if v<5120096 then w,H,U,u,o,I=255,1814950>8813459,r(4479),r(4377),r(4364),r(4304)b=T[y[1]]M,E=m,r(4636)v=b[o]V=T[y[1]]o=r(4991)R=V[E]V=r(4910)O=R[V]V,W=r(4454),26 f=z[I]E=u..f n,d=32,r(4418)I=s[U]x,U=255,r(4825)f=I[U]U,D,u,a=0,28,r(4780),0 I=f(U,n,a,D)f,a=r(4500),r(4762)n=s[a]a,j,D,P=r(4510),r(4732),20,10 U=n[a]a=20 n=U(a,D,W)k,W=r(4611),0 q=z[d]d,D,a,U=r(4401),r(4729),1,r(4821)R={[V]=E,[u]=I,[f]=n;[U]=a;[D]=W,[k]=H;[j]=q,[d]=P}b=v(o,O,R)a,O,D=0,r(4503),18 V=r(4454)o=T[y[1]]v=o[O]U,O=r(4479),3 o=v(b,O)O,n,u=r(4364),18,r(4780)o=T[y[1]]v=o[O]I=s[U]k,O,U,W,j,E=0,r(4557),r(4825),.5,r(4912),r(4545)f=I[U]U=0 I=f(U,n,a,D)D,a=0,r(4479)n=s[a]a,f,P=r(4825),r(4871),r(4762)U=n[a]a=.5 n=U(a,D,W,k)U,W,k=r(4950),r(4270),.5 D=s[W]W=r(4825)a=D[W]W=.5 D=a(W,k)a=r(4821)H=z[j]W,j=1,r(4607)d=s[P]P=r(4510)q=d[P]k,P=r(4491),255 d=q(P,x,w)P,q=2,r(4401)R={[V]=E,[u]=I,[f]=n,[U]=D;[a]=W,[k]=H;[j]=d;[q]=P}o=v(O,b,R)O=X()R=7780343~=16325058 T[O]=o v=T[y[1]]o=r(4548)v[o]=R R,o=.75,r(4458)v=T[y[1]]v[o]=R E=r(4636)v=T[y[1]]o,R=r(4552),r(4570)v[o]=R R,o=6693140~=10021379,r(4323)v=T[y[1]]v[o]=R R=.75 v=T[y[1]]o=r(4827)v[o]=R R,o=r(4940),r(4579)v=T[y[1]]v[o]=R V=T[y[1]]R=V[E]V=r(4300)o=R[V]v=not o v=v and 9498981 or 2433437 elseif 5129399>v then C,Z=v,e v=e and 4322058 or 4624214 elseif 5140560>v then V=r(4304)R=z[V]V=r(4589)v=R==V v=v and 10458996 or 2570657 else C=r(4821)Z=T[y[1]]l=r(4832)v=Z[l]e,M=.15,.2 m={[C]=M}l=T[y[2]]Z=v(l,e,m)v,Z=s[r(4360)],{}end else if v>5090739 then if v<5102295 then v=W v=n and 11934069 or 10807971 else v=1810036>=7362620 Z={v}v=s[r(4646)]end else if v<5061711 then Z=T[y[1]]l=r(4603)v=Z[l]Z=v()Z=T[y[1]]l=r(4878)v=Z[l]v=v and 6704777 or 4026535 elseif v<5077076 then C,v=r(4342),248846 m=e[C]Z=m else l=r(4878)Z=T[y[1]]v=Z[l]v=v and 2376510 or 14084476 end end end else if 5166017>v then if v<5151708 then v=Z and 3579049 or 10440080 elseif 5155323>v then Z=T[y[1]]l=r(4878)v=Z[l]v=v and 9610447 or 4941290 elseif v<5159788 then M,o=r(4710),r(4348)C=l[M]b=s[o]v,o=12169387,r(4710)z=b[o]b=r(4523)M=z[b]m=C==M Z=m else h,v=r2,v2 v=13370911 end else if 5174304>v then v,Z=9164129,l elseif 5182414>v then z,o=nil,r(4566)b=s[o]o=r(4365)m=B(m)e=B(e)v=b[o]o=p(1821838,{y[1]})M=B(M)b=v(o)C,Z,b=nil,{},r(4365)v=s[b]l=nil o=K(6892596,{y[1]})b=v(o)v=s[r(4564)]elseif v<5203574 then I,U=u(f,I)v=I and 12899989 or 10703357 else v=P v,H=12683717,d end end end end end end else if 7414430>v then if 6760737>v then if v<6411281 then if v>6284904 then if v>6360798 then if v<6373872 then O=r(4636)o=T[y[1]]b=o[O]C,o=v,r(4559)z=b[o]M=not z Z,v=M,M and 11995876 or 5338936 elseif 6379132>v then z,v=r(4341),12939731 M=s[z]z=r(4635)C=M[z]Z=C elseif v<6384270 then v=r(4394)v,z=e[v],r(4782)v=v(e)M=v v=s[z]O={v(l)}b,v,o,z=O[2],2649154,O[3],O[1]else e,l,Z=.1,c[1],r(4956)v=s[Z]Z=v(e)Z,v=r(4582),r(4530)v=l[v]v=v(l,Z)e=v Z,v=e,e and 6275970 or 8572905 end else if 6308704>v then k,w,x=q,r(4339),r(4339)P=s[x]i=v x=P(k)P=s[w]v=x and 8248220 or 15834930 w=P(o)P=x elseif v<6332744 then E=r(4610)V=s[E]E,v=r(4953),11034668 R=V[E]o=R elseif 6345695>v then M,o=l,r(4341)b=s[o]o=r(4322)z=b[o]O,o=2,1 b=z(o,O)O,z=1,1 o,v,R=b,13663853,O O=0 V=R<O O=z-R else M=60 C=e<M v=C and 15971757 or 3601757 end end else if v<6221198 then if 6197710>v then if v<6188775 then Z=r(4468)l=Q(8545873,{y[1],y[2],y[3],y[4];y[5],y[6];y[7]})v=s[Z]Z=v(l)v,Z=s[r(4591)],{}elseif 6189587>v then M=r(4636)C=T[y[1]]m=C[M]C=r(4759)e=m[C]l=not e v,Z=l and 13587966 or 5714867,l else M,C,e=80,80,r(4636)l=T[y[1]]m=r(4762)Z=l[e]l=r(4671)v=Z[l]e=s[m]m,Z=r(4510),r(4528)l=e[m]m=255 e=l(m,C,M)v[Z]=e v,Z=s[r(4507)],{}end else if v<6212497 then z,b,o,v=nil,nil,nil,127078 else j=r(4479)H=s[j]j,d,P,q,v=r(4825),.5,-4,-11,3004233 k=H[j]j=1 H=k(j,q,d,P)D=H end end else if v<6230983 then V=T[y[2]]E,O=r(4753),M R=V[E]Z=not R v=Z and 4666208 or 7241137 elseif v<6242845 then M=r(4853)C=T[y[1]]v=14850158 m=C[M]b,M=r(4769),r(4555)C=s[M]z=l[b]M=C(z)e=m[M]Z=e elseif 6261184>v then l=r(4603)Z=T[y[1]]v=Z[l]Z=v()Z=r(4878)v=T[y[1]]l=3122631>9616355 v[Z]=l Z=T[y[1]]l=r(4325)v=Z[l]Z=v()Z,v={},s[r(4249)]else C=T[y[1]]M=r(4587)m=C[M]M=T[y[2]]v=8572905 C=m(M)Z=C end end end else if v<6655143 then if v>6578828 then if v<6603837 then v,Z=s[r(4896)],{}elseif v<6625731 then v=T[y[1]]Z=v()T[y[2]]=Z v=T[y[3]]C=v e=T[y[2]]O=T[y[4]]z,R=v,r(4636)o=O[R]O=r(4578)b=o[O]M,v=b,b and 5023301 or 10476788 elseif v<6644993 then l,v,Z=nil,s[r(4244)],{}else R=r(4849)R=l[R]v=T[y[2]]Z,V=r(4716),1 R=R(l,V,o)o=nil O=R..e v[Z]=O O,Z=.08,r(4956)v=s[Z]Z=v(O)v=516770 end else if v>6486262 then if 6525217>v then v,Z=s[r(4647)],{}else V=r(4304)R=z[V]V=r(4305)v=R==V v=v and 10647682 or 13812434 end else if 6447078>v then f,v=U,n v=U and 5663977 or 16193762 elseif 6468912>v then Z,z=r(4782),r(4652)v=s[Z]z=e[z]M={z(e)}z={v(A(M))}v,C,Z=535365,z[3],z[1]M,m=Z,z[2]else l,Z,v=nil,{},s[r(4873)]end end end else if v>6712923 then if 6727090>v then Z,v={},s[r(4659)]elseif 6742632>v then v,P=1304108,nil elseif v<6752087 then z=T[y[3]]b=r(4753)M=z[b]v,m=7965590,M else l,m,Z=c[1],r(4636),r(4458)v=T[y[1]]e=l v[Z]=e e=T[y[1]]Z=e[m]e=r(4612)v=Z[e]v=v and 1207220 or 12081490 end else if 6664290>v then v=2476386 elseif v<6684929 then Z,v,l={},s[r(4537)],nil elseif v<6705426 then v=T[y[1]]l,Z=5810068>10545506,r(4878)v[Z]=l Z=T[y[1]]l=r(4325)v=Z[l]Z=v()v=6492188 else b=B(b)v,z=13777387,nil end end end end else if v>7035206 then if v>7226429 then if 7304380>v then if v<7245413 then u=1 Z=T[y[2]]R,E,v=r(4716),r(4849),4486030 E=l[E]E=E(l,u,O)V=E..e Z[R]=V R,V,O=r(4956),.08,nil Z=s[R]R=Z(V)elseif v<7252726 then E,R,Z=r(4242),z,r(4849)Z=l[Z]Z=Z(l,R,R)V=Z Z=V==E v=Z and 12479113 or 1285227 elseif 7273103>v then Z,v={},s[r(4864)]else Z=T[y[1]]l=r(4944)v=Z[l]l=v Z,v=l,l and 8738212 or 13053794 end else if 7320130>v then o=r(4468)v=s[o]O=L(9282611,{b,y[1]})o=v(O)v=6706076 elseif 7341274>v then M=r(4403)C=T[y[1]]m=C[M]C=r(4661)Z,z=m or C,r(4766)M=l[z]m,z=Z,r(4454)C=M[z]Z=C==m v=Z and 12526610 or 2476386 elseif 7367933>v then Z,v={},s[r(4451)]else v=Z and 4239503 or 6768154 end end else if v>7116684 then if 7131595>v then Z=T[y[1]]l=r(4988)v=Z[l]Z=v()v,Z=s[r(4642)],{}elseif v<7174839 then C=T[y[1]]M,v=r(4636),9857774 m=C[M]C=r(4576)e=m[C]m=r(4784)l=e[m]Z=l elseif v<7210263 then v=f v=V and 866843 or 11017561 else Z,v=z,b v=9732850 end else if v>7083486 then if v<7102954 then v=Z and 8598780 or 2467208 else Z=r(4726)v=s[Z]v=v and 13316567 or 3438124 end else if 7054100>v then v=Z and 12319640 or 365722 elseif 7071193>v then v=7249477<=8028263 T[y[1]]=v v=15671090 else Z=r(4840)v=s[Z]v=v and 2923101 or 11350357 end end end end else if 6912817>v then if v>6873848 then if v<6883093 then b=M v=X()T[v]=o o=v V=T[o]E=T[y[5]]R=V~=E O,v=R,R and 744380 or 1638439 elseif v<6889814 then E,R=r(4394),O E,f,u=V[E],1,r(4849)E=E(V)I=#l u=E[u]u=u(E,f,I)v=u==l v=v and 7797782 or 4978054 elseif 6895797>v then Z=r(4558)v=s[Z]E,Z,e=r(4663),r(4743),r(4975)Z,l=v[Z],r(4369)Z=Z(v,l)l=X()m=r(4457)T[l]=Z Z=r(4558)v=s[Z]Z,V=r(4743),r(4470)Z=v[Z]Z=Z(v,e)e=X()T[e]=Z C,Z=r(4529),r(4558)v=s[Z]Z=r(4743)Z=v[Z]Z=Z(v,m)u=r(4470)m=X()T[m]=Z Z=r(4558)v=s[Z]a,b,Z,M=r(4522),5712636024,r(4743),r(4478)Z=v[Z]Z=Z(v,C)C=X()T[C]=Z O=r(4253)Z=T[l]v=Z[M]M=X()R=r(4760)T[M]=v Z=r(4415)v=T[y[1]]o={[O]=R,[V]=E}V,f,O,E=r(4253),r(4264),10420127706,r(4760)R={[V]=E,[u]=f}z={[b]=o;[O]=R}v[Z]=z z=16370820>15401242 v=T[y[1]]Z=r(4324)v[Z]=z v=T[y[1]]z,Z={},r(4837)v[Z]=z z={}O=X()v=T[y[1]]Z=r(4799)v[Z]=z z={}b=X()R=X()v=T[y[1]]Z=r(4628)v[Z]=z z={}E=X()Z=r(4853)o=X()v=T[y[1]]v[Z]=z v=r(4237)z=X()T[z]=v v=nil T[b]=v v=F(129212,{b})f=r(4485)T[o]=v v=t(3042779,{z;M;C,o})V=X()T[O]=v v=p(13690175,{y[1]})T[R]=v v=p(1132110,{y[1],l,M,e;m})u=1557902>14133936 T[V]=v v=F(6188524,{z;C,y[1];l,M;R,V})T[E]=v v=T[O]Z=v()v=T[E]Z=v()Z=r(4875)v=T[y[1]]v[Z]=u Z=r(4365)v=s[Z]u=F(8242285,{y[1],O,E})Z=v(u)u=p(5601618,{y[1]})Z=r(4587)v=T[y[1]]v[Z]=u v=F(16352086,{M,y[1],R;V})Z=T[e]u=v v=Z[f]Z=r(4465)Z=v[Z]f=p(10683690,{l,M;y[1]})Z=Z(v,f)Z=T[l]f=r(4653)v=Z[f]Z=r(4465)Z=v[Z]f=p(14192890,{y[1]})Z=Z(v,f)Z=r(4782)v=s[Z]U=T[l]a=U[a]n={a(U)}U={v(A(n))}Z,v,I,f=U[1],184491,U[3],U[2]U=Z else o,M=not b,M+z m=C>=M m=o and m o=C<=M o=b and o m=o or m o=4061424 v=m and o m=13991926 v=v or m end else if v<6830773 then if 6778338>v then e=r(4636)l=T[y[1]]Z=l[e]l=r(4696)v=Z[l]l,Z=r(4386),r(4716)v[Z]=l Z=T[y[1]]C,l,O=r(4636),r(4832),0 v=Z[l]m=T[y[1]]e=m[C]C,R,m,b=r(4780),0,r(4897),r(4479)l=e[m]z=s[b]e,o,b=.3,280,r(4825)M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)l=r(4566)Z=s[l]l=r(4651)e=F(11900478,{y[1]})v=Z[l]l=.3 Z=v(l,e)Z,v={},s[r(4321)]elseif v<6807962 then Z=T[y[1]]l=r(4878)v=Z[l]v=v and 14441245 or 2890637 else v=Z and 1990784 or 74557 end else if v<6851343 then Z,v={},s[r(4668)]l=B(l)else v=Z and 875862 or 8235369 end end end else if 6986992>v then if v<6926998 then Z,z=r(4782),r(4636)v=s[Z]M=T[y[1]]C=M[z]M=r(4486)m=C[M]M=r(4652)M=m[M]C={M(m)}m={v(A(C))}l,v,Z,e=m[2],9879604,m[1],m[3]m=Z elseif 6928365>v then l,v,Z=nil,s[r(4333)],{}elseif v<6944923 then v=r(4569)v=o[v]v=v(o)v=9894183 else Z,v={},s[r(4531)]end else if 7013657>v then n,W=r(4341),1 U=s[n]H,n=1,r(4322)I=U[n]a=#C n=1 U=I(n,a)a,n=1,r(4849)n=M[n]D=f-W n=n(M,a,D)D=r(4849)D=C[D]D=D(C,U,U)W=r(4849)k=f+H U,W,v=nil,M[W],5749652 W=W(M,k)a=D..W I=n..a M=I elseif 7016054>v then v=Z and 15287602 or 11237247 elseif 7025392>v then Z=r(4958)v=s[Z]v=v and 227676 or 7465873 else Z,l=r(4878),9069899>8374176 v=T[y[1]]e=r(4636)v[Z]=l M=0 l=T[y[1]]Z=l[e]C,O,l=280,0,r(4247)v=Z[l]l,Z=10725024<=12648951,r(4784)v[Z]=l l=T[y[1]]m,e=r(4479),r(4636)Z=l[e]l=r(4247)v=Z[l]e=s[m]Z,m,z=r(4780),r(4825),0 l=e[m]m=0 e=l(m,C,M,z)l=r(4832)v[Z]=e Z=T[y[1]]v=Z[l]m=T[y[1]]C=r(4636)e=m[C]m,b,C,o=r(4247),r(4479),r(4780),280 l=e[m]R,e=320,.3 z=s[b]b=r(4825)M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)Z,v={},s[r(4483)]end end end end end else if v<8081351 then if v>7895765 then if v<7968918 then if v<7944952 then if 7940241>v then if 7926239>v then l=T[y[1]]e=r(4636)Z=l[e]l=r(4576)v=Z[l]v=v and 2397574 or 2639780 elseif v<7935585 then R,C,z,u=r(4636),r(4636),r(4364),-10 m=T[y[1]]e=m[C]m=r(4486)M=T[y[1]]C=M[z]l,z=nil,r(4959)O=T[y[1]]I,H=-110,r(4433)o=O[R]E,O=r(4479),r(4759)b=o[O]O,D=r(4780),r(4963)V=s[E]d,f,U,v,E=0,1,0,s[r(4810)],r(4825)R=V[E]E=1 V=R(E,u,f,I)n,R,Z,x,a,q,f=100,r(4871),{},0,3,r(4479),r(4479)u=s[f]f=r(4825)E=u[f]I,f=9,0 u=E(f,I,U,n)E,n,U,P,f=r(4821),r(4349),0,0,1 k=T[y[2]]I=r(4729)W=k[H]j=s[q]k,q=r(4580),r(4825)H=j[q]q=0 j=H(q,d,P,x)q,H=101,r(4401)o={[O]=V;[R]=u;[E]=f;[I]=U,[n]=a;[D]=W,[k]=j;[H]=q}E=r(4281)M=C(z,b,o)e[m]=M R,C=r(4636),r(4636)m=T[y[1]]e=m[C]m=r(4678)M=T[y[1]]u,z=2,r(4364)C=M[z]z=r(4588)O=T[y[1]]o=O[R]I,O=r(4348),r(4486)b=o[O]V=s[E]E,O=r(4825),r(4332)R=V[E]E=0 V=R(E,u)R=r(4245)f=s[I]I=r(4245)u=f[I]f=r(4454)E=u[f]o={[O]=V,[R]=E}M=C(z,b,o)e[m]=M M=r(4636)C=T[y[1]]m=C[M]C=r(4678)e=m[C]m=r(4448)m,C=e[m],r(4389)m=m(e,C)C=K(10337752,{y[1]})e=r(4465)e=m[e]e=e(m,C)else v,n=5098865,D end else if v<7942687 then Y2=r(4762)G2=s[Y2]Y2,Z2,T2=r(4510),200,180 c2=G2[Y2]Y2,v=180,15024303 G2=c2(Y2,T2,Z2)A2=G2 else v=O z=M(b,o)Z=r(4459)Z=v[Z]Z=Z(v,l,z,m)z=r(4868)z=Z[z]M={z(Z)}v,Z=s[r(4823)],{A(M)}end end else if 7952534>v then Z=T[y[1]]l=r(4584)v=Z[l]v=v and 1767659 or 15591836 elseif 7962277>v then o=T[y[1]]O=r(4636)b=o[O]o=r(4393)z=b[o]v,b=9100311,r(4753)M=z[b]C=not M e=C elseif 7967029>v then Z,v=m,C v=16595313 else v=m e=v v=5123073 end end else if v>8014634 then if v<8028247 then v=Z and 14195866 or 13869660 elseif 8055940>v then Z=T[y[1]]l=r(4832)v=Z[l]C=r(4636)m=T[y[1]]e=m[C]C,M,m=r(4439),1,r(4296)l=e[m]m,e={[C]=M},.3 Z=v(l,e,m)Z=T[y[1]]l=r(4832)v=Z[l]m=T[y[1]]C=r(4636)e=m[C]m,M=r(4576),1 l=e[m]e,C=.3,r(4821)m={[C]=M}M=r(4636)Z=v(l,e,m)Z=T[y[1]]l=r(4832)v=Z[l]C=T[y[1]]m=C[M]C,M=r(4576),1 e=m[C]m=r(4392)l=e[m]C,e=r(4327),.3 m={[C]=M}Z=v(l,e,m)l=r(4566)Z=s[l]l=r(4651)e=L(13551983,{y[1]})v=Z[l]l=.3 Z=v(l,e)Z,v={},s[r(4527)]elseif 8075555>v then z=r(4636)M=T[y[1]]C=M[z]v,M=872663,r(4576)Z=C[M]M,C=3371862>14220488,r(4784)Z[C]=M else f,x,n,e=r(4479),r(4348),48,c[2]z=X()l,C,U,m,I,M,b=c[1],c[4],0,c[3],-16,c[5],r(4364)T[z]=c[6]Z=T[y[1]]O,a,V=r(4454),0,r(4463)v=Z[b]R=e..V b,D=r(4499),r(4729)u=s[f]f=r(4825)E=u[f]H,f,k,V=103,1,r(4401),r(4780)u=E(f,I,U,n)E,U=r(4871),r(4479)I=s[U]n,U=8,r(4825)f=I[U]U,W,h,d=0,0,r(4437),r(4348)I=f(U,n,a,C)n=T[y[2]]a,f=r(4937),r(4500)U=n[a]n,a=r(4821),.5 o={[O]=R,[V]=u,[E]=I;[f]=U;[n]=a;[D]=W;[k]=H}Z=v(b,l,o)u,b=r(4479),Z Z=T[y[1]]o=r(4503)v=Z[o]o=6 Z=v(b,o)R,k,a,o=r(4780),r(4276),4,r(4364)Z=T[y[1]]v=Z[o]E=s[u]f,o,U,u=-16,r(4476),16,r(4825)V=E[u]I,u=0,1 E=V(u,f,I,U)U,V,I=8,r(4871),r(4479)f=s[I]I=r(4825)u=f[I]I,n=0,0 f=u(I,U,n,a)I,y2,W,u,n,U=1,r(4348),r(4437),r(4821),r(4528),r(4716)D=T[y[2]]a=D[W]D,W=r(4965),10 q=s[d]d=r(4276)j=q[d]q=r(4239)H=j[q]P=s[x]j,x=r(4705),r(4705)d=P[x]P=r(4427)q=d[P]d,s2,P=r(4401),r(4276),104 O={[R]=E;[V]=f;[u]=I;[U]=m;[n]=a;[D]=W,[k]=H,[j]=q;[d]=P}I=0 Z=v(o,b,O)Z=T[y[1]]u,o,R=r(4479),r(4364),r(4780)v=Z[o]E=s[u]u,o,a,W,f,j=r(4825),r(4313),22,r(4805),-20,r(4979)V=E[u]u,U=1,20 E=V(u,f,I,U)D,k,I,H=0,5674590>=11865804,r(4479),r(4687)f=s[I]I,V,U=r(4825),r(4871),10 u=f[I]n,I,x=0,0,r(4596)f=u(I,U,n,a)a,u,n=r(4729),r(4500),r(4303)U=T[y[2]]I=U[n]q=r(4581)P=T[y[2]]d=P[x]P,n,x,U=r(4716),.3,r(4528),r(4821)i=T[y[2]]w=i[h]h,i=10,r(4965)A2=s[y2]y2=r(4276)v2=A2[y2]A2=r(4239)r2=v2[A2]A2,v2=104,r(4401)O={[R]=E;[V]=f,[u]=I;[U]=n,[a]=D,[W]=k,[H]=j,[q]=d,[P]=M;[x]=w;[i]=h;[s2]=r2;[v2]=A2}Z=v(o,b,O)R=3 o=X()T[o]=Z Z=T[y[1]]O=r(4503)v=Z[O]O=T[o]Z=v(O,R)O=r(4836)Z=T[o]v=Z[O]O=Q(2198883,{o,z})Z=r(4465)Z=v[Z]Z=Z(v,O)Z,v={b},s[r(4565)]end else if 7970151>v then Z=r(4324)v=T[y[1]]m=r(4627)e=T[y[1]]l=e[m]v[Z]=l e=r(4627)l=T[y[1]]Z=l[e]v=not Z v=v and 5866333 or 329128 elseif v<7983810 then O={}b,v=O,16071520 elseif v<8003721 then Z,v={},s[r(4374)]else z=r(4636)M=T[y[1]]C=M[z]M=r(4797)Z=C[M]M,C=r(4386),r(4716)Z[C]=M z=r(4636)M=T[y[1]]C=M[z]M=r(4683)Z=C[M]M,C=r(4386),r(4716)Z[C]=M C=T[y[1]]M=r(4362)Z=C[M]v=Z and 8262199 or 4600701 end end end else if 7732398>v then if 7694867>v then if v>7627483 then if 7655948>v then u,v,f=r(4479),15079922,.1 E=s[u]u=r(4414)V=E[u]u=.1 E=V(u,f)O=E else G2=r(4762)c2=s[G2]G2=r(4510)y2=c2[G2]Y2,T2,G2=60,60,60 c2=y2(G2,Y2,T2)v,v2=15423065,c2 end else if 7459735>v then v,Z=s[r(4844)],{}elseif 7545956>v then Z=r(4892)v=s[Z]v=v and 11728019 or 7111053 else C,v=nil,6054334 b=B(b)M=B(M)end end else if v<7708910 then f=r(4560)u=s[f]v,f=s[r(4786)],r(4890)o=u[f]Z={b}f=Q(9431990,{})u=o(b,f)elseif 7711211>v then v=Z and 15291052 or 22798 elseif 7712623>v then M=r(4636)C=T[y[1]]m=C[M]C=r(4576)e=m[C]m=r(4784)l=e[m]v=not l v=v and 1771357 or 10220451 else Z,l=r(4497),r(4793)v=s[Z]Z=v(l)v=15465434 end end else if 7785927>v then if v<7754317 then O=T[e]o=not O z,b=o,v v=o and 3260236 or 11115631 elseif 7760268>v then Z,v={},s[r(4563)]elseif v<7768446 then M,b=0,r(4479)v=T[y[1]]l,Z=2679186~=4223873,r(4790)v[Z]=l l=r(4566)Z=s[l]l=r(4651)v=Z[l]e=F(13666911,{y[1]})l=.3 Z=v(l,e)Z=r(4410)v=T[y[1]]m,l,R=r(4479),2775456~=13751671,38 v[Z]=l l=T[y[1]]C,e=0,r(4636)Z=l[e]l=r(4559)v=Z[l]Z,l=r(4784),4071897<=7638837 v[Z]=l z,e=38,r(4636)l=T[y[1]]O=0 Z=l[e]l=r(4559)v=Z[l]Z=r(4780)e=s[m]m=r(4825)l=e[m]m=0 e=l(m,C,M,z)C=r(4636)v[Z]=e l,o=r(4832),340 Z=T[y[1]]v=Z[l]m=T[y[1]]e=m[C]C,m=r(4780),r(4559)l=e[m]e=.25 z=s[b]b=r(4825)M=z[b]b=0 z=M(b,o,O,R)m={[C]=z}Z=v(l,e,m)l=T[y[1]]e=r(4636)Z=l[e]l=r(4797)v=Z[l]Z=r(4995)Z=v[Z]Z=Z(v)v=3045183 else v,b=15243659,r(4271)z=e[b]C=z end else if v<7824194 then Z,f={},r(4636)u=T[y[1]]E=u[f]u,f=r(4683),r(4304)v=E[u]u=z[f]E=r(4716)v[E]=u v=s[r(4967)]elseif v<7853263 then v=Z and 3321493 or 4862965 elseif v<7863618 then E=r(4944)V=T[o]R=V[E]O,v=R,R and 10264407 or 8989712 else v,m=13894844,nil end end end end else if v>8255236 then if v<8302819 then if v<8273274 then if v<8260133 then C=T[y[2]]M=r(4753)Z=C[M]v=not Z v=v and 11489824 or 13365495 elseif v<8262906 then M,v=r(4362),4600701 C=T[y[1]]Z=C[M]C=Z(e)elseif 8268413>v then E=T[e]u,v=r(4342),1566655 V=E[u]E=r(4556)R=V==E o=R else e,M,o=r(4832),r(4500),r(4762)l=T[y[1]]O,R=50,50 Z=l[e]m=.2 e=T[y[3]]b=s[o]o=r(4510)z=b[o]o,V=50,-4 b=z(o,O,R)C,o={[M]=b},r(4479)l=Z(e,m,C)M,e=r(4871),r(4832)l=T[y[1]]m=.2 Z=l[e]e=T[y[4]]v,O=12517633,2 b=s[o]o,R=r(4825),.5 z=b[o]o=0 b=z(o,O,R,V)C={[M]=b}l=Z(e,m,C)end else if v<8275235 then Z,v=r(4547),10511434 C=Z elseif v<8278480 then O=r(4365)R=p(11334668,{y[6],o;y[7];y[3]})v=s[O]O=v(R)v=15994088 elseif v<8282318 then v=Z and 2819624 or 9726019 else Z,v={},s[r(4442)]end end else if v>8440705 then if 8505333>v then v=r(4462)Z={v}v=s[r(4328)]elseif 8540194>v then v=13007590 elseif v<8559389 then M,e,o,E=r(4555),r(4985),r(4558),r(4558)Z=T[y[1]]O=r(4555)C=s[M]b=s[o]o=r(4649)z=b[o]M=C(z)o=s[O]z=r(4366)V=s[E]E=r(4375)R=V[E]O=o(R)o=r(4631)b=O..o C=z..b m=M..C l=e..m M,C=r(4681),r(4835)v=Z..l l,m,Z=v,r(4703),r(4543)v=s[Z]e={[m]=l;[C]=M}Z=v(e)e=Z v,Z=e and 5071539 or 248846,e else v=Z and 10397648 or 10475070 end else if 8336552>v then v=v2 v,h=4812684,r2 elseif v<8370642 then m=r(4560)e=s[m]m=r(4890)v=e[m]m=N(4247493,{})e=v(l,m)v=9043270 elseif v<8397132 then f,I=E(u,f)v=f and 1513061 or 5223606 else C=r(4446)m=T[y[1]]e=m[C]m=r(4343)v=e==m v=v and 1913389 or 9043270 end end end else if v<8164026 then if 8123038>v then if 8102250>v then if v<8085648 then e=r(4636)l=T[y[1]]Z=l[e]C,l,V=0,r(4931),r(4636)v=Z[l]m=r(4479)e=s[m]m,M,Z=r(4825),0,r(4580)l=e[m]R=T[y[1]]O=R[V]R=r(4719)o=O[R]m,O=0,r(4389)b=o[O]o=r(4880)z=b[o]e=l(m,C,M,z)v[Z]=e Z,v={},s[r(4621)]elseif v<8086221 then b,v=m,z o,z=v,r(4383)Z=M or z M=X()T[M]=Z z=v v=m and 16111503 or 8600634 else l=r(4980)Z=T[y[1]]v=Z[l]v=v and 4308350 or 11714186 end else if 8118568>v then Z,v={},s[r(4234)]else n=r(4796)o=T[y[1]]R=r(4636)v=o[R]E,U,o=r(4364),r(4636),r(4612)V=T[y[1]]R=V[E]W=r(4552)I=T[y[1]]E=r(4688)f=I[U]I=r(4393)u=f[I]I=r(4855)D=T[y[1]]a=D[W]U=n..a W,n=r(4458),r(4306)D=T[y[1]]a=D[W]f={[I]=U;[n]=a}V=R(E,u,f)v[o]=V v=4215605 end end else if v<8130639 then l=X()T[l]=c[1]m=r(4753)e=T[y[1]]Z=e[m]v=not Z v=v and 12140955 or 13792179 elseif 8139123>v then D,v=k,H v=k and 13864599 or 14871341 elseif v<8151686 then e,l=r(4793),r(4329)Z=s[l]l=Z(e)v=not l v=v and 7713879 or 15465434 else M,o=z(C,M)v=M and 12035586 or 3014559 end end else if v>8238827 then if 8245252>v then v=0 l=v v=15481949 elseif v<8249121 then s2=v A2=T[V]y2=r(4769)v2=A2[y2]r2=x~=v2 v,h=r2 and 359601 or 4812684,r2 elseif 8251214>v then l=r(4944)Z=T[y[1]]v=Z[l]Z=r(4562)Z,l=v[Z],r(4903)Z=Z(v,l)l=Z Z,v=l,l and 14356935 or 6868543 else C,b=M(m,C)v=C and 13401568 or 8902677 end else if v<8188279 then l=1874416<10589968 v=T[y[1]]Z=r(4695)v[Z]=l Z=T[y[1]]l=r(4410)v=Z[l]v=v and 14066230 or 10746851 elseif 8215394>v then Z=r(4883)v=s[Z]v=v and 12990912 or 16467735 elseif v<8229026 then v=2259175~=8176326 T[y[1]]=v e=1512774<=2346511 Z=T[y[2]]l=r(4575)Z[l]=e l=T[y[2]]O,M,R,e,m=22,r(4780),0,r(4832),.15 Z=l[e]e=T[y[3]]o=r(4479)b=s[o]E,o=190,r(4825)z=b[o]o,V,v=0,22,s[r(4768)]b=z(o,O,R,V)V,z,R=180,r(4607),r(4762)O=s[R]R=r(4510)o=O[R]R=180 O=o(R,V,E)C={[M]=b;[z]=O}l=Z(e,m,C)e=r(4351)l=T[y[2]]Z=l[e]l=Z()Z={}else v,l=13830308,nil end end end end end end end end end end v=#G return A(Z)end,function(s)l[s]=l[s]-1 if l[s]==0 then l[s],T[s]=nil,nil end end,function(s,r)local A=e(r)local c=function(c,y,G)return v(s,{c,y;G},r,A)end return c end return(b(11320771,{}))(A(Z))end)(getfenv and getfenv()or _ENV,unpack or table[r(4691)],getmetatable,select,setmetatable,newproxy,{...})end)(...)
+if not getgenv().PrismLoaded then
+    return
+end
+
+getgenv().PrismMain = {
+    Svc = {
+        Players = game:GetService("Players"),
+        TweenService = game:GetService("TweenService"),
+        RunService = game:GetService("RunService"),
+        CoreGui = game:GetService("CoreGui"),
+    },
+    UI = {},
+}
+
+local PM = getgenv().PrismMain
+local LP = PM.Svc.Players.LocalPlayer
+
+-- Early settings loading (before UI creation)
+local SETTINGS_FILE = "prism/prism_settings.json"
+if readfile then
+    pcall(function()
+        local data = readfile(SETTINGS_FILE)
+        if data then
+            local settings = game:GetService("HttpService"):JSONDecode(data)
+            PM.autoExecutePrism = settings.autoExecutePrism or false
+            PM.autoExecuteCommands = settings.autoExecuteCommands ~= false
+            PM.terminalKeybind = settings.terminalKeybind or "F6"
+        end
+    end)
+end
+
+PM.mk = function(class, parent, props)
+    local i = Instance.new(class)
+    i.Parent = parent
+    for k, v in pairs(props or {}) do i[k] = v end
+    return i
+end
+
+PM.corner = function(p, r)
+    local c = Instance.new("UICorner")
+    c.CornerRadius = UDim.new(0, r or 6)
+    c.Parent = p
+    return c
+end
+
+PM.stroke = function(p, c, t, trans)
+    local s = Instance.new("UIStroke")
+    s.Color = c or Color3.fromRGB(40, 40, 40)
+    s.Thickness = t or 1
+    s.Transparency = trans or 0
+    s.Parent = p
+    return s
+end
+
+PM.tween = function(obj, time, props, style)
+    return PM.Svc.TweenService:Create(obj, TweenInfo.new(time or 0.3, style or Enum.EasingStyle.Quad), props):Play()
+end
+
+PM.C = {
+    bg = Color3.fromRGB(15, 15, 15),
+    card = Color3.fromRGB(28, 28, 28),
+    accent = Color3.fromRGB(180, 180, 180),
+    text = Color3.fromRGB(230, 230, 230),
+    textDim = Color3.fromRGB(90, 90, 90),
+    border = Color3.fromRGB(45, 45, 45),
+    green = Color3.fromRGB(70, 170, 70),
+    red = Color3.fromRGB(170, 70, 70),
+}
+local C = PM.C
+
+PM.createMainGUI = function()
+    if PM.Svc.CoreGui:FindFirstChild("PrismMainGui") then return end
+    
+    PM.UI.Gui = PM.mk("ScreenGui", PM.Svc.CoreGui, {
+        Name = "PrismMainGui",
+        DisplayOrder = 1000,
+        ResetOnSpawn = false,
+    })
+    
+    PM.UI.Main = PM.mk("Frame", PM.UI.Gui, {
+        Name = "MainFrame",
+        Size = UDim2.new(0, 460, 0, 56),
+        Position = UDim2.new(0.5, -230, 0, -30),
+        BackgroundColor3 = C.bg,
+        BackgroundTransparency = 0.15,
+        BorderSizePixel = 0,
+        ClipsDescendants = true,
+    })
+    PM.corner(PM.UI.Main, 14)
+    PM.stroke(PM.UI.Main, C.border, 1, 0.4)
+    
+    PM.UI.StatsFrame = PM.mk("Frame", PM.UI.Main, {
+        Name = "StatsFrame",
+        Size = UDim2.new(0, 75, 0, 44),
+        Position = UDim2.new(0, 14, 0.5, -22),
+        BackgroundTransparency = 1,
+        ZIndex = 10,
+    })
+    
+    PM.UI.FPSLabelText = PM.mk("TextLabel", PM.UI.StatsFrame, {
+        Name = "FPSLabelText",
+        Size = UDim2.new(0, 35, 0, 14),
+        Position = UDim2.new(0, 0, 0, 2),
+        BackgroundTransparency = 1,
+        Text = "FPS",
+        TextColor3 = C.text,
+        TextSize = 11,
+        Font = Enum.Font.Gotham,
+        TextXAlignment = Enum.TextXAlignment.Left,
+    })
+    
+    PM.UI.FPSLabel = PM.mk("TextLabel", PM.UI.StatsFrame, {
+        Name = "FPSLabel",
+        Size = UDim2.new(0, 40, 0, 14),
+        Position = UDim2.new(0, 35, 0, 2),
+        BackgroundTransparency = 1,
+        Text = " ",
+        TextColor3 = C.text,
+        TextSize = 11,
+        Font = Enum.Font.Gotham,
+        TextXAlignment = Enum.TextXAlignment.Left,
+    })
+
+    PM.UI.PingLabelText = PM.mk("TextLabel", PM.UI.StatsFrame, {
+        Name = "PingLabelText",
+        Size = UDim2.new(0, 35, 0, 14),
+        Position = UDim2.new(0, 0, 0, 23),
+        BackgroundTransparency = 1,
+        Text = "PING",
+        TextColor3 = C.text,
+        TextSize = 11,
+        Font = Enum.Font.Gotham,
+        TextXAlignment = Enum.TextXAlignment.Left,
+    })
+    
+    PM.UI.PingLabel = PM.mk("TextLabel", PM.UI.StatsFrame, {
+        Name = "PingLabel",
+        Size = UDim2.new(0, 40, 0, 14),
+        Position = UDim2.new(0, 35, 0, 23),
+        BackgroundTransparency = 1,
+        Text = " ",
+        TextColor3 = C.text,
+        TextSize = 11,
+        Font = Enum.Font.Gotham,
+        TextXAlignment = Enum.TextXAlignment.Left,
+    })
+    
+    PM.UI.ButtonsFrame = PM.mk("Frame", PM.UI.Main, {
+        Name = "ButtonsFrame",
+        Size = UDim2.new(0, 220, 0, 36),
+        Position = UDim2.new(0.5, -110, 0.5, -18),
+        BackgroundTransparency = 1,
+        ZIndex = 10,
+    })
+    
+    PM.UI.ButtonsList = PM.mk("UIListLayout", PM.UI.ButtonsFrame, {
+        Padding = UDim.new(0, 8),
+        FillDirection = Enum.FillDirection.Horizontal,
+        HorizontalAlignment = Enum.HorizontalAlignment.Center,
+        VerticalAlignment = Enum.VerticalAlignment.Center,
+        SortOrder = Enum.SortOrder.LayoutOrder,
+    })
+    
+    local buttonData = {
+        {name = "Commands", layout = 1, image = "rbxassetid://132440478962916"},
+        {name = "Terminal", layout = 3, image = "rbxassetid://73577105416536"},
+        {name = "NameTags", layout = 5, image = "rbxassetid://99892550804409"},
+        {name = "Join", layout = 7, image = "rbxassetid://84437305519060"},
+        {name = "Servers", layout = 9, image = "rbxassetid://138470287250966"},
+        {name = "Settings", layout = 11, image = "rbxassetid://101119408272746"},
+    }
+    
+    PM.UI.Buttons = {}
+    for i, btn in ipairs(buttonData) do
+        local button = PM.mk("ImageButton", PM.UI.ButtonsFrame, {
+            Name = "Btn_" .. btn.name,
+            Size = UDim2.new(0, 32, 0, 28),
+            BackgroundColor3 = Color3.fromRGB(20, 20, 26),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            AutoButtonColor = false,
+            LayoutOrder = btn.layout,
+            ZIndex = 10,
+        })
+        PM.corner(button, 3)
+        
+        local icon = PM.mk("ImageLabel", button, {
+            Name = "Icon",
+            Size = UDim2.new(0, 18, 0, 18),
+            Position = UDim2.new(0.5, 0, 0.5, 0),
+            AnchorPoint = Vector2.new(0.5, 0.5),
+            BackgroundTransparency = 1,
+            Image = btn.image,
+            ImageColor3 = Color3.fromRGB(255, 255, 255),
+            ZIndex = 2,
+        })
+        
+        PM.clickSoundEnabled = true
+        PM.clickVolume = 0.75
+        PM.clickSoundID = "94859356677805"
+        PM.hoverSoundEnabled = true
+        PM.hoverVolume = 0.75
+        PM.hoverSoundID = "107511012621133"
+
+        if not PM.UI.HoverSound then
+            PM.UI.HoverSound = PM.mk("Sound", PM.UI.Gui, {
+                SoundId = "rbxassetid://" .. PM.hoverSoundID,
+                Volume = PM.hoverVolume,
+            })
+        end
+
+        if not PM.UI.ClickSound then
+            PM.UI.ClickSound = PM.mk("Sound", PM.UI.Gui, {
+                SoundId = "rbxassetid://" .. PM.clickSoundID,
+                Volume = PM.clickVolume,
+            })
+        end
+
+        PM.playClickSound = function()
+            if PM.clickSoundEnabled and PM.UI.ClickSound then
+                pcall(function() PM.UI.ClickSound:Play() end)
+            end
+        end
+
+        PM.playHoverSound = function()
+            if PM.hoverSoundEnabled and PM.UI.HoverSound then
+                pcall(function() PM.UI.HoverSound:Play() end)
+            end
+        end
+        
+        local isHovering = false
+        button.MouseEnter:Connect(function()
+            isHovering = true
+            PM.isHoveringAnyButton = true
+            PM.tween(icon, 0.15, {Size = UDim2.new(0, 22, 0, 22), ImageColor3 = Color3.fromRGB(180, 180, 190)})
+            PM.playHoverSound()
+        end)
+        button.MouseLeave:Connect(function()
+            isHovering = false
+            PM.isHoveringAnyButton = false
+            PM.tween(icon, 0.15, {Size = UDim2.new(0, 18, 0, 18), ImageColor3 = Color3.fromRGB(255, 255, 255)})
+        end)
+        button.MouseButton1Down:Connect(function()
+            PM.tween(icon, 0.08, {Size = UDim2.new(0, 16, 0, 16)})
+        end)
+        button.MouseButton1Up:Connect(function()
+            local targetSize = isHovering and UDim2.new(0, 22, 0, 22) or UDim2.new(0, 18, 0, 18)
+            PM.tween(icon, 0.08, {Size = targetSize})
+        end)
+        if btn.name == "Terminal" then
+            PM.isTerminalOpen = false
+            button.MouseButton1Click:Connect(function()
+                PM.playClickSound()
+                if PM.isTerminalOpen then
+                    PM.isTerminalOpen = false
+                    PM.hideTerminalPanel()
+                else
+                    PM.isTerminalOpen = true
+                    if PM.isCommandsOpen then
+                        PM.isCommandsOpen = false
+                        PM.hideCommandsPanel()
+                    end
+                    if PM.isServersOpen then
+                        PM.isServersOpen = false
+                        PM.hideServersPanel()
+                    end
+                    if PM.UI.NameTagsPanel and PM.UI.NameTagsPanel.Visible then
+                        PM.UI.NameTagsPanel.Visible = false
+                    end
+                    if PM.isJoinOpen then
+                        PM.isJoinOpen = false
+                        PM.hideJoinPanel()
+                    end
+                    if PM.isSettingsOpen then
+                        PM.isSettingsOpen = false
+                        PM.hideSettingsPanel()
+                    end
+                    PM.toggleTerminalPanel()
+                end
+            end)
+        elseif btn.name == "Commands" then
+            PM.isCommandsOpen = false
+            button.MouseButton1Click:Connect(function()
+                PM.playClickSound()
+                if PM.isCommandsOpen then
+                    PM.isCommandsOpen = false
+                    PM.closeCommandsPanel()
+                else
+                    PM.isCommandsOpen = true
+                    if PM.isTerminalOpen then
+                        PM.isTerminalOpen = false
+                        PM.hideTerminalPanel()
+                    end
+                    if PM.isServersOpen then
+                        PM.isServersOpen = false
+                        PM.hideServersPanel()
+                    end
+                    if PM.UI.NameTagsPanel and PM.UI.NameTagsPanel.Visible then
+                        PM.UI.NameTagsPanel.Visible = false
+                    end
+                    if PM.isJoinOpen then
+                        PM.isJoinOpen = false
+                        PM.hideJoinPanel()
+                    end
+                    if PM.isSettingsOpen then
+                        PM.isSettingsOpen = false
+                        PM.hideSettingsPanel()
+                    end
+                    PM.openCommandsPanel()
+                end
+            end)
+        elseif btn.name == "NameTags" then
+            PM.isNameTagsEnabled = true
+            button.MouseButton1Click:Connect(function()
+                PM.playClickSound()
+                PM.isNameTagsEnabled = not PM.isNameTagsEnabled
+                if PM.isTerminalOpen then
+                    PM.isTerminalOpen = false
+                    PM.hideTerminalPanel()
+                end
+                if PM.isCommandsOpen then
+                    PM.isCommandsOpen = false
+                    PM.hideCommandsPanel()
+                end
+                if PM.isServersOpen then
+                    PM.isServersOpen = false
+                    PM.hideServersPanel()
+                end
+                if PM.isJoinOpen then
+                    PM.isJoinOpen = false
+                    PM.hideJoinPanel()
+                end
+                if PM.isSettingsOpen then
+                    PM.isSettingsOpen = false
+                    PM.hideSettingsPanel()
+                end
+                PM.toggleNameTagsPanel()
+            end)
+        elseif btn.name == "Servers" then
+            PM.isServersOpen = false
+            button.MouseButton1Click:Connect(function()
+                PM.playClickSound()
+                if PM.isServersOpen then
+                    PM.isServersOpen = false
+                    PM.closeServersPanel()
+                else
+                    PM.isServersOpen = true
+                    if PM.isTerminalOpen then
+                        PM.isTerminalOpen = false
+                        PM.hideTerminalPanel()
+                    end
+                    if PM.isCommandsOpen then
+                        PM.isCommandsOpen = false
+                        PM.hideCommandsPanel()
+                    end
+                    if PM.UI.NameTagsPanel and PM.UI.NameTagsPanel.Visible then
+                        PM.UI.NameTagsPanel.Visible = false
+                    end
+                    if PM.isJoinOpen then
+                        PM.isJoinOpen = false
+                        PM.hideJoinPanel()
+                    end
+                    if PM.isSettingsOpen then
+                        PM.isSettingsOpen = false
+                        PM.hideSettingsPanel()
+                    end
+                    PM.openServersPanel()
+                end
+            end)
+        elseif btn.name == "Join" then
+            PM.isJoinOpen = false
+            button.MouseButton1Click:Connect(function()
+                PM.playClickSound()
+                if PM.isJoinOpen then
+                    PM.isJoinOpen = false
+                    PM.closeJoinPanel()
+                else
+                    PM.isJoinOpen = true
+                    if PM.isTerminalOpen then
+                        PM.isTerminalOpen = false
+                        PM.hideTerminalPanel()
+                    end
+                    if PM.isCommandsOpen then
+                        PM.isCommandsOpen = false
+                        PM.hideCommandsPanel()
+                    end
+                    if PM.isServersOpen then
+                        PM.isServersOpen = false
+                        PM.hideServersPanel()
+                    end
+                    if PM.UI.NameTagsPanel and PM.UI.NameTagsPanel.Visible then
+                        PM.UI.NameTagsPanel.Visible = false
+                    end
+                    if PM.isSettingsOpen then
+                        PM.isSettingsOpen = false
+                        PM.hideSettingsPanel()
+                    end
+                    PM.openJoinPanel()
+                end
+            end)
+        elseif btn.name == "Settings" then
+            PM.isSettingsOpen = false
+            button.MouseButton1Click:Connect(function()
+                PM.playClickSound()
+                if PM.isSettingsOpen then
+                    PM.isSettingsOpen = false
+                    PM.closeSettingsPanel()
+                else
+                    PM.isSettingsOpen = true
+                    if PM.isTerminalOpen then
+                        PM.isTerminalOpen = false
+                        PM.hideTerminalPanel()
+                    end
+                    if PM.isCommandsOpen then
+                        PM.isCommandsOpen = false
+                        PM.hideCommandsPanel()
+                    end
+                    if PM.isServersOpen then
+                        PM.isServersOpen = false
+                        PM.hideServersPanel()
+                    end
+                    if PM.isJoinOpen then
+                        PM.isJoinOpen = false
+                        PM.hideJoinPanel()
+                    end
+                    if PM.UI.NameTagsPanel and PM.UI.NameTagsPanel.Visible then
+                        PM.UI.NameTagsPanel.Visible = false
+                    end
+                    PM.openSettingsPanel()
+                end
+            end)
+        else
+            button.MouseButton1Click:Connect(function()
+                PM.playClickSound()
+            end)
+        end
+        
+        PM.UI.Buttons[btn.name] = button
+    end
+    
+    PM.createTerminalPanel = function()
+        if PM.UI.TerminalPanel then return end
+        
+        PM.UI.TerminalPanel = PM.mk("Frame", PM.UI.Gui, {
+            Name = "TerminalPanel",
+            Size = UDim2.new(0, 340, 0, 38),
+            Position = UDim2.new(0.5, 0, 0, 35),
+            AnchorPoint = Vector2.new(0.5, 0),
+            BackgroundColor3 = C.bg,
+            BackgroundTransparency = 0.18,
+            BorderSizePixel = 0,
+            Visible = false,
+            ZIndex = 100,
+            ClipsDescendants = true,
+        })
+        PM.corner(PM.UI.TerminalPanel, 10)
+        PM.stroke(PM.UI.TerminalPanel, C.border, 1, 0.5)
+        
+        -- Flag to prevent FocusLost from closing immediately after panel opens
+        PM.panelJustOpened = false
+        PM.keybindJustChanged = false
+        
+        PM.mk("TextLabel", PM.UI.TerminalPanel, {
+            Size = UDim2.new(0, 24, 0, 38),
+            Position = UDim2.new(0, 8, 0, 0),
+            BackgroundTransparency = 1,
+            Text = ">",
+            TextColor3 = C.textDim,
+            TextSize = 18,
+            Font = Enum.Font.Gotham,
+            ZIndex = 101,
+        })
+        
+        PM.UI.TerminalAutofill = PM.mk("TextLabel", PM.UI.TerminalPanel, {
+            Size = UDim2.new(1, -40, 0, 38),
+            Position = UDim2.new(0, 32, 0, 0),
+            BackgroundTransparency = 1,
+            Text = "",
+            TextColor3 = Color3.fromRGB(60, 60, 60), -- Darker than input text
+            TextSize = 13,
+            Font = Enum.Font.RobotoMono,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            ZIndex = 102,
+        })
+        
+        PM.UI.TerminalInput = PM.mk("TextBox", PM.UI.TerminalPanel, {
+            Size = UDim2.new(1, -90, 0, 38),
+            Position = UDim2.new(0, 32, 0, 0),
+            BackgroundTransparency = 1,
+            Text = "",
+            PlaceholderText = "Enter a command...",
+            PlaceholderColor3 = C.textDim,
+            TextColor3 = C.textDim,
+            TextSize = 13,
+            Font = Enum.Font.RobotoMono,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            ClearTextOnFocus = false,
+            TextEditable = true,
+            TextStrokeTransparency = 1,
+            ZIndex = 105,
+        })
+        
+        -- Keybind button (like Mono's F6 button in terminal)
+        local keybindBtn = PM.mk("TextButton", PM.UI.TerminalPanel, {
+            Name = "KeybindBtn",
+            Size = UDim2.new(0, 46, 0, 22),
+            Position = UDim2.new(1, -52, 0.5, 0),
+            AnchorPoint = Vector2.new(0, 0.5),
+            BackgroundColor3 = C.card,
+            BackgroundTransparency = 0.3,
+            BorderSizePixel = 0,
+            Text = PM.terminalKeybind or "F6",
+            TextColor3 = C.textDim,
+            TextSize = 10,
+            Font = Enum.Font.GothamBold,
+            ZIndex = 106,
+        })
+        PM.corner(keybindBtn, 4)
+        
+        -- Hover detection to prevent terminal close when rebinding
+        PM.isHoveringKeybindBtn = false
+        keybindBtn.MouseEnter:Connect(function()
+            PM.isHoveringKeybindBtn = true
+        end)
+        keybindBtn.MouseLeave:Connect(function()
+            PM.isHoveringKeybindBtn = false
+        end)
+        
+        keybindBtn.MouseButton1Click:Connect(function()
+            if PM.keybindJustChanged then
+                PM.keybindJustChanged = false
+                keybindBtn.Text = PM.terminalKeybind or "F6"
+                keybindBtn.TextColor3 = C.textDim
+            else
+                PM.keybindJustChanged = true
+                keybindBtn.Text = "..."
+                keybindBtn.TextColor3 = C.textDim
+            end
+        end)
+        
+        -- Capture keybind from terminal panel
+        game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+            if gameProcessed then return end
+            if PM.keybindJustChanged and input.UserInputType == Enum.UserInputType.Keyboard then
+                PM.keybindJustChanged = false
+                PM.terminalKeybind = input.KeyCode.Name
+                keybindBtn.Text = PM.terminalKeybind
+                keybindBtn.TextColor3 = C.textDim
+                -- Regain focus on input after rebinding
+                task.delay(0.05, function()
+                    if PM.UI.TerminalInput then
+                        PM.UI.TerminalInput:CaptureFocus()
+                    end
+                end)
+                -- Save to settings
+                if writefile then
+                    pcall(function()
+                        local settings = {
+                            autoExecutePrism = PM.autoExecutePrism or false,
+                            autoExecuteCommands = PM.autoExecuteCommands ~= false,
+                            terminalKeybind = PM.terminalKeybind,
+                        }
+                        writefile("prism/prism_settings.json", game:GetService("HttpService"):JSONEncode(settings))
+                    end)
+                end
+            end
+        end)
+        
+        -- Autofill functionality
+        local function updateAutofill()
+            local input = PM.UI.TerminalInput.Text:lower()
+            if input == "" then
+                PM.UI.TerminalAutofill.Text = ""
+                return
+            end
+            
+            -- Find first matching command
+            for cmdName, cmd in pairs(PM.Commands or {}) do
+                if cmdName:sub(1, #input) == input then
+                    PM.UI.TerminalAutofill.Text = cmd.name
+                    return
+                end
+                -- Check aliases too
+                for _, alias in ipairs(cmd.aliases or {}) do
+                    if alias:lower():sub(1, #input) == input then
+                        PM.UI.TerminalAutofill.Text = cmd.name
+                        return
+                    end
+                end
+            end
+            
+            PM.UI.TerminalAutofill.Text = ""
+        end
+        
+        PM.UI.TerminalInput:GetPropertyChangedSignal("Text"):Connect(updateAutofill)
+        
+        -- Handle Tab for autofill and Enter to execute
+        PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
+            -- Skip if panel just opened, rebinding, hovering keybind button, or hovering main buttons
+            if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then return end
+            
+            if enterPressed then
+                local cmd = PM.UI.TerminalInput.Text
+                local suggestion = PM.UI.TerminalAutofill.Text
+                -- If there's an autofill suggestion, use it (like Mono)
+                if suggestion and suggestion ~= "" then
+                    cmd = suggestion
+                end
+                if cmd and cmd ~= "" then
+                    PM.UI.TerminalInput.Text = ""
+                    PM.UI.TerminalAutofill.Text = ""
+                    if PM.executeCommand then
+                        PM.executeCommand(cmd)
+                    end
+                end
+                -- Close after executing command
+                PM.isTerminalOpen = false
+                PM.closeTerminalPanel()
+            else
+                -- Close on focus loss (clicking outside)
+                PM.isTerminalOpen = false
+                PM.closeTerminalPanel()
+            end
+        end)
+        
+        -- Handle Tab for autofill and Escape to close
+        game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+            if gameProcessed then return end
+            if not PM.UI.TerminalPanel or not PM.UI.TerminalPanel.Visible then return end
+            
+            -- Skip keybind handling if panel just opened (prevents F6 from immediately closing)
+            if PM.panelJustOpened then return end
+            
+            if input.KeyCode == Enum.KeyCode.Tab then
+                local suggestion = PM.UI.TerminalAutofill.Text
+                if suggestion and suggestion ~= "" then
+                    PM.UI.TerminalInput.Text = suggestion
+                    PM.UI.TerminalInput.CursorPosition = #suggestion + 1
+                    PM.UI.TerminalAutofill.Text = ""
+                end
+            elseif input.KeyCode == Enum.KeyCode.Escape then
+                PM.isTerminalOpen = false
+                PM.closeTerminalPanel()
+            end
+        end)
+        
+    end
+    
+    PM.openTerminalPanel = function()
+        if not PM.UI.TerminalPanel then
+            PM.createTerminalPanel()
+        end
+        -- Keybind only opens, never closes (like Mono's bar)
+        if PM.UI.TerminalPanel.Visible then return end
+        
+        -- Set flag to prevent immediate close
+        PM.panelJustOpened = true
+        task.delay(0.3, function()
+            PM.panelJustOpened = false
+        end)
+        
+        PM.isTerminalOpen = true
+        PM.UI.TerminalPanel.Visible = true
+        PM.UI.TerminalPanel.Size = UDim2.new(0, 0, 0, 38)
+        PM.tween(PM.UI.TerminalPanel, 0.25, {Size = UDim2.new(0, 340, 0, 38)})
+        PM.UI.TerminalInput:CaptureFocus()
+    end
+    
+    -- For button toggle (opens and closes)
+    PM.toggleTerminalPanel = function()
+        if not PM.UI.TerminalPanel then
+            PM.createTerminalPanel()
+        end
+        if PM.UI.TerminalPanel.Visible then
+            PM.isTerminalOpen = false
+            PM.closeTerminalPanel()
+        else
+            -- Set flag to prevent immediate close
+            PM.panelJustOpened = true
+            task.delay(0.3, function()
+                PM.panelJustOpened = false
+            end)
+            
+            PM.isTerminalOpen = true
+            PM.UI.TerminalPanel.Visible = true
+            PM.UI.TerminalPanel.Size = UDim2.new(0, 0, 0, 38)
+            PM.tween(PM.UI.TerminalPanel, 0.25, {Size = UDim2.new(0, 340, 0, 38)})
+            PM.UI.TerminalInput:CaptureFocus()
+        end
+    end
+    
+    PM.closeTerminalPanel = function()
+        if not PM.UI.TerminalPanel or not PM.UI.TerminalPanel.Visible then return end
+        
+        PM.UI.TerminalInput:ReleaseFocus()
+        PM.UI.TerminalInput.Text = ""
+        PM.UI.TerminalAutofill.Text = ""
+        PM.tween(PM.UI.TerminalPanel, 0.25, {Size = UDim2.new(0, 0, 0, 38)})
+        task.delay(0.25, function()
+            PM.UI.TerminalPanel.Visible = false
+            PM.UI.TerminalPanel.Size = UDim2.new(0, 340, 0, 38)
+        end)
+    end
+    
+    PM.hideTerminalPanel = function()
+        if not PM.UI.TerminalPanel then return end
+        PM.UI.TerminalInput:ReleaseFocus()
+        PM.UI.TerminalPanel.Visible = false
+        PM.UI.TerminalPanel.Size = UDim2.new(0, 340, 0, 38)
+    end
+
+    PM.createCommandsPanel = function()
+        if PM.UI.CommandsPanel then return end
+        
+        PM.UI.CommandsPanel = PM.mk("Frame", PM.UI.Gui, {
+            Name = "CommandsPanel",
+            Size = UDim2.new(0, 280, 0, 320),
+            Position = UDim2.new(0.5, -140, 0, 35),
+            BackgroundColor3 = C.bg,
+            BackgroundTransparency = 0.2,
+            BorderSizePixel = 0,
+            Visible = false,
+            ZIndex = 100,
+            ClipsDescendants = true,
+        })
+        PM.corner(PM.UI.CommandsPanel, 12)
+        PM.stroke(PM.UI.CommandsPanel, C.border, 1, 0.4)
+        
+        PM.UI.CommandsTitle = PM.mk("TextLabel", PM.UI.CommandsPanel, {
+            Size = UDim2.new(1, 0, 0, 36),
+            Position = UDim2.new(0, 0, 0, 0),
+            BackgroundTransparency = 1,
+            Text = "Commands",
+            TextColor3 = C.text,
+            TextSize = 14,
+            Font = Enum.Font.GothamBlack,
+            TextYAlignment = Enum.TextYAlignment.Center,
+            ZIndex = 101,
+        })
+        
+        PM.UI.CommandsClose = PM.mk("TextButton", PM.UI.CommandsPanel, {
+            Size = UDim2.new(0, 24, 0, 24),
+            Position = UDim2.new(1, -30, 0, 6),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            Text = "X",
+            TextColor3 = C.text,
+            TextSize = 11,
+            Font = Enum.Font.GothamBold,
+            ZIndex = 101,
+        })
+        PM.corner(PM.UI.CommandsClose, 6)
+        
+        PM.UI.CommandsClose.MouseEnter:Connect(function()
+            PM.UI.CommandsClose.TextColor3 = Color3.fromRGB(255, 80, 80)
+        end)
+        PM.UI.CommandsClose.MouseLeave:Connect(function()
+            PM.UI.CommandsClose.TextColor3 = C.text
+        end)
+        
+        PM.UI.CommandsClose.MouseButton1Click:Connect(function()
+            PM.playClickSound()
+            PM.isCommandsOpen = false
+            PM.UI.CommandsSearch.Text = ""
+            PM.closeCommandsPanel()
+        end)
+        
+        PM.UI.CommandsSearch = PM.mk("TextBox", PM.UI.CommandsPanel, {
+            Name = "CommandsSearch",
+            Size = UDim2.new(1, -16, 0, 28),
+            Position = UDim2.new(0, 8, 0, 38),
+            BackgroundColor3 = C.card,
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            Text = "",
+            PlaceholderText = "Search commands...",
+            PlaceholderColor3 = C.textDim,
+            TextColor3 = C.text,
+            TextSize = 12,
+            Font = Enum.Font.Gotham,
+            ClearTextOnFocus = true,
+            ZIndex = 101,
+        })
+        PM.corner(PM.UI.CommandsSearch, 6)
+        
+        PM.UI.CommandsScroll = PM.mk("ScrollingFrame", PM.UI.CommandsPanel, {
+            Size = UDim2.new(1, -10, 1, -80),
+            Position = UDim2.new(0, 9, 0, 70),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            ScrollBarThickness = 3,
+            ScrollBarImageColor3 = C.border,
+            CanvasSize = UDim2.new(0, 0, 0, 0),
+            ZIndex = 101,
+        })
+        
+        PM.UI.CommandsList = PM.mk("UIListLayout", PM.UI.CommandsScroll, {
+            Padding = UDim.new(0, 2),
+            SortOrder = Enum.SortOrder.Name,
+        })
+        
+        PM.UI.CommandsList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+            PM.UI.CommandsScroll.CanvasSize = UDim2.new(0, 0, 0, PM.UI.CommandsList.AbsoluteContentSize.Y)
+        end)
+        
+        PM.UI.CommandButtons = {}
+        
+        PM.UI.CommandsSearch:GetPropertyChangedSignal("Text"):Connect(function()
+            local search = PM.UI.CommandsSearch.Text:lower()
+            local visibleCount = 0
+            for _, data in ipairs(PM.UI.CommandButtons) do
+                local match = data.name:lower():find(search, 1, true) or data.desc:lower():find(search, 1, true)
+                data.btn.Visible = match or search == ""
+                if data.btn.Visible then visibleCount = visibleCount + 1 end
+            end
+            PM.UI.CommandsScroll.CanvasSize = UDim2.new(0, 0, 0, visibleCount * 38)
+        end)
+    end
+    
+    PM.openCommandsPanel = function()
+        if not PM.UI.CommandsPanel then
+            PM.createCommandsPanel()
+        end
+        if PM.UI.CommandsPanel.Visible then return end
+        
+        PM.UI.CommandsPanel.Visible = true
+        PM.UI.CommandsPanel.Size = UDim2.new(0, 280, 0, 0)
+        PM.tween(PM.UI.CommandsPanel, 0.3, {Size = UDim2.new(0, 280, 0, 320)})
+    end
+    
+    PM.closeCommandsPanel = function()
+        if not PM.UI.CommandsPanel or not PM.UI.CommandsPanel.Visible then return end
+        
+        PM.UI.CommandsSearch.Text = ""
+        PM.tween(PM.UI.CommandsPanel, 0.3, {Size = UDim2.new(0, 280, 0, 0)})
+        task.delay(0.3, function()
+            PM.UI.CommandsPanel.Visible = false
+            PM.UI.CommandsPanel.Size = UDim2.new(0, 280, 0, 320)
+        end)
+    end
+    
+    PM.hideCommandsPanel = function()
+        if not PM.UI.CommandsPanel then return end
+        PM.UI.CommandsSearch.Text = ""
+        PM.UI.CommandsPanel.Visible = false
+        PM.UI.CommandsPanel.Size = UDim2.new(0, 280, 0, 320)
+    end
+
+    PM.createNameTagsPanel = function()
+        if PM.UI.NameTagsPanel then return end
+        
+        PM.UI.NameTagsPanel = PM.mk("Frame", PM.UI.Gui, {
+            Name = "NameTagsPanel",
+            Size = UDim2.new(0, 120, 0, 26),
+            Position = UDim2.new(0.5, -60, 0, 35),
+            BackgroundColor3 = C.bg,
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            Visible = false,
+            ZIndex = 100,
+        })
+        PM.corner(PM.UI.NameTagsPanel, 6)
+        PM.stroke(PM.UI.NameTagsPanel, C.border, 1, 1)
+        
+        PM.UI.NameTagsLabel = PM.mk("TextLabel", PM.UI.NameTagsPanel, {
+            Size = UDim2.new(1, 0, 1, 0),
+            BackgroundTransparency = 1,
+            Text = "Nametags On",
+            TextColor3 = C.text,
+            TextSize = 11,
+            Font = Enum.Font.GothamBlack,
+            TextXAlignment = Enum.TextXAlignment.Center,
+            TextTransparency = 1,
+            ZIndex = 101,
+        })
+    end
+    
+    PM.toggleNameTagsPanel = function()
+        if not PM.UI.NameTagsPanel then
+            PM.createNameTagsPanel()
+        end
+        
+        -- Sync the actual nametags system with the toggle state
+        PM.nametagsEnabled = PM.isNameTagsEnabled
+        
+        -- Handle toggle ON/OFF
+        if not PM.isNameTagsEnabled then
+            -- Turning OFF: restore all default nametags
+            local PlayersService = game:GetService("Players")
+            for uid, state in pairs(PM.defaultNametagStates) do
+                local plr = PlayersService:GetPlayerByUserId(uid)
+                if plr and plr.Character then
+                    pcall(function()
+                        local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
+                        if humanoid then
+                            humanoid.DisplayDistanceType = state
+                        end
+                    end)
+                end
+            end
+        else
+            -- Turning ON: hide default nametags for Prism users
+            local PlayersService = game:GetService("Players")
+            local LP = PlayersService.LocalPlayer
+            for _, plr in ipairs(PlayersService:GetPlayers()) do
+                if plr ~= LP and plr.Character and PM.shouldShowTag(plr) then
+                    pcall(function()
+                        local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
+                        if humanoid then
+                            if not PM.defaultNametagStates[plr.UserId] then
+                                PM.defaultNametagStates[plr.UserId] = humanoid.DisplayDistanceType
+                            end
+                            humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+                        end
+                    end)
+                end
+            end
+        end
+        
+        if PM.isNameTagsEnabled then
+            PM.UI.NameTagsLabel.Text = "Nametags On"
+        else
+            PM.UI.NameTagsLabel.Text = "Nametags Off"
+        end
+        
+        if PM.fadeOutTask then
+            task.cancel(PM.fadeOutTask)
+        end
+        
+        if not PM.UI.NameTagsPanel.Visible then
+            PM.UI.NameTagsPanel.Visible = true
+            PM.UI.NameTagsPanel.BackgroundTransparency = 1
+            PM.UI.NameTagsLabel.TextTransparency = 1
+            PM.UI.NameTagsPanel.UIStroke.Transparency = 1
+            
+            PM.tween(PM.UI.NameTagsPanel, 0.2, {BackgroundTransparency = 0.15})
+            PM.tween(PM.UI.NameTagsPanel.UIStroke, 0.2, {Transparency = 0.4})
+            PM.tween(PM.UI.NameTagsLabel, 0.2, {TextTransparency = 0})
+        end
+        
+        PM.fadeOutTask = task.delay(1.5, function()
+            PM.tween(PM.UI.NameTagsLabel, 0.3, {TextTransparency = 1})
+            PM.tween(PM.UI.NameTagsPanel, 0.3, {BackgroundTransparency = 1})
+            PM.tween(PM.UI.NameTagsPanel.UIStroke, 0.3, {Transparency = 1})
+            task.delay(0.3, function()
+                PM.UI.NameTagsPanel.Visible = false
+            end)
+        end)
+    end
+
+    PM.createServersPanel = function()
+        if PM.UI.ServersPanel then return end
+        
+        PM.UI.ServersPanel = PM.mk("Frame", PM.UI.Gui, {
+            Name = "ServersPanel",
+            Size = UDim2.new(0, 280, 0, 0),
+            Position = UDim2.new(0.5, -140, 0, 35),
+            BackgroundColor3 = C.bg,
+            BackgroundTransparency = 0.2,
+            BorderSizePixel = 0,
+            Visible = false,
+            ZIndex = 100,
+            ClipsDescendants = true,
+        })
+        PM.corner(PM.UI.ServersPanel, 12)
+        PM.stroke(PM.UI.ServersPanel, C.border, 1, 0.4)
+        
+        PM.UI.ServersTitle = PM.mk("TextLabel", PM.UI.ServersPanel, {
+            Size = UDim2.new(1, 0, 0, 36),
+            Position = UDim2.new(0, 0, 0, 0),
+            BackgroundTransparency = 1,
+            Text = "Servers",
+            TextColor3 = C.text,
+            TextSize = 14,
+            Font = Enum.Font.GothamBlack,
+            TextYAlignment = Enum.TextYAlignment.Center,
+            ZIndex = 101,
+        })
+        
+        PM.UI.ServersClose = PM.mk("TextButton", PM.UI.ServersPanel, {
+            Size = UDim2.new(0, 24, 0, 24),
+            Position = UDim2.new(1, -30, 0, 6),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            Text = "X",
+            TextColor3 = C.text,
+            TextSize = 11,
+            Font = Enum.Font.GothamBold,
+            ZIndex = 101,
+        })
+        PM.corner(PM.UI.ServersClose, 6)
+        
+        PM.UI.ServersClose.MouseEnter:Connect(function()
+            PM.UI.ServersClose.TextColor3 = Color3.fromRGB(255, 80, 80)
+        end)
+        PM.UI.ServersClose.MouseLeave:Connect(function()
+            PM.UI.ServersClose.TextColor3 = C.text
+        end)
+        
+        PM.UI.ServersClose.MouseButton1Click:Connect(function()
+            PM.playClickSound()
+            PM.isServersOpen = false
+            PM.closeServersPanel()
+        end)
+        
+        PM.UI.ServersFilterFrame = PM.mk("Frame", PM.UI.ServersPanel, {
+            Size = UDim2.new(1, -16, 0, 28),
+            Position = UDim2.new(0, 8, 0, 38),
+            BackgroundColor3 = C.card,
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            ZIndex = 101,
+        })
+        PM.corner(PM.UI.ServersFilterFrame, 6)
+        
+        PM.UI.ServersFilterList = PM.mk("UIListLayout", PM.UI.ServersFilterFrame, {
+            Padding = UDim.new(0, 4),
+            FillDirection = Enum.FillDirection.Horizontal,
+            HorizontalAlignment = Enum.HorizontalAlignment.Center,
+            VerticalAlignment = Enum.VerticalAlignment.Center,
+            SortOrder = Enum.SortOrder.LayoutOrder,
+        })
+        
+        -- Exclude Full Servers Background
+        PM.UI.ExcludeFullBg = PM.mk("Frame", PM.UI.ServersPanel, {
+            Size = UDim2.new(1, -16, 0, 26),
+            Position = UDim2.new(0, 8, 0, 70),
+            BackgroundColor3 = C.card,
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            ZIndex = 100,
+        })
+        PM.corner(PM.UI.ExcludeFullBg, 6)
+        
+        -- Exclude Full Servers Label
+        PM.UI.ExcludeFullLabel = PM.mk("TextLabel", PM.UI.ServersPanel, {
+            Size = UDim2.new(1, -56, 0, 20),
+            Position = UDim2.new(0, 13, 0, 72),
+            BackgroundTransparency = 1,
+            Text = "Exclude full servers",
+            TextColor3 = C.text,
+            TextSize = 10,
+            Font = Enum.Font.Gotham,
+            TextXAlignment = Enum.TextXAlignment.Left,
+            ZIndex = 101,
+        })
+        
+        -- Toggle Switch (Mono.lua style)
+        PM.UI.ExcludeFullSwitch = PM.mk("Frame", PM.UI.ServersPanel, {
+            Size = UDim2.new(0, 26, 0, 13),
+            Position = UDim2.new(1, -39, 0, 81),
+            AnchorPoint = Vector2.new(0, 0.5),
+            BackgroundColor3 = Color3.fromRGB(50, 50, 50),
+            BorderSizePixel = 0,
+            ZIndex = 101,
+        })
+        PM.corner(PM.UI.ExcludeFullSwitch, 10)
+        
+        -- Toggle Circle
+        PM.UI.ExcludeFullCircle = PM.mk("Frame", PM.UI.ExcludeFullSwitch, {
+            Size = UDim2.new(0, 9, 0, 9),
+            Position = UDim2.new(0, 2, 0.5, -4),
+            BackgroundColor3 = Color3.fromRGB(235, 235, 235),
+            BorderSizePixel = 0,
+            ZIndex = 102,
+        })
+        PM.corner(PM.UI.ExcludeFullCircle, 10)
+        
+        -- Toggle Hit Button
+        PM.UI.ExcludeFullToggle = PM.mk("TextButton", PM.UI.ExcludeFullSwitch, {
+            Size = UDim2.new(1, 0, 1, 0),
+            BackgroundTransparency = 1,
+            Text = "",
+            ZIndex = 103,
+        })
+        
+        -- Set initial visual state (ON by default with medium gray)
+        PM.UI.ExcludeFullSwitch.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+        PM.UI.ExcludeFullCircle.Position = UDim2.new(1, -11, 0.5, -4)
+        
+        PM.UI.ExcludeFullToggle.MouseButton1Click:Connect(function()
+            PM.playClickSound()
+            PM.excludeFullServers = not PM.excludeFullServers
+            if PM.excludeFullServers then
+                PM.tween(PM.UI.ExcludeFullSwitch, 0.2, {BackgroundColor3 = Color3.fromRGB(80, 80, 80)})
+                PM.tween(PM.UI.ExcludeFullCircle, 0.2, {Position = UDim2.new(1, -11, 0.5, -4)})
+            else
+                PM.tween(PM.UI.ExcludeFullSwitch, 0.2, {BackgroundColor3 = Color3.fromRGB(50, 50, 50)})
+                PM.tween(PM.UI.ExcludeFullCircle, 0.2, {Position = UDim2.new(0, 2, 0.5, -4)})
+            end
+            PM.serversFetched = false
+            PM.fetchServers()
+        end)
+        
+        PM.serversFilter = "most"
+        PM.excludeFullServers = true
+        PM.serverListData = {}
+        PM.serversFetched = false
+        
+        local filters = {
+            {name = "Most", id = "most", order = 1},
+            {name = "Low Ping", id = "lowping", order = 2},
+            {name = "Fewest", id = "fewest", order = 3},
+        }
+        
+        PM.UI.ServersFilterButtons = {}
+        for _, filter in ipairs(filters) do
+            local btn = PM.mk("TextButton", PM.UI.ServersFilterFrame, {
+                Size = UDim2.new(0, 80, 0, 24),
+                BackgroundColor3 = C.bg,
+                BackgroundTransparency = filter.id == "most" and 0.3 or 0.7,
+                BorderSizePixel = 0,
+                Text = filter.name,
+                TextColor3 = C.text,
+                TextSize = 9,
+                Font = Enum.Font.Gotham,
+                Name = filter.id,
+                LayoutOrder = filter.order,
+                ZIndex = 102,
+            })
+            PM.corner(btn, 4)
+            
+            btn.MouseButton1Click:Connect(function()
+                PM.playClickSound()
+                PM.serversFilter = filter.id
+                for _, b in ipairs(PM.UI.ServersFilterButtons) do
+                    PM.tween(b, 0.15, {BackgroundTransparency = b.Name == filter.id and 0.3 or 0.7})
+                end
+                PM.renderServerList()
+            end)
+            
+            table.insert(PM.UI.ServersFilterButtons, btn)
+        end
+        
+        PM.UI.ServersScroll = PM.mk("ScrollingFrame", PM.UI.ServersPanel, {
+            Size = UDim2.new(1, -10, 1, -110),
+            Position = UDim2.new(0, 9, 0, 100),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            ScrollBarThickness = 3,
+            ScrollBarImageColor3 = C.border,
+            CanvasSize = UDim2.new(0, 0, 0, 0),
+            ZIndex = 101,
+        })
+        
+        PM.UI.ServersList = PM.mk("UIListLayout", PM.UI.ServersScroll, {
+            Padding = UDim.new(0, 2),
+            SortOrder = Enum.SortOrder.Name,
+        })
+        
+        PM.UI.ServersList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+            PM.UI.ServersScroll.CanvasSize = UDim2.new(0, 0, 0, PM.UI.ServersList.AbsoluteContentSize.Y)
+        end)
+        
+    end
+    
+    PM.fetchServers = function()
+        local HttpService = game:GetService("HttpService")
+        local success, result = pcall(function()
+            return HttpService:JSONDecode(game:HttpGet("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100"))
+        end)
+        
+        if success and result and result.data then
+            PM.serverListData = {}
+            for _, server in ipairs(result.data) do
+                if not PM.excludeFullServers or server.playing < server.maxPlayers then
+                    table.insert(PM.serverListData, server)
+                end
+            end
+            PM.serversFetched = true
+            PM.renderServerList()
+            return true
+        else
+            return false
+        end
+    end
+    
+    PM.renderServerList = function()
+        if not PM.UI.ServersScroll then return end
+        
+        for _, child in ipairs(PM.UI.ServersScroll:GetChildren()) do
+            if child:IsA("TextButton") then
+                child:Destroy()
+            end
+        end
+        
+        local servers = {}
+        for _, server in ipairs(PM.serverListData) do
+            table.insert(servers, server)
+        end
+        
+        if PM.serversFilter == "lowping" then
+            table.sort(servers, function(a, b)
+                return (a.ping or math.huge) < (b.ping or math.huge)
+            end)
+        elseif PM.serversFilter == "most" then
+            table.sort(servers, function(a, b)
+                return (a.playing or 0) > (b.playing or 0)
+            end)
+        elseif PM.serversFilter == "fewest" then
+            table.sort(servers, function(a, b)
+                return (a.playing or 0) < (b.playing or 0)
+            end)
+        end
+        
+        local displayCount = math.min(#servers, 25)
+        for i = 1, displayCount do
+            local server = servers[i]
+            if not server then break end
+            
+            local ping = server.ping or 0
+            local playing = server.playing or 0
+            local maxPlayers = server.maxPlayers or 0
+            local pingColor = ping < 50 and Color3.fromRGB(80, 220, 120) or ping < 100 and Color3.fromRGB(255, 200, 80) or Color3.fromRGB(255, 80, 80)
+            
+            local btn = PM.mk("TextButton", PM.UI.ServersScroll, {
+                Size = UDim2.new(1, -6, 0, 32),
+                BackgroundColor3 = C.card,
+                BackgroundTransparency = 0.5,
+                BorderSizePixel = 0,
+                Text = "",
+                Name = "Server_" .. i,
+                ZIndex = 102,
+            })
+            PM.corner(btn, 6)
+            
+            PM.mk("TextLabel", btn, {
+                Size = UDim2.new(0.4, 0, 1, 0),
+                Position = UDim2.new(0, 8, 0, 0),
+                BackgroundTransparency = 1,
+                Text = "Ping: " .. ping .. "ms",
+                TextColor3 = pingColor,
+                TextSize = 10,
+                Font = Enum.Font.GothamBold,
+                TextXAlignment = Enum.TextXAlignment.Left,
+                ZIndex = 103,
+            })
+            
+            PM.mk("TextLabel", btn, {
+                Size = UDim2.new(0.5, 0, 1, 0),
+                Position = UDim2.new(0.5, -8, 0, 0),
+                BackgroundTransparency = 1,
+                Text = playing .. "/" .. maxPlayers .. " players",
+                TextColor3 = C.text,
+                TextSize = 10,
+                Font = Enum.Font.Gotham,
+                TextXAlignment = Enum.TextXAlignment.Right,
+                ZIndex = 103,
+            })
+            
+            btn.MouseEnter:Connect(function()
+                PM.tween(btn, 0.15, {BackgroundTransparency = 0.2})
+            end)
+            btn.MouseLeave:Connect(function()
+                PM.tween(btn, 0.15, {BackgroundTransparency = 0.5})
+            end)
+            btn.MouseButton1Click:Connect(function()
+                PM.playClickSound()
+                game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, server.id, PM.Svc.Players.LocalPlayer)
+            end)
+        end
+        
+    end
+    
+    PM.openServersPanel = function()
+        if not PM.UI.ServersPanel then
+            PM.createServersPanel()
+        end
+        
+        PM.isServersOpen = true
+        PM.UI.ServersPanel.Visible = true
+        PM.UI.ServersPanel.Size = UDim2.new(0, 280, 0, 0)
+        PM.tween(PM.UI.ServersPanel, 0.3, {Size = UDim2.new(0, 280, 0, 320)})
+        
+        if not PM.serversFetched then
+            task.spawn(function()
+                PM.fetchServers()
+            end)
+        end
+    end
+    
+    PM.closeServersPanel = function()
+        if not PM.UI.ServersPanel or not PM.UI.ServersPanel.Visible then return end
+        
+        PM.isServersOpen = false
+        PM.tween(PM.UI.ServersPanel, 0.3, {Size = UDim2.new(0, 280, 0, 0)})
+        task.delay(0.3, function()
+            PM.UI.ServersPanel.Visible = false
+            PM.UI.ServersPanel.Size = UDim2.new(0, 280, 0, 320)
+        end)
+    end
+    
+    PM.hideServersPanel = function()
+        if not PM.UI.ServersPanel then return end
+        PM.isServersOpen = false
+        PM.UI.ServersPanel.Visible = false
+        PM.UI.ServersPanel.Size = UDim2.new(0, 280, 0, 320)
+    end
+    
+    -- ========== JOIN PRISM USERS PANEL ==========
+    PM.createJoinPanel = function()
+        if PM.UI.JoinPanel then return end
+        
+        PM.UI.JoinPanel = PM.mk("Frame", PM.UI.Gui, {
+            Name = "JoinPanel",
+            Size = UDim2.new(0, 280, 0, 0),
+            Position = UDim2.new(0.5, -140, 0, 35),
+            BackgroundColor3 = C.bg,
+            BackgroundTransparency = 0.2,
+            BorderSizePixel = 0,
+            Visible = false,
+            ZIndex = 100,
+            ClipsDescendants = true,
+        })
+        PM.corner(PM.UI.JoinPanel, 12)
+        PM.stroke(PM.UI.JoinPanel, C.border, 1, 0.4)
+        
+        -- Title
+        PM.UI.JoinTitle = PM.mk("TextLabel", PM.UI.JoinPanel, {
+            Size = UDim2.new(1, 0, 0, 36),
+            Position = UDim2.new(0, 0, 0, 0),
+            BackgroundTransparency = 1,
+            Text = "Join Prism Users",
+            TextColor3 = C.text,
+            TextSize = 14,
+            Font = Enum.Font.GothamBlack,
+            TextYAlignment = Enum.TextYAlignment.Center,
+            ZIndex = 101,
+        })
+        
+        -- Close button
+        PM.UI.JoinClose = PM.mk("TextButton", PM.UI.JoinPanel, {
+            Size = UDim2.new(0, 24, 0, 24),
+            Position = UDim2.new(1, -30, 0, 6),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            Text = "X",
+            TextColor3 = C.text,
+            TextSize = 11,
+            Font = Enum.Font.GothamBold,
+            ZIndex = 101,
+        })
+        PM.corner(PM.UI.JoinClose, 6)
+        
+        PM.UI.JoinClose.MouseEnter:Connect(function()
+            PM.UI.JoinClose.TextColor3 = Color3.fromRGB(255, 80, 80)
+        end)
+        PM.UI.JoinClose.MouseLeave:Connect(function()
+            PM.UI.JoinClose.TextColor3 = C.text
+        end)
+        
+        PM.UI.JoinClose.MouseButton1Click:Connect(function()
+            PM.playClickSound()
+            PM.isJoinOpen = false
+            PM.closeJoinPanel()
+        end)
+        
+        -- Filter buttons frame
+        PM.UI.JoinFilterFrame = PM.mk("Frame", PM.UI.JoinPanel, {
+            Size = UDim2.new(1, -16, 0, 28),
+            Position = UDim2.new(0, 8, 0, 38),
+            BackgroundColor3 = C.card,
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            ZIndex = 101,
+        })
+        PM.corner(PM.UI.JoinFilterFrame, 6)
+        
+        local filterList = PM.mk("UIListLayout", PM.UI.JoinFilterFrame, {
+            Padding = UDim.new(0, 4),
+            FillDirection = Enum.FillDirection.Horizontal,
+            HorizontalAlignment = Enum.HorizontalAlignment.Center,
+            VerticalAlignment = Enum.VerticalAlignment.Center,
+        })
+        
+        -- Filter buttons
+        PM.UI.JoinFilterButtons = {}
+        local filters = {
+            {name = "This Game", id = "This Game"},
+            {name = "All Games", id = "All Games"},
+            {name = "Friends", id = "Friends"},
+        }
+        for _, filter in ipairs(filters) do
+            local btn = PM.mk("TextButton", PM.UI.JoinFilterFrame, {
+                Name = filter.id,
+                Size = UDim2.new(0, 76, 0, 24),
+                BackgroundColor3 = C.bg,
+                BackgroundTransparency = filter.id == "All Games" and 0.3 or 0.7,
+                BorderSizePixel = 0,
+                Text = filter.name,
+                TextColor3 = C.text,
+                TextSize = 9,
+                Font = Enum.Font.Gotham,
+                ZIndex = 102,
+            })
+            PM.corner(btn, 4)
+            table.insert(PM.UI.JoinFilterButtons, btn)
+        end
+        
+        -- Search box
+        PM.UI.JoinSearch = PM.mk("TextBox", PM.UI.JoinPanel, {
+            Name = "JoinSearch",
+            Size = UDim2.new(1, -16, 0, 28),
+            Position = UDim2.new(0, 8, 0, 70),
+            BackgroundColor3 = C.card,
+            BackgroundTransparency = 0.5,
+            Text = "",
+            PlaceholderText = "Search users...",
+            TextColor3 = C.text,
+            PlaceholderColor3 = Color3.fromRGB(120, 120, 120),
+            TextSize = 10,
+            Font = Enum.Font.Gotham,
+            ClearTextOnFocus = false,
+            ZIndex = 101,
+        })
+        PM.corner(PM.UI.JoinSearch, 6)
+        
+        -- User scroll frame (no refresh button, so larger)
+        PM.UI.JoinScroll = PM.mk("ScrollingFrame", PM.UI.JoinPanel, {
+            Name = "JoinScroll",
+            Size = UDim2.new(1, -10, 1, -106),
+            Position = UDim2.new(0, 9, 0, 102),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            ScrollBarThickness = 3,
+            ScrollBarImageColor3 = C.border,
+            CanvasSize = UDim2.new(0, 0, 0, 0),
+            ZIndex = 101,
+        })
+        
+        PM.UI.JoinList = PM.mk("UIListLayout", PM.UI.JoinScroll, {
+            Padding = UDim.new(0, 2),
+            SortOrder = Enum.SortOrder.LayoutOrder,
+        })
+        
+        PM.UI.JoinList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+            PM.UI.JoinScroll.CanvasSize = UDim2.new(0, 0, 0, PM.UI.JoinList.AbsoluteContentSize.Y)
+        end)
+        
+        -- Join panel logic
+        spawn(function()
+            local HttpService = game:GetService("HttpService")
+            local TeleportService = game:GetService("TeleportService")
+            local SERVERS_URL = "https://prismscript.vercel.app/api/prism/servers"
+            local PLAYER_TTL = 35
+            local currentJoinFilter = "All Games"
+            local cachedUsers = {}
+            
+            local function fetchPrismUsers()
+                local url
+                if currentJoinFilter == "This Game" then
+                    url = SERVERS_URL .. "/" .. tostring(game.PlaceId) .. ".json"
+                else
+                    url = SERVERS_URL .. "/"
+                end
+                
+                local ok, result = pcall(function()
+                    return request({
+                        Url = url,
+                        Method = "GET"
+                    })
+                end)
+                
+                if not ok or not result or not result.Body or result.Body == "null" then
+                    return {}
+                end
+                
+                local ok2, data = pcall(function()
+                    return HttpService:JSONDecode(result.Body)
+                end)
+                
+                if not ok2 or not data then
+                    return {}
+                end
+                
+                -- API returns { servers: { placeId: { jobId: { userId: data } } } }
+                -- Unwrap the servers key if present
+                local serversData = data.servers or data
+                
+                local users = {}
+                local now = os.time()
+                local PlayersService = game:GetService("Players")
+                local LocalPlayer = PlayersService.LocalPlayer
+                
+                if currentJoinFilter == "This Game" then
+                    -- Data structure: { servers: { placeId: { jobId: { userId: data } } } }
+                    local placeData = serversData[tostring(game.PlaceId)] or serversData[game.PlaceId]
+                    if type(placeData) == "table" then
+                        for jobId, jobData in pairs(placeData) do
+                            if type(jobData) == "table" then
+                                for userIdStr, userInfo in pairs(jobData) do
+                                    local userId = tonumber(userIdStr)
+                                    if userId and userId ~= LocalPlayer.UserId and type(userInfo) == "table" then
+                                        local timestamp = tonumber(userInfo.timestamp) or 0
+                                        local age = now - timestamp
+                                        if age <= PLAYER_TTL then
+                                            table.insert(users, {
+                                                userId = userId,
+                                                username = userInfo.username or "Unknown",
+                                                displayName = userInfo.displayName or userInfo.username or "Unknown",
+                                                gameName = userInfo.gameName or "Unknown",
+                                                placeId = game.PlaceId,
+                                                jobId = jobId,
+                                                timestamp = userInfo.timestamp
+                                            })
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                else
+                    for placeIdStr, placeData in pairs(serversData) do
+                        if type(placeData) == "table" then
+                            for jobId, jobData in pairs(placeData) do
+                                if type(jobData) == "table" then
+                                    for userIdStr, userInfo in pairs(jobData) do
+                                        local userId = tonumber(userIdStr)
+                                        local placeId = tonumber(placeIdStr)
+                                        if userId and userId ~= LocalPlayer.UserId and placeId and type(userInfo) == "table" then
+                                            local age = now - (tonumber(userInfo.timestamp) or 0)
+                                            if age <= PLAYER_TTL then
+                                                table.insert(users, {
+                                                    userId = userId,
+                                                    username = userInfo.username or "Unknown",
+                                                    displayName = userInfo.displayName or userInfo.username or "Unknown",
+                                                    gameName = userInfo.gameName or "Unknown",
+                                                    placeId = placeId,
+                                                    jobId = jobId,
+                                                    timestamp = userInfo.timestamp
+                                                })
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+                
+                if currentJoinFilter == "Friends" then
+                    local friendsOnly = {}
+                    for _, user in ipairs(users) do
+                        local success, isFriend = pcall(function()
+                            return LocalPlayer:IsFriendsWith(user.userId)
+                        end)
+                        if success and isFriend then
+                            table.insert(friendsOnly, user)
+                        end
+                    end
+                    users = friendsOnly
+                end
+                
+                table.sort(users, function(a, b)
+                    return (a.username or ""):lower() < (b.username or ""):lower()
+                end)
+                
+                return users
+            end
+            
+            local function renderUsers(users, searchQuery)
+                local scroll = PM.UI.JoinScroll
+                if not scroll then return end
+                
+                for _, child in ipairs(scroll:GetChildren()) do
+                    if child:IsA("Frame") or child:IsA("TextLabel") or child:IsA("TextButton") or child:IsA("ImageLabel") then
+                        child:Destroy()
+                    end
+                end
+                
+                local filtered = {}
+                if searchQuery and searchQuery ~= "" then
+                    local q = searchQuery:lower()
+                    for _, user in ipairs(users) do
+                        local name = (user.username or ""):lower()
+                        local display = (user.displayName or ""):lower()
+                        if name:find(q, 1, true) or display:find(q, 1, true) then
+                            table.insert(filtered, user)
+                        end
+                    end
+                else
+                    filtered = users
+                end
+                
+                for _, user in ipairs(filtered) do
+                    local isCurrentServer = (user.placeId == game.PlaceId and user.jobId == game.JobId)
+                    local isCurrentGame = (user.placeId == game.PlaceId)
+                    
+                    local item = PM.mk("TextButton", scroll, {
+                        Name = "UserItem_" .. user.userId,
+                        Size = UDim2.new(1, -6, 0, 46),
+                        BackgroundColor3 = C.card,
+                        BackgroundTransparency = 0.5,
+                        BorderSizePixel = 0,
+                        Text = "",
+                        AutoButtonColor = false,
+                    })
+                    PM.corner(item, 6)
+                    
+                    -- Avatar
+                    local avatar = PM.mk("ImageLabel", item, {
+                        Name = "Avatar",
+                        Size = UDim2.new(0, 32, 0, 32),
+                        Position = UDim2.new(0, 8, 0.5, -16),
+                        BackgroundColor3 = Color3.fromRGB(50, 50, 50),
+                        Image = "rbxthumb://type=AvatarHeadShot&id=" .. user.userId .. "&w=48&h=48",
+                        ScaleType = Enum.ScaleType.Crop,
+                    })
+                    PM.corner(avatar, 16)
+                    
+                    -- Username
+                    local nameLabel = PM.mk("TextLabel", item, {
+                        Size = UDim2.new(1, -110, 0, 14),
+                        Position = UDim2.new(0, 48, 0, 5),
+                        BackgroundTransparency = 1,
+                        Text = "@" .. user.username,
+                        TextColor3 = C.text,
+                        TextSize = 11,
+                        Font = Enum.Font.GothamBold,
+                        TextXAlignment = Enum.TextXAlignment.Left,
+                    })
+                    
+                    -- Game info
+                    local infoLabel = PM.mk("TextLabel", item, {
+                        Size = UDim2.new(1, -110, 0, 12),
+                        Position = UDim2.new(0, 48, 0, 20),
+                        BackgroundTransparency = 1,
+                        Text = user.gameName or "Unknown",
+                        TextColor3 = isCurrentServer and Color3.fromRGB(140, 200, 140) or (isCurrentGame and Color3.fromRGB(180, 180, 200) or Color3.fromRGB(140, 140, 140)),
+                        TextSize = 9,
+                        Font = Enum.Font.Gotham,
+                        TextXAlignment = Enum.TextXAlignment.Left,
+                    })
+                    
+                    -- Join button (shown as indicator, not clickable on item)
+                    local joinIndicator = PM.mk("TextLabel", item, {
+                        Name = "JoinIndicator",
+                        Size = UDim2.new(0, 50, 0, 20),
+                        Position = UDim2.new(1, -58, 0.5, 0),
+                        AnchorPoint = Vector2.new(0, 0.5),
+                        BackgroundColor3 = isCurrentServer and Color3.fromRGB(60, 60, 60) or Color3.fromRGB(200, 200, 200),
+                        BackgroundTransparency = 0,
+                        Text = isCurrentServer and "Current" or "Join",
+                        TextColor3 = isCurrentServer and Color3.fromRGB(140, 140, 140) or Color3.fromRGB(0, 0, 0),
+                        TextSize = 9,
+                        Font = Enum.Font.GothamBold,
+                    })
+                    PM.corner(joinIndicator, 4)
+                    
+                    if not isCurrentServer then
+                        item.MouseEnter:Connect(function()
+                            item.BackgroundTransparency = 0.3
+                        end)
+                        item.MouseLeave:Connect(function()
+                            item.BackgroundTransparency = 0.5
+                        end)
+                        item.MouseButton1Click:Connect(function()
+                            PM.playClickSound()
+                            TeleportService:TeleportToPlaceInstance(user.placeId, user.jobId, LocalPlayer)
+                        end)
+                    else
+                        item.Active = false
+                    end
+                end
+            end
+            
+            PM.refreshJoinUsers = function()
+                cachedUsers = fetchPrismUsers()
+                renderUsers(cachedUsers, PM.UI.JoinSearch and PM.UI.JoinSearch.Text or "")
+            end
+            
+            local function setFilterActive(filterName)
+                currentJoinFilter = filterName
+                for _, btn in ipairs(PM.UI.JoinFilterButtons) do
+                    PM.tween(btn, 0.15, {BackgroundTransparency = btn.Name == filterName and 0.3 or 0.7})
+                end
+                PM.refreshJoinUsers()
+            end
+            
+            -- Filter button connections
+            local filterFrame = PM.UI.JoinFilterFrame
+            if filterFrame then
+                for _, child in ipairs(filterFrame:GetChildren()) do
+                    if child:IsA("TextButton") then
+                        child.MouseButton1Click:Connect(function()
+                            PM.playClickSound()
+                            setFilterActive(child.Name)
+                        end)
+                    end
+                end
+            end
+            
+            -- Search connection
+            if PM.UI.JoinSearch then
+                PM.UI.JoinSearch:GetPropertyChangedSignal("Text"):Connect(function()
+                    renderUsers(cachedUsers, PM.UI.JoinSearch.Text)
+                end)
+            end
+            
+            -- Initial filter
+            setFilterActive("All Games")
+        end)
+    end
+    
+    PM.openJoinPanel = function()
+        if not PM.UI.JoinPanel then
+            PM.createJoinPanel()
+        end
+        
+        PM.isJoinOpen = true
+        PM.UI.JoinPanel.Visible = true
+        PM.UI.JoinPanel.Size = UDim2.new(0, 280, 0, 0)
+        PM.tween(PM.UI.JoinPanel, 0.3, {Size = UDim2.new(0, 280, 0, 320)})
+        
+        -- Refresh users when opening
+        if PM.refreshJoinUsers then
+            PM.refreshJoinUsers()
+        end
+    end
+    
+    PM.closeJoinPanel = function()
+        if not PM.UI.JoinPanel or not PM.UI.JoinPanel.Visible then return end
+        
+        PM.isJoinOpen = false
+        PM.tween(PM.UI.JoinPanel, 0.3, {Size = UDim2.new(0, 280, 0, 0)})
+        task.delay(0.3, function()
+            PM.UI.JoinPanel.Visible = false
+            PM.UI.JoinPanel.Size = UDim2.new(0, 280, 0, 320)
+        end)
+    end
+    
+    PM.hideJoinPanel = function()
+        if not PM.UI.JoinPanel then return end
+        PM.isJoinOpen = false
+        PM.UI.JoinPanel.Visible = false
+        PM.UI.JoinPanel.Size = UDim2.new(0, 280, 0, 320)
+    end
+
+    PM.createSettingsPanel = function()
+        if PM.UI.SettingsPanel then return end
+
+        PM.UI.SettingsPanel = PM.mk("Frame", PM.UI.Gui, {
+            Name = "SettingsPanel",
+            Size = UDim2.new(0, 280, 0, 320),
+            Position = UDim2.new(0.5, -140, 0, 35),
+            BackgroundColor3 = C.bg,
+            BackgroundTransparency = 0.2,
+            BorderSizePixel = 0,
+            Visible = false,
+            ZIndex = 100,
+            ClipsDescendants = true,
+        })
+        PM.corner(PM.UI.SettingsPanel, 12)
+        PM.stroke(PM.UI.SettingsPanel, C.border, 1, 0.4)
+
+        PM.UI.SettingsTitle = PM.mk("TextLabel", PM.UI.SettingsPanel, {
+            Size = UDim2.new(1, 0, 0, 36),
+            Position = UDim2.new(0, 0, 0, 0),
+            BackgroundTransparency = 1,
+            Text = "Settings",
+            TextColor3 = C.text,
+            TextSize = 14,
+            Font = Enum.Font.GothamBlack,
+            TextYAlignment = Enum.TextYAlignment.Center,
+            ZIndex = 101,
+        })
+
+        PM.UI.SettingsClose = PM.mk("TextButton", PM.UI.SettingsPanel, {
+            Size = UDim2.new(0, 24, 0, 24),
+            Position = UDim2.new(1, -30, 0, 6),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            Text = "X",
+            TextColor3 = C.text,
+            TextSize = 11,
+            Font = Enum.Font.GothamBold,
+            ZIndex = 101,
+        })
+        PM.corner(PM.UI.SettingsClose, 6)
+
+        PM.UI.SettingsClose.MouseEnter:Connect(function()
+            PM.UI.SettingsClose.TextColor3 = Color3.fromRGB(255, 80, 80)
+        end)
+        PM.UI.SettingsClose.MouseLeave:Connect(function()
+            PM.UI.SettingsClose.TextColor3 = C.text
+        end)
+
+        PM.UI.SettingsClose.MouseButton1Click:Connect(function()
+            PM.playClickSound()
+            PM.isSettingsOpen = false
+            PM.closeSettingsPanel()
+        end)
+
+        PM.UI.SettingsButtonContainer = PM.mk("Frame", PM.UI.SettingsPanel, {
+            Name = "ButtonContainer",
+            Size = UDim2.new(1, -16, 0, 28),
+            Position = UDim2.new(0, 8, 0, 38),
+            BackgroundColor3 = C.card,
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            ZIndex = 101,
+        })
+        PM.corner(PM.UI.SettingsButtonContainer, 6)
+
+        PM.mk("UIListLayout", PM.UI.SettingsButtonContainer, {
+            Padding = UDim.new(0, 4),
+            FillDirection = Enum.FillDirection.Horizontal,
+            HorizontalAlignment = Enum.HorizontalAlignment.Center,
+            VerticalAlignment = Enum.VerticalAlignment.Center,
+            SortOrder = Enum.SortOrder.LayoutOrder,
+        })
+
+        local function makeTabBtn(name, text, layout, isActive)
+            local btn = PM.mk("TextButton", PM.UI.SettingsButtonContainer, {
+                Name = name,
+                Size = UDim2.new(0.5, -6, 1, -6),
+                BackgroundColor3 = C.bg,
+                BackgroundTransparency = isActive and 0.3 or 0.7,
+                BorderSizePixel = 0,
+                Text = text,
+                TextColor3 = C.text,
+                TextSize = 9,
+                Font = Enum.Font.Gotham,
+                AutoButtonColor = false,
+                LayoutOrder = layout,
+                ZIndex = 102,
+            })
+            PM.corner(btn, 4)
+
+            btn.MouseEnter:Connect(function()
+                if PM.activeSettingsTab ~= btn then
+                    PM.tween(btn, 0.15, {BackgroundTransparency = 0.5})
+                end
+            end)
+            btn.MouseLeave:Connect(function()
+                if PM.activeSettingsTab ~= btn then
+                    PM.tween(btn, 0.15, {BackgroundTransparency = 0.7})
+                end
+            end)
+
+            return btn
+        end
+
+        PM.UI.SettingsTabAutoExec = makeTabBtn("AutoExecBtn", "Auto Execute", 1, true)
+        PM.UI.SettingsTabSound = makeTabBtn("SoundBtn", "Sound", 2, false)
+        PM.activeSettingsTab = PM.UI.SettingsTabAutoExec
+
+        local function setActiveTab(activeBtn)
+            PM.activeSettingsTab = activeBtn
+            for _, btn in ipairs({PM.UI.SettingsTabAutoExec, PM.UI.SettingsTabSound}) do
+                PM.tween(btn, 0.15, {BackgroundTransparency = 0.7})
+            end
+            PM.tween(activeBtn, 0.15, {BackgroundTransparency = 0.3})
+            if PM.UI.AutoExecContent then
+                PM.UI.AutoExecContent.Visible = (activeBtn == PM.UI.SettingsTabAutoExec)
+            end
+            if PM.UI.SoundContent then
+                PM.UI.SoundContent.Visible = (activeBtn == PM.UI.SettingsTabSound)
+            end
+        end
+
+        PM.UI.SettingsTabAutoExec.MouseButton1Click:Connect(function()
+            PM.playClickSound()
+            setActiveTab(PM.UI.SettingsTabAutoExec)
+        end)
+        PM.UI.SettingsTabSound.MouseButton1Click:Connect(function()
+            PM.playClickSound()
+            setActiveTab(PM.UI.SettingsTabSound)
+        end)
+
+        PM.UI.AutoExecContent = PM.mk("Frame", PM.UI.SettingsPanel, {
+            Name = "AutoExecContent",
+            Size = UDim2.new(1, 0, 0, 240),
+            Position = UDim2.new(0, 0, 0, 70),
+            BackgroundTransparency = 1,
+            ZIndex = 101,
+        })
+
+        local function createToggleRow(parent, name, labelText, yPos, defaultState, onToggle)
+            local bg = PM.mk("Frame", parent, {
+                Name = name .. "Bg",
+                Size = UDim2.new(1, -16, 0, 26),
+                Position = UDim2.new(0, 8, 0, yPos),
+                BackgroundColor3 = C.card,
+                BackgroundTransparency = 0.5,
+                BorderSizePixel = 0,
+                ZIndex = 102,
+            })
+            PM.corner(bg, 6)
+
+            PM.mk("TextLabel", bg, {
+                Size = UDim2.new(1, -56, 0, 20),
+                Position = UDim2.new(0, 8, 0, 3),
+                BackgroundTransparency = 1,
+                Text = labelText,
+                TextColor3 = C.text,
+                TextSize = 10,
+                Font = Enum.Font.Gotham,
+                TextXAlignment = Enum.TextXAlignment.Left,
+                ZIndex = 103,
+            })
+
+            local switch = PM.mk("Frame", bg, {
+                Name = name .. "Switch",
+                Size = UDim2.new(0, 26, 0, 13),
+                Position = UDim2.new(1, -36, 0.5, 0),
+                AnchorPoint = Vector2.new(0, 0.5),
+                BackgroundColor3 = defaultState and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50),
+                BorderSizePixel = 0,
+                ZIndex = 103,
+            })
+            PM.corner(switch, 10)
+
+            local circle = PM.mk("Frame", switch, {
+                Name = name .. "Circle",
+                Size = UDim2.new(0, 9, 0, 9),
+                Position = defaultState and UDim2.new(1, -11, 0.5, -4) or UDim2.new(0, 2, 0.5, -4),
+                BackgroundColor3 = Color3.fromRGB(235, 235, 235),
+                BorderSizePixel = 0,
+                ZIndex = 104,
+            })
+            PM.corner(circle, 10)
+
+            local hitBtn = PM.mk("TextButton", switch, {
+                Name = name .. "Hit",
+                Size = UDim2.new(1, 0, 1, 0),
+                BackgroundTransparency = 1,
+                Text = "",
+                ZIndex = 105,
+            })
+
+            local state = defaultState
+            hitBtn.MouseButton1Click:Connect(function()
+                PM.playClickSound()
+                state = not state
+                if state then
+                    PM.tween(switch, 0.2, {BackgroundColor3 = Color3.fromRGB(80, 80, 80)})
+                    PM.tween(circle, 0.2, {Position = UDim2.new(1, -11, 0.5, -4)})
+                else
+                    PM.tween(switch, 0.2, {BackgroundColor3 = Color3.fromRGB(50, 50, 50)})
+                    PM.tween(circle, 0.2, {Position = UDim2.new(0, 2, 0.5, -4)})
+                end
+                if onToggle then onToggle(state) end
+            end)
+
+            return bg
+        end
+
+        -- Save settings to file (settings already loaded at top of script)
+        local function saveSettings()
+            if not writefile then return end
+            pcall(function()
+                if not isfolder("prism") then
+                    makefolder("prism")
+                end
+                local settings = {
+                    autoExecutePrism = PM.autoExecutePrism,
+                    autoExecuteCommands = PM.autoExecuteCommands,
+                    terminalKeybind = PM.terminalKeybind,
+                }
+                writefile("prism/prism_settings.json", game:GetService("HttpService"):JSONEncode(settings))
+            end)
+        end
+        
+        -- Initialize with loaded or default values (loaded at top of script)
+        local autoExecPrismDefault = PM.autoExecutePrism or false
+        local autoExecCommandsDefault = PM.autoExecuteCommands ~= false
+        PM.terminalKeybind = PM.terminalKeybind or "F6"
+        
+        PM.autoExecutePrism = autoExecPrismDefault
+        PM.autoExecuteCommands = autoExecCommandsDefault
+
+        createToggleRow(PM.UI.AutoExecContent, "AutoExecPrism", "Auto execute prism", 0, autoExecPrismDefault, function(state)
+            PM.autoExecutePrism = state
+            saveSettings()
+            -- Setup/clear auto execute on teleport when toggle changes
+            local queueTeleport = queue_on_teleport or (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or (krnl and krnl.queue_on_teleport)
+            if queueTeleport and state then
+                pcall(function()
+                    queueTeleport([[loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()]])
+                end)
+            end
+        end)
+
+        createToggleRow(PM.UI.AutoExecContent, "AutoExecuteCommands", "Auto execute commands", 28, autoExecCommandsDefault, function(state)
+            PM.autoExecuteCommands = state
+            saveSettings()
+        end)
+
+        PM.UI.AutoExecSearch = PM.mk("TextBox", PM.UI.AutoExecContent, {
+            Name = "AutoExecSearch",
+            Size = UDim2.new(1, -16, 0, 28),
+            Position = UDim2.new(0, 8, 0, 56),
+            BackgroundColor3 = C.card,
+            BackgroundTransparency = 0.5,
+            BorderSizePixel = 0,
+            Text = "",
+            PlaceholderText = "Search commands...",
+            PlaceholderColor3 = C.textDim,
+            TextColor3 = C.text,
+            TextSize = 12,
+            Font = Enum.Font.Gotham,
+            ClearTextOnFocus = true,
+            ZIndex = 102,
+        })
+        PM.corner(PM.UI.AutoExecSearch, 6)
+
+        PM.UI.AutoExecScroll = PM.mk("ScrollingFrame", PM.UI.AutoExecContent, {
+            Name = "AutoExecScroll",
+            Size = UDim2.new(1, -10, 1, -88),
+            Position = UDim2.new(0, 9, 0, 88),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            ScrollBarThickness = 3,
+            ScrollBarImageColor3 = C.border,
+            CanvasSize = UDim2.new(0, 0, 0, 0),
+            ZIndex = 102,
+        })
+
+        PM.UI.AutoExecList = PM.mk("UIListLayout", PM.UI.AutoExecScroll, {
+            Padding = UDim.new(0, 2),
+            SortOrder = Enum.SortOrder.LayoutOrder,
+        })
+
+        PM.UI.AutoExecList:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
+            PM.UI.AutoExecScroll.CanvasSize = UDim2.new(0, 0, 0, PM.UI.AutoExecList.AbsoluteContentSize.Y)
+        end)
+
+        -- ========== SOUND CONTENT ==========
+        PM.UI.SoundContent = PM.mk("Frame", PM.UI.SettingsPanel, {
+            Name = "SoundContent",
+            Size = UDim2.new(1, 0, 0, 240),
+            Position = UDim2.new(0, 0, 0, 70),
+            BackgroundTransparency = 1,
+            Visible = false,
+            ZIndex = 101,
+        })
+
+        PM.UI.SoundScroll = PM.mk("ScrollingFrame", PM.UI.SoundContent, {
+            Name = "SoundScroll",
+            Size = UDim2.new(1, -10, 1, 0),
+            Position = UDim2.new(0, 9, 0, 0),
+            BackgroundTransparency = 1,
+            BorderSizePixel = 0,
+            ScrollBarThickness = 3,
+            ScrollBarImageColor3 = C.border,
+            CanvasSize = UDim2.new(0, 0, 0, 266),
+            ZIndex = 102,
+        })
+
+        local function makeSectionLabel(parent, text, yPos)
+            PM.mk("TextLabel", parent, {
+                Size = UDim2.new(1, -16, 0, 14),
+                Position = UDim2.new(0, 8, 0, yPos),
+                BackgroundTransparency = 1,
+                Text = text,
+                TextColor3 = C.textDim,
+                TextSize = 9,
+                Font = Enum.Font.GothamBold,
+                TextXAlignment = Enum.TextXAlignment.Left,
+                ZIndex = 103,
+            })
+        end
+
+        local function makeSliderRow(parent, name, labelText, yPos, defaultValue, onChange)
+            local bg = PM.mk("Frame", parent, {
+                Name = name .. "Bg",
+                Size = UDim2.new(1, -16, 0, 38),
+                Position = UDim2.new(0, 8, 0, yPos),
+                BackgroundColor3 = C.card,
+                BackgroundTransparency = 0.5,
+                BorderSizePixel = 0,
+                ZIndex = 103,
+            })
+            PM.corner(bg, 6)
+
+            PM.mk("TextLabel", bg, {
+                Size = UDim2.new(1, -80, 0, 16),
+                Position = UDim2.new(0, 8, 0, 4),
+                BackgroundTransparency = 1,
+                Text = labelText,
+                TextColor3 = C.text,
+                TextSize = 10,
+                Font = Enum.Font.Gotham,
+                TextXAlignment = Enum.TextXAlignment.Left,
+                ZIndex = 104,
+            })
+
+            local valueLabel = PM.mk("TextLabel", bg, {
+                Name = "ValueLabel",
+                Size = UDim2.new(0, 40, 0, 16),
+                Position = UDim2.new(1, -48, 0, 4),
+                BackgroundTransparency = 1,
+                Text = string.format("%.2f", defaultValue),
+                TextColor3 = C.textDim,
+                TextSize = 9,
+                Font = Enum.Font.Gotham,
+                TextXAlignment = Enum.TextXAlignment.Right,
+                ZIndex = 104,
+            })
+
+            local track = PM.mk("TextButton", bg, {
+                Name = name .. "Track",
+                Size = UDim2.new(1, -20, 0, 4),
+                Position = UDim2.new(0, 10, 0, 26),
+                BackgroundColor3 = Color3.fromRGB(30, 30, 38),
+                BorderSizePixel = 0,
+                Text = "",
+                AutoButtonColor = false,
+                ZIndex = 104,
+            })
+            PM.corner(track, 4)
+
+            local fill = PM.mk("Frame", track, {
+                Name = name .. "Fill",
+                Size = UDim2.new(defaultValue, 0, 1, 0),
+                BackgroundColor3 = C.text,
+                BorderSizePixel = 0,
+                ZIndex = 105,
+            })
+            PM.corner(fill, 4)
+
+            local knob = PM.mk("Frame", track, {
+                Name = name .. "Knob",
+                Size = UDim2.new(0, 10, 0, 10),
+                Position = UDim2.new(defaultValue, -5, 0.5, -5),
+                BackgroundColor3 = C.text,
+                BorderSizePixel = 0,
+                ZIndex = 106,
+            })
+            PM.corner(knob, 6)
+
+            local currentValue = defaultValue
+            local isDragging = false
+
+            local function updateSlider(input)
+                local sliderWidth = track.AbsoluteSize.X
+                local relativeX = math.clamp(input.Position.X - track.AbsolutePosition.X, 0, sliderWidth)
+                local newValue = relativeX / sliderWidth
+                currentValue = newValue
+                fill.Size = UDim2.new(newValue, 0, 1, 0)
+                knob.Position = UDim2.new(newValue, -5, 0.5, -5)
+                valueLabel.Text = string.format("%.2f", newValue)
+                if onChange then onChange(newValue) end
+            end
+
+            knob.InputBegan:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.MouseButton1 then
+                    isDragging = true
+                end
+            end)
+
+            track.MouseButton1Down:Connect(function(input)
+                isDragging = true
+                updateSlider(input)
+            end)
+
+            game:GetService("UserInputService").InputEnded:Connect(function(input)
+                if input.UserInputType == Enum.UserInputType.MouseButton1 and isDragging then
+                    isDragging = false
+                end
+            end)
+
+            game:GetService("UserInputService").InputChanged:Connect(function(input)
+                if isDragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+                    updateSlider(input)
+                end
+            end)
+
+            return bg
+        end
+
+        local function makeSoundIDRow(parent, name, labelText, yPos, defaultID, onChange)
+            local bg = PM.mk("Frame", parent, {
+                Name = name .. "Bg",
+                Size = UDim2.new(1, -16, 0, 48),
+                Position = UDim2.new(0, 8, 0, yPos),
+                BackgroundColor3 = C.card,
+                BackgroundTransparency = 0.5,
+                BorderSizePixel = 0,
+                ZIndex = 103,
+            })
+            PM.corner(bg, 6)
+
+            PM.mk("TextLabel", bg, {
+                Size = UDim2.new(1, -16, 0, 16),
+                Position = UDim2.new(0, 8, 0, 4),
+                BackgroundTransparency = 1,
+                Text = labelText,
+                TextColor3 = C.text,
+                TextSize = 10,
+                Font = Enum.Font.Gotham,
+                TextXAlignment = Enum.TextXAlignment.Left,
+                ZIndex = 104,
+            })
+
+            local box = PM.mk("TextBox", bg, {
+                Size = UDim2.new(1, -20, 0, 20),
+                Position = UDim2.new(0, 10, 0, 22),
+                BackgroundColor3 = C.bg,
+                BackgroundTransparency = 0.3,
+                BorderSizePixel = 0,
+                ClearTextOnFocus = false,
+                PlaceholderText = "Sound Asset ID...",
+                PlaceholderColor3 = C.textDim,
+                Text = defaultID,
+                TextColor3 = C.text,
+                TextSize = 10,
+                Font = Enum.Font.Gotham,
+                ZIndex = 104,
+            })
+            PM.corner(box, 3)
+
+            box.FocusLost:Connect(function()
+                if box.Text ~= "" and onChange then
+                    onChange(box.Text)
+                end
+            end)
+
+            return bg
+        end
+
+        -- CLICK SOUND section
+        makeSectionLabel(PM.UI.SoundScroll, "CLICK SOUND", 0)
+        createToggleRow(PM.UI.SoundScroll, "ClickSoundToggle", "Enable Click Sound", 16, PM.clickSoundEnabled, function(state)
+            PM.clickSoundEnabled = state
+        end)
+        makeSliderRow(PM.UI.SoundScroll, "ClickVolume", "Click Volume", 44, PM.clickVolume, function(val)
+            PM.clickVolume = val
+            if PM.UI.ClickSound then PM.UI.ClickSound.Volume = val end
+        end)
+        makeSoundIDRow(PM.UI.SoundScroll, "ClickSoundID", "Click Sound ID", 84, PM.clickSoundID, function(id)
+            PM.clickSoundID = id
+            if PM.UI.ClickSound then PM.UI.ClickSound.SoundId = "rbxassetid://" .. id end
+        end)
+
+        -- HOVER SOUND section
+        makeSectionLabel(PM.UI.SoundScroll, "HOVER SOUND", 134)
+        createToggleRow(PM.UI.SoundScroll, "HoverSoundToggle", "Enable Hover Sound", 150, PM.hoverSoundEnabled, function(state)
+            PM.hoverSoundEnabled = state
+        end)
+        makeSliderRow(PM.UI.SoundScroll, "HoverVolume", "Hover Volume", 178, PM.hoverVolume, function(val)
+            PM.hoverVolume = val
+            if PM.UI.HoverSound then PM.UI.HoverSound.Volume = val end
+        end)
+        makeSoundIDRow(PM.UI.SoundScroll, "HoverSoundID", "Hover Sound ID", 218, PM.hoverSoundID, function(id)
+            PM.hoverSoundID = id
+            if PM.UI.HoverSound then PM.UI.HoverSound.SoundId = "rbxassetid://" .. id end
+        end)
+
+        setActiveTab(PM.UI.SettingsTabAutoExec)
+    end
+
+    PM.openSettingsPanel = function()
+        if not PM.UI.SettingsPanel then
+            PM.createSettingsPanel()
+        end
+        PM.isSettingsOpen = true
+        PM.UI.SettingsPanel.Visible = true
+        PM.UI.SettingsPanel.Size = UDim2.new(0, 280, 0, 0)
+        PM.tween(PM.UI.SettingsPanel, 0.3, {Size = UDim2.new(0, 280, 0, 320)})
+    end
+
+    PM.closeSettingsPanel = function()
+        if not PM.UI.SettingsPanel or not PM.UI.SettingsPanel.Visible then return end
+        PM.isSettingsOpen = false
+        PM.tween(PM.UI.SettingsPanel, 0.3, {Size = UDim2.new(0, 280, 0, 0)})
+        task.delay(0.3, function()
+            PM.UI.SettingsPanel.Visible = false
+            PM.UI.SettingsPanel.Size = UDim2.new(0, 280, 0, 320)
+        end)
+    end
+
+    PM.hideSettingsPanel = function()
+        if not PM.UI.SettingsPanel then return end
+        PM.isSettingsOpen = false
+        PM.UI.SettingsPanel.Visible = false
+        PM.UI.SettingsPanel.Size = UDim2.new(0, 280, 0, 320)
+    end
+
+    PM.UI.LeftDivider = PM.mk("Frame", PM.UI.Main, {
+        Name = "LeftDivider",
+        Size = UDim2.new(0, 1, 0, 44),
+        Position = UDim2.new(0, 70, 0.5, -22),
+        BackgroundColor3 = C.border,
+        BackgroundTransparency = 0.5,
+        BorderSizePixel = 0,
+        ZIndex = 10,
+    })
+
+    PM.UI.RightDivider = PM.mk("Frame", PM.UI.Main, {
+        Name = "RightDivider",
+        Size = UDim2.new(0, 1, 0, 44),
+        Position = UDim2.new(1, -70, 0.5, -22),
+        BackgroundColor3 = C.border,
+        BackgroundTransparency = 0.5,
+        BorderSizePixel = 0,
+        ZIndex = 10,
+    })
+    
+    PM.UI.RightFrame = PM.mk("Frame", PM.UI.Main, {
+        Name = "RightFrame",
+        Size = UDim2.new(0, 130, 0, 44),
+        Position = UDim2.new(1, -136, 0.5, -22),
+        BackgroundTransparency = 1,
+        ZIndex = 10,
+    })
+    
+    PM.UI.PrismLabel = PM.mk("TextLabel", PM.UI.RightFrame, {
+        Name = "PrismLabel",
+        Size = UDim2.new(1, -32, 0, 14),
+        Position = UDim2.new(0, 25, 0, 2),
+        BackgroundTransparency = 1,
+        Text = "PRISM",
+        TextColor3 = C.text,
+        TextSize = 11,
+        Font = Enum.Font.GothamBlack,
+        TextXAlignment = Enum.TextXAlignment.Right,
+    })
+
+    PM.UI.ExecutorLabel = PM.mk("TextLabel", PM.UI.RightFrame, {
+        Name = "ExecutorLabel",
+        Size = UDim2.new(1, -32, 0, 14),
+        Position = UDim2.new(0, 25, 0, 23),
+        BackgroundTransparency = 1,
+        Text = "Executor",
+        TextColor3 = C.text,
+        TextSize = 11,
+        Font = Enum.Font.Gotham,
+        TextXAlignment = Enum.TextXAlignment.Right,
+    })
+    
+    PM.UI.LogoFrame = PM.mk("Frame", PM.UI.RightFrame, {
+        Name = "LogoFrame",
+        Size = UDim2.new(0, 26, 0, 26),
+        Position = UDim2.new(1, -26, 0.5, 0),
+        AnchorPoint = Vector2.new(0, 0.5),
+        BackgroundTransparency = 1,
+        Rotation = 315,
+    })
+    
+    PM.UI.LogoBg = PM.mk("ImageLabel", PM.UI.LogoFrame, {
+        Name = "LogoBg",
+        Size = UDim2.new(1, 0, 1, 0),
+        BackgroundTransparency = 1,
+        Image = "rbxassetid://6734565426",
+        ImageColor3 = C.accent,
+    })
+    
+    local currentRotation = 315
+    PM.Svc.RunService.Heartbeat:Connect(function(deltaTime)
+        if PM.UI.Gui and PM.UI.Gui.Parent and PM.UI.LogoFrame then
+            currentRotation = currentRotation + (120 * deltaTime)
+            PM.UI.LogoFrame.Rotation = currentRotation
+        end
+    end)
+    
+    task.spawn(function()
+        PM.UI.Main.Position = UDim2.new(0.5, -230, 0, -120)
+        task.wait(0.2)
+        PM.tween(PM.UI.Main, 0.6, {Position = UDim2.new(0.5, -230, 0, -30)})
+    end)
+    
+    local frames = 0
+    local lastT = tick()
+    PM.Svc.RunService.RenderStepped:Connect(function()
+        frames = frames + 1
+        local now = tick()
+        if now - lastT >= 1 then
+            local fps = frames
+            frames = 0
+            lastT = now
+            if PM.UI.FPSLabel then
+                PM.UI.FPSLabel.Text = fps
+                if fps < 30 then
+                    PM.UI.FPSLabel.TextColor3 = Color3.fromRGB(255, 80, 80)
+                elseif fps < 60 then
+                    PM.UI.FPSLabel.TextColor3 = Color3.fromRGB(255, 200, 80)
+                else
+                    PM.UI.FPSLabel.TextColor3 = Color3.fromRGB(80, 220, 120)
+                end
+            end
+        end
+    end)
+    
+    task.spawn(function()
+        while PM.UI.Gui and PM.UI.Gui.Parent do
+            local ping = math.round(LP:GetNetworkPing() * 1000)
+            if PM.UI.PingLabel then
+                PM.UI.PingLabel.Text = ping
+                if ping < 50 then
+                    PM.UI.PingLabel.TextColor3 = Color3.fromRGB(80, 220, 120)
+                elseif ping < 150 then
+                    PM.UI.PingLabel.TextColor3 = Color3.fromRGB(255, 200, 80)
+                else
+                    PM.UI.PingLabel.TextColor3 = Color3.fromRGB(255, 80, 80)
+                end
+            end
+            task.wait(2)
+        end
+    end)
+    
+    local function getExecutor()
+        if syn then return "Synapse X" end
+        if KRNL_LOADED then return "KRNL" end
+        if getexecutorname then return getexecutorname() end
+        if identifyexecutor then return identifyexecutor() end
+        if delta then return "Delta" end
+        if fluxus then return "Fluxus" end
+        if codex then return "Codex" end
+        if arceus then return "Arceus X" end
+        if wave then return "Wave" end
+        if trigon then return "Trigon" end
+        if hydrogen then return "Hydrogen" end
+        return "Unknown"
+    end
+    
+    local execName = getExecutor()
+    if PM.UI.ExecutorLabel then
+        PM.UI.ExecutorLabel.Text = execName
+    end
+    
+    -- Fetch servers on execute and auto-refresh every 5 minutes
+    task.spawn(function()
+        PM.fetchServers()
+        while true do
+            task.wait(300) -- 5 minutes
+            PM.fetchServers()
+        end
+    end)
+    
+    -- NameTags System (from Mono.lua)
+    spawn(function()
+        local Players = game:GetService("Players")
+        local RunService = game:GetService("RunService")
+        local TweenService = game:GetService("TweenService")
+        local HttpService = game:GetService("HttpService")
+        local LP = Players.LocalPlayer
+        
+        -- Custom Tags Configuration
+        PM.CustomTags = {
+            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch"}
+            [5712636024] = {tagText = "Prism Owner", effect = "glitch"},
+            [10420127706] = {tagText = "Prism Owner", effect = "typing"},
+        }
+        
+        PM.nametagsEnabled = true
+        PM.nameTagBills = {}
+        PM.nameTagConnections = {}
+        PM.defaultNametagStates = {}
+        PM.otherMonoUsers = {}
+        
+        local BASE_URL = "https://prismscript.vercel.app/api/prism/nametags"
+        
+        -- Get actual game name
+        local cachedGameName = nil
+        local function getGameName()
+            if cachedGameName then return cachedGameName end
+            local success, result = pcall(function()
+                local info = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId)
+                return info and info.Name
+            end)
+            if success and result then
+                cachedGameName = result
+                return result
+            end
+            return "Unknown"
+        end
+        
+        -- Check in to database
+        local function checkIn()
+            pcall(function()
+                local path = BASE_URL .. "/servers/" .. tostring(game.PlaceId) .. "/" .. tostring(game.JobId) .. "/" .. tostring(LP.UserId) .. ".json"
+                request({
+                    Url = path,
+                    Method = "PUT",
+                    Headers = {["Content-Type"] = "application/json"},
+                    Body = HttpService:JSONEncode({
+                        username = LP.Name,
+                        displayName = LP.DisplayName,
+                        timestamp = os.time(),
+                        jobId = tostring(game.JobId),
+                        gameName = getGameName()
+                    })
+                })
+            end)
+        end
+        
+        local function hideDefaultNametag(char, userId)
+            pcall(function()
+                local humanoid = char:FindFirstChildOfClass("Humanoid")
+                if humanoid then
+                    if userId and not PM.defaultNametagStates[userId] then
+                        PM.defaultNametagStates[userId] = humanoid.DisplayDistanceType
+                    end
+                    humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+                end
+                local head = char:FindFirstChild("Head")
+                if head then
+                    for _, child in ipairs(head:GetChildren()) do
+                        if child:IsA("BillboardGui") then
+                            child:Destroy()
+                        end
+                    end
+                    local conn = head.ChildAdded:Connect(function(child)
+                        if child:IsA("BillboardGui") then
+                            child:Destroy()
+                        end
+                    end)
+                    table.insert(PM.nameTagConnections, conn)
+                end
+            end)
+        end
+        
+        local function createPrismTag(plr, head)
+            local customConfig = PM.CustomTags[plr.UserId]
+            local isDatabaseUser = PM.otherMonoUsers[tostring(plr.UserId)]
+            
+            if not customConfig and not isDatabaseUser then
+                return nil
+            end
+            
+            -- Store original nametag state before hiding
+            pcall(function()
+                local humanoid = head.Parent and head.Parent:FindFirstChildOfClass("Humanoid")
+                if humanoid and not PM.defaultNametagStates[plr.UserId] then
+                    PM.defaultNametagStates[plr.UserId] = humanoid.DisplayDistanceType
+                end
+            end)
+            
+            -- Use custom config or default for database users
+            local tagText = customConfig and customConfig.tagText or "Prism User"
+            local tagEffect = customConfig and customConfig.effect or "typing"
+            
+            local bill = Instance.new("BillboardGui")
+            bill.Name = "PrismTag_" .. plr.UserId
+            bill.Active = true
+            bill.AlwaysOnTop = true
+            bill.ClipsDescendants = false
+            bill.LightInfluence = 1
+            bill.Size = UDim2.fromOffset(250, 75)
+            bill.StudsOffsetWorldSpace = Vector3.new(0, 2.5, 0)
+            bill.ResetOnSpawn = false
+            bill.Adornee = head
+            bill.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+            bill.Parent = PM.UI.Gui
+            
+            local frame = Instance.new("Frame")
+            frame.Name = "TagFrame"
+            frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+            frame.BackgroundTransparency = 0.1
+            frame.Size = UDim2.fromScale(1, 1)
+            frame.Parent = bill
+            local frameCorner = Instance.new("UICorner")
+            frameCorner.CornerRadius = UDim.new(0.2, 0)
+            frameCorner.Parent = frame
+            
+            local frameBG = Instance.new("UIGradient")
+            frameBG.Color = ColorSequence.new({
+                ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 60, 60)),
+                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(40, 40, 40)),
+                ColorSequenceKeypoint.new(1, Color3.fromRGB(25, 25, 25))
+            })
+            frameBG.Parent = frame
+            
+            local stroke = Instance.new("UIStroke")
+            stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            stroke.Color = Color3.fromRGB(200, 200, 200)
+            stroke.Thickness = 2
+            stroke.Parent = frame
+            local strokeGrad = Instance.new("UIGradient")
+            strokeGrad.Color = ColorSequence.new({
+                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)),
+                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(180, 180, 180)),
+                ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
+            })
+            strokeGrad.Parent = stroke
+            
+            local pfp = Instance.new("ImageLabel")
+            pfp.Name = "Pfp"
+            pfp.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            pfp.BackgroundTransparency = 0
+            pfp.Position = UDim2.fromScale(0.05, 0.167)
+            pfp.Size = UDim2.fromScale(0.215, 0.7)
+            pfp.ZIndex = 5
+            pfp.ScaleType = Enum.ScaleType.Crop
+            pfp.Parent = frame
+            local pfpCorner = Instance.new("UICorner")
+            pfpCorner.CornerRadius = UDim.new(1, 0)
+            pfpCorner.Parent = pfp
+            local pfpStroke = Instance.new("UIStroke")
+            pfpStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            pfpStroke.Color = Color3.fromRGB(220, 220, 220)
+            pfpStroke.Thickness = 2
+            pfpStroke.Parent = pfp
+            
+            spawn(function()
+                local ok, img = pcall(function()
+                    return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size100x100)
+                end)
+                if ok and img and pfp.Parent then pfp.Image = img end
+            end)
+            
+            local tagLbl = Instance.new("TextLabel")
+            tagLbl.Name = "TagText"
+            tagLbl.BackgroundTransparency = 1
+            tagLbl.FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json")
+            tagLbl.Position = UDim2.fromScale(0.29955, 0)
+            tagLbl.Size = UDim2.fromScale(0.7, 0.5)
+            tagLbl.Text = tagText
+            tagLbl.TextColor3 = Color3.fromRGB(255, 255, 255)
+            tagLbl.TextSize = 22
+            tagLbl.TextStrokeTransparency = 0
+            tagLbl.TextWrapped = true
+            tagLbl.TextXAlignment = Enum.TextXAlignment.Left
+            tagLbl.TextYAlignment = Enum.TextYAlignment.Bottom
+            tagLbl.ZIndex = 6
+            tagLbl.Parent = frame
+            
+            -- Text effect (only for owners with customConfig)
+            if customConfig then
+                spawn(function()
+                    local fullText = tagText
+                    local cursor = "|"
+                    local blinkVisible = true
+                    spawn(function()
+                        while tagLbl.Parent do
+                            blinkVisible = not blinkVisible
+                            wait(0.5)
+                        end
+                    end)
+                    
+                    if tagEffect == "typing" then
+                        while tagLbl.Parent do
+                            for i = 1, #fullText do
+                                if not tagLbl.Parent then break end
+                                tagLbl.Text = fullText:sub(1, i) .. cursor
+                                wait(0.08)
+                            end
+                            if not tagLbl.Parent then break end
+                            local holdStart = tick()
+                            while tick() - holdStart < 5 do
+                                if not tagLbl.Parent then break end
+                                tagLbl.Text = fullText .. (blinkVisible and cursor or "")
+                                wait(0.05)
+                            end
+                            for i = #fullText, 1, -1 do
+                                if not tagLbl.Parent then break end
+                                tagLbl.Text = fullText:sub(1, i) .. cursor
+                                wait(0.08)
+                            end
+                        end
+                    elseif tagEffect == "glitch" then
+                        local glitchChars = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`"
+                        while tagLbl.Parent do
+                            tagLbl.Text = fullText
+                            -- Occasional full-text scramble glitch (~4% chance)
+                            if math.random() < 0.04 then
+                                local s = ""
+                                for i = 1, #fullText do
+                                    local ch = fullText:sub(i, i)
+                                    if ch == " " then
+                                        s = s .. " "
+                                    else
+                                        local gc = math.random(1, #glitchChars)
+                                        s = s .. glitchChars:sub(gc, gc)
+                                    end
+                                end
+                                tagLbl.Text = s
+                                wait(0.30)
+                                tagLbl.Text = fullText
+                            elseif math.random() < 0.12 then
+                                -- Micro-glitch: 1-2 chars swap to symbols
+                                local s = fullText
+                                local glitchCount = math.random(1, 2)
+                                for _ = 1, glitchCount do
+                                    local idx = math.random(1, #fullText)
+                                    local ch = s:sub(idx, idx)
+                                    if ch ~= " " then
+                                        local gc = math.random(1, #glitchChars)
+                                        s = s:sub(1, idx - 1) .. glitchChars:sub(gc, gc) .. s:sub(idx + 1)
+                                    end
+                                end
+                                tagLbl.Text = s
+                                wait(0.15)
+                                tagLbl.Text = fullText
+                            end
+                            wait(0.18)
+                        end
+                    end
+                end)
+            end
+            
+            local userLbl = Instance.new("TextLabel")
+            userLbl.Name = "NameText"
+            userLbl.BackgroundTransparency = 1
+            userLbl.FontFace = Font.new("rbxasset://fonts/families/ComicNeueAngular.json")
+            userLbl.Position = UDim2.fromScale(0.29955, 0.5)
+            userLbl.Size = UDim2.fromScale(0.7, 0.5)
+            userLbl.Text = "@" .. plr.Name
+            userLbl.TextColor3 = Color3.new(1, 1, 1)
+            userLbl.TextSize = 16
+            userLbl.TextStrokeTransparency = 0
+            userLbl.TextWrapped = true
+            userLbl.TextXAlignment = Enum.TextXAlignment.Left
+            userLbl.TextYAlignment = Enum.TextYAlignment.Top
+            userLbl.ZIndex = 6
+            userLbl.Parent = frame
+            
+            -- Click-to-teleport overlay (covers entire tag, invisible)
+            local clickBtn = Instance.new("TextButton")
+            clickBtn.Name = "ClickTeleport"
+            clickBtn.BackgroundTransparency = 1
+            clickBtn.Text = ""
+            clickBtn.Size = UDim2.fromScale(1, 1)
+            clickBtn.Position = UDim2.fromScale(0, 0)
+            clickBtn.ZIndex = 20
+            clickBtn.AutoButtonColor = false
+            clickBtn.Parent = frame
+            
+            clickBtn.MouseButton1Click:Connect(function()
+                pcall(function()
+                    local targetChar = plr.Character
+                    local targetHRP = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
+                    local myChar = LP.Character
+                    local myHRP = myChar and myChar:FindFirstChild("HumanoidRootPart")
+                    if targetHRP and myHRP then
+                        myHRP.CFrame = CFrame.new(
+                            targetHRP.Position - targetHRP.CFrame.LookVector * 3,
+                            targetHRP.Position + targetHRP.CFrame.LookVector
+                        )
+                    end
+                end)
+            end)
+            
+            -- Animations and updates + distance LOD
+            local hbConn = RunService.Heartbeat:Connect(function(dt)
+                if not bill.Parent then return end
+                pcall(function()
+                    strokeGrad.Rotation = (strokeGrad.Rotation + 120 * dt) % 360
+                    frameBG.Rotation = (frameBG.Rotation + 60 * dt) % 360
+                    bill.Enabled = PM.nametagsEnabled
+                    if plr.Character and plr.Character:FindFirstChild("Head") then
+                        bill.Adornee = plr.Character.Head
+                    end
+                    -- Distance LOD: beyond 50 studs shrink to just pfp
+                    if LP.Character and LP.Character:FindFirstChild("HumanoidRootPart")
+                        and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+                        local dist = (LP.Character.HumanoidRootPart.Position
+                            - plr.Character.HumanoidRootPart.Position).Magnitude
+                        local isFar = dist > 50
+                        tagLbl.Visible = not isFar
+                        userLbl.Visible = not isFar
+                        TweenService:Create(bill, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                            {Size = isFar and UDim2.fromOffset(50, 50) or UDim2.fromOffset(250, 75)}):Play()
+                        TweenService:Create(pfp, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                            {Position = isFar and UDim2.fromScale(0.1, 0.1) or UDim2.fromScale(0.05, 0.167),
+                             Size = isFar and UDim2.fromScale(0.8, 0.8) or UDim2.fromScale(0.215, 0.7)}):Play()
+                    end
+                end)
+            end)
+            
+            PM.nameTagConnections[plr.UserId] = hbConn
+            return bill
+        end
+        
+        -- Fetch other users and create tags for them
+        local function fetchOtherUsers()
+            pcall(function()
+                local path = BASE_URL .. "/servers/" .. tostring(game.PlaceId) .. "/" .. tostring(game.JobId) .. ".json"
+                local result = request({
+                    Url = path,
+                    Method = "GET"
+                })
+                if result and result.Body then
+                    local data = HttpService:JSONDecode(result.Body)
+                    PM.otherMonoUsers = data or {}
+                    
+                    -- Create tags for existing players now in database
+                    for _, plr in ipairs(Players:GetPlayers()) do
+                        if plr ~= LP and PM.otherMonoUsers[tostring(plr.UserId)] and not PM.nameTagBills[plr.UserId] then
+                            if plr.Character and plr.Character:FindFirstChild("Head") then
+                                spawn(function()
+                                    hideDefaultNametag(plr.Character, plr.UserId)
+                                    local bill = createPrismTag(plr, plr.Character.Head)
+                                    if bill then
+                                        PM.nameTagBills[plr.UserId] = bill
+                                    end
+                                end)
+                            end
+                        end
+                    end
+                end
+            end)
+        end
+        
+        -- Check in and fetch immediately on load, then every 25 seconds
+        checkIn()
+        fetchOtherUsers()
+        PM.stopDatabaseSync = false
+        spawn(function()
+            local counter = 0
+            while true do
+                wait(1) -- Check every second instead of 25
+                
+                -- Stop if flagged or GUI destroyed
+                if PM.stopDatabaseSync or not PM.UI.Gui or not PM.UI.Gui.Parent then
+                    break
+                end
+                
+                counter = counter + 1
+                -- Only check-in every 25 seconds
+                if counter >= 25 and PM.nametagsEnabled then
+                    counter = 0
+                    checkIn()
+                    fetchOtherUsers()
+                end
+            end
+        end)
+        
+        -- Track players
+        PM.shouldShowTag = function(plr)
+            -- Show tag if player has custom config OR is in database (another Prism user)
+            return PM.CustomTags[plr.UserId] or PM.otherMonoUsers[tostring(plr.UserId)]
+        end
+        
+        local function onPlayerAdded(plr)
+            if plr == LP then return end
+            plr.CharacterAdded:Connect(function(char)
+                wait(0.1)
+                local head = char:FindFirstChild("Head")
+                if head and PM.shouldShowTag(plr) then
+                    hideDefaultNametag(char, plr.UserId)
+                    local bill = createPrismTag(plr, head)
+                    if bill then
+                        PM.nameTagBills[plr.UserId] = bill
+                    end
+                end
+            end)
+            if plr.Character then
+                spawn(function()
+                    wait(0.1)
+                    local head = plr.Character and plr.Character:FindFirstChild("Head")
+                    if head and PM.shouldShowTag(plr) then
+                        hideDefaultNametag(plr.Character, plr.UserId)
+                        local bill = createPrismTag(plr, head)
+                        if bill then
+                            PM.nameTagBills[plr.UserId] = bill
+                        end
+                    end
+                end)
+            end
+        end
+        
+        -- Heartbeat: Restore default nametags for players who shouldn't have Prism tags
+        RunService.Heartbeat:Connect(function()
+            for _, plr in ipairs(Players:GetPlayers()) do
+                if plr ~= LP and plr.Character then
+                    local shouldShow = PM.shouldShowTag(plr)
+                    local hasBillboard = PM.nameTagBills[plr.UserId] and PM.nameTagBills[plr.UserId].Parent
+                    
+                    -- If shouldn't show but has billboard, destroy it and restore default
+                    if not shouldShow and hasBillboard then
+                        pcall(function()
+                            PM.nameTagBills[plr.UserId]:Destroy()
+                            PM.nameTagBills[plr.UserId] = nil
+                        end)
+                        pcall(function()
+                            if PM.nameTagConnections[plr.UserId] then
+                                PM.nameTagConnections[plr.UserId]:Disconnect()
+                                PM.nameTagConnections[plr.UserId] = nil
+                            end
+                        end)
+                        pcall(function()
+                            local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
+                            if humanoid and PM.defaultNametagStates[plr.UserId] then
+                                humanoid.DisplayDistanceType = PM.defaultNametagStates[plr.UserId]
+                            end
+                        end)
+                    end
+                end
+            end
+        end)
+        
+        -- Cleanup
+        Players.PlayerRemoving:Connect(function(plr)
+            local uid = plr.UserId
+            
+            -- Note: Database entry will auto-expire after 30 seconds (TTL)
+            -- No need for DELETE request - just restore nametag locally
+            pcall(function()
+                if plr.Character then
+                    local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
+                    if humanoid and PM.defaultNametagStates[uid] then
+                        humanoid.DisplayDistanceType = PM.defaultNametagStates[uid]
+                    end
+                end
+            end)
+            
+            -- Destroy billboard
+            if PM.nameTagBills[uid] then
+                PM.nameTagBills[uid]:Destroy()
+                PM.nameTagBills[uid] = nil
+            end
+            if PM.nameTagConnections[uid] then
+                PM.nameTagConnections[uid]:Disconnect()
+                PM.nameTagConnections[uid] = nil
+            end
+            
+            -- Clean up stored states
+            PM.defaultNametagStates[uid] = nil
+        end)
+        
+        for _, plr in ipairs(Players:GetPlayers()) do
+            onPlayerAdded(plr)
+        end
+        Players.PlayerAdded:Connect(onPlayerAdded)
+        
+        -- Cleanup when script is destroyed - restore ALL players' default nametags
+        -- Note: Database entries auto-expire after 30 seconds of no updates (TTL)
+        PM.UI.Gui.Destroying:Connect(function()
+            -- Stop database sync loop
+            PM.stopDatabaseSync = true
+            
+            -- Restore all default nametags
+            for uid, state in pairs(PM.defaultNametagStates) do
+                local plr = Players:GetPlayerByUserId(uid)
+                if plr and plr.Character then
+                    pcall(function()
+                        local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
+                        if humanoid then
+                            humanoid.DisplayDistanceType = state
+                        end
+                    end)
+                end
+            end
+            -- Destroy all billboards
+            for uid, bill in pairs(PM.nameTagBills) do
+                pcall(function()
+                    if bill and bill.Parent then
+                        bill:Destroy()
+                    end
+                end)
+            end
+        end)
+    end)
+end
+
+repeat task.wait() until LP
+
+pcall(PM.createMainGUI)
+
+-- Panel population is handled by Prism Commands.lua after it loads
+
+-- Global terminal keybind handler (only opens, never closes like Mono's bar)
+game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.UserInputType ~= Enum.UserInputType.Keyboard then return end
+    local keybind = PM.terminalKeybind or "F6"
+    if input.KeyCode.Name == keybind then
+        -- Skip if panel just opened (prevents immediate close after opening)
+        if PM.panelJustOpened then return end
+        -- Create panel if it doesn't exist
+        if not PM.UI.TerminalPanel and PM.createTerminalPanel then
+            PM.createTerminalPanel()
+        end
+        -- Only open if not already visible (never close with keybind)
+        if PM.UI.TerminalPanel and not PM.UI.TerminalPanel.Visible and PM.openTerminalPanel then
+            -- Hide other panels before opening terminal (like button click does)
+            if PM.isCommandsOpen then
+                PM.isCommandsOpen = false
+                PM.hideCommandsPanel()
+            end
+            if PM.isServersOpen then
+                PM.isServersOpen = false
+                PM.hideServersPanel()
+            end
+            if PM.UI.NameTagsPanel and PM.UI.NameTagsPanel.Visible then
+                PM.UI.NameTagsPanel.Visible = false
+            end
+            if PM.isJoinOpen then
+                PM.isJoinOpen = false
+                PM.hideJoinPanel()
+            end
+            if PM.isSettingsOpen then
+                PM.isSettingsOpen = false
+                PM.hideSettingsPanel()
+            end
+            PM.openTerminalPanel()
+        end
+    end
+end)
+
+-- Auto execute prism on teleport (like Mono's auto load)
+local queueTeleport = queue_on_teleport or (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or (krnl and krnl.queue_on_teleport)
+
+if queueTeleport and PM.autoExecutePrism then
+    pcall(function()
+        queueTeleport([[loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()]])
+    end)
+end
+
+return PM

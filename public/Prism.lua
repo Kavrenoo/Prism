@@ -1,1 +1,23 @@
-return(function(...)local R={"AzpVvbpxY";"AqoWwj4xALeuvepk0D3V+zp6=","AzgLwb/bwb/0KD/P42s==";"ica:U(LQ8WZg3=A#","A4oc+Qpl=","il5@CsP#usfXb8k","i/,jeR";"iVeE&^Xb8m","AqoWwj4xALeuvsCcADpkGQamGDafP";"i\'Ih,tp5m2eCsT<l";"i3\'nSOUTM?Q3&JmA`<j=-";"A4oc8bv==","A2anBy6zrzS==","ir#MM7;8","AjanByam1qwcvyXrhD4xiyXrvztVCQ4LiQpvGb4Wv";"i/,=39X:mQ","Azgkhjv==";"AzCk0zS==";"i;5Mh7UFT2lP!A"}local function c(c)return R[c-56160]end for c,I in ipairs({{1,19},{1,14},{15,19}})do while I[1]<I[2]do R[I[1]],R[I[2]],I[1],I[2]=R[I[2]],R[I[1]],I[1]+1,I[2]-1 end end do local c=type local I={s=16,H=55,["5"]=47;g=6,["3"]=34;r=37,Y=43;x=13,b=24,c=61,p=22;["9"]=62;R=14,G=46,E=15,l=56,["0"]=41;["6"]=4,["4"]=23;["2"]=18,u=8,["1"]=58,A=45,a=7,j=26,h=51;z=29,L=9;I=40,["+"]=44,W=1,e=19,D=27;v=48,U=31,M=42;t=2,d=59;q=11;k=5;O=30;J=3,["7"]=60,N=63;Q=25,y=28,m=12;["8"]=39,F=36,i=35,n=17;X=38;K=49;S=0;P=33,T=10,["/"]=20,o=53;w=50,V=57,f=21;Z=32,B=52;C=54}local L=string.len local i=table.concat local B=string.char local K=table.insert local X={["<"]=78,G=45;["9"]=83;U=37;["+"]=46,["`"]=14;O=6,["?"]=18;["@"]=61;K=39;p=16,["^"]=65;d=13,Q=56,["0"]=64,m=84,R=70;["\\"]=4;r=36;b=22;["]"]=82,j=20;F=9;e=55,[";"]=34,L=21;["7"]=76;["1"]=51;["!"]=41,["\""]=54;["8"]=60;P=35;s=74,D=71,["$"]=2,B=47;W=68;["5"]=72,T=8,["/"]=33,["*"]=0;[")"]=67,["("]=7,E=40;i=12,["4"]=69,N=42;["2"]=38,["."]=79;f=53,u=77,[","]=19;g=26;["["]=49;n=48;[":"]=50;t=1,C=23;q=11,X=32,["-"]=28;[">"]=62,["%"]=73,a=75,["="]=57;h=63;["#"]=10,["6"]=3,l=25;["3"]=15,o=81;c=31;Y=58,_=80;["&"]=44,S=59,I=66,["\'"]=17,V=30,M=27,Z=43,A=5,J=29,k=24;H=52}local E=math.floor local S=string.sub local d=R for R=1,#d,1 do local o=d[R]if c(o)=="string"then local c=S(o,1,1)if c=="A"then o=S(o,2)local c=L(o)local X={}local b=1 local u=0 local W=0 while b<=c do local R=S(o,b,b)local L=I[R]if L then u=u+L*(64^((3-W)))W=W+1 if W==4 then W=0 local R=E(u/65536)local c=E((u%65536)/256)local I=u%256 K(X,B(R,c,I))u=0 end elseif R=="="then K(X,B(E(u/65536)))if b>=c or S(o,b+1,b+1)~="="then K(X,B(E((u%65536)/256)))end break end b=b+1 end d[R]=i(X)elseif c=="i"then o=S(o,2)local c=L(o)local I={}local b=1 while b<=c do local R=(c-b)+1 local L=R>=5 and 5 or R local i=0 local d=L>1 for R=0,4,1 do local c if R<L then local I=S(o,b+R,b+R)c=X[I]if not c then d=false break end else c=84 end i=i*85+c end if d then local R=E(i/16777216)%256 local c=E(i/65536)%256 local X=E(i/256)%256 local S=i%256 if L==5 then K(I,B(R,c,X,S))elseif L==4 then K(I,B(R,c,X))elseif L==3 then K(I,B(R,c))elseif L==2 then K(I,B(R))end end b=b+L end d[R]=i(I)end end end end return(function(E,X,R,K,B,i,L,q,b,W,M,o,I,d,h,G,S,u)u,W,q,b,I,G,o,S,d,h,M=function(R)for c=1,#R,1 do d[R[c]]=1+d[R[c]]end if i then local I=i(true)local L=K(I)L[c(56163)],L[c(56167)],L[c(56179)]=R,W,function()return 512889 end return I else return B({},{[c(56167)]=W,[c(56163)]=R;[c(56179)]=function()return 512889 end})end end,function(R)local c,I=1,R[1]while I do d[I],c=d[I]-1,c+1 if 0==d[I]then d[I],S[I]=nil,nil end I=R[c]end end,function(R)d[R]=d[R]-1 if d[R]==0 then d[R],S[R]=nil,nil end end,0,function(I,i,B,K)local d,W,b,u,E while I do if I>14673903 then if 15560279>I then d=o()S[d]=i[1]E=c(56169)u=h(6134100,{d})I=R[E]W={I(u)}I,b,E=R[c(56177)],W[2],W[1]u=E E={u,b}else W=c(56172)E=R[W]W=c(56173)I=E[W]E=I()W=c(56171)E=R[W]W=E()E=c(56161)I=W[E]I=I and 14455928 or 16228680 end else if I<6612740 then W,E=c(56168),c(56174)I=R[E]b=c(56162)d=R[b]W=d[W]u=S[B[1]]b={W(d,u)}E=I(L(b))I={E()}E={L(I)}I=R[c(56178)]elseif 10773654>I then I,E,W,d=c(56170),c(56171),3003318>15880741,i b=I I=G(14891879,{})u=I I=R[E]E=I()I=c(56161)E[I]=W W=c(56166)E=b..W I=u(E)I=16228680 else W=c(56176)E=b..W W=c(56164)I=u(E)E=b..W b=nil I=u(E)u,I,E=nil,R[c(56165)],{}end end end I=#K return L(E)end,function(R,c)local L=u(c)local i=function(i)return I(R,{i},c,L)end return i end,function()b=1+b d[b]=1 return b end,{},{},function(R,c)local L=u(c)local i=function(i,B,K,X)return I(R,{i,B,K,X},c,L)end return i end,function(R,c)local L=u(c)local i=function(...)return I(R,{...},c,L)end return i end return(M(7091381,{}))(L(E))end)({...},select,getfenv and getfenv()or _ENV,getmetatable,setmetatable,newproxy,unpack or table[c(56175)])end)(...)
+local BASE = "https://prismscript.vercel.app"
+
+local function loadScript(url, name)
+    local ok, result = pcall(function()
+        return loadstring(game:HttpGet(url))()
+    end)
+    return ok, result
+end
+
+-- Reset auth flag so re-executions wait properly
+getgenv().PrismLoaded = false
+
+-- 1. Key system
+loadScript(BASE .. "/Prism%20Key.lua", "Key")
+
+-- 2. Wait for auth
+repeat task.wait() until getgenv().PrismLoaded
+
+-- 3. Main UI
+loadScript(BASE .. "/Prism%20Main.lua", "Main")
+
+-- 4. Commands
+loadScript(BASE .. "/Prism%20Commands.lua", "Commands")
