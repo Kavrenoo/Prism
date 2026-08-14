@@ -161,10 +161,8 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
         PM.Anti.afk = false
         PM.Anti.sit = false
         PM.Anti.fling = false
-        PM.Anti.headsit = false
         PM.Anti.ragdoll = false
         PM.Anti.void = false
-        PM.Anti.voiddestroy = false
         PM.Anti.paused = false
         PM.Anti.fakeout = false
         if PM.Anti.origVoidY ~= nil then
@@ -275,10 +273,8 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
         PM.Anti.afk = false
         PM.Anti.sit = false
         PM.Anti.fling = false
-        PM.Anti.headsit = false
         PM.Anti.ragdoll = false
         PM.Anti.void = false
-        PM.Anti.voiddestroy = false
         PM.Anti.paused = false
         PM.Anti.fakeout = false
         if PM.Anti.origVoidY ~= nil then
@@ -2010,10 +2006,8 @@ PM.Anti = {
     afk = false,
     sit = false,
     fling = false,
-    headsit = false,
     ragdoll = false,
     void = false,
-    voiddestroy = false,
     paused = false,
     fakeout = false,
     connections = {},
@@ -2029,10 +2023,8 @@ pcall(function()
             PM.Anti.afk = data.afk or false
             PM.Anti.sit = data.sit or false
             PM.Anti.fling = data.fling or false
-            PM.Anti.headsit = data.headsit or false
             PM.Anti.ragdoll = data.ragdoll or false
             PM.Anti.void = data.void or false
-            PM.Anti.voiddestroy = data.voiddestroy or false
             PM.Anti.paused = data.paused or false
             PM.Anti.fakeout = data.fakeout or false
         end
@@ -2047,10 +2039,8 @@ local function SaveAntiToggles()
                 afk = PM.Anti.afk,
                 sit = PM.Anti.sit,
                 fling = PM.Anti.fling,
-                headsit = PM.Anti.headsit,
                 ragdoll = PM.Anti.ragdoll,
                 void = PM.Anti.void,
-                voiddestroy = PM.Anti.voiddestroy,
                 paused = PM.Anti.paused,
                 fakeout = PM.Anti.fakeout
             }))
@@ -2457,33 +2447,8 @@ registerCommand("antiall", "Anti Everything", {}, function(args)
             end
         end)
 
-        -- Anti Headsit: prevents headsitting
-        CreateToggle("headsit", "Anti Headsit", 4, PM.Anti.headsit, function(on)
-            PM.Anti.headsit = on
-            SaveAntiToggles()
-            DisconnectAnti("headsit")
-            if on then
-                PM.Anti.connections.headsit = RunService.Heartbeat:Connect(function()
-                    local char = LocalPlayer.Character
-                    local head = char and char:FindFirstChild("Head")
-                    if not head then return end
-                    for _, player in ipairs(Players:GetPlayers()) do
-                        if player ~= LocalPlayer and player.Character then
-                            local hrp = player.Character:FindFirstChild("HumanoidRootPart")
-                            if hrp then
-                                local dist = (hrp.Position - head.Position).Magnitude
-                                if dist < 3 then
-                                    hrp.AssemblyLinearVelocity = Vector3.new(0, 50, 0)
-                                end
-                            end
-                        end
-                    end
-                end)
-            end
-        end)
-
         -- Anti Ragdoll: disables Ragdoll and FallingDown states
-        CreateToggle("ragdoll", "Anti Ragdoll", 5, PM.Anti.ragdoll, function(on)
+        CreateToggle("ragdoll", "Anti Ragdoll", 4, PM.Anti.ragdoll, function(on)
             PM.Anti.ragdoll = on
             SaveAntiToggles()
             DisconnectAnti("ragdoll")
@@ -2506,14 +2471,18 @@ registerCommand("antiall", "Anti Everything", {}, function(args)
             end
         end)
 
-        -- Anti Void: saves you from falling in void
-        CreateToggle("void", "Anti Void", 6, PM.Anti.void, function(on)
+        -- Anti Void: saves you from falling in void AND lowers void so you can never die to it
+        CreateToggle("void", "Anti Void", 5, PM.Anti.void, function(on)
             PM.Anti.void = on
             SaveAntiToggles()
             DisconnectAnti("void")
             if on then
                 PM.Anti.origVoidY = PM.Anti.origVoidY or workspace.FallenPartsDestroyHeight
                 PM.Anti.connections.void = RunService.Heartbeat:Connect(function()
+                    -- Lower void so you can never die to it
+                    workspace.FallenPartsDestroyHeight = -99999
+                    
+                    -- Save you from falling in void
                     local char = LocalPlayer.Character
                     local root = char and char:FindFirstChild("HumanoidRootPart")
                     if root and root:IsA("BasePart") then
@@ -2523,19 +2492,6 @@ registerCommand("antiall", "Anti Everything", {}, function(args)
                         end
                     end
                 end)
-            end
-        end)
-
-        -- Void Destroy: lowers void so you can never die to it
-        CreateToggle("voiddestroy", "Void Destroy", 7, PM.Anti.voiddestroy, function(on)
-            PM.Anti.voiddestroy = on
-            SaveAntiToggles()
-            DisconnectAnti("voiddestroy")
-            if on then
-                PM.Anti.origVoidY = PM.Anti.origVoidY or workspace.FallenPartsDestroyHeight
-                PM.Anti.connections.voiddestroy = RunService.Heartbeat:Connect(function()
-                    workspace.FallenPartsDestroyHeight = -99999
-                end)
             else
                 if PM.Anti.origVoidY ~= nil then
                     pcall(function() workspace.FallenPartsDestroyHeight = PM.Anti.origVoidY end)
@@ -2544,7 +2500,7 @@ registerCommand("antiall", "Anti Everything", {}, function(args)
         end)
 
         -- Anti Gameplay Paused: destroy NetworkPause screen
-        CreateToggle("paused", "Anti Gameplay Paused", 8, PM.Anti.paused, function(on)
+        CreateToggle("paused", "Anti Gameplay Paused", 6, PM.Anti.paused, function(on)
             PM.Anti.paused = on
             SaveAntiToggles()
             DisconnectAnti("paused")
@@ -2564,7 +2520,7 @@ registerCommand("antiall", "Anti Everything", {}, function(args)
         -- Auto Fake Out: clones character for fake death
         local foActive = false
         local foHoldConn = nil
-        CreateToggle("fakeout", "Auto Fake Out", 9, PM.Anti.fakeout, function(on)
+        CreateToggle("fakeout", "Auto Fake Out", 7, PM.Anti.fakeout, function(on)
             PM.Anti.fakeout = on
             SaveAntiToggles()
             if foHoldConn then foHoldConn:Disconnect() foHoldConn = nil end
@@ -4126,7 +4082,7 @@ registerCommand("trip", "Trip your character", {}, function(args)
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
         if not ok then ScreenGui.Parent = LocalPlayer.PlayerGui end
 
-        local MW, MH = 239, 88
+        local MW, MH = 239, 40
 
         local MainFrame = Instance.new("Frame")
         MainFrame.Name = "MainFrame"
@@ -4323,7 +4279,7 @@ registerCommand("trip", "Trip your character", {}, function(args)
         BindBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
         BindBtn.BackgroundTransparency = 0.4
         BindBtn.BorderSizePixel = 0
-        BindBtn.Text = savedKey
+        BindBtn.Text = savedKey or "Bind"
         BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
         BindBtn.TextSize = 11
         BindBtn.Font = Enum.Font.GothamBold
@@ -4351,7 +4307,7 @@ registerCommand("trip", "Trip your character", {}, function(args)
             DoTrip()
         end)
 
-        -- Keybind state
+        -- Keybind button (simplified, matching fly UI style)
         local tripKey = nil
         pcall(function()
             tripKey = Enum.KeyCode[savedKey]
