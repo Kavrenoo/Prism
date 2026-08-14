@@ -608,16 +608,19 @@ PM.createMainGUI = function()
                 print("[Terminal Debug] Enter pressed - executing command")
                 local cmd = PM.UI.TerminalInput.Text
                 local suggestion = PM.UI.TerminalAutofill.Text
-                print("[Terminal Debug] cmd:", cmd, "suggestion:", suggestion)
+                print("[Terminal Debug] cmd:", string.format("%q", cmd), "suggestion:", string.format("%q", suggestion))
                 -- If there's an autofill suggestion, use it (like Mono)
-                if suggestion and suggestion ~= "" then
+                if suggestion and suggestion ~= "" and suggestion ~= " " then
                     cmd = suggestion
+                    print("[Terminal Debug] Using suggestion, cmd is now:", string.format("%q", cmd))
                 end
+                print("[Terminal Debug] About to check cmd - cmd:", string.format("%q", cmd), "type:", type(cmd), "cmd ~= '':", cmd ~= "")
                 if cmd and cmd ~= "" then
+                    print("[Terminal Debug] cmd is valid, clearing and executing")
                     PM.UI.TerminalInput.Text = ""
                     PM.UI.TerminalAutofill.Text = ""
                     if PM.executeCommand then
-                        print("[Terminal Debug] Calling executeCommand with:", cmd)
+                        print("[Terminal Debug] Calling executeCommand with:", string.format("%q", cmd))
                         PM.executeCommand(cmd)
                     else
                         print("[Terminal Debug] executeCommand is nil!")
