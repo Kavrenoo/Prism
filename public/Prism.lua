@@ -7,17 +7,11 @@ local function loadScript(url, name)
     return ok, result
 end
 
--- Reset auth flag so re-executions wait properly
-getgenv().PrismLoaded = false
+-- Set auth flag to true immediately (key system removed)
+getgenv().PrismLoaded = true
 
--- 1. Key system
-loadScript(BASE .. "/Prism%20Key.lua", "Key")
-
--- 2. Wait for auth
-repeat task.wait() until getgenv().PrismLoaded
-
--- 3. Main UI
+-- 1. Main UI
 loadScript(BASE .. "/Prism%20Main.lua", "Main")
 
--- 4. Commands
+-- 2. Commands
 loadScript(BASE .. "/Prism%20Commands.lua", "Commands")

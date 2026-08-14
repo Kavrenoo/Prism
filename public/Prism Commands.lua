@@ -233,7 +233,6 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
     end
     -- Clear globals
     getgenv().PrismMain = nil
-    getgenv().PrismLoaded = false
 end, true)
 
 registerCommand("reload", "Reload Prism script", {}, function(args)
@@ -347,7 +346,6 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
         end
     end
     getgenv().PrismMain = nil
-    getgenv().PrismLoaded = false
     -- Reload from URL
     loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
 end, true)
