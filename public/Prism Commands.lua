@@ -4082,7 +4082,7 @@ registerCommand("trip", "Trip your character", {}, function(args)
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
         if not ok then ScreenGui.Parent = LocalPlayer.PlayerGui end
 
-        local MW, MH = 239, 40
+        local MW, MH = 239, 84
 
         local MainFrame = Instance.new("Frame")
         MainFrame.Name = "MainFrame"
