@@ -594,13 +594,12 @@ PM.createMainGUI = function()
         
         PM.UI.TerminalInput:GetPropertyChangedSignal("Text"):Connect(updateAutofill)
         
-        -- Handle Enter key directly while focused
-        game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
-            if gameProcessed then return end
-            if not PM.UI.TerminalPanel or not PM.UI.TerminalPanel.Visible then return end
-            if not PM.UI.TerminalInput:IsFocused() then return end
+        -- Handle Enter to execute and close
+        PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
+            -- Skip if panel just opened, rebinding, hovering keybind button, or hovering main buttons
+            if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then return end
             
-            if input.KeyCode == Enum.KeyCode.Return then
+            if enterPressed then
                 local cmd = PM.UI.TerminalInput.Text
                 local suggestion = PM.UI.TerminalAutofill.Text
                 -- If there's an autofill suggestion, use it (like Mono)
@@ -617,17 +616,8 @@ PM.createMainGUI = function()
                 -- Close after executing command
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
-            end
-        end)
-        
-        -- Handle FocusLost for clicking outside
-        PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
-            -- Skip if panel just opened, rebinding, hovering keybind button, or hovering main buttons
-            if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then return end
-            
-            -- Don't execute on enter - that's handled by InputBegan
-            -- Only close on focus loss (clicking outside)
-            if not enterPressed then
+            else
+                -- Close on focus loss (clicking outside)
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
             end
@@ -665,7 +655,7 @@ PM.createMainGUI = function()
         
         -- Set flag to prevent immediate close
         PM.panelJustOpened = true
-        task.delay(0.3, function()
+        task.delay(0.1, function()
             PM.panelJustOpened = false
         end)
         
@@ -687,7 +677,7 @@ PM.createMainGUI = function()
         else
             -- Set flag to prevent immediate close
             PM.panelJustOpened = true
-            task.delay(0.3, function()
+            task.delay(0.1, function()
                 PM.panelJustOpened = false
             end)
             
