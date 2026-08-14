@@ -598,12 +598,6 @@ PM.createMainGUI = function()
         PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
             print("[Terminal Debug] FocusLost - enterPressed:", enterPressed, "panelJustOpened:", PM.panelJustOpened, "keybindJustChanged:", PM.keybindJustChanged, "isHoveringKeybindBtn:", PM.isHoveringKeybindBtn, "isHoveringAnyButton:", PM.isHoveringAnyButton)
             
-            -- Skip if rebinding, hovering keybind button, or hovering main buttons
-            if PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then 
-                print("[Terminal Debug] Blocked by keybind/button hover")
-                return 
-            end
-            
             if enterPressed then
                 print("[Terminal Debug] Enter pressed - executing command")
                 local cmd = PM.UI.TerminalInput.Text
@@ -632,9 +626,9 @@ PM.createMainGUI = function()
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
             else
-                -- Close on focus loss (clicking outside) - but skip if panel just opened
-                if PM.panelJustOpened then 
-                    print("[Terminal Debug] Blocked by panelJustOpened")
+                -- Close on focus loss (clicking outside) - check blocking flags here
+                if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then 
+                    print("[Terminal Debug] Blocked - clicking outside while blocking")
                     return 
                 end
                 print("[Terminal Debug] Focus lost from clicking outside - closing")
