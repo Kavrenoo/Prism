@@ -594,12 +594,13 @@ PM.createMainGUI = function()
         
         PM.UI.TerminalInput:GetPropertyChangedSignal("Text"):Connect(updateAutofill)
         
-        -- Handle Tab for autofill and Enter to execute
-        PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
-            -- Skip if panel just opened, rebinding, hovering keybind button, or hovering main buttons
-            if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then return end
+        -- Handle Enter key directly while focused
+        game:GetService("UserInputService").InputBegan:Connect(function(input, gameProcessed)
+            if gameProcessed then return end
+            if not PM.UI.TerminalPanel or not PM.UI.TerminalPanel.Visible then return end
+            if not PM.UI.TerminalInput:IsFocused() then return end
             
-            if enterPressed then
+            if input.KeyCode == Enum.KeyCode.Return then
                 local cmd = PM.UI.TerminalInput.Text
                 local suggestion = PM.UI.TerminalAutofill.Text
                 -- If there's an autofill suggestion, use it (like Mono)
@@ -616,8 +617,17 @@ PM.createMainGUI = function()
                 -- Close after executing command
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
-            else
-                -- Close on focus loss (clicking outside)
+            end
+        end)
+        
+        -- Handle FocusLost for clicking outside
+        PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
+            -- Skip if panel just opened, rebinding, hovering keybind button, or hovering main buttons
+            if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then return end
+            
+            -- Don't execute on enter - that's handled by InputBegan
+            -- Only close on focus loss (clicking outside)
+            if not enterPressed then
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
             end
