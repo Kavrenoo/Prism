@@ -596,8 +596,8 @@ PM.createMainGUI = function()
         
         -- Handle Enter to execute and close
         PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
-            -- Skip if panel just opened, rebinding, hovering keybind button, or hovering main buttons
-            if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then return end
+            -- Skip if rebinding, hovering keybind button, or hovering main buttons
+            if PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then return end
             
             if enterPressed then
                 local cmd = PM.UI.TerminalInput.Text
@@ -617,7 +617,8 @@ PM.createMainGUI = function()
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
             else
-                -- Close on focus loss (clicking outside)
+                -- Close on focus loss (clicking outside) - but skip if panel just opened
+                if PM.panelJustOpened then return end
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
             end
