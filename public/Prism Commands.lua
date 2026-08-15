@@ -7200,8 +7200,6 @@ registerCommand("fly", "Fly around", {}, function(args)
         end
 
         local function StartFly()
-            if flyOn then return end
-            flyOn = true
             local char = LocalPlayer.Character
             local hum = char and char:FindFirstChildOfClass("Humanoid")
             local root = char and char:FindFirstChild("HumanoidRootPart")
@@ -7266,10 +7264,11 @@ registerCommand("fly", "Fly around", {}, function(args)
 
         local function SetFly(val)
             if val == flyOn then return end
-            flyOn = val
             if val then
+                flyOn = true
                 StartFly()
             else
+                flyOn = false
                 StopFly()
             end
             PM.Fly = PM.Fly or {}
