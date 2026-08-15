@@ -2476,6 +2476,33 @@ PM.createMainGUI = function()
             return "Unknown"
         end
         
+        -- Hide default nametag (defined early to avoid nil error)
+        local function hideDefaultNametag(char, userId)
+            pcall(function()
+                local humanoid = char:FindFirstChildOfClass("Humanoid")
+                if humanoid then
+                    if userId and not PM.defaultNametagStates[userId] then
+                        PM.defaultNametagStates[userId] = humanoid.DisplayDistanceType
+                    end
+                    humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+                end
+                local head = char:FindFirstChild("Head")
+                if head then
+                    for _, child in ipairs(head:GetChildren()) do
+                        if child:IsA("BillboardGui") then
+                            child:Destroy()
+                        end
+                    end
+                    local conn = head.ChildAdded:Connect(function(child)
+                        if child:IsA("BillboardGui") then
+                            child:Destroy()
+                        end
+                    end)
+                    table.insert(PM.nameTagConnections, conn)
+                end
+            end)
+        end
+        
         -- Check in to database (faster, with debouncing)
         local function checkIn()
             if isCheckInPending then return end
@@ -2549,8 +2576,6 @@ PM.createMainGUI = function()
             lastFetch = tick()
             isFetchPending = false
         end
-        
-        local function hideDefaultNametag(char, userId)
             pcall(function()
                 local humanoid = char:FindFirstChildOfClass("Humanoid")
                 if humanoid then
