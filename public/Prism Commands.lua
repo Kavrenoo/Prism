@@ -853,7 +853,17 @@ registerCommand("tptospawn", "Teleport to spawn", {}, function(args)
 end, true)
 
 registerCommand("tptool", "Click to teleport tool", {}, function(args)
-    if PM.TpToolActive then return end
+    if PM.TpToolActive then
+        PM.TpToolActive = false
+        if PM.TpToolConn then pcall(function() PM.TpToolConn:Disconnect() end); PM.TpToolConn = nil end
+        if PM.TpWatchConn1 then pcall(function() PM.TpWatchConn1:Disconnect() end); PM.TpWatchConn1 = nil end
+        if PM.TpWatchConn2 then pcall(function() PM.TpWatchConn2:Disconnect() end); PM.TpWatchConn2 = nil end
+        local tpTool = LP.Backpack:FindFirstChild("Teleport Tool")
+        if tpTool then pcall(function() tpTool:Destroy() end) end
+        local charTp = LP.Character and LP.Character:FindFirstChild("Teleport Tool")
+        if charTp then pcall(function() charTp:Destroy() end) end
+        return
+    end
     PM.TpToolActive = true
     
     local function giveTool()
@@ -4093,7 +4103,7 @@ registerCommand("trip", "Trip your character", {}, function(args)
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
         if not ok then ScreenGui.Parent = LocalPlayer.PlayerGui end
 
-        local MW, MH = 239, 84
+        local MW, MH = 220, 88
 
         local MainFrame = Instance.new("Frame")
         MainFrame.Name = "MainFrame"
@@ -4116,7 +4126,7 @@ registerCommand("trip", "Trip your character", {}, function(args)
 
         local TitleBar = Instance.new("Frame")
         TitleBar.Name = "TitleBar"
-        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.Size = UDim2.new(1, 0, 0, 36)
         TitleBar.BackgroundTransparency = 1
         TitleBar.Parent = MainFrame
 
@@ -4197,16 +4207,16 @@ registerCommand("trip", "Trip your character", {}, function(args)
 
         local ContentFrame = Instance.new("Frame")
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
-        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
 
-        local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local tweenInfo = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
         local isMinimized = savedMinimized
         local originalSize = UDim2.new(0, MW, 0, MH)
-        local minimizedSize = UDim2.new(0, MW, 0, 40)
+        local minimizedSize = UDim2.new(0, MW, 0, 36)
 
         if isMinimized then
             MinBtn.Text = "+"
@@ -4220,9 +4230,8 @@ registerCommand("trip", "Trip your character", {}, function(args)
             SaveTripGUISettings()
             if isMinimized then
                 MinBtn.Text = "+"
-                local tween = TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize})
-                tween:Play()
-                tween.Completed:Connect(function() ContentFrame.Visible = false end)
+                TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize}):Play()
+                ContentFrame.Visible = false
             else
                 MinBtn.Text = "—"
                 ContentFrame.Visible = true
@@ -4230,7 +4239,18 @@ registerCommand("trip", "Trip your character", {}, function(args)
             end
         end)
 
+        local Padding = Instance.new("UIPadding")
+        Padding.PaddingTop = UDim.new(0, 4)
+        Padding.PaddingBottom = UDim.new(0, 4)
+        Padding.PaddingLeft = UDim.new(0, 8)
+        Padding.PaddingRight = UDim.new(0, 8)
+        Padding.Parent = ContentFrame
+
         -- Trip logic
+        local tripOn = false
+        local tripCountingDown = false
+        local tripCountdownTask = nil
+
         local function DoTrip()
             local char = LocalPlayer.Character
             local hum = char and char:FindFirstChildOfClass("Humanoid")
@@ -4240,18 +4260,40 @@ registerCommand("trip", "Trip your character", {}, function(args)
             root.AssemblyLinearVelocity = root.CFrame.LookVector * 30
         end
 
-        -- Action Buttons
-        local ListLayout = Instance.new("UIListLayout")
-        ListLayout.Padding = UDim.new(0, 6)
-        ListLayout.SortOrder = Enum.SortOrder.LayoutOrder
-        ListLayout.Parent = ContentFrame
-
-        local Padding = Instance.new("UIPadding")
-        Padding.PaddingTop = UDim.new(0, 4)
-        Padding.PaddingBottom = UDim.new(0, 4)
-        Padding.PaddingLeft = UDim.new(0, 8)
-        Padding.PaddingRight = UDim.new(0, 8)
-        Padding.Parent = ContentFrame
+        local function SetTrip(val, fromKeybind)
+            if val == tripOn then return end
+            tripOn = val
+            if val then
+                if fromKeybind then
+                    TripBtn.Text = "End"
+                    DoTrip()
+                else
+                    tripCountingDown = true
+                    tripCountdownTask = task.spawn(function()
+                        for i = 3, 1, -1 do
+                            if not tripOn then
+                                tripCountingDown = false
+                                return
+                            end
+                            TripBtn.Text = tostring(i)
+                            task.wait(1)
+                        end
+                        tripCountingDown = false
+                        if tripOn then
+                            TripBtn.Text = "End"
+                            DoTrip()
+                        end
+                    end)
+                end
+            else
+                TripBtn.Text = "Start"
+                TweenService:Create(TripBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+                if tripCountdownTask then
+                    pcall(function() task.cancel(tripCountdownTask) end)
+                    tripCountdownTask = nil
+                end
+            end
+        end
 
         local BtnSection = Instance.new("Frame")
         BtnSection.Name = "BtnSection"
@@ -4273,7 +4315,7 @@ registerCommand("trip", "Trip your character", {}, function(args)
         TripBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
         TripBtn.BackgroundTransparency = 0.4
         TripBtn.BorderSizePixel = 0
-        TripBtn.Text = "Trip"
+        TripBtn.Text = "Start"
         TripBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
         TripBtn.TextSize = 11
         TripBtn.Font = Enum.Font.GothamBold
@@ -4302,20 +4344,20 @@ registerCommand("trip", "Trip your character", {}, function(args)
 
         -- Hover effects
         TripBtn.MouseEnter:Connect(function()
-            TweenService:Create(TripBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55), BackgroundTransparency = 0}):Play()
+            TweenService:Create(TripBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
         end)
         TripBtn.MouseLeave:Connect(function()
-            TweenService:Create(TripBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30), BackgroundTransparency = 0.4}):Play()
+            TweenService:Create(TripBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
         end)
         BindBtn.MouseEnter:Connect(function()
-            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55), BackgroundTransparency = 0}):Play()
+            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
         end)
         BindBtn.MouseLeave:Connect(function()
-            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30), BackgroundTransparency = 0.4}):Play()
+            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
         end)
 
         TripBtn.MouseButton1Click:Connect(function()
-            DoTrip()
+            SetTrip(not tripOn, false)
         end)
 
         -- Keybind button (simplified, matching fly UI style)
@@ -4355,7 +4397,7 @@ registerCommand("trip", "Trip your character", {}, function(args)
                 if gpe or tripCapturing then return end
                 if UserInputService:GetFocusedTextBox() then return end
                 if input.UserInputType == Enum.UserInputType.Keyboard and tripKey and input.KeyCode == tripKey then
-                    DoTrip()
+                    SetTrip(not tripOn, true)
                 end
             end)
         end
@@ -4402,6 +4444,10 @@ registerCommand("trip", "Trip your character", {}, function(args)
 
         CloseBtn.MouseButton1Click:Connect(function()
             tripCapturing = false
+            if tripCountdownTask then
+                pcall(function() task.cancel(tripCountdownTask) end)
+                tripCountdownTask = nil
+            end
             if tripCaptureConn then tripCaptureConn:Disconnect(); tripCaptureConn = nil end
             if tripGlobalConn then tripGlobalConn:Disconnect(); tripGlobalConn = nil end
             ScreenGui:Destroy()
@@ -5078,17 +5124,17 @@ registerCommand("autoclicker", "Auto clicker with keybind", {}, function(args)
 
     -- Hover effects
     ACBtn.MouseEnter:Connect(function()
-        TweenService:Create(ACBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55), BackgroundTransparency = 0}):Play()
+        TweenService:Create(ACBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
     end)
     ACBtn.MouseLeave:Connect(function()
-        TweenService:Create(ACBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30), BackgroundTransparency = 0.4}):Play()
+        TweenService:Create(ACBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
     end)
 
     BindBtn.MouseEnter:Connect(function()
-        TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55), BackgroundTransparency = 0}):Play()
+        TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
     end)
     BindBtn.MouseLeave:Connect(function()
-        TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30), BackgroundTransparency = 0.4}):Play()
+        TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
     end)
 
     -- Load saved key
@@ -5204,7 +5250,7 @@ registerCommand("autoclicker", "Auto clicker with keybind", {}, function(args)
             end
         else
             ACBtn.Text = "Start"
-            TweenService:Create(ACBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30), BackgroundTransparency = 0.4}):Play()
+            TweenService:Create(ACBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
             StopAC()
         end
     end
@@ -6977,7 +7023,7 @@ registerCommand("fly", "Fly around", {}, function(args)
         FlyBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
         FlyBtn.BackgroundTransparency = 0.4
         FlyBtn.BorderSizePixel = 0
-        FlyBtn.Text = "Fly"
+        FlyBtn.Text = "Start"
         FlyBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
         FlyBtn.TextSize = 11
         FlyBtn.Font = Enum.Font.GothamBold
@@ -7006,16 +7052,16 @@ registerCommand("fly", "Fly around", {}, function(args)
 
         -- Hover effects
         FlyBtn.MouseEnter:Connect(function()
-            TweenService:Create(FlyBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55), BackgroundTransparency = 0}):Play()
+            TweenService:Create(FlyBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
         end)
         FlyBtn.MouseLeave:Connect(function()
-            TweenService:Create(FlyBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30), BackgroundTransparency = 0.4}):Play()
+            TweenService:Create(FlyBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
         end)
         BindBtn.MouseEnter:Connect(function()
-            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55), BackgroundTransparency = 0}):Play()
+            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
         end)
         BindBtn.MouseLeave:Connect(function()
-            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30), BackgroundTransparency = 0.4}):Play()
+            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
         end)
 
         local ListLayout = Instance.new("UIListLayout")
@@ -7180,6 +7226,10 @@ registerCommand("fly", "Fly around", {}, function(args)
         -- Fly logic
         local function StopFly()
             flyOn = false
+            if flyCountdownTask then
+                pcall(function() task.cancel(flyCountdownTask) end)
+                flyCountdownTask = nil
+            end
             UnmuteFootsteps()
             if flyConn then flyConn:Disconnect(); flyConn = nil end
             if flyLoopConn then flyLoopConn:Disconnect(); flyLoopConn = nil end
@@ -7259,14 +7309,38 @@ registerCommand("fly", "Fly around", {}, function(args)
             startFlyLoop()
         end
 
-        local function SetFly(val)
+        local flyCountingDown = false
+        local flyCountdownTask = nil
+
+        local function SetFly(val, fromKeybind)
             if val == flyOn then return end
+            flyOn = val
             if val then
-                StartFly()
-                if FlyBtn then FlyBtn.Text = "End" end
+                if fromKeybind then
+                    FlyBtn.Text = "End"
+                    StartFly()
+                else
+                    flyCountingDown = true
+                    flyCountdownTask = task.spawn(function()
+                        for i = 3, 1, -1 do
+                            if not flyOn then
+                                flyCountingDown = false
+                                return
+                            end
+                            FlyBtn.Text = tostring(i)
+                            task.wait(1)
+                        end
+                        flyCountingDown = false
+                        if flyOn then
+                            FlyBtn.Text = "End"
+                            StartFly()
+                        end
+                    end)
+                end
             else
+                FlyBtn.Text = "Start"
+                TweenService:Create(FlyBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
                 StopFly()
-                if FlyBtn then FlyBtn.Text = "Fly" end
             end
             PM.Fly = PM.Fly or {}
             PM.Fly.enabled = flyOn
@@ -7274,15 +7348,18 @@ registerCommand("fly", "Fly around", {}, function(args)
         end
 
         FlyBtn.MouseButton1Click:Connect(function()
-            SetFly(not flyOn)
+            SetFly(not flyOn, false)
         end)
 
         -- Auto-start if previously enabled
-        if PM.Fly.enabled then SetFly(true) end
+        if PM.Fly.enabled then
+            FlyBtn.Text = "End"
+            SetFly(true)
+        end
 
         charConn = LocalPlayer.CharacterAdded:Connect(function()
             StopFly()
-            if FlyBtn then FlyBtn.Text = "Fly" end
+            if FlyBtn then FlyBtn.Text = "Start" end
         end)
 
         ScreenGui.Destroying:Connect(function()
@@ -7320,7 +7397,7 @@ registerCommand("fly", "Fly around", {}, function(args)
                 if gpe or flyCapturing then return end
                 if UserInputService:GetFocusedTextBox() then return end
                 if input.UserInputType == Enum.UserInputType.Keyboard and flyKey and input.KeyCode == flyKey then
-                    SetFly(not flyOn)
+                    SetFly(not flyOn, true)
                 end
             end)
         end
