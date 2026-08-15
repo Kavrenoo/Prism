@@ -2451,8 +2451,8 @@ PM.createMainGUI = function()
         PM.otherMonoUsers = {}
         
         -- Timing config
-        local CHECKIN_INTERVAL = 5  -- seconds (was 25)
-        local FETCH_INTERVAL = 5     -- seconds (was 25)
+        local CHECKIN_INTERVAL = 3  -- seconds (faster for freshness)
+        local FETCH_INTERVAL = 3     -- seconds (faster to catch new players)
         local PLAYER_TTL = 35        -- seconds (buffer above check-in)
         
         local BASE_URL = "https://prismscript.vercel.app/api/prism/nametags"
@@ -2835,13 +2835,42 @@ PM.createMainGUI = function()
         
         -- ========== INSTANT UPDATES ==========
         
-        -- On player join: immediate check-in and fetch
+        -- Track players who joined recently for retry logic
+        local recentJoins = {}
+        
+        -- On player join: immediate check-in and fetch with retries
         local function onPlayerAdded(plr)
             if plr == LP then return end
             
             -- Immediate fetch when new player joins
             spawn(function()
                 fetchOtherUsers(true)  -- force fetch
+            end)
+            
+            -- Retry fetching multiple times to catch their check-in
+            -- New players need time to load script and check in
+            local uid = plr.UserId
+            recentJoins[uid] = true
+            
+            spawn(function()
+                for i = 1, 8 do  -- retry up to 8 times over 16 seconds
+                    wait(2)  -- wait 2s between retries
+                    if not recentJoins[uid] then break end  -- stop if they left
+                    if PM.nameTagBills[uid] then break end  -- stop if tag already created
+                    
+                    fetchOtherUsers(true)
+                    
+                    -- Check if they're now in database and create tag
+                    if PM.otherMonoUsers[tostring(uid)] and plr.Character and plr.Character:FindFirstChild("Head") then
+                        hideDefaultNametag(plr.Character, uid)
+                        local bill = createPrismTag(plr, plr.Character.Head)
+                        if bill then
+                            PM.nameTagBills[uid] = bill
+                            break  -- success, stop retrying
+                        end
+                    end
+                end
+                recentJoins[uid] = nil  -- clean up retry flag
             end)
             
             plr.CharacterAdded:Connect(function(char)
@@ -2874,6 +2903,9 @@ PM.createMainGUI = function()
         -- On player leave: explicit database cleanup
         Players.PlayerRemoving:Connect(function(plr)
             local uid = plr.UserId
+            
+            -- Stop retrying for this player
+            recentJoins[uid] = nil
             
             -- If we're leaving, remove from database
             if plr == LP then
@@ -2939,11 +2971,26 @@ PM.createMainGUI = function()
         Players.PlayerAdded:Connect(onPlayerAdded)
         
         -- Heartbeat: Restore default nametags for players who shouldn't have Prism tags
+        -- Also create tags for recent joins who just appeared in database
         RunService.Heartbeat:Connect(function()
             for _, plr in ipairs(Players:GetPlayers()) do
                 if plr ~= LP and plr.Character then
                     local shouldShow = PM.shouldShowTag(plr)
                     local hasBillboard = PM.nameTagBills[plr.UserId] and PM.nameTagBills[plr.UserId].Parent
+                    
+                    -- If should show but doesn't have billboard, create it (catch late check-ins)
+                    if shouldShow and not hasBillboard then
+                        local head = plr.Character:FindFirstChild("Head")
+                        if head then
+                            spawn(function()
+                                hideDefaultNametag(plr.Character, plr.UserId)
+                                local bill = createPrismTag(plr, head)
+                                if bill then
+                                    PM.nameTagBills[plr.UserId] = bill
+                                end
+                            end)
+                        end
+                    end
                     
                     -- If shouldn't show but has billboard, destroy it and restore default
                     if not shouldShow and hasBillboard then
