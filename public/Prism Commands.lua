@@ -2238,7 +2238,7 @@ registerCommand("antiall", "Anti Everything", {}, function(args)
         ContentFrame.Parent = MainFrame
 
         local isMinimized = savedMinimized
-        local originalSize = UDim2.new(0, 260, 0, 260)
+        local originalSize = UDim2.new(0, 260, 0, 290)
         local minimizedSize = UDim2.new(0, 260, 0, 40)
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
