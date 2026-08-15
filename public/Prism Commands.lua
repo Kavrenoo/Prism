@@ -955,7 +955,18 @@ registerCommand("tptool", "Click to teleport tool", {}, function(args)
 end)
 
 registerCommand("jerk", "Jerk tool", {}, function(args)
-    if PM.JerkActive then return end
+    if PM.JerkActive then
+        PM.JerkActive = false
+        if PM.JerkRespawnConn then
+            pcall(function() PM.JerkRespawnConn:Disconnect() end)
+            PM.JerkRespawnConn = nil
+        end
+        local jerk = LP.Backpack:FindFirstChild("Jerk")
+        if jerk then pcall(function() jerk:Destroy() end) end
+        local charJerk = LP.Character and LP.Character:FindFirstChild("Jerk")
+        if charJerk then pcall(function() charJerk:Destroy() end) end
+        return
+    end
     PM.JerkActive = true
     local function giveJerk()
         local char = LP.Character
