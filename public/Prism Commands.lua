@@ -7266,9 +7266,11 @@ registerCommand("fly", "Fly around", {}, function(args)
             if val == flyOn then return end
             if val then
                 flyOn = true
+                FlyBtn.Text = "Stop"
                 StartFly()
             else
                 flyOn = false
+                FlyBtn.Text = "Fly"
                 StopFly()
             end
             PM.Fly = PM.Fly or {}
@@ -7282,16 +7284,19 @@ registerCommand("fly", "Fly around", {}, function(args)
 
         -- Auto-start if previously enabled
         if PM.Fly.enabled then
+            FlyBtn.Text = "Stop"
             SetFly(true)
         end
 
         charConn = LocalPlayer.CharacterAdded:Connect(function()
             StopFly()
+            FlyBtn.Text = "Fly"
         end)
 
         ScreenGui.Destroying:Connect(function()
             if flyOn then
                 StopFly()
+                FlyBtn.Text = "Fly"
             end
         end)
 

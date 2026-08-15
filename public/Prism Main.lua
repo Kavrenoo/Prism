@@ -596,42 +596,28 @@ PM.createMainGUI = function()
         
         -- Handle Enter to execute and close
         PM.UI.TerminalInput.FocusLost:Connect(function(enterPressed)
-            print("[Terminal Debug] FocusLost - enterPressed:", enterPressed, "panelJustOpened:", PM.panelJustOpened, "keybindJustChanged:", PM.keybindJustChanged, "isHoveringKeybindBtn:", PM.isHoveringKeybindBtn, "isHoveringAnyButton:", PM.isHoveringAnyButton)
-            
             if enterPressed then
-                print("[Terminal Debug] Enter pressed - executing command")
                 local cmd = PM.UI.TerminalInput.Text
                 local suggestion = PM.UI.TerminalAutofill.Text
-                print("[Terminal Debug] cmd:", string.format("%q", cmd), "suggestion:", string.format("%q", suggestion))
                 -- If there's an autofill suggestion, use it (like Mono)
                 if suggestion and suggestion ~= "" and suggestion ~= " " then
                     cmd = suggestion
-                    print("[Terminal Debug] Using suggestion, cmd is now:", string.format("%q", cmd))
                 end
-                print("[Terminal Debug] About to check cmd - cmd:", string.format("%q", cmd), "type:", type(cmd), "cmd ~= '':", cmd ~= "")
                 if cmd and cmd ~= "" then
-                    print("[Terminal Debug] cmd is valid, clearing and executing")
                     PM.UI.TerminalInput.Text = ""
                     PM.UI.TerminalAutofill.Text = ""
                     if PM.executeCommand then
-                        print("[Terminal Debug] Calling executeCommand with:", string.format("%q", cmd))
                         PM.executeCommand(cmd)
-                    else
-                        print("[Terminal Debug] executeCommand is nil!")
                     end
-                else
-                    print("[Terminal Debug] cmd is empty, not executing")
                 end
                 -- Close after executing command
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
             else
                 -- Close on focus loss (clicking outside) - check blocking flags here
-                if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then 
-                    print("[Terminal Debug] Blocked - clicking outside while blocking")
-                    return 
+                if PM.panelJustOpened or PM.keybindJustChanged or PM.isHoveringKeybindBtn or PM.isHoveringAnyButton then
+                    return
                 end
-                print("[Terminal Debug] Focus lost from clicking outside - closing")
                 PM.isTerminalOpen = false
                 PM.closeTerminalPanel()
             end
