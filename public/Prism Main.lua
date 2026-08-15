@@ -2429,7 +2429,7 @@ PM.createMainGUI = function()
         end
     end)
     
-    -- NameTags System (from Mono.lua)
+    -- NameTags System (Improved - faster check-ins, instant updates, explicit cleanup)
     spawn(function()
         local Players = game:GetService("Players")
         local RunService = game:GetService("RunService")
@@ -2450,7 +2450,16 @@ PM.createMainGUI = function()
         PM.defaultNametagStates = {}
         PM.otherMonoUsers = {}
         
+        -- Timing config
+        local CHECKIN_INTERVAL = 5  -- seconds (was 25)
+        local FETCH_INTERVAL = 5     -- seconds (was 25)
+        local PLAYER_TTL = 35        -- seconds (buffer above check-in)
+        
         local BASE_URL = "https://prismscript.vercel.app/api/prism/nametags"
+        local lastCheckIn = 0
+        local lastFetch = 0
+        local isCheckInPending = false
+        local isFetchPending = false
         
         -- Get actual game name
         local cachedGameName = nil
@@ -2467,8 +2476,11 @@ PM.createMainGUI = function()
             return "Unknown"
         end
         
-        -- Check in to database
+        -- Check in to database (faster, with debouncing)
         local function checkIn()
+            if isCheckInPending then return end
+            isCheckInPending = true
+            
             pcall(function()
                 local path = BASE_URL .. "/servers/" .. tostring(game.PlaceId) .. "/" .. tostring(game.JobId) .. "/" .. tostring(LP.UserId) .. ".json"
                 request({
@@ -2484,6 +2496,58 @@ PM.createMainGUI = function()
                     })
                 })
             end)
+            
+            lastCheckIn = tick()
+            isCheckInPending = false
+        end
+        
+        -- Remove from database on leave (EXPLICIT CLEANUP)
+        local function checkOut()
+            pcall(function()
+                local path = BASE_URL .. "/servers/" .. tostring(game.PlaceId) .. "/" .. tostring(game.JobId) .. "/" .. tostring(LP.UserId) .. ".json"
+                request({
+                    Url = path,
+                    Method = "DELETE"
+                })
+            end)
+        end
+        
+        -- Fetch other users (cached, only re-fetch periodically)
+        local function fetchOtherUsers(force)
+            if isFetchPending and not force then return end
+            if not force and (tick() - lastFetch) < FETCH_INTERVAL then return end
+            
+            isFetchPending = true
+            
+            pcall(function()
+                local path = BASE_URL .. "/servers/" .. tostring(game.PlaceId) .. "/" .. tostring(game.JobId) .. ".json"
+                local result = request({
+                    Url = path,
+                    Method = "GET"
+                })
+                if result and result.Body then
+                    local data = HttpService:JSONDecode(result.Body)
+                    PM.otherMonoUsers = data or {}
+                    
+                    -- Create tags for existing players now in database
+                    for _, plr in ipairs(Players:GetPlayers()) do
+                        if plr ~= LP and PM.otherMonoUsers[tostring(plr.UserId)] and not PM.nameTagBills[plr.UserId] then
+                            if plr.Character and plr.Character:FindFirstChild("Head") then
+                                spawn(function()
+                                    hideDefaultNametag(plr.Character, plr.UserId)
+                                    local bill = createPrismTag(plr, plr.Character.Head)
+                                    if bill then
+                                        PM.nameTagBills[plr.UserId] = bill
+                                    end
+                                end)
+                            end
+                        end
+                    end
+                end
+            end)
+            
+            lastFetch = tick()
+            isFetchPending = false
         end
         
         local function hideDefaultNametag(char, userId)
@@ -2764,68 +2828,22 @@ PM.createMainGUI = function()
             return bill
         end
         
-        -- Fetch other users and create tags for them
-        local function fetchOtherUsers()
-            pcall(function()
-                local path = BASE_URL .. "/servers/" .. tostring(game.PlaceId) .. "/" .. tostring(game.JobId) .. ".json"
-                local result = request({
-                    Url = path,
-                    Method = "GET"
-                })
-                if result and result.Body then
-                    local data = HttpService:JSONDecode(result.Body)
-                    PM.otherMonoUsers = data or {}
-                    
-                    -- Create tags for existing players now in database
-                    for _, plr in ipairs(Players:GetPlayers()) do
-                        if plr ~= LP and PM.otherMonoUsers[tostring(plr.UserId)] and not PM.nameTagBills[plr.UserId] then
-                            if plr.Character and plr.Character:FindFirstChild("Head") then
-                                spawn(function()
-                                    hideDefaultNametag(plr.Character, plr.UserId)
-                                    local bill = createPrismTag(plr, plr.Character.Head)
-                                    if bill then
-                                        PM.nameTagBills[plr.UserId] = bill
-                                    end
-                                end)
-                            end
-                        end
-                    end
-                end
-            end)
-        end
-        
-        -- Check in and fetch immediately on load, then every 25 seconds
-        checkIn()
-        fetchOtherUsers()
-        PM.stopDatabaseSync = false
-        spawn(function()
-            local counter = 0
-            while true do
-                wait(1) -- Check every second instead of 25
-                
-                -- Stop if flagged or GUI destroyed
-                if PM.stopDatabaseSync or not PM.UI.Gui or not PM.UI.Gui.Parent then
-                    break
-                end
-                
-                counter = counter + 1
-                -- Only check-in every 25 seconds
-                if counter >= 25 and PM.nametagsEnabled then
-                    counter = 0
-                    checkIn()
-                    fetchOtherUsers()
-                end
-            end
-        end)
-        
-        -- Track players
+        -- Check if player should have tag
         PM.shouldShowTag = function(plr)
-            -- Show tag if player has custom config OR is in database (another Prism user)
             return PM.CustomTags[plr.UserId] or PM.otherMonoUsers[tostring(plr.UserId)]
         end
         
+        -- ========== INSTANT UPDATES ==========
+        
+        -- On player join: immediate check-in and fetch
         local function onPlayerAdded(plr)
             if plr == LP then return end
+            
+            -- Immediate fetch when new player joins
+            spawn(function()
+                fetchOtherUsers(true)  -- force fetch
+            end)
+            
             plr.CharacterAdded:Connect(function(char)
                 wait(0.1)
                 local head = char:FindFirstChild("Head")
@@ -2837,6 +2855,7 @@ PM.createMainGUI = function()
                     end
                 end
             end)
+            
             if plr.Character then
                 spawn(function()
                     wait(0.1)
@@ -2851,6 +2870,73 @@ PM.createMainGUI = function()
                 end)
             end
         end
+        
+        -- On player leave: explicit database cleanup
+        Players.PlayerRemoving:Connect(function(plr)
+            local uid = plr.UserId
+            
+            -- If we're leaving, remove from database
+            if plr == LP then
+                checkOut()
+            end
+            
+            -- Restore nametag and cleanup
+            pcall(function()
+                if plr.Character then
+                    local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
+                    if humanoid and PM.defaultNametagStates[uid] then
+                        humanoid.DisplayDistanceType = PM.defaultNametagStates[uid]
+                    end
+                end
+            end)
+            
+            if PM.nameTagBills[uid] then
+                PM.nameTagBills[uid]:Destroy()
+                PM.nameTagBills[uid] = nil
+            end
+            if PM.nameTagConnections[uid] then
+                PM.nameTagConnections[uid]:Disconnect()
+                PM.nameTagConnections[uid] = nil
+            end
+            
+            PM.defaultNametagStates[uid] = nil
+        end)
+        
+        -- ========== TIMING LOOPS ==========
+        
+        -- Check-in loop (5s interval)
+        spawn(function()
+            while PM.UI.Gui and PM.UI.Gui.Parent do
+                if PM.nametagsEnabled then
+                    checkIn()
+                end
+                wait(CHECKIN_INTERVAL)
+            end
+        end)
+        
+        -- Fetch loop (5s interval)
+        spawn(function()
+            while PM.UI.Gui and PM.UI.Gui.Parent do
+                if PM.nametagsEnabled then
+                    fetchOtherUsers(false)
+                end
+                wait(FETCH_INTERVAL)
+            end
+        end)
+        
+        -- ========== INITIALIZE ==========
+        
+        -- Immediate check-in on load
+        checkIn()
+        
+        -- Immediate fetch on load
+        fetchOtherUsers(true)
+        
+        -- Setup existing players
+        for _, plr in ipairs(Players:GetPlayers()) do
+            onPlayerAdded(plr)
+        end
+        Players.PlayerAdded:Connect(onPlayerAdded)
         
         -- Heartbeat: Restore default nametags for players who shouldn't have Prism tags
         RunService.Heartbeat:Connect(function()
@@ -2882,45 +2968,10 @@ PM.createMainGUI = function()
             end
         end)
         
-        -- Cleanup
-        Players.PlayerRemoving:Connect(function(plr)
-            local uid = plr.UserId
-            
-            -- Note: Database entry will auto-expire after 30 seconds (TTL)
-            -- No need for DELETE request - just restore nametag locally
-            pcall(function()
-                if plr.Character then
-                    local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
-                    if humanoid and PM.defaultNametagStates[uid] then
-                        humanoid.DisplayDistanceType = PM.defaultNametagStates[uid]
-                    end
-                end
-            end)
-            
-            -- Destroy billboard
-            if PM.nameTagBills[uid] then
-                PM.nameTagBills[uid]:Destroy()
-                PM.nameTagBills[uid] = nil
-            end
-            if PM.nameTagConnections[uid] then
-                PM.nameTagConnections[uid]:Disconnect()
-                PM.nameTagConnections[uid] = nil
-            end
-            
-            -- Clean up stored states
-            PM.defaultNametagStates[uid] = nil
-        end)
-        
-        for _, plr in ipairs(Players:GetPlayers()) do
-            onPlayerAdded(plr)
-        end
-        Players.PlayerAdded:Connect(onPlayerAdded)
-        
-        -- Cleanup when script is destroyed - restore ALL players' default nametags
-        -- Note: Database entries auto-expire after 30 seconds of no updates (TTL)
+        -- Cleanup on destroy
         PM.UI.Gui.Destroying:Connect(function()
-            -- Stop database sync loop
-            PM.stopDatabaseSync = true
+            -- Explicit checkout on destroy
+            checkOut()
             
             -- Restore all default nametags
             for uid, state in pairs(PM.defaultNametagStates) do
@@ -2934,6 +2985,7 @@ PM.createMainGUI = function()
                     end)
                 end
             end
+            
             -- Destroy all billboards
             for uid, bill in pairs(PM.nameTagBills) do
                 pcall(function()
