@@ -164,7 +164,6 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
         PM.Anti.ragdoll = false
         PM.Anti.void = false
         PM.Anti.paused = false
-        PM.Anti.fakeout = false
         if PM.Anti.origVoidY ~= nil then
             pcall(function() workspace.FallenPartsDestroyHeight = PM.Anti.origVoidY end)
             PM.Anti.origVoidY = nil
@@ -276,7 +275,6 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
         PM.Anti.ragdoll = false
         PM.Anti.void = false
         PM.Anti.paused = false
-        PM.Anti.fakeout = false
         if PM.Anti.origVoidY ~= nil then
             pcall(function() workspace.FallenPartsDestroyHeight = PM.Anti.origVoidY end)
             PM.Anti.origVoidY = nil
@@ -2030,7 +2028,6 @@ PM.Anti = {
     ragdoll = false,
     void = false,
     paused = false,
-    fakeout = false,
     connections = {},
     origVoidY = nil
 }
@@ -2047,7 +2044,6 @@ pcall(function()
             PM.Anti.ragdoll = data.ragdoll or false
             PM.Anti.void = data.void or false
             PM.Anti.paused = data.paused or false
-            PM.Anti.fakeout = data.fakeout or false
         end
     end
 end)
@@ -2062,8 +2058,7 @@ local function SaveAntiToggles()
                 fling = PM.Anti.fling,
                 ragdoll = PM.Anti.ragdoll,
                 void = PM.Anti.void,
-                paused = PM.Anti.paused,
-                fakeout = PM.Anti.fakeout
+                paused = PM.Anti.paused
             }))
         end
     end)
@@ -2538,149 +2533,7 @@ registerCommand("antiall", "Anti Everything", {}, function(args)
             end
         end)
 
-        -- Auto Fake Out: clones character for fake death
-        local foActive = false
-        local foHoldConn = nil
-        CreateToggle("fakeout", "Auto Fake Out", 7, PM.Anti.fakeout, function(on)
-            PM.Anti.fakeout = on
-            SaveAntiToggles()
-            if foHoldConn then foHoldConn:Disconnect() foHoldConn = nil end
-            if foActive then
-                foActive = false
-                local realChar = LocalPlayer.Character
-                if realChar then
-                    realChar.Archivable = true
-                    for _, obj in ipairs(realChar:GetDescendants()) do
-                        pcall(function()
-                            if obj:IsA("BasePart") or obj:IsA("Decal") or obj:IsA("Texture") then
-                                obj.Transparency = 0
-                            elseif obj:IsA("PointLight") or obj:IsA("SpotLight") or obj:IsA("SurfaceLight") then
-                                obj.Enabled = true
-                            end
-                        end)
-                    end
-                    local hum = realChar:FindFirstChildOfClass("Humanoid")
-                    if hum then
-                        hum.PlatformStand = false
-                        hum:ChangeState(Enum.HumanoidStateType.GettingUp)
-                    end
-                end
-                LocalPlayer.CameraMode = Enum.CameraMode.Classic
-                workspace.CurrentCamera.CameraSubject = realChar:FindFirstChildOfClass("Humanoid")
-            end
-            if not on then return end
 
-            local function EndFakeOut()
-                if not foActive then return end
-                foActive = false
-                if foHoldConn then foHoldConn:Disconnect() foHoldConn = nil end
-                local realChar = LocalPlayer.Character
-                if realChar then
-                    realChar.Archivable = true
-                    for _, obj in ipairs(realChar:GetDescendants()) do
-                        pcall(function()
-                            if obj:IsA("BasePart") or obj:IsA("Decal") or obj:IsA("Texture") then
-                                obj.Transparency = 0
-                            elseif obj:IsA("PointLight") or obj:IsA("SpotLight") or obj:IsA("SurfaceLight") then
-                                obj.Enabled = true
-                            end
-                        end)
-                    end
-                    local hum = realChar:FindFirstChildOfClass("Humanoid")
-                    if hum then
-                        hum.PlatformStand = false
-                        hum:ChangeState(Enum.HumanoidStateType.GettingUp)
-                    end
-                end
-                LocalPlayer.CameraMode = Enum.CameraMode.Classic
-                local subj = realChar and realChar:FindFirstChildOfClass("Humanoid")
-                if subj then workspace.CurrentCamera.CameraSubject = subj end
-            end
-
-            local function BeginFakeOut()
-                if foActive then return end
-                local realChar = LocalPlayer.Character
-                local myRoot = realChar and realChar:FindFirstChild("HumanoidRootPart")
-                if not myRoot then return end
-                foActive = true
-                realChar.Archivable = true
-                for _, obj in ipairs(realChar:GetDescendants()) do
-                    pcall(function()
-                        if obj:IsA("BasePart") or obj:IsA("Decal") or obj:IsA("Texture") then
-                            obj.Transparency = 1
-                        elseif obj:IsA("PointLight") or obj:IsA("SpotLight") or obj:IsA("SurfaceLight") then
-                            obj.Enabled = false
-                        end
-                    end)
-                end
-                realChar.Archivable = true
-                local fakeChar = realChar:Clone()
-                if not fakeChar then foActive = false return end
-                fakeChar.Name = "PrismFakeOutClone"
-                for _, obj in ipairs(fakeChar:GetDescendants()) do
-                    pcall(function()
-                        if obj:IsA("LocalScript") or obj:IsA("Script") then
-                            obj:Destroy()
-                        elseif obj:IsA("BasePart") then
-                            obj.Anchored = true
-                        end
-                    end)
-                end
-                local platform = Instance.new("Part")
-                platform.Name = "PrismFakeOutPlatform"
-                platform.Anchored = true
-                platform.CanCollide = true
-                platform.Size = Vector3.new(3, 5, 3)
-                platform.Transparency = 1
-                platform.Parent = workspace
-                local fakeHRP = fakeChar:FindFirstChild("HumanoidRootPart")
-                if fakeHRP then
-                    fakeHRP.CFrame = CFrame.new(myRoot.Position.X, -653, myRoot.Position.Z)
-                    fakeChar:PivotTo(fakeHRP.CFrame)
-                end
-                fakeChar.Parent = workspace
-                workspace.CurrentCamera.CameraSubject = fakeChar:FindFirstChildOfClass("Humanoid")
-                foHoldConn = RunService.Heartbeat:Connect(function()
-                    if not fakeHRP or not fakeHRP.Parent then EndFakeOut() return end
-                    if platform and platform.Parent then
-                        platform.CFrame = CFrame.new(fakeHRP.Position.X, -653, fakeHRP.Position.Z)
-                    end
-                    if (myRoot.Position - fakeHRP.Position).Magnitude > 500 then
-                        myRoot.CFrame = CFrame.new(fakeHRP.Position.X, fakeHRP.Position.Y + 5, fakeHRP.Position.Z)
-                    end
-                end)
-                local fakeHum = fakeChar:FindFirstChildOfClass("Humanoid")
-                if fakeHum then
-                    fakeHum.Died:Connect(function()
-                        if foActive then EndFakeOut() end
-                    end)
-                end
-            end
-
-            DisconnectAnti("fakeout")
-            if on then
-                PM.Anti.connections.fakeout = RunService.Heartbeat:Connect(function()
-                    local c = LocalPlayer.Character
-                    local hrp = c and c:FindFirstChild("HumanoidRootPart")
-                    if not hrp then return end
-                    local inRange = false
-                    for _, p in ipairs(Players:GetPlayers()) do
-                        if p ~= LocalPlayer and p.Character then
-                            local theirHRP = p.Character:FindFirstChild("HumanoidRootPart")
-                            if theirHRP and (theirHRP.Position - hrp.Position).Magnitude < 3 then
-                                inRange = true
-                                break
-                            end
-                        end
-                    end
-                    if inRange and not foActive then
-                        BeginFakeOut()
-                    elseif not inRange and foActive then
-                        EndFakeOut()
-                    end
-                end)
-            end
-        end)
 
         -- Cleanup on close
         ScreenGui.Destroying:Connect(function()
