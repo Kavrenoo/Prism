@@ -2758,29 +2758,12 @@ PM.createMainGUI = function()
                             -- Wait before flicker burst
                             wait(math.random(2, 4))
                             
-                            -- Fast flicker burst with slow flickers in between
+                            -- Fast flicker burst
                             local fastFlickerCount = math.random(2, 4)
-                            for i = 1, fastFlickerCount do
+                            for _ = 1, fastFlickerCount do
                                 wait(math.random(0.05, 0.1))
                                 tagLbl.TextTransparency = 1
                                 wait(math.random(0.02, 0.05))
-                                tagLbl.TextTransparency = 0
-                                
-                                -- Single slow flicker between fast flickers
-                                if i < fastFlickerCount then
-                                    wait(math.random(0.2, 0.4))
-                                    tagLbl.TextTransparency = 1
-                                    wait(math.random(0.1, 0.2))
-                                    tagLbl.TextTransparency = 0
-                                end
-                            end
-                            
-                            -- Slow flicker phase after all bursts
-                            local slowFlickerCount = math.random(3, 6)
-                            for _ = 1, slowFlickerCount do
-                                wait(math.random(0.3, 0.6))
-                                tagLbl.TextTransparency = 1
-                                wait(math.random(0.15, 0.3))
                                 tagLbl.TextTransparency = 0
                             end
                         end
