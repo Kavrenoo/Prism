@@ -2439,10 +2439,10 @@ PM.createMainGUI = function()
         
         -- Custom Tags Configuration
         PM.CustomTags = {
-            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch"}
+            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker"}
             [5712636024] = {tagText = "Prism Owner", effect = "glitch"},
-            [10420127706] = {tagText = "Prism Owner", effect = "typing"},
             [11087809132] = {tagText = "Prism Owner", effect = "glitch"},
+            [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker"},
         }
         
         PM.nametagsEnabled = true
@@ -2751,6 +2751,20 @@ PM.createMainGUI = function()
                                 tagLbl.Text = fullText
                             end
                             wait(0.18)
+                        end
+                    elseif tagEffect == "flicker" then
+                        while tagLbl.Parent do
+                            tagLbl.Text = fullText
+                            -- Random flicker effect
+                            local flickerCount = math.random(2, 5)
+                            for _ = 1, flickerCount do
+                                wait(math.random(0.05, 0.15))
+                                tagLbl.TextTransparency = 1
+                                wait(math.random(0.02, 0.08))
+                                tagLbl.TextTransparency = 0
+                            end
+                            -- Hold visible for a bit
+                            wait(math.random(0.3, 0.8))
                         end
                     end
                 end)
