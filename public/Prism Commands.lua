@@ -4260,41 +4260,6 @@ registerCommand("trip", "Trip your character", {}, function(args)
             root.AssemblyLinearVelocity = root.CFrame.LookVector * 30
         end
 
-        local function SetTrip(val, fromKeybind)
-            if val == tripOn then return end
-            tripOn = val
-            if val then
-                if fromKeybind then
-                    TripBtn.Text = "End"
-                    DoTrip()
-                else
-                    tripCountingDown = true
-                    tripCountdownTask = task.spawn(function()
-                        for i = 3, 1, -1 do
-                            if not tripOn then
-                                tripCountingDown = false
-                                return
-                            end
-                            TripBtn.Text = tostring(i)
-                            task.wait(1)
-                        end
-                        tripCountingDown = false
-                        if tripOn then
-                            TripBtn.Text = "End"
-                            DoTrip()
-                        end
-                    end)
-                end
-            else
-                TripBtn.Text = "Start"
-                TweenService:Create(TripBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
-                if tripCountdownTask then
-                    pcall(function() task.cancel(tripCountdownTask) end)
-                    tripCountdownTask = nil
-                end
-            end
-        end
-
         local BtnSection = Instance.new("Frame")
         BtnSection.Name = "BtnSection"
         BtnSection.Size = UDim2.new(1, 0, 0, 36)
@@ -4355,6 +4320,41 @@ registerCommand("trip", "Trip your character", {}, function(args)
         BindBtn.MouseLeave:Connect(function()
             TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
         end)
+
+        local function SetTrip(val, fromKeybind)
+            if val == tripOn then return end
+            tripOn = val
+            if val then
+                if fromKeybind then
+                    TripBtn.Text = "End"
+                    DoTrip()
+                else
+                    tripCountingDown = true
+                    tripCountdownTask = task.spawn(function()
+                        for i = 3, 1, -1 do
+                            if not tripOn then
+                                tripCountingDown = false
+                                return
+                            end
+                            TripBtn.Text = tostring(i)
+                            task.wait(1)
+                        end
+                        tripCountingDown = false
+                        if tripOn then
+                            TripBtn.Text = "End"
+                            DoTrip()
+                        end
+                    end)
+                end
+            else
+                TripBtn.Text = "Start"
+                TweenService:Create(TripBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+                if tripCountdownTask then
+                    pcall(function() task.cancel(tripCountdownTask) end)
+                    tripCountdownTask = nil
+                end
+            end
+        end
 
         TripBtn.MouseButton1Click:Connect(function()
             SetTrip(not tripOn, false)
