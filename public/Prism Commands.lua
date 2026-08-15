@@ -6737,7 +6737,7 @@ registerCommand("fly", "Fly around", {}, function(args)
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
         if not ok then ScreenGui.Parent = LocalPlayer.PlayerGui end
 
-        local MW, MH = 239, 148
+        local MW, MH = 220, 148
 
         local MainFrame = Instance.new("Frame")
         MainFrame.Name = "MainFrame"
