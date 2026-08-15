@@ -4075,14 +4075,12 @@ registerCommand("trip", "Trip your character", {}, function(args)
                 savedTripGUI = HttpService:JSONDecode(readfile(TRIP_GUI_FILE))
             end
         end)
-        local savedPos = savedTripGUI.position or {X = {Scale = 0, Offset = 900}, Y = {Scale = 0, Offset = 600}}
+        local savedPos = savedTripGUI.position or {X = {Scale = 0, Offset = 500}, Y = {Scale = 0, Offset = 500}}
         local savedMinimized = savedTripGUI.minimized or false
-        local savedKey = savedTripGUI.keybind
 
         local currentTripSettings = {
             position = savedPos,
-            minimized = savedMinimized,
-            keybind = savedKey
+            minimized = savedMinimized
         }
 
         local function SaveTripGUISettings()
@@ -4103,7 +4101,7 @@ registerCommand("trip", "Trip your character", {}, function(args)
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
         if not ok then ScreenGui.Parent = LocalPlayer.PlayerGui end
 
-        local MW, MH = 220, 88
+        local MW, MH = 220, 80
 
         local MainFrame = Instance.new("Frame")
         MainFrame.Name = "MainFrame"
@@ -4247,10 +4245,6 @@ registerCommand("trip", "Trip your character", {}, function(args)
         Padding.Parent = ContentFrame
 
         -- Trip logic
-        local tripOn = false
-        local tripCountingDown = false
-        local tripCountdownTask = nil
-
         local function DoTrip()
             local char = LocalPlayer.Character
             local hum = char and char:FindFirstChildOfClass("Humanoid")
@@ -4266,7 +4260,6 @@ registerCommand("trip", "Trip your character", {}, function(args)
         BtnSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         BtnSection.BackgroundTransparency = 0.4
         BtnSection.BorderSizePixel = 0
-        BtnSection.LayoutOrder = 1
         BtnSection.Parent = ContentFrame
 
         local BtnSectionCorner = Instance.new("UICorner")
@@ -4275,12 +4268,12 @@ registerCommand("trip", "Trip your character", {}, function(args)
 
         local TripBtn = Instance.new("TextButton")
         TripBtn.Name = "TripBtn"
-        TripBtn.Size = UDim2.new(0, 130, 0, 24)
-        TripBtn.Position = UDim2.new(0, 6, 0.5, -12)
+        TripBtn.Size = UDim2.new(1, -12, 0, 24)
+        TripBtn.Position = UDim2.new(0, 6, 0, 6)
         TripBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
         TripBtn.BackgroundTransparency = 0.4
         TripBtn.BorderSizePixel = 0
-        TripBtn.Text = "Start"
+        TripBtn.Text = "Trip"
         TripBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
         TripBtn.TextSize = 11
         TripBtn.Font = Enum.Font.GothamBold
@@ -4290,23 +4283,6 @@ registerCommand("trip", "Trip your character", {}, function(args)
         TripBtnCorner.CornerRadius = UDim.new(0, 6)
         TripBtnCorner.Parent = TripBtn
 
-        local BindBtn = Instance.new("TextButton")
-        BindBtn.Name = "BindBtn"
-        BindBtn.Size = UDim2.new(0, 52, 0, 24)
-        BindBtn.Position = UDim2.new(1, -58, 0.5, -12)
-        BindBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-        BindBtn.BackgroundTransparency = 0.4
-        BindBtn.BorderSizePixel = 0
-        BindBtn.Text = savedKey or "Bind"
-        BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
-        BindBtn.TextSize = 11
-        BindBtn.Font = Enum.Font.GothamBold
-        BindBtn.Parent = BtnSection
-
-        local BindBtnCorner = Instance.new("UICorner")
-        BindBtnCorner.CornerRadius = UDim.new(0, 6)
-        BindBtnCorner.Parent = BindBtn
-
         -- Hover effects
         TripBtn.MouseEnter:Connect(function()
             TweenService:Create(TripBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
@@ -4314,142 +4290,12 @@ registerCommand("trip", "Trip your character", {}, function(args)
         TripBtn.MouseLeave:Connect(function()
             TweenService:Create(TripBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
         end)
-        BindBtn.MouseEnter:Connect(function()
-            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
-        end)
-        BindBtn.MouseLeave:Connect(function()
-            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
-        end)
-
-        local function SetTrip(val, fromKeybind)
-            if val == tripOn then return end
-            tripOn = val
-            if val then
-                if fromKeybind then
-                    TripBtn.Text = "End"
-                    DoTrip()
-                else
-                    tripCountingDown = true
-                    tripCountdownTask = task.spawn(function()
-                        for i = 3, 1, -1 do
-                            if not tripOn then
-                                tripCountingDown = false
-                                return
-                            end
-                            TripBtn.Text = tostring(i)
-                            task.wait(1)
-                        end
-                        tripCountingDown = false
-                        if tripOn then
-                            TripBtn.Text = "End"
-                            DoTrip()
-                        end
-                    end)
-                end
-            else
-                TripBtn.Text = "Start"
-                TweenService:Create(TripBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
-                if tripCountdownTask then
-                    pcall(function() task.cancel(tripCountdownTask) end)
-                    tripCountdownTask = nil
-                end
-            end
-        end
 
         TripBtn.MouseButton1Click:Connect(function()
-            SetTrip(not tripOn, false)
+            DoTrip()
         end)
-
-        -- Keybind button (simplified, matching fly UI style)
-        local tripKey = nil
-        pcall(function()
-            tripKey = Enum.KeyCode[savedKey]
-        end)
-        local tripCapturing = false
-        local tripCaptureConn = nil
-        local tripGlobalConn = nil
-
-        local function UpdateBindDisplay()
-            if tripKey then
-                BindBtn.Text = tripKey.Name
-            else
-                BindBtn.Text = "Bind"
-            end
-        end
-        UpdateBindDisplay()
-
-        local function SaveTripKey()
-            currentTripSettings.keybind = tripKey and tripKey.Name or "T"
-            SaveTripGUISettings()
-        end
-
-        local function CancelCapture()
-            tripCapturing = false
-            tripKey = nil
-            if tripCaptureConn then tripCaptureConn:Disconnect(); tripCaptureConn = nil end
-            UpdateBindDisplay()
-            SaveTripKey()
-        end
-
-        local function EnableGlobalTrip()
-            if tripGlobalConn then return end
-            tripGlobalConn = UserInputService.InputBegan:Connect(function(input, gpe)
-                if gpe or tripCapturing then return end
-                if UserInputService:GetFocusedTextBox() then return end
-                if input.UserInputType == Enum.UserInputType.Keyboard and tripKey and input.KeyCode == tripKey then
-                    SetTrip(not tripOn, true)
-                end
-            end)
-        end
-
-        BindBtn.MouseButton1Click:Connect(function()
-            tripCapturing = true
-            if tripGlobalConn then tripGlobalConn:Disconnect(); tripGlobalConn = nil end
-            BindBtn.Text = "..."
-            BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
-
-            if tripCaptureConn then tripCaptureConn:Disconnect() end
-            tripCaptureConn = UserInputService.InputBegan:Connect(function(input, gpe)
-                if gpe then return end
-                if not tripCapturing then return end
-                if input.UserInputType == Enum.UserInputType.Keyboard then
-                    if input.KeyCode == Enum.KeyCode.Backspace then
-                        tripKey = nil
-                        tripCapturing = false
-                        tripCaptureConn:Disconnect(); tripCaptureConn = nil
-                        UpdateBindDisplay()
-                        BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
-                        SaveTripKey()
-                        EnableGlobalTrip()
-                    else
-                        tripKey = input.KeyCode
-                        tripCapturing = false
-                        tripCaptureConn:Disconnect(); tripCaptureConn = nil
-                        UpdateBindDisplay()
-                        BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
-                        SaveTripKey()
-                        EnableGlobalTrip()
-                    end
-                elseif input.UserInputType == Enum.UserInputType.MouseButton1 or
-                       input.UserInputType == Enum.UserInputType.MouseButton2 or
-                       input.UserInputType == Enum.UserInputType.MouseButton3 then
-                    CancelCapture()
-                    BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
-                    EnableGlobalTrip()
-                end
-            end)
-        end)
-
-        EnableGlobalTrip()
 
         CloseBtn.MouseButton1Click:Connect(function()
-            tripCapturing = false
-            if tripCountdownTask then
-                pcall(function() task.cancel(tripCountdownTask) end)
-                tripCountdownTask = nil
-            end
-            if tripCaptureConn then tripCaptureConn:Disconnect(); tripCaptureConn = nil end
-            if tripGlobalConn then tripGlobalConn:Disconnect(); tripGlobalConn = nil end
             ScreenGui:Destroy()
         end)
     end)
