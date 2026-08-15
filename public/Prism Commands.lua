@@ -6979,7 +6979,7 @@ registerCommand("fly", "Fly around", {}, function(args)
         FlyBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
         FlyBtn.BackgroundTransparency = 0.4
         FlyBtn.BorderSizePixel = 0
-        FlyBtn.Text = "Start"
+        FlyBtn.Text = "Fly"
         FlyBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
         FlyBtn.TextSize = 11
         FlyBtn.Font = Enum.Font.GothamBold
@@ -7182,10 +7182,6 @@ registerCommand("fly", "Fly around", {}, function(args)
         -- Fly logic
         local function StopFly()
             flyOn = false
-            if flyCountdownTask then
-                pcall(function() task.cancel(flyCountdownTask) end)
-                flyCountdownTask = nil
-            end
             UnmuteFootsteps()
             if flyConn then flyConn:Disconnect(); flyConn = nil end
             if flyLoopConn then flyLoopConn:Disconnect(); flyLoopConn = nil end
@@ -7268,34 +7264,12 @@ registerCommand("fly", "Fly around", {}, function(args)
         local flyCountingDown = false
         local flyCountdownTask = nil
 
-        local function SetFly(val, fromKeybind)
+        local function SetFly(val)
             if val == flyOn then return end
             flyOn = val
             if val then
-                if fromKeybind then
-                    FlyBtn.Text = "End"
-                    StartFly()
-                else
-                    flyCountingDown = true
-                    flyCountdownTask = task.spawn(function()
-                        for i = 3, 1, -1 do
-                            if not flyOn then
-                                flyCountingDown = false
-                                return
-                            end
-                            FlyBtn.Text = tostring(i)
-                            task.wait(1)
-                        end
-                        flyCountingDown = false
-                        if flyOn then
-                            FlyBtn.Text = "End"
-                            StartFly()
-                        end
-                    end)
-                end
+                StartFly()
             else
-                FlyBtn.Text = "Start"
-                TweenService:Create(FlyBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
                 StopFly()
             end
             PM.Fly = PM.Fly or {}
@@ -7304,18 +7278,16 @@ registerCommand("fly", "Fly around", {}, function(args)
         end
 
         FlyBtn.MouseButton1Click:Connect(function()
-            SetFly(not flyOn, false)
+            SetFly(not flyOn)
         end)
 
         -- Auto-start if previously enabled
         if PM.Fly.enabled then
-            FlyBtn.Text = "End"
             SetFly(true)
         end
 
         charConn = LocalPlayer.CharacterAdded:Connect(function()
             StopFly()
-            if FlyBtn then FlyBtn.Text = "Start" end
         end)
 
         ScreenGui.Destroying:Connect(function()
@@ -7353,7 +7325,7 @@ registerCommand("fly", "Fly around", {}, function(args)
                 if gpe or flyCapturing then return end
                 if UserInputService:GetFocusedTextBox() then return end
                 if input.UserInputType == Enum.UserInputType.Keyboard and flyKey and input.KeyCode == flyKey then
-                    SetFly(not flyOn, true)
+                    SetFly(not flyOn)
                 end
             end)
         end
