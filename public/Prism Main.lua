@@ -2442,6 +2442,7 @@ PM.createMainGUI = function()
             -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch"}
             [5712636024] = {tagText = "Prism Owner", effect = "glitch"},
             [10420127706] = {tagText = "Prism Owner", effect = "typing"},
+            [11087809132] = {tagText = "Prism Owner", effect = "glitch"},
         }
         
         PM.nametagsEnabled = true
