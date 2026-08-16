@@ -1091,8 +1091,8 @@ registerCommand("rewind", "Rewind time", {}, function(args)
 
         local BindBtn = Instance.new("TextButton")
         BindBtn.Name = "BindBtn"
-        BindBtn.Size = UDim2.new(0, 50, 0, 24)
-        BindBtn.Position = UDim2.new(1, -56, 0.5, -12)
+        BindBtn.Size = UDim2.new(0, 52, 0, 24)
+        BindBtn.Position = UDim2.new(1, -58, 0.5, -12)
         BindBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
         BindBtn.BackgroundTransparency = 0.4
         BindBtn.BorderSizePixel = 0
@@ -1224,7 +1224,7 @@ registerCommand("rewind", "Rewind time", {}, function(args)
 
         local TogglePill = Instance.new("Frame")
         TogglePill.Size = UDim2.new(0, 36, 0, 18)
-        TogglePill.Position = UDim2.new(1, -36, 0.5, -9)
+        TogglePill.Position = UDim2.new(1, -58, 0.5, -9)
         TogglePill.BackgroundColor3 = PM.Rewind.keyStyle == "Toggle" and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50)
         TogglePill.BorderSizePixel = 0
         TogglePill.Parent = ToggleSection
