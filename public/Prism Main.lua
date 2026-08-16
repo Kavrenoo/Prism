@@ -2695,6 +2695,28 @@ PM.createMainGUI = function()
                 end)
             end
             
+            -- Distance-based scaling (LOD)
+            local isFar = false
+            RunService.Heartbeat:Connect(function()
+                if not bill.Parent then return end
+                pcall(function()
+                    if LP.Character and LP.Character:FindFirstChild("HumanoidRootPart")
+                        and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+                        local dist = (LP.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude
+                        local shouldBeFar = dist > 50
+                        if shouldBeFar ~= isFar then
+                            isFar = shouldBeFar
+                            tagLbl.Visible = not isFar
+                            TweenService:Create(bill, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                                {Size = isFar and UDim2.fromOffset(40, 40) or UDim2.fromOffset(250, 75)}):Play()
+                            TweenService:Create(pfp, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                                {Position = isFar and UDim2.fromScale(0.1, 0.1) or UDim2.fromScale(0.05, 0.167),
+                                Size = isFar and UDim2.fromScale(0.8, 0.8) or UDim2.fromScale(0.215, 0.7)}):Play()
+                        end
+                    end
+                end)
+            end)
+            
 
             
             local userLbl = Instance.new("TextLabel")
@@ -2731,34 +2753,6 @@ PM.createMainGUI = function()
                 if myHRP and targetHRP then
                     myHRP.CFrame = targetHRP.CFrame + Vector3.new(0, 3, 0)
                 end
-            end)
-            
-            -- Distance LOD: beyond 50 studs shrink to just the pfp dot
-            local RunService = game:GetService("RunService")
-            RunService.Heartbeat:Connect(function(dt)
-                if not bill.Parent then return end
-                pcall(function()
-                    -- Keep adornee updated
-                    if plr.Character and plr.Character:FindFirstChild("Head") then
-                        bill.Adornee = plr.Character.Head
-                    end
-                    -- Distance check
-                    if LP.Character and LP.Character:FindFirstChild("HumanoidRootPart")
-                        and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
-                        local dist = (LP.Character.HumanoidRootPart.Position
-                            - plr.Character.HumanoidRootPart.Position).Magnitude
-                        local isFar = dist > 50
-                        -- Toggle visibility of text labels
-                        tagLbl.Visible = not isFar
-                        if userLbl then userLbl.Visible = not isFar end
-                        -- Animate size transition
-                        TweenService:Create(bill, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            {Size = isFar and UDim2.fromOffset(40, 40) or UDim2.fromOffset(250, 75)}):Play()
-                        TweenService:Create(pfp, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            {Position = isFar and UDim2.fromScale(0.1, 0.1) or UDim2.fromScale(0.05, 0.167),
-                             Size = isFar and UDim2.fromScale(0.8, 0.8) or UDim2.fromScale(0.215, 0.7)}):Play()
-                    end
-                end)
             end)
             
             return bill
