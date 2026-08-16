@@ -14,8 +14,6 @@
     view player inventory
     add / unadd
     block / unblock
-    inspect
-    view
     anaimation packs
     animation replacer (like axon)
     animation logger
@@ -543,7 +541,7 @@ PM.View = {
     leavingConnection = nil
 }
 
-registerCommand("view", "View a player (no GUI)", {}, function(args)
+registerCommand("view", "View a player", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
     
@@ -648,6 +646,58 @@ registerCommand("unview", "Stop viewing a player", {}, function(args)
     if char and char:FindFirstChild("Humanoid") then
         camera.CameraSubject = char.Humanoid
     end
+end)
+
+registerCommand("inspect", "Inspect a player", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+    
+    local q = targetName:lower()
+    local target = nil
+    
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+    
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    
+    if not target then return end
+    
+    local tChar = target.Character
+    if not tChar then return end
+    
+    local th = tChar:FindFirstChildOfClass("Humanoid")
+    if not th then return end
+    
+    pcall(function()
+        local desc = th:GetAppliedDescription()
+        game:GetService("GuiService"):InspectPlayerFromHumanoidDescription(desc, target.Name)
+    end)
 end)
 
 -- Hidden players state
