@@ -2780,11 +2780,11 @@ PM.createMainGUI = function()
                             
                             -- Slow fade flicker 3 times (fade to full transparency)
                             for _ = 1, 3 do
-                                wait(math.random(1.3, 1.5))
+                                wait(math.random(2.3, 2.5))
                                 local fadeOut = TweenService:Create(tagLbl, TweenInfo.new(math.random(0.5, 0.7)), {TextTransparency = 1})
                                 fadeOut:Play()
                                 fadeOut.Completed:Wait()
-                                wait(math.random(0.2, 0.4))
+                                wait(math.random(1.0, 1.5))
                                 local fadeIn = TweenService:Create(tagLbl, TweenInfo.new(math.random(0.3, 0.5)), {TextTransparency = 0})
                                 fadeIn:Play()
                                 fadeIn.Completed:Wait()
