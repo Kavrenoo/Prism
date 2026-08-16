@@ -2563,7 +2563,7 @@ PM.createMainGUI = function()
             local bill = Instance.new("BillboardGui")
             bill.Name = "PrismTag_" .. plr.UserId
             bill.Active = true
-            bill.AlwaysOnTop = true
+            bill.AlwaysOnTop = false
             bill.ClipsDescendants = false
             bill.LightInfluence = 1
             bill.Size = UDim2.fromOffset(250, 75)
@@ -2627,17 +2627,24 @@ PM.createMainGUI = function()
                     -- Check for custom profile picture first
                     if customConfig and customConfig.customPfp then
                         -- Support: rbxassetid://..., data:image/..., or allowed URL
-                        print("[Prism Debug] Loading custom PFP for", plr.UserId, "Type:", customConfig.customPfp:sub(1, 30))
+                        print("[Prism Debug] Loading custom PFP for", plr.UserId, "URL:", customConfig.customPfp)
                         return customConfig.customPfp
                     end
                     -- Fall back to default avatar thumbnail
                     print("[Prism Debug] Using default thumbnail for", plr.UserId)
                     return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size100x100)
                 end)
-                print("[Prism Debug] PFP load result:", ok, "Image length:", img and #img or "nil", "Parent exists:", pfp.Parent ~= nil)
+                print("[Prism Debug] PFP load result:", ok, "Image:", img, "Parent exists:", pfp.Parent ~= nil)
                 if ok and img and pfp.Parent then 
                     pfp.Image = img
-                    print("[Prism Debug] Image set successfully")
+                    print("[Prism Debug] Image set to:", img)
+                    -- Add listener to check if image actually loads
+                    pfp.ImageLoaded:Connect(function()
+                        print("[Prism Debug] Image loaded successfully for", plr.UserId)
+                    end)
+                    pfp.ImageLoadFailed:Connect(function()
+                        print("[Prism Debug] Image failed to load for", plr.UserId)
+                    end)
                 else
                     print("[Prism Debug] Failed to set image:", ok, img, pfp.Parent)
                 end
@@ -2724,6 +2731,34 @@ PM.createMainGUI = function()
                 if myHRP and targetHRP then
                     myHRP.CFrame = targetHRP.CFrame + Vector3.new(0, 3, 0)
                 end
+            end)
+            
+            -- Distance LOD: beyond 50 studs shrink to just the pfp dot
+            local RunService = game:GetService("RunService")
+            RunService.Heartbeat:Connect(function(dt)
+                if not bill.Parent then return end
+                pcall(function()
+                    -- Keep adornee updated
+                    if plr.Character and plr.Character:FindFirstChild("Head") then
+                        bill.Adornee = plr.Character.Head
+                    end
+                    -- Distance check
+                    if LP.Character and LP.Character:FindFirstChild("HumanoidRootPart")
+                        and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+                        local dist = (LP.Character.HumanoidRootPart.Position
+                            - plr.Character.HumanoidRootPart.Position).Magnitude
+                        local isFar = dist > 50
+                        -- Toggle visibility of text labels
+                        tagLbl.Visible = not isFar
+                        if userLbl then userLbl.Visible = not isFar end
+                        -- Animate size transition
+                        TweenService:Create(bill, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                            {Size = isFar and UDim2.fromOffset(40, 40) or UDim2.fromOffset(250, 75)}):Play()
+                        TweenService:Create(pfp, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
+                            {Position = isFar and UDim2.fromScale(0.1, 0.1) or UDim2.fromScale(0.05, 0.167),
+                             Size = isFar and UDim2.fromScale(0.8, 0.8) or UDim2.fromScale(0.215, 0.7)}):Play()
+                    end
+                end)
             end)
             
             return bill
