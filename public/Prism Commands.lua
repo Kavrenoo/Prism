@@ -1,3 +1,35 @@
+--[[ missing
+
+    rewind
+    noclip
+    invisibility
+    headsit
+    backpack
+    face bang
+    doggy
+    drag
+    bang
+    stand
+    view player friends
+    view player inventory
+    add / unadd
+    block / unblock
+    inspect
+    view
+    anaimation packs
+    animation replacer (like axon)
+    animation logger
+    animation speeds
+    move while emoting
+    auto execute on game switch / server hop / rejoin
+    shaders (with presets / time of day control / all axons shader controls)
+    anti vcb
+    reanim
+    anti admin
+    anti fling
+    anti headsit / facebang / etc
+
+]]
 -- Wait for PrismMain to be initialized by Main.lua
 local PM = getgenv().PrismMain
 if not PM then
@@ -7056,7 +7088,7 @@ registerCommand("fly", "Fly around", {}, function(args)
         local QELabel = Instance.new("TextLabel")
         QELabel.Size = UDim2.new(1, -48, 1, 0)
         QELabel.BackgroundTransparency = 1
-        QELabel.Text = "QE Up/Down"
+        QELabel.Text = "E Up / Q Down"
         QELabel.TextColor3 = Color3.fromRGB(220, 220, 220)
         QELabel.TextSize = 12
         QELabel.Font = Enum.Font.Gotham
@@ -7186,8 +7218,8 @@ registerCommand("fly", "Fly around", {}, function(args)
                 if UserInputService:IsKeyDown(Enum.KeyCode.A) then dir = dir - cam.CFrame.RightVector end
                 if UserInputService:IsKeyDown(Enum.KeyCode.D) then dir = dir + cam.CFrame.RightVector end
                 if flyQE then
-                    if UserInputService:IsKeyDown(Enum.KeyCode.Q) then dir = dir + Vector3.new(0, 1, 0) end
-                    if UserInputService:IsKeyDown(Enum.KeyCode.E) then dir = dir - Vector3.new(0, 1, 0) end
+                    if UserInputService:IsKeyDown(Enum.KeyCode.E) then dir = dir + Vector3.new(0, 1, 0) end
+                    if UserInputService:IsKeyDown(Enum.KeyCode.Q) then dir = dir - Vector3.new(0, 1, 0) end
                 end
                 if dir.Magnitude > 0 then dir = dir.Unit * flySpeed end
                 bv.Velocity = dir
