@@ -2627,12 +2627,20 @@ PM.createMainGUI = function()
                     -- Check for custom profile picture first
                     if customConfig and customConfig.customPfp then
                         -- Support: rbxassetid://..., data:image/..., or allowed URL
+                        print("[Prism Debug] Loading custom PFP for", plr.UserId, "Type:", customConfig.customPfp:sub(1, 30))
                         return customConfig.customPfp
                     end
                     -- Fall back to default avatar thumbnail
+                    print("[Prism Debug] Using default thumbnail for", plr.UserId)
                     return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size100x100)
                 end)
-                if ok and img and pfp.Parent then pfp.Image = img end
+                print("[Prism Debug] PFP load result:", ok, "Image length:", img and #img or "nil", "Parent exists:", pfp.Parent ~= nil)
+                if ok and img and pfp.Parent then 
+                    pfp.Image = img
+                    print("[Prism Debug] Image set successfully")
+                else
+                    print("[Prism Debug] Failed to set image:", ok, img, pfp.Parent)
+                end
             end)
             
             local tagLbl = Instance.new("TextLabel")
