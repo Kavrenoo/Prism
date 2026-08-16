@@ -461,6 +461,23 @@ registerCommand("serverhopany", "Join any random server", {}, function(args)
     end
 end, true)
 
+registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(args)
+    local VoiceChatService = game:GetService("VoiceChatService")
+    local VoiceChatInternal = game:GetService("VoiceChatInternal")
+    
+    pcall(function()
+        VoiceChatService:rejoinVoice()
+    end)
+    
+    task.wait(0.02)
+    
+    pcall(function()
+        for _, connection in pairs(getconnections(VoiceChatInternal.StateChanged)) do
+            connection:Disable()
+        end
+    end)
+end, true)
+
 -- Hidden players state
 PM.HiddenPlayers = {}
 
