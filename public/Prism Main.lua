@@ -2439,10 +2439,10 @@ PM.createMainGUI = function()
         
         -- Custom Tags Configuration
         PM.CustomTags = {
-            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker"}
+            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker" | "flicker2"}
             [5712636024] = {tagText = "Prism Owner", effect = "glitch"},
             [11087809132] = {tagText = "Prism Owner", effect = "glitch"},
-            [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker"},
+            [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker2"},
         }
         
         PM.nametagsEnabled = true
@@ -2765,6 +2765,32 @@ PM.createMainGUI = function()
                             end
                             
                             -- Fast flicker burst
+                            local fastFlickerCount = math.random(2, 4)
+                            for _ = 1, fastFlickerCount do
+                                wait(math.random(0.05, 0.1))
+                                tagLbl.TextTransparency = 1
+                                wait(math.random(0.02, 0.05))
+                                tagLbl.TextTransparency = 0
+                            end
+                        end
+                    elseif tagEffect == "flicker2" then
+                        local TweenService = game:GetService("TweenService")
+                        while tagLbl.Parent do
+                            tagLbl.Text = fullText
+                            
+                            -- Slow fade flicker 3 times
+                            for _ = 1, 3 do
+                                wait(math.random(1.3, 1.5))
+                                local fadeOut = TweenService:Create(tagLbl, TweenInfo.new(math.random(0.5, 0.7)), {TextTransparency = 1})
+                                fadeOut:Play()
+                                fadeOut.Completed:Wait()
+                                wait(math.random(0.2, 0.4))
+                                local fadeIn = TweenService:Create(tagLbl, TweenInfo.new(math.random(0.3, 0.5)), {TextTransparency = 0})
+                                fadeIn:Play()
+                                fadeIn.Completed:Wait()
+                            end
+                            
+                            -- Fast flicker burst (same as flicker)
                             local fastFlickerCount = math.random(2, 4)
                             for _ = 1, fastFlickerCount do
                                 wait(math.random(0.05, 0.1))
