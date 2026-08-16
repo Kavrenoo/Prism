@@ -68,58 +68,6 @@ PM.C = {
 }
 local C = PM.C
 
--- Prism Presence System
-PM.Presence = {
-    API_BASE = "https://prismscript.vercel.app/api",
-    registerInterval = 120, -- 2 minutes
-    lastRegister = 0,
-    enabled = true
-}
-
-local function registerPresence()
-    if not PM.Presence.enabled then return end
-    
-    local HttpService = game:GetService("HttpService")
-    local userId = LP.UserId
-    local username = LP.Name
-    local displayName = LP.DisplayName
-    local placeId = game.PlaceId
-    local jobId = game.JobId
-    
-    local success, result = pcall(function()
-        local response = HttpService:RequestAsync({
-            Url = PM.Presence.API_BASE .. "/register",
-            Method = "POST",
-            Headers = {
-                ["Content-Type"] = "application/json"
-            },
-            Body = HttpService:JSONEncode({
-                userId = userId,
-                username = username,
-                displayName = displayName,
-                placeId = placeId,
-                jobId = jobId
-            })
-        })
-        return response
-    end)
-    
-    if success then
-        PM.Presence.lastRegister = tick()
-    end
-end
-
--- Initial registration
-task.spawn(registerPresence)
-
--- Periodic registration
-task.spawn(function()
-    while true do
-        task.wait(PM.Presence.registerInterval)
-        registerPresence()
-    end
-end)
-
 PM.createMainGUI = function()
     if PM.Svc.CoreGui:FindFirstChild("PrismMainGui") then return end
     
@@ -1456,14 +1404,22 @@ PM.createMainGUI = function()
         spawn(function()
             local HttpService = game:GetService("HttpService")
             local TeleportService = game:GetService("TeleportService")
-            local USERS_URL = "https://prismscript.vercel.app/api/users"
+            local SERVERS_URL = "https://prismscript.vercel.app/api/prism/servers"
+            local PLAYER_TTL = 35
             local currentJoinFilter = "All Games"
             local cachedUsers = {}
             
             local function fetchPrismUsers()
+                local url
+                if currentJoinFilter == "This Game" then
+                    url = SERVERS_URL .. "/" .. tostring(game.PlaceId) .. ".json"
+                else
+                    url = SERVERS_URL .. "/"
+                end
+                
                 local ok, result = pcall(function()
                     return request({
-                        Url = USERS_URL,
+                        Url = url,
                         Method = "GET"
                     })
                 end)
@@ -1480,32 +1436,74 @@ PM.createMainGUI = function()
                     return {}
                 end
                 
-                local users = data.users or {}
+                -- API returns { servers: { placeId: { jobId: { userId: data } } } }
+                -- Unwrap the servers key if present
+                local serversData = data.servers or data
+                
+                local users = {}
+                local now = os.time()
                 local PlayersService = game:GetService("Players")
                 local LocalPlayer = PlayersService.LocalPlayer
                 
-                -- Filter out current user
-                local filteredUsers = {}
-                for _, user in ipairs(users) do
-                    if user.userId ~= LocalPlayer.UserId then
-                        -- Add game name (we'll need to fetch this or use a fallback)
-                        user.gameName = "Unknown Game"
-                        table.insert(filteredUsers, user)
+                if currentJoinFilter == "This Game" then
+                    -- Data structure: { servers: { placeId: { jobId: { userId: data } } } }
+                    local placeData = serversData[tostring(game.PlaceId)] or serversData[game.PlaceId]
+                    if type(placeData) == "table" then
+                        for jobId, jobData in pairs(placeData) do
+                            if type(jobData) == "table" then
+                                for userIdStr, userInfo in pairs(jobData) do
+                                    local userId = tonumber(userIdStr)
+                                    if userId and userId ~= LocalPlayer.UserId and type(userInfo) == "table" then
+                                        local timestamp = tonumber(userInfo.timestamp) or 0
+                                        local age = now - timestamp
+                                        if age <= PLAYER_TTL then
+                                            table.insert(users, {
+                                                userId = userId,
+                                                username = userInfo.username or "Unknown",
+                                                displayName = userInfo.displayName or userInfo.username or "Unknown",
+                                                gameName = userInfo.gameName or "Unknown",
+                                                placeId = game.PlaceId,
+                                                jobId = jobId,
+                                                timestamp = userInfo.timestamp
+                                            })
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                else
+                    for placeIdStr, placeData in pairs(serversData) do
+                        if type(placeData) == "table" then
+                            for jobId, jobData in pairs(placeData) do
+                                if type(jobData) == "table" then
+                                    for userIdStr, userInfo in pairs(jobData) do
+                                        local userId = tonumber(userIdStr)
+                                        local placeId = tonumber(placeIdStr)
+                                        if userId and userId ~= LocalPlayer.UserId and placeId and type(userInfo) == "table" then
+                                            local age = now - (tonumber(userInfo.timestamp) or 0)
+                                            if age <= PLAYER_TTL then
+                                                table.insert(users, {
+                                                    userId = userId,
+                                                    username = userInfo.username or "Unknown",
+                                                    displayName = userInfo.displayName or userInfo.username or "Unknown",
+                                                    gameName = userInfo.gameName or "Unknown",
+                                                    placeId = placeId,
+                                                    jobId = jobId,
+                                                    timestamp = userInfo.timestamp
+                                                })
+                                            end
+                                        end
+                                    end
+                                end
+                            end
+                        end
                     end
                 end
                 
-                -- Apply filter
-                if currentJoinFilter == "This Game" then
-                    filteredUsers = {}
-                    for _, user in ipairs(users) do
-                        if user.placeId == game.PlaceId and user.userId ~= LocalPlayer.UserId then
-                            user.gameName = "This Game"
-                            table.insert(filteredUsers, user)
-                        end
-                    end
-                elseif currentJoinFilter == "Friends" then
+                if currentJoinFilter == "Friends" then
                     local friendsOnly = {}
-                    for _, user in ipairs(filteredUsers) do
+                    for _, user in ipairs(users) do
                         local success, isFriend = pcall(function()
                             return LocalPlayer:IsFriendsWith(user.userId)
                         end)
@@ -1513,14 +1511,14 @@ PM.createMainGUI = function()
                             table.insert(friendsOnly, user)
                         end
                     end
-                    filteredUsers = friendsOnly
+                    users = friendsOnly
                 end
                 
-                table.sort(filteredUsers, function(a, b)
+                table.sort(users, function(a, b)
                     return (a.username or ""):lower() < (b.username or ""):lower()
                 end)
                 
-                return filteredUsers
+                return users
             end
             
             local function renderUsers(users, searchQuery)
@@ -1590,7 +1588,7 @@ PM.createMainGUI = function()
                         Size = UDim2.new(1, -110, 0, 12),
                         Position = UDim2.new(0, 48, 0, 20),
                         BackgroundTransparency = 1,
-                        Text = isCurrentServer and "Same Server" or (isCurrentGame and "Same Game" or "Different Game"),
+                        Text = user.gameName or "Unknown",
                         TextColor3 = isCurrentServer and Color3.fromRGB(140, 200, 140) or (isCurrentGame and Color3.fromRGB(180, 180, 200) or Color3.fromRGB(140, 140, 140)),
                         TextSize = 9,
                         Font = Enum.Font.Gotham,
