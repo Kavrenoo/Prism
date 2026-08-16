@@ -7544,9 +7544,6 @@ end
 
 -- Execute auto exec commands on startup
 PM.executeAutoExecCommands = function()
-    -- Wait for GUI to fully load
-    task.wait(1)
-    
     -- Check if auto execute is enabled globally
     if PM.autoExecuteCommands == false then return end
     
@@ -7564,7 +7561,7 @@ PM.executeAutoExecCommands = function()
 end
 
 -- Populate panels after this file loads
-task.delay(0.5, function()
+local function initPanels()
     -- Wait for Main.lua to create the UI functions if needed
     local retries = 0
     while (not PM.createCommandsPanel or not PM.createSettingsPanel) and retries < 20 do
@@ -7596,6 +7593,8 @@ task.delay(0.5, function()
     
     -- Execute auto exec commands after everything is loaded
     PM.executeAutoExecCommands()
-end)
+end
+
+initPanels()
 
 return PM.Commands
