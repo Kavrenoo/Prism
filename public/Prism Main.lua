@@ -2440,8 +2440,8 @@ PM.createMainGUI = function()
         -- Custom Tags Configuration
         PM.CustomTags = {
             -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker", customPfp = "URL"}
-            [5712636024] = {tagText = "Prism Owner", effect = "glitch", customPfp = "https://prismscript.vercel.app/api/pfp/8241-black-and-white-cat-828907098.jpg"},
-            [11087809132] = {tagText = "Prism Owner", effect = "glitch", customPfp = "https://prismscript.vercel.app/api/pfp/8241-black-and-white-cat-828907098.jpg"},
+            [5712636024] = {tagText = "Prism Owner", effect = "glitch", customPfp = "https://raw.githubusercontent.com/Kavrenoo/Prism/main/nametag%20profile%20pictures/8241-black-and-white-cat-828907098.jpg"},
+            [11087809132] = {tagText = "Prism Owner", effect = "glitch", customPfp = "https://raw.githubusercontent.com/Kavrenoo/Prism/main/nametag%20profile%20pictures/8241-black-and-white-cat-828907098.jpg"},
             [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker"},
         }
         
