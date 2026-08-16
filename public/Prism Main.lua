@@ -2755,8 +2755,11 @@ PM.createMainGUI = function()
                     elseif tagEffect == "flicker" then
                         while tagLbl.Parent do
                             tagLbl.Text = fullText
-                            -- Wait before flicker burst
-                            wait(math.random(2, 4))
+                            -- Slow flicker before fast burst
+                            wait(math.random(0.2, 0.4))
+                            tagLbl.TextTransparency = 1
+                            wait(math.random(0.1, 0.2))
+                            tagLbl.TextTransparency = 0
                             
                             -- Fast flicker burst with slow flicker between each
                             local fastFlickerCount = math.random(2, 4)
@@ -2766,13 +2769,7 @@ PM.createMainGUI = function()
                                 wait(math.random(0.02, 0.05))
                                 tagLbl.TextTransparency = 0
                                 
-                                -- Slow flicker between fast flickers
-                                if i < fastFlickerCount then
-                                    wait(math.random(0.2, 0.4))
-                                    tagLbl.TextTransparency = 1
-                                    wait(math.random(0.1, 0.2))
-                                    tagLbl.TextTransparency = 0
-                                end
+
                             end
                         end
                     end
