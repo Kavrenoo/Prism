@@ -1074,7 +1074,7 @@ registerCommand("rewind", "Rewind time", {}, function(args)
 
         local RunBtn = Instance.new("TextButton")
         RunBtn.Name = "RunBtn"
-        RunBtn.Size = UDim2.new(0, 145, 0, 24)
+        RunBtn.Size = UDim2.new(0, 130, 0, 24)
         RunBtn.Position = UDim2.new(0, 6, 0.5, -12)
         RunBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
         RunBtn.BackgroundTransparency = 0.4
@@ -1091,8 +1091,8 @@ registerCommand("rewind", "Rewind time", {}, function(args)
 
         local BindBtn = Instance.new("TextButton")
         BindBtn.Name = "BindBtn"
-        BindBtn.Size = UDim2.new(0, 52, 0, 24)
-        BindBtn.Position = UDim2.new(1, -58, 0.5, -12)
+        BindBtn.Size = UDim2.new(0, 50, 0, 24)
+        BindBtn.Position = UDim2.new(1, -56, 0.5, -12)
         BindBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
         BindBtn.BackgroundTransparency = 0.4
         BindBtn.BorderSizePixel = 0
@@ -1140,34 +1140,48 @@ registerCommand("rewind", "Rewind time", {}, function(args)
             BindBtn.Text = PM.Rewind.key and PM.Rewind.key.Name or "Bind"
         end
 
+        local function CancelCapture()
+            PM.Rewind.capturing = false
+            PM.Rewind.key = nil
+            if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
+            UpdateKeyBtn()
+            SaveRewindState()
+        end
+
         BindBtn.MouseButton1Click:Connect(function()
             PM.Rewind.capturing = true
             if PM.Rewind.globalConn then PM.Rewind.globalConn:Disconnect(); PM.Rewind.globalConn = nil end
             if PM.Rewind.keyEndConn then PM.Rewind.keyEndConn:Disconnect(); PM.Rewind.keyEndConn = nil end
             BindBtn.Text = "..."
+            BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+
+            if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect() end
             PM.Rewind.captureConn = UserInputService.InputBegan:Connect(function(input, gpe)
                 if gpe then return end
                 if not PM.Rewind.capturing then return end
                 if input.UserInputType == Enum.UserInputType.Keyboard then
-                    if input.KeyCode == Enum.KeyCode.Backspace or input.KeyCode == Enum.KeyCode.Escape then
+                    if input.KeyCode == Enum.KeyCode.Backspace then
                         PM.Rewind.key = nil
                         PM.Rewind.capturing = false
-                        if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
+                        PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil
                         UpdateKeyBtn()
+                        BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
                         SaveRewindState()
                         RewindEnableGlobal()
                     else
                         PM.Rewind.key = input.KeyCode
                         PM.Rewind.capturing = false
-                        if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
+                        PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil
                         UpdateKeyBtn()
+                        BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
                         SaveRewindState()
                         RewindEnableGlobal()
                     end
-                elseif input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.MouseButton2 or input.UserInputType == Enum.UserInputType.MouseButton3 then
-                    PM.Rewind.capturing = false
-                    if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
-                    UpdateKeyBtn()
+                elseif input.UserInputType == Enum.UserInputType.MouseButton1 or
+                       input.UserInputType == Enum.UserInputType.MouseButton2 or
+                       input.UserInputType == Enum.UserInputType.MouseButton3 then
+                    CancelCapture()
+                    BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
                     RewindEnableGlobal()
                 end
             end)
