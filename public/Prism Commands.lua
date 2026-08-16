@@ -1058,13 +1058,198 @@ registerCommand("rewind", "Rewind time", {}, function(args)
         ListLayout.Padding = UDim.new(0, 6)
         ListLayout.Parent = ContentFrame
 
+        -- Action Buttons
+        local BtnSection = Instance.new("Frame")
+        BtnSection.Name = "BtnSection"
+        BtnSection.Size = UDim2.new(1, 0, 0, 36)
+        BtnSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        BtnSection.BackgroundTransparency = 0.4
+        BtnSection.BorderSizePixel = 0
+        BtnSection.LayoutOrder = 1
+        BtnSection.Parent = ContentFrame
+
+        local BtnSectionCorner = Instance.new("UICorner")
+        BtnSectionCorner.CornerRadius = UDim.new(0, 10)
+        BtnSectionCorner.Parent = BtnSection
+
+        local RunBtn = Instance.new("TextButton")
+        RunBtn.Name = "RunBtn"
+        RunBtn.Size = UDim2.new(0, 130, 0, 24)
+        RunBtn.Position = UDim2.new(0, 6, 0.5, -12)
+        RunBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        RunBtn.BackgroundTransparency = 0.4
+        RunBtn.BorderSizePixel = 0
+        RunBtn.Text = "Run"
+        RunBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        RunBtn.TextSize = 11
+        RunBtn.Font = Enum.Font.GothamBold
+        RunBtn.Parent = BtnSection
+
+        local RunBtnCorner = Instance.new("UICorner")
+        RunBtnCorner.CornerRadius = UDim.new(0, 6)
+        RunBtnCorner.Parent = RunBtn
+
+        local BindBtn = Instance.new("TextButton")
+        BindBtn.Name = "BindBtn"
+        BindBtn.Size = UDim2.new(0, 52, 0, 24)
+        BindBtn.Position = UDim2.new(1, -58, 0.5, -12)
+        BindBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        BindBtn.BackgroundTransparency = 0.4
+        BindBtn.BorderSizePixel = 0
+        BindBtn.Text = PM.Rewind.key and PM.Rewind.key.Name or "Bind"
+        BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        BindBtn.TextSize = 11
+        BindBtn.Font = Enum.Font.GothamBold
+        BindBtn.Parent = BtnSection
+
+        local BindBtnCorner = Instance.new("UICorner")
+        BindBtnCorner.CornerRadius = UDim.new(0, 6)
+        BindBtnCorner.Parent = BindBtn
+
+        RunBtn.MouseEnter:Connect(function()
+            TweenService:Create(RunBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
+        end)
+        RunBtn.MouseLeave:Connect(function()
+            TweenService:Create(RunBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+        end)
+        BindBtn.MouseEnter:Connect(function()
+            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
+        end)
+        BindBtn.MouseLeave:Connect(function()
+            TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+        end)
+
+        local function UpdateRunBtn()
+            if PM.Rewind.playing then
+                RunBtn.Text = "Stop"
+            else
+                RunBtn.Text = "Run"
+            end
+        end
+
+        RunBtn.MouseButton1Click:Connect(function()
+            if PM.Rewind.playing then
+                DoRewindStop()
+            else
+                DoRewindStart()
+            end
+            UpdateRunBtn()
+        end)
+
+        local function UpdateKeyBtn()
+            BindBtn.Text = PM.Rewind.key and PM.Rewind.key.Name or "Bind"
+        end
+
+        BindBtn.MouseButton1Click:Connect(function()
+            PM.Rewind.capturing = true
+            if PM.Rewind.globalConn then PM.Rewind.globalConn:Disconnect(); PM.Rewind.globalConn = nil end
+            if PM.Rewind.keyEndConn then PM.Rewind.keyEndConn:Disconnect(); PM.Rewind.keyEndConn = nil end
+            BindBtn.Text = "..."
+            PM.Rewind.captureConn = UserInputService.InputBegan:Connect(function(input, gpe)
+                if gpe then return end
+                if not PM.Rewind.capturing then return end
+                if input.UserInputType == Enum.UserInputType.Keyboard then
+                    if input.KeyCode == Enum.KeyCode.Backspace then
+                        PM.Rewind.key = nil
+                        PM.Rewind.capturing = false
+                        if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
+                        UpdateKeyBtn()
+                        SaveRewindState()
+                        RewindEnableGlobal()
+                    else
+                        PM.Rewind.key = input.KeyCode
+                        PM.Rewind.capturing = false
+                        if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
+                        UpdateKeyBtn()
+                        SaveRewindState()
+                        RewindEnableGlobal()
+                    end
+                end
+            end)
+        end)
+
+        spawn(function()
+            while ScreenGui and ScreenGui.Parent do
+                UpdateRunBtn()
+                task.wait(0.1)
+            end
+        end)
+
+        -- Toggle Hold section
+        local ToggleSection = Instance.new("Frame")
+        ToggleSection.Size = UDim2.new(1, 0, 0, 36)
+        ToggleSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        ToggleSection.BackgroundTransparency = 0.4
+        ToggleSection.BorderSizePixel = 0
+        ToggleSection.LayoutOrder = 2
+        ToggleSection.Parent = ContentFrame
+
+        local ToggleCorner = Instance.new("UICorner")
+        ToggleCorner.CornerRadius = UDim.new(0, 10)
+        ToggleCorner.Parent = ToggleSection
+
+        local ToggleLabel = Instance.new("TextLabel")
+        ToggleLabel.Size = UDim2.new(1, -48, 1, 0)
+        ToggleLabel.BackgroundTransparency = 1
+        ToggleLabel.Text = "Toggle Hold"
+        ToggleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+        ToggleLabel.TextSize = 12
+        ToggleLabel.Font = Enum.Font.Gotham
+        ToggleLabel.TextXAlignment = Enum.TextXAlignment.Left
+        ToggleLabel.Parent = ToggleSection
+
+        local TogglePadding = Instance.new("UIPadding")
+        TogglePadding.PaddingLeft = UDim.new(0, 12)
+        TogglePadding.PaddingRight = UDim.new(0, 12)
+        TogglePadding.Parent = ToggleSection
+
+        local TogglePill = Instance.new("Frame")
+        TogglePill.Size = UDim2.new(0, 36, 0, 18)
+        TogglePill.Position = UDim2.new(1, -36, 0.5, -9)
+        TogglePill.BackgroundColor3 = PM.Rewind.keyStyle == "Toggle" and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50)
+        TogglePill.BorderSizePixel = 0
+        TogglePill.Parent = ToggleSection
+
+        local TogglePillCorner = Instance.new("UICorner")
+        TogglePillCorner.CornerRadius = UDim.new(0, 9)
+        TogglePillCorner.Parent = TogglePill
+
+        local ToggleKnob = Instance.new("Frame")
+        ToggleKnob.Size = UDim2.new(0, 14, 0, 14)
+        ToggleKnob.Position = PM.Rewind.keyStyle == "Toggle" and UDim2.new(1, -19, 0.5, -7) or UDim2.new(0, 2, 0.5, -7)
+        ToggleKnob.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+        ToggleKnob.BorderSizePixel = 0
+        ToggleKnob.Parent = TogglePill
+
+        local ToggleKnobCorner = Instance.new("UICorner")
+        ToggleKnobCorner.CornerRadius = UDim.new(0, 7)
+        ToggleKnobCorner.Parent = ToggleKnob
+
+        local ToggleBtn = Instance.new("TextButton")
+        ToggleBtn.Size = UDim2.new(1, 0, 1, 0)
+        ToggleBtn.BackgroundTransparency = 1
+        ToggleBtn.Text = ""
+        ToggleBtn.Parent = TogglePill
+
+        ToggleBtn.MouseButton1Click:Connect(function()
+            PM.Rewind.keyStyle = PM.Rewind.keyStyle == "Toggle" and "Hold" or "Toggle"
+            SaveRewindState()
+            if PM.Rewind.keyStyle == "Toggle" then
+                TweenService:Create(TogglePill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
+                TweenService:Create(ToggleKnob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -7)}):Play()
+            else
+                TweenService:Create(TogglePill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
+                TweenService:Create(ToggleKnob, TweenInfo.new(0.15), {Position = UDim2.new(0, 2, 0.5, -7)}):Play()
+            end
+        end)
+
         -- Speed Section
         local SpeedSection = Instance.new("Frame")
         SpeedSection.Size = UDim2.new(1, 0, 0, 40)
         SpeedSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         SpeedSection.BackgroundTransparency = 0.4
         SpeedSection.BorderSizePixel = 0
-        SpeedSection.LayoutOrder = 1
+        SpeedSection.LayoutOrder = 3
         SpeedSection.Parent = ContentFrame
         local SpeedCorner = Instance.new("UICorner")
         SpeedCorner.CornerRadius = UDim.new(0, 10)
@@ -1193,7 +1378,7 @@ registerCommand("rewind", "Rewind time", {}, function(args)
         LenSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         LenSection.BackgroundTransparency = 0.4
         LenSection.BorderSizePixel = 0
-        LenSection.LayoutOrder = 2
+        LenSection.LayoutOrder = 4
         LenSection.Parent = ContentFrame
         local LenCorner = Instance.new("UICorner")
         LenCorner.CornerRadius = UDim.new(0, 10)
@@ -1314,206 +1499,6 @@ registerCommand("rewind", "Rewind time", {}, function(args)
                     lenDragging = true
                 end
                 lastClickLen = now
-            end
-        end)
-
-        -- Keybind Section
-        local KeySection = Instance.new("Frame")
-        KeySection.Size = UDim2.new(1, 0, 0, 36)
-        KeySection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-        KeySection.BackgroundTransparency = 0.4
-        KeySection.BorderSizePixel = 0
-        KeySection.LayoutOrder = 3
-        KeySection.Parent = ContentFrame
-        local KeyCorner = Instance.new("UICorner")
-        KeyCorner.CornerRadius = UDim.new(0, 10)
-        KeyCorner.Parent = KeySection
-        local KeyPadding = Instance.new("UIPadding")
-        KeyPadding.PaddingLeft = UDim.new(0, 12)
-        KeyPadding.PaddingRight = UDim.new(0, 12)
-        KeyPadding.Parent = KeySection
-
-        local KeyLabel = Instance.new("TextLabel")
-        KeyLabel.Size = UDim2.new(1, -48, 1, 0)
-        KeyLabel.BackgroundTransparency = 1
-        KeyLabel.Text = "Keybind"
-        KeyLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
-        KeyLabel.TextSize = 12
-        KeyLabel.Font = Enum.Font.Gotham
-        KeyLabel.TextXAlignment = Enum.TextXAlignment.Left
-        KeyLabel.Parent = KeySection
-
-        local KeyBtn = Instance.new("TextButton")
-        KeyBtn.Size = UDim2.new(0, 36, 0, 18)
-        KeyBtn.Position = UDim2.new(1, -36, 0.5, -9)
-        KeyBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-        KeyBtn.BackgroundTransparency = 0.4
-        KeyBtn.BorderSizePixel = 0
-        KeyBtn.Text = PM.Rewind.key and PM.Rewind.key.Name or "Bind"
-        KeyBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
-        KeyBtn.TextSize = 11
-        KeyBtn.Font = Enum.Font.GothamBold
-        KeyBtn.Parent = KeySection
-        local KeyBtnCorner = Instance.new("UICorner")
-        KeyBtnCorner.CornerRadius = UDim.new(0, 6)
-        KeyBtnCorner.Parent = KeyBtn
-
-        local function UpdateKeyBtn()
-            KeyBtn.Text = PM.Rewind.key and PM.Rewind.key.Name or "Bind"
-        end
-
-        KeyBtn.MouseButton1Click:Connect(function()
-            PM.Rewind.capturing = true
-            if PM.Rewind.globalConn then PM.Rewind.globalConn:Disconnect(); PM.Rewind.globalConn = nil end
-            if PM.Rewind.keyEndConn then PM.Rewind.keyEndConn:Disconnect(); PM.Rewind.keyEndConn = nil end
-            KeyBtn.Text = "..."
-            PM.Rewind.captureConn = UserInputService.InputBegan:Connect(function(input, gpe)
-                if gpe then return end
-                if not PM.Rewind.capturing then return end
-                if input.UserInputType == Enum.UserInputType.Keyboard then
-                    if input.KeyCode == Enum.KeyCode.Backspace then
-                        PM.Rewind.key = nil
-                        PM.Rewind.capturing = false
-                        if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
-                        UpdateKeyBtn()
-                        SaveRewindState()
-                        RewindEnableGlobal()
-                    else
-                        PM.Rewind.key = input.KeyCode
-                        PM.Rewind.capturing = false
-                        if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
-                        UpdateKeyBtn()
-                        SaveRewindState()
-                        RewindEnableGlobal()
-                    end
-                end
-            end)
-        end)
-
-        -- Key Style Toggle
-        local StyleSection = Instance.new("Frame")
-        StyleSection.Size = UDim2.new(1, 0, 0, 36)
-        StyleSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-        StyleSection.BackgroundTransparency = 0.4
-        StyleSection.BorderSizePixel = 0
-        StyleSection.LayoutOrder = 4
-        StyleSection.Parent = ContentFrame
-        local StyleCorner = Instance.new("UICorner")
-        StyleCorner.CornerRadius = UDim.new(0, 10)
-        StyleCorner.Parent = StyleSection
-        local StylePadding = Instance.new("UIPadding")
-        StylePadding.PaddingLeft = UDim.new(0, 12)
-        StylePadding.PaddingRight = UDim.new(0, 12)
-        StylePadding.Parent = StyleSection
-
-        local StyleLabel = Instance.new("TextLabel")
-        StyleLabel.Size = UDim2.new(1, -48, 1, 0)
-        StyleLabel.BackgroundTransparency = 1
-        StyleLabel.Text = "Toggle Hold"
-        StyleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
-        StyleLabel.TextSize = 12
-        StyleLabel.Font = Enum.Font.Gotham
-        StyleLabel.TextXAlignment = Enum.TextXAlignment.Left
-        StyleLabel.Parent = StyleSection
-
-        local StylePill = Instance.new("Frame")
-        StylePill.Size = UDim2.new(0, 36, 0, 18)
-        StylePill.Position = UDim2.new(1, -36, 0.5, -9)
-        StylePill.BackgroundColor3 = PM.Rewind.keyStyle == "Toggle" and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50)
-        StylePill.BorderSizePixel = 0
-        StylePill.Parent = StyleSection
-        local StylePillCorner = Instance.new("UICorner")
-        StylePillCorner.CornerRadius = UDim.new(0, 9)
-        StylePillCorner.Parent = StylePill
-
-        local StyleKnob = Instance.new("Frame")
-        StyleKnob.Size = UDim2.new(0, 14, 0, 14)
-        StyleKnob.Position = PM.Rewind.keyStyle == "Toggle" and UDim2.new(1, -19, 0.5, -7) or UDim2.new(0, 2, 0.5, -7)
-        StyleKnob.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
-        StyleKnob.BorderSizePixel = 0
-        StyleKnob.Parent = StylePill
-        local StyleKnobCorner = Instance.new("UICorner")
-        StyleKnobCorner.CornerRadius = UDim.new(0, 7)
-        StyleKnobCorner.Parent = StyleKnob
-
-        local StyleBtn = Instance.new("TextButton")
-        StyleBtn.Size = UDim2.new(1, 0, 1, 0)
-        StyleBtn.BackgroundTransparency = 1
-        StyleBtn.Text = ""
-        StyleBtn.Parent = StylePill
-
-        StyleBtn.MouseButton1Click:Connect(function()
-            PM.Rewind.keyStyle = PM.Rewind.keyStyle == "Toggle" and "Hold" or "Toggle"
-            SaveRewindState()
-            if PM.Rewind.keyStyle == "Toggle" then
-                TweenService:Create(StylePill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
-                TweenService:Create(StyleKnob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -7)}):Play()
-            else
-                TweenService:Create(StylePill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
-                TweenService:Create(StyleKnob, TweenInfo.new(0.15), {Position = UDim2.new(0, 2, 0.5, -7)}):Play()
-            end
-        end)
-
-        -- Run/Stop Button
-        local RunSection = Instance.new("Frame")
-        RunSection.Size = UDim2.new(1, 0, 0, 36)
-        RunSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-        RunSection.BackgroundTransparency = 0.4
-        RunSection.BorderSizePixel = 0
-        RunSection.LayoutOrder = 5
-        RunSection.Parent = ContentFrame
-        local RunCorner = Instance.new("UICorner")
-        RunCorner.CornerRadius = UDim.new(0, 10)
-        RunCorner.Parent = RunSection
-        local RunPadding = Instance.new("UIPadding")
-        RunPadding.PaddingLeft = UDim.new(0, 12)
-        RunPadding.PaddingRight = UDim.new(0, 12)
-        RunPadding.Parent = RunSection
-
-        local RunBtn = Instance.new("TextButton")
-        RunBtn.Size = UDim2.new(1, 0, 1, 0)
-        RunBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-        RunBtn.BackgroundTransparency = 0.4
-        RunBtn.BorderSizePixel = 0
-        RunBtn.Text = "Run"
-        RunBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
-        RunBtn.TextSize = 11
-        RunBtn.Font = Enum.Font.GothamBold
-        RunBtn.Parent = RunSection
-        local RunBtnCorner = Instance.new("UICorner")
-        RunBtnCorner.CornerRadius = UDim.new(0, 6)
-        RunBtnCorner.Parent = RunBtn
-
-        local function UpdateRunBtn()
-            if PM.Rewind.playing then
-                RunBtn.Text = "Stop"
-                RunBtn.BackgroundColor3 = Color3.fromRGB(60, 30, 30)
-            else
-                RunBtn.Text = "Run"
-                RunBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-            end
-        end
-
-        RunBtn.MouseButton1Click:Connect(function()
-            if PM.Rewind.playing then
-                DoRewindStop()
-            else
-                DoRewindStart()
-            end
-            UpdateRunBtn()
-        end)
-
-        RunBtn.MouseEnter:Connect(function()
-            TweenService:Create(RunBtn, TweenInfo.new(0.1), {BackgroundColor3 = PM.Rewind.playing and Color3.fromRGB(80, 40, 40) or Color3.fromRGB(55, 55, 55)}):Play()
-        end)
-        RunBtn.MouseLeave:Connect(function()
-            TweenService:Create(RunBtn, TweenInfo.new(0.1), {BackgroundColor3 = PM.Rewind.playing and Color3.fromRGB(60, 30, 30) or Color3.fromRGB(30, 30, 30)}):Play()
-        end)
-
-        spawn(function()
-            while ScreenGui and ScreenGui.Parent do
-                UpdateRunBtn()
-                task.wait(0.1)
             end
         end)
 
