@@ -1131,6 +1131,7 @@ pcall(function()
 end)
 PM.Fly.enabled = savedFlyState.enabled or false
 PM.Fly.speed = savedFlyState.speed or 50
+PM.Fly.qeEnabled = savedFlyState.qeEnabled or false
 if savedFlyState.keybind then
     local code = Enum.KeyCode[savedFlyState.keybind]
     if code then PM.Fly.keybind = code end
@@ -1143,7 +1144,8 @@ local function SaveFlyState()
             local state = {
                 enabled = PM.Fly.enabled,
                 speed = PM.Fly.speed,
-                keybind = PM.Fly.keybind and PM.Fly.keybind.Name or nil
+                keybind = PM.Fly.keybind and PM.Fly.keybind.Name or nil,
+                qeEnabled = PM.Fly.qeEnabled or false
             }
             writefile(FLY_STATE_FILE, game:GetService("HttpService"):JSONEncode(state))
         end
@@ -6564,13 +6566,18 @@ registerCommand("fly", "Fly around", {}, function(args)
                 savedFlyGUI = HttpService:JSONDecode(readfile(FLY_GUI_FILE))
             end
         end)
-        local savedPos = savedFlyGUI.position or {X = {Scale = 0, Offset = 900}, Y = {Scale = 0, Offset = 460}}
+        local savedPos = savedFlyGUI.position or {X = {Scale = 0, Offset = 900}, Y = {Scale = 0, Offset = 496}}
         local savedMinimized = savedFlyGUI.minimized or false
 
         local currentFlySettings = {
             position = savedPos,
             minimized = savedMinimized
         }
+        
+        -- Adjust saved height if it's the old size
+        if savedPos and savedPos.Y and savedPos.Y.Offset == 460 then
+            savedPos.Y.Offset = 496  -- 460 + 36 for new QE section
+        end
 
         local function SaveFlyGUISettings()
             pcall(function()
@@ -6590,7 +6597,7 @@ registerCommand("fly", "Fly around", {}, function(args)
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
         if not ok then ScreenGui.Parent = LocalPlayer.PlayerGui end
 
-        local MW, MH = 220, 148
+        local MW, MH = 220, 184
 
         local MainFrame = Instance.new("Frame")
         MainFrame.Name = "MainFrame"
@@ -6742,6 +6749,7 @@ registerCommand("fly", "Fly around", {}, function(args)
         local charConn = nil
         local charDescendantConn = nil
         local footstepSounds = {}
+        local flyQE = PM.Fly and PM.Fly.qeEnabled or false
 
         local function startFlyLoop()
             if flyLoopConn then flyLoopConn:Disconnect(); flyLoopConn = nil end
@@ -6891,7 +6899,7 @@ registerCommand("fly", "Fly around", {}, function(args)
         SpeedSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         SpeedSection.BackgroundTransparency = 0.4
         SpeedSection.BorderSizePixel = 0
-        SpeedSection.LayoutOrder = 2
+        SpeedSection.LayoutOrder = 3
         SpeedSection.Parent = ContentFrame
 
         local SSC = Instance.new("UICorner")
@@ -7032,6 +7040,78 @@ registerCommand("fly", "Fly around", {}, function(args)
             end
         end)
 
+        -- QE Toggle section
+        local QESection = Instance.new("Frame")
+        QESection.Size = UDim2.new(1, 0, 0, 36)
+        QESection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        QESection.BackgroundTransparency = 0.4
+        QESection.BorderSizePixel = 0
+        QESection.LayoutOrder = 2
+        QESection.Parent = ContentFrame
+
+        local QECorner = Instance.new("UICorner")
+        QECorner.CornerRadius = UDim.new(0, 10)
+        QECorner.Parent = QESection
+
+        local QELabel = Instance.new("TextLabel")
+        QELabel.Size = UDim2.new(1, -48, 1, 0)
+        QELabel.BackgroundTransparency = 1
+        QELabel.Text = "QE Up/Down"
+        QELabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+        QELabel.TextSize = 12
+        QELabel.Font = Enum.Font.Gotham
+        QELabel.TextXAlignment = Enum.TextXAlignment.Left
+        QELabel.Parent = QESection
+
+        local QEPadding = Instance.new("UIPadding")
+        QEPadding.PaddingLeft = UDim.new(0, 12)
+        QEPadding.PaddingRight = UDim.new(0, 12)
+        QEPadding.Parent = QESection
+
+        local QEPill = Instance.new("Frame")
+        QEPill.Size = UDim2.new(0, 36, 0, 18)
+        QEPill.Position = UDim2.new(1, -36, 0.5, -9)
+        QEPill.BackgroundColor3 = flyQE and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50)
+        QEPill.BorderSizePixel = 0
+        QEPill.Parent = QESection
+
+        local QEPillCorner = Instance.new("UICorner")
+        QEPillCorner.CornerRadius = UDim.new(0, 9)
+        QEPillCorner.Parent = QEPill
+
+        local QEKnob = Instance.new("Frame")
+        QEKnob.Size = UDim2.new(0, 14, 0, 14)
+        QEKnob.Position = flyQE and UDim2.new(1, -19, 0.5, -7) or UDim2.new(0, 2, 0.5, -7)
+        QEKnob.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+        QEKnob.BorderSizePixel = 0
+        QEKnob.Parent = QEPill
+
+        local QEKnobCorner = Instance.new("UICorner")
+        QEKnobCorner.CornerRadius = UDim.new(0, 7)
+        QEKnobCorner.Parent = QEKnob
+
+        local QEBtn = Instance.new("TextButton")
+        QEBtn.Size = UDim2.new(1, 0, 1, 0)
+        QEBtn.BackgroundTransparency = 1
+        QEBtn.Text = ""
+        QEBtn.Parent = QEPill
+
+        QEBtn.MouseButton1Click:Connect(function()
+            flyQE = not flyQE
+            PM.Fly = PM.Fly or {}
+            PM.Fly.qeEnabled = flyQE
+            SaveFlyState()
+            SaveFlyGUISettings()
+            
+            if flyQE then
+                TweenService:Create(QEPill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
+                TweenService:Create(QEKnob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -7)}):Play()
+            else
+                TweenService:Create(QEPill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
+                TweenService:Create(QEKnob, TweenInfo.new(0.15), {Position = UDim2.new(0, 2, 0.5, -7)}):Play()
+            end
+        end)
+
         -- Fly logic
         local function StopFly()
             flyOn = false
@@ -7105,6 +7185,10 @@ registerCommand("fly", "Fly around", {}, function(args)
                 if UserInputService:IsKeyDown(Enum.KeyCode.S) then dir = dir - cam.CFrame.LookVector end
                 if UserInputService:IsKeyDown(Enum.KeyCode.A) then dir = dir - cam.CFrame.RightVector end
                 if UserInputService:IsKeyDown(Enum.KeyCode.D) then dir = dir + cam.CFrame.RightVector end
+                if flyQE then
+                    if UserInputService:IsKeyDown(Enum.KeyCode.Q) then dir = dir + Vector3.new(0, 1, 0) end
+                    if UserInputService:IsKeyDown(Enum.KeyCode.E) then dir = dir - Vector3.new(0, 1, 0) end
+                end
                 if dir.Magnitude > 0 then dir = dir.Unit * flySpeed end
                 bv.Velocity = dir
                 bg.CFrame = cam.CFrame
