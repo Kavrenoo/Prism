@@ -1,6 +1,5 @@
 --[[ missing
 
-    rewind
     noclip
     invisibility
     headsit
@@ -14,6 +13,8 @@
     view player inventory
     add / unadd
     block / unblock
+    view
+    inspect
     anaimation packs
     animation replacer (like axon)
     animation logger
@@ -266,6 +267,15 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
     if char and char:FindFirstChild("Humanoid") then
         camera.CameraSubject = char.Humanoid
     end
+    -- Cleanup Rewind
+    if PM.Rewind.recConn then PM.Rewind.recConn:Disconnect(); PM.Rewind.recConn = nil end
+    if PM.Rewind.globalConn then PM.Rewind.globalConn:Disconnect(); PM.Rewind.globalConn = nil end
+    if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
+    if PM.Rewind.keyEndConn then PM.Rewind.keyEndConn:Disconnect(); PM.Rewind.keyEndConn = nil end
+    if PM.Rewind.charAddedConn then PM.Rewind.charAddedConn:Disconnect(); PM.Rewind.charAddedConn = nil end
+    PM.Rewind.playing = false
+    PM.Rewind.stopRequest = true
+    PM.Rewind.buffer = {}
     -- Cleanup Camera
     local cameraGui = FindPrismGUI("Prism_CameraGUI")
     if cameraGui then pcall(function() cameraGui:Destroy() end) end
@@ -406,6 +416,15 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
     if char and char:FindFirstChild("Humanoid") then
         camera.CameraSubject = char.Humanoid
     end
+    -- Cleanup Rewind
+    if PM.Rewind.recConn then PM.Rewind.recConn:Disconnect(); PM.Rewind.recConn = nil end
+    if PM.Rewind.globalConn then PM.Rewind.globalConn:Disconnect(); PM.Rewind.globalConn = nil end
+    if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
+    if PM.Rewind.keyEndConn then PM.Rewind.keyEndConn:Disconnect(); PM.Rewind.keyEndConn = nil end
+    if PM.Rewind.charAddedConn then PM.Rewind.charAddedConn:Disconnect(); PM.Rewind.charAddedConn = nil end
+    PM.Rewind.playing = false
+    PM.Rewind.stopRequest = true
+    PM.Rewind.buffer = {}
     -- Cleanup Camera
     local cameraGui2 = FindPrismGUI("Prism_CameraGUI")
     if cameraGui2 then pcall(function() cameraGui2:Destroy() end) end
@@ -626,7 +645,7 @@ registerCommand("view", "View a player", {}, function(args)
             camera.CameraSubject = char.Humanoid
         end
     end)
-end)
+end, true)
 
 registerCommand("unview", "Stop viewing a player", {}, function(args)
     PM.View.viewing = false
@@ -646,7 +665,7 @@ registerCommand("unview", "Stop viewing a player", {}, function(args)
     if char and char:FindFirstChild("Humanoid") then
         camera.CameraSubject = char.Humanoid
     end
-end)
+end, true)
 
 registerCommand("inspect", "Inspect a player", {}, function(args)
     local targetName = args[1] or ""
@@ -698,6 +717,677 @@ registerCommand("inspect", "Inspect a player", {}, function(args)
         local desc = th:GetAppliedDescription()
         game:GetService("GuiService"):InspectPlayerFromHumanoidDescription(desc, target.Name)
     end)
+end, true)
+
+-- Rewind state
+PM.Rewind = {
+    enabled = false,
+    buffer = {},
+    maxLen = 900,
+    speed = 1,
+    playing = false,
+    stopRequest = false,
+    key = nil,
+    keyHeld = false,
+    capturing = false,
+    keyStyle = "Toggle",
+    recConn = nil,
+    globalConn = nil,
+    captureConn = nil,
+    keyEndConn = nil,
+    charAddedConn = nil
+}
+
+local REWIND_STATE_FILE = "prism/prism_rewind_state.json"
+local savedRewindState = {}
+pcall(function()
+    if readfile and isfile(REWIND_STATE_FILE) then
+        savedRewindState = game:GetService("HttpService"):JSONDecode(readfile(REWIND_STATE_FILE))
+    end
+end)
+PM.Rewind.enabled = savedRewindState.enabled or false
+PM.Rewind.maxLen = savedRewindState.maxLen or 900
+PM.Rewind.speed = savedRewindState.speed or 1
+PM.Rewind.keyStyle = savedRewindState.keyStyle or "Toggle"
+if savedRewindState.key then
+    local keyEnum = Enum.KeyCode[savedRewindState.key]
+    if keyEnum then PM.Rewind.key = keyEnum end
+end
+
+local function SaveRewindState()
+    pcall(function()
+        if writefile then
+            if makefolder and not isfolder("prism") then makefolder("prism") end
+            writefile(REWIND_STATE_FILE, game:GetService("HttpService"):JSONEncode({
+                enabled = PM.Rewind.enabled,
+                maxLen = PM.Rewind.maxLen,
+                speed = PM.Rewind.speed,
+                keyStyle = PM.Rewind.keyStyle,
+                key = PM.Rewind.key and PM.Rewind.key.Name or nil
+            }))
+        end
+    end)
+end
+
+local function StartRewindRecording()
+    if PM.Rewind.recConn then PM.Rewind.recConn:Disconnect(); PM.Rewind.recConn = nil end
+    PM.Rewind.buffer = {}
+    local RunService = game:GetService("RunService")
+    PM.Rewind.recConn = RunService.Heartbeat:Connect(function()
+        local char = LP.Character
+        if not char then return end
+        local root = char:FindFirstChild("HumanoidRootPart")
+        if not root then return end
+        table.insert(PM.Rewind.buffer, root.CFrame)
+        if #PM.Rewind.buffer > PM.Rewind.maxLen then
+            table.remove(PM.Rewind.buffer, 1)
+        end
+    end)
+end
+
+local function DoRewindStart()
+    if PM.Rewind.playing then return end
+    if #PM.Rewind.buffer < 2 then return end
+    PM.Rewind.playing = true
+    PM.Rewind.stopRequest = false
+    task.spawn(function()
+        local buf = PM.Rewind.buffer
+        local i = #buf
+        while i >= 1 and not PM.Rewind.stopRequest do
+            local char = LP.Character
+            if not char then break end
+            local root = char:FindFirstChild("HumanoidRootPart")
+            if not root then break end
+            root.CFrame = buf[i]
+            local step = math.max(1, math.floor(PM.Rewind.speed))
+            i = i - step
+            task.wait(1 / (60 * PM.Rewind.speed))
+        end
+        PM.Rewind.playing = false
+        PM.Rewind.stopRequest = false
+        local char2 = LP.Character
+        if char2 then
+            local root2 = char2:FindFirstChild("HumanoidRootPart")
+            if root2 then
+                root2.AssemblyLinearVelocity = Vector3.zero
+                root2.AssemblyAngularVelocity = Vector3.zero
+            end
+            local hum = char2:FindFirstChildOfClass("Humanoid")
+            if hum then
+                hum:ChangeState(Enum.HumanoidStateType.GettingUp)
+            end
+        end
+    end)
+end
+
+local function DoRewindStop()
+    if PM.Rewind.playing then PM.Rewind.stopRequest = true end
+end
+
+local function RewindEnableGlobal()
+    if PM.Rewind.globalConn then return end
+    local UserInputService = game:GetService("UserInputService")
+    PM.Rewind.globalConn = UserInputService.InputBegan:Connect(function(input, gpe)
+        if gpe or PM.Rewind.capturing then return end
+        if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == PM.Rewind.key then
+            if PM.Rewind.keyStyle == "Toggle" then
+                if PM.Rewind.playing then DoRewindStop() else DoRewindStart() end
+            else
+                PM.Rewind.keyHeld = true
+                DoRewindStart()
+            end
+        end
+    end)
+    if PM.Rewind.keyEndConn then PM.Rewind.keyEndConn:Disconnect(); PM.Rewind.keyEndConn = nil end
+    PM.Rewind.keyEndConn = UserInputService.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.Keyboard and input.KeyCode == PM.Rewind.key then
+            PM.Rewind.keyHeld = false
+            if PM.Rewind.keyStyle == "Hold" then DoRewindStop() end
+        end
+    end)
+end
+
+-- Character respawn handling
+PM.Rewind.charAddedConn = LP.CharacterAdded:Connect(function()
+    task.wait(0.2)
+    PM.Rewind.playing = false
+    StartRewindRecording()
+end)
+
+if LP.Character then
+    StartRewindRecording()
+end
+
+registerCommand("rewind", "Rewind time", {}, function(args)
+    local Players = game:GetService("Players")
+    local TweenService = game:GetService("TweenService")
+    local UserInputService = game:GetService("UserInputService")
+    local CoreGui = game:GetService("CoreGui")
+    local LocalPlayer = Players.LocalPlayer
+    local HttpService = game:GetService("HttpService")
+
+    local function guiExists(guiName)
+        if CoreGui:FindFirstChild(guiName) then return true end
+        if LocalPlayer:FindFirstChild("PlayerGui") and LocalPlayer.PlayerGui:FindFirstChild(guiName) then return true end
+        if get_hidden_gui or gethui then
+            if (get_hidden_gui or gethui)():FindFirstChild(guiName) then return true end
+        end
+        return false
+    end
+    if guiExists("Prism_RewindGUI") then return end
+
+    local success, err = pcall(function()
+        local REWIND_GUI_FILE = "prism/prism_rewind_gui_settings.json"
+        local savedRewindGUI = {}
+        pcall(function()
+            if readfile and isfile(REWIND_GUI_FILE) then
+                savedRewindGUI = HttpService:JSONDecode(readfile(REWIND_GUI_FILE))
+            end
+        end)
+        local savedPos = savedRewindGUI.position or {X = {Scale = 0, Offset = 900}, Y = {Scale = 0, Offset = 350}}
+        local savedMinimized = savedRewindGUI.minimized or false
+
+        local currentRewindSettings = {
+            position = savedPos,
+            minimized = savedMinimized
+        }
+
+        local function SaveRewindGUISettings()
+            pcall(function()
+                if writefile then
+                    if makefolder and not isfolder("prism") then makefolder("prism") end
+                    writefile(REWIND_GUI_FILE, HttpService:JSONEncode(currentRewindSettings))
+                end
+            end)
+        end
+
+        local ScreenGui = Instance.new("ScreenGui")
+        ScreenGui.Name = "Prism_RewindGUI"
+        ScreenGui.ResetOnSpawn = false
+        ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+        if syn and syn.protect_gui then
+            syn.protect_gui(ScreenGui)
+            ScreenGui.Parent = CoreGui
+        elseif gethui then
+            ScreenGui.Parent = gethui()
+        else
+            ScreenGui.Parent = CoreGui
+        end
+
+        local MW, MH = 200, 240
+        local MainFrame = Instance.new("Frame")
+        MainFrame.Name = "MainFrame"
+        MainFrame.Size = UDim2.new(0, MW, 0, MH)
+        MainFrame.Position = UDim2.new(savedPos.X.Scale, savedPos.X.Offset, savedPos.Y.Scale, savedPos.Y.Offset)
+        MainFrame.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
+        MainFrame.BackgroundTransparency = 0.2
+        MainFrame.BorderSizePixel = 0
+        MainFrame.ClipsDescendants = true
+        MainFrame.Parent = ScreenGui
+
+        local MainCorner = Instance.new("UICorner")
+        MainCorner.CornerRadius = UDim.new(0, 12)
+        MainCorner.Parent = MainFrame
+
+        local MainStroke = Instance.new("UIStroke")
+        MainStroke.Color = Color3.fromRGB(50, 50, 50)
+        MainStroke.Thickness = 1
+        MainStroke.Parent = MainFrame
+
+        local TitleBar = Instance.new("Frame")
+        TitleBar.Name = "TitleBar"
+        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.BackgroundTransparency = 1
+        TitleBar.Parent = MainFrame
+
+        local TitleLabel = Instance.new("TextLabel")
+        TitleLabel.Name = "Title"
+        TitleLabel.Size = UDim2.new(1, -80, 1, 0)
+        TitleLabel.Position = UDim2.new(0, 14, 0, 0)
+        TitleLabel.BackgroundTransparency = 1
+        TitleLabel.Text = "Prism  •  Rewind"
+        TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TitleLabel.TextSize = 13
+        TitleLabel.Font = Enum.Font.GothamBold
+        TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+        TitleLabel.Parent = TitleBar
+
+        local MinBtn = Instance.new("TextButton")
+        MinBtn.Name = "Minimize"
+        MinBtn.Size = UDim2.new(0, 24, 0, 24)
+        MinBtn.Position = UDim2.new(1, -52, 0.5, -12)
+        MinBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        MinBtn.BackgroundTransparency = 0.4
+        MinBtn.BorderSizePixel = 0
+        MinBtn.Text = "—"
+        MinBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        MinBtn.TextSize = 11
+        MinBtn.Font = Enum.Font.GothamBold
+        MinBtn.Parent = TitleBar
+        local MinCorner = Instance.new("UICorner")
+        MinCorner.CornerRadius = UDim.new(0, 6)
+        MinCorner.Parent = MinBtn
+
+        local CloseBtn = Instance.new("TextButton")
+        CloseBtn.Name = "Close"
+        CloseBtn.Size = UDim2.new(0, 24, 0, 24)
+        CloseBtn.Position = UDim2.new(1, -26, 0.5, -12)
+        CloseBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        CloseBtn.BackgroundTransparency = 0.4
+        CloseBtn.BorderSizePixel = 0
+        CloseBtn.Text = "X"
+        CloseBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        CloseBtn.TextSize = 11
+        CloseBtn.Font = Enum.Font.GothamBold
+        CloseBtn.Parent = TitleBar
+        local CloseCorner = Instance.new("UICorner")
+        CloseCorner.CornerRadius = UDim.new(0, 6)
+        CloseCorner.Parent = CloseBtn
+
+        local dragging = false
+        local dragStart = nil
+        local startPos = nil
+
+        TitleBar.InputBegan:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = true
+                dragStart = input.Position
+                startPos = MainFrame.Position
+            end
+        end)
+
+        TitleBar.InputEnded:Connect(function(input)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                dragging = false
+                currentRewindSettings.position = {
+                    X = {Scale = MainFrame.Position.X.Scale, Offset = MainFrame.Position.X.Offset},
+                    Y = {Scale = MainFrame.Position.Y.Scale, Offset = MainFrame.Position.Y.Offset}
+                }
+                SaveRewindGUISettings()
+            end
+        end)
+
+        UserInputService.InputChanged:Connect(function(input)
+            if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+                local delta = input.Position - dragStart
+                MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+            end
+        end)
+
+        local ContentFrame = Instance.new("Frame")
+        ContentFrame.Name = "Content"
+        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.BackgroundTransparency = 1
+        ContentFrame.ClipsDescendants = true
+        ContentFrame.Parent = MainFrame
+
+        local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local isMinimized = savedMinimized
+        local originalSize = UDim2.new(0, MW, 0, MH)
+        local minimizedSize = UDim2.new(0, MW, 0, 40)
+
+        if isMinimized then
+            MinBtn.Text = "+"
+            MainFrame.Size = minimizedSize
+            ContentFrame.Visible = false
+        end
+
+        MinBtn.MouseButton1Click:Connect(function()
+            isMinimized = not isMinimized
+            currentRewindSettings.minimized = isMinimized
+            SaveRewindGUISettings()
+            if isMinimized then
+                MinBtn.Text = "+"
+                local tween = TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize})
+                tween:Play()
+                tween.Completed:Connect(function() ContentFrame.Visible = false end)
+            else
+                MinBtn.Text = "—"
+                ContentFrame.Visible = true
+                TweenService:Create(MainFrame, tweenInfo, {Size = originalSize}):Play()
+            end
+        end)
+
+        CloseBtn.MouseButton1Click:Connect(function()
+            ScreenGui:Destroy()
+        end)
+
+        -- Speed Section
+        local SpeedSection = Instance.new("Frame")
+        SpeedSection.Size = UDim2.new(1, 0, 0, 40)
+        SpeedSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        SpeedSection.BackgroundTransparency = 0.4
+        SpeedSection.BorderSizePixel = 0
+        SpeedSection.Parent = ContentFrame
+        local SpeedCorner = Instance.new("UICorner")
+        SpeedCorner.CornerRadius = UDim.new(0, 10)
+        SpeedCorner.Parent = SpeedSection
+        local SpeedPadding = Instance.new("UIPadding")
+        SpeedPadding.PaddingLeft = UDim.new(0, 12)
+        SpeedPadding.PaddingRight = UDim.new(0, 12)
+        SpeedPadding.Parent = SpeedSection
+
+        local SpeedLabel = Instance.new("TextLabel")
+        SpeedLabel.Size = UDim2.new(1, -50, 0.5, 0)
+        SpeedLabel.BackgroundTransparency = 1
+        SpeedLabel.Text = "Speed"
+        SpeedLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+        SpeedLabel.TextSize = 12
+        SpeedLabel.Font = Enum.Font.Gotham
+        SpeedLabel.TextXAlignment = Enum.TextXAlignment.Left
+        SpeedLabel.Parent = SpeedSection
+
+        local SpeedVal = Instance.new("TextLabel")
+        SpeedVal.Size = UDim2.new(0, 38, 0.5, 0)
+        SpeedVal.Position = UDim2.new(1, -38, 0.5, 0)
+        SpeedVal.BackgroundTransparency = 1
+        SpeedVal.Text = tostring(PM.Rewind.speed)
+        SpeedVal.TextColor3 = Color3.fromRGB(160, 160, 160)
+        SpeedVal.TextSize = 11
+        SpeedVal.Font = Enum.Font.Gotham
+        SpeedVal.TextXAlignment = Enum.TextXAlignment.Right
+        SpeedVal.Parent = SpeedSection
+
+        local SpeedSliderBg = Instance.new("Frame")
+        SpeedSliderBg.Size = UDim2.new(1, 0, 0, 6)
+        SpeedSliderBg.Position = UDim2.new(0, 0, 1, -12)
+        SpeedSliderBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        SpeedSliderBg.BorderSizePixel = 0
+        SpeedSliderBg.Active = true
+        SpeedSliderBg.Parent = SpeedSection
+        local SkC = Instance.new("UICorner")
+        SkC.CornerRadius = UDim.new(0, 3)
+        SkC.Parent = SpeedSliderBg
+
+        local speedDragging = false
+        local function updateSpeed(value)
+            PM.Rewind.speed = math.clamp(math.floor(value + 0.5), 1, 10)
+            local scale = (PM.Rewind.speed - 1) / 9
+            SpeedVal.Text = tostring(PM.Rewind.speed)
+            SaveRewindState()
+        end
+
+        SpeedSliderBg.InputBegan:Connect(function(i)
+            if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+                local rel = math.clamp((i.Position.X - SpeedSliderBg.AbsolutePosition.X) / SpeedSliderBg.AbsoluteSize.X, 0, 1)
+                updateSpeed(1 + rel * 9)
+                speedDragging = true
+            end
+        end)
+        UserInputService.InputEnded:Connect(function(i)
+            if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+                speedDragging = false
+            end
+        end)
+        UserInputService.InputChanged:Connect(function(i)
+            if speedDragging and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then
+                local rel = math.clamp((i.Position.X - SpeedSliderBg.AbsolutePosition.X) / SpeedSliderBg.AbsoluteSize.X, 0, 1)
+                updateSpeed(1 + rel * 9)
+            end
+        end)
+
+        -- Length Section
+        local LenSection = Instance.new("Frame")
+        LenSection.Size = UDim2.new(1, 0, 0, 40)
+        LenSection.Position = UDim2.new(0, 0, 0, 44)
+        LenSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        LenSection.BackgroundTransparency = 0.4
+        LenSection.BorderSizePixel = 0
+        LenSection.Parent = ContentFrame
+        local LenCorner = Instance.new("UICorner")
+        LenCorner.CornerRadius = UDim.new(0, 10)
+        LenCorner.Parent = LenSection
+        local LenPadding = Instance.new("UIPadding")
+        LenPadding.PaddingLeft = UDim.new(0, 12)
+        LenPadding.PaddingRight = UDim.new(0, 12)
+        LenPadding.Parent = LenSection
+
+        local LenLabel = Instance.new("TextLabel")
+        LenLabel.Size = UDim2.new(1, -50, 0.5, 0)
+        LenLabel.BackgroundTransparency = 1
+        LenLabel.Text = "Length"
+        LenLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+        LenLabel.TextSize = 12
+        LenLabel.Font = Enum.Font.Gotham
+        LenLabel.TextXAlignment = Enum.TextXAlignment.Left
+        LenLabel.Parent = LenSection
+
+        local LenVal = Instance.new("TextLabel")
+        LenVal.Size = UDim2.new(0, 38, 0.5, 0)
+        LenVal.Position = UDim2.new(1, -38, 0.5, 0)
+        LenVal.BackgroundTransparency = 1
+        LenVal.Text = tostring(PM.Rewind.maxLen)
+        LenVal.TextColor3 = Color3.fromRGB(160, 160, 160)
+        LenVal.TextSize = 11
+        LenVal.Font = Enum.Font.Gotham
+        LenVal.TextXAlignment = Enum.TextXAlignment.Right
+        LenVal.Parent = LenSection
+
+        local LenSliderBg = Instance.new("Frame")
+        LenSliderBg.Size = UDim2.new(1, 0, 0, 6)
+        LenSliderBg.Position = UDim2.new(0, 0, 1, -12)
+        LenSliderBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        LenSliderBg.BorderSizePixel = 0
+        LenSliderBg.Active = true
+        LenSliderBg.Parent = LenSection
+        local LkC = Instance.new("UICorner")
+        LkC.CornerRadius = UDim.new(0, 3)
+        LkC.Parent = LenSliderBg
+
+        local lenDragging = false
+        local function updateLen(value)
+            PM.Rewind.maxLen = math.clamp(math.floor(value + 0.5), 100, 3000)
+            local scale = (PM.Rewind.maxLen - 100) / 2900
+            LenVal.Text = tostring(PM.Rewind.maxLen)
+            StartRewindRecording()
+            SaveRewindState()
+        end
+
+        LenSliderBg.InputBegan:Connect(function(i)
+            if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+                local rel = math.clamp((i.Position.X - LenSliderBg.AbsolutePosition.X) / LenSliderBg.AbsoluteSize.X, 0, 1)
+                updateLen(100 + rel * 2900)
+                lenDragging = true
+            end
+        end)
+        UserInputService.InputEnded:Connect(function(i)
+            if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
+                lenDragging = false
+            end
+        end)
+        UserInputService.InputChanged:Connect(function(i)
+            if lenDragging and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then
+                local rel = math.clamp((i.Position.X - LenSliderBg.AbsolutePosition.X) / LenSliderBg.AbsoluteSize.X, 0, 1)
+                updateLen(100 + rel * 2900)
+            end
+        end)
+
+        -- Keybind Section
+        local KeySection = Instance.new("Frame")
+        KeySection.Size = UDim2.new(1, 0, 0, 36)
+        KeySection.Position = UDim2.new(0, 0, 0, 88)
+        KeySection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        KeySection.BackgroundTransparency = 0.4
+        KeySection.BorderSizePixel = 0
+        KeySection.Parent = ContentFrame
+        local KeyCorner = Instance.new("UICorner")
+        KeyCorner.CornerRadius = UDim.new(0, 10)
+        KeyCorner.Parent = KeySection
+        local KeyPadding = Instance.new("UIPadding")
+        KeyPadding.PaddingLeft = UDim.new(0, 12)
+        KeyPadding.PaddingRight = UDim.new(0, 12)
+        KeyPadding.Parent = KeySection
+
+        local KeyLabel = Instance.new("TextLabel")
+        KeyLabel.Size = UDim2.new(1, -90, 1, 0)
+        KeyLabel.BackgroundTransparency = 1
+        KeyLabel.Text = "Keybind"
+        KeyLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+        KeyLabel.TextSize = 12
+        KeyLabel.Font = Enum.Font.Gotham
+        KeyLabel.TextXAlignment = Enum.TextXAlignment.Left
+        KeyLabel.Parent = KeySection
+
+        local KeyBtn = Instance.new("TextButton")
+        KeyBtn.Size = UDim2.new(0, 78, 0, 24)
+        KeyBtn.Position = UDim2.new(1, -84, 0.5, -12)
+        KeyBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+        KeyBtn.BackgroundTransparency = 0.4
+        KeyBtn.BorderSizePixel = 0
+        KeyBtn.Text = PM.Rewind.key and PM.Rewind.key.Name or "Bind"
+        KeyBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        KeyBtn.TextSize = 11
+        KeyBtn.Font = Enum.Font.GothamBold
+        KeyBtn.Parent = KeySection
+        local KeyBtnCorner = Instance.new("UICorner")
+        KeyBtnCorner.CornerRadius = UDim.new(0, 6)
+        KeyBtnCorner.Parent = KeyBtn
+
+        local function UpdateKeyBtn()
+            KeyBtn.Text = PM.Rewind.key and PM.Rewind.key.Name or "Bind"
+        end
+
+        KeyBtn.MouseButton1Click:Connect(function()
+            PM.Rewind.capturing = true
+            if PM.Rewind.globalConn then PM.Rewind.globalConn:Disconnect(); PM.Rewind.globalConn = nil end
+            if PM.Rewind.keyEndConn then PM.Rewind.keyEndConn:Disconnect(); PM.Rewind.keyEndConn = nil end
+            KeyBtn.Text = "..."
+            PM.Rewind.captureConn = UserInputService.InputBegan:Connect(function(input, gpe)
+                if gpe then return end
+                if not PM.Rewind.capturing then return end
+                if input.UserInputType == Enum.UserInputType.Keyboard then
+                    if input.KeyCode == Enum.KeyCode.Backspace then
+                        PM.Rewind.key = nil
+                        PM.Rewind.capturing = false
+                        if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
+                        UpdateKeyBtn()
+                        SaveRewindState()
+                        RewindEnableGlobal()
+                    else
+                        PM.Rewind.key = input.KeyCode
+                        PM.Rewind.capturing = false
+                        if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
+                        UpdateKeyBtn()
+                        SaveRewindState()
+                        RewindEnableGlobal()
+                    end
+                end
+            end)
+        end)
+
+        -- Key Style Toggle
+        local StyleSection = Instance.new("Frame")
+        StyleSection.Size = UDim2.new(1, 0, 0, 36)
+        StyleSection.Position = UDim2.new(0, 0, 0, 128)
+        StyleSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        StyleSection.BackgroundTransparency = 0.4
+        StyleSection.BorderSizePixel = 0
+        StyleSection.Parent = ContentFrame
+        local StyleCorner = Instance.new("UICorner")
+        StyleCorner.CornerRadius = UDim.new(0, 10)
+        StyleCorner.Parent = StyleSection
+        local StylePadding = Instance.new("UIPadding")
+        StylePadding.PaddingLeft = UDim.new(0, 12)
+        StylePadding.PaddingRight = UDim.new(0, 12)
+        StylePadding.Parent = StyleSection
+
+        local StyleLabel = Instance.new("TextLabel")
+        StyleLabel.Size = UDim2.new(1, -48, 1, 0)
+        StyleLabel.BackgroundTransparency = 1
+        StyleLabel.Text = "Toggle Hold"
+        StyleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
+        StyleLabel.TextSize = 12
+        StyleLabel.Font = Enum.Font.Gotham
+        StyleLabel.TextXAlignment = Enum.TextXAlignment.Left
+        StyleLabel.Parent = StyleSection
+
+        local StylePill = Instance.new("Frame")
+        StylePill.Size = UDim2.new(0, 36, 0, 18)
+        StylePill.Position = UDim2.new(1, -36, 0.5, -9)
+        StylePill.BackgroundColor3 = PM.Rewind.keyStyle == "Toggle" and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50)
+        StylePill.BorderSizePixel = 0
+        StylePill.Parent = StyleSection
+        local StylePillCorner = Instance.new("UICorner")
+        StylePillCorner.CornerRadius = UDim.new(0, 9)
+        StylePillCorner.Parent = StylePill
+
+        local StyleKnob = Instance.new("Frame")
+        StyleKnob.Size = UDim2.new(0, 14, 0, 14)
+        StyleKnob.Position = PM.Rewind.keyStyle == "Toggle" and UDim2.new(1, -19, 0.5, -7) or UDim2.new(0, 2, 0.5, -7)
+        StyleKnob.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+        StyleKnob.BorderSizePixel = 0
+        StyleKnob.Parent = StylePill
+        local StyleKnobCorner = Instance.new("UICorner")
+        StyleKnobCorner.CornerRadius = UDim.new(0, 7)
+        StyleKnobCorner.Parent = StyleKnob
+
+        local StyleBtn = Instance.new("TextButton")
+        StyleBtn.Size = UDim2.new(1, 0, 1, 0)
+        StyleBtn.BackgroundTransparency = 1
+        StyleBtn.Text = ""
+        StyleBtn.Parent = StylePill
+
+        StyleBtn.MouseButton1Click:Connect(function()
+            PM.Rewind.keyStyle = PM.Rewind.keyStyle == "Toggle" and "Hold" or "Toggle"
+            SaveRewindState()
+            if PM.Rewind.keyStyle == "Toggle" then
+                TweenService:Create(StylePill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
+                TweenService:Create(StyleKnob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -7)}):Play()
+            else
+                TweenService:Create(StylePill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
+                TweenService:Create(StyleKnob, TweenInfo.new(0.15), {Position = UDim2.new(0, 2, 0.5, -7)}):Play()
+            end
+        end)
+
+        -- Run/Stop Button
+        local RunBtn = Instance.new("TextButton")
+        RunBtn.Size = UDim2.new(1, -24, 0, 32)
+        RunBtn.Position = UDim2.new(0, 12, 1, -44)
+        RunBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        RunBtn.BorderSizePixel = 0
+        RunBtn.Text = "Run"
+        RunBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+        RunBtn.TextSize = 12
+        RunBtn.Font = Enum.Font.GothamBold
+        RunBtn.Parent = ContentFrame
+        local RunCorner = Instance.new("UICorner")
+        RunCorner.CornerRadius = UDim.new(0, 8)
+        RunCorner.Parent = RunBtn
+
+        local function UpdateRunBtn()
+            if PM.Rewind.playing then
+                RunBtn.Text = "Stop"
+                RunBtn.BackgroundColor3 = Color3.fromRGB(120, 40, 40)
+            else
+                RunBtn.Text = "Run"
+                RunBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+            end
+        end
+
+        RunBtn.MouseButton1Click:Connect(function()
+            if PM.Rewind.playing then
+                DoRewindStop()
+            else
+                DoRewindStart()
+            end
+            UpdateRunBtn()
+        end)
+
+        -- Update run button state during playback
+        spawn(function()
+            while ScreenGui and ScreenGui.Parent do
+                UpdateRunBtn()
+                task.wait(0.1)
+            end
+        end)
+
+        RewindEnableGlobal()
+    end)
+
+    if not success then
+    end
 end)
 
 -- Hidden players state
@@ -1100,7 +1790,7 @@ registerCommand("to", "Teleport to player", {}, function(args)
         local myChar = LP.Character
         local myHRP = myChar and myChar:FindFirstChild("HumanoidRootPart")
         if myHRP then
-            myHRP.CFrame = target.Character.HumanoidRootPart.CFrame + Vector3.new(0, 3, 0)
+            myHRP.CFrame = target.Character.HumanoidRootPart.CFrame
         end
     end
 end, true)
