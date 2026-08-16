@@ -2778,7 +2778,7 @@ PM.createMainGUI = function()
                         while tagLbl.Parent do
                             tagLbl.Text = fullText
                             
-                            -- Slow fade flicker 3 times
+                            -- Slow fade flicker 3 times (fade to full transparency)
                             for _ = 1, 3 do
                                 wait(math.random(1.3, 1.5))
                                 local fadeOut = TweenService:Create(tagLbl, TweenInfo.new(math.random(0.5, 0.7)), {TextTransparency = 1})
