@@ -20,7 +20,6 @@
     animation replacer (like axon)
     animation logger
     animation speeds
-    move while emoting
     auto execute on game switch / server hop / rejoin
     shaders (with presets / time of day control / all axons shader controls)
     anti vcb muting others / self
@@ -259,6 +258,16 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
             end
         end
     end
+    -- Cleanup View
+    if PM.View.connection then PM.View.connection:Disconnect(); PM.View.connection = nil end
+    if PM.View.leavingConnection then PM.View.leavingConnection:Disconnect(); PM.View.leavingConnection = nil end
+    PM.View.viewing = false
+    PM.View.target = nil
+    local camera = workspace.CurrentCamera
+    local char = LP.Character
+    if char and char:FindFirstChild("Humanoid") then
+        camera.CameraSubject = char.Humanoid
+    end
     -- Cleanup Camera
     local cameraGui = FindPrismGUI("Prism_CameraGUI")
     if cameraGui then pcall(function() cameraGui:Destroy() end) end
@@ -389,6 +398,16 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
             end
         end
     end
+    -- Cleanup View
+    if PM.View.connection then PM.View.connection:Disconnect(); PM.View.connection = nil end
+    if PM.View.leavingConnection then PM.View.leavingConnection:Disconnect(); PM.View.leavingConnection = nil end
+    PM.View.viewing = false
+    PM.View.target = nil
+    local camera = workspace.CurrentCamera
+    local char = LP.Character
+    if char and char:FindFirstChild("Humanoid") then
+        camera.CameraSubject = char.Humanoid
+    end
     -- Cleanup Camera
     local cameraGui2 = FindPrismGUI("Prism_CameraGUI")
     if cameraGui2 then pcall(function() cameraGui2:Destroy() end) end
@@ -515,6 +534,121 @@ registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(arg
         end
     end)
 end, true)
+
+-- View state management
+PM.View = {
+    viewing = false,
+    target = nil,
+    connection = nil,
+    leavingConnection = nil
+}
+
+registerCommand("view", "View a player (no GUI)", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+    
+    local q = targetName:lower()
+    local target = nil
+    
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+    
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+    
+    if not target then return end
+    
+    -- Disconnect existing view
+    if PM.View.connection then
+        PM.View.connection:Disconnect()
+        PM.View.connection = nil
+    end
+    if PM.View.leavingConnection then
+        PM.View.leavingConnection:Disconnect()
+        PM.View.leavingConnection = nil
+    end
+    
+    PM.View.viewing = true
+    PM.View.target = target
+    
+    local camera = workspace.CurrentCamera
+    local RunService = game:GetService("RunService")
+    
+    PM.View.connection = RunService.Heartbeat:Connect(function()
+        if PM.View.viewing and PM.View.target then
+            local char = PM.View.target.Character
+            if char and char:FindFirstChild("Humanoid") then
+                camera.CameraSubject = char.Humanoid
+            end
+        end
+    end)
+    
+    -- Auto-unview if target leaves
+    PM.View.leavingConnection = target.CharacterRemoving:Connect(function()
+        PM.View.viewing = false
+        PM.View.target = nil
+        
+        if PM.View.connection then
+            PM.View.connection:Disconnect()
+            PM.View.connection = nil
+        end
+        if PM.View.leavingConnection then
+            PM.View.leavingConnection:Disconnect()
+            PM.View.leavingConnection = nil
+        end
+        
+        local camera = workspace.CurrentCamera
+        local char = LP.Character
+        if char and char:FindFirstChild("Humanoid") then
+            camera.CameraSubject = char.Humanoid
+        end
+    end)
+end)
+
+registerCommand("unview", "Stop viewing a player", {}, function(args)
+    PM.View.viewing = false
+    PM.View.target = nil
+    
+    if PM.View.connection then
+        PM.View.connection:Disconnect()
+        PM.View.connection = nil
+    end
+    if PM.View.leavingConnection then
+        PM.View.leavingConnection:Disconnect()
+        PM.View.leavingConnection = nil
+    end
+    
+    local camera = workspace.CurrentCamera
+    local char = LP.Character
+    if char and char:FindFirstChild("Humanoid") then
+        camera.CameraSubject = char.Humanoid
+    end
+end)
 
 -- Hidden players state
 PM.HiddenPlayers = {}
