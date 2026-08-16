@@ -2439,8 +2439,8 @@ PM.createMainGUI = function()
         
         -- Custom Tags Configuration
         PM.CustomTags = {
-            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker", profilePicture = "URL"}
-            [5712636024] = {tagText = "Prism Owner", effect = "glitch", profilePicture = "https://raw.githubusercontent.com/Kavrenoo/Prism/main/nametag%20profile%20pictures/Black%20Cat.jpg"},
+            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker"}
+            [5712636024] = {tagText = "Prism Owner", effect = "glitch"},
             [11087809132] = {tagText = "Prism Owner", effect = "glitch"},
             [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker"},
         }
@@ -2623,38 +2623,10 @@ PM.createMainGUI = function()
             pfpStroke.Parent = pfp
             
             spawn(function()
-                local customPfpUrl = nil
-                local userData = PM.otherMonoUsers[tostring(plr.UserId)]
-                if userData and userData.profilePicture then
-                    customPfpUrl = userData.profilePicture
-                end
-                
-                -- Check for local custom tags if not in API data
-                if not customPfpUrl and PM.CustomTags[plr.UserId] and PM.CustomTags[plr.UserId].profilePicture then
-                    customPfpUrl = PM.CustomTags[plr.UserId].profilePicture
-                end
-                
-                if customPfpUrl and customPfpUrl ~= "" then
-                    -- Load custom profile picture
-                    local ok, result = pcall(function()
-                        return customPfpUrl
-                    end)
-                    if ok and result and pfp.Parent then
-                        pfp.Image = result
-                    else
-                        -- Fallback to default Roblox thumbnail
-                        local ok2, img = pcall(function()
-                            return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size100x100)
-                        end)
-                        if ok2 and img and pfp.Parent then pfp.Image = img end
-                    end
-                else
-                    -- Use default Roblox thumbnail
-                    local ok, img = pcall(function()
-                        return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size100x100)
-                    end)
-                    if ok and img and pfp.Parent then pfp.Image = img end
-                end
+                local ok, img = pcall(function()
+                    return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size100x100)
+                end)
+                if ok and img and pfp.Parent then pfp.Image = img end
             end)
             
             local tagLbl = Instance.new("TextLabel")
@@ -2688,7 +2660,6 @@ PM.createMainGUI = function()
                         wait(0.18)
                     elseif customConfig.effect == "glitch" then
                         local glitchChars = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`"
-                        local s = fullText
                         while tagLbl.Parent do
                             local glitchCount = math.random(1, 2)
                             for _ = 1, glitchCount do
