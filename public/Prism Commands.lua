@@ -3152,48 +3152,62 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         SettingsPanel.Parent = ContentFrame
 
         -- Move While Emoting Toggle
-        local MWEContainer = Instance.new("Frame")
-        MWEContainer.Size = UDim2.new(1, 0, 0, 40)
-        MWEContainer.Position = UDim2.new(0, 0, 0, 0)
-        MWEContainer.BackgroundTransparency = 1
-        MWEContainer.Parent = SettingsPanel
+        local MWESection = Instance.new("Frame")
+        MWESection.Size = UDim2.new(1, 0, 0, 36)
+        MWESection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+        MWESection.BackgroundTransparency = 0.4
+        MWESection.BorderSizePixel = 0
+        MWESection.Parent = SettingsPanel
+
+        local MWECorner = Instance.new("UICorner")
+        MWECorner.CornerRadius = UDim.new(0, 10)
+        MWECorner.Parent = MWESection
 
         local MWELabel = Instance.new("TextLabel")
-        MWELabel.Size = UDim2.new(1, -60, 1, 0)
-        MWELabel.Position = UDim2.new(0, 0, 0, 0)
+        MWELabel.Size = UDim2.new(1, -48, 1, 0)
         MWELabel.BackgroundTransparency = 1
         MWELabel.Text = "Move While Emoting"
-        MWELabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        MWELabel.TextColor3 = Color3.fromRGB(220, 220, 220)
         MWELabel.TextSize = 12
-        MWELabel.Font = Enum.Font.GothamMedium
+        MWELabel.Font = Enum.Font.Gotham
         MWELabel.TextXAlignment = Enum.TextXAlignment.Left
-        MWELabel.Parent = MWEContainer
+        MWELabel.Parent = MWESection
 
-        local MWEToggle = Instance.new("TextButton")
-        MWEToggle.Size = UDim2.new(0, 44, 0, 22)
-        MWEToggle.Position = UDim2.new(1, -50, 0.5, -11)
-        MWEToggle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-        MWEToggle.BorderSizePixel = 0
-        MWEToggle.Text = ""
-        MWEToggle.Parent = MWEContainer
+        local MWEPadding = Instance.new("UIPadding")
+        MWEPadding.PaddingLeft = UDim.new(0, 12)
+        MWEPadding.PaddingRight = UDim.new(0, 12)
+        MWEPadding.Parent = MWESection
 
-        local MWEToggleCorner = Instance.new("UICorner")
-        MWEToggleCorner.CornerRadius = UDim.new(0, 11)
-        MWEToggleCorner.Parent = MWEToggle
+        local MWEPill = Instance.new("Frame")
+        MWEPill.Size = UDim2.new(0, 36, 0, 18)
+        MWEPill.Position = UDim2.new(1, -36, 0.5, -9)
+        MWEPill.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        MWEPill.BorderSizePixel = 0
+        MWEPill.Parent = MWESection
 
-        local MWEToggleKnob = Instance.new("Frame")
-        MWEToggleKnob.Size = UDim2.new(0, 18, 0, 18)
-        MWEToggleKnob.Position = UDim2.new(0, 2, 0.5, -9)
-        MWEToggleKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        MWEToggleKnob.BorderSizePixel = 0
-        MWEToggleKnob.Parent = MWEToggle
+        local MWEPillCorner = Instance.new("UICorner")
+        MWEPillCorner.CornerRadius = UDim.new(0, 9)
+        MWEPillCorner.Parent = MWEPill
 
-        local MWEToggleKnobCorner = Instance.new("UICorner")
-        MWEToggleKnobCorner.CornerRadius = UDim.new(0, 9)
-        MWEToggleKnobCorner.Parent = MWEToggleKnob
+        local MWEKnob = Instance.new("Frame")
+        MWEKnob.Size = UDim2.new(0, 14, 0, 14)
+        MWEKnob.Position = UDim2.new(0, 2, 0.5, -7)
+        MWEKnob.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+        MWEKnob.BorderSizePixel = 0
+        MWEKnob.Parent = MWEPill
+
+        local MWEKnobCorner = Instance.new("UICorner")
+        MWEKnobCorner.CornerRadius = UDim.new(0, 7)
+        MWEKnobCorner.Parent = MWEKnob
+
+        local MWEBtn = Instance.new("TextButton")
+        MWEBtn.Size = UDim2.new(1, 0, 1, 0)
+        MWEBtn.BackgroundTransparency = 1
+        MWEBtn.Text = ""
+        MWEBtn.Parent = MWEPill
 
         -- Move While Emoting State
-        local moveWhileEmotingEnabled = false
+        local moveWhileEmotingEnabled = savedMWE or false
         PM.Emotes.mwePriConn = nil
         PM.Emotes.mweWalkConn = nil
         PM.Emotes.currentEmoteTrack = nil
@@ -3292,27 +3306,28 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
             end)
         end
 
-        MWEToggle.MouseButton1Click:Connect(function()
+        MWEBtn.MouseButton1Click:Connect(function()
             moveWhileEmotingEnabled = not moveWhileEmotingEnabled
             SetMoveWhileEmoting(moveWhileEmotingEnabled)
             currentEmotesSettings.moveWhileEmoting = moveWhileEmotingEnabled
             SaveEmotesGUISettings()
 
             if moveWhileEmotingEnabled then
-                MWEToggle.BackgroundColor3 = Color3.fromRGB(80, 160, 80)
-                TweenService:Create(MWEToggleKnob, TweenInfo.new(0.2), {Position = UDim2.new(1, -20, 0.5, -9)}):Play()
+                TweenService:Create(MWEPill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
+                TweenService:Create(MWEKnob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -7)}):Play()
             else
-                MWEToggle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-                TweenService:Create(MWEToggleKnob, TweenInfo.new(0.2), {Position = UDim2.new(0, 2, 0.5, -9)}):Play()
+                TweenService:Create(MWEPill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
+                TweenService:Create(MWEKnob, TweenInfo.new(0.15), {Position = UDim2.new(0, 2, 0.5, -7)}):Play()
             end
         end)
 
         -- Initialize toggle state from saved settings
         if savedMWE then
-            moveWhileEmotingEnabled = true
+            MWEPill.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+            MWEKnob.Position = UDim2.new(1, -19, 0.5, -7)
             SetMoveWhileEmoting(true)
-            MWEToggle.BackgroundColor3 = Color3.fromRGB(80, 160, 80)
-            MWEToggleKnob.Position = UDim2.new(1, -20, 0.5, -9)
+            currentEmotesSettings.moveWhileEmoting = true
+            SaveEmotesGUISettings()
         end
 
         -- Favorites functions
