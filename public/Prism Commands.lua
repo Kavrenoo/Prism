@@ -223,6 +223,28 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
     end
     local acGui = FindPrismGUI("Prism_AutoClickerGUI")
     if acGui then pcall(function() acGui:Destroy() end) end
+    -- Cleanup Noclip
+    if PM.Noclip then
+        PM.Noclip.active = false
+        if PM.Noclip.connection then pcall(function() PM.Noclip.connection:Disconnect() end) end
+        if PM.Noclip.keyConnection then pcall(function() PM.Noclip.keyConnection:Disconnect() end) end
+        local snapshot = PM.Noclip.snapshot or {}
+        local char = LP.Character
+        if char then
+            for _, part in ipairs(char:GetDescendants()) do
+                if part:IsA("BasePart") then
+                    pcall(function()
+                        if snapshot[part] ~= nil then
+                            part.CanCollide = snapshot[part]
+                        end
+                    end)
+                end
+            end
+        end
+        PM.Noclip.snapshot = {}
+    end
+    local ncGui = FindPrismGUI("Prism_NoclipGUI")
+    if ncGui then pcall(function() ncGui:Destroy() end) end
     -- Cleanup Spin
     local spinGui = FindPrismGUI("Prism_SpinGUI")
     if spinGui then pcall(function() spinGui:Destroy() end) end
@@ -372,6 +394,28 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
     end
     local acGui2 = FindPrismGUI("Prism_AutoClickerGUI")
     if acGui2 then pcall(function() acGui2:Destroy() end) end
+    -- Cleanup Noclip
+    if PM.Noclip then
+        PM.Noclip.active = false
+        if PM.Noclip.connection then pcall(function() PM.Noclip.connection:Disconnect() end) end
+        if PM.Noclip.keyConnection then pcall(function() PM.Noclip.keyConnection:Disconnect() end) end
+        local snapshot = PM.Noclip.snapshot or {}
+        local char = LP.Character
+        if char then
+            for _, part in ipairs(char:GetDescendants()) do
+                if part:IsA("BasePart") then
+                    pcall(function()
+                        if snapshot[part] ~= nil then
+                            part.CanCollide = snapshot[part]
+                        end
+                    end)
+                end
+            end
+        end
+        PM.Noclip.snapshot = {}
+    end
+    local ncGui2 = FindPrismGUI("Prism_NoclipGUI")
+    if ncGui2 then pcall(function() ncGui2:Destroy() end) end
     -- Cleanup Spin
     local spinGui2 = FindPrismGUI("Prism_SpinGUI")
     if spinGui2 then pcall(function() spinGui2:Destroy() end) end
@@ -6419,6 +6463,449 @@ registerCommand("autoclicker", "Auto clicker with keybind", {}, function(args)
         StopAC()
         if acCaptureConn then acCaptureConn:Disconnect(); acCaptureConn = nil end
         if acKeyConn then acKeyConn:Disconnect(); acKeyConn = nil end
+        ScreenGui:Destroy()
+    end)
+end)
+
+-- Noclip state management
+PM.Noclip = {
+    active = false,
+    key = nil,
+    connection = nil,
+    keyConnection = nil,
+    snapshot = {},
+    noclipKey = nil
+}
+
+-- Load saved noclip key
+local NC_SAVE_FILE = "prism/prism_nc_settings.json"
+local savedNCSettings = {}
+pcall(function()
+    if readfile and isfile(NC_SAVE_FILE) then
+        savedNCSettings = game:GetService("HttpService"):JSONDecode(readfile(NC_SAVE_FILE))
+    end
+end)
+if savedNCSettings.key then
+    pcall(function()
+        PM.Noclip.key = Enum.KeyCode[savedNCSettings.key]
+    end)
+end
+
+local function SaveNCSettings()
+    pcall(function()
+        if writefile then
+            if makefolder and not isfolder("prism") then makefolder("prism") end
+            writefile(NC_SAVE_FILE, game:GetService("HttpService"):JSONEncode({
+                key = PM.Noclip.key and PM.Noclip.key.Name or nil
+            }))
+        end
+    end)
+end
+
+registerCommand("noclip", "Noclip with keybind", {}, function(args)
+    local Players = game:GetService("Players")
+    local TweenService = game:GetService("TweenService")
+    local UserInputService = game:GetService("UserInputService")
+    local RunService = game:GetService("RunService")
+    local CoreGui = game:GetService("CoreGui")
+    local LocalPlayer = Players.LocalPlayer
+
+    local function guiExists(guiName)
+        if CoreGui:FindFirstChild(guiName) then return true end
+        if LP:FindFirstChild("PlayerGui") and LP.PlayerGui:FindFirstChild(guiName) then return true end
+        if get_hidden_gui or gethui then
+            if (get_hidden_gui or gethui)():FindFirstChild(guiName) then return true end
+        end
+        return false
+    end
+    if guiExists("Prism_NoclipGUI") then return end
+
+    local ScreenGui = Instance.new("ScreenGui")
+    ScreenGui.Name = "Prism_NoclipGUI"
+    ScreenGui.ResetOnSpawn = false
+    ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui.DisplayOrder = 999
+
+    if syn and syn.protect_gui then
+        syn.protect_gui(ScreenGui)
+        ScreenGui.Parent = CoreGui
+    elseif gethui then
+        ScreenGui.Parent = gethui()
+    else
+        ScreenGui.Parent = CoreGui
+    end
+
+    -- Load saved GUI settings
+    local NC_GUI_FILE = "prism/prism_nc_gui_settings.json"
+    local savedNCGUI = {}
+    pcall(function()
+        if readfile and isfile(NC_GUI_FILE) then
+            savedNCGUI = game:GetService("HttpService"):JSONDecode(readfile(NC_GUI_FILE))
+        end
+    end)
+    local savedPos = savedNCGUI.position or {X = {Scale = 0, Offset = 500}, Y = {Scale = 0, Offset = 400}}
+    local savedMinimized = savedNCGUI.minimized or false
+
+    local currentNCSettings = {
+        position = savedPos,
+        minimized = savedMinimized
+    }
+
+    local function SaveNCGUISettings()
+        pcall(function()
+            if writefile then
+                if makefolder and not isfolder("prism") then makefolder("prism") end
+                writefile(NC_GUI_FILE, game:GetService("HttpService"):JSONEncode(currentNCSettings))
+            end
+        end)
+    end
+
+    local MW, MH = 220, 88
+
+    local tweenInfo = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+    local MainFrame = Instance.new("Frame")
+    MainFrame.Name = "MainFrame"
+    MainFrame.Size = UDim2.new(0, MW, 0, MH)
+    MainFrame.Position = UDim2.new(savedPos.X.Scale, savedPos.X.Offset, savedPos.Y.Scale, savedPos.Y.Offset)
+    MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+    MainFrame.BackgroundTransparency = 0.3
+    MainFrame.BorderSizePixel = 0
+    MainFrame.ClipsDescendants = true
+    MainFrame.Parent = ScreenGui
+
+    local MainCorner = Instance.new("UICorner")
+    MainCorner.CornerRadius = UDim.new(0, 14)
+    MainCorner.Parent = MainFrame
+
+    local MainStroke = Instance.new("UIStroke")
+    MainStroke.Color = Color3.fromRGB(60, 60, 60)
+    MainStroke.Thickness = 1
+    MainStroke.Parent = MainFrame
+
+    local TitleBar = Instance.new("Frame")
+    TitleBar.Name = "TitleBar"
+    TitleBar.Size = UDim2.new(1, 0, 0, 36)
+    TitleBar.BackgroundTransparency = 1
+    TitleBar.Parent = MainFrame
+
+    local dragging = false
+    local dragStart = nil
+    local startPos = nil
+
+    TitleBar.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = MainFrame.Position
+        end
+    end)
+
+    TitleBar.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = false
+            currentNCSettings.position = {
+                X = {Scale = MainFrame.Position.X.Scale, Offset = MainFrame.Position.X.Offset},
+                Y = {Scale = MainFrame.Position.Y.Scale, Offset = MainFrame.Position.Y.Offset}
+            }
+            SaveNCGUISettings()
+        end
+    end)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+            local delta = input.Position - dragStart
+            MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+        end
+    end)
+
+    local TitleLabel = Instance.new("TextLabel")
+    TitleLabel.Size = UDim2.new(1, -80, 1, 0)
+    TitleLabel.Position = UDim2.new(0, 14, 0, 0)
+    TitleLabel.BackgroundTransparency = 1
+    TitleLabel.Text = "Prism  •  Noclip"
+    TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TitleLabel.TextSize = 13
+    TitleLabel.Font = Enum.Font.GothamBold
+    TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+    TitleLabel.Parent = TitleBar
+
+    local MinBtn = Instance.new("TextButton")
+    MinBtn.Size = UDim2.new(0, 24, 0, 24)
+    MinBtn.Position = UDim2.new(1, -52, 0.5, -12)
+    MinBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    MinBtn.BackgroundTransparency = 0.4
+    MinBtn.BorderSizePixel = 0
+    MinBtn.Text = "—"
+    MinBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+    MinBtn.TextSize = 11
+    MinBtn.Font = Enum.Font.GothamBold
+    MinBtn.Parent = TitleBar
+
+    local MinCorner = Instance.new("UICorner")
+    MinCorner.CornerRadius = UDim.new(0, 6)
+    MinCorner.Parent = MinBtn
+
+    local CloseBtn = Instance.new("TextButton")
+    CloseBtn.Size = UDim2.new(0, 24, 0, 24)
+    CloseBtn.Position = UDim2.new(1, -26, 0.5, -12)
+    CloseBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    CloseBtn.BackgroundTransparency = 0.4
+    CloseBtn.BorderSizePixel = 0
+    CloseBtn.Text = "X"
+    CloseBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+    CloseBtn.TextSize = 11
+    CloseBtn.Font = Enum.Font.GothamBold
+    CloseBtn.Parent = TitleBar
+
+    local CloseCorner = Instance.new("UICorner")
+    CloseCorner.CornerRadius = UDim.new(0, 6)
+    CloseCorner.Parent = CloseBtn
+
+    local ContentFrame = Instance.new("Frame")
+    ContentFrame.Name = "Content"
+    ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+    ContentFrame.Position = UDim2.new(0, 0, 0, 40)
+    ContentFrame.BackgroundTransparency = 1
+    ContentFrame.ClipsDescendants = true
+    ContentFrame.Parent = MainFrame
+
+    local Padding = Instance.new("UIPadding")
+    Padding.PaddingTop = UDim.new(0, 4)
+    Padding.PaddingBottom = UDim.new(0, 4)
+    Padding.PaddingLeft = UDim.new(0, 8)
+    Padding.PaddingRight = UDim.new(0, 8)
+    Padding.Parent = ContentFrame
+
+    local isMinimized = savedMinimized
+    MinBtn.MouseButton1Click:Connect(function()
+        isMinimized = not isMinimized
+        currentNCSettings.minimized = isMinimized
+        SaveNCGUISettings()
+        if isMinimized then
+            MinBtn.Text = "+"
+            TweenService:Create(MainFrame, tweenInfo, {Size = UDim2.new(0, MW, 0, 36)}):Play()
+            ContentFrame.Visible = false
+        else
+            MinBtn.Text = "—"
+            ContentFrame.Visible = true
+            TweenService:Create(MainFrame, tweenInfo, {Size = UDim2.new(0, MW, 0, MH)}):Play()
+        end
+    end)
+
+    if isMinimized then
+        MinBtn.Text = "+"
+        MainFrame.Size = UDim2.new(0, MW, 0, 36)
+        ContentFrame.Visible = false
+    end
+
+    -- Noclip logic
+    local ncOn = false
+    local ncKey = PM.Noclip.key
+    local ncCapturing = false
+    local ncCaptureConn = nil
+    local ncKeyConn = nil
+
+    -- Action Buttons
+    local BtnSection = Instance.new("Frame")
+    BtnSection.Name = "BtnSection"
+    BtnSection.Size = UDim2.new(1, 0, 0, 36)
+    BtnSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    BtnSection.BackgroundTransparency = 0.4
+    BtnSection.BorderSizePixel = 0
+    BtnSection.Parent = ContentFrame
+
+    local BtnSectionCorner = Instance.new("UICorner")
+    BtnSectionCorner.CornerRadius = UDim.new(0, 10)
+    BtnSectionCorner.Parent = BtnSection
+
+    local NCBtn = Instance.new("TextButton")
+    NCBtn.Name = "NCBtn"
+    NCBtn.Size = UDim2.new(0, 130, 0, 24)
+    NCBtn.Position = UDim2.new(0, 6, 0.5, -12)
+    NCBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    NCBtn.BackgroundTransparency = 0.4
+    NCBtn.BorderSizePixel = 0
+    NCBtn.Text = "Enable"
+    NCBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+    NCBtn.TextSize = 11
+    NCBtn.Font = Enum.Font.GothamBold
+    NCBtn.Parent = BtnSection
+
+    local NCBtnCorner = Instance.new("UICorner")
+    NCBtnCorner.CornerRadius = UDim.new(0, 6)
+    NCBtnCorner.Parent = NCBtn
+
+    local BindBtn = Instance.new("TextButton")
+    BindBtn.Name = "BindBtn"
+    BindBtn.Size = UDim2.new(0, 52, 0, 24)
+    BindBtn.Position = UDim2.new(1, -58, 0.5, -12)
+    BindBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    BindBtn.BackgroundTransparency = 0.4
+    BindBtn.BorderSizePixel = 0
+    BindBtn.Text = "Bind"
+    BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+    BindBtn.TextSize = 11
+    BindBtn.Font = Enum.Font.GothamBold
+    BindBtn.Parent = BtnSection
+
+    local BindBtnCorner = Instance.new("UICorner")
+    BindBtnCorner.CornerRadius = UDim.new(0, 6)
+    BindBtnCorner.Parent = BindBtn
+
+    -- Hover effects
+    NCBtn.MouseEnter:Connect(function()
+        TweenService:Create(NCBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
+    end)
+    NCBtn.MouseLeave:Connect(function()
+        TweenService:Create(NCBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+    end)
+
+    BindBtn.MouseEnter:Connect(function()
+        TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
+    end)
+    BindBtn.MouseLeave:Connect(function()
+        TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+    end)
+
+    -- Load saved key
+    local function UpdateBindDisplay()
+        if ncKey then
+            BindBtn.Text = ncKey.Name
+        else
+            BindBtn.Text = "Bind"
+        end
+    end
+    UpdateBindDisplay()
+
+    local function SaveNCKey()
+        PM.Noclip.key = ncKey
+        SaveNCSettings()
+    end
+
+    local function CancelCapture()
+        ncCapturing = false
+        ncKey = nil
+        if ncCaptureConn then ncCaptureConn:Disconnect(); ncCaptureConn = nil end
+        UpdateBindDisplay()
+        SaveNCKey()
+        EnableGlobalNC()
+    end
+
+    BindBtn.MouseButton1Click:Connect(function()
+        ncCapturing = true
+        if PM.Noclip.keyConnection then PM.Noclip.keyConnection:Disconnect(); PM.Noclip.keyConnection = nil end
+        BindBtn.Text = "..."
+        BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+
+        if ncCaptureConn then ncCaptureConn:Disconnect() end
+        ncCaptureConn = UserInputService.InputBegan:Connect(function(input, gpe)
+            if gpe then return end
+            if not ncCapturing then return end
+            if input.UserInputType == Enum.UserInputType.Keyboard then
+                if input.KeyCode == Enum.KeyCode.Backspace then
+                    ncKey = nil
+                    ncCapturing = false
+                    ncCaptureConn:Disconnect(); ncCaptureConn = nil
+                    UpdateBindDisplay()
+                    BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+                    SaveNCKey()
+                    EnableGlobalNC()
+                else
+                    ncKey = input.KeyCode
+                    ncCapturing = false
+                    ncCaptureConn:Disconnect(); ncCaptureConn = nil
+                    UpdateBindDisplay()
+                    BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+                    SaveNCKey()
+                    EnableGlobalNC()
+                end
+            elseif input.UserInputType == Enum.UserInputType.MouseButton1 or
+                   input.UserInputType == Enum.UserInputType.MouseButton2 or
+                   input.UserInputType == Enum.UserInputType.MouseButton3 then
+                CancelCapture()
+                BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+                EnableGlobalNC()
+            end
+        end)
+    end)
+
+    -- Noclip functions
+    local function StartNC()
+        if PM.Noclip.connection then return end
+        PM.Noclip.snapshot = {}
+        local char = LocalPlayer.Character
+        if char then
+            for _, part in ipairs(char:GetDescendants()) do
+                if part:IsA("BasePart") then
+                    PM.Noclip.snapshot[part] = part.CanCollide
+                end
+            end
+        end
+        PM.Noclip.connection = RunService.Stepped:Connect(function()
+            local c = LocalPlayer.Character
+            if not c then return end
+            for _, part in ipairs(c:GetDescendants()) do
+                if part:IsA("BasePart") then part.CanCollide = false end
+            end
+        end)
+    end
+
+    local function StopNC()
+        if PM.Noclip.connection then PM.Noclip.connection:Disconnect(); PM.Noclip.connection = nil end
+        local snapshot = PM.Noclip.snapshot or {}
+        local char = LocalPlayer.Character
+        if char then
+            for _, part in ipairs(char:GetDescendants()) do
+                if part:IsA("BasePart") then
+                    pcall(function()
+                        if snapshot[part] ~= nil then
+                            part.CanCollide = snapshot[part]
+                        end
+                    end)
+                end
+            end
+        end
+        PM.Noclip.snapshot = {}
+    end
+
+    local function SetNC(val)
+        if val == ncOn then return end
+        ncOn = val
+        if val then
+            NCBtn.Text = "Disable"
+            TweenService:Create(NCBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 100, 55)}):Play()
+            StartNC()
+        else
+            NCBtn.Text = "Enable"
+            TweenService:Create(NCBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+            StopNC()
+        end
+        PM.Noclip.active = ncOn
+    end
+
+    NCBtn.MouseButton1Click:Connect(function()
+        SetNC(not ncOn)
+    end)
+
+    local function EnableGlobalNC()
+        if PM.Noclip.keyConnection then return end
+        PM.Noclip.keyConnection = UserInputService.InputBegan:Connect(function(input, gpe)
+            if gpe or ncCapturing then return end
+            if UserInputService:GetFocusedTextBox() then return end
+            if input.UserInputType == Enum.UserInputType.Keyboard and ncKey and input.KeyCode == ncKey then
+                SetNC(not ncOn)
+            end
+        end)
+    end
+
+    EnableGlobalNC()
+
+    CloseBtn.MouseButton1Click:Connect(function()
+        ncCapturing = false
+        StopNC()
+        if ncCaptureConn then ncCaptureConn:Disconnect(); ncCaptureConn = nil end
+        if PM.Noclip.keyConnection then PM.Noclip.keyConnection:Disconnect(); PM.Noclip.keyConnection = nil end
         ScreenGui:Destroy()
     end)
 end)
