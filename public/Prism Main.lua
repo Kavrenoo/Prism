@@ -2439,10 +2439,10 @@ PM.createMainGUI = function()
         
         -- Custom Tags Configuration
         PM.CustomTags = {
-            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker" | "flicker2"}
+            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker", customBackground = "github_raw_url"}
             [5712636024] = {tagText = "Prism Owner", effect = "glitch"},
             [11087809132] = {tagText = "Prism Owner", effect = "glitch"},
-            [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker2"},
+            [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker", customBackground = "https://raw.githubusercontent.com/Kavrenoo/Prism/main/nametag%20backgrounds/Optix.png"},
         }
         
         PM.nametagsEnabled = true
@@ -2596,6 +2596,7 @@ PM.createMainGUI = function()
             -- Use custom config or default for database users
             local tagText = customConfig and customConfig.tagText or "Prism User"
             local tagEffect = customConfig and customConfig.effect or "typing"
+            local customBackground = customConfig and customConfig.customBackground or nil
             
             local bill = Instance.new("BillboardGui")
             bill.Name = "PrismTag_" .. plr.UserId
@@ -2620,18 +2621,42 @@ PM.createMainGUI = function()
             frameCorner.CornerRadius = UDim.new(0.2, 0)
             frameCorner.Parent = frame
             
-            local frameBG = Instance.new("UIGradient")
-            frameBG.Color = ColorSequence.new({
-                ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 60, 60)),
-                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(40, 40, 40)),
-                ColorSequenceKeypoint.new(1, Color3.fromRGB(25, 25, 25))
-            })
-            frameBG.Parent = frame
+            -- Custom background or default gradient
+            if customBackground then
+                local bgImage = Instance.new("ImageLabel")
+                bgImage.Name = "CustomBackground"
+                bgImage.Size = UDim2.fromScale(1, 1)
+                bgImage.Position = UDim2.fromScale(0, 0)
+                bgImage.BackgroundTransparency = 1
+                bgImage.Image = customBackground
+                bgImage.ScaleType = Enum.ScaleType.Slice
+                bgImage.SliceCenter = Rect.new(Vector2.new(0, 0), Vector2.new(1, 1))
+                bgImage.ZIndex = 1
+                bgImage.Parent = frame
+                
+                -- Darken overlay for text readability
+                local overlay = Instance.new("Frame")
+                overlay.Name = "Overlay"
+                overlay.Size = UDim2.fromScale(1, 1)
+                overlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+                overlay.BackgroundTransparency = 0.7
+                overlay.ZIndex = 2
+                overlay.Parent = frame
+            else
+                local frameBG = Instance.new("UIGradient")
+                frameBG.Color = ColorSequence.new({
+                    ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 60, 60)),
+                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(40, 40, 40)),
+                    ColorSequenceKeypoint.new(1, Color3.fromRGB(25, 25, 25))
+                })
+                frameBG.Parent = frame
+            end
             
             local stroke = Instance.new("UIStroke")
             stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
             stroke.Color = Color3.fromRGB(200, 200, 200)
             stroke.Thickness = 2
+            stroke.ZIndex = customBackground and 3 or 1
             stroke.Parent = frame
             local strokeGrad = Instance.new("UIGradient")
             strokeGrad.Color = ColorSequence.new({
@@ -2647,7 +2672,7 @@ PM.createMainGUI = function()
             pfp.BackgroundTransparency = 0
             pfp.Position = UDim2.fromScale(0.05, 0.167)
             pfp.Size = UDim2.fromScale(0.215, 0.7)
-            pfp.ZIndex = 5
+            pfp.ZIndex = customBackground and 4 or 5
             pfp.ScaleType = Enum.ScaleType.Crop
             pfp.Parent = frame
             local pfpCorner = Instance.new("UICorner")
@@ -2657,6 +2682,7 @@ PM.createMainGUI = function()
             pfpStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
             pfpStroke.Color = Color3.fromRGB(220, 220, 220)
             pfpStroke.Thickness = 2
+            pfpStroke.ZIndex = customBackground and 4 or 5
             pfpStroke.Parent = pfp
             
             spawn(function()
@@ -2679,7 +2705,7 @@ PM.createMainGUI = function()
             tagLbl.TextWrapped = true
             tagLbl.TextXAlignment = Enum.TextXAlignment.Left
             tagLbl.TextYAlignment = Enum.TextYAlignment.Bottom
-            tagLbl.ZIndex = 6
+            tagLbl.ZIndex = customBackground and 5 or 6
             tagLbl.Parent = frame
             
             -- Text effect (only for owners with customConfig)
@@ -2773,34 +2799,8 @@ PM.createMainGUI = function()
                                 tagLbl.TextTransparency = 0
                             end
                         end
-                    elseif tagEffect == "flicker2" then
-                        local TweenService = game:GetService("TweenService")
-                        while tagLbl.Parent do
-                            tagLbl.Text = fullText
-                            
-                            -- Slow fade flicker 3 times (fade to full transparency)
-                            for _ = 1, 3 do
-                                wait(math.random(2.3, 2.5))
-                                tagLbl.TextTransparency = 0
-                                local fadeOut = TweenService:Create(tagLbl, TweenInfo.new(math.random(0.5, 0.7), Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextTransparency = 1})
-                                fadeOut:Play()
-                                fadeOut.Completed:Wait()
-                                wait(math.random(1.0, 1.5))
-                                local fadeIn = TweenService:Create(tagLbl, TweenInfo.new(math.random(0.3, 0.5), Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {TextTransparency = 0})
-                                fadeIn:Play()
-                                fadeIn.Completed:Wait()
-                            end
-                            
-                            -- Fast flicker burst (same as flicker)
-                            local fastFlickerCount = math.random(2, 4)
-                            for _ = 1, fastFlickerCount do
-                                wait(math.random(0.05, 0.1))
-                                tagLbl.TextTransparency = 1
-                                wait(math.random(0.02, 0.05))
-                                tagLbl.TextTransparency = 0
-                            end
-                        end
                     end
+
                 end)
             end
             
@@ -2817,7 +2817,7 @@ PM.createMainGUI = function()
             userLbl.TextWrapped = true
             userLbl.TextXAlignment = Enum.TextXAlignment.Left
             userLbl.TextYAlignment = Enum.TextYAlignment.Top
-            userLbl.ZIndex = 6
+            userLbl.ZIndex = customBackground and 5 or 6
             userLbl.Parent = frame
             
             -- Click-to-teleport overlay (covers entire tag, invisible)
@@ -2827,7 +2827,7 @@ PM.createMainGUI = function()
             clickBtn.Text = ""
             clickBtn.Size = UDim2.fromScale(1, 1)
             clickBtn.Position = UDim2.fromScale(0, 0)
-            clickBtn.ZIndex = 20
+            clickBtn.ZIndex = customBackground and 10 or 20
             clickBtn.AutoButtonColor = false
             clickBtn.Parent = frame
             
