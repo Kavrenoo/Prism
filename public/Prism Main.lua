@@ -2439,10 +2439,10 @@ PM.createMainGUI = function()
         
         -- Custom Tags Configuration
         PM.CustomTags = {
-            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker", customBackground = "github_raw_url"}
+            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker"}
             [5712636024] = {tagText = "Prism Owner", effect = "glitch"},
             [11087809132] = {tagText = "Prism Owner", effect = "glitch"},
-            [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker", customBackground = "https://raw.githubusercontent.com/Kavrenoo/Prism/main/nametag%20backgrounds/Optix.png"},
+            [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker"},
         }
         
         PM.nametagsEnabled = true
@@ -2539,6 +2539,206 @@ PM.createMainGUI = function()
             end)
         end
         
+        -- Create Prism Tag function (must be defined before fetchOtherUsers)
+        local function createPrismTag(plr, head)
+            local customConfig = PM.CustomTags[plr.UserId]
+            local isDatabaseUser = PM.otherMonoUsers[tostring(plr.UserId)]
+            
+            if not customConfig and not isDatabaseUser then
+                return nil
+            end
+            
+            -- Store original nametag state before hiding
+            pcall(function()
+                local humanoid = head.Parent and head.Parent:FindFirstChildOfClass("Humanoid")
+                if humanoid and not PM.defaultNametagStates[plr.UserId] then
+                    PM.defaultNametagStates[plr.UserId] = humanoid.DisplayDistanceType
+                end
+            end)
+            
+            -- Use custom config or default for database users
+            local tagText = customConfig and customConfig.tagText or "Prism User"
+            local tagEffect = customConfig and customConfig.effect or "typing"
+            
+            local bill = Instance.new("BillboardGui")
+            bill.Name = "PrismTag_" .. plr.UserId
+            bill.Active = true
+            bill.AlwaysOnTop = true
+            bill.ClipsDescendants = false
+            bill.LightInfluence = 1
+            bill.Size = UDim2.fromOffset(250, 75)
+            bill.StudsOffsetWorldSpace = Vector3.new(0, 2.5, 0)
+            bill.ResetOnSpawn = false
+            bill.Adornee = head
+            bill.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+            bill.Parent = PM.UI.Gui
+            
+            local frame = Instance.new("Frame")
+            frame.Name = "TagFrame"
+            frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+            frame.BackgroundTransparency = 0.1
+            frame.Size = UDim2.fromScale(1, 1)
+            frame.Parent = bill
+            local frameCorner = Instance.new("UICorner")
+            frameCorner.CornerRadius = UDim.new(0.2, 0)
+            frameCorner.Parent = frame
+            
+            local frameBG = Instance.new("UIGradient")
+            frameBG.Color = ColorSequence.new({
+                ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 60, 60)),
+                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(40, 40, 40)),
+                ColorSequenceKeypoint.new(1, Color3.fromRGB(25, 25, 25))
+            })
+            frameBG.Parent = frame
+            
+            local stroke = Instance.new("UIStroke")
+            stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            stroke.Color = Color3.fromRGB(200, 200, 200)
+            stroke.Thickness = 2
+            stroke.Parent = frame
+            local strokeGrad = Instance.new("UIGradient")
+            strokeGrad.Color = ColorSequence.new({
+                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)),
+                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(180, 180, 180)),
+                ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
+            })
+            strokeGrad.Parent = stroke
+            
+            local pfp = Instance.new("ImageLabel")
+            pfp.Name = "Pfp"
+            pfp.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+            pfp.BackgroundTransparency = 0
+            pfp.Position = UDim2.fromScale(0.05, 0.167)
+            pfp.Size = UDim2.fromScale(0.215, 0.7)
+            pfp.ZIndex = 5
+            pfp.ScaleType = Enum.ScaleType.Crop
+            pfp.Parent = frame
+            local pfpCorner = Instance.new("UICorner")
+            pfpCorner.CornerRadius = UDim.new(1, 0)
+            pfpCorner.Parent = pfp
+            local pfpStroke = Instance.new("UIStroke")
+            pfpStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+            pfpStroke.Color = Color3.fromRGB(220, 220, 220)
+            pfpStroke.Thickness = 2
+            pfpStroke.Parent = pfp
+            
+            spawn(function()
+                local ok, img = pcall(function()
+                    return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size100x100)
+                end)
+                if ok and img and pfp.Parent then pfp.Image = img end
+            end)
+            
+            local tagLbl = Instance.new("TextLabel")
+            tagLbl.Name = "TagText"
+            tagLbl.BackgroundTransparency = 1
+            tagLbl.FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json")
+            tagLbl.Position = UDim2.fromScale(0.29955, 0)
+            tagLbl.Size = UDim2.fromScale(0.7, 0.5)
+            tagLbl.Text = tagText
+            tagLbl.TextColor3 = Color3.fromRGB(255, 255, 255)
+            tagLbl.TextSize = 22
+            tagLbl.TextStrokeTransparency = 0
+            tagLbl.TextWrapped = true
+            tagLbl.TextXAlignment = Enum.TextXAlignment.Left
+            tagLbl.TextYAlignment = Enum.TextYAlignment.Bottom
+            tagLbl.ZIndex = 6
+            tagLbl.Parent = frame
+            
+            -- Text effect (only for owners with customConfig)
+            if customConfig and customConfig.effect then
+                local fullText = tagText
+                spawn(function()
+                    if customConfig.effect == "typing" then
+                        local s = ""
+                        for i = 1, #fullText do
+                            if not tagLbl.Parent then break end
+                            s = fullText:sub(1, i)
+                            tagLbl.Text = s
+                            wait(0.08)
+                        end
+                        wait(0.18)
+                    elseif customConfig.effect == "glitch" then
+                        local glitchChars = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`"
+                        while tagLbl.Parent do
+                            local glitchCount = math.random(1, 2)
+                            for _ = 1, glitchCount do
+                                local idx = math.random(1, #fullText)
+                                local ch = s:sub(idx, idx)
+                                if ch ~= " " then
+                                    local gc = math.random(1, #glitchChars)
+                                    s = s:sub(1, idx - 1) .. glitchChars:sub(gc, gc) .. s:sub(idx + 1)
+                                end
+                            end
+                            tagLbl.Text = s
+                            wait(0.15)
+                            tagLbl.Text = fullText
+                        end
+                        wait(0.18)
+                    elseif customConfig.effect == "flicker" then
+                        while tagLbl.Parent do
+                            tagLbl.Text = fullText
+                            
+                            -- Slow flicker 3 times
+                            for _ = 1, 3 do
+                                wait(math.random(1.3, 1.5))
+                                tagLbl.TextTransparency = 1
+                                wait(math.random(0.5, 0.7))
+                                tagLbl.TextTransparency = 0
+                            end
+                            
+                            -- Fast flicker burst
+                            local fastFlickerCount = math.random(2, 4)
+                            for _ = 1, fastFlickerCount do
+                                wait(math.random(0.05, 0.1))
+                                tagLbl.TextTransparency = 1
+                                wait(math.random(0.02, 0.05))
+                                tagLbl.TextTransparency = 0
+                            end
+                        end
+                    end
+                end)
+            end
+            
+            local userLbl = Instance.new("TextLabel")
+            userLbl.Name = "NameText"
+            userLbl.BackgroundTransparency = 1
+            userLbl.FontFace = Font.new("rbxasset://fonts/families/ComicNeueAngular.json")
+            userLbl.Position = UDim2.fromScale(0.29955, 0.5)
+            userLbl.Size = UDim2.fromScale(0.7, 0.5)
+            userLbl.Text = "@" .. plr.Name
+            userLbl.TextColor3 = Color3.new(1, 1, 1)
+            userLbl.TextSize = 16
+            userLbl.TextStrokeTransparency = 0
+            userLbl.TextWrapped = true
+            userLbl.TextXAlignment = Enum.TextXAlignment.Left
+            userLbl.TextYAlignment = Enum.TextYAlignment.Top
+            userLbl.ZIndex = 6
+            userLbl.Parent = frame
+            
+            -- Click-to-teleport overlay (covers entire tag, invisible)
+            local clickBtn = Instance.new("TextButton")
+            clickBtn.Name = "ClickToTeleport"
+            clickBtn.BackgroundTransparency = 1
+            clickBtn.Text = ""
+            clickBtn.Size = UDim2.fromScale(1, 1)
+            clickBtn.Position = UDim2.fromScale(0, 0)
+            clickBtn.ZIndex = 20
+            clickBtn.AutoButtonColor = false
+            clickBtn.Parent = frame
+            
+            clickBtn.MouseButton1Click:Connect(function()
+                local myChar = LP.Character
+                local myHRP = myChar and myChar:FindFirstChild("HumanoidRootPart")
+                local targetHRP = head.Parent and head.Parent:FindFirstChild("HumanoidRootPart")
+                if myHRP and targetHRP then
+                    myHRP.CFrame = targetHRP.CFrame + Vector3.new(0, 3, 0)
+                end
+            end)
+            
+            return bill
+        end
+        
         -- Fetch other users (cached, only re-fetch periodically)
         local function fetchOtherUsers(force)
             if isFetchPending and not force then return end
@@ -2575,306 +2775,6 @@ PM.createMainGUI = function()
             
             lastFetch = tick()
             isFetchPending = false
-        end
-        
-        local function createPrismTag(plr, head)
-            local customConfig = PM.CustomTags[plr.UserId]
-            local isDatabaseUser = PM.otherMonoUsers[tostring(plr.UserId)]
-            
-            if not customConfig and not isDatabaseUser then
-                return nil
-            end
-            
-            -- Store original nametag state before hiding
-            pcall(function()
-                local humanoid = head.Parent and head.Parent:FindFirstChildOfClass("Humanoid")
-                if humanoid and not PM.defaultNametagStates[plr.UserId] then
-                    PM.defaultNametagStates[plr.UserId] = humanoid.DisplayDistanceType
-                end
-            end)
-            
-            -- Use custom config or default for database users
-            local tagText = customConfig and customConfig.tagText or "Prism User"
-            local tagEffect = customConfig and customConfig.effect or "typing"
-            local customBackground = customConfig and customConfig.customBackground or nil
-            
-            local bill = Instance.new("BillboardGui")
-            bill.Name = "PrismTag_" .. plr.UserId
-            bill.Active = true
-            bill.AlwaysOnTop = true
-            bill.ClipsDescendants = false
-            bill.LightInfluence = 1
-            bill.Size = UDim2.fromOffset(250, 75)
-            bill.StudsOffsetWorldSpace = Vector3.new(0, 2.5, 0)
-            bill.ResetOnSpawn = false
-            bill.Adornee = head
-            bill.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-            bill.Parent = PM.UI.Gui
-            
-            local frame = Instance.new("Frame")
-            frame.Name = "TagFrame"
-            frame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-            frame.BackgroundTransparency = 0.1
-            frame.Size = UDim2.fromScale(1, 1)
-            frame.Parent = bill
-            local frameCorner = Instance.new("UICorner")
-            frameCorner.CornerRadius = UDim.new(0.2, 0)
-            frameCorner.Parent = frame
-            
-            -- Custom background or default gradient
-            if customBackground then
-                local bgImage = Instance.new("ImageLabel")
-                bgImage.Name = "CustomBackground"
-                bgImage.Size = UDim2.fromScale(1, 1)
-                bgImage.Position = UDim2.fromScale(0, 0)
-                bgImage.BackgroundTransparency = 1
-                bgImage.Image = customBackground
-                bgImage.ScaleType = Enum.ScaleType.Slice
-                bgImage.SliceCenter = Rect.new(Vector2.new(0, 0), Vector2.new(1, 1))
-                bgImage.ZIndex = 1
-                bgImage.Parent = frame
-                
-                -- Darken overlay for text readability
-                local overlay = Instance.new("Frame")
-                overlay.Name = "Overlay"
-                overlay.Size = UDim2.fromScale(1, 1)
-                overlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-                overlay.BackgroundTransparency = 0.7
-                overlay.ZIndex = 2
-                overlay.Parent = frame
-            else
-                local frameBG = Instance.new("UIGradient")
-                frameBG.Color = ColorSequence.new({
-                    ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 60, 60)),
-                    ColorSequenceKeypoint.new(0.5, Color3.fromRGB(40, 40, 40)),
-                    ColorSequenceKeypoint.new(1, Color3.fromRGB(25, 25, 25))
-                })
-                frameBG.Parent = frame
-            end
-            
-            local stroke = Instance.new("UIStroke")
-            stroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-            stroke.Color = Color3.fromRGB(200, 200, 200)
-            stroke.Thickness = 2
-            stroke.ZIndex = customBackground and 3 or 1
-            stroke.Parent = frame
-            local strokeGrad = Instance.new("UIGradient")
-            strokeGrad.Color = ColorSequence.new({
-                ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 255, 255)),
-                ColorSequenceKeypoint.new(0.5, Color3.fromRGB(180, 180, 180)),
-                ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 255, 255))
-            })
-            strokeGrad.Parent = stroke
-            
-            local pfp = Instance.new("ImageLabel")
-            pfp.Name = "Pfp"
-            pfp.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-            pfp.BackgroundTransparency = 0
-            pfp.Position = UDim2.fromScale(0.05, 0.167)
-            pfp.Size = UDim2.fromScale(0.215, 0.7)
-            pfp.ZIndex = customBackground and 4 or 5
-            pfp.ScaleType = Enum.ScaleType.Crop
-            pfp.Parent = frame
-            local pfpCorner = Instance.new("UICorner")
-            pfpCorner.CornerRadius = UDim.new(1, 0)
-            pfpCorner.Parent = pfp
-            local pfpStroke = Instance.new("UIStroke")
-            pfpStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
-            pfpStroke.Color = Color3.fromRGB(220, 220, 220)
-            pfpStroke.Thickness = 2
-            pfpStroke.ZIndex = customBackground and 4 or 5
-            pfpStroke.Parent = pfp
-            
-            spawn(function()
-                local ok, img = pcall(function()
-                    return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size100x100)
-                end)
-                if ok and img and pfp.Parent then pfp.Image = img end
-            end)
-            
-            local tagLbl = Instance.new("TextLabel")
-            tagLbl.Name = "TagText"
-            tagLbl.BackgroundTransparency = 1
-            tagLbl.FontFace = Font.new("rbxasset://fonts/families/FredokaOne.json")
-            tagLbl.Position = UDim2.fromScale(0.29955, 0)
-            tagLbl.Size = UDim2.fromScale(0.7, 0.5)
-            tagLbl.Text = tagText
-            tagLbl.TextColor3 = Color3.fromRGB(255, 255, 255)
-            tagLbl.TextSize = 22
-            tagLbl.TextStrokeTransparency = 0
-            tagLbl.TextWrapped = true
-            tagLbl.TextXAlignment = Enum.TextXAlignment.Left
-            tagLbl.TextYAlignment = Enum.TextYAlignment.Bottom
-            tagLbl.ZIndex = customBackground and 5 or 6
-            tagLbl.Parent = frame
-            
-            -- Text effect (only for owners with customConfig)
-            if customConfig then
-                spawn(function()
-                    local fullText = tagText
-                    local cursor = "|"
-                    local blinkVisible = true
-                    spawn(function()
-                        while tagLbl.Parent do
-                            blinkVisible = not blinkVisible
-                            wait(0.5)
-                        end
-                    end)
-                    
-                    if tagEffect == "typing" then
-                        while tagLbl.Parent do
-                            for i = 1, #fullText do
-                                if not tagLbl.Parent then break end
-                                tagLbl.Text = fullText:sub(1, i) .. cursor
-                                wait(0.08)
-                            end
-                            if not tagLbl.Parent then break end
-                            local holdStart = tick()
-                            while tick() - holdStart < 5 do
-                                if not tagLbl.Parent then break end
-                                tagLbl.Text = fullText .. (blinkVisible and cursor or "")
-                                wait(0.05)
-                            end
-                            for i = #fullText, 1, -1 do
-                                if not tagLbl.Parent then break end
-                                tagLbl.Text = fullText:sub(1, i) .. cursor
-                                wait(0.08)
-                            end
-                        end
-                    elseif tagEffect == "glitch" then
-                        local glitchChars = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`"
-                        while tagLbl.Parent do
-                            tagLbl.Text = fullText
-                            -- Occasional full-text scramble glitch (~4% chance)
-                            if math.random() < 0.04 then
-                                local s = ""
-                                for i = 1, #fullText do
-                                    local ch = fullText:sub(i, i)
-                                    if ch == " " then
-                                        s = s .. " "
-                                    else
-                                        local gc = math.random(1, #glitchChars)
-                                        s = s .. glitchChars:sub(gc, gc)
-                                    end
-                                end
-                                tagLbl.Text = s
-                                wait(0.30)
-                                tagLbl.Text = fullText
-                            elseif math.random() < 0.12 then
-                                -- Micro-glitch: 1-2 chars swap to symbols
-                                local s = fullText
-                                local glitchCount = math.random(1, 2)
-                                for _ = 1, glitchCount do
-                                    local idx = math.random(1, #fullText)
-                                    local ch = s:sub(idx, idx)
-                                    if ch ~= " " then
-                                        local gc = math.random(1, #glitchChars)
-                                        s = s:sub(1, idx - 1) .. glitchChars:sub(gc, gc) .. s:sub(idx + 1)
-                                    end
-                                end
-                                tagLbl.Text = s
-                                wait(0.15)
-                                tagLbl.Text = fullText
-                            end
-                            wait(0.18)
-                        end
-                    elseif tagEffect == "flicker" then
-                        while tagLbl.Parent do
-                            tagLbl.Text = fullText
-                            
-                            -- Slow flicker 3 times
-                            for _ = 1, 3 do
-                                wait(math.random(1.3, 1.5))
-                                tagLbl.TextTransparency = 1
-                                wait(math.random(0.5, 0.7))
-                                tagLbl.TextTransparency = 0
-                            end
-                            
-                            -- Fast flicker burst
-                            local fastFlickerCount = math.random(2, 4)
-                            for _ = 1, fastFlickerCount do
-                                wait(math.random(0.05, 0.1))
-                                tagLbl.TextTransparency = 1
-                                wait(math.random(0.02, 0.05))
-                                tagLbl.TextTransparency = 0
-                            end
-                        end
-                    end
-
-                end)
-            end
-            
-            local userLbl = Instance.new("TextLabel")
-            userLbl.Name = "NameText"
-            userLbl.BackgroundTransparency = 1
-            userLbl.FontFace = Font.new("rbxasset://fonts/families/ComicNeueAngular.json")
-            userLbl.Position = UDim2.fromScale(0.29955, 0.5)
-            userLbl.Size = UDim2.fromScale(0.7, 0.5)
-            userLbl.Text = "@" .. plr.Name
-            userLbl.TextColor3 = Color3.new(1, 1, 1)
-            userLbl.TextSize = 16
-            userLbl.TextStrokeTransparency = 0
-            userLbl.TextWrapped = true
-            userLbl.TextXAlignment = Enum.TextXAlignment.Left
-            userLbl.TextYAlignment = Enum.TextYAlignment.Top
-            userLbl.ZIndex = customBackground and 5 or 6
-            userLbl.Parent = frame
-            
-            -- Click-to-teleport overlay (covers entire tag, invisible)
-            local clickBtn = Instance.new("TextButton")
-            clickBtn.Name = "ClickTeleport"
-            clickBtn.BackgroundTransparency = 1
-            clickBtn.Text = ""
-            clickBtn.Size = UDim2.fromScale(1, 1)
-            clickBtn.Position = UDim2.fromScale(0, 0)
-            clickBtn.ZIndex = customBackground and 10 or 20
-            clickBtn.AutoButtonColor = false
-            clickBtn.Parent = frame
-            
-            clickBtn.MouseButton1Click:Connect(function()
-                pcall(function()
-                    local targetChar = plr.Character
-                    local targetHRP = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
-                    local myChar = LP.Character
-                    local myHRP = myChar and myChar:FindFirstChild("HumanoidRootPart")
-                    if targetHRP and myHRP then
-                        myHRP.CFrame = CFrame.new(
-                            targetHRP.Position - targetHRP.CFrame.LookVector * 3,
-                            targetHRP.Position + targetHRP.CFrame.LookVector
-                        )
-                    end
-                end)
-            end)
-            
-            -- Animations and updates + distance LOD
-            local hbConn = RunService.Heartbeat:Connect(function(dt)
-                if not bill.Parent then return end
-                pcall(function()
-                    strokeGrad.Rotation = (strokeGrad.Rotation + 120 * dt) % 360
-                    frameBG.Rotation = (frameBG.Rotation + 60 * dt) % 360
-                    bill.Enabled = PM.nametagsEnabled
-                    if plr.Character and plr.Character:FindFirstChild("Head") then
-                        bill.Adornee = plr.Character.Head
-                    end
-                    -- Distance LOD: beyond 50 studs shrink to just pfp
-                    if LP.Character and LP.Character:FindFirstChild("HumanoidRootPart")
-                        and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
-                        local dist = (LP.Character.HumanoidRootPart.Position
-                            - plr.Character.HumanoidRootPart.Position).Magnitude
-                        local isFar = dist > 50
-                        tagLbl.Visible = not isFar
-                        userLbl.Visible = not isFar
-                        TweenService:Create(bill, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            {Size = isFar and UDim2.fromOffset(50, 50) or UDim2.fromOffset(250, 75)}):Play()
-                        TweenService:Create(pfp, TweenInfo.new(0.1, Enum.EasingStyle.Quad, Enum.EasingDirection.Out),
-                            {Position = isFar and UDim2.fromScale(0.1, 0.1) or UDim2.fromScale(0.05, 0.167),
-                             Size = isFar and UDim2.fromScale(0.8, 0.8) or UDim2.fromScale(0.215, 0.7)}):Play()
-                    end
-                end)
-            end)
-            
-            PM.nameTagConnections[plr.UserId] = hbConn
-            return bill
         end
         
         -- Check if player should have tag
