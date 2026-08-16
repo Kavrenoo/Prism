@@ -2439,9 +2439,9 @@ PM.createMainGUI = function()
         
         -- Custom Tags Configuration
         PM.CustomTags = {
-            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker", customPfp = "URL"}
-            [5712636024] = {tagText = "Prism Owner", effect = "glitch", customPfp = "https://raw.githubusercontent.com/Kavrenoo/Prism/main/nametag%20profile%20pictures/8241-black-and-white-cat-828907098.jpg"},
-            [11087809132] = {tagText = "Prism Owner", effect = "glitch", customPfp = "https://raw.githubusercontent.com/Kavrenoo/Prism/main/nametag%20profile%20pictures/8241-black-and-white-cat-828907098.jpg"},
+            -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker"}
+            [5712636024] = {tagText = "Prism Owner", effect = "glitch"},
+            [11087809132] = {tagText = "Prism Owner", effect = "glitch"},
             [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker"},
         }
         
@@ -2624,11 +2624,7 @@ PM.createMainGUI = function()
             
             spawn(function()
                 local ok, img = pcall(function()
-                    if customConfig and customConfig.customPfp then
-                        return customConfig.customPfp
-                    else
-                        return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size100x100)
-                    end
+                    return Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.AvatarBust, Enum.ThumbnailSize.Size100x100)
                 end)
                 if ok and img and pfp.Parent then pfp.Image = img end
             end)
@@ -2664,7 +2660,6 @@ PM.createMainGUI = function()
                         wait(0.18)
                     elseif customConfig.effect == "glitch" then
                         local glitchChars = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`"
-                        local s = fullText
                         while tagLbl.Parent do
                             local glitchCount = math.random(1, 2)
                             for _ = 1, glitchCount do
