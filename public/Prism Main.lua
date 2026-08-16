@@ -2667,29 +2667,33 @@ PM.createMainGUI = function()
             tagLbl.Parent = frame
             
             -- Text effect (only for owners with customConfig)
-            local flickerTask = nil
+            local flickerRunning = true
             if customConfig and customConfig.effect then
                 local fullText = tagText
                 spawn(function()
                     if customConfig.effect == "flicker" then
-                        while tagLbl.Parent and tagLbl.Visible do
-                            tagLbl.Text = fullText
-                            
-                            -- Slow flicker 3 times
-                            for _ = 1, 3 do
-                                wait(math.random(1.3, 1.5))
-                                tagLbl.TextTransparency = 1
-                                wait(math.random(0.5, 0.7))
-                                tagLbl.TextTransparency = 0
-                            end
-                            
-                            -- Fast flicker burst
-                            local fastFlickerCount = math.random(2, 4)
-                            for _ = 1, fastFlickerCount do
-                                wait(math.random(0.05, 0.1))
-                                tagLbl.TextTransparency = 1
-                                wait(math.random(0.02, 0.05))
-                                tagLbl.TextTransparency = 0
+                        while tagLbl.Parent and flickerRunning do
+                            if tagLbl.Visible then
+                                tagLbl.Text = fullText
+                                
+                                -- Slow flicker 3 times
+                                for _ = 1, 3 do
+                                    wait(math.random(1.3, 1.5))
+                                    tagLbl.TextTransparency = 1
+                                    wait(math.random(0.5, 0.7))
+                                    tagLbl.TextTransparency = 0
+                                end
+                                
+                                -- Fast flicker burst
+                                local fastFlickerCount = math.random(2, 4)
+                                for _ = 1, fastFlickerCount do
+                                    wait(math.random(0.05, 0.1))
+                                    tagLbl.TextTransparency = 1
+                                    wait(math.random(0.02, 0.05))
+                                    tagLbl.TextTransparency = 0
+                                end
+                            else
+                                wait(0.1)
                             end
                         end
                     end
