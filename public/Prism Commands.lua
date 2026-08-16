@@ -23,7 +23,7 @@
     move while emoting
     auto execute on game switch / server hop / rejoin
     shaders (with presets / time of day control / all axons shader controls)
-    anti vcb
+    anti vcb muting others / self
     reanim
     anti admin
     anti fling
@@ -240,6 +240,25 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
     -- Cleanup Emotes
     local emotesGui = FindPrismGUI("Prism_EmotesGUI")
     if emotesGui then pcall(function() emotesGui:Destroy() end) end
+    -- Cleanup Move While Emoting
+    if PM.Emotes.mwePriConn then PM.Emotes.mwePriConn:Disconnect(); PM.Emotes.mwePriConn = nil end
+    if PM.Emotes.mweWalkConn then PM.Emotes.mweWalkConn:Disconnect(); PM.Emotes.mweWalkConn = nil end
+    if PM.Emotes.currentEmoteTrack then pcall(function() PM.Emotes.currentEmoteTrack:Stop() end); PM.Emotes.currentEmoteTrack = nil end
+    for _, plr in ipairs(Players:GetPlayers()) do
+        if plr == LP then
+            local char = plr.Character
+            if char then
+                local hum = char:FindFirstChildOfClass("Humanoid")
+                if hum then
+                    for _, track in pairs(hum:GetPlayingAnimationTracks()) do
+                        if track.Priority == Enum.AnimationPriority.Action then
+                            pcall(function() track:Stop() end)
+                        end
+                    end
+                end
+            end
+        end
+    end
     -- Cleanup Camera
     local cameraGui = FindPrismGUI("Prism_CameraGUI")
     if cameraGui then pcall(function() cameraGui:Destroy() end) end
@@ -351,6 +370,25 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
     -- Cleanup Emotes
     local emotesGui2 = FindPrismGUI("Prism_EmotesGUI")
     if emotesGui2 then pcall(function() emotesGui2:Destroy() end) end
+    -- Cleanup Move While Emoting
+    if PM.Emotes.mwePriConn then PM.Emotes.mwePriConn:Disconnect(); PM.Emotes.mwePriConn = nil end
+    if PM.Emotes.mweWalkConn then PM.Emotes.mweWalkConn:Disconnect(); PM.Emotes.mweWalkConn = nil end
+    if PM.Emotes.currentEmoteTrack then pcall(function() PM.Emotes.currentEmoteTrack:Stop() end); PM.Emotes.currentEmoteTrack = nil end
+    for _, plr in ipairs(Players:GetPlayers()) do
+        if plr == LP then
+            local char = plr.Character
+            if char then
+                local hum = char:FindFirstChildOfClass("Humanoid")
+                if hum then
+                    for _, track in pairs(hum:GetPlayingAnimationTracks()) do
+                        if track.Priority == Enum.AnimationPriority.Action then
+                            pcall(function() track:Stop() end)
+                        end
+                    end
+                end
+            end
+        end
+    end
     -- Cleanup Camera
     local cameraGui2 = FindPrismGUI("Prism_CameraGUI")
     if cameraGui2 then pcall(function() cameraGui2:Destroy() end) end
@@ -2603,7 +2641,10 @@ end)
 -- Emotes state management
 PM.Emotes = {
     speed = 1.0,
-    favorites = {}
+    favorites = {},
+    mwePriConn = nil,
+    mweWalkConn = nil,
+    currentEmoteTrack = nil
 }
 
 -- Load emotes favorites
@@ -2690,13 +2731,16 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         end)
         local savedPos = savedEmotesGUI.position or {X = {Scale = 0, Offset = 1142}, Y = {Scale = 0, Offset = 500}}
         local savedMinimized = savedEmotesGUI.minimized or false
+        local savedMWE = savedEmotesGUI.moveWhileEmoting or false
 
         local currentEmotesSettings = {
             position = savedPos,
-            minimized = savedMinimized
+            minimized = savedMinimized,
+            moveWhileEmoting = savedMWE
         }
 
         local function SaveEmotesGUISettings()
+            currentEmotesSettings.moveWhileEmoting = moveWhileEmotingEnabled
             pcall(function()
                 if writefile then
                     if makefolder and not isfolder("prism") then makefolder("prism") end
@@ -2888,7 +2932,7 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         TabList.SortOrder = Enum.SortOrder.LayoutOrder
         TabList.Parent = TabContainer
 
-        local Tabs = {"All", "Favorites"}
+        local Tabs = {"All", "Favorites", "Settings"}
         local TabButtons = {}
         local currentTab = "All"
 
@@ -2898,10 +2942,10 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
             tabBtn.Size = UDim2.new(0, 0, 1, 0)
             tabBtn.AutomaticSize = Enum.AutomaticSize.X
             tabBtn.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-            tabBtn.BackgroundTransparency = tabName == "All" and 0.1 or 0.7
+            tabBtn.BackgroundTransparency = (tabName == "All") and 0.1 or 0.7
             tabBtn.BorderSizePixel = 0
             tabBtn.Text = "  " .. tabName .. "  "
-            tabBtn.TextColor3 = tabName == "All" and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(180, 180, 180)
+            tabBtn.TextColor3 = (tabName == "All") and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(180, 180, 180)
             tabBtn.TextSize = 10
             tabBtn.Font = Enum.Font.GothamMedium
             tabBtn.LayoutOrder = i
@@ -2920,6 +2964,7 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         SearchBox.Name = "Search"
         SearchBox.Size = UDim2.new(1, -16, 0, 24)
         SearchBox.Position = UDim2.new(0, 8, 0, 58)
+        SearchBox.Visible = true
         SearchBox.BackgroundColor3 = Color3.fromRGB(15, 15, 15)
         SearchBox.BackgroundTransparency = 0.3
         SearchBox.BorderSizePixel = 0
@@ -3097,6 +3142,179 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
             end
         end)
 
+        -- Settings Panel (hidden by default)
+        local SettingsPanel = Instance.new("Frame")
+        SettingsPanel.Name = "SettingsPanel"
+        SettingsPanel.Size = UDim2.new(1, -16, 1, -58)
+        SettingsPanel.Position = UDim2.new(0, 8, 0, 86)
+        SettingsPanel.BackgroundTransparency = 1
+        SettingsPanel.Visible = false
+        SettingsPanel.Parent = ContentFrame
+
+        -- Move While Emoting Toggle
+        local MWEContainer = Instance.new("Frame")
+        MWEContainer.Size = UDim2.new(1, 0, 0, 40)
+        MWEContainer.Position = UDim2.new(0, 0, 0, 0)
+        MWEContainer.BackgroundTransparency = 1
+        MWEContainer.Parent = SettingsPanel
+
+        local MWELabel = Instance.new("TextLabel")
+        MWELabel.Size = UDim2.new(1, -60, 1, 0)
+        MWELabel.Position = UDim2.new(0, 0, 0, 0)
+        MWELabel.BackgroundTransparency = 1
+        MWELabel.Text = "Move While Emoting"
+        MWELabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        MWELabel.TextSize = 12
+        MWELabel.Font = Enum.Font.GothamMedium
+        MWELabel.TextXAlignment = Enum.TextXAlignment.Left
+        MWELabel.Parent = MWEContainer
+
+        local MWEToggle = Instance.new("TextButton")
+        MWEToggle.Size = UDim2.new(0, 44, 0, 22)
+        MWEToggle.Position = UDim2.new(1, -50, 0.5, -11)
+        MWEToggle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+        MWEToggle.BorderSizePixel = 0
+        MWEToggle.Text = ""
+        MWEToggle.Parent = MWEContainer
+
+        local MWEToggleCorner = Instance.new("UICorner")
+        MWEToggleCorner.CornerRadius = UDim.new(0, 11)
+        MWEToggleCorner.Parent = MWEToggle
+
+        local MWEToggleKnob = Instance.new("Frame")
+        MWEToggleKnob.Size = UDim2.new(0, 18, 0, 18)
+        MWEToggleKnob.Position = UDim2.new(0, 2, 0.5, -9)
+        MWEToggleKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        MWEToggleKnob.BorderSizePixel = 0
+        MWEToggleKnob.Parent = MWEToggle
+
+        local MWEToggleKnobCorner = Instance.new("UICorner")
+        MWEToggleKnobCorner.CornerRadius = UDim.new(0, 9)
+        MWEToggleKnobCorner.Parent = MWEToggleKnob
+
+        -- Move While Emoting State
+        local moveWhileEmotingEnabled = false
+        PM.Emotes.mwePriConn = nil
+        PM.Emotes.mweWalkConn = nil
+        PM.Emotes.currentEmoteTrack = nil
+
+        local function urlToId(id)
+            id = id:gsub("http://www%.roblox%.com/asset/%?id=", "")
+            id = id:gsub("rbxassetid://", "")
+            return id
+        end
+
+        local function isDancing(char, animTrack)
+            local animate = char:FindFirstChild("Animate")
+            if not animate then return false end
+            local animId = urlToId(animTrack.Animation.AnimationId)
+            for _, holder in ipairs(animate:GetChildren()) do
+                if holder:IsA("StringValue") then
+                    for _, animObj in ipairs(holder:GetChildren()) do
+                        if animObj:IsA("Animation") and urlToId(animObj.AnimationId) == animId then
+                            return false
+                        end
+                    end
+                end
+            end
+            return true
+        end
+
+        local function StopCurrentEmote()
+            if PM.Emotes.currentEmoteTrack then
+                pcall(function() PM.Emotes.currentEmoteTrack:Stop() end)
+                PM.Emotes.currentEmoteTrack = nil
+            end
+        end
+
+        local function PlayEmoteWalk(hum, emoteId)
+            StopCurrentEmote()
+            local anim = Instance.new("Animation")
+            anim.AnimationId = "rbxassetid://" .. emoteId
+            PM.Emotes.currentEmoteTrack = hum:LoadAnimation(anim)
+            if PM.Emotes.currentEmoteTrack then
+                PM.Emotes.currentEmoteTrack.Priority = Enum.AnimationPriority.Action
+                PM.Emotes.currentEmoteTrack.Looped = true
+                task.wait(0.1)
+                PM.Emotes.currentEmoteTrack:Play()
+            end
+        end
+
+        local function HookEmoteWalk(char)
+            local hum = char:FindFirstChildOfClass("Humanoid")
+            if not hum then return end
+            local animator = hum:FindFirstChildOfClass("Animator")
+            if not animator then return end
+
+            if PM.Emotes.mwePriConn then PM.Emotes.mwePriConn:Disconnect(); PM.Emotes.mwePriConn = nil end
+
+            PM.Emotes.mwePriConn = animator.AnimationPlayed:Connect(function(animTrack)
+                if not moveWhileEmotingEnabled then return end
+                if not isDancing(char, animTrack) then return end
+
+                local playedId = urlToId(animTrack.Animation.AnimationId)
+                if PM.Emotes.currentEmoteTrack then
+                    local curId = urlToId(PM.Emotes.currentEmoteTrack.Animation.AnimationId)
+                    if curId == playedId then return end
+                    StopCurrentEmote()
+                end
+                PlayEmoteWalk(hum, playedId)
+            end)
+
+            hum.Died:Connect(function()
+                moveWhileEmotingEnabled = false
+                StopCurrentEmote()
+            end)
+        end
+
+        local function SetMoveWhileEmoting(enabled)
+            moveWhileEmotingEnabled = enabled
+
+            if not enabled then
+                StopCurrentEmote()
+                if PM.Emotes.mwePriConn then PM.Emotes.mwePriConn:Disconnect(); PM.Emotes.mwePriConn = nil end
+                if PM.Emotes.mweWalkConn then PM.Emotes.mweWalkConn:Disconnect(); PM.Emotes.mweWalkConn = nil end
+                return
+            end
+
+            local char = LocalPlayer.Character
+            if char then
+                task.spawn(function()
+                    task.wait(0.1)
+                    if moveWhileEmotingEnabled then HookEmoteWalk(char) end
+                end)
+            end
+
+            if PM.Emotes.mweWalkConn then PM.Emotes.mweWalkConn:Disconnect(); PM.Emotes.mweWalkConn = nil end
+            PM.Emotes.mweWalkConn = LocalPlayer.CharacterAdded:Connect(function(newChar)
+                task.wait(0.5)
+                if moveWhileEmotingEnabled then HookEmoteWalk(newChar) end
+            end)
+        end
+
+        MWEToggle.MouseButton1Click:Connect(function()
+            moveWhileEmotingEnabled = not moveWhileEmotingEnabled
+            SetMoveWhileEmoting(moveWhileEmotingEnabled)
+            currentEmotesSettings.moveWhileEmoting = moveWhileEmotingEnabled
+            SaveEmotesGUISettings()
+
+            if moveWhileEmotingEnabled then
+                MWEToggle.BackgroundColor3 = Color3.fromRGB(80, 160, 80)
+                TweenService:Create(MWEToggleKnob, TweenInfo.new(0.2), {Position = UDim2.new(1, -20, 0.5, -9)}):Play()
+            else
+                MWEToggle.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+                TweenService:Create(MWEToggleKnob, TweenInfo.new(0.2), {Position = UDim2.new(0, 2, 0.5, -9)}):Play()
+            end
+        end)
+
+        -- Initialize toggle state from saved settings
+        if savedMWE then
+            moveWhileEmotingEnabled = true
+            SetMoveWhileEmoting(true)
+            MWEToggle.BackgroundColor3 = Color3.fromRGB(80, 160, 80)
+            MWEToggleKnob.Position = UDim2.new(1, -20, 0.5, -9)
+        end
+
         -- Favorites functions
         local function isFavorite(emoteId)
             return PM.Emotes.favorites[tostring(emoteId)] == true
@@ -3252,6 +3470,7 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         -- Initial load
         updateVisibleEmotes("")
         loadBatch(1, BATCH_SIZE)
+        SettingsPanel.Visible = false
 
         -- Tab handlers
         for tabName, tabBtn in pairs(TabButtons) do
@@ -3262,9 +3481,18 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
                     btn.TextColor3 = (name == tabName) and Color3.fromRGB(255, 255, 255) or Color3.fromRGB(180, 180, 180)
                 end
 
-                updateVisibleEmotes(SearchBox.Text)
-                loadBatch(1, BATCH_SIZE)
-                ScrollFrame.CanvasPosition = Vector2.new(0, 0)
+                if tabName == "Settings" then
+                    ScrollFrame.Visible = false
+                    SettingsPanel.Visible = true
+                    SearchBox.Visible = false
+                else
+                    ScrollFrame.Visible = true
+                    SettingsPanel.Visible = false
+                    SearchBox.Visible = true
+                    updateVisibleEmotes(SearchBox.Text)
+                    loadBatch(1, BATCH_SIZE)
+                    ScrollFrame.CanvasPosition = Vector2.new(0, 0)
+                end
             end)
         end
 
@@ -3272,6 +3500,7 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         local searchPending = false
         local searchThread = nil
         SearchBox:GetPropertyChangedSignal("Text"):Connect(function()
+            if not SearchBox.Visible then return end
             searchPending = true
             if searchThread then
                 pcall(function() task.cancel(searchThread) end)
@@ -3288,7 +3517,9 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
 
         -- Scroll check
         RunService.Heartbeat:Connect(function()
-            checkLoadMore()
+            if ScrollFrame.Visible then
+                checkLoadMore()
+            end
         end)
     end)
 
