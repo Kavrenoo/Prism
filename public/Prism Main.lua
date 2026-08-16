@@ -2756,9 +2756,9 @@ PM.createMainGUI = function()
                         while tagLbl.Parent do
                             tagLbl.Text = fullText
                             -- Slow flicker before fast burst
-                            wait(math.random(0.5, 0.8))
+                            wait(math.random(1.3, 1.5))
                             tagLbl.TextTransparency = 1
-                            wait(math.random(0.3, 0.5))
+                            wait(math.random(1.0, 1.3))
                             tagLbl.TextTransparency = 0
                             
                             -- Fast flicker burst with slow flicker between each
