@@ -2667,11 +2667,12 @@ PM.createMainGUI = function()
             tagLbl.Parent = frame
             
             -- Text effect (only for owners with customConfig)
+            local flickerTask = nil
             if customConfig and customConfig.effect then
                 local fullText = tagText
                 spawn(function()
                     if customConfig.effect == "flicker" then
-                        while tagLbl.Parent do
+                        while tagLbl.Parent and tagLbl.Visible do
                             tagLbl.Text = fullText
                             
                             -- Slow flicker 3 times
