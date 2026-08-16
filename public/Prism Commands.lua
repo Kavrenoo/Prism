@@ -1074,12 +1074,12 @@ registerCommand("rewind", "Rewind time", {}, function(args)
 
         local RunBtn = Instance.new("TextButton")
         RunBtn.Name = "RunBtn"
-        RunBtn.Size = UDim2.new(0, 130, 0, 24)
+        RunBtn.Size = UDim2.new(0, 145, 0, 24)
         RunBtn.Position = UDim2.new(0, 6, 0.5, -12)
         RunBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
         RunBtn.BackgroundTransparency = 0.4
         RunBtn.BorderSizePixel = 0
-        RunBtn.Text = "Run"
+        RunBtn.Text = "Rewind"
         RunBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
         RunBtn.TextSize = 11
         RunBtn.Font = Enum.Font.GothamBold
@@ -1123,7 +1123,7 @@ registerCommand("rewind", "Rewind time", {}, function(args)
             if PM.Rewind.playing then
                 RunBtn.Text = "Stop"
             else
-                RunBtn.Text = "Run"
+                RunBtn.Text = "Rewind"
             end
         end
 
@@ -1149,7 +1149,7 @@ registerCommand("rewind", "Rewind time", {}, function(args)
                 if gpe then return end
                 if not PM.Rewind.capturing then return end
                 if input.UserInputType == Enum.UserInputType.Keyboard then
-                    if input.KeyCode == Enum.KeyCode.Backspace then
+                    if input.KeyCode == Enum.KeyCode.Backspace or input.KeyCode == Enum.KeyCode.Escape then
                         PM.Rewind.key = nil
                         PM.Rewind.capturing = false
                         if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
@@ -1164,6 +1164,11 @@ registerCommand("rewind", "Rewind time", {}, function(args)
                         SaveRewindState()
                         RewindEnableGlobal()
                     end
+                elseif input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.MouseButton2 or input.UserInputType == Enum.UserInputType.MouseButton3 then
+                    PM.Rewind.capturing = false
+                    if PM.Rewind.captureConn then PM.Rewind.captureConn:Disconnect(); PM.Rewind.captureConn = nil end
+                    UpdateKeyBtn()
+                    RewindEnableGlobal()
                 end
             end)
         end)
@@ -1251,95 +1256,107 @@ registerCommand("rewind", "Rewind time", {}, function(args)
         SpeedSection.BorderSizePixel = 0
         SpeedSection.LayoutOrder = 3
         SpeedSection.Parent = ContentFrame
-        local SpeedCorner = Instance.new("UICorner")
-        SpeedCorner.CornerRadius = UDim.new(0, 10)
-        SpeedCorner.Parent = SpeedSection
 
-        local LabelRow = Instance.new("Frame")
-        LabelRow.Size = UDim2.new(1, 0, 0, 20)
-        LabelRow.BackgroundTransparency = 1
-        LabelRow.LayoutOrder = 1
-        LabelRow.Parent = SpeedSection
-        local LP = Instance.new("UIPadding")
-        LP.PaddingLeft = UDim.new(0, 12)
-        LP.PaddingRight = UDim.new(0, 12)
-        LP.Parent = LabelRow
+        local SSC = Instance.new("UICorner")
+        SSC.CornerRadius = UDim.new(0, 10)
+        SSC.Parent = SpeedSection
 
-        local NameLbl = Instance.new("TextLabel")
-        NameLbl.Size = UDim2.new(1, -60, 1, 0)
-        NameLbl.BackgroundTransparency = 1
-        NameLbl.Text = "Speed"
-        NameLbl.TextColor3 = Color3.fromRGB(220, 220, 220)
-        NameLbl.TextSize = 12
-        NameLbl.Font = Enum.Font.Gotham
-        NameLbl.TextXAlignment = Enum.TextXAlignment.Left
-        NameLbl.Parent = LabelRow
+        local SSP = Instance.new("UIPadding")
+        SSP.PaddingTop = UDim.new(0, 5)
+        SSP.PaddingBottom = UDim.new(0, 5)
+        SSP.Parent = SpeedSection
 
-        local ValLbl = Instance.new("TextLabel")
-        ValLbl.Size = UDim2.new(0, 55, 1, 0)
-        ValLbl.Position = UDim2.new(1, -55, 0, 0)
-        ValLbl.BackgroundTransparency = 1
-        ValLbl.Text = tostring(PM.Rewind.speed)
-        ValLbl.TextColor3 = Color3.fromRGB(160, 160, 160)
-        ValLbl.TextSize = 11
-        ValLbl.Font = Enum.Font.Gotham
-        ValLbl.TextXAlignment = Enum.TextXAlignment.Right
-        ValLbl.Parent = LabelRow
+        local SIL = Instance.new("UIListLayout")
+        SIL.Padding = UDim.new(0, 2)
+        SIL.SortOrder = Enum.SortOrder.LayoutOrder
+        SIL.Parent = SpeedSection
 
-        local SliderRow = Instance.new("Frame")
-        SliderRow.Size = UDim2.new(1, 0, 0, 18)
-        SliderRow.BackgroundTransparency = 1
-        SliderRow.LayoutOrder = 2
-        SliderRow.Parent = SpeedSection
-        local SP = Instance.new("UIPadding")
-        SP.PaddingLeft = UDim.new(0, 12)
-        SP.PaddingRight = UDim.new(0, 12)
-        SP.Parent = SliderRow
+        local SLabelRow = Instance.new("Frame")
+        SLabelRow.Size = UDim2.new(1, 0, 0, 20)
+        SLabelRow.BackgroundTransparency = 1
+        SLabelRow.LayoutOrder = 1
+        SLabelRow.Parent = SpeedSection
 
-        local SliderBg = Instance.new("Frame")
-        SliderBg.Size = UDim2.new(1, 0, 0, 6)
-        SliderBg.Position = UDim2.new(0, 0, 0.5, -3)
-        SliderBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-        SliderBg.BorderSizePixel = 0
-        SliderBg.Active = true
-        SliderBg.Parent = SliderRow
-        local TrackCorner = Instance.new("UICorner")
-        TrackCorner.CornerRadius = UDim.new(0, 3)
-        TrackCorner.Parent = SliderBg
+        local SLP = Instance.new("UIPadding")
+        SLP.PaddingLeft = UDim.new(0, 12)
+        SLP.PaddingRight = UDim.new(0, 12)
+        SLP.Parent = SLabelRow
+
+        local SNameLbl = Instance.new("TextLabel")
+        SNameLbl.Size = UDim2.new(1, -60, 1, 0)
+        SNameLbl.BackgroundTransparency = 1
+        SNameLbl.Text = "Speed"
+        SNameLbl.TextColor3 = Color3.fromRGB(220, 220, 220)
+        SNameLbl.TextSize = 12
+        SNameLbl.Font = Enum.Font.Gotham
+        SNameLbl.TextXAlignment = Enum.TextXAlignment.Left
+        SNameLbl.Parent = SLabelRow
+
+        local SValLbl = Instance.new("TextLabel")
+        SValLbl.Size = UDim2.new(0, 55, 1, 0)
+        SValLbl.Position = UDim2.new(1, -55, 0, 0)
+        SValLbl.BackgroundTransparency = 1
+        SValLbl.Text = tostring(PM.Rewind.speed)
+        SValLbl.TextColor3 = Color3.fromRGB(160, 160, 160)
+        SValLbl.TextSize = 11
+        SValLbl.Font = Enum.Font.Gotham
+        SValLbl.TextXAlignment = Enum.TextXAlignment.Right
+        SValLbl.Parent = SLabelRow
+
+        local SSliderRow = Instance.new("Frame")
+        SSliderRow.Size = UDim2.new(1, 0, 0, 18)
+        SSliderRow.BackgroundTransparency = 1
+        SSliderRow.LayoutOrder = 2
+        SSliderRow.Parent = SpeedSection
+        local SSP2 = Instance.new("UIPadding")
+        SSP2.PaddingLeft = UDim.new(0, 12)
+        SSP2.PaddingRight = UDim.new(0, 12)
+        SSP2.Parent = SSliderRow
+
+        local SSliderBg = Instance.new("Frame")
+        SSliderBg.Size = UDim2.new(1, 0, 0, 6)
+        SSliderBg.Position = UDim2.new(0, 0, 0.5, -3)
+        SSliderBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        SSliderBg.BorderSizePixel = 0
+        SSliderBg.Active = true
+        SSliderBg.Parent = SSliderRow
+        local STrackCorner = Instance.new("UICorner")
+        STrackCorner.CornerRadius = UDim.new(0, 3)
+        STrackCorner.Parent = SSliderBg
 
         local initSpeedScale = (PM.Rewind.speed - 1) / 9
-        local SliderFill = Instance.new("Frame")
-        SliderFill.Size = UDim2.new(initSpeedScale, 0, 1, 0)
-        SliderFill.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-        SliderFill.BorderSizePixel = 0
-        SliderFill.Parent = SliderBg
-        local FillCorner = Instance.new("UICorner")
-        FillCorner.CornerRadius = UDim.new(0, 3)
-        FillCorner.Parent = SliderFill
+        local SSliderFill = Instance.new("Frame")
+        SSliderFill.Size = UDim2.new(initSpeedScale, 0, 1, 0)
+        SSliderFill.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+        SSliderFill.BorderSizePixel = 0
+        SSliderFill.Parent = SSliderBg
+        local SFillCorner = Instance.new("UICorner")
+        SFillCorner.CornerRadius = UDim.new(0, 3)
+        SFillCorner.Parent = SSliderFill
 
-        local SliderKnob = Instance.new("Frame")
-        SliderKnob.Size = UDim2.new(0, 14, 0, 14)
-        SliderKnob.Position = UDim2.new(initSpeedScale, 0, 0.5, 0)
-        SliderKnob.AnchorPoint = Vector2.new(0.5, 0.5)
-        SliderKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        SliderKnob.BorderSizePixel = 0
-        SliderKnob.ZIndex = 3
-        SliderKnob.Parent = SliderBg
-        local KnobCorner = Instance.new("UICorner")
-        KnobCorner.CornerRadius = UDim.new(0, 7)
-        KnobCorner.Parent = SliderKnob
+        local SSliderKnob = Instance.new("Frame")
+        SSliderKnob.Size = UDim2.new(0, 14, 0, 14)
+        SSliderKnob.Position = UDim2.new(initSpeedScale, 0, 0.5, 0)
+        SSliderKnob.AnchorPoint = Vector2.new(0.5, 0.5)
+        SSliderKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        SSliderKnob.BorderSizePixel = 0
+        SSliderKnob.ZIndex = 3
+        SSliderKnob.Parent = SSliderBg
+        local SKnobCorner = Instance.new("UICorner")
+        SKnobCorner.CornerRadius = UDim.new(0, 7)
+        SKnobCorner.Parent = SSliderKnob
 
         local speedDragging = false
         local function updateSpeed(value)
             PM.Rewind.speed = math.clamp(math.floor(value + 0.5), 1, 10)
             local scale = (PM.Rewind.speed - 1) / 9
-            SliderFill.Size = UDim2.new(scale, 0, 1, 0)
-            SliderKnob.Position = UDim2.new(scale, 0, 0.5, 0)
-            ValLbl.Text = tostring(PM.Rewind.speed)
+            SSliderFill.Size = UDim2.new(scale, 0, 1, 0)
+            SSliderKnob.Position = UDim2.new(scale, 0, 0.5, 0)
+            SValLbl.Text = tostring(PM.Rewind.speed)
             SaveRewindState()
         end
 
-        SliderKnob.InputBegan:Connect(function(i)
+        SSliderKnob.InputBegan:Connect(function(i)
             if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
                 speedDragging = true
             end
@@ -1351,20 +1368,20 @@ registerCommand("rewind", "Rewind time", {}, function(args)
         end)
         UserInputService.InputChanged:Connect(function(i)
             if speedDragging and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then
-                local rel = math.clamp((i.Position.X - SliderBg.AbsolutePosition.X) / SliderBg.AbsoluteSize.X, 0, 1)
+                local rel = math.clamp((i.Position.X - SSliderBg.AbsolutePosition.X) / SSliderBg.AbsoluteSize.X, 0, 1)
                 updateSpeed(1 + rel * 9)
             end
         end)
 
         local lastClickSpeed = 0
-        SliderBg.InputBegan:Connect(function(i)
+        SSliderBg.InputBegan:Connect(function(i)
             if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
                 local now = tick()
                 if now - lastClickSpeed < 0.3 then
                     updateSpeed(1)
                     speedDragging = false
                 else
-                    local rel = math.clamp((i.Position.X - SliderBg.AbsolutePosition.X) / SliderBg.AbsoluteSize.X, 0, 1)
+                    local rel = math.clamp((i.Position.X - SSliderBg.AbsolutePosition.X) / SSliderBg.AbsoluteSize.X, 0, 1)
                     updateSpeed(1 + rel * 9)
                     speedDragging = true
                 end
@@ -1380,96 +1397,108 @@ registerCommand("rewind", "Rewind time", {}, function(args)
         LenSection.BorderSizePixel = 0
         LenSection.LayoutOrder = 4
         LenSection.Parent = ContentFrame
-        local LenCorner = Instance.new("UICorner")
-        LenCorner.CornerRadius = UDim.new(0, 10)
-        LenCorner.Parent = LenSection
 
-        local LenLabelRow = Instance.new("Frame")
-        LenLabelRow.Size = UDim2.new(1, 0, 0, 20)
-        LenLabelRow.BackgroundTransparency = 1
-        LenLabelRow.LayoutOrder = 1
-        LenLabelRow.Parent = LenSection
-        local LenLP = Instance.new("UIPadding")
-        LenLP.PaddingLeft = UDim.new(0, 12)
-        LenLP.PaddingRight = UDim.new(0, 12)
-        LenLP.Parent = LenLabelRow
+        local LSC = Instance.new("UICorner")
+        LSC.CornerRadius = UDim.new(0, 10)
+        LSC.Parent = LenSection
 
-        local LenNameLbl = Instance.new("TextLabel")
-        LenNameLbl.Size = UDim2.new(1, -60, 1, 0)
-        LenNameLbl.BackgroundTransparency = 1
-        LenNameLbl.Text = "Length"
-        LenNameLbl.TextColor3 = Color3.fromRGB(220, 220, 220)
-        LenNameLbl.TextSize = 12
-        LenNameLbl.Font = Enum.Font.Gotham
-        LenNameLbl.TextXAlignment = Enum.TextXAlignment.Left
-        LenNameLbl.Parent = LenLabelRow
+        local LSP = Instance.new("UIPadding")
+        LSP.PaddingTop = UDim.new(0, 5)
+        LSP.PaddingBottom = UDim.new(0, 5)
+        LSP.Parent = LenSection
 
-        local LenValLbl = Instance.new("TextLabel")
-        LenValLbl.Size = UDim2.new(0, 55, 1, 0)
-        LenValLbl.Position = UDim2.new(1, -55, 0, 0)
-        LenValLbl.BackgroundTransparency = 1
-        LenValLbl.Text = tostring(PM.Rewind.maxLen)
-        LenValLbl.TextColor3 = Color3.fromRGB(160, 160, 160)
-        LenValLbl.TextSize = 11
-        LenValLbl.Font = Enum.Font.Gotham
-        LenValLbl.TextXAlignment = Enum.TextXAlignment.Right
-        LenValLbl.Parent = LenLabelRow
+        local LIL = Instance.new("UIListLayout")
+        LIL.Padding = UDim.new(0, 2)
+        LIL.SortOrder = Enum.SortOrder.LayoutOrder
+        LIL.Parent = LenSection
 
-        local LenSliderRow = Instance.new("Frame")
-        LenSliderRow.Size = UDim2.new(1, 0, 0, 18)
-        LenSliderRow.BackgroundTransparency = 1
-        LenSliderRow.LayoutOrder = 2
-        LenSliderRow.Parent = LenSection
-        local LenSP = Instance.new("UIPadding")
-        LenSP.PaddingLeft = UDim.new(0, 12)
-        LenSP.PaddingRight = UDim.new(0, 12)
-        LenSP.Parent = LenSliderRow
+        local LLabelRow = Instance.new("Frame")
+        LLabelRow.Size = UDim2.new(1, 0, 0, 20)
+        LLabelRow.BackgroundTransparency = 1
+        LLabelRow.LayoutOrder = 1
+        LLabelRow.Parent = LenSection
 
-        local LenSliderBg = Instance.new("Frame")
-        LenSliderBg.Size = UDim2.new(1, 0, 0, 6)
-        LenSliderBg.Position = UDim2.new(0, 0, 0.5, -3)
-        LenSliderBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-        LenSliderBg.BorderSizePixel = 0
-        LenSliderBg.Active = true
-        LenSliderBg.Parent = LenSliderRow
-        local LenTrackCorner = Instance.new("UICorner")
-        LenTrackCorner.CornerRadius = UDim.new(0, 3)
-        LenTrackCorner.Parent = LenSliderBg
+        local LLP = Instance.new("UIPadding")
+        LLP.PaddingLeft = UDim.new(0, 12)
+        LLP.PaddingRight = UDim.new(0, 12)
+        LLP.Parent = LLabelRow
+
+        local LNameLbl = Instance.new("TextLabel")
+        LNameLbl.Size = UDim2.new(1, -60, 1, 0)
+        LNameLbl.BackgroundTransparency = 1
+        LNameLbl.Text = "Length"
+        LNameLbl.TextColor3 = Color3.fromRGB(220, 220, 220)
+        LNameLbl.TextSize = 12
+        LNameLbl.Font = Enum.Font.Gotham
+        LNameLbl.TextXAlignment = Enum.TextXAlignment.Left
+        LNameLbl.Parent = LLabelRow
+
+        local LValLbl = Instance.new("TextLabel")
+        LValLbl.Size = UDim2.new(0, 55, 1, 0)
+        LValLbl.Position = UDim2.new(1, -55, 0, 0)
+        LValLbl.BackgroundTransparency = 1
+        LValLbl.Text = tostring(PM.Rewind.maxLen)
+        LValLbl.TextColor3 = Color3.fromRGB(160, 160, 160)
+        LValLbl.TextSize = 11
+        LValLbl.Font = Enum.Font.Gotham
+        LValLbl.TextXAlignment = Enum.TextXAlignment.Right
+        LValLbl.Parent = LLabelRow
+
+        local LSliderRow = Instance.new("Frame")
+        LSliderRow.Size = UDim2.new(1, 0, 0, 18)
+        LSliderRow.BackgroundTransparency = 1
+        LSliderRow.LayoutOrder = 2
+        LSliderRow.Parent = LenSection
+        local LSP2 = Instance.new("UIPadding")
+        LSP2.PaddingLeft = UDim.new(0, 12)
+        LSP2.PaddingRight = UDim.new(0, 12)
+        LSP2.Parent = LSliderRow
+
+        local LSliderBg = Instance.new("Frame")
+        LSliderBg.Size = UDim2.new(1, 0, 0, 6)
+        LSliderBg.Position = UDim2.new(0, 0, 0.5, -3)
+        LSliderBg.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+        LSliderBg.BorderSizePixel = 0
+        LSliderBg.Active = true
+        LSliderBg.Parent = LSliderRow
+        local LTrackCorner = Instance.new("UICorner")
+        LTrackCorner.CornerRadius = UDim.new(0, 3)
+        LTrackCorner.Parent = LSliderBg
 
         local initLenScale = (PM.Rewind.maxLen - 100) / 2900
-        local LenSliderFill = Instance.new("Frame")
-        LenSliderFill.Size = UDim2.new(initLenScale, 0, 1, 0)
-        LenSliderFill.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-        LenSliderFill.BorderSizePixel = 0
-        LenSliderFill.Parent = LenSliderBg
-        local LenFillCorner = Instance.new("UICorner")
-        LenFillCorner.CornerRadius = UDim.new(0, 3)
-        LenFillCorner.Parent = LenSliderFill
+        local LSliderFill = Instance.new("Frame")
+        LSliderFill.Size = UDim2.new(initLenScale, 0, 1, 0)
+        LSliderFill.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
+        LSliderFill.BorderSizePixel = 0
+        LSliderFill.Parent = LSliderBg
+        local LFillCorner = Instance.new("UICorner")
+        LFillCorner.CornerRadius = UDim.new(0, 3)
+        LFillCorner.Parent = LSliderFill
 
-        local LenSliderKnob = Instance.new("Frame")
-        LenSliderKnob.Size = UDim2.new(0, 14, 0, 14)
-        LenSliderKnob.Position = UDim2.new(initLenScale, 0, 0.5, 0)
-        LenSliderKnob.AnchorPoint = Vector2.new(0.5, 0.5)
-        LenSliderKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-        LenSliderKnob.BorderSizePixel = 0
-        LenSliderKnob.ZIndex = 3
-        LenSliderKnob.Parent = LenSliderBg
-        local LenKnobCorner = Instance.new("UICorner")
-        LenKnobCorner.CornerRadius = UDim.new(0, 7)
-        LenKnobCorner.Parent = LenSliderKnob
+        local LSliderKnob = Instance.new("Frame")
+        LSliderKnob.Size = UDim2.new(0, 14, 0, 14)
+        LSliderKnob.Position = UDim2.new(initLenScale, 0, 0.5, 0)
+        LSliderKnob.AnchorPoint = Vector2.new(0.5, 0.5)
+        LSliderKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+        LSliderKnob.BorderSizePixel = 0
+        LSliderKnob.ZIndex = 3
+        LSliderKnob.Parent = LSliderBg
+        local LKnobCorner = Instance.new("UICorner")
+        LKnobCorner.CornerRadius = UDim.new(0, 7)
+        LKnobCorner.Parent = LSliderKnob
 
         local lenDragging = false
         local function updateLen(value)
             PM.Rewind.maxLen = math.clamp(math.floor(value + 0.5), 100, 3000)
             local scale = (PM.Rewind.maxLen - 100) / 2900
-            LenSliderFill.Size = UDim2.new(scale, 0, 1, 0)
-            LenSliderKnob.Position = UDim2.new(scale, 0, 0.5, 0)
-            LenValLbl.Text = tostring(PM.Rewind.maxLen)
+            LSliderFill.Size = UDim2.new(scale, 0, 1, 0)
+            LSliderKnob.Position = UDim2.new(scale, 0, 0.5, 0)
+            LValLbl.Text = tostring(PM.Rewind.maxLen)
             StartRewindRecording()
             SaveRewindState()
         end
 
-        LenSliderKnob.InputBegan:Connect(function(i)
+        LSliderKnob.InputBegan:Connect(function(i)
             if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
                 lenDragging = true
             end
@@ -1481,20 +1510,20 @@ registerCommand("rewind", "Rewind time", {}, function(args)
         end)
         UserInputService.InputChanged:Connect(function(i)
             if lenDragging and (i.UserInputType == Enum.UserInputType.MouseMovement or i.UserInputType == Enum.UserInputType.Touch) then
-                local rel = math.clamp((i.Position.X - LenSliderBg.AbsolutePosition.X) / LenSliderBg.AbsoluteSize.X, 0, 1)
+                local rel = math.clamp((i.Position.X - LSliderBg.AbsolutePosition.X) / LSliderBg.AbsoluteSize.X, 0, 1)
                 updateLen(100 + rel * 2900)
             end
         end)
 
         local lastClickLen = 0
-        LenSliderBg.InputBegan:Connect(function(i)
+        LSliderBg.InputBegan:Connect(function(i)
             if i.UserInputType == Enum.UserInputType.MouseButton1 or i.UserInputType == Enum.UserInputType.Touch then
                 local now = tick()
                 if now - lastClickLen < 0.3 then
                     updateLen(900)
                     lenDragging = false
                 else
-                    local rel = math.clamp((i.Position.X - LenSliderBg.AbsolutePosition.X) / LenSliderBg.AbsoluteSize.X, 0, 1)
+                    local rel = math.clamp((i.Position.X - LSliderBg.AbsolutePosition.X) / LSliderBg.AbsoluteSize.X, 0, 1)
                     updateLen(100 + rel * 2900)
                     lenDragging = true
                 end
