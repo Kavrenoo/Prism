@@ -2660,7 +2660,6 @@ PM.createMainGUI = function()
                         wait(0.18)
                     elseif customConfig.effect == "glitch" then
                         local glitchChars = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`"
-                        local s = fullText
                         while tagLbl.Parent do
                             local glitchCount = math.random(1, 2)
                             for _ = 1, glitchCount do
@@ -2777,6 +2776,8 @@ PM.createMainGUI = function()
             lastFetch = tick()
             isFetchPending = false
         end
+        
+
         
         -- Check if player should have tag
         PM.shouldShowTag = function(plr)
