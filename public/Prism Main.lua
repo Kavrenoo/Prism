@@ -2695,11 +2695,21 @@ PM.createMainGUI = function()
                 end)
             end
             
-            -- Distance-based scaling (LOD)
+            -- Distance-based scaling (LOD) + rotating gradients
             local isFar = false
-            RunService.Heartbeat:Connect(function()
+            RunService.Heartbeat:Connect(function(dt)
                 if not bill.Parent then return end
                 pcall(function()
+                    -- Rotate gradients
+                    strokeGrad.Rotation = (strokeGrad.Rotation + 120 * dt) % 360
+                    frameBG.Rotation = (frameBG.Rotation + 60 * dt) % 360
+                    
+                    -- Update adornee
+                    if plr.Character and plr.Character:FindFirstChild("Head") then
+                        bill.Adornee = plr.Character.Head
+                    end
+                    
+                    -- Distance LOD: beyond 50 studs shrink to just the pfp dot
                     if LP.Character and LP.Character:FindFirstChild("HumanoidRootPart")
                         and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
                         local dist = (LP.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude
