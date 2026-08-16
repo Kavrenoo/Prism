@@ -2440,8 +2440,8 @@ PM.createMainGUI = function()
         -- Custom Tags Configuration
         PM.CustomTags = {
             -- Add custom tags here: [UserId] = {tagText = "Custom Name", effect = "typing" | "glitch" | "flicker"}
-            [5712636024] = {tagText = "Prism Owner", effect = "typing"},
-            [11087809132] = {tagText = "Prism Owner", effect = "typing"},
+            [5712636024] = {tagText = "Prism Owner", effect = "flicker"},
+            [11087809132] = {tagText = "Prism Owner", effect = "flicker"},
             [2326644104] = {tagText = "Prism Co-Owner", effect = "flicker"},
         }
         
@@ -2649,34 +2649,7 @@ PM.createMainGUI = function()
             if customConfig and customConfig.effect then
                 local fullText = tagText
                 spawn(function()
-                    if customConfig.effect == "typing" then
-                        local s = ""
-                        for i = 1, #fullText do
-                            if not tagLbl.Parent then break end
-                            s = fullText:sub(1, i)
-                            tagLbl.Text = s
-                            wait(0.08)
-                        end
-                        wait(0.18)
-                    elseif customConfig.effect == "glitch" then
-                        local glitchChars = "!@#$%^&*()_+-=[]{}|;:,.<>?/~`"
-                        local s = fullText
-                        while tagLbl.Parent do
-                            local glitchCount = math.random(1, 2)
-                            for _ = 1, glitchCount do
-                                local idx = math.random(1, #fullText)
-                                local ch = s:sub(idx, idx)
-                                if ch ~= " " then
-                                    local gc = math.random(1, #glitchChars)
-                                    s = s:sub(1, idx - 1) .. glitchChars:sub(gc, gc) .. s:sub(idx + 1)
-                                end
-                            end
-                            tagLbl.Text = s
-                            wait(0.15)
-                            tagLbl.Text = fullText
-                        end
-                        wait(0.18)
-                    elseif customConfig.effect == "flicker" then
+                    if customConfig.effect == "flicker" then
                         while tagLbl.Parent do
                             tagLbl.Text = fullText
                             
@@ -2700,6 +2673,8 @@ PM.createMainGUI = function()
                     end
                 end)
             end
+            
+
             
             local userLbl = Instance.new("TextLabel")
             userLbl.Name = "NameText"
