@@ -880,43 +880,6 @@ PM.createMainGUI = function()
             PM.createNameTagsPanel()
         end
         
-        -- Sync the actual nametags system with the toggle state
-        PM.nametagsEnabled = PM.isNameTagsEnabled
-        
-        -- Handle toggle ON/OFF
-        if not PM.isNameTagsEnabled then
-            -- Turning OFF: restore all default nametags
-            local PlayersService = game:GetService("Players")
-            for uid, state in pairs(PM.defaultNametagStates) do
-                local plr = PlayersService:GetPlayerByUserId(uid)
-                if plr and plr.Character then
-                    pcall(function()
-                        local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
-                        if humanoid then
-                            humanoid.DisplayDistanceType = state
-                        end
-                    end)
-                end
-            end
-        else
-            -- Turning ON: hide default nametags for Prism users
-            local PlayersService = game:GetService("Players")
-            local LP = PlayersService.LocalPlayer
-            for _, plr in ipairs(PlayersService:GetPlayers()) do
-                if plr ~= LP and plr.Character and PM.shouldShowTag(plr) then
-                    pcall(function()
-                        local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
-                        if humanoid then
-                            if not PM.defaultNametagStates[plr.UserId] then
-                                PM.defaultNametagStates[plr.UserId] = humanoid.DisplayDistanceType
-                            end
-                            humanoid.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
-                        end
-                    end)
-                end
-            end
-        end
-        
         if PM.isNameTagsEnabled then
             PM.UI.NameTagsLabel.Text = "Nametags On"
         else
