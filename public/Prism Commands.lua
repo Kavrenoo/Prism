@@ -1,5 +1,6 @@
 --[[ missing
 
+    rewind
     invisibility
     headsit
     backpack
@@ -10,12 +11,8 @@
     stand
     view player friends
     view player inventory
-    add / unadd
-    block / unblock
-    view
-    inspect
     anaimation packs
-    animation replacer (like axon)
+    animation replacer
     animation logger
     animation speeds
     auto execute on game switch / server hop / rejoin
@@ -692,10 +689,10 @@ end, true)
 registerCommand("inspect", "Inspect a player", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
-    
+
     local q = targetName:lower()
     local target = nil
-    
+
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP then
             if p.Name:lower() == q or p.DisplayName:lower() == q then
@@ -704,7 +701,7 @@ registerCommand("inspect", "Inspect a player", {}, function(args)
             end
         end
     end
-    
+
     if not target then
         for _, p in ipairs(Players:GetPlayers()) do
             if p ~= LP then
@@ -715,7 +712,7 @@ registerCommand("inspect", "Inspect a player", {}, function(args)
             end
         end
     end
-    
+
     if not target then
         for _, p in ipairs(Players:GetPlayers()) do
             if p ~= LP then
@@ -726,18 +723,198 @@ registerCommand("inspect", "Inspect a player", {}, function(args)
             end
         end
     end
-    
+
     if not target then return end
-    
+
     local tChar = target.Character
     if not tChar then return end
-    
+
     local th = tChar:FindFirstChildOfClass("Humanoid")
     if not th then return end
-    
+
     pcall(function()
         local desc = th:GetAppliedDescription()
         game:GetService("GuiService"):InspectPlayerFromHumanoidDescription(desc, target.Name)
+    end)
+end, true)
+
+registerCommand("add", "Send friend request to player", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local q = targetName:lower()
+    local target = nil
+
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+
+    if not target then return end
+
+    pcall(function()
+        LP:RequestFriendship(target)
+    end)
+end, true)
+
+registerCommand("unadd", "Unfriend a player", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local q = targetName:lower()
+    local target = nil
+
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+
+    if not target then return end
+
+    pcall(function()
+        LP:RevokeFriendship(target)
+    end)
+end, true)
+
+registerCommand("block", "Block a player", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local q = targetName:lower()
+    local target = nil
+
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+
+    if not target then return end
+
+    pcall(function()
+        LP:BlockUser(target)
+    end)
+end, true)
+
+registerCommand("unblock", "Unblock a player", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local q = targetName:lower()
+    local target = nil
+
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
+    end
+
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+
+    if not target then return end
+
+    pcall(function()
+        LP:UnblockUser(target)
     end)
 end, true)
 
