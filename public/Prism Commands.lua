@@ -2,16 +2,15 @@
 
     rewind
     invisibility
-    headsit
-    backpack
-    face bang
-    doggy
-    drag
-    bang
-    stand
+    backpack player
+    face bang player
+    doggy player
+    drag player
+    bang player
+    stand player
     view player friends
     view player inventory
-    anaimation packs
+    animation packs
     animation replacer
     animation logger
     animation speeds
@@ -21,6 +20,8 @@
     reanim
     anti admin
     anti headsit / facebang / etc
+    nametags
+    join other prism users
 
 ]]
 -- Wait for PrismMain to be initialized by Main.lua
@@ -96,23 +97,53 @@ end
 
 -- ========== BUILT-IN COMMANDS ==========
 
-local function FindPrismGUI(name)
-    local cg = game:GetService("CoreGui")
-    local g = cg:FindFirstChild(name)
-    if g then return g end
-    local lp = game:GetService("Players").LocalPlayer
-    if lp and lp:FindFirstChild("PlayerGui") then
-        g = lp.PlayerGui:FindFirstChild(name)
-        if g then return g end
+-- State for toggle commands
+PM.HeadSit = {
+    active = false,
+    weld = nil,
+    target = nil
+}
+
+-- Helper: Find player by name (exact, then prefix, then substring)
+local function findPlayer(name)
+    local q = name:lower()
+    local target = nil
+
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            if p.Name:lower() == q or p.DisplayName:lower() == q then
+                target = p
+                break
+            end
+        end
     end
-    if get_hidden_gui or gethui then
-        g = (get_hidden_gui or gethui)():FindFirstChild(name)
-        if g then return g end
+
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
+                    target = p
+                    break
+                end
+            end
+        end
     end
-    return nil
+
+    if not target then
+        for _, p in ipairs(Players:GetPlayers()) do
+            if p ~= LP then
+                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
+                    target = p
+                    break
+                end
+            end
+        end
+    end
+
+    return target
 end
 
-registerCommand("destroy", "Destroy Prism", {}, function(args)
+local function cleanupPrism()
     -- Clean up existing UI
     if PM.UI.Gui then
         pcall(function() PM.UI.Gui:Destroy() end)
@@ -156,16 +187,16 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
     if PM.TpWatchConn1 then pcall(function() PM.TpWatchConn1:Disconnect() end); PM.TpWatchConn1 = nil end
     if PM.TpWatchConn2 then pcall(function() PM.TpWatchConn2:Disconnect() end); PM.TpWatchConn2 = nil end
     PM.TpToolActive = false
-    local tpTool1 = LP.Backpack:FindFirstChild("Teleport Tool")
-    if tpTool1 then pcall(function() tpTool1:Destroy() end) end
-    local charTp1 = LP.Character and LP.Character:FindFirstChild("Teleport Tool")
-    if charTp1 then pcall(function() charTp1:Destroy() end) end
+    local tpTool = LP.Backpack:FindFirstChild("Teleport Tool")
+    if tpTool then pcall(function() tpTool:Destroy() end) end
+    local charTp = LP.Character and LP.Character:FindFirstChild("Teleport Tool")
+    if charTp then pcall(function() charTp:Destroy() end) end
     -- Cleanup Jerk Tool
     if PM.JerkRespawnConn then pcall(function() PM.JerkRespawnConn:Disconnect() end); PM.JerkRespawnConn = nil end
-    local jerk1 = LP.Backpack:FindFirstChild("Jerk")
-    if jerk1 then pcall(function() jerk1:Destroy() end) end
-    local charJerk1 = LP.Character and LP.Character:FindFirstChild("Jerk")
-    if charJerk1 then pcall(function() charJerk1:Destroy() end) end
+    local jerk = LP.Backpack:FindFirstChild("Jerk")
+    if jerk then pcall(function() jerk:Destroy() end) end
+    local charJerk = LP.Character and LP.Character:FindFirstChild("Jerk")
+    if charJerk then pcall(function() charJerk:Destroy() end) end
     -- Cleanup Walk On Air
     if PM.WOA then
         if PM.WOA.renderConn then pcall(function() PM.WOA.renderConn:Disconnect() end) end
@@ -294,7 +325,7 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
     local jumpGui = FindPrismGUI("Prism_JumpGUI")
     if jumpGui then pcall(function() jumpGui:Destroy() end) end
     PM.Jump = nil
-    -- Reset walkspeed to game default on destroy
+    -- Reset walkspeed to game default
     local char = game:GetService("Players").LocalPlayer.Character
     if char then
         local humanoid = char:FindFirstChildOfClass("Humanoid")
@@ -303,167 +334,56 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
             humanoid.WalkSpeed = defaultWS
         end
     end
-    -- Clear globals
+    -- Cleanup HeadSit
+    if PM.HeadSit.weld then
+        pcall(function() PM.HeadSit.weld:Destroy() end)
+        PM.HeadSit.weld = nil
+    end
+    PM.HeadSit.active = false
+    PM.HeadSit.target = nil
+
+    -- Cleanup all GUIs by name pattern
+    for _, obj in ipairs(game:GetService("CoreGui"):GetDescendants()) do
+        if obj.Name:find("Prism") and obj:IsA("ScreenGui") then
+            pcall(function() obj:Destroy() end)
+        end
+    end
+    for _, obj in ipairs(LP.PlayerGui:GetDescendants()) do
+        if obj.Name:find("Prism") and obj:IsA("ScreenGui") then
+            pcall(function() obj:Destroy() end)
+        end
+    end
+    -- Cleanup workspace objects
+    for _, obj in ipairs(workspace:GetDescendants()) do
+        if obj.Name:find("Prism") then
+            pcall(function() obj:Destroy() end)
+        end
+    end
+end
+
+local function FindPrismGUI(name)
+    local cg = game:GetService("CoreGui")
+    local g = cg:FindFirstChild(name)
+    if g then return g end
+    local lp = game:GetService("Players").LocalPlayer
+    if lp and lp:FindFirstChild("PlayerGui") then
+        g = lp.PlayerGui:FindFirstChild(name)
+        if g then return g end
+    end
+    if get_hidden_gui or gethui then
+        g = (get_hidden_gui or gethui)():FindFirstChild(name)
+        if g then return g end
+    end
+    return nil
+end
+
+registerCommand("destroy", "Destroy Prism", {}, function(args)
+    cleanupPrism()
     getgenv().PrismMain = nil
 end, true)
 
 registerCommand("reload", "Reload Prism script", {}, function(args)
-    -- Clean up existing UI
-    if PM.UI.Gui then
-        pcall(function() PM.UI.Gui:Destroy() end)
-    end
-    -- Cleanup Teleport Tool
-    if PM.TpToolConn then pcall(function() PM.TpToolConn:Disconnect() end); PM.TpToolConn = nil end
-    if PM.TpWatchConn1 then pcall(function() PM.TpWatchConn1:Disconnect() end); PM.TpWatchConn1 = nil end
-    if PM.TpWatchConn2 then pcall(function() PM.TpWatchConn2:Disconnect() end); PM.TpWatchConn2 = nil end
-    PM.TpToolActive = false
-    local tpTool2 = LP.Backpack:FindFirstChild("Teleport Tool")
-    if tpTool2 then pcall(function() tpTool2:Destroy() end) end
-    local charTp2 = LP.Character and LP.Character:FindFirstChild("Teleport Tool")
-    if charTp2 then pcall(function() charTp2:Destroy() end) end
-    -- Cleanup Jerk Tool
-    if PM.JerkRespawnConn then pcall(function() PM.JerkRespawnConn:Disconnect() end); PM.JerkRespawnConn = nil end
-    PM.JerkActive = false
-    local jerk2 = LP.Backpack:FindFirstChild("Jerk")
-    if jerk2 then pcall(function() jerk2:Destroy() end) end
-    local charJerk2 = LP.Character and LP.Character:FindFirstChild("Jerk")
-    if charJerk2 then pcall(function() charJerk2:Destroy() end) end
-    -- Cleanup Walk On Air
-    if PM.WOA then
-        if PM.WOA.renderConn then pcall(function() PM.WOA.renderConn:Disconnect() end) end
-        if PM.WOA.platform then pcall(function() PM.WOA.platform:Destroy() end) end
-        if PM.WOA.Gui then pcall(function() PM.WOA.Gui:Destroy() end) end
-    end
-    local woaGui = FindPrismGUI("Prism_WOAGUI")
-    if woaGui then pcall(function() woaGui:Destroy() end) end
-    local plat = workspace:FindFirstChild("PrismWalkAirPlatform")
-    if plat then pcall(function() plat:Destroy() end) end
-    -- Cleanup Anti All
-    if PM.Anti then
-        for _, conn in pairs(PM.Anti.connections or {}) do
-            pcall(function() conn:Disconnect() end)
-        end
-        PM.Anti.connections = {}
-        PM.Anti.afk = false
-        PM.Anti.sit = false
-        PM.Anti.ragdoll = false
-        PM.Anti.void = false
-        PM.Anti.paused = false
-        if PM.Anti.origVoidY ~= nil then
-            pcall(function() workspace.FallenPartsDestroyHeight = PM.Anti.origVoidY end)
-            PM.Anti.origVoidY = nil
-        end
-    end
-    local antiGui2 = FindPrismGUI("Prism_AntiGUI")
-    if antiGui2 then pcall(function() antiGui2:Destroy() end) end
-    -- Cleanup Infinite Baseplate
-    if PM.BP and PM.BP.active then
-        PM.BP.active = false
-        if PM.BP.connection then PM.BP.connection:Disconnect() end
-        local bpf = workspace:FindFirstChild("PrismBaseplateFolder")
-        if bpf then pcall(function() bpf:Destroy() end) end
-    end
-    -- Cleanup Hamster Ball
-    if PM.HB and PM.HB.active then
-        PM.HB.active = false
-        if PM.HB.renderConn then PM.HB.renderConn:Disconnect() end
-        if PM.HB.jumpConn then PM.HB.jumpConn:Disconnect() end
-    end
-    local hbGui2 = FindPrismGUI("Prism_HamsterBallGUI")
-    if hbGui2 then pcall(function() hbGui2:Destroy() end) end
-    -- Cleanup AutoClicker
-    if PM.AC then
-        PM.AC.active = false
-        if PM.AC.keyConnection then pcall(function() PM.AC.keyConnection:Disconnect() end) end
-    end
-    local acGui2 = FindPrismGUI("Prism_AutoClickerGUI")
-    if acGui2 then pcall(function() acGui2:Destroy() end) end
-    -- Cleanup Noclip
-    if PM.Noclip then
-        PM.Noclip.active = false
-        if PM.Noclip.connection then pcall(function() PM.Noclip.connection:Disconnect() end) end
-        if PM.Noclip.keyConnection then pcall(function() PM.Noclip.keyConnection:Disconnect() end) end
-        local snapshot = PM.Noclip.snapshot or {}
-        local char = LP.Character
-        if char then
-            for _, part in ipairs(char:GetDescendants()) do
-                if part:IsA("BasePart") then
-                    pcall(function()
-                        if snapshot[part] ~= nil then
-                            part.CanCollide = snapshot[part]
-                        end
-                    end)
-                end
-            end
-        end
-        PM.Noclip.snapshot = {}
-    end
-    local ncGui2 = FindPrismGUI("Prism_NoclipGUI")
-    if ncGui2 then pcall(function() ncGui2:Destroy() end) end
-    -- Cleanup Spin
-    local spinGui2 = FindPrismGUI("Prism_SpinGUI")
-    if spinGui2 then pcall(function() spinGui2:Destroy() end) end
-    -- Cleanup Trip
-    local tripGui2 = FindPrismGUI("Prism_TripGUI")
-    if tripGui2 then pcall(function() tripGui2:Destroy() end) end
-    -- Cleanup Gravity
-    local gravGui2 = FindPrismGUI("Prism_GravityGUI")
-    if gravGui2 then pcall(function() gravGui2:Destroy() end) end
-    -- Cleanup Speed
-    local speedGui2 = FindPrismGUI("Prism_SpeedGUI")
-    if speedGui2 then pcall(function() speedGui2:Destroy() end) end
-    -- Cleanup Emotes
-    local emotesGui2 = FindPrismGUI("Prism_EmotesGUI")
-    if emotesGui2 then pcall(function() emotesGui2:Destroy() end) end
-    -- Cleanup Move While Emoting
-    if PM.Emotes.mwePriConn then PM.Emotes.mwePriConn:Disconnect(); PM.Emotes.mwePriConn = nil end
-    if PM.Emotes.mweWalkConn then PM.Emotes.mweWalkConn:Disconnect(); PM.Emotes.mweWalkConn = nil end
-    if PM.Emotes.currentEmoteTrack then pcall(function() PM.Emotes.currentEmoteTrack:Stop() end); PM.Emotes.currentEmoteTrack = nil end
-    for _, plr in ipairs(Players:GetPlayers()) do
-        if plr == LP then
-            local char = plr.Character
-            if char then
-                local hum = char:FindFirstChildOfClass("Humanoid")
-                if hum then
-                    for _, track in pairs(hum:GetPlayingAnimationTracks()) do
-                        if track.Priority == Enum.AnimationPriority.Action then
-                            pcall(function() track:Stop() end)
-                        end
-                    end
-                end
-            end
-        end
-    end
-    -- Cleanup View
-    if PM.View.connection then PM.View.connection:Disconnect(); PM.View.connection = nil end
-    if PM.View.leavingConnection then PM.View.leavingConnection:Disconnect(); PM.View.leavingConnection = nil end
-    PM.View.viewing = false
-    PM.View.target = nil
-    local camera = workspace.CurrentCamera
-    local char = LP.Character
-    if char and char:FindFirstChild("Humanoid") then
-        camera.CameraSubject = char.Humanoid
-    end
-    -- Cleanup Camera
-    local cameraGui2 = FindPrismGUI("Prism_CameraGUI")
-    if cameraGui2 then pcall(function() cameraGui2:Destroy() end) end
-    -- Cleanup Fly
-    local flyGui2 = FindPrismGUI("Prism_FlyGUI")
-    if flyGui2 then pcall(function() flyGui2:Destroy() end) end
-    PM.Fly = nil
-    -- Cleanup Jump
-    local jumpGui2 = FindPrismGUI("Prism_JumpGUI")
-    if jumpGui2 then pcall(function() jumpGui2:Destroy() end) end
-    PM.Jump = nil
-    -- Reset walkspeed to game default on reload
-    local char2 = game:GetService("Players").LocalPlayer.Character
-    if char2 then
-        local humanoid2 = char2:FindFirstChildOfClass("Humanoid")
-        if humanoid2 then
-            local defaultWS2 = humanoid2:GetAttribute("OriginalWalkSpeed") or 16
-            humanoid2.WalkSpeed = defaultWS2
-        end
-    end
+    cleanupPrism()
     getgenv().PrismMain = nil
     -- Reload from URL
     loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
@@ -683,6 +603,66 @@ registerCommand("unview", "Stop viewing a player", {}, function(args)
     local char = LP.Character
     if char and char:FindFirstChild("Humanoid") then
         camera.CameraSubject = char.Humanoid
+    end
+end, true)
+
+registerCommand("headsit", "Sit on a player's head (welded)", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local target = findPlayer(targetName)
+    if not target then return end
+
+    local myChar = LP.Character
+    if not myChar then return end
+
+    local myRoot = myChar:FindFirstChild("HumanoidRootPart")
+    local myHum = myChar:FindFirstChildOfClass("Humanoid")
+    if not myRoot or not myHum then return end
+
+    local tChar = target.Character
+    if not tChar then return end
+
+    local tHead = tChar:FindFirstChild("Head")
+    if not tHead then return end
+
+    -- Stop existing headsit
+    if PM.HeadSit.weld then
+        pcall(function() PM.HeadSit.weld:Destroy() end)
+        PM.HeadSit.weld = nil
+    end
+    PM.HeadSit.active = false
+    PM.HeadSit.target = nil
+
+    -- Position and weld
+    myRoot.CFrame = tHead.CFrame * CFrame.new(0, 2, 0)
+    myHum.Sit = true
+
+    local weld = Instance.new("WeldConstraint")
+    weld.Name = "PrismHeadSitWeld"
+    weld.Part0 = myRoot
+    weld.Part1 = tHead
+    weld.Parent = myRoot
+
+    PM.HeadSit.weld = weld
+    PM.HeadSit.active = true
+    PM.HeadSit.target = target
+end, true)
+
+registerCommand("unheadsit", "Stop headsitting", {}, function(args)
+    if PM.HeadSit.weld then
+        pcall(function() PM.HeadSit.weld:Destroy() end)
+        PM.HeadSit.weld = nil
+    end
+    PM.HeadSit.active = false
+    PM.HeadSit.target = nil
+
+    local myChar = LP.Character
+    if myChar then
+        local myHum = myChar:FindFirstChildOfClass("Humanoid")
+        if myHum then
+            myHum.Sit = false
+        end
     end
 end, true)
 
