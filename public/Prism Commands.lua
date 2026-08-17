@@ -100,7 +100,10 @@ end
 -- State for toggle commands
 PM.HeadSit = {
     active = false,
-    weld = nil,
+    alignPos = nil,
+    alignOri = nil,
+    attachment0 = nil,
+    attachment1 = nil,
     target = nil
 }
 
@@ -335,9 +338,21 @@ local function cleanupPrism()
         end
     end
     -- Cleanup HeadSit
-    if PM.HeadSit.weld then
-        pcall(function() PM.HeadSit.weld:Destroy() end)
-        PM.HeadSit.weld = nil
+    if PM.HeadSit.alignPos then
+        pcall(function() PM.HeadSit.alignPos:Destroy() end)
+        PM.HeadSit.alignPos = nil
+    end
+    if PM.HeadSit.alignOri then
+        pcall(function() PM.HeadSit.alignOri:Destroy() end)
+        PM.HeadSit.alignOri = nil
+    end
+    if PM.HeadSit.attachment0 then
+        pcall(function() PM.HeadSit.attachment0:Destroy() end)
+        PM.HeadSit.attachment0 = nil
+    end
+    if PM.HeadSit.attachment1 then
+        pcall(function() PM.HeadSit.attachment1:Destroy() end)
+        PM.HeadSit.attachment1 = nil
     end
     PM.HeadSit.active = false
     PM.HeadSit.target = nil
@@ -606,7 +621,7 @@ registerCommand("unview", "Stop viewing a player", {}, function(args)
     end
 end, true)
 
-registerCommand("headsit", "Sit on a player's head (welded)", {}, function(args)
+registerCommand("headsit", "Sit on a player's head (align position)", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
 
@@ -627,32 +642,90 @@ registerCommand("headsit", "Sit on a player's head (welded)", {}, function(args)
     if not tHead then return end
 
     -- Stop existing headsit
-    if PM.HeadSit.weld then
-        pcall(function() PM.HeadSit.weld:Destroy() end)
-        PM.HeadSit.weld = nil
+    if PM.HeadSit.alignPos then
+        pcall(function() PM.HeadSit.alignPos:Destroy() end)
+        PM.HeadSit.alignPos = nil
+    end
+    if PM.HeadSit.alignOri then
+        pcall(function() PM.HeadSit.alignOri:Destroy() end)
+        PM.HeadSit.alignOri = nil
+    end
+    if PM.HeadSit.attachment0 then
+        pcall(function() PM.HeadSit.attachment0:Destroy() end)
+        PM.HeadSit.attachment0 = nil
+    end
+    if PM.HeadSit.attachment1 then
+        pcall(function() PM.HeadSit.attachment1:Destroy() end)
+        PM.HeadSit.attachment1 = nil
     end
     PM.HeadSit.active = false
     PM.HeadSit.target = nil
 
-    -- Position and weld
+    -- Create attachments
+    local att0 = Instance.new("Attachment")
+    att0.Name = "PrismHeadSitAtt0"
+    att0.Parent = myRoot
+
+    local att1 = Instance.new("Attachment")
+    att1.Name = "PrismHeadSitAtt1"
+    att1.Position = Vector3.new(0, 2, 0)
+    att1.Parent = tHead
+
+    -- AlignPosition - moves parts together
+    local alignPos = Instance.new("AlignPosition")
+    alignPos.Name = "PrismHeadSitAlignPos"
+    alignPos.Mode = Enum.PositionAlignmentMode.TwoAttachment
+    alignPos.Attachment0 = att0
+    alignPos.Attachment1 = att1
+    alignPos.RigidityEnabled = true
+    alignPos.MaxForce = math.huge
+    alignPos.MaxVelocity = math.huge
+    alignPos.Responsiveness = 200
+    alignPos.ReactionForceEnabled = false
+    alignPos.ApplyAtCenterOfMass = true
+    alignPos.Parent = myRoot
+
+    -- AlignOrientation - matches rotation
+    local alignOri = Instance.new("AlignOrientation")
+    alignOri.Name = "PrismHeadSitAlignOri"
+    alignOri.Mode = Enum.OrientationAlignmentMode.TwoAttachment
+    alignOri.Attachment0 = att0
+    alignOri.Attachment1 = att1
+    alignOri.RigidityEnabled = true
+    alignOri.MaxTorque = math.huge
+    alignOri.MaxAngularVelocity = math.huge
+    alignOri.Responsiveness = 200
+    alignOri.ReactionTorqueEnabled = false
+    alignOri.Parent = myRoot
+
+    -- Initial position
     myRoot.CFrame = tHead.CFrame * CFrame.new(0, 2, 0)
     myHum.Sit = true
 
-    local weld = Instance.new("WeldConstraint")
-    weld.Name = "PrismHeadSitWeld"
-    weld.Part0 = myRoot
-    weld.Part1 = tHead
-    weld.Parent = myRoot
-
-    PM.HeadSit.weld = weld
+    PM.HeadSit.alignPos = alignPos
+    PM.HeadSit.alignOri = alignOri
+    PM.HeadSit.attachment0 = att0
+    PM.HeadSit.attachment1 = att1
     PM.HeadSit.active = true
     PM.HeadSit.target = target
 end, true)
 
 registerCommand("unheadsit", "Stop headsitting", {}, function(args)
-    if PM.HeadSit.weld then
-        pcall(function() PM.HeadSit.weld:Destroy() end)
-        PM.HeadSit.weld = nil
+    if PM.HeadSit.alignPos then
+        pcall(function() PM.HeadSit.alignPos:Destroy() end)
+        PM.HeadSit.alignPos = nil
+    end
+    if PM.HeadSit.alignOri then
+        pcall(function() PM.HeadSit.alignOri:Destroy() end)
+        PM.HeadSit.alignOri = nil
+    end
+    if PM.HeadSit.attachment0 then
+        pcall(function() PM.HeadSit.attachment0:Destroy() end)
+        PM.HeadSit.attachment0 = nil
+    end
+    if PM.HeadSit.attachment1 then
+        pcall(function() PM.HeadSit.attachment1:Destroy() end)
+        PM.HeadSit.attachment1 = nil
     end
     PM.HeadSit.active = false
     PM.HeadSit.target = nil
