@@ -101,7 +101,17 @@ end
 PM.HeadSit = {
     active = false,
     connection = nil,
-    target = nil
+    target = nil,
+    method = nil,
+    weld = nil,
+    alignPos = nil,
+    alignOri = nil,
+    att0 = nil,
+    att1 = nil,
+    bodyPos = nil,
+    bodyGyro = nil,
+    bodyVel = nil,
+    ballSocket = nil
 }
 
 -- Helper: Find player by name (exact, then prefix, then substring)
@@ -339,8 +349,45 @@ local function cleanupPrism()
         pcall(function() PM.HeadSit.connection:Disconnect() end)
         PM.HeadSit.connection = nil
     end
+    if PM.HeadSit.weld then
+        pcall(function() PM.HeadSit.weld:Destroy() end)
+        PM.HeadSit.weld = nil
+    end
+    if PM.HeadSit.alignPos then
+        pcall(function() PM.HeadSit.alignPos:Destroy() end)
+        PM.HeadSit.alignPos = nil
+    end
+    if PM.HeadSit.alignOri then
+        pcall(function() PM.HeadSit.alignOri:Destroy() end)
+        PM.HeadSit.alignOri = nil
+    end
+    if PM.HeadSit.att0 then
+        pcall(function() PM.HeadSit.att0:Destroy() end)
+        PM.HeadSit.att0 = nil
+    end
+    if PM.HeadSit.att1 then
+        pcall(function() PM.HeadSit.att1:Destroy() end)
+        PM.HeadSit.att1 = nil
+    end
+    if PM.HeadSit.bodyPos then
+        pcall(function() PM.HeadSit.bodyPos:Destroy() end)
+        PM.HeadSit.bodyPos = nil
+    end
+    if PM.HeadSit.bodyGyro then
+        pcall(function() PM.HeadSit.bodyGyro:Destroy() end)
+        PM.HeadSit.bodyGyro = nil
+    end
+    if PM.HeadSit.bodyVel then
+        pcall(function() PM.HeadSit.bodyVel:Destroy() end)
+        PM.HeadSit.bodyVel = nil
+    end
+    if PM.HeadSit.ballSocket then
+        pcall(function() PM.HeadSit.ballSocket:Destroy() end)
+        PM.HeadSit.ballSocket = nil
+    end
     PM.HeadSit.active = false
     PM.HeadSit.target = nil
+    PM.HeadSit.method = nil
 
     -- Cleanup all GUIs by name pattern
     for _, obj in ipairs(game:GetService("CoreGui"):GetDescendants()) do
@@ -606,7 +653,67 @@ registerCommand("unview", "Stop viewing a player", {}, function(args)
     end
 end, true)
 
-registerCommand("headsit", "Sit on a player's head (CFrame loop)", {}, function(args)
+-- Helper: Stop all headsit methods
+local function stopHeadsit()
+    if PM.HeadSit.connection then
+        pcall(function() PM.HeadSit.connection:Disconnect() end)
+        PM.HeadSit.connection = nil
+    end
+    if PM.HeadSit.weld then
+        pcall(function() PM.HeadSit.weld:Destroy() end)
+        PM.HeadSit.weld = nil
+    end
+    if PM.HeadSit.alignPos then
+        pcall(function() PM.HeadSit.alignPos:Destroy() end)
+        PM.HeadSit.alignPos = nil
+    end
+    if PM.HeadSit.alignOri then
+        pcall(function() PM.HeadSit.alignOri:Destroy() end)
+        PM.HeadSit.alignOri = nil
+    end
+    if PM.HeadSit.att0 then
+        pcall(function() PM.HeadSit.att0:Destroy() end)
+        PM.HeadSit.att0 = nil
+    end
+    if PM.HeadSit.att1 then
+        pcall(function() PM.HeadSit.att1:Destroy() end)
+        PM.HeadSit.att1 = nil
+    end
+    if PM.HeadSit.bodyPos then
+        pcall(function() PM.HeadSit.bodyPos:Destroy() end)
+        PM.HeadSit.bodyPos = nil
+    end
+    if PM.HeadSit.bodyGyro then
+        pcall(function() PM.HeadSit.bodyGyro:Destroy() end)
+        PM.HeadSit.bodyGyro = nil
+    end
+    if PM.HeadSit.bodyVel then
+        pcall(function() PM.HeadSit.bodyVel:Destroy() end)
+        PM.HeadSit.bodyVel = nil
+    end
+    if PM.HeadSit.ballSocket then
+        pcall(function() PM.HeadSit.ballSocket:Destroy() end)
+        PM.HeadSit.ballSocket = nil
+    end
+    PM.HeadSit.active = false
+    PM.HeadSit.target = nil
+    PM.HeadSit.method = nil
+
+    local myChar = LP.Character
+    if myChar then
+        local myHum = myChar:FindFirstChildOfClass("Humanoid")
+        if myHum then
+            myHum.Sit = false
+        end
+    end
+end
+
+registerCommand("unheadsit", "Stop headsitting", {}, function(args)
+    stopHeadsit()
+end, true)
+
+-- Method 1: Stepped CFrame loop
+registerCommand("headsit1", "Headsit method 1: Stepped CFrame loop", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
 
@@ -626,18 +733,54 @@ registerCommand("headsit", "Sit on a player's head (CFrame loop)", {}, function(
     local tHead = tChar:FindFirstChild("Head")
     if not tHead then return end
 
-    -- Stop existing headsit
-    if PM.HeadSit.connection then
-        pcall(function() PM.HeadSit.connection:Disconnect() end)
-        PM.HeadSit.connection = nil
-    end
-    PM.HeadSit.active = false
-    PM.HeadSit.target = nil
+    stopHeadsit()
 
     local RunService = game:GetService("RunService")
 
     PM.HeadSit.active = true
     PM.HeadSit.target = target
+    PM.HeadSit.method = "Stepped"
+    myHum.Sit = true
+
+    PM.HeadSit.connection = RunService.Stepped:Connect(function()
+        if not PM.HeadSit.active then return end
+        if not myRoot or not myRoot.Parent then return end
+        if not tHead or not tHead.Parent then return end
+
+        pcall(function()
+            myRoot.CFrame = tHead.CFrame * CFrame.new(0, 2, 0)
+        end)
+    end)
+end, true)
+
+-- Method 2: RenderStepped CFrame loop
+registerCommand("headsit2", "Headsit method 2: RenderStepped CFrame loop", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local target = findPlayer(targetName)
+    if not target then return end
+
+    local myChar = LP.Character
+    if not myChar then return end
+
+    local myRoot = myChar:FindFirstChild("HumanoidRootPart")
+    local myHum = myChar:FindFirstChildOfClass("Humanoid")
+    if not myRoot or not myHum then return end
+
+    local tChar = target.Character
+    if not tChar then return end
+
+    local tHead = tChar:FindFirstChild("Head")
+    if not tHead then return end
+
+    stopHeadsit()
+
+    local RunService = game:GetService("RunService")
+
+    PM.HeadSit.active = true
+    PM.HeadSit.target = target
+    PM.HeadSit.method = "RenderStepped"
     myHum.Sit = true
 
     PM.HeadSit.connection = RunService.RenderStepped:Connect(function()
@@ -651,21 +794,319 @@ registerCommand("headsit", "Sit on a player's head (CFrame loop)", {}, function(
     end)
 end, true)
 
-registerCommand("unheadsit", "Stop headsitting", {}, function(args)
-    if PM.HeadSit.connection then
-        pcall(function() PM.HeadSit.connection:Disconnect() end)
-        PM.HeadSit.connection = nil
-    end
-    PM.HeadSit.active = false
-    PM.HeadSit.target = nil
+-- Method 3: Heartbeat CFrame loop
+registerCommand("headsit3", "Headsit method 3: Heartbeat CFrame loop", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local target = findPlayer(targetName)
+    if not target then return end
 
     local myChar = LP.Character
-    if myChar then
-        local myHum = myChar:FindFirstChildOfClass("Humanoid")
-        if myHum then
-            myHum.Sit = false
-        end
-    end
+    if not myChar then return end
+
+    local myRoot = myChar:FindFirstChild("HumanoidRootPart")
+    local myHum = myChar:FindFirstChildOfClass("Humanoid")
+    if not myRoot or not myHum then return end
+
+    local tChar = target.Character
+    if not tChar then return end
+
+    local tHead = tChar:FindFirstChild("Head")
+    if not tHead then return end
+
+    stopHeadsit()
+
+    local RunService = game:GetService("RunService")
+
+    PM.HeadSit.active = true
+    PM.HeadSit.target = target
+    PM.HeadSit.method = "Heartbeat"
+    myHum.Sit = true
+
+    PM.HeadSit.connection = RunService.Heartbeat:Connect(function()
+        if not PM.HeadSit.active then return end
+        if not myRoot or not myRoot.Parent then return end
+        if not tHead or not tHead.Parent then return end
+
+        pcall(function()
+            myRoot.CFrame = tHead.CFrame * CFrame.new(0, 2, 0)
+        end)
+    end)
+end, true)
+
+-- Method 4: WeldConstraint
+registerCommand("headsit4", "Headsit method 4: WeldConstraint", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local target = findPlayer(targetName)
+    if not target then return end
+
+    local myChar = LP.Character
+    if not myChar then return end
+
+    local myRoot = myChar:FindFirstChild("HumanoidRootPart")
+    local myHum = myChar:FindFirstChildOfClass("Humanoid")
+    if not myRoot or not myHum then return end
+
+    local tChar = target.Character
+    if not tChar then return end
+
+    local tHead = tChar:FindFirstChild("Head")
+    if not tHead then return end
+
+    stopHeadsit()
+
+    myRoot.CFrame = tHead.CFrame * CFrame.new(0, 2, 0)
+    myHum.Sit = true
+
+    local weld = Instance.new("WeldConstraint")
+    weld.Name = "PrismHeadSitWeld"
+    weld.Part0 = myRoot
+    weld.Part1 = tHead
+    weld.Parent = myRoot
+
+    PM.HeadSit.weld = weld
+    PM.HeadSit.active = true
+    PM.HeadSit.target = target
+    PM.HeadSit.method = "Weld"
+end, true)
+
+-- Method 5: AlignPosition + AlignOrientation
+registerCommand("headsit5", "Headsit method 5: AlignPosition + AlignOrientation", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local target = findPlayer(targetName)
+    if not target then return end
+
+    local myChar = LP.Character
+    if not myChar then return end
+
+    local myRoot = myChar:FindFirstChild("HumanoidRootPart")
+    local myHum = myChar:FindFirstChildOfClass("Humanoid")
+    if not myRoot or not myHum then return end
+
+    local tChar = target.Character
+    if not tChar then return end
+
+    local tHead = tChar:FindFirstChild("Head")
+    if not tHead then return end
+
+    stopHeadsit()
+
+    local att0 = Instance.new("Attachment")
+    att0.Name = "PrismHeadSitAtt0"
+    att0.Parent = myRoot
+
+    local att1 = Instance.new("Attachment")
+    att1.Name = "PrismHeadSitAtt1"
+    att1.Position = Vector3.new(0, 2, 0)
+    att1.Parent = tHead
+
+    local alignPos = Instance.new("AlignPosition")
+    alignPos.Name = "PrismHeadSitAlignPos"
+    alignPos.Mode = Enum.PositionAlignmentMode.TwoAttachment
+    alignPos.Attachment0 = att0
+    alignPos.Attachment1 = att1
+    alignPos.RigidityEnabled = true
+    alignPos.MaxForce = math.huge
+    alignPos.MaxVelocity = math.huge
+    alignPos.Responsiveness = 200
+    alignPos.ReactionForceEnabled = false
+    alignPos.ApplyAtCenterOfMass = true
+    alignPos.Parent = myRoot
+
+    local alignOri = Instance.new("AlignOrientation")
+    alignOri.Name = "PrismHeadSitAlignOri"
+    alignOri.Mode = Enum.OrientationAlignmentMode.TwoAttachment
+    alignOri.Attachment0 = att0
+    alignOri.Attachment1 = att1
+    alignOri.RigidityEnabled = true
+    alignOri.MaxTorque = math.huge
+    alignOri.MaxAngularVelocity = math.huge
+    alignOri.Responsiveness = 200
+    alignOri.ReactionTorqueEnabled = false
+    alignOri.Parent = myRoot
+
+    myRoot.CFrame = tHead.CFrame * CFrame.new(0, 2, 0)
+    myHum.Sit = true
+
+    PM.HeadSit.alignPos = alignPos
+    PM.HeadSit.alignOri = alignOri
+    PM.HeadSit.att0 = att0
+    PM.HeadSit.att1 = att1
+    PM.HeadSit.active = true
+    PM.HeadSit.target = target
+    PM.HeadSit.method = "Align"
+end, true)
+
+-- Method 6: BodyPosition + BodyGyro
+registerCommand("headsit6", "Headsit method 6: BodyPosition + BodyGyro", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local target = findPlayer(targetName)
+    if not target then return end
+
+    local myChar = LP.Character
+    if not myChar then return end
+
+    local myRoot = myChar:FindFirstChild("HumanoidRootPart")
+    local myHum = myChar:FindFirstChildOfClass("Humanoid")
+    if not myRoot or not myHum then return end
+
+    local tChar = target.Character
+    if not tChar then return end
+
+    local tHead = tChar:FindFirstChild("Head")
+    if not tHead then return end
+
+    stopHeadsit()
+
+    local bodyPos = Instance.new("BodyPosition")
+    bodyPos.Name = "PrismHeadSitBodyPos"
+    bodyPos.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+    bodyPos.P = 9e4
+    bodyPos.D = 1e3
+    bodyPos.Parent = myRoot
+
+    local bodyGyro = Instance.new("BodyGyro")
+    bodyGyro.Name = "PrismHeadSitBodyGyro"
+    bodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+    bodyGyro.P = 9e4
+    bodyGyro.Parent = myRoot
+
+    myHum.Sit = true
+
+    PM.HeadSit.bodyPos = bodyPos
+    PM.HeadSit.bodyGyro = bodyGyro
+    PM.HeadSit.active = true
+    PM.HeadSit.target = target
+    PM.HeadSit.method = "BodyMovers"
+
+    local RunService = game:GetService("RunService")
+    PM.HeadSit.connection = RunService.RenderStepped:Connect(function()
+        if not PM.HeadSit.active then return end
+        if not tHead or not tHead.Parent then return end
+
+        pcall(function()
+            local targetPos = tHead.CFrame * CFrame.new(0, 2, 0)
+            bodyPos.Position = targetPos.Position
+            bodyGyro.CFrame = targetPos
+        end)
+    end)
+end, true)
+
+-- Method 7: BodyVelocity + BodyGyro
+registerCommand("headsit7", "Headsit method 7: BodyVelocity + BodyGyro", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local target = findPlayer(targetName)
+    if not target then return end
+
+    local myChar = LP.Character
+    if not myChar then return end
+
+    local myRoot = myChar:FindFirstChild("HumanoidRootPart")
+    local myHum = myChar:FindFirstChildOfClass("Humanoid")
+    if not myRoot or not myHum then return end
+
+    local tChar = target.Character
+    if not tChar then return end
+
+    local tHead = tChar:FindFirstChild("Head")
+    if not tHead then return end
+
+    stopHeadsit()
+
+    local bodyVel = Instance.new("BodyVelocity")
+    bodyVel.Name = "PrismHeadSitBodyVel"
+    bodyVel.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+    bodyVel.Velocity = Vector3.new(0, 0, 0)
+    bodyVel.Parent = myRoot
+
+    local bodyGyro = Instance.new("BodyGyro")
+    bodyGyro.Name = "PrismHeadSitBodyGyro"
+    bodyGyro.MaxTorque = Vector3.new(math.huge, math.huge, math.huge)
+    bodyGyro.P = 9e4
+    bodyGyro.Parent = myRoot
+
+    myHum.Sit = true
+
+    PM.HeadSit.bodyVel = bodyVel
+    PM.HeadSit.bodyGyro = bodyGyro
+    PM.HeadSit.active = true
+    PM.HeadSit.target = target
+    PM.HeadSit.method = "BodyVelocity"
+
+    local RunService = game:GetService("RunService")
+    PM.HeadSit.connection = RunService.RenderStepped:Connect(function()
+        if not PM.HeadSit.active then return end
+        if not myRoot or not myRoot.Parent then return end
+        if not tHead or not tHead.Parent then return end
+
+        pcall(function()
+            local targetPos = tHead.CFrame * CFrame.new(0, 2, 0)
+            local dir = (targetPos.Position - myRoot.Position).Unit
+            local dist = (targetPos.Position - myRoot.Position).Magnitude
+            bodyVel.Velocity = dir * dist * 10
+            bodyGyro.CFrame = targetPos
+        end)
+    end)
+end, true)
+
+-- Method 8: BallSocketConstraint
+registerCommand("headsit8", "Headsit method 8: BallSocketConstraint", {}, function(args)
+    local targetName = args[1] or ""
+    if targetName == "" then return end
+
+    local target = findPlayer(targetName)
+    if not target then return end
+
+    local myChar = LP.Character
+    if not myChar then return end
+
+    local myRoot = myChar:FindFirstChild("HumanoidRootPart")
+    local myHum = myChar:FindFirstChildOfClass("Humanoid")
+    if not myRoot or not myHum then return end
+
+    local tChar = target.Character
+    if not tChar then return end
+
+    local tHead = tChar:FindFirstChild("Head")
+    if not tHead then return end
+
+    stopHeadsit()
+
+    local att0 = Instance.new("Attachment")
+    att0.Name = "PrismHeadSitBallAtt0"
+    att0.Parent = myRoot
+
+    local att1 = Instance.new("Attachment")
+    att1.Name = "PrismHeadSitBallAtt1"
+    att1.Position = Vector3.new(0, 2, 0)
+    att1.Parent = tHead
+
+    local ballSocket = Instance.new("BallSocketConstraint")
+    ballSocket.Name = "PrismHeadSitBallSocket"
+    ballSocket.Attachment0 = att0
+    ballSocket.Attachment1 = att1
+    ballSocket.LimitsEnabled = true
+    ballSocket.TwistLimitsEnabled = false
+    ballSocket.Parent = myRoot
+
+    myRoot.CFrame = tHead.CFrame * CFrame.new(0, 2, 0)
+    myHum.Sit = true
+
+    PM.HeadSit.ballSocket = ballSocket
+    PM.HeadSit.att0 = att0
+    PM.HeadSit.att1 = att1
+    PM.HeadSit.active = true
+    PM.HeadSit.target = target
+    PM.HeadSit.method = "BallSocket"
 end, true)
 
 registerCommand("inspect", "Inspect a player", {}, function(args)
