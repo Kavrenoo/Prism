@@ -7772,7 +7772,7 @@ local function SaveRespawnState()
     pcall(function()
         if writefile then
             if makefolder and not isfolder("prism") then makefolder("prism") end
-            writefile(RESPAWN_STATE_FILE, game:GetService("HttpService"):JSONEncode({enabled = PM.Respawn.enabled, lastCFrame = PM.Respawn.lastCFrame}))
+            writefile(RESPAWN_STATE_FILE, game:GetService("HttpService"):JSONEncode({enabled = PM.Respawn.enabled}))
         end
     end)
 end
@@ -7792,12 +7792,11 @@ local function OnCharacterAdded(char)
     if hum then
         if respawnDiedConn then respawnDiedConn:Disconnect(); respawnDiedConn = nil end
         respawnDiedConn = hum.Died:Connect(function()
-            if root and root.Position.Y > (workspace.FallenPartsDestroyHeight + 10) then
-                PM.Respawn.lastCFrame = root.CFrame
-                SaveRespawnState()
+            local diedRoot = char:FindFirstChild("HumanoidRootPart")
+            if diedRoot and diedRoot.Position.Y > (workspace.FallenPartsDestroyHeight + 10) then
+                PM.Respawn.lastCFrame = diedRoot.CFrame
             else
                 PM.Respawn.lastCFrame = nil
-                SaveRespawnState()
             end
         end)
     end
