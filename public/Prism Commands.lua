@@ -1998,7 +1998,7 @@ registerCommand("walkonair", "Walk on invisible platform with height control", {
         ToggleLabel.Size = UDim2.new(1, -100, 1, 0)
         ToggleLabel.Position = UDim2.new(0, 12, 0, 0)
         ToggleLabel.BackgroundTransparency = 1
-        ToggleLabel.Text = "Enable"
+        ToggleLabel.Text = "Respawn Last Location"
         ToggleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
         ToggleLabel.TextSize = 12
         ToggleLabel.Font = Enum.Font.Gotham
@@ -3575,6 +3575,7 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
 
         -- Slider interaction
         local sliderDragging = false
+        local lastClickAnimSpeed = 0
         local function updateSlider(value)
             local speed = math.clamp(math.floor(value * 10) / 10, 0.1, 5.0)
             PM.Emotes.speed = speed
@@ -3586,22 +3587,29 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         end
 
         SliderBg.InputBegan:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 then
-                sliderDragging = true
-                local pos = math.clamp((input.Position.X - SliderBg.AbsolutePosition.X) / SliderBg.AbsoluteSize.X, 0, 1)
-                updateSlider(0.1 + pos * 4.9)
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+                local now = tick()
+                if now - lastClickAnimSpeed < 0.3 then
+                    updateSlider(1.0)
+                    sliderDragging = false
+                else
+                    local pos = math.clamp((input.Position.X - SliderBg.AbsolutePosition.X) / SliderBg.AbsoluteSize.X, 0, 1)
+                    updateSlider(0.1 + pos * 4.9)
+                    sliderDragging = true
+                end
+                lastClickAnimSpeed = now
             end
         end)
 
         UserInputService.InputChanged:Connect(function(input)
-            if sliderDragging and input.UserInputType == Enum.UserInputType.MouseMovement then
+            if sliderDragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
                 local pos = math.clamp((input.Position.X - SliderBg.AbsolutePosition.X) / SliderBg.AbsoluteSize.X, 0, 1)
                 updateSlider(0.1 + pos * 4.9)
             end
         end)
 
         UserInputService.InputEnded:Connect(function(input)
-            if input.UserInputType == Enum.UserInputType.MouseButton1 then
+            if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
                 sliderDragging = false
             end
         end)
@@ -3617,7 +3625,7 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
 
         -- Move While Emoting Toggle
         local MWESection = Instance.new("Frame")
-        MWESection.Size = UDim2.new(1, 0, 0, 36)
+        MWESection.Size = UDim2.new(1, 0, 0, 32)
         MWESection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         MWESection.BackgroundTransparency = 0.4
         MWESection.BorderSizePixel = 0
@@ -3628,7 +3636,8 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         MWECorner.Parent = MWESection
 
         local MWELabel = Instance.new("TextLabel")
-        MWELabel.Size = UDim2.new(1, -48, 1, 0)
+        MWELabel.Size = UDim2.new(1, -100, 1, 0)
+        MWELabel.Position = UDim2.new(0, 12, 0, 0)
         MWELabel.BackgroundTransparency = 1
         MWELabel.Text = "Move While Emoting"
         MWELabel.TextColor3 = Color3.fromRGB(220, 220, 220)
@@ -3637,38 +3646,36 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         MWELabel.TextXAlignment = Enum.TextXAlignment.Left
         MWELabel.Parent = MWESection
 
-        local MWEPadding = Instance.new("UIPadding")
-        MWEPadding.PaddingLeft = UDim.new(0, 12)
-        MWEPadding.PaddingRight = UDim.new(0, 12)
-        MWEPadding.Parent = MWESection
-
         local MWEPill = Instance.new("Frame")
-        MWEPill.Size = UDim2.new(0, 36, 0, 18)
-        MWEPill.Position = UDim2.new(1, -36, 0.5, -9)
-        MWEPill.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+        MWEPill.Name = "Pill"
+        MWEPill.Size = UDim2.new(0, 40, 0, 22)
+        MWEPill.Position = UDim2.new(1, -52, 0.5, -11)
+        MWEPill.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
         MWEPill.BorderSizePixel = 0
         MWEPill.Parent = MWESection
 
         local MWEPillCorner = Instance.new("UICorner")
-        MWEPillCorner.CornerRadius = UDim.new(0, 9)
+        MWEPillCorner.CornerRadius = UDim.new(0, 11)
         MWEPillCorner.Parent = MWEPill
 
         local MWEKnob = Instance.new("Frame")
-        MWEKnob.Size = UDim2.new(0, 14, 0, 14)
-        MWEKnob.Position = UDim2.new(0, 2, 0.5, -7)
-        MWEKnob.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+        MWEKnob.Name = "Knob"
+        MWEKnob.Size = UDim2.new(0, 16, 0, 16)
+        MWEKnob.Position = UDim2.new(0, 3, 0.5, -8)
+        MWEKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         MWEKnob.BorderSizePixel = 0
         MWEKnob.Parent = MWEPill
 
         local MWEKnobCorner = Instance.new("UICorner")
-        MWEKnobCorner.CornerRadius = UDim.new(0, 7)
+        MWEKnobCorner.CornerRadius = UDim.new(0, 8)
         MWEKnobCorner.Parent = MWEKnob
 
-        local MWEBtn = Instance.new("TextButton")
-        MWEBtn.Size = UDim2.new(1, 0, 1, 0)
-        MWEBtn.BackgroundTransparency = 1
-        MWEBtn.Text = ""
-        MWEBtn.Parent = MWEPill
+        local MWEHit = Instance.new("TextButton")
+        MWEHit.Size = UDim2.new(0, 52, 1, 0)
+        MWEHit.Position = UDim2.new(1, -56, 0, 0)
+        MWEHit.BackgroundTransparency = 1
+        MWEHit.Text = ""
+        MWEHit.Parent = MWESection
 
         -- Move While Emoting State
         local moveWhileEmotingEnabled = savedMWE or false
@@ -3770,28 +3777,26 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
             end)
         end
 
-        MWEBtn.MouseButton1Click:Connect(function()
-            moveWhileEmotingEnabled = not moveWhileEmotingEnabled
+        local function SetMWE(val)
+            moveWhileEmotingEnabled = val
             SetMoveWhileEmoting(moveWhileEmotingEnabled)
             currentEmotesSettings.moveWhileEmoting = moveWhileEmotingEnabled
             SaveEmotesGUISettings()
 
-            if moveWhileEmotingEnabled then
+            if val then
                 TweenService:Create(MWEPill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
-                TweenService:Create(MWEKnob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -7)}):Play()
+                TweenService:Create(MWEKnob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -8)}):Play()
             else
-                TweenService:Create(MWEPill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
-                TweenService:Create(MWEKnob, TweenInfo.new(0.15), {Position = UDim2.new(0, 2, 0.5, -7)}):Play()
+                TweenService:Create(MWEPill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(60, 60, 60)}):Play()
+                TweenService:Create(MWEKnob, TweenInfo.new(0.15), {Position = UDim2.new(0, 3, 0.5, -8)}):Play()
             end
-        end)
+        end
+
+        MWEHit.MouseButton1Click:Connect(function() SetMWE(not moveWhileEmotingEnabled) end)
 
         -- Initialize toggle state from saved settings
         if savedMWE then
-            MWEPill.BackgroundColor3 = Color3.fromRGB(80, 80, 80)
-            MWEKnob.Position = UDim2.new(1, -19, 0.5, -7)
-            SetMoveWhileEmoting(true)
-            currentEmotesSettings.moveWhileEmoting = true
-            SaveEmotesGUISettings()
+            SetMWE(true)
         end
 
         -- Favorites functions
@@ -6260,11 +6265,9 @@ registerCommand("noclip", "Noclip with keybind", {}, function(args)
         ncOn = val
         if val then
             NCBtn.Text = "Stop"
-            TweenService:Create(NCBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 100, 55)}):Play()
             StartNC()
         else
             NCBtn.Text = "Noclip"
-            TweenService:Create(NCBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
             StopNC()
         end
         PM.Noclip.active = ncOn
@@ -7660,13 +7663,10 @@ registerCommand("camera", "Camera controls", {}, function(args)
         local IZRC = Instance.new("UICorner")
         IZRC.CornerRadius = UDim.new(0, 10)
         IZRC.Parent = IZRow
-        local IZRP = Instance.new("UIPadding")
-        IZRP.PaddingLeft = UDim.new(0, 12)
-        IZRP.PaddingRight = UDim.new(0, 12)
-        IZRP.Parent = IZRow
 
         local IZLbl = Instance.new("TextLabel")
-        IZLbl.Size = UDim2.new(1, -48, 1, 0)
+        IZLbl.Size = UDim2.new(1, -100, 1, 0)
+        IZLbl.Position = UDim2.new(0, 12, 0, 0)
         IZLbl.BackgroundTransparency = 1
         IZLbl.Text = "Max Zoom"
         IZLbl.TextColor3 = Color3.fromRGB(220, 220, 220)
@@ -7676,34 +7676,37 @@ registerCommand("camera", "Camera controls", {}, function(args)
         IZLbl.Parent = IZRow
 
         local IZPill = Instance.new("Frame")
-        IZPill.Size = UDim2.new(0, 36, 0, 18)
-        IZPill.Position = UDim2.new(1, -36, 0.5, -9)
+        IZPill.Name = "Pill"
+        IZPill.Size = UDim2.new(0, 40, 0, 22)
+        IZPill.Position = UDim2.new(1, -52, 0.5, -11)
         IZPill.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
         IZPill.BorderSizePixel = 0
         IZPill.Parent = IZRow
         local IZPillC = Instance.new("UICorner")
-        IZPillC.CornerRadius = UDim.new(0, 9)
+        IZPillC.CornerRadius = UDim.new(0, 11)
         IZPillC.Parent = IZPill
         local IZKnob = Instance.new("Frame")
-        IZKnob.Size = UDim2.new(0, 14, 0, 14)
-        IZKnob.Position = UDim2.new(0, 3, 0.5, -7)
-        IZKnob.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+        IZKnob.Name = "Knob"
+        IZKnob.Size = UDim2.new(0, 16, 0, 16)
+        IZKnob.Position = UDim2.new(0, 3, 0.5, -8)
+        IZKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         IZKnob.BorderSizePixel = 0
         IZKnob.Parent = IZPill
         local IZKnobC = Instance.new("UICorner")
-        IZKnobC.CornerRadius = UDim.new(0, 7)
+        IZKnobC.CornerRadius = UDim.new(0, 8)
         IZKnobC.Parent = IZKnob
-        local IZBtn = Instance.new("TextButton")
-        IZBtn.Size = UDim2.new(1, 0, 1, 0)
-        IZBtn.BackgroundTransparency = 1
-        IZBtn.Text = ""
-        IZBtn.Parent = IZPill
+        local IZHit = Instance.new("TextButton")
+        IZHit.Size = UDim2.new(0, 52, 1, 0)
+        IZHit.Position = UDim2.new(1, -56, 0, 0)
+        IZHit.BackgroundTransparency = 1
+        IZHit.Text = ""
+        IZHit.Parent = IZRow
 
         local function setInfZoom(on)
             izOn = on
             PM.Camera.maxZoom = on
             TweenService:Create(IZPill, tweenInfo, {BackgroundColor3 = on and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(60, 60, 60)}):Play()
-            TweenService:Create(IZKnob, tweenInfo, {Position = on and UDim2.new(1, -19, 0.5, -7) or UDim2.new(0, 3, 0.5, -7)}):Play()
+            TweenService:Create(IZKnob, tweenInfo, {Position = on and UDim2.new(1, -19, 0.5, -8) or UDim2.new(0, 3, 0.5, -8)}):Play()
             if on then
                 if not defaultMaxZoom then defaultMaxZoom = gameDefaultMaxZoom end
                 LocalPlayer.CameraMaxZoomDistance = 400
@@ -7719,7 +7722,7 @@ registerCommand("camera", "Camera controls", {}, function(args)
             end
             SaveCameraState()
         end
-        IZBtn.MouseButton1Click:Connect(function() setInfZoom(not izOn) end)
+        IZHit.MouseButton1Click:Connect(function() setInfZoom(not izOn) end)
 
         if izOn then setInfZoom(true) end
 
@@ -8032,7 +8035,7 @@ registerCommand("respawnlastlocation", "Respawn to last location with toggle", {
         ToggleLabel.Size = UDim2.new(1, -100, 1, 0)
         ToggleLabel.Position = UDim2.new(0, 12, 0, 0)
         ToggleLabel.BackgroundTransparency = 1
-        ToggleLabel.Text = "Enable"
+        ToggleLabel.Text = "Respawn Last Location"
         ToggleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
         ToggleLabel.TextSize = 12
         ToggleLabel.Font = Enum.Font.Gotham
@@ -8072,7 +8075,6 @@ registerCommand("respawnlastlocation", "Respawn to last location with toggle", {
 
         local function SetRespawn(val, save)
             PM.Respawn.enabled = val
-            ToggleLabel.Text = val and "Disable" or "Enable"
             if val then
                 TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
                 TweenService:Create(Knob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -8)}):Play()
@@ -8606,7 +8608,7 @@ registerCommand("fly", "Fly around", {}, function(args)
 
         -- QE Toggle section
         local QESection = Instance.new("Frame")
-        QESection.Size = UDim2.new(1, 0, 0, 36)
+        QESection.Size = UDim2.new(1, 0, 0, 32)
         QESection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
         QESection.BackgroundTransparency = 0.4
         QESection.BorderSizePixel = 0
@@ -8618,7 +8620,8 @@ registerCommand("fly", "Fly around", {}, function(args)
         QECorner.Parent = QESection
 
         local QELabel = Instance.new("TextLabel")
-        QELabel.Size = UDim2.new(1, -48, 1, 0)
+        QELabel.Size = UDim2.new(1, -100, 1, 0)
+        QELabel.Position = UDim2.new(0, 12, 0, 0)
         QELabel.BackgroundTransparency = 1
         QELabel.Text = "E Up / Q Down"
         QELabel.TextColor3 = Color3.fromRGB(220, 220, 220)
@@ -8627,54 +8630,56 @@ registerCommand("fly", "Fly around", {}, function(args)
         QELabel.TextXAlignment = Enum.TextXAlignment.Left
         QELabel.Parent = QESection
 
-        local QEPadding = Instance.new("UIPadding")
-        QEPadding.PaddingLeft = UDim.new(0, 12)
-        QEPadding.PaddingRight = UDim.new(0, 12)
-        QEPadding.Parent = QESection
-
         local QEPill = Instance.new("Frame")
-        QEPill.Size = UDim2.new(0, 36, 0, 18)
-        QEPill.Position = UDim2.new(1, -36, 0.5, -9)
-        QEPill.BackgroundColor3 = flyQE and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(50, 50, 50)
+        QEPill.Name = "Pill"
+        QEPill.Size = UDim2.new(0, 40, 0, 22)
+        QEPill.Position = UDim2.new(1, -52, 0.5, -11)
+        QEPill.BackgroundColor3 = flyQE and Color3.fromRGB(80, 80, 80) or Color3.fromRGB(60, 60, 60)
         QEPill.BorderSizePixel = 0
         QEPill.Parent = QESection
 
         local QEPillCorner = Instance.new("UICorner")
-        QEPillCorner.CornerRadius = UDim.new(0, 9)
+        QEPillCorner.CornerRadius = UDim.new(0, 11)
         QEPillCorner.Parent = QEPill
 
         local QEKnob = Instance.new("Frame")
-        QEKnob.Size = UDim2.new(0, 14, 0, 14)
-        QEKnob.Position = flyQE and UDim2.new(1, -19, 0.5, -7) or UDim2.new(0, 2, 0.5, -7)
-        QEKnob.BackgroundColor3 = Color3.fromRGB(200, 200, 200)
+        QEKnob.Name = "Knob"
+        QEKnob.Size = UDim2.new(0, 16, 0, 16)
+        QEKnob.Position = flyQE and UDim2.new(1, -19, 0.5, -8) or UDim2.new(0, 3, 0.5, -8)
+        QEKnob.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
         QEKnob.BorderSizePixel = 0
         QEKnob.Parent = QEPill
 
         local QEKnobCorner = Instance.new("UICorner")
-        QEKnobCorner.CornerRadius = UDim.new(0, 7)
+        QEKnobCorner.CornerRadius = UDim.new(0, 8)
         QEKnobCorner.Parent = QEKnob
 
-        local QEBtn = Instance.new("TextButton")
-        QEBtn.Size = UDim2.new(1, 0, 1, 0)
-        QEBtn.BackgroundTransparency = 1
-        QEBtn.Text = ""
-        QEBtn.Parent = QEPill
+        local QEHit = Instance.new("TextButton")
+        QEHit.Size = UDim2.new(0, 52, 1, 0)
+        QEHit.Position = UDim2.new(1, -56, 0, 0)
+        QEHit.BackgroundTransparency = 1
+        QEHit.Text = ""
+        QEHit.Parent = QESection
 
-        QEBtn.MouseButton1Click:Connect(function()
-            flyQE = not flyQE
+        local function SetQE(val)
+            flyQE = val
             PM.Fly = PM.Fly or {}
             PM.Fly.qeEnabled = flyQE
             SaveFlyState()
             SaveFlyGUISettings()
-            
-            if flyQE then
+
+            if val then
                 TweenService:Create(QEPill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
-                TweenService:Create(QEKnob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -7)}):Play()
+                TweenService:Create(QEKnob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -8)}):Play()
             else
-                TweenService:Create(QEPill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(50, 50, 50)}):Play()
-                TweenService:Create(QEKnob, TweenInfo.new(0.15), {Position = UDim2.new(0, 2, 0.5, -7)}):Play()
+                TweenService:Create(QEPill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(60, 60, 60)}):Play()
+                TweenService:Create(QEKnob, TweenInfo.new(0.15), {Position = UDim2.new(0, 3, 0.5, -8)}):Play()
             end
-        end)
+        end
+
+        QEHit.MouseButton1Click:Connect(function() SetQE(not flyQE) end)
+
+        if flyQE then SetQE(true) end
 
         -- Fly logic
         local function StopFly()
