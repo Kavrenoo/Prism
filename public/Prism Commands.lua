@@ -660,16 +660,37 @@ local function setupButtonClick()
         warn("[VC Bypasser] VoiceChatInternal found:", vci ~= nil)
         warn("[VC Bypasser] AudioDeviceInput found:", adi ~= nil)
 
+        -- Temporarily re-enable StateChanged connections to allow PublishPause to work
+        local connections = {}
+        pcall(function()
+            for _, conn in pairs(getconnections(vci.StateChanged)) do
+                table.insert(connections, conn)
+                conn:Enable()
+            end
+        end)
+        warn("[VC Bypasser] Re-enabled", #connections, "StateChanged connections")
+
         -- Use VoiceChatInternal:PublishPause to control actual mute state
         if vci then
             pcall(function()
                 vci:PublishPause(PM.VCBypasser.selfMuted)
             end)
+            warn("[VC Bypasser] Called PublishPause with:", PM.VCBypasser.selfMuted)
+
+            -- Wait for state to propagate
+            task.wait(0.1)
+
             pcall(function()
                 local isPublishPaused = vci:IsPublishPaused()
                 warn("[VC Bypasser] IsPublishPaused after PublishPause:", isPublishPaused)
             end)
         end
+
+        -- Re-disable StateChanged connections
+        for _, conn in ipairs(connections) do
+            pcall(function() conn:Disable() end)
+        end
+        warn("[VC Bypasser] Re-disabled StateChanged connections")
 
         -- Also set AudioDeviceInput properties as backup
         if adi then
