@@ -654,35 +654,49 @@ local function setupButtonClick()
         warn("========== VC BYPASSER CLICK ==========")
         warn("[VC Bypasser] Target mute state:", PM.VCBypasser.selfMuted)
 
-        local vci = game:GetService("VoiceChatInternal")
         local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
+        local char = LP.Character
 
-        warn("[VC Bypasser] VoiceChatInternal found:", vci ~= nil)
-        warn("[VC Bypasser] AudioDeviceInput found:", adi ~= nil)
-
-        -- Use VoiceChatInternal:PublishPause to control actual mute state
-        if vci then
-            pcall(function()
-                vci:PublishPause(PM.VCBypasser.selfMuted)
-            end)
-            warn("[VC Bypasser] Called PublishPause with:", PM.VCBypasser.selfMuted)
-
-            task.wait(0.1)
-
-            pcall(function()
-                local isPublishPaused = vci:IsPublishPaused()
-                warn("[VC Bypasser] IsPublishPaused after PublishPause:", isPublishPaused)
-            end)
-        end
-
-        -- Also set AudioDeviceInput properties as backup
-        if adi then
-            warn("[VC Bypasser] AudioDeviceInput BEFORE - Muted:", adi.Muted, "Active:", adi.Active)
-            pcall(function()
-                adi.Muted = PM.VCBypasser.selfMuted
-                adi.Active = not PM.VCBypasser.selfMuted
-            end)
-            warn("[VC Bypasser] AudioDeviceInput AFTER - Muted:", adi.Muted, "Active:", adi.Active)
+        -- Find and manipulate the wire to AudioSpeechToText
+        if PM.VCBypasser.selfMuted then
+            -- Mute by destroying the wire
+            if adi then
+                for _, wire in ipairs(adi:GetChildren()) do
+                    if wire:IsA("Wire") then
+                        warn("[VC Bypasser] Destroying wire:", wire.Name)
+                        pcall(function() wire:Destroy() end)
+                    end
+                end
+            end
+            -- Also set Muted and Active
+            if adi then
+                pcall(function()
+                    adi.Muted = true
+                    adi.Active = false
+                end)
+            end
+        else
+            -- Unmute by recreating the wire
+            if adi and char then
+                local speechToText = char:FindFirstChild("AudioSpeechToText")
+                if speechToText then
+                    warn("[VC Bypasser] Recreating wire to AudioSpeechToText")
+                    pcall(function()
+                        local wire = Instance.new("Wire")
+                        wire.Name = "VoiceWire"
+                        wire.SourceInstance = adi
+                        wire.TargetInstance = speechToText
+                        wire.Parent = adi
+                    end)
+                end
+            end
+            -- Set Muted and Active
+            if adi then
+                pcall(function()
+                    adi.Muted = false
+                    adi.Active = true
+                end)
+            end
         end
 
         if PM.VCBypasser.selfMuted then
@@ -715,13 +729,11 @@ registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(arg
 
     task.wait(0.02)
 
-    -- Don't disable StateChanged - needed for mute to work
-    -- Commented out:
-    -- pcall(function()
-    --     for _, connection in pairs(getconnections(VoiceChatInternal.StateChanged)) do
-    --         connection:Disable()
-    --     end
-    -- end)
+    pcall(function()
+        for _, connection in pairs(getconnections(VoiceChatInternal.StateChanged)) do
+            connection:Disable()
+        end
+    end)
 
     PM.VCBypasser.active = true
 
