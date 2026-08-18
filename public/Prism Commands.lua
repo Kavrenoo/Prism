@@ -915,7 +915,7 @@ registerCommand("add", "Send friend request to player", {}, function(args)
     end)
 end, true)
 
-registerCommand("unadd", "Unfriend a player", {}, function(args)
+registerCommand("unadd", "Cancel friend request or unfriend", {}, function(args)
     local targetName = args[1] or ""
     if targetName == "" then return end
 
@@ -1001,7 +1001,7 @@ registerCommand("block", "Block a player", {}, function(args)
     if not target then return end
 
     pcall(function()
-        LP:BlockUserAsync(target.UserId)
+        LP:UpdatePlayerBlocked(target.UserId, true)
     end)
 end, true)
 
@@ -1046,7 +1046,7 @@ registerCommand("unblock", "Unblock a player", {}, function(args)
     if not target then return end
 
     pcall(function()
-        LP:UnblockUserAsync(target.UserId)
+        LP:UpdatePlayerBlocked(target.UserId, false)
     end)
 end, true)
 
