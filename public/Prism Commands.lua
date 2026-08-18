@@ -660,16 +660,6 @@ local function setupButtonClick()
         warn("[VC Bypasser] VoiceChatInternal found:", vci ~= nil)
         warn("[VC Bypasser] AudioDeviceInput found:", adi ~= nil)
 
-        -- Temporarily re-enable StateChanged connections to allow PublishPause to work
-        local connections = {}
-        pcall(function()
-            for _, conn in pairs(getconnections(vci.StateChanged)) do
-                table.insert(connections, conn)
-                conn:Enable()
-            end
-        end)
-        warn("[VC Bypasser] Re-enabled", #connections, "StateChanged connections")
-
         -- Use VoiceChatInternal:PublishPause to control actual mute state
         if vci then
             pcall(function()
@@ -677,34 +667,13 @@ local function setupButtonClick()
             end)
             warn("[VC Bypasser] Called PublishPause with:", PM.VCBypasser.selfMuted)
 
-            -- Wait longer for state to propagate
-            task.wait(0.5)
+            task.wait(0.1)
 
             pcall(function()
                 local isPublishPaused = vci:IsPublishPaused()
-                warn("[VC Bypasser] IsPublishPaused after 0.5s wait:", isPublishPaused)
+                warn("[VC Bypasser] IsPublishPaused after PublishPause:", isPublishPaused)
             end)
         end
-
-        -- Check if state changed during wait
-        task.wait(0.5)
-        pcall(function()
-            local isPublishPaused = vci:IsPublishPaused()
-            warn("[VC Bypasser] IsPublishPaused after 1.0s total:", isPublishPaused)
-        end)
-
-        -- Re-disable StateChanged connections
-        for _, conn in ipairs(connections) do
-            pcall(function() conn:Disable() end)
-        end
-        warn("[VC Bypasser] Re-disabled StateChanged connections")
-
-        -- Final check
-        task.wait(0.2)
-        pcall(function()
-            local isPublishPaused = vci:IsPublishPaused()
-            warn("[VC Bypasser] IsPublishPaused FINAL (after disable):", isPublishPaused)
-        end)
 
         -- Also set AudioDeviceInput properties as backup
         if adi then
@@ -746,11 +715,13 @@ registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(arg
 
     task.wait(0.02)
 
-    pcall(function()
-        for _, connection in pairs(getconnections(VoiceChatInternal.StateChanged)) do
-            connection:Disable()
-        end
-    end)
+    -- Don't disable StateChanged - needed for mute to work
+    -- Commented out:
+    -- pcall(function()
+    --     for _, connection in pairs(getconnections(VoiceChatInternal.StateChanged)) do
+    --         connection:Disable()
+    --     end
+    -- end)
 
     PM.VCBypasser.active = true
 
