@@ -1640,6 +1640,7 @@ local function WOA_GetFootY(h, root)
 end
 
 local function WOA_Destroy()
+    if not PM.WOA then return end
     if PM.WOA.renderConn then PM.WOA.renderConn:Disconnect(); PM.WOA.renderConn = nil end
     if PM.WOA.platform then PM.WOA.platform:Destroy(); PM.WOA.platform = nil end
     PM.WOA.enabled = false; PM.WOA.up = false; PM.WOA.down = false
