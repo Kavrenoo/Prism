@@ -1824,7 +1824,7 @@ registerCommand("walkonair", "Walk on invisible platform with height control", {
 
         local TitleBar = Instance.new("Frame")
         TitleBar.Name = "TitleBar"
-        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.Size = UDim2.new(1, 0, 0, 36)
         TitleBar.BackgroundTransparency = 1
         TitleBar.Parent = MainFrame
 
@@ -1913,15 +1913,15 @@ registerCommand("walkonair", "Walk on invisible platform with height control", {
 
         local ContentFrame = Instance.new("Frame")
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
-        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
 
         local isMinimized = savedMinimized
         local originalSize = UDim2.new(0, 239, 0, 130)
-        local minimizedSize = UDim2.new(0, 239, 0, 40)
+        local minimizedSize = UDim2.new(0, 239, 0, 36)
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
         -- Apply saved minimized state
@@ -2307,7 +2307,7 @@ registerCommand("jump", "Jump power control with infinite jump", {}, function(ar
 
     local isMinimized = savedMinimized
     local originalSize = UDim2.new(0, MW, 0, MH)
-    local minimizedSize = UDim2.new(0, MW, 0, 40)
+    local minimizedSize = UDim2.new(0, MW, 0, 36)
     local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
     MinBtn.MouseButton1Click:Connect(function()
@@ -2736,7 +2736,7 @@ registerCommand("antiall", "Anti Everything", {}, function(args)
 
         local TitleBar = Instance.new("Frame")
         TitleBar.Name = "TitleBar"
-        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.Size = UDim2.new(1, 0, 0, 36)
         TitleBar.BackgroundTransparency = 1
         TitleBar.Parent = MainFrame
 
@@ -2823,15 +2823,15 @@ registerCommand("antiall", "Anti Everything", {}, function(args)
 
         local ContentFrame = Instance.new("Frame")
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
-        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
 
         local isMinimized = savedMinimized
         local originalSize = UDim2.new(0, 260, 0, 260)
-        local minimizedSize = UDim2.new(0, 260, 0, 40)
+        local minimizedSize = UDim2.new(0, 260, 0, 36)
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
         -- Apply saved minimized state
@@ -3213,7 +3213,7 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
 
         local TitleBar = Instance.new("Frame")
         TitleBar.Name = "TitleBar"
-        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.Size = UDim2.new(1, 0, 0, 36)
         TitleBar.BackgroundTransparency = 1
         TitleBar.Parent = MainFrame
 
@@ -3300,15 +3300,15 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
 
         local ContentFrame = Instance.new("Frame")
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
-        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
 
         local isMinimized = savedMinimized
         local originalSize = UDim2.new(0, 260, 0, 360)
-        local minimizedSize = UDim2.new(0, 260, 0, 40)
+        local minimizedSize = UDim2.new(0, 260, 0, 36)
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
         -- Apply saved minimized state
@@ -5088,7 +5088,7 @@ registerCommand("gravity", "Control gravity", {}, function(args)
 
         local TitleBar = Instance.new("Frame")
         TitleBar.Name = "TitleBar"
-        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.Size = UDim2.new(1, 0, 0, 36)
         TitleBar.BackgroundTransparency = 1
         TitleBar.Parent = MainFrame
 
@@ -5165,8 +5165,8 @@ registerCommand("gravity", "Control gravity", {}, function(args)
 
         local ContentFrame = Instance.new("Frame")
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
-        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
@@ -5174,7 +5174,7 @@ registerCommand("gravity", "Control gravity", {}, function(args)
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
         local isMinimized = savedMinimized
         local originalSize = UDim2.new(0, MW, 0, MH)
-        local minimizedSize = UDim2.new(0, MW, 0, 40)
+        local minimizedSize = UDim2.new(0, MW, 0, 36)
 
         if isMinimized then
             MinBtn.Text = "+"
@@ -5594,13 +5594,14 @@ registerCommand("autoclicker", "Auto clicker with keybind", {}, function(args)
     Padding.Parent = ContentFrame
 
     local isMinimized = savedMinimized
+    local minimizedSize = UDim2.new(0, MW, 0, 36)
     MinBtn.MouseButton1Click:Connect(function()
         isMinimized = not isMinimized
         currentACSettings.minimized = isMinimized
         SaveACGUISettings()
         if isMinimized then
             MinBtn.Text = "+"
-            TweenService:Create(MainFrame, tweenInfo, {Size = UDim2.new(0, MW, 0, 36)}):Play()
+            TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize}):Play()
             ContentFrame.Visible = false
         else
             MinBtn.Text = "—"
@@ -5611,7 +5612,7 @@ registerCommand("autoclicker", "Auto clicker with keybind", {}, function(args)
 
     if isMinimized then
         MinBtn.Text = "+"
-        MainFrame.Size = UDim2.new(0, MW, 0, 36)
+        MainFrame.Size = minimizedSize
         ContentFrame.Visible = false
     end
 
@@ -6041,13 +6042,14 @@ registerCommand("noclip", "Noclip with keybind", {}, function(args)
     Padding.Parent = ContentFrame
 
     local isMinimized = savedMinimized
+    local minimizedSize = UDim2.new(0, MW, 0, 36)
     MinBtn.MouseButton1Click:Connect(function()
         isMinimized = not isMinimized
         currentNCSettings.minimized = isMinimized
         SaveNCGUISettings()
         if isMinimized then
             MinBtn.Text = "+"
-            TweenService:Create(MainFrame, tweenInfo, {Size = UDim2.new(0, MW, 0, 36)}):Play()
+            TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize}):Play()
             ContentFrame.Visible = false
         else
             MinBtn.Text = "—"
@@ -6058,7 +6060,7 @@ registerCommand("noclip", "Noclip with keybind", {}, function(args)
 
     if isMinimized then
         MinBtn.Text = "+"
-        MainFrame.Size = UDim2.new(0, MW, 0, 36)
+        MainFrame.Size = minimizedSize
         ContentFrame.Visible = false
     end
 
@@ -6382,7 +6384,7 @@ registerCommand("speed", "WalkSpeed and CFrame speed control", {}, function(args
 
         local TitleBar = Instance.new("Frame")
         TitleBar.Name = "TitleBar"
-        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.Size = UDim2.new(1, 0, 0, 36)
         TitleBar.BackgroundTransparency = 1
         TitleBar.Parent = MainFrame
 
@@ -6463,8 +6465,8 @@ registerCommand("speed", "WalkSpeed and CFrame speed control", {}, function(args
 
         local ContentFrame = Instance.new("Frame")
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
-        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
@@ -6472,7 +6474,7 @@ registerCommand("speed", "WalkSpeed and CFrame speed control", {}, function(args
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
         local isMinimized = savedMinimized
         local originalSize = UDim2.new(0, MW, 0, MH)
-        local minimizedSize = UDim2.new(0, MW, 0, 40)
+        local minimizedSize = UDim2.new(0, MW, 0, 36)
 
         if isMinimized then
             MinBtn.Text = "+"
@@ -6876,7 +6878,7 @@ registerCommand("spin", "Spin your character", {}, function(args)
 
         local TitleBar = Instance.new("Frame")
         TitleBar.Name = "TitleBar"
-        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.Size = UDim2.new(1, 0, 0, 36)
         TitleBar.BackgroundTransparency = 1
         TitleBar.Parent = MainFrame
 
@@ -6957,8 +6959,8 @@ registerCommand("spin", "Spin your character", {}, function(args)
 
         local ContentFrame = Instance.new("Frame")
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
-        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
@@ -6966,7 +6968,7 @@ registerCommand("spin", "Spin your character", {}, function(args)
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
         local isMinimized = savedMinimized
         local originalSize = UDim2.new(0, MW, 0, MH)
-        local minimizedSize = UDim2.new(0, MW, 0, 40)
+        local minimizedSize = UDim2.new(0, MW, 0, 36)
 
         if isMinimized then
             MinBtn.Text = "+"
@@ -7347,7 +7349,7 @@ registerCommand("camera", "Camera controls", {}, function(args)
 
         local TitleBar = Instance.new("Frame")
         TitleBar.Name = "TitleBar"
-        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.Size = UDim2.new(1, 0, 0, 36)
         TitleBar.BackgroundTransparency = 1
         TitleBar.Parent = MainFrame
 
@@ -7425,8 +7427,8 @@ registerCommand("camera", "Camera controls", {}, function(args)
 
         local ContentFrame = Instance.new("Frame")
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
-        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
@@ -7434,7 +7436,7 @@ registerCommand("camera", "Camera controls", {}, function(args)
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
         local isMinimized = savedMinimized
         local originalSize = UDim2.new(0, MW, 0, MH)
-        local minimizedSize = UDim2.new(0, MW, 0, 40)
+        local minimizedSize = UDim2.new(0, MW, 0, 36)
 
         if isMinimized then
             MinBtn.Text = "+"
@@ -7859,7 +7861,7 @@ registerCommand("respawnlastlocation", "Respawn to last location with toggle", {
 
         local TitleBar = Instance.new("Frame")
         TitleBar.Name = "TitleBar"
-        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.Size = UDim2.new(1, 0, 0, 36)
         TitleBar.BackgroundTransparency = 1
         TitleBar.Parent = MainFrame
 
@@ -7946,15 +7948,15 @@ registerCommand("respawnlastlocation", "Respawn to last location with toggle", {
 
         local ContentFrame = Instance.new("Frame")
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
-        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
 
         local isMinimized = savedMinimized
         local originalSize = UDim2.new(0, 239, 0, 90)
-        local minimizedSize = UDim2.new(0, 239, 0, 40)
+        local minimizedSize = UDim2.new(0, 239, 0, 36)
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
 
         if isMinimized then
@@ -8105,7 +8107,7 @@ registerCommand("fly", "Fly around", {}, function(args)
                 savedFlyGUI = HttpService:JSONDecode(readfile(FLY_GUI_FILE))
             end
         end)
-        local savedPos = savedFlyGUI.position or {X = {Scale = 0, Offset = 900}, Y = {Scale = 0, Offset = 532}}
+        local savedPos = savedFlyGUI.position or {X = {Scale = 0, Offset = 900}, Y = {Scale = 0, Offset = 516}}
         local savedMinimized = savedFlyGUI.minimized or false
 
         local currentFlySettings = {
@@ -8115,9 +8117,11 @@ registerCommand("fly", "Fly around", {}, function(args)
         
         -- Adjust saved height if it's the old size
         if savedPos and savedPos.Y and savedPos.Y.Offset == 460 then
-            savedPos.Y.Offset = 532  -- 460 + 72 for increased height
+            savedPos.Y.Offset = 516  -- 460 + 56 for increased height
         elseif savedPos and savedPos.Y and savedPos.Y.Offset == 496 then
-            savedPos.Y.Offset = 532  -- 496 + 36 for further increase
+            savedPos.Y.Offset = 516  -- 496 + 20 for further increase
+        elseif savedPos and savedPos.Y and savedPos.Y.Offset == 532 then
+            savedPos.Y.Offset = 516  -- 532 - 16 for new smaller height
         end
 
         local function SaveFlyGUISettings()
@@ -8138,11 +8142,9 @@ registerCommand("fly", "Fly around", {}, function(args)
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
         if not ok then ScreenGui.Parent = LocalPlayer.PlayerGui end
 
-        local MW, MH = 220, 220
-
         local MainFrame = Instance.new("Frame")
         MainFrame.Name = "MainFrame"
-        MainFrame.Size = UDim2.new(0, MW, 0, MH)
+        MainFrame.Size = UDim2.new(0, 220, 0, 204)
         MainFrame.Position = UDim2.new(savedPos.X.Scale, savedPos.X.Offset, savedPos.Y.Scale, savedPos.Y.Offset)
         MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
         MainFrame.BackgroundTransparency = 0.3
@@ -8161,7 +8163,7 @@ registerCommand("fly", "Fly around", {}, function(args)
 
         local TitleBar = Instance.new("Frame")
         TitleBar.Name = "TitleBar"
-        TitleBar.Size = UDim2.new(1, 0, 0, 40)
+        TitleBar.Size = UDim2.new(1, 0, 0, 36)
         TitleBar.BackgroundTransparency = 1
         TitleBar.Parent = MainFrame
 
@@ -8242,16 +8244,16 @@ registerCommand("fly", "Fly around", {}, function(args)
 
         local ContentFrame = Instance.new("Frame")
         ContentFrame.Name = "Content"
-        ContentFrame.Size = UDim2.new(1, 0, 1, -44)
-        ContentFrame.Position = UDim2.new(0, 0, 0, 44)
+        ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+        ContentFrame.Position = UDim2.new(0, 0, 0, 40)
         ContentFrame.BackgroundTransparency = 1
         ContentFrame.ClipsDescendants = true
         ContentFrame.Parent = MainFrame
 
         local tweenInfo = TweenInfo.new(0.2, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
         local isMinimized = savedMinimized
-        local originalSize = UDim2.new(0, MW, 0, MH)
-        local minimizedSize = UDim2.new(0, MW, 0, 40)
+        local originalSize = UDim2.new(0, 220, 0, 204)
+        local minimizedSize = UDim2.new(0, 220, 0, 36)
 
         if isMinimized then
             MinBtn.Text = "+"
