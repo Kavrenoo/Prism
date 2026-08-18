@@ -101,31 +101,34 @@ end
 -- ========== BUILT-IN COMMANDS ==========
 
 local function cleanupPrism()
-    -- Clean up existing UI
-    if PM.UI.Gui then
+    print("[Prism] Starting cleanup...")
+    
+    -- Clean up Main GUI (from Prism Main.lua)
+    if PM.UI and PM.UI.Gui then
         pcall(function() PM.UI.Gui:Destroy() end)
+        PM.UI.Gui = nil
     end
-    -- Disconnect auto-hide connection if active
-    if PM.HideAllPlayerAddedConn then
-        pcall(function() PM.HideAllPlayerAddedConn:Disconnect() end)
-        PM.HideAllPlayerAddedConn = nil
+    
+    -- Disconnect all PM-level connections
+    local topLevelConns = {
+        "HideAllPlayerAddedConn",
+        "MuteAllPlayerAddedConn",
+        "JerkRespawnConn"
+    }
+    for _, connName in ipairs(topLevelConns) do
+        if PM[connName] then
+            pcall(function() PM[connName]:Disconnect() end)
+            PM[connName] = nil
+        end
     end
-    -- Disconnect auto-mute connection if active
-    if PM.MuteAllPlayerAddedConn then
-        pcall(function() PM.MuteAllPlayerAddedConn:Disconnect() end)
-        PM.MuteAllPlayerAddedConn = nil
-    end
-    -- Disconnect jerk respawn connection if active
-    if PM.JerkRespawnConn then
-        pcall(function() PM.JerkRespawnConn:Disconnect() end)
-        PM.JerkRespawnConn = nil
-    end
+    
     -- Unhide all hidden players
     for uid, data in pairs(PM.HiddenPlayers or {}) do
         if data.connection then pcall(function() data.connection:Disconnect() end) end
         if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
     end
     PM.HiddenPlayers = {}
+    
     -- Unmute all muted players
     for uid, data in pairs(PM.MutedPlayers or {}) do
         if data.connection then pcall(function() data.connection:Disconnect() end) end
@@ -137,24 +140,22 @@ local function cleanupPrism()
         end
     end
     PM.MutedPlayers = {}
-
+    
     -- Clear state flags
     PM.JerkActive = false
+    
     -- Cleanup Teleport Tool
     if PM.TpToolConn then pcall(function() PM.TpToolConn:Disconnect() end); PM.TpToolConn = nil end
     if PM.TpWatchConn1 then pcall(function() PM.TpWatchConn1:Disconnect() end); PM.TpWatchConn1 = nil end
     if PM.TpWatchConn2 then pcall(function() PM.TpWatchConn2:Disconnect() end); PM.TpWatchConn2 = nil end
     PM.TpToolActive = false
-    local tpTool = LP.Backpack:FindFirstChild("Teleport Tool")
-    if tpTool then pcall(function() tpTool:Destroy() end) end
-    local charTp = LP.Character and LP.Character:FindFirstChild("Teleport Tool")
-    if charTp then pcall(function() charTp:Destroy() end) end
+    
     -- Cleanup Jerk Tool
-    if PM.JerkRespawnConn then pcall(function() PM.JerkRespawnConn:Disconnect() end); PM.JerkRespawnConn = nil end
     local jerk = LP.Backpack:FindFirstChild("Jerk")
     if jerk then pcall(function() jerk:Destroy() end) end
     local charJerk = LP.Character and LP.Character:FindFirstChild("Jerk")
     if charJerk then pcall(function() charJerk:Destroy() end) end
+    
     -- Cleanup Walk On Air
     if PM.WOA then
         if PM.WOA.renderConn then pcall(function() PM.WOA.renderConn:Disconnect() end) end
@@ -162,10 +163,7 @@ local function cleanupPrism()
         if PM.WOA.Gui then pcall(function() PM.WOA.Gui:Destroy() end) end
         PM.WOA = nil
     end
-    local woaGui = FindPrismGUI("Prism_WOAGUI")
-    if woaGui then pcall(function() woaGui:Destroy() end) end
-    local plat = workspace:FindFirstChild("PrismWalkAirPlatform")
-    if plat then pcall(function() plat:Destroy() end) end
+    
     -- Cleanup Anti All
     if PM.Anti then
         for _, conn in pairs(PM.Anti.connections or {}) do
@@ -182,30 +180,26 @@ local function cleanupPrism()
             PM.Anti.origVoidY = nil
         end
     end
-    local antiGui = FindPrismGUI("Prism_AntiGUI")
-    if antiGui then pcall(function() antiGui:Destroy() end) end
+    
     -- Cleanup Infinite Baseplate
     if PM.BP then
         PM.BP.active = false
         if PM.BP.connection then pcall(function() PM.BP.connection:Disconnect() end) end
-        local bpf = workspace:FindFirstChild("PrismBaseplateFolder")
-        if bpf then pcall(function() bpf:Destroy() end) end
     end
+    
     -- Cleanup Hamster Ball
     if PM.HB then
         PM.HB.active = false
         if PM.HB.renderConn then pcall(function() PM.HB.renderConn:Disconnect() end) end
         if PM.HB.jumpConn then pcall(function() PM.HB.jumpConn:Disconnect() end) end
     end
-    local hbGui = FindPrismGUI("Prism_HamsterBallGUI")
-    if hbGui then pcall(function() hbGui:Destroy() end) end
+    
     -- Cleanup AutoClicker
     if PM.AC then
         PM.AC.active = false
         if PM.AC.keyConnection then pcall(function() PM.AC.keyConnection:Disconnect() end) end
     end
-    local acGui = FindPrismGUI("Prism_AutoClickerGUI")
-    if acGui then pcall(function() acGui:Destroy() end) end
+    
     -- Cleanup Noclip
     if PM.Noclip then
         PM.Noclip.active = false
@@ -226,27 +220,13 @@ local function cleanupPrism()
         end
         PM.Noclip.snapshot = {}
     end
-    local ncGui = FindPrismGUI("Prism_NoclipGUI")
-    if ncGui then pcall(function() ncGui:Destroy() end) end
-    -- Cleanup Spin
-    local spinGui = FindPrismGUI("Prism_SpinGUI")
-    if spinGui then pcall(function() spinGui:Destroy() end) end
-    -- Cleanup Trip
-    local tripGui = FindPrismGUI("Prism_TripGUI")
-    if tripGui then pcall(function() tripGui:Destroy() end) end
-    -- Cleanup Gravity
-    local gravGui = FindPrismGUI("Prism_GravityGUI")
-    if gravGui then pcall(function() gravGui:Destroy() end) end
-    -- Cleanup Speed
-    local speedGui = FindPrismGUI("Prism_SpeedGUI")
-    if speedGui then pcall(function() speedGui:Destroy() end) end
-    -- Cleanup Emotes
-    local emotesGui = FindPrismGUI("Prism_EmotesGUI")
-    if emotesGui then pcall(function() emotesGui:Destroy() end) end
+    
     -- Cleanup Move While Emoting
-    if PM.Emotes.mwePriConn then PM.Emotes.mwePriConn:Disconnect(); PM.Emotes.mwePriConn = nil end
-    if PM.Emotes.mweWalkConn then PM.Emotes.mweWalkConn:Disconnect(); PM.Emotes.mweWalkConn = nil end
-    if PM.Emotes.currentEmoteTrack then pcall(function() PM.Emotes.currentEmoteTrack:Stop() end); PM.Emotes.currentEmoteTrack = nil end
+    if PM.Emotes then
+        if PM.Emotes.mwePriConn then PM.Emotes.mwePriConn:Disconnect(); PM.Emotes.mwePriConn = nil end
+        if PM.Emotes.mweWalkConn then PM.Emotes.mweWalkConn:Disconnect(); PM.Emotes.mweWalkConn = nil end
+        if PM.Emotes.currentEmoteTrack then pcall(function() PM.Emotes.currentEmoteTrack:Stop() end); PM.Emotes.currentEmoteTrack = nil end
+    end
     for _, plr in ipairs(Players:GetPlayers()) do
         if plr == LP then
             local char = plr.Character
@@ -262,27 +242,44 @@ local function cleanupPrism()
             end
         end
     end
+    
     -- Cleanup View
-    if PM.View.connection then PM.View.connection:Disconnect(); PM.View.connection = nil end
-    if PM.View.leavingConnection then PM.View.leavingConnection:Disconnect(); PM.View.leavingConnection = nil end
-    PM.View.viewing = false
-    PM.View.target = nil
-    local camera = workspace.CurrentCamera
-    local char = LP.Character
-    if char and char:FindFirstChild("Humanoid") then
-        camera.CameraSubject = char.Humanoid
+    if PM.View then
+        if PM.View.connection then PM.View.connection:Disconnect(); PM.View.connection = nil end
+        if PM.View.leavingConnection then PM.View.leavingConnection:Disconnect(); PM.View.leavingConnection = nil end
+        PM.View.viewing = false
+        PM.View.target = nil
+        local camera = workspace.CurrentCamera
+        local char = LP.Character
+        if char and char:FindFirstChild("Humanoid") then
+            camera.CameraSubject = char.Humanoid
+        end
     end
-    -- Cleanup Camera
-    local cameraGui = FindPrismGUI("Prism_CameraGUI")
-    if cameraGui then pcall(function() cameraGui:Destroy() end) end
-    -- Cleanup Fly
-    local flyGui = FindPrismGUI("Prism_FlyGUI")
-    if flyGui then pcall(function() flyGui:Destroy() end) end
+    
+    -- Cleanup VCBypasser
+    if PM.VCBypasser then
+        PM.VCBypasser.active = false
+        PM.VCBypasser.selfMuted = false
+        if PM.VCBypasser.buttonConn then
+            pcall(function() PM.VCBypasser.buttonConn:Disconnect() end)
+            PM.VCBypasser.buttonConn = nil
+        end
+        if PM.VCBypasser.mouseEnterConn then
+            pcall(function() PM.VCBypasser.mouseEnterConn:Disconnect() end)
+            PM.VCBypasser.mouseEnterConn = nil
+        end
+        if PM.VCBypasser.mouseLeaveConn then
+            pcall(function() PM.VCBypasser.mouseLeaveConn:Disconnect() end)
+            PM.VCBypasser.mouseLeaveConn = nil
+        end
+        local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
+        if adi then pcall(function() adi.Muted = false end) end
+    end
+    
+    -- Clear state objects
     PM.Fly = nil
-    -- Cleanup Jump
-    local jumpGui = FindPrismGUI("Prism_JumpGUI")
-    if jumpGui then pcall(function() jumpGui:Destroy() end) end
     PM.Jump = nil
+    
     -- Reset walkspeed to game default
     local char = game:GetService("Players").LocalPlayer.Character
     if char then
@@ -292,18 +289,25 @@ local function cleanupPrism()
             humanoid.WalkSpeed = defaultWS
         end
     end
-    -- Cleanup all GUIs by name pattern (CoreGui)
-    for _, obj in ipairs(game:GetService("CoreGui"):GetChildren()) do
+    
+    -- Now destroy all GUIs and objects
+    print("[Prism] Destroying GUIs and objects...")
+    
+    -- Cleanup CoreGui GUIs
+    local CoreGui = game:GetService("CoreGui")
+    for _, obj in ipairs(CoreGui:GetChildren()) do
         if obj.Name:find("Prism") and obj:IsA("ScreenGui") then
             pcall(function() obj:Destroy() end)
         end
     end
-    -- Cleanup all GUIs by name pattern (PlayerGui)
+    
+    -- Cleanup PlayerGui GUIs
     for _, obj in ipairs(LP.PlayerGui:GetChildren()) do
         if obj.Name:find("Prism") and obj:IsA("ScreenGui") then
             pcall(function() obj:Destroy() end)
         end
     end
+    
     -- Cleanup hidden GUIs (gethui)
     if gethui then
         local hiddenGui = gethui()
@@ -315,18 +319,21 @@ local function cleanupPrism()
             end
         end
     end
+    
     -- Cleanup workspace objects
     for _, obj in ipairs(workspace:GetChildren()) do
         if obj.Name:find("Prism") then
             pcall(function() obj:Destroy() end)
         end
     end
+    
     -- Cleanup Backpack tools
     for _, obj in ipairs(LP.Backpack:GetChildren()) do
         if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" then
             pcall(function() obj:Destroy() end)
         end
     end
+    
     -- Cleanup Character tools
     if LP.Character then
         for _, obj in ipairs(LP.Character:GetChildren()) do
@@ -335,6 +342,8 @@ local function cleanupPrism()
             end
         end
     end
+    
+    print("[Prism] Cleanup complete.")
 end
 
 local function FindPrismGUI(name)
@@ -359,15 +368,38 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
 end, true)
 
 registerCommand("reload", "Reload Prism script", {}, function(args)
+    print("[Prism] Reload command called")
+    
+    print("[Prism] Running cleanup...")
     cleanupPrism()
+    
+    print("[Prism] Clearing getgenv().PrismMain...")
     getgenv().PrismMain = nil
-    -- Reload from URL
-    task.wait(0.1)
-    local success, err = pcall(function()
-        loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
+    
+    print("[Prism] Waiting 0.5s before reload...")
+    task.wait(0.5)
+    
+    print("[Prism] Fetching script from URL...")
+    local success, result = pcall(function()
+        return game:HttpGet("https://prismscript.vercel.app/Prism.lua")
     end)
+    
     if not success then
-        warn("Reload failed: " .. tostring(err))
+        warn("[Prism] Failed to fetch script: " .. tostring(result))
+        return
+    end
+    
+    print("[Prism] Script fetched, length: " .. #result)
+    print("[Prism] Loading script...")
+    
+    local loadSuccess, loadErr = pcall(function()
+        loadstring(result)()
+    end)
+    
+    if not loadSuccess then
+        warn("[Prism] Failed to load script: " .. tostring(loadErr))
+    else
+        print("[Prism] Reload successful!")
     end
 end, true)
 
