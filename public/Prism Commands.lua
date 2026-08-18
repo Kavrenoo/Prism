@@ -660,47 +660,47 @@ local function setupButtonClick()
         warn("[VC Bypasser] AudioDeviceInput found:", adi ~= nil)
         warn("[VC Bypasser] Character found:", char ~= nil)
 
-        -- Find and manipulate the wire to AudioSpeechToText
-        if PM.VCBypasser.selfMuted then
-            -- Mute by CREATING the wire (inverted logic)
-            if adi and char then
-                local speechToText = char:FindFirstChild("AudioSpeechToText")
-                warn("[VC Bypasser] AudioSpeechToText found:", speechToText ~= nil)
+        -- Try manipulating AudioDeviceOutput volume instead
+        local SoundService = game:GetService("SoundService")
+        local ado = SoundService:FindFirstChildOfClass("AudioDeviceOutput")
 
-                if speechToText then
-                    warn("[VC Bypasser] Creating wire to AudioSpeechToText (mute)")
-                    pcall(function()
-                        local wire = Instance.new("Wire")
-                        wire.Name = "VoiceWire"
-                        wire.SourceInstance = adi
-                        wire.TargetInstance = speechToText
-                        wire.Parent = adi
-                    end)
-                end
-            end
-            -- Also set Muted and Active
-            if adi then
-                pcall(function()
-                    adi.Muted = false
-                    adi.Active = true
-                end)
-            end
-        else
-            -- Unmute by DESTROYING the wire (inverted logic)
-            if adi then
-                for _, wire in ipairs(adi:GetChildren()) do
-                    if wire:IsA("Wire") then
-                        warn("[VC Bypasser] Destroying wire:", wire.Name, "(unmute)")
-                        pcall(function() wire:Destroy() end)
-                    end
-                end
-            end
-            -- Set Muted and Active
+        warn("[VC Bypasser] AudioDeviceOutput found:", ado ~= nil)
+
+        if PM.VCBypasser.selfMuted then
+            -- Mute by setting AudioDeviceInput properties
             if adi then
                 pcall(function()
                     adi.Muted = true
                     adi.Active = false
                 end)
+                warn("[VC Bypasser] Set AudioDeviceInput - Muted: true, Active: false")
+            end
+
+            -- Also try AudioDeviceOutput volume
+            if ado then
+                PM.VCBypasser.savedVolume = ado.Volume
+                pcall(function()
+                    ado.Volume = 0
+                end)
+                warn("[VC Bypasser] Set AudioDeviceOutput Volume to 0")
+            end
+        else
+            -- Unmute by restoring AudioDeviceInput properties
+            if adi then
+                pcall(function()
+                    adi.Muted = false
+                    adi.Active = true
+                end)
+                warn("[VC Bypasser] Set AudioDeviceInput - Muted: false, Active: true")
+            end
+
+            -- Restore AudioDeviceOutput volume
+            if ado then
+                local savedVol = PM.VCBypasser.savedVolume or 1
+                pcall(function()
+                    ado.Volume = savedVol
+                end)
+                warn("[VC Bypasser] Restored AudioDeviceOutput Volume to:", savedVol)
             end
         end
 
