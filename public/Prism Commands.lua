@@ -651,43 +651,9 @@ local function setupButtonClick()
     PM.VCBypasser.buttonConn = btn.MouseButton1Click:Connect(function()
         PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
 
-        warn("========== VC BYPASSER CLICK ==========")
-        warn("[VC Bypasser] Target mute state:", PM.VCBypasser.selfMuted)
-
-        local vci = game:GetService("VoiceChatInternal")
         local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
-
-        warn("[VC Bypasser] VoiceChatInternal found:", vci ~= nil)
-        warn("[VC Bypasser] AudioDeviceInput found:", adi ~= nil)
-
-        -- Use VoiceChatInternal:PublishPause (should work now with filtered StateChanged)
-        if vci then
-            pcall(function()
-                vci:PublishPause(PM.VCBypasser.selfMuted)
-            end)
-            warn("[VC Bypasser] Called PublishPause with:", PM.VCBypasser.selfMuted)
-
-            task.wait(0.1)
-
-            pcall(function()
-                local isPublishPaused = vci:IsPublishPaused()
-                warn("[VC Bypasser] IsPublishPaused after PublishPause:", isPublishPaused)
-            end)
-        end
-
-        -- Also set AudioDeviceInput properties as backup
         if adi then
-            if PM.VCBypasser.selfMuted then
-                pcall(function()
-                    adi.Muted = true
-                    adi.Active = false
-                end)
-            else
-                pcall(function()
-                    adi.Muted = false
-                    adi.Active = true
-                end)
-            end
+            pcall(function() adi.Muted = PM.VCBypasser.selfMuted end)
         end
 
         if PM.VCBypasser.selfMuted then
@@ -695,8 +661,6 @@ local function setupButtonClick()
         else
             applyUnmuteUI()
         end
-
-        warn("========== END VC BYPASSER CLICK ==========")
     end)
 
     if highlighter then
@@ -720,32 +684,10 @@ registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(arg
 
     task.wait(0.02)
 
-    -- Hook StateChanged instead of disabling it - filter out moderation events
-    PM.VCBypasser.originalConnections = {}
     pcall(function()
         for _, connection in pairs(getconnections(VoiceChatInternal.StateChanged)) do
-            table.insert(PM.VCBypasser.originalConnections, connection)
             connection:Disable()
         end
-    end)
-
-    -- Create our own filtered StateChanged handler
-    PM.VCBypasser.stateChangedConn = VoiceChatInternal.StateChanged:Connect(function(state)
-        -- Allow mute state changes, filter out moderation/ban events
-        -- This is a simplified filter - adjust based on what events need blocking
-        local allowedEvents = {
-            ["MuteStateChanged"] = true,
-            ["MicActivityChanged"] = true,
-            ["VolumeChanged"] = true
-        }
-
-        if not allowedEvents[state] then
-            -- Block this event
-            return
-        end
-
-        -- Allow this event to propagate
-        -- (In a real implementation, you'd need to re-fire it to other handlers)
     end)
 
     PM.VCBypasser.active = true
