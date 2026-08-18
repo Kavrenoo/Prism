@@ -18,7 +18,7 @@
     auto execute on game switch / server hop / rejoin
     shaders (with presets / time of day control / all axons shader controls)
     anti vcb muting others / self
-    reanim
+    reanimation
     anti admin
     anti headsit / facebang / etc
     nametags
@@ -182,6 +182,12 @@ local function cleanupPrism()
         if hum then
             workspace.CurrentCamera.CameraSubject = hum
         end
+    end
+    
+    -- Restore void height
+    if PM.Invis.savedVoid then
+        workspace.FallenPartsDestroyHeight = PM.Invis.savedVoid
+        PM.Invis.savedVoid = nil
     end
     
     -- Clean up fake character and hidden part
@@ -6253,7 +6259,8 @@ PM.Invis = {
     snapshot = {},
     fakeCharacter = nil,
     hiddenPart = nil,
-    invisDescendantConn = nil
+    invisDescendantConn = nil,
+    savedVoid = nil
 }
 
 -- Load saved invisibility key
@@ -6611,71 +6618,109 @@ registerCommand("invis", "Invisibility with keybind", {}, function(args)
     local function ApplyInvis(char)
         if not char then return end
         
-        -- Create hidden part in void
-        PM.Invis.hiddenPart = Instance.new("Part")
-        PM.Invis.hiddenPart.Name = "PrismInvisHider"
-        PM.Invis.hiddenPart.Anchored = true
-        PM.Invis.hiddenPart.Size = Vector3.new(5, 1, 5)
-        PM.Invis.hiddenPart.CFrame = CFrame.new(9999, 9999, 9999)
-        PM.Invis.hiddenPart.CanCollide = false
-        PM.Invis.hiddenPart.Transparency = 1
-        PM.Invis.hiddenPart.Parent = workspace
+        local root = char:FindFirstChild("HumanoidRootPart")
+        if not root then return end
+        
+        -- Save original position and void height
+        local savedCF = root.CFrame
+        
+        -- Check if Anti Void is enabled - if so, don't modify void height
+        local antiVoidEnabled = PM.Anti and PM.Anti.void
+        if not antiVoidEnabled then
+            PM.Invis.savedVoid = workspace.FallenPartsDestroyHeight
+            workspace.FallenPartsDestroyHeight = -99999
+        end
         
         -- Clone character for fake visible version
         char.Archivable = true
         PM.Invis.fakeCharacter = char:Clone()
+        PM.Invis.fakeCharacter.Name = "PrismInvisClone"
         
-        -- Disable scripts in fake character
-        for _, v in ipairs(PM.Invis.fakeCharacter:GetDescendants()) do
-            if v:IsA("LocalScript") then
-                v:Destroy()
-            end
+        -- Disable LocalScripts in fake character (except Animate)
+        for _, obj in ipairs(PM.Invis.fakeCharacter:GetDescendants()) do
+            pcall(function()
+                if obj:IsA("LocalScript") and obj.Name ~= "Animate" then
+                    obj.Disabled = true
+                end
+            end)
         end
         
-        -- Set fake character at current position
-        PM.Invis.fakeCharacter.Parent = workspace
-        PM.Invis.fakeCharacter.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame
-        
-        -- Teleport real character to void
-        char.HumanoidRootPart.CFrame = PM.Invis.hiddenPart.CFrame * CFrame.new(0, 5, 0)
-        
-        -- Set camera to fake character
-        workspace.CurrentCamera.CameraSubject = PM.Invis.fakeCharacter.Humanoid
-        
-        -- Hook for new parts/accessories added while invisible
-        if PM.Invis.invisDescendantConn then PM.Invis.invisDescendantConn:Disconnect() end
-        PM.Invis.invisDescendantConn = char.DescendantAdded:Connect(function(part)
-            if invisOn and part:IsA("Accessory") then
-                -- Clone accessory to fake character
-                local fakeParent = PM.Invis.fakeCharacter:FindFirstChild(part.Parent.Name)
-                if fakeParent then
-                    local fakeAccessory = part:Clone()
-                    fakeAccessory.Parent = fakeParent
+        -- Make fake character parts semi-transparent (ghost-like)
+        for _, obj in ipairs(PM.Invis.fakeCharacter:GetDescendants()) do
+            pcall(function()
+                if obj:IsA("BasePart") and obj.Name ~= "HumanoidRootPart" then
+                    obj.Transparency = math.max(obj.Transparency, 0.6)
                 end
+            end)
+        end
+        
+        -- Create platform under map for real character
+        PM.Invis.hiddenPart = Instance.new("Part")
+        PM.Invis.hiddenPart.Name = "PrismInvisPlatform"
+        PM.Invis.hiddenPart.Anchored = true
+        PM.Invis.hiddenPart.CanCollide = true
+        PM.Invis.hiddenPart.Size = Vector3.new(3, 5, 3)
+        PM.Invis.hiddenPart.Transparency = 1
+        PM.Invis.hiddenPart.CFrame = CFrame.new(root.Position.X, -653, root.Position.Z)
+        PM.Invis.hiddenPart.Parent = workspace
+        
+        -- Set fake character at original position
+        PM.Invis.fakeCharacter.Parent = workspace
+        local fakeHRP = PM.Invis.fakeCharacter:FindFirstChild("HumanoidRootPart")
+        if fakeHRP then
+            fakeHRP.CFrame = savedCF
+        end
+        
+        -- Teleport real character to platform
+        root.AssemblyLinearVelocity = Vector3.zero
+        root.AssemblyAngularVelocity = Vector3.zero
+        root.CFrame = CFrame.new(root.Position.X, -648, root.Position.Z)
+        
+        -- Swap camera to fake character
+        workspace.CurrentCamera.CameraSubject = PM.Invis.fakeCharacter:FindFirstChildOfClass("Humanoid") or fakeHRP
+        
+        -- Move platform every frame to follow fake character's X/Z
+        if PM.Invis.invisDescendantConn then PM.Invis.invisDescendantConn:Disconnect() end
+        PM.Invis.invisDescendantConn = game:GetService("RunService").RenderStepped:Connect(function()
+            if fakeHRP and fakeHRP.Parent and PM.Invis.hiddenPart and PM.Invis.hiddenPart.Parent then
+                PM.Invis.hiddenPart.CFrame = CFrame.new(fakeHRP.Position.X, -653, fakeHRP.Position.Z)
             end
         end)
+        
+        -- On death, disable invisibility
+        local fakeHum = PM.Invis.fakeCharacter:FindFirstChildOfClass("Humanoid")
+        if fakeHum then
+            fakeHum.Died:Connect(function()
+                if invisOn then
+                    SetInvis(false)
+                end
+            end)
+        end
     end
 
     local function RemoveInvis(char)
         if not char then return end
         
         -- Restore camera to real character
-        workspace.CurrentCamera.CameraSubject = char.Humanoid
+        local hum = char:FindFirstChild("Humanoid")
+        if hum then
+            workspace.CurrentCamera.CameraSubject = hum
+        end
         
-        -- Teleport real character back to fake character position
+        -- Restore void height
+        workspace.FallenPartsDestroyHeight = PM.Invis.savedVoid or workspace.FallenPartsDestroyHeight
+        
+        -- Remove fake character and platform
         if PM.Invis.fakeCharacter and PM.Invis.fakeCharacter.Parent then
-            char.HumanoidRootPart.CFrame = PM.Invis.fakeCharacter.HumanoidRootPart.CFrame
             PM.Invis.fakeCharacter:Destroy()
             PM.Invis.fakeCharacter = nil
         end
-        
-        -- Remove hidden part
         if PM.Invis.hiddenPart and PM.Invis.hiddenPart.Parent then
             PM.Invis.hiddenPart:Destroy()
             PM.Invis.hiddenPart = nil
         end
         
-        -- Disconnect descendant hook
+        -- Disconnect platform follow connection
         if PM.Invis.invisDescendantConn then
             PM.Invis.invisDescendantConn:Disconnect()
             PM.Invis.invisDescendantConn = nil
@@ -6728,6 +6773,12 @@ registerCommand("invis", "Invisibility with keybind", {}, function(args)
         if invisCaptureConn then invisCaptureConn:Disconnect(); invisCaptureConn = nil end
         if PM.Invis.invisDescendantConn then PM.Invis.invisDescendantConn:Disconnect(); PM.Invis.invisDescendantConn = nil end
         if PM.Invis.keyConnection then PM.Invis.keyConnection:Disconnect(); PM.Invis.keyConnection = nil end
+        
+        -- Restore void height
+        if PM.Invis.savedVoid then
+            workspace.FallenPartsDestroyHeight = PM.Invis.savedVoid
+            PM.Invis.savedVoid = nil
+        end
         
         -- Clean up fake character and hidden part
         if PM.Invis.fakeCharacter and PM.Invis.fakeCharacter.Parent then
