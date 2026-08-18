@@ -24,7 +24,7 @@
     nametags
     join other prism users
     respawn last location
-    vcbypasser / vcmuteme / vcunmuteme
+    vcbypasser
 
 ]]
 -- Wait for PrismMain to be initialized by Main.lua
@@ -137,16 +137,7 @@ local function cleanupPrism()
         end
     end
     PM.MutedPlayers = {}
-    -- Cleanup VCBypasser
-    if PM.VCBypasser then
-        PM.VCBypasser.active = false
-        PM.VCBypasser.selfMuted = false
-        PM.VCBypasser.originalIcon = nil
-        PM.VCBypasser.redDot = nil
-        local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
-        if adi then pcall(function() adi.Muted = false end) end
-        applyUnmuteUI()
-    end
+
     -- Clear state flags
     PM.JerkActive = false
     -- Cleanup Teleport Tool
@@ -437,11 +428,10 @@ end, true)
 PM.VCBypasser = {
     active = false,
     selfMuted = false,
-    originalIcon = nil,
-    redDot = nil
+    buttonConn = nil
 }
 
-local function findMuteButton()
+local function getMicPath()
     local CoreGui = game:GetService("CoreGui")
     local TopBarApp = CoreGui:FindFirstChild("TopBarApp")
     if not TopBarApp then return nil end
@@ -461,56 +451,183 @@ local function findMuteButton()
     local frame3 = frame2:FindFirstChild("3")
     if not frame3 then return nil end
     
-    return frame3:FindFirstChild("toggle_mic_mute")
+    return frame2, frame3
+end
+
+local function createMuteButton()
+    local frame2, frame3 = getMicPath()
+    if not frame2 or not frame3 then return false end
+    
+    -- Resize UnibarMenu - 2
+    frame2.Size = UDim2.new(0, 140, 0, 44)
+    
+    -- Remove existing button if present
+    local existing = frame3:FindFirstChild("toggle_mic_mute")
+    if existing then
+        existing:Destroy()
+    end
+    
+    -- Create toggle_mic_mute
+    local toggleMute = Instance.new("Frame")
+    toggleMute.Name = "toggle_mic_mute"
+    toggleMute.Size = UDim2.new(0, 44, 0, 44)
+    toggleMute.Position = UDim2.new(0, 92, 0, 0)
+    toggleMute.BackgroundColor3 = Color3.fromRGB(163, 162, 165)
+    toggleMute.BackgroundTransparency = 1
+    toggleMute.Parent = frame3
+    
+    -- Highlighter
+    local highlighter = Instance.new("Frame")
+    highlighter.Name = "Highlighter"
+    highlighter.Size = UDim2.new(0, 36, 0, 36)
+    highlighter.Position = UDim2.new(0.5, 0, 0.5, 0)
+    highlighter.AnchorPoint = Vector2.new(0.5, 0.5)
+    highlighter.BackgroundColor3 = Color3.fromRGB(208, 217, 251)
+    highlighter.BackgroundTransparency = 0.92
+    highlighter.Visible = false
+    highlighter.Parent = toggleMute
+    
+    local corner1 = Instance.new("UICorner")
+    corner1.CornerRadius = UDim.new(1, 0)
+    corner1.Parent = highlighter
+    
+    -- IntegrationIconFrame
+    local iconFrame = Instance.new("Frame")
+    iconFrame.Name = "IntegrationIconFrame"
+    iconFrame.Size = UDim2.new(1, 0, 1, 0)
+    iconFrame.BackgroundTransparency = 1
+    iconFrame.Parent = toggleMute
+    
+    local listLayout = Instance.new("UIListLayout")
+    listLayout.FillDirection = Enum.FillDirection.Horizontal
+    listLayout.HorizontalAlignment = Enum.HorizontalAlignment.Center
+    listLayout.VerticalAlignment = Enum.VerticalAlignment.Center
+    listLayout.SortOrder = Enum.SortOrder.Name
+    listLayout.Parent = iconFrame
+    
+    -- IntegrationIcon
+    local icon = Instance.new("Frame")
+    icon.Name = "IntegrationIcon"
+    icon.Size = UDim2.new(0, 36, 0, 36)
+    icon.BackgroundColor3 = Color3.fromRGB(163, 162, 165)
+    icon.BackgroundTransparency = 1
+    icon.Parent = iconFrame
+    
+    -- Mic image
+    local micImage = Instance.new("ImageLabel")
+    micImage.Name = "MicImage"
+    micImage.Size = UDim2.new(1, 0, 1, 0)
+    micImage.BackgroundTransparency = 1
+    micImage.Image = "rbxasset://textures/ui/VoiceChat/MicLight/Unmuted0.png"
+    micImage.Parent = icon
+    
+    -- RedVoiceDot
+    local redDot = Instance.new("Frame")
+    redDot.Name = "RedVoiceDot"
+    redDot.Size = UDim2.new(0, 4, 0, 4)
+    redDot.Position = UDim2.new(1, -7, 1, -7)
+    redDot.BackgroundColor3 = Color3.fromRGB(234, 51, 35)
+    redDot.Visible = true
+    redDot.Parent = icon
+    
+    local corner2 = Instance.new("UICorner")
+    corner2.CornerRadius = UDim.new(1, 0)
+    corner2.Parent = redDot
+    
+    -- Click handler
+    local btn = Instance.new("TextButton")
+    btn.Name = "ClickButton"
+    btn.Size = UDim2.new(1, 0, 1, 0)
+    btn.BackgroundTransparency = 1
+    btn.Text = ""
+    btn.TextTransparency = 1
+    btn.Parent = toggleMute
+    
+    return true
 end
 
 local function applyMuteUI()
-    local btn = findMuteButton()
-    if not btn then return end
+    local _, frame3 = getMicPath()
+    if not frame3 then return end
     
-    -- Always save original icon before changing
-    local imageLabel = btn:FindFirstChildOfClass("ImageLabel")
-    if imageLabel and not PM.VCBypasser.originalIcon then
-        PM.VCBypasser.originalIcon = imageLabel.Image
+    local toggleMute = frame3:FindFirstChild("toggle_mic_mute")
+    if not toggleMute then return end
+    
+    local iconFrame = toggleMute:FindFirstChild("IntegrationIconFrame")
+    if not iconFrame then return end
+    
+    local icon = iconFrame:FindFirstChild("IntegrationIcon")
+    if not icon then return end
+    
+    local micImage = icon:FindFirstChild("MicImage")
+    if micImage then
+        micImage.Image = "rbxasset://textures/ui/VoiceChat/MicLight/Muted.png"
     end
     
     -- Find and hide RedVoiceDot
-    for _, child in ipairs(btn:GetDescendants()) do
+    for _, child in ipairs(toggleMute:GetDescendants()) do
         if child.Name == "RedVoiceDot" then
-            PM.VCBypasser.redDot = child
             child.Visible = false
             break
         end
     end
-    
-    -- Set muted icon
-    if imageLabel then
-        imageLabel.Image = "rbxasset://textures/ui/VoiceChat/MicLight/Muted.png"
-    end
 end
 
 local function applyUnmuteUI()
-    local btn = findMuteButton()
-    if not btn then return end
+    local _, frame3 = getMicPath()
+    if not frame3 then return end
     
-    -- Restore original icon
-    local imageLabel = btn:FindFirstChildOfClass("ImageLabel")
-    if imageLabel and PM.VCBypasser.originalIcon then
-        imageLabel.Image = PM.VCBypasser.originalIcon
+    local toggleMute = frame3:FindFirstChild("toggle_mic_mute")
+    if not toggleMute then return end
+    
+    local iconFrame = toggleMute:FindFirstChild("IntegrationIconFrame")
+    if not iconFrame then return end
+    
+    local icon = iconFrame:FindFirstChild("IntegrationIcon")
+    if not icon then return end
+    
+    local micImage = icon:FindFirstChild("MicImage")
+    if micImage then
+        micImage.Image = "rbxasset://textures/ui/VoiceChat/MicLight/Unmuted0.png"
     end
     
-    -- Show RedVoiceDot if we tracked it
-    if PM.VCBypasser.redDot then
-        PM.VCBypasser.redDot.Visible = true
-    else
-        -- Try to find it if we didn't track it
-        for _, child in ipairs(btn:GetDescendants()) do
-            if child.Name == "RedVoiceDot" then
-                child.Visible = true
-                break
-            end
+    -- Find and show RedVoiceDot
+    for _, child in ipairs(toggleMute:GetDescendants()) do
+        if child.Name == "RedVoiceDot" then
+            child.Visible = true
+            break
         end
     end
+end
+
+local function setupButtonClick()
+    local _, frame3 = getMicPath()
+    if not frame3 then return end
+    
+    local toggleMute = frame3:FindFirstChild("toggle_mic_mute")
+    if not toggleMute then return end
+    
+    local btn = toggleMute:FindFirstChild("ClickButton")
+    if not btn then return end
+    
+    if PM.VCBypasser.buttonConn then
+        PM.VCBypasser.buttonConn:Disconnect()
+    end
+    
+    PM.VCBypasser.buttonConn = btn.MouseButton1Click:Connect(function()
+        PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
+        
+        local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
+        if adi then
+            pcall(function() adi.Muted = PM.VCBypasser.selfMuted end)
+        end
+        
+        if PM.VCBypasser.selfMuted then
+            applyMuteUI()
+        else
+            applyUnmuteUI()
+        end
+    end)
 end
 
 registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(args)
@@ -531,44 +648,12 @@ registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(arg
     
     PM.VCBypasser.active = true
     
-    -- Wait for UI to remake, then apply current mute state
-    task.wait(0.25)
-    
-    -- Always save original icon on first activation
-    local btn = findMuteButton()
-    if btn and not PM.VCBypasser.originalIcon then
-        local imageLabel = btn:FindFirstChildOfClass("ImageLabel")
-        if imageLabel then
-            PM.VCBypasser.originalIcon = imageLabel.Image
-        end
-    end
-    
-    if PM.VCBypasser.selfMuted then
-        applyMuteUI()
-    end
+    -- Create the button
+    createMuteButton()
+    setupButtonClick()
 end, true)
 
-registerCommand("vcmuteme", "Mute yourself when vcbypasser is on", {}, function(args)
-    if not PM.VCBypasser.active then return end
-    
-    local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
-    if adi then
-        pcall(function() adi.Muted = true end)
-        PM.VCBypasser.selfMuted = true
-        applyMuteUI()
-    end
-end, true)
 
-registerCommand("vcunmuteme", "Unmute yourself when vcbypasser is on", {}, function(args)
-    if not PM.VCBypasser.active then return end
-    
-    local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
-    if adi then
-        pcall(function() adi.Muted = false end)
-        PM.VCBypasser.selfMuted = false
-        applyUnmuteUI()
-    end
-end, true)
 
 -- View state management
 PM.View = {
