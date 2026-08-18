@@ -651,40 +651,65 @@ local function setupButtonClick()
     PM.VCBypasser.buttonConn = btn.MouseButton1Click:Connect(function()
         PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
 
-        local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
-        local VoiceChatInternal = game:GetService("VoiceChatInternal")
+        warn("========== VC BYPASSER CLICK ==========")
+        warn("[VC Bypasser] Target mute state:", PM.VCBypasser.selfMuted)
 
-        if PM.VCBypasser.selfMuted then
-            -- Muting - set properties directly
-            if adi then
-                pcall(function()
-                    adi.Muted = false
-                    adi.Active = true
-                end)
+        local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
+        warn("[VC Bypasser] AudioDeviceInput found:", adi ~= nil)
+
+        if adi then
+            warn("[VC Bypasser] AudioDeviceInput.Name:", adi.Name)
+            warn("[VC Bypasser] AudioDeviceInput BEFORE - Muted:", adi.Muted, "Active:", adi.Active)
+            warn("[VC Bypasser] AudioDeviceInput children:", #adi:GetChildren())
+            for _, child in ipairs(adi:GetChildren()) do
+                warn("[VC Bypasser]   -", child.Name, ":", child.ClassName)
             end
-        else
-            -- Unmuting - temporarily re-enable StateChanged to let it propagate
-            local connections = {}
+
             pcall(function()
-                for _, conn in pairs(getconnections(VoiceChatInternal.StateChanged)) do
-                    table.insert(connections, conn)
-                    conn:Enable()
-                end
+                adi.Muted = not PM.VCBypasser.selfMuted
+                adi.Active = PM.VCBypasser.selfMuted
             end)
 
-            if adi then
-                pcall(function()
-                    adi.Muted = true
-                    adi.Active = false
-                end)
-            end
+            warn("[VC Bypasser] AudioDeviceInput AFTER - Muted:", adi.Muted, "Active:", adi.Active)
+        end
 
-            task.wait()
-
-            -- Re-disable StateChanged
-            for _, conn in ipairs(connections) do
-                pcall(function() conn:Disable() end)
+        -- Check AudioEmitter
+        local char = LP.Character
+        if char then
+            local emitter = char:FindFirstChildOfClass("AudioEmitter")
+            warn("[VC Bypasser] AudioEmitter found:", emitter ~= nil)
+            if emitter then
+                warn("[VC Bypasser] AudioEmitter.Name:", emitter.Name)
+                warn("[VC Bypasser] AudioEmitter children:", #emitter:GetChildren())
+                for _, child in ipairs(emitter:GetChildren()) do
+                    warn("[VC Bypasser]   -", child.Name, ":", child.ClassName)
+                end
             end
+        end
+
+        -- Check VoiceChatInternal
+        local vci = game:GetService("VoiceChatInternal")
+        warn("[VC Bypasser] VoiceChatInternal found:", vci ~= nil)
+        if vci then
+            pcall(function()
+                local isPublishPaused = vci:IsPublishPaused()
+                warn("[VC Bypasser] IsPublishPaused:", isPublishPaused)
+            end)
+        end
+
+        -- Check all wires in character
+        if char then
+            local allWires = char:GetDescendants()
+            local wireCount = 0
+            for _, obj in ipairs(allWires) do
+                if obj:IsA("Wire") then
+                    wireCount = wireCount + 1
+                    warn("[VC Bypasser] Wire found:", obj.Name, "in", obj.Parent.Name)
+                    warn("[VC Bypasser]   Source:", obj.SourceInstance and obj.SourceInstance.Name or "nil")
+                    warn("[VC Bypasser]   Target:", obj.TargetInstance and obj.TargetInstance.Name or "nil")
+                end
+            end
+            warn("[VC Bypasser] Total wires in character:", wireCount)
         end
 
         if PM.VCBypasser.selfMuted then
@@ -692,6 +717,8 @@ local function setupButtonClick()
         else
             applyUnmuteUI()
         end
+
+        warn("========== END VC BYPASSER CLICK ==========")
     end)
 
     if highlighter then
