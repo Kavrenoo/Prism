@@ -428,7 +428,9 @@ end, true)
 PM.VCBypasser = {
     active = false,
     selfMuted = false,
-    buttonConn = nil
+    buttonConn = nil,
+    mouseEnterConn = nil,
+    mouseLeaveConn = nil
 }
 
 local function getMicPath()
@@ -610,9 +612,7 @@ local function setupButtonClick()
     local btn = toggleMute:FindFirstChild("ClickButton")
     if not btn then return end
     
-    if PM.VCBypasser.buttonConn then
-        PM.VCBypasser.buttonConn:Disconnect()
-    end
+    local highlighter = toggleMute:FindFirstChild("Highlighter")
     
     PM.VCBypasser.buttonConn = btn.MouseButton1Click:Connect(function()
         PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
@@ -628,6 +628,16 @@ local function setupButtonClick()
             applyUnmuteUI()
         end
     end)
+    
+    if highlighter then
+        PM.VCBypasser.mouseEnterConn = btn.MouseEnter:Connect(function()
+            highlighter.Visible = true
+        end)
+        
+        PM.VCBypasser.mouseLeaveConn = btn.MouseLeave:Connect(function()
+            highlighter.Visible = false
+        end)
+    end
 end
 
 registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(args)
@@ -647,6 +657,9 @@ registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(arg
     end)
     
     PM.VCBypasser.active = true
+    
+    -- Wait for UI to recreate
+    task.wait(1)
     
     -- Create the button
     createMuteButton()
