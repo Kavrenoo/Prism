@@ -1371,16 +1371,34 @@ registerCommand("tptospawn", "Teleport to spawn", {}, function(args)
     local char = LP.Character
     local root = char and char:FindFirstChild("HumanoidRootPart")
     if not root then return end
-    local spawnPart = workspace:FindFirstChildOfClass("SpawnLocation")
-    if not spawnPart then
-        spawnPart = workspace:FindFirstChild("SpawnLocation", true)
+    
+    local assigned = LP.RespawnLocation
+    if assigned and assigned:IsA("SpawnLocation") then
+        root.CFrame = assigned.CFrame + Vector3.new(0, 5, 0)
+        return
     end
-    if spawnPart then
-        local h = char:FindFirstChildOfClass("Humanoid")
-        local hipH = h and h.HipHeight or 2.3
-        local hrpHalf = root.Size.Y * 0.5
-        root.CFrame = CFrame.new(spawnPart.Position + Vector3.new(0, spawnPart.Size.Y * 0.5 + hrpHalf + hipH, 0))
+    
+    local allSpawns = {}
+    for _, obj in ipairs(workspace:GetDescendants()) do
+        if obj:IsA("SpawnLocation") then
+            table.insert(allSpawns, obj)
+        end
     end
+    
+    if #allSpawns > 0 then
+        local nearest, nearestDist = allSpawns[1], math.huge
+        for _, sp in ipairs(allSpawns) do
+            local d = (sp.Position - root.Position).Magnitude
+            if d < nearestDist then
+                nearest = sp
+                nearestDist = d
+            end
+        end
+        root.CFrame = nearest.CFrame + Vector3.new(0, 5, 0)
+        return
+    end
+    
+    root.CFrame = CFrame.new(0, 10, 0)
 end, true)
 
 registerCommand("tptool", "Click to teleport tool", {}, function(args)
