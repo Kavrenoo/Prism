@@ -652,8 +652,11 @@ local function setupButtonClick()
         PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
 
         local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
+
         if adi then
-            pcall(function() adi.Muted = PM.VCBypasser.selfMuted end)
+            pcall(function()
+                adi.Active = not PM.VCBypasser.selfMuted
+            end)
         end
 
         if PM.VCBypasser.selfMuted then
