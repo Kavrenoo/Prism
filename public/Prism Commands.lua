@@ -159,6 +159,12 @@ local function cleanupPrism()
         if PM.WOA.Gui then pcall(function() PM.WOA.Gui:Destroy() end) end
         PM.WOA = nil
     end
+
+    -- Cleanup Respawn hooks
+    if respawnCharAddedConn then pcall(function() respawnCharAddedConn:Disconnect() end) end
+    if respawnDiedConn then pcall(function() respawnDiedConn:Disconnect() end) end
+    PM.Respawn.enabled = false
+    PM.Respawn.lastCFrame = nil
     
     -- Cleanup Anti All
     if PM.Anti then
@@ -7771,41 +7777,37 @@ local function SaveRespawnState()
     end)
 end
 
--- CharacterAdded and Died connections for respawn
+-- CharacterAdded and Died connections for respawn (set up globally like Axon)
 local respawnCharAddedConn = nil
 local respawnDiedConn = nil
 
-local function SetupRespawnHooks()
-    if respawnCharAddedConn then respawnCharAddedConn:Disconnect(); respawnCharAddedConn = nil end
-    if respawnDiedConn then respawnDiedConn:Disconnect(); respawnDiedConn = nil end
-
-    local function OnCharacterAdded(char)
-        task.wait(0.1)
-        local root = char:FindFirstChild("HumanoidRootPart")
-        if root and PM.Respawn.enabled and PM.Respawn.lastCFrame then
-            root.CFrame = PM.Respawn.lastCFrame
-        end
-
-        local hum = char:FindFirstChild("Humanoid")
-        if hum then
-            if respawnDiedConn then respawnDiedConn:Disconnect(); respawnDiedConn = nil end
-            respawnDiedConn = hum.Died:Connect(function()
-                if root and root.Position.Y > (workspace.FallenPartsDestroyHeight + 10) then
-                    PM.Respawn.lastCFrame = root.CFrame
-                    SaveRespawnState()
-                else
-                    PM.Respawn.lastCFrame = nil
-                    SaveRespawnState()
-                end
-            end)
-        end
+local function OnCharacterAdded(char)
+    task.wait(0.1)
+    local root = char:FindFirstChild("HumanoidRootPart")
+    if root and PM.Respawn.enabled and PM.Respawn.lastCFrame then
+        root.CFrame = PM.Respawn.lastCFrame
     end
 
-    if LP.Character then
-        task.spawn(OnCharacterAdded, LP.Character)
+    local hum = char:FindFirstChild("Humanoid")
+    if hum then
+        if respawnDiedConn then respawnDiedConn:Disconnect(); respawnDiedConn = nil end
+        respawnDiedConn = hum.Died:Connect(function()
+            if root and root.Position.Y > (workspace.FallenPartsDestroyHeight + 10) then
+                PM.Respawn.lastCFrame = root.CFrame
+                SaveRespawnState()
+            else
+                PM.Respawn.lastCFrame = nil
+                SaveRespawnState()
+            end
+        end)
     end
-    respawnCharAddedConn = LP.CharacterAdded:Connect(OnCharacterAdded)
 end
+
+-- Set up hooks globally (always monitoring like Axon)
+if LP.Character then
+    task.spawn(OnCharacterAdded, LP.Character)
+end
+respawnCharAddedConn = LP.CharacterAdded:Connect(OnCharacterAdded)
 
 registerCommand("respawnlastlocation", "Respawn to last location with toggle", {}, function(args)
     local CoreGui = game:GetService("CoreGui")
@@ -8078,12 +8080,9 @@ registerCommand("respawnlastlocation", "Respawn to last location with toggle", {
             if val then
                 TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
                 TweenService:Create(Knob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -8)}):Play()
-                SetupRespawnHooks()
             else
                 TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(60, 60, 60)}):Play()
                 TweenService:Create(Knob, TweenInfo.new(0.15), {Position = UDim2.new(0, 3, 0.5, -8)}):Play()
-                if respawnCharAddedConn then respawnCharAddedConn:Disconnect(); respawnCharAddedConn = nil end
-                if respawnDiedConn then respawnDiedConn:Disconnect(); respawnDiedConn = nil end
             end
             if save ~= false then
                 SaveRespawnState()
@@ -8094,7 +8093,6 @@ registerCommand("respawnlastlocation", "Respawn to last location with toggle", {
 
         if PM.Respawn.enabled then
             SetRespawn(true, false)
-            SetupRespawnHooks()
         end
     end)
 
