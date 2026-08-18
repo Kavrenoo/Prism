@@ -677,20 +677,34 @@ local function setupButtonClick()
             end)
             warn("[VC Bypasser] Called PublishPause with:", PM.VCBypasser.selfMuted)
 
-            -- Wait for state to propagate
-            task.wait(0.1)
+            -- Wait longer for state to propagate
+            task.wait(0.5)
 
             pcall(function()
                 local isPublishPaused = vci:IsPublishPaused()
-                warn("[VC Bypasser] IsPublishPaused after PublishPause:", isPublishPaused)
+                warn("[VC Bypasser] IsPublishPaused after 0.5s wait:", isPublishPaused)
             end)
         end
+
+        -- Check if state changed during wait
+        task.wait(0.5)
+        pcall(function()
+            local isPublishPaused = vci:IsPublishPaused()
+            warn("[VC Bypasser] IsPublishPaused after 1.0s total:", isPublishPaused)
+        end)
 
         -- Re-disable StateChanged connections
         for _, conn in ipairs(connections) do
             pcall(function() conn:Disable() end)
         end
         warn("[VC Bypasser] Re-disabled StateChanged connections")
+
+        -- Final check
+        task.wait(0.2)
+        pcall(function()
+            local isPublishPaused = vci:IsPublishPaused()
+            warn("[VC Bypasser] IsPublishPaused FINAL (after disable):", isPublishPaused)
+        end)
 
         -- Also set AudioDeviceInput properties as backup
         if adi then
