@@ -24,6 +24,7 @@
     nametags
     join other prism users
     respawn last location
+    vcbypasser / vcmuteme / vcunmuteme
 
 ]]
 -- Wait for PrismMain to be initialized by Main.lua
@@ -136,6 +137,16 @@ local function cleanupPrism()
         end
     end
     PM.MutedPlayers = {}
+    -- Cleanup VCBypasser
+    if PM.VCBypasser then
+        PM.VCBypasser.active = false
+        PM.VCBypasser.selfMuted = false
+        PM.VCBypasser.originalIcon = nil
+        PM.VCBypasser.redDot = nil
+        local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
+        if adi then pcall(function() adi.Muted = false end) end
+        applyUnmuteUI()
+    end
     -- Clear state flags
     PM.JerkActive = false
     -- Cleanup Teleport Tool
@@ -422,6 +433,86 @@ registerCommand("serverhopany", "Join any random server", {}, function(args)
     end
 end, true)
 
+-- VCBypasser state management
+PM.VCBypasser = {
+    active = false,
+    selfMuted = false,
+    originalIcon = nil,
+    redDot = nil
+}
+
+local function findMuteButton()
+    local CoreGui = game:GetService("CoreGui")
+    local TopBarApp = CoreGui:FindFirstChild("TopBarApp")
+    if not TopBarApp then return nil end
+    
+    local TopBarApp2 = TopBarApp:FindFirstChild("TopBarApp")
+    if not TopBarApp2 then return nil end
+    
+    local UnibarLeftFrame = TopBarApp2:FindFirstChild("UnibarLeftFrame")
+    if not UnibarLeftFrame then return nil end
+    
+    local UnibarMenu = UnibarLeftFrame:FindFirstChild("UnibarMenu")
+    if not UnibarMenu then return nil end
+    
+    local frame2 = UnibarMenu:FindFirstChild("2")
+    if not frame2 then return nil end
+    
+    local frame3 = frame2:FindFirstChild("3")
+    if not frame3 then return nil end
+    
+    return frame3:FindFirstChild("toggle_mic_mute")
+end
+
+local function applyMuteUI()
+    local btn = findMuteButton()
+    if not btn then return end
+    
+    -- Always save original icon before changing
+    local imageLabel = btn:FindFirstChildOfClass("ImageLabel")
+    if imageLabel and not PM.VCBypasser.originalIcon then
+        PM.VCBypasser.originalIcon = imageLabel.Image
+    end
+    
+    -- Find and hide RedVoiceDot
+    for _, child in ipairs(btn:GetDescendants()) do
+        if child.Name == "RedVoiceDot" then
+            PM.VCBypasser.redDot = child
+            child.Visible = false
+            break
+        end
+    end
+    
+    -- Set muted icon
+    if imageLabel then
+        imageLabel.Image = "rbxasset://textures/ui/VoiceChat/MicLight/Muted.png"
+    end
+end
+
+local function applyUnmuteUI()
+    local btn = findMuteButton()
+    if not btn then return end
+    
+    -- Restore original icon
+    local imageLabel = btn:FindFirstChildOfClass("ImageLabel")
+    if imageLabel and PM.VCBypasser.originalIcon then
+        imageLabel.Image = PM.VCBypasser.originalIcon
+    end
+    
+    -- Show RedVoiceDot if we tracked it
+    if PM.VCBypasser.redDot then
+        PM.VCBypasser.redDot.Visible = true
+    else
+        -- Try to find it if we didn't track it
+        for _, child in ipairs(btn:GetDescendants()) do
+            if child.Name == "RedVoiceDot" then
+                child.Visible = true
+                break
+            end
+        end
+    end
+end
+
 registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(args)
     local VoiceChatService = game:GetService("VoiceChatService")
     local VoiceChatInternal = game:GetService("VoiceChatInternal")
@@ -437,6 +528,46 @@ registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(arg
             connection:Disable()
         end
     end)
+    
+    PM.VCBypasser.active = true
+    
+    -- Wait for UI to remake, then apply current mute state
+    task.wait(0.25)
+    
+    -- Always save original icon on first activation
+    local btn = findMuteButton()
+    if btn and not PM.VCBypasser.originalIcon then
+        local imageLabel = btn:FindFirstChildOfClass("ImageLabel")
+        if imageLabel then
+            PM.VCBypasser.originalIcon = imageLabel.Image
+        end
+    end
+    
+    if PM.VCBypasser.selfMuted then
+        applyMuteUI()
+    end
+end, true)
+
+registerCommand("vcmuteme", "Mute yourself when vcbypasser is on", {}, function(args)
+    if not PM.VCBypasser.active then return end
+    
+    local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
+    if adi then
+        pcall(function() adi.Muted = true end)
+        PM.VCBypasser.selfMuted = true
+        applyMuteUI()
+    end
+end, true)
+
+registerCommand("vcunmuteme", "Unmute yourself when vcbypasser is on", {}, function(args)
+    if not PM.VCBypasser.active then return end
+    
+    local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
+    if adi then
+        pcall(function() adi.Muted = false end)
+        PM.VCBypasser.selfMuted = false
+        applyUnmuteUI()
+    end
 end, true)
 
 -- View state management
