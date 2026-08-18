@@ -163,6 +163,8 @@ local function cleanupPrism()
     -- Cleanup Respawn hooks
     if respawnCharAddedConn then pcall(function() respawnCharAddedConn:Disconnect() end) end
     if respawnDiedConn then pcall(function() respawnDiedConn:Disconnect() end) end
+    _respawnEnabled = false
+    _respawnLastCFrame = nil
     PM.Respawn.enabled = false
     PM.Respawn.lastCFrame = nil
     
@@ -7752,7 +7754,10 @@ registerCommand("camera", "Camera controls", {}, function(args)
     end
 end)
 
--- Respawn state management
+-- Respawn state management (use global variables like Axon)
+local _respawnEnabled = false
+local _respawnLastCFrame = nil
+
 PM.Respawn = {
     enabled = false,
     lastCFrame = nil
@@ -7765,14 +7770,14 @@ pcall(function()
         savedRespawnState = game:GetService("HttpService"):JSONDecode(readfile(RESPAWN_STATE_FILE))
     end
 end)
-PM.Respawn.enabled = savedRespawnState.enabled or false
-PM.Respawn.lastCFrame = savedRespawnState.lastCFrame or nil
+_respawnEnabled = savedRespawnState.enabled or false
+PM.Respawn.enabled = _respawnEnabled
 
 local function SaveRespawnState()
     pcall(function()
         if writefile then
             if makefolder and not isfolder("prism") then makefolder("prism") end
-            writefile(RESPAWN_STATE_FILE, game:GetService("HttpService"):JSONEncode({enabled = PM.Respawn.enabled}))
+            writefile(RESPAWN_STATE_FILE, game:GetService("HttpService"):JSONEncode({enabled = _respawnEnabled}))
         end
     end)
 end
@@ -7782,24 +7787,23 @@ local respawnCharAddedConn = nil
 local respawnDiedConn = nil
 
 local function OnCharacterAdded(char)
-    task.wait(0.1)
-    local root = char:FindFirstChild("HumanoidRootPart")
-    if root and PM.Respawn.enabled and PM.Respawn.lastCFrame then
-        root.CFrame = PM.Respawn.lastCFrame
+    local root = char:WaitForChild("HumanoidRootPart", 5)
+    local hum = char:WaitForChild("Humanoid", 5)
+    if not root or not hum then return end
+    
+    if _respawnEnabled and _respawnLastCFrame then
+        task.wait(0.1)
+        root.CFrame = _respawnLastCFrame
     end
 
-    local hum = char:FindFirstChild("Humanoid")
-    if hum then
-        if respawnDiedConn then respawnDiedConn:Disconnect(); respawnDiedConn = nil end
-        respawnDiedConn = hum.Died:Connect(function()
-            local diedRoot = char:FindFirstChild("HumanoidRootPart")
-            if diedRoot and diedRoot.Position.Y > (workspace.FallenPartsDestroyHeight + 10) then
-                PM.Respawn.lastCFrame = diedRoot.CFrame
-            else
-                PM.Respawn.lastCFrame = nil
-            end
-        end)
-    end
+    if respawnDiedConn then respawnDiedConn:Disconnect(); respawnDiedConn = nil end
+    respawnDiedConn = hum.Died:Connect(function()
+        if root and root.Position.Y > (workspace.FallenPartsDestroyHeight + 10) then
+            _respawnLastCFrame = root.CFrame
+        else
+            _respawnLastCFrame = nil
+        end
+    end)
 end
 
 -- Set up hooks globally (always monitoring like Axon)
@@ -8075,6 +8079,7 @@ registerCommand("respawnlastlocation", "Respawn to last location with toggle", {
         PillHit.Parent = ToggleSection
 
         local function SetRespawn(val, save)
+            _respawnEnabled = val
             PM.Respawn.enabled = val
             if val then
                 TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
@@ -8088,9 +8093,9 @@ registerCommand("respawnlastlocation", "Respawn to last location with toggle", {
             end
         end
 
-        PillHit.MouseButton1Click:Connect(function() SetRespawn(not PM.Respawn.enabled) end)
+        PillHit.MouseButton1Click:Connect(function() SetRespawn(not _respawnEnabled) end)
 
-        if PM.Respawn.enabled then
+        if _respawnEnabled then
             SetRespawn(true, false)
         end
     end)
