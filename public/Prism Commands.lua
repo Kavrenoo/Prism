@@ -1001,7 +1001,7 @@ registerCommand("block", "Block a player", {}, function(args)
     if not target then return end
 
     pcall(function()
-        LP:BlockUser(target)
+        LP:BlockUserAsync(target.UserId)
     end)
 end, true)
 
@@ -1046,7 +1046,7 @@ registerCommand("unblock", "Unblock a player", {}, function(args)
     if not target then return end
 
     pcall(function()
-        LP:UnblockUser(target)
+        LP:UnblockUserAsync(target.UserId)
     end)
 end, true)
 
