@@ -662,30 +662,13 @@ local function setupButtonClick()
 
         -- Find and manipulate the wire to AudioSpeechToText
         if PM.VCBypasser.selfMuted then
-            -- Mute by destroying the wire
-            if adi then
-                for _, wire in ipairs(adi:GetChildren()) do
-                    if wire:IsA("Wire") then
-                        warn("[VC Bypasser] Destroying wire:", wire.Name)
-                        pcall(function() wire:Destroy() end)
-                    end
-                end
-            end
-            -- Also set Muted and Active
-            if adi then
-                pcall(function()
-                    adi.Muted = true
-                    adi.Active = false
-                end)
-            end
-        else
-            -- Unmute by recreating the wire
+            -- Mute by CREATING the wire (inverted logic)
             if adi and char then
                 local speechToText = char:FindFirstChild("AudioSpeechToText")
                 warn("[VC Bypasser] AudioSpeechToText found:", speechToText ~= nil)
 
                 if speechToText then
-                    warn("[VC Bypasser] Recreating wire to AudioSpeechToText")
+                    warn("[VC Bypasser] Creating wire to AudioSpeechToText (mute)")
                     pcall(function()
                         local wire = Instance.new("Wire")
                         wire.Name = "VoiceWire"
@@ -693,22 +676,30 @@ local function setupButtonClick()
                         wire.TargetInstance = speechToText
                         wire.Parent = adi
                     end)
-
-                    -- Try toggling AudioSpeechToText properties
-                    pcall(function()
-                        warn("[VC Bypasser] AudioSpeechToText Active before:", speechToText.Active)
-                        speechToText.Active = false
-                        task.wait(0.1)
-                        speechToText.Active = true
-                        warn("[VC Bypasser] AudioSpeechToText Active after:", speechToText.Active)
-                    end)
+                end
+            end
+            -- Also set Muted and Active
+            if adi then
+                pcall(function()
+                    adi.Muted = false
+                    adi.Active = true
+                end)
+            end
+        else
+            -- Unmute by DESTROYING the wire (inverted logic)
+            if adi then
+                for _, wire in ipairs(adi:GetChildren()) do
+                    if wire:IsA("Wire") then
+                        warn("[VC Bypasser] Destroying wire:", wire.Name, "(unmute)")
+                        pcall(function() wire:Destroy() end)
+                    end
                 end
             end
             -- Set Muted and Active
             if adi then
                 pcall(function()
-                    adi.Muted = false
-                    adi.Active = true
+                    adi.Muted = true
+                    adi.Active = false
                 end)
             end
         end
