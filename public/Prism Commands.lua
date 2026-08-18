@@ -436,7 +436,8 @@ PM.VCBypasser = {
     selfMuted = false,
     buttonConn = nil,
     mouseEnterConn = nil,
-    mouseLeaveConn = nil
+    mouseLeaveConn = nil,
+    sizeMonitorConn = nil
 }
 
 local function getMicPath()
@@ -608,38 +609,57 @@ local function applyUnmuteUI()
     end
 end
 
+local function setupSizeMonitor()
+    local frame2, _ = getMicPath()
+    if not frame2 then return end
+
+    local targetSize = UDim2.new(0, 140, 0, 44)
+    local RunService = game:GetService("RunService")
+
+    PM.VCBypasser.sizeMonitorConn = RunService.RenderStepped:Connect(function()
+        if not PM.VCBypasser.active then return end
+        if not frame2 or not frame2.Parent then return end
+
+        if frame2.Size.X.Offset < 140 or frame2.Size.Y.Offset < 44 then
+            pcall(function()
+                frame2.Size = targetSize
+            end)
+        end
+    end)
+end
+
 local function setupButtonClick()
     local _, frame3 = getMicPath()
     if not frame3 then return end
-    
+
     local toggleMute = frame3:FindFirstChild("toggle_mic_mute")
     if not toggleMute then return end
-    
+
     local btn = toggleMute:FindFirstChild("ClickButton")
     if not btn then return end
-    
+
     local highlighter = toggleMute:FindFirstChild("Highlighter")
-    
+
     PM.VCBypasser.buttonConn = btn.MouseButton1Click:Connect(function()
         PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
-        
+
         local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
         if adi then
             pcall(function() adi.Muted = PM.VCBypasser.selfMuted end)
         end
-        
+
         if PM.VCBypasser.selfMuted then
             applyMuteUI()
         else
             applyUnmuteUI()
         end
     end)
-    
+
     if highlighter then
         PM.VCBypasser.mouseEnterConn = btn.MouseEnter:Connect(function()
             highlighter.Visible = true
         end)
-        
+
         PM.VCBypasser.mouseLeaveConn = btn.MouseLeave:Connect(function()
             highlighter.Visible = false
         end)
@@ -649,27 +669,28 @@ end
 registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(args)
     local VoiceChatService = game:GetService("VoiceChatService")
     local VoiceChatInternal = game:GetService("VoiceChatInternal")
-    
+
     pcall(function()
         VoiceChatService:rejoinVoice()
     end)
-    
+
     task.wait(0.02)
-    
+
     pcall(function()
         for _, connection in pairs(getconnections(VoiceChatInternal.StateChanged)) do
             connection:Disable()
         end
     end)
-    
+
     PM.VCBypasser.active = true
-    
+
     -- Wait for UI to recreate
     task.wait(1)
-    
+
     -- Create the button
     createMuteButton()
     setupButtonClick()
+    setupSizeMonitor()
 end, true)
 
 
