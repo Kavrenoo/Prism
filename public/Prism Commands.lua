@@ -336,7 +336,12 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
     cleanupPrism()
     getgenv().PrismMain = nil
     -- Reload from URL
-    loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
+    local success, err = pcall(function()
+        loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
+    end)
+    if not success then
+        warn("Reload failed: " .. tostring(err))
+    end
 end, true)
 
 registerCommand("rejoin", "Rejoin current server", {}, function(args)
