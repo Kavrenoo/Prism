@@ -654,62 +654,31 @@ local function setupButtonClick()
         warn("========== VC BYPASSER CLICK ==========")
         warn("[VC Bypasser] Target mute state:", PM.VCBypasser.selfMuted)
 
+        local vci = game:GetService("VoiceChatInternal")
         local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
+
+        warn("[VC Bypasser] VoiceChatInternal found:", vci ~= nil)
         warn("[VC Bypasser] AudioDeviceInput found:", adi ~= nil)
 
-        if adi then
-            warn("[VC Bypasser] AudioDeviceInput.Name:", adi.Name)
-            warn("[VC Bypasser] AudioDeviceInput BEFORE - Muted:", adi.Muted, "Active:", adi.Active)
-            warn("[VC Bypasser] AudioDeviceInput children:", #adi:GetChildren())
-            for _, child in ipairs(adi:GetChildren()) do
-                warn("[VC Bypasser]   -", child.Name, ":", child.ClassName)
-            end
-
-            pcall(function()
-                adi.Muted = not PM.VCBypasser.selfMuted
-                adi.Active = PM.VCBypasser.selfMuted
-            end)
-
-            warn("[VC Bypasser] AudioDeviceInput AFTER - Muted:", adi.Muted, "Active:", adi.Active)
-        end
-
-        -- Check AudioEmitter
-        local char = LP.Character
-        if char then
-            local emitter = char:FindFirstChildOfClass("AudioEmitter")
-            warn("[VC Bypasser] AudioEmitter found:", emitter ~= nil)
-            if emitter then
-                warn("[VC Bypasser] AudioEmitter.Name:", emitter.Name)
-                warn("[VC Bypasser] AudioEmitter children:", #emitter:GetChildren())
-                for _, child in ipairs(emitter:GetChildren()) do
-                    warn("[VC Bypasser]   -", child.Name, ":", child.ClassName)
-                end
-            end
-        end
-
-        -- Check VoiceChatInternal
-        local vci = game:GetService("VoiceChatInternal")
-        warn("[VC Bypasser] VoiceChatInternal found:", vci ~= nil)
+        -- Use VoiceChatInternal:PublishPause to control actual mute state
         if vci then
             pcall(function()
+                vci:PublishPause(PM.VCBypasser.selfMuted)
+            end)
+            pcall(function()
                 local isPublishPaused = vci:IsPublishPaused()
-                warn("[VC Bypasser] IsPublishPaused:", isPublishPaused)
+                warn("[VC Bypasser] IsPublishPaused after PublishPause:", isPublishPaused)
             end)
         end
 
-        -- Check all wires in character
-        if char then
-            local allWires = char:GetDescendants()
-            local wireCount = 0
-            for _, obj in ipairs(allWires) do
-                if obj:IsA("Wire") then
-                    wireCount = wireCount + 1
-                    warn("[VC Bypasser] Wire found:", obj.Name, "in", obj.Parent.Name)
-                    warn("[VC Bypasser]   Source:", obj.SourceInstance and obj.SourceInstance.Name or "nil")
-                    warn("[VC Bypasser]   Target:", obj.TargetInstance and obj.TargetInstance.Name or "nil")
-                end
-            end
-            warn("[VC Bypasser] Total wires in character:", wireCount)
+        -- Also set AudioDeviceInput properties as backup
+        if adi then
+            warn("[VC Bypasser] AudioDeviceInput BEFORE - Muted:", adi.Muted, "Active:", adi.Active)
+            pcall(function()
+                adi.Muted = PM.VCBypasser.selfMuted
+                adi.Active = not PM.VCBypasser.selfMuted
+            end)
+            warn("[VC Bypasser] AudioDeviceInput AFTER - Muted:", adi.Muted, "Active:", adi.Active)
         end
 
         if PM.VCBypasser.selfMuted then
