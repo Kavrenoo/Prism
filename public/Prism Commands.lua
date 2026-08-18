@@ -167,6 +167,32 @@ local function cleanupPrism()
     _respawnLastCFrame = nil
     PM.Respawn.enabled = false
     PM.Respawn.lastCFrame = nil
+
+    -- Cleanup Invisibility
+    if PM.Invis.connection then pcall(function() PM.Invis.connection:Disconnect() end) end
+    if PM.Invis.keyConnection then pcall(function() PM.Invis.keyConnection:Disconnect() end) end
+    if PM.Invis.invisDescendantConn then pcall(function() PM.Invis.invisDescendantConn:Disconnect() end) end
+    PM.Invis.active = false
+    PM.Invis.snapshot = {}
+    
+    -- Restore camera
+    local char = LocalPlayer.Character
+    if char then
+        local hum = char:FindFirstChild("Humanoid")
+        if hum then
+            workspace.CurrentCamera.CameraSubject = hum
+        end
+    end
+    
+    -- Clean up fake character and hidden part
+    if PM.Invis.fakeCharacter and PM.Invis.fakeCharacter.Parent then
+        pcall(function() PM.Invis.fakeCharacter:Destroy() end)
+        PM.Invis.fakeCharacter = nil
+    end
+    if PM.Invis.hiddenPart and PM.Invis.hiddenPart.Parent then
+        pcall(function() PM.Invis.hiddenPart:Destroy() end)
+        PM.Invis.hiddenPart = nil
+    end
     
     -- Cleanup Anti All
     if PM.Anti then
@@ -960,95 +986,7 @@ registerCommand("unadd", "Cancel friend request or unfriend", {}, function(args)
     end)
 end, true)
 
-registerCommand("block", "Block a player", {}, function(args)
-    local targetName = args[1] or ""
-    if targetName == "" then return end
 
-    local q = targetName:lower()
-    local target = nil
-
-    for _, p in ipairs(Players:GetPlayers()) do
-        if p ~= LP then
-            if p.Name:lower() == q or p.DisplayName:lower() == q then
-                target = p
-                break
-            end
-        end
-    end
-
-    if not target then
-        for _, p in ipairs(Players:GetPlayers()) do
-            if p ~= LP then
-                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
-                    target = p
-                    break
-                end
-            end
-        end
-    end
-
-    if not target then
-        for _, p in ipairs(Players:GetPlayers()) do
-            if p ~= LP then
-                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
-                    target = p
-                    break
-                end
-            end
-        end
-    end
-
-    if not target then return end
-
-    pcall(function()
-        LP:UpdatePlayerBlocked(target.UserId, true)
-    end)
-end, true)
-
-registerCommand("unblock", "Unblock a player", {}, function(args)
-    local targetName = args[1] or ""
-    if targetName == "" then return end
-
-    local q = targetName:lower()
-    local target = nil
-
-    for _, p in ipairs(Players:GetPlayers()) do
-        if p ~= LP then
-            if p.Name:lower() == q or p.DisplayName:lower() == q then
-                target = p
-                break
-            end
-        end
-    end
-
-    if not target then
-        for _, p in ipairs(Players:GetPlayers()) do
-            if p ~= LP then
-                if p.Name:lower():sub(1, #q) == q or p.DisplayName:lower():sub(1, #q) == q then
-                    target = p
-                    break
-                end
-            end
-        end
-    end
-
-    if not target then
-        for _, p in ipairs(Players:GetPlayers()) do
-            if p ~= LP then
-                if p.Name:lower():find(q, 1, true) or p.DisplayName:lower():find(q, 1, true) then
-                    target = p
-                    break
-                end
-            end
-        end
-    end
-
-    if not target then return end
-
-    pcall(function()
-        LP:UpdatePlayerBlocked(target.UserId, false)
-    end)
-end, true)
 
 -- Hidden players state
 PM.HiddenPlayers = {}
@@ -6303,6 +6241,504 @@ registerCommand("noclip", "Noclip with keybind", {}, function(args)
         StopNC()
         if ncCaptureConn then ncCaptureConn:Disconnect(); ncCaptureConn = nil end
         if PM.Noclip.keyConnection then PM.Noclip.keyConnection:Disconnect(); PM.Noclip.keyConnection = nil end
+        ScreenGui:Destroy()
+    end)
+end)
+
+-- Invisibility state management
+PM.Invis = {
+    active = false,
+    key = nil,
+    keyConnection = nil,
+    snapshot = {},
+    fakeCharacter = nil,
+    hiddenPart = nil,
+    invisDescendantConn = nil
+}
+
+-- Load saved invisibility key
+local INVIS_SAVE_FILE = "prism/prism_invis_settings.json"
+local savedInvisSettings = {}
+pcall(function()
+    if readfile and isfile(INVIS_SAVE_FILE) then
+        savedInvisSettings = game:GetService("HttpService"):JSONDecode(readfile(INVIS_SAVE_FILE))
+    end
+end)
+if savedInvisSettings.key then
+    pcall(function()
+        PM.Invis.key = Enum.KeyCode[savedInvisSettings.key]
+    end)
+end
+
+local function SaveInvisSettings()
+    pcall(function()
+        if writefile then
+            if makefolder and not isfolder("prism") then makefolder("prism") end
+            writefile(INVIS_SAVE_FILE, game:GetService("HttpService"):JSONEncode({
+                key = PM.Invis.key and PM.Invis.key.Name or nil
+            }))
+        end
+    end)
+end
+
+registerCommand("invis", "Invisibility with keybind", {}, function(args)
+    local Players = game:GetService("Players")
+    local TweenService = game:GetService("TweenService")
+    local UserInputService = game:GetService("UserInputService")
+    local RunService = game:GetService("RunService")
+    local CoreGui = game:GetService("CoreGui")
+    local LocalPlayer = Players.LocalPlayer
+
+    local function guiExists(guiName)
+        if CoreGui:FindFirstChild(guiName) then return true end
+        if LP:FindFirstChild("PlayerGui") and LP.PlayerGui:FindFirstChild(guiName) then return true end
+        if get_hidden_gui or gethui then
+            if (get_hidden_gui or gethui)():FindFirstChild(guiName) then return true end
+        end
+        return false
+    end
+    if guiExists("Prism_InvisGUI") then return end
+
+    local ScreenGui = Instance.new("ScreenGui")
+    ScreenGui.Name = "Prism_InvisGUI"
+    ScreenGui.ResetOnSpawn = false
+    ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui.DisplayOrder = 999
+
+    if syn and syn.protect_gui then
+        syn.protect_gui(ScreenGui)
+        ScreenGui.Parent = CoreGui
+    elseif gethui then
+        ScreenGui.Parent = gethui()
+    else
+        ScreenGui.Parent = CoreGui
+    end
+
+    -- Load saved GUI settings
+    local INVIS_GUI_FILE = "prism/prism_invis_gui_settings.json"
+    local savedInvisGUI = {}
+    pcall(function()
+        if readfile and isfile(INVIS_GUI_FILE) then
+            savedInvisGUI = game:GetService("HttpService"):JSONDecode(readfile(INVIS_GUI_FILE))
+        end
+    end)
+    local savedPos = savedInvisGUI.position or {X = {Scale = 0, Offset = 500}, Y = {Scale = 0, Offset = 500}}
+    local savedMinimized = savedInvisGUI.minimized or false
+
+    local currentInvisSettings = {
+        position = savedPos,
+        minimized = savedMinimized
+    }
+
+    local function SaveInvisGUISettings()
+        pcall(function()
+            if writefile then
+                if makefolder and not isfolder("prism") then makefolder("prism") end
+                writefile(INVIS_GUI_FILE, game:GetService("HttpService"):JSONEncode(currentInvisSettings))
+            end
+        end)
+    end
+
+    local MW, MH = 220, 88
+
+    local tweenInfo = TweenInfo.new(0.15, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+
+    local MainFrame = Instance.new("Frame")
+    MainFrame.Name = "MainFrame"
+    MainFrame.Size = UDim2.new(0, MW, 0, MH)
+    MainFrame.Position = UDim2.new(savedPos.X.Scale, savedPos.X.Offset, savedPos.Y.Scale, savedPos.Y.Offset)
+    MainFrame.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
+    MainFrame.BackgroundTransparency = 0.3
+    MainFrame.BorderSizePixel = 0
+    MainFrame.ClipsDescendants = true
+    MainFrame.Parent = ScreenGui
+
+    local MainCorner = Instance.new("UICorner")
+    MainCorner.CornerRadius = UDim.new(0, 14)
+    MainCorner.Parent = MainFrame
+
+    local MainStroke = Instance.new("UIStroke")
+    MainStroke.Color = Color3.fromRGB(60, 60, 60)
+    MainStroke.Thickness = 1
+    MainStroke.Parent = MainFrame
+
+    local TitleBar = Instance.new("Frame")
+    TitleBar.Name = "TitleBar"
+    TitleBar.Size = UDim2.new(1, 0, 0, 36)
+    TitleBar.BackgroundTransparency = 1
+    TitleBar.Parent = MainFrame
+
+    local dragging = false
+    local dragStart = nil
+    local startPos = nil
+
+    TitleBar.InputBegan:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = true
+            dragStart = input.Position
+            startPos = MainFrame.Position
+        end
+    end)
+
+    TitleBar.InputEnded:Connect(function(input)
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+            dragging = false
+            currentInvisSettings.position = {
+                X = {Scale = MainFrame.Position.X.Scale, Offset = MainFrame.Position.X.Offset},
+                Y = {Scale = MainFrame.Position.Y.Scale, Offset = MainFrame.Position.Y.Offset}
+            }
+            SaveInvisGUISettings()
+        end
+    end)
+
+    UserInputService.InputChanged:Connect(function(input)
+        if dragging and (input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch) then
+            local delta = input.Position - dragStart
+            MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+        end
+    end)
+
+    local TitleLabel = Instance.new("TextLabel")
+    TitleLabel.Size = UDim2.new(1, -80, 1, 0)
+    TitleLabel.Position = UDim2.new(0, 14, 0, 0)
+    TitleLabel.BackgroundTransparency = 1
+    TitleLabel.Text = "Prism  •  Invis"
+    TitleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+    TitleLabel.TextSize = 13
+    TitleLabel.Font = Enum.Font.GothamBold
+    TitleLabel.TextXAlignment = Enum.TextXAlignment.Left
+    TitleLabel.Parent = TitleBar
+
+    local MinBtn = Instance.new("TextButton")
+    MinBtn.Size = UDim2.new(0, 24, 0, 24)
+    MinBtn.Position = UDim2.new(1, -52, 0.5, -12)
+    MinBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    MinBtn.BackgroundTransparency = 0.4
+    MinBtn.BorderSizePixel = 0
+    MinBtn.Text = "—"
+    MinBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+    MinBtn.TextSize = 11
+    MinBtn.Font = Enum.Font.GothamBold
+    MinBtn.Parent = TitleBar
+
+    local MinCorner = Instance.new("UICorner")
+    MinCorner.CornerRadius = UDim.new(0, 6)
+    MinCorner.Parent = MinBtn
+
+    local CloseBtn = Instance.new("TextButton")
+    CloseBtn.Size = UDim2.new(0, 24, 0, 24)
+    CloseBtn.Position = UDim2.new(1, -26, 0.5, -12)
+    CloseBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    CloseBtn.BackgroundTransparency = 0.4
+    CloseBtn.BorderSizePixel = 0
+    CloseBtn.Text = "X"
+    CloseBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+    CloseBtn.TextSize = 11
+    CloseBtn.Font = Enum.Font.GothamBold
+    CloseBtn.Parent = TitleBar
+
+    local CloseCorner = Instance.new("UICorner")
+    CloseCorner.CornerRadius = UDim.new(0, 6)
+    CloseCorner.Parent = CloseBtn
+
+    local ContentFrame = Instance.new("Frame")
+    ContentFrame.Name = "Content"
+    ContentFrame.Size = UDim2.new(1, 0, 1, -40)
+    ContentFrame.Position = UDim2.new(0, 0, 0, 40)
+    ContentFrame.BackgroundTransparency = 1
+    ContentFrame.ClipsDescendants = true
+    ContentFrame.Parent = MainFrame
+
+    local Padding = Instance.new("UIPadding")
+    Padding.PaddingTop = UDim.new(0, 4)
+    Padding.PaddingBottom = UDim.new(0, 4)
+    Padding.PaddingLeft = UDim.new(0, 8)
+    Padding.PaddingRight = UDim.new(0, 8)
+    Padding.Parent = ContentFrame
+
+    local isMinimized = savedMinimized
+    local minimizedSize = UDim2.new(0, MW, 0, 36)
+    MinBtn.MouseButton1Click:Connect(function()
+        isMinimized = not isMinimized
+        currentInvisSettings.minimized = isMinimized
+        SaveInvisGUISettings()
+        if isMinimized then
+            MinBtn.Text = "+"
+            TweenService:Create(MainFrame, tweenInfo, {Size = minimizedSize}):Play()
+            ContentFrame.Visible = false
+        else
+            MinBtn.Text = "—"
+            ContentFrame.Visible = true
+            TweenService:Create(MainFrame, tweenInfo, {Size = UDim2.new(0, MW, 0, MH)}):Play()
+        end
+    end)
+
+    if isMinimized then
+        MinBtn.Text = "+"
+        MainFrame.Size = minimizedSize
+        ContentFrame.Visible = false
+    end
+
+    -- Invisibility logic
+    local invisOn = false
+    local invisKey = PM.Invis.key
+    local invisCapturing = false
+    local invisCaptureConn = nil
+    local invisKeyConn = nil
+    local invisDescendantConn = nil
+
+    -- Action Buttons
+    local BtnSection = Instance.new("Frame")
+    BtnSection.Name = "BtnSection"
+    BtnSection.Size = UDim2.new(1, 0, 0, 36)
+    BtnSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+    BtnSection.BackgroundTransparency = 0.4
+    BtnSection.BorderSizePixel = 0
+    BtnSection.Parent = ContentFrame
+
+    local BtnSectionCorner = Instance.new("UICorner")
+    BtnSectionCorner.CornerRadius = UDim.new(0, 10)
+    BtnSectionCorner.Parent = BtnSection
+
+    local InvisBtn = Instance.new("TextButton")
+    InvisBtn.Name = "InvisBtn"
+    InvisBtn.Size = UDim2.new(0, 130, 0, 24)
+    InvisBtn.Position = UDim2.new(0, 6, 0.5, -12)
+    InvisBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    InvisBtn.BackgroundTransparency = 0.4
+    InvisBtn.BorderSizePixel = 0
+    InvisBtn.Text = "Invis"
+    InvisBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+    InvisBtn.TextSize = 11
+    InvisBtn.Font = Enum.Font.GothamBold
+    InvisBtn.Parent = BtnSection
+
+    local InvisBtnCorner = Instance.new("UICorner")
+    InvisBtnCorner.CornerRadius = UDim.new(0, 6)
+    InvisBtnCorner.Parent = InvisBtn
+
+    local BindBtn = Instance.new("TextButton")
+    BindBtn.Name = "BindBtn"
+    BindBtn.Size = UDim2.new(0, 52, 0, 24)
+    BindBtn.Position = UDim2.new(1, -58, 0.5, -12)
+    BindBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+    BindBtn.BackgroundTransparency = 0.4
+    BindBtn.BorderSizePixel = 0
+    BindBtn.Text = "Bind"
+    BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+    BindBtn.TextSize = 11
+    BindBtn.Font = Enum.Font.GothamBold
+    BindBtn.Parent = BtnSection
+
+    local BindBtnCorner = Instance.new("UICorner")
+    BindBtnCorner.CornerRadius = UDim.new(0, 6)
+    BindBtnCorner.Parent = BindBtn
+
+    -- Hover effects
+    InvisBtn.MouseEnter:Connect(function()
+        TweenService:Create(InvisBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
+    end)
+    InvisBtn.MouseLeave:Connect(function()
+        TweenService:Create(InvisBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+    end)
+
+    BindBtn.MouseEnter:Connect(function()
+        TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 55, 55)}):Play()
+    end)
+    BindBtn.MouseLeave:Connect(function()
+        TweenService:Create(BindBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
+    end)
+
+    -- Load saved key
+    local function UpdateBindDisplay()
+        if invisKey then
+            BindBtn.Text = invisKey.Name
+        else
+            BindBtn.Text = "Bind"
+        end
+    end
+    UpdateBindDisplay()
+
+    local function SaveInvisKey()
+        PM.Invis.key = invisKey
+        SaveInvisSettings()
+    end
+
+    local function CancelCapture()
+        invisCapturing = false
+        invisKey = nil
+        if invisCaptureConn then invisCaptureConn:Disconnect(); invisCaptureConn = nil end
+        UpdateBindDisplay()
+        SaveInvisKey()
+    end
+
+    local function EnableGlobalInvis()
+        if PM.Invis.keyConnection then return end
+        PM.Invis.keyConnection = UserInputService.InputBegan:Connect(function(input, gpe)
+            if gpe or invisCapturing then return end
+            if UserInputService:GetFocusedTextBox() then return end
+            if input.UserInputType == Enum.UserInputType.Keyboard and invisKey and input.KeyCode == invisKey then
+                SetInvis(not invisOn)
+            end
+        end)
+    end
+
+    BindBtn.MouseButton1Click:Connect(function()
+        invisCapturing = true
+        if PM.Invis.keyConnection then PM.Invis.keyConnection:Disconnect(); PM.Invis.keyConnection = nil end
+        BindBtn.Text = "..."
+        BindBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
+
+        if invisCaptureConn then invisCaptureConn:Disconnect() end
+        invisCaptureConn = UserInputService.InputBegan:Connect(function(input, gpe)
+            if gpe then return end
+            if not invisCapturing then return end
+            if input.UserInputType == Enum.UserInputType.Keyboard then
+                invisKey = input.KeyCode
+                invisCapturing = false
+                invisCaptureConn:Disconnect(); invisCaptureConn = nil
+                UpdateBindDisplay()
+                SaveInvisKey()
+                EnableGlobalInvis()
+            elseif input.UserInputType == Enum.UserInputType.MouseButton1 or
+                   input.UserInputType == Enum.UserInputType.MouseButton2 or
+                   input.UserInputType == Enum.UserInputType.MouseButton3 then
+                CancelCapture()
+            end
+        end)
+    end)
+
+    local function ApplyInvis(char)
+        if not char then return end
+        
+        -- Create hidden part in void
+        PM.Invis.hiddenPart = Instance.new("Part")
+        PM.Invis.hiddenPart.Name = "PrismInvisHider"
+        PM.Invis.hiddenPart.Anchored = true
+        PM.Invis.hiddenPart.Size = Vector3.new(5, 1, 5)
+        PM.Invis.hiddenPart.CFrame = CFrame.new(9999, 9999, 9999)
+        PM.Invis.hiddenPart.CanCollide = false
+        PM.Invis.hiddenPart.Transparency = 1
+        PM.Invis.hiddenPart.Parent = workspace
+        
+        -- Clone character for fake visible version
+        char.Archivable = true
+        PM.Invis.fakeCharacter = char:Clone()
+        
+        -- Disable scripts in fake character
+        for _, v in ipairs(PM.Invis.fakeCharacter:GetDescendants()) do
+            if v:IsA("LocalScript") then
+                v:Destroy()
+            end
+        end
+        
+        -- Set fake character at current position
+        PM.Invis.fakeCharacter.Parent = workspace
+        PM.Invis.fakeCharacter.HumanoidRootPart.CFrame = char.HumanoidRootPart.CFrame
+        
+        -- Teleport real character to void
+        char.HumanoidRootPart.CFrame = PM.Invis.hiddenPart.CFrame * CFrame.new(0, 5, 0)
+        
+        -- Set camera to fake character
+        workspace.CurrentCamera.CameraSubject = PM.Invis.fakeCharacter.Humanoid
+        
+        -- Hook for new parts/accessories added while invisible
+        if PM.Invis.invisDescendantConn then PM.Invis.invisDescendantConn:Disconnect() end
+        PM.Invis.invisDescendantConn = char.DescendantAdded:Connect(function(part)
+            if invisOn and part:IsA("Accessory") then
+                -- Clone accessory to fake character
+                local fakeParent = PM.Invis.fakeCharacter:FindFirstChild(part.Parent.Name)
+                if fakeParent then
+                    local fakeAccessory = part:Clone()
+                    fakeAccessory.Parent = fakeParent
+                end
+            end
+        end)
+    end
+
+    local function RemoveInvis(char)
+        if not char then return end
+        
+        -- Restore camera to real character
+        workspace.CurrentCamera.CameraSubject = char.Humanoid
+        
+        -- Teleport real character back to fake character position
+        if PM.Invis.fakeCharacter and PM.Invis.fakeCharacter.Parent then
+            char.HumanoidRootPart.CFrame = PM.Invis.fakeCharacter.HumanoidRootPart.CFrame
+            PM.Invis.fakeCharacter:Destroy()
+            PM.Invis.fakeCharacter = nil
+        end
+        
+        -- Remove hidden part
+        if PM.Invis.hiddenPart and PM.Invis.hiddenPart.Parent then
+            PM.Invis.hiddenPart:Destroy()
+            PM.Invis.hiddenPart = nil
+        end
+        
+        -- Disconnect descendant hook
+        if PM.Invis.invisDescendantConn then
+            PM.Invis.invisDescendantConn:Disconnect()
+            PM.Invis.invisDescendantConn = nil
+        end
+    end
+
+    local function StartInvis()
+        local char = LocalPlayer.Character
+        if char then
+            ApplyInvis(char)
+        end
+        PM.Invis.connection = LocalPlayer.CharacterAdded:Connect(function(newChar)
+            if invisOn then
+                task.wait(0.5)
+                ApplyInvis(newChar)
+            end
+        end)
+    end
+
+    local function StopInvis()
+        if PM.Invis.connection then PM.Invis.connection:Disconnect(); PM.Invis.connection = nil end
+        local char = LocalPlayer.Character
+        if char then
+            RemoveInvis(char)
+        end
+    end
+
+    local function SetInvis(val)
+        if val == invisOn then return end
+        invisOn = val
+        if val then
+            InvisBtn.Text = "Visible"
+            StartInvis()
+        else
+            InvisBtn.Text = "Invis"
+            StopInvis()
+        end
+        PM.Invis.active = invisOn
+    end
+
+    InvisBtn.MouseButton1Click:Connect(function()
+        SetInvis(not invisOn)
+    end)
+
+    EnableGlobalInvis()
+
+    CloseBtn.MouseButton1Click:Connect(function()
+        invisCapturing = false
+        StopInvis()
+        if invisCaptureConn then invisCaptureConn:Disconnect(); invisCaptureConn = nil end
+        if PM.Invis.invisDescendantConn then PM.Invis.invisDescendantConn:Disconnect(); PM.Invis.invisDescendantConn = nil end
+        if PM.Invis.keyConnection then PM.Invis.keyConnection:Disconnect(); PM.Invis.keyConnection = nil end
+        
+        -- Clean up fake character and hidden part
+        if PM.Invis.fakeCharacter and PM.Invis.fakeCharacter.Parent then
+            pcall(function() PM.Invis.fakeCharacter:Destroy() end)
+            PM.Invis.fakeCharacter = nil
+        end
+        if PM.Invis.hiddenPart and PM.Invis.hiddenPart.Parent then
+            pcall(function() PM.Invis.hiddenPart:Destroy() end)
+            PM.Invis.hiddenPart = nil
+        end
+        
         ScreenGui:Destroy()
     end)
 end)
