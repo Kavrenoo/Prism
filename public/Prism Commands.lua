@@ -292,21 +292,47 @@ local function cleanupPrism()
             humanoid.WalkSpeed = defaultWS
         end
     end
-    -- Cleanup all GUIs by name pattern
-    for _, obj in ipairs(game:GetService("CoreGui"):GetDescendants()) do
+    -- Cleanup all GUIs by name pattern (CoreGui)
+    for _, obj in ipairs(game:GetService("CoreGui"):GetChildren()) do
         if obj.Name:find("Prism") and obj:IsA("ScreenGui") then
             pcall(function() obj:Destroy() end)
         end
     end
-    for _, obj in ipairs(LP.PlayerGui:GetDescendants()) do
+    -- Cleanup all GUIs by name pattern (PlayerGui)
+    for _, obj in ipairs(LP.PlayerGui:GetChildren()) do
         if obj.Name:find("Prism") and obj:IsA("ScreenGui") then
             pcall(function() obj:Destroy() end)
+        end
+    end
+    -- Cleanup hidden GUIs (gethui)
+    if gethui then
+        local hiddenGui = gethui()
+        if hiddenGui then
+            for _, obj in ipairs(hiddenGui:GetChildren()) do
+                if obj.Name:find("Prism") and obj:IsA("ScreenGui") then
+                    pcall(function() obj:Destroy() end)
+                end
+            end
         end
     end
     -- Cleanup workspace objects
-    for _, obj in ipairs(workspace:GetDescendants()) do
+    for _, obj in ipairs(workspace:GetChildren()) do
         if obj.Name:find("Prism") then
             pcall(function() obj:Destroy() end)
+        end
+    end
+    -- Cleanup Backpack tools
+    for _, obj in ipairs(LP.Backpack:GetChildren()) do
+        if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" then
+            pcall(function() obj:Destroy() end)
+        end
+    end
+    -- Cleanup Character tools
+    if LP.Character then
+        for _, obj in ipairs(LP.Character:GetChildren()) do
+            if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" then
+                pcall(function() obj:Destroy() end)
+            end
         end
     end
 end
@@ -336,6 +362,7 @@ registerCommand("reload", "Reload Prism script", {}, function(args)
     cleanupPrism()
     getgenv().PrismMain = nil
     -- Reload from URL
+    task.wait(0.1)
     local success, err = pcall(function()
         loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
     end)
