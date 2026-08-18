@@ -655,8 +655,8 @@ local function setupButtonClick()
 
         if adi then
             pcall(function()
-                adi.Muted = PM.VCBypasser.selfMuted
-                adi.Active = not PM.VCBypasser.selfMuted
+                adi.Muted = not PM.VCBypasser.selfMuted
+                adi.Active = PM.VCBypasser.selfMuted
             end)
         end
 
