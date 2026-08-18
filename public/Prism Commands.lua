@@ -652,12 +652,39 @@ local function setupButtonClick()
         PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
 
         local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
+        local VoiceChatInternal = game:GetService("VoiceChatInternal")
 
-        if adi then
+        if PM.VCBypasser.selfMuted then
+            -- Muting - set properties directly
+            if adi then
+                pcall(function()
+                    adi.Muted = false
+                    adi.Active = true
+                end)
+            end
+        else
+            -- Unmuting - temporarily re-enable StateChanged to let it propagate
+            local connections = {}
             pcall(function()
-                adi.Muted = not PM.VCBypasser.selfMuted
-                adi.Active = PM.VCBypasser.selfMuted
+                for _, conn in pairs(getconnections(VoiceChatInternal.StateChanged)) do
+                    table.insert(connections, conn)
+                    conn:Enable()
+                end
             end)
+
+            if adi then
+                pcall(function()
+                    adi.Muted = true
+                    adi.Active = false
+                end)
+            end
+
+            task.wait()
+
+            -- Re-disable StateChanged
+            for _, conn in ipairs(connections) do
+                pcall(function() conn:Disable() end)
+            end
         end
 
         if PM.VCBypasser.selfMuted then
