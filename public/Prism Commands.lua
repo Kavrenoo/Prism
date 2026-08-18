@@ -101,8 +101,6 @@ end
 -- ========== BUILT-IN COMMANDS ==========
 
 local function cleanupPrism()
-    print("[Prism] Starting cleanup...")
-    
     -- Clean up Main GUI (from Prism Main.lua)
     if PM.UI and PM.UI.Gui then
         pcall(function() PM.UI.Gui:Destroy() end)
@@ -290,9 +288,6 @@ local function cleanupPrism()
         end
     end
     
-    -- Now destroy all GUIs and objects
-    print("[Prism] Destroying GUIs and objects...")
-    
     -- Cleanup CoreGui GUIs
     local CoreGui = game:GetService("CoreGui")
     for _, obj in ipairs(CoreGui:GetChildren()) do
@@ -342,8 +337,6 @@ local function cleanupPrism()
             end
         end
     end
-    
-    print("[Prism] Cleanup complete.")
 end
 
 local function FindPrismGUI(name)
@@ -368,39 +361,10 @@ registerCommand("destroy", "Destroy Prism", {}, function(args)
 end, true)
 
 registerCommand("reload", "Reload Prism script", {}, function(args)
-    print("[Prism] Reload command called")
-    
-    print("[Prism] Running cleanup...")
     cleanupPrism()
-    
-    print("[Prism] Clearing getgenv().PrismMain...")
     getgenv().PrismMain = nil
-    
-    print("[Prism] Waiting 0.5s before reload...")
     task.wait(0.5)
-    
-    print("[Prism] Fetching script from URL...")
-    local success, result = pcall(function()
-        return game:HttpGet("https://prismscript.vercel.app/Prism.lua")
-    end)
-    
-    if not success then
-        warn("[Prism] Failed to fetch script: " .. tostring(result))
-        return
-    end
-    
-    print("[Prism] Script fetched, length: " .. #result)
-    print("[Prism] Loading script...")
-    
-    local loadSuccess, loadErr = pcall(function()
-        loadstring(result)()
-    end)
-    
-    if not loadSuccess then
-        warn("[Prism] Failed to load script: " .. tostring(loadErr))
-    else
-        print("[Prism] Reload successful!")
-    end
+    loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()
 end, true)
 
 registerCommand("rejoin", "Rejoin current server", {}, function(args)
