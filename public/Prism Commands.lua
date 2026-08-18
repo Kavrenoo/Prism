@@ -24,7 +24,6 @@
     nametags
     join other prism users
     respawn last location
-    vcbypasser
 
 ]]
 -- Wait for PrismMain to be initialized by Main.lua
@@ -252,26 +251,6 @@ local function cleanupPrism()
         if char and char:FindFirstChild("Humanoid") then
             camera.CameraSubject = char.Humanoid
         end
-    end
-    
-    -- Cleanup VCBypasser
-    if PM.VCBypasser then
-        PM.VCBypasser.active = false
-        PM.VCBypasser.selfMuted = false
-        if PM.VCBypasser.buttonConn then
-            pcall(function() PM.VCBypasser.buttonConn:Disconnect() end)
-            PM.VCBypasser.buttonConn = nil
-        end
-        if PM.VCBypasser.mouseEnterConn then
-            pcall(function() PM.VCBypasser.mouseEnterConn:Disconnect() end)
-            PM.VCBypasser.mouseEnterConn = nil
-        end
-        if PM.VCBypasser.mouseLeaveConn then
-            pcall(function() PM.VCBypasser.mouseLeaveConn:Disconnect() end)
-            PM.VCBypasser.mouseLeaveConn = nil
-        end
-        local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
-        if adi then pcall(function() adi.Muted = false end) end
     end
     
     -- Clear state objects
@@ -676,7 +655,7 @@ registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(arg
         VoiceChatService:rejoinVoice()
     end)
     
-    task.wait(1)
+    task.wait(0.02)
     
     pcall(function()
         for _, connection in pairs(getconnections(VoiceChatInternal.StateChanged)) do
@@ -6111,7 +6090,7 @@ registerCommand("noclip", "Noclip with keybind", {}, function(args)
     NCBtn.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
     NCBtn.BackgroundTransparency = 0.4
     NCBtn.BorderSizePixel = 0
-    NCBtn.Text = "Enable"
+    NCBtn.Text = "Noclip"
     NCBtn.TextColor3 = Color3.fromRGB(200, 200, 200)
     NCBtn.TextSize = 11
     NCBtn.Font = Enum.Font.GothamBold
@@ -6258,11 +6237,11 @@ registerCommand("noclip", "Noclip with keybind", {}, function(args)
         if val == ncOn then return end
         ncOn = val
         if val then
-            NCBtn.Text = "Disable"
+            NCBtn.Text = "Stop"
             TweenService:Create(NCBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(55, 100, 55)}):Play()
             StartNC()
         else
-            NCBtn.Text = "Enable"
+            NCBtn.Text = "Noclip"
             TweenService:Create(NCBtn, TweenInfo.new(0.1), {BackgroundColor3 = Color3.fromRGB(30, 30, 30)}):Play()
             StopNC()
         end
@@ -7769,7 +7748,7 @@ registerCommand("fly", "Fly around", {}, function(args)
                 savedFlyGUI = HttpService:JSONDecode(readfile(FLY_GUI_FILE))
             end
         end)
-        local savedPos = savedFlyGUI.position or {X = {Scale = 0, Offset = 900}, Y = {Scale = 0, Offset = 496}}
+        local savedPos = savedFlyGUI.position or {X = {Scale = 0, Offset = 900}, Y = {Scale = 0, Offset = 532}}
         local savedMinimized = savedFlyGUI.minimized or false
 
         local currentFlySettings = {
@@ -7779,7 +7758,9 @@ registerCommand("fly", "Fly around", {}, function(args)
         
         -- Adjust saved height if it's the old size
         if savedPos and savedPos.Y and savedPos.Y.Offset == 460 then
-            savedPos.Y.Offset = 496  -- 460 + 36 for new QE section
+            savedPos.Y.Offset = 532  -- 460 + 72 for increased height
+        elseif savedPos and savedPos.Y and savedPos.Y.Offset == 496 then
+            savedPos.Y.Offset = 532  -- 496 + 36 for further increase
         end
 
         local function SaveFlyGUISettings()
@@ -7800,7 +7781,7 @@ registerCommand("fly", "Fly around", {}, function(args)
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
         if not ok then ScreenGui.Parent = LocalPlayer.PlayerGui end
 
-        local MW, MH = 220, 184
+        local MW, MH = 220, 220
 
         local MainFrame = Instance.new("Frame")
         MainFrame.Name = "MainFrame"
