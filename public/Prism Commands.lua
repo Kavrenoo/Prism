@@ -660,47 +660,40 @@ local function setupButtonClick()
         warn("[VC Bypasser] AudioDeviceInput found:", adi ~= nil)
         warn("[VC Bypasser] Character found:", char ~= nil)
 
-        -- Try manipulating AudioDeviceOutput volume instead
-        local SoundService = game:GetService("SoundService")
-        local ado = SoundService:FindFirstChildOfClass("AudioDeviceOutput")
+        -- Try manipulating AudioSpeechToText properties
+        if char then
+            local speechToText = char:FindFirstChild("AudioSpeechToText")
+            warn("[VC Bypasser] AudioSpeechToText found:", speechToText ~= nil)
 
-        warn("[VC Bypasser] AudioDeviceOutput found:", ado ~= nil)
+            if speechToText then
+                if PM.VCBypasser.selfMuted then
+                    -- Mute by disabling AudioSpeechToText
+                    pcall(function()
+                        speechToText.Active = false
+                    end)
+                    warn("[VC Bypasser] Set AudioSpeechToText.Active = false")
+                else
+                    -- Unmute by enabling AudioSpeechToText
+                    pcall(function()
+                        speechToText.Active = true
+                    end)
+                    warn("[VC Bypasser] Set AudioSpeechToText.Active = true")
+                end
+            end
+        end
 
-        if PM.VCBypasser.selfMuted then
-            -- Mute by setting AudioDeviceInput properties
-            if adi then
+        -- Also set AudioDeviceInput properties as backup
+        if adi then
+            if PM.VCBypasser.selfMuted then
                 pcall(function()
                     adi.Muted = true
                     adi.Active = false
                 end)
-                warn("[VC Bypasser] Set AudioDeviceInput - Muted: true, Active: false")
-            end
-
-            -- Also try AudioDeviceOutput volume
-            if ado then
-                PM.VCBypasser.savedVolume = ado.Volume
-                pcall(function()
-                    ado.Volume = 0
-                end)
-                warn("[VC Bypasser] Set AudioDeviceOutput Volume to 0")
-            end
-        else
-            -- Unmute by restoring AudioDeviceInput properties
-            if adi then
+            else
                 pcall(function()
                     adi.Muted = false
                     adi.Active = true
                 end)
-                warn("[VC Bypasser] Set AudioDeviceInput - Muted: false, Active: true")
-            end
-
-            -- Restore AudioDeviceOutput volume
-            if ado then
-                local savedVol = PM.VCBypasser.savedVolume or 1
-                pcall(function()
-                    ado.Volume = savedVol
-                end)
-                warn("[VC Bypasser] Restored AudioDeviceOutput Volume to:", savedVol)
             end
         end
 
