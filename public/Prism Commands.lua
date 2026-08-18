@@ -660,32 +660,15 @@ local function setupButtonClick()
         warn("[VC Bypasser] AudioDeviceInput found:", adi ~= nil)
         warn("[VC Bypasser] Character found:", char ~= nil)
 
-        if char then
-            warn("[VC Bypasser] Character children:")
-            for _, child in ipairs(char:GetChildren()) do
-                warn("[VC Bypasser]   -", child.Name, ":", child.ClassName)
-            end
-        end
-
         -- Find and manipulate the wire to AudioSpeechToText
         if PM.VCBypasser.selfMuted then
             -- Mute by destroying the wire
             if adi then
-                warn("[VC Bypasser] AudioDeviceInput children before:")
-                for _, child in ipairs(adi:GetChildren()) do
-                    warn("[VC Bypasser]   -", child.Name, ":", child.ClassName)
-                end
-
                 for _, wire in ipairs(adi:GetChildren()) do
                     if wire:IsA("Wire") then
                         warn("[VC Bypasser] Destroying wire:", wire.Name)
                         pcall(function() wire:Destroy() end)
                     end
-                end
-
-                warn("[VC Bypasser] AudioDeviceInput children after:")
-                for _, child in ipairs(adi:GetChildren()) do
-                    warn("[VC Bypasser]   -", child.Name, ":", child.ClassName)
                 end
             end
             -- Also set Muted and Active
@@ -709,19 +692,16 @@ local function setupButtonClick()
                         wire.SourceInstance = adi
                         wire.TargetInstance = speechToText
                         wire.Parent = adi
-                        warn("[VC Bypasser] Wire created successfully")
                     end)
 
-                    warn("[VC Bypasser] AudioDeviceInput children after wire creation:")
-                    for _, child in ipairs(adi:GetChildren()) do
-                        warn("[VC Bypasser]   -", child.Name, ":", child.ClassName)
-                        if child:IsA("Wire") then
-                            warn("[VC Bypasser]     Source:", child.SourceInstance and child.SourceInstance.Name or "nil")
-                            warn("[VC Bypasser]     Target:", child.TargetInstance and child.TargetInstance.Name or "nil")
-                        end
-                    end
-                else
-                    warn("[VC Bypasser] ERROR: AudioSpeechToText not found in character")
+                    -- Try toggling AudioSpeechToText properties
+                    pcall(function()
+                        warn("[VC Bypasser] AudioSpeechToText Active before:", speechToText.Active)
+                        speechToText.Active = false
+                        task.wait(0.1)
+                        speechToText.Active = true
+                        warn("[VC Bypasser] AudioSpeechToText Active after:", speechToText.Active)
+                    end)
                 end
             end
             -- Set Muted and Active
