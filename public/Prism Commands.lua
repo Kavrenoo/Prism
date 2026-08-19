@@ -2106,7 +2106,7 @@ registerCommand("walkonair", "Walk on invisible platform with height control", {
 
         local function SetWOA(val, save)
             PM.WOA.enabled = val
-            ToggleLabel.Text = val and "Disable" or "Enable"
+            ToggleLabel.Text = "Walk On Air"
             if val then
                 TweenService:Create(Pill, TweenInfo.new(0.15), {BackgroundColor3 = Color3.fromRGB(80, 80, 80)}):Play()
                 TweenService:Create(Knob, TweenInfo.new(0.15), {Position = UDim2.new(1, -19, 0.5, -8)}):Play()
