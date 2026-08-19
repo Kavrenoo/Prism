@@ -125,7 +125,8 @@ local function cleanupPrism()
     local topLevelConns = {
         "HideAllPlayerAddedConn",
         "MuteAllPlayerAddedConn",
-        "JerkRespawnConn"
+        "JerkRespawnConn",
+        "HitlerSaluteRespawnConn"
     }
     for _, connName in ipairs(topLevelConns) do
         if PM[connName] then
@@ -161,6 +162,7 @@ local function cleanupPrism()
     
     -- Clear state flags
     PM.JerkActive = false
+    PM.HitlerSaluteActive = false
     
     -- Cleanup Teleport Tool
     if PM.TpToolConn then pcall(function() PM.TpToolConn:Disconnect() end); PM.TpToolConn = nil end
@@ -173,6 +175,13 @@ local function cleanupPrism()
     if jerk then pcall(function() jerk:Destroy() end) end
     local charJerk = LP.Character and LP.Character:FindFirstChild("Jerk")
     if charJerk then pcall(function() charJerk:Destroy() end) end
+
+    -- Cleanup Hitler Salute Tool
+    if PM.HitlerSaluteRespawnConn then pcall(function() PM.HitlerSaluteRespawnConn:Disconnect() end); PM.HitlerSaluteRespawnConn = nil end
+    local salute = LP.Backpack:FindFirstChild("HitlerSalute")
+    if salute then pcall(function() salute:Destroy() end) end
+    local charSalute = LP.Character and LP.Character:FindFirstChild("HitlerSalute")
+    if charSalute then pcall(function() charSalute:Destroy() end) end
     
     -- Cleanup Walk On Air
     if PM.WOA then
@@ -332,15 +341,15 @@ local function cleanupPrism()
     
     -- Cleanup Backpack tools
     for _, obj in ipairs(LP.Backpack:GetChildren()) do
-        if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" then
+        if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" or obj.Name == "HitlerSalute" then
             pcall(function() obj:Destroy() end)
         end
     end
-    
+
     -- Cleanup Character tools
     if LP.Character then
         for _, obj in ipairs(LP.Character:GetChildren()) do
-            if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" then
+            if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" or obj.Name == "HitlerSalute" then
                 pcall(function() obj:Destroy() end)
             end
         end
@@ -467,7 +476,8 @@ PM.VCBypasser = {
     buttonConn = nil,
     mouseEnterConn = nil,
     mouseLeaveConn = nil,
-    sizeMonitorConn = nil
+    sizeMonitorConn = nil,
+    propertySignalConn = nil
 }
 
 local function getMicPath()
@@ -669,6 +679,29 @@ local function setupButtonClick()
     if not btn then return end
 
     local highlighter = toggleMute:FindFirstChild("Highlighter")
+
+    -- Read initial mic state (from env.lua)
+    task.spawn(function()
+        task.wait(0.5)
+        local adi = getPlayerAudioInput(LP)
+        if adi then
+            PM.VCBypasser.selfMuted = adi.Muted
+            if PM.VCBypasser.selfMuted then
+                applyMuteUI()
+            else
+                applyUnmuteUI()
+            end
+            -- Listen for external changes (from env.lua)
+            PM.VCBypasser.propertySignalConn = adi:GetPropertyChangedSignal("Muted"):Connect(function()
+                PM.VCBypasser.selfMuted = adi.Muted
+                if PM.VCBypasser.selfMuted then
+                    applyMuteUI()
+                else
+                    applyUnmuteUI()
+                end
+            end)
+        end
+    end)
 
     PM.VCBypasser.buttonConn = btn.MouseButton1Click:Connect(function()
         PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
@@ -1605,6 +1638,71 @@ registerCommand("jerk", "Jerk tool", {}, function(args)
     PM.JerkRespawnConn = LP.CharacterAdded:Connect(function()
         task.wait(0.5)
         giveJerk()
+    end)
+end)
+
+registerCommand("hitlersalute", "Hitler salute tool", {}, function(args)
+    if PM.HitlerSaluteActive then
+        PM.HitlerSaluteActive = false
+        if PM.HitlerSaluteRespawnConn then
+            pcall(function() PM.HitlerSaluteRespawnConn:Disconnect() end)
+            PM.HitlerSaluteRespawnConn = nil
+        end
+        local salute = LP.Backpack:FindFirstChild("HitlerSalute")
+        if salute then pcall(function() salute:Destroy() end) end
+        local charSalute = LP.Character and LP.Character:FindFirstChild("HitlerSalute")
+        if charSalute then pcall(function() charSalute:Destroy() end) end
+        return
+    end
+    PM.HitlerSaluteActive = true
+    local function giveSalute()
+        local char = LP.Character
+        if not char then return end
+        local hum = char:FindFirstChildOfClass("Humanoid")
+        local bp = LP:FindFirstChild("Backpack")
+        if not hum or not bp then return end
+        if bp:FindFirstChild("HitlerSalute") or char:FindFirstChild("HitlerSalute") then return end
+        local tool = Instance.new("Tool")
+        tool.Name = "HitlerSalute"
+        tool.ToolTip = "Salute"
+        tool.RequiresHandle = false
+        tool.Parent = bp
+        local saluting = false
+        local track
+        local function stopSalute()
+            saluting = false
+            if track then track:Stop() track = nil end
+        end
+        tool.Equipped:Connect(function() saluting = true end)
+        tool.Unequipped:Connect(stopSalute)
+        hum.Died:Connect(stopSalute)
+        task.spawn(function()
+            while task.wait() do
+                if not (tool and tool.Parent) then break end
+                if saluting then
+                    local isR15 = hum.RigType == Enum.HumanoidRigType.R15
+                    if not track then
+                        local anim = Instance.new("Animation")
+                        anim.AnimationId = isR15 and "rbxassetid://698251653" or "rbxassetid://72042024"
+                        track = hum:LoadAnimation(anim)
+                    end
+                    track:Play()
+                    track.TimePosition = 0.6
+                    track:AdjustSpeed(0)
+                    while saluting and track do
+                        track.TimePosition = 0.3
+                        task.wait(0.05)
+                    end
+                    if track then track:Stop() track = nil end
+                end
+            end
+        end)
+    end
+    giveSalute()
+    if PM.HitlerSaluteRespawnConn then PM.HitlerSaluteRespawnConn:Disconnect() end
+    PM.HitlerSaluteRespawnConn = LP.CharacterAdded:Connect(function()
+        task.wait(0.5)
+        giveSalute()
     end)
 end)
 
