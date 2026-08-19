@@ -726,9 +726,22 @@ local function setupButtonClick()
         local isMuted = PM.VCBypasser.selfMuted
         print("[VCB DEBUG] Target mute state: " .. tostring(isMuted))
 
-        -- Use env.lua's approach to find and mute AudioDeviceInput
+        -- Use VoiceChatInternal:PublishPause for real muting control
         pcall(function()
-            print("[VCB DEBUG] Attempting to find AudioDeviceInput...")
+            local VoiceChatInternal = game:GetService("VoiceChatInternal")
+            print("[VCB DEBUG] Calling VoiceChatInternal:PublishPause(" .. tostring(isMuted) .. ")")
+            local success = VoiceChatInternal:PublishPause(isMuted)
+            print("[VCB DEBUG] PublishPause returned: " .. tostring(success))
+            if success then
+                print("[VCB DEBUG] SUCCESS: VoiceChatInternal accepted the pause state.")
+            else
+                print("[VCB DEBUG] FAILURE: VoiceChatInternal rejected the pause state.")
+            end
+        end)
+
+        -- Also try setting Active property as backup
+        pcall(function()
+            print("[VCB DEBUG] Attempting backup method via AudioDeviceInput...")
             local adi = getPlayerAudioInput(LP)
             if adi then
                 print("[VCB DEBUG] AudioDeviceInput found. Current Active value: " .. tostring(adi.Active))
@@ -736,13 +749,6 @@ local function setupButtonClick()
                 print("[VCB DEBUG] Attempting to set Active to: " .. tostring(targetActive))
                 adi.Active = targetActive
                 print("[VCB DEBUG] After setting, Active value is: " .. tostring(adi.Active))
-                if adi.Active == targetActive then
-                    print("[VCB DEBUG] SUCCESS: Active property was set correctly.")
-                else
-                    print("[VCB DEBUG] FAILURE: Active property did not change. Property might be read-only or protected.")
-                end
-            else
-                print("[VCB DEBUG] FAILURE: Could not find AudioDeviceInput.")
             end
         end)
 
