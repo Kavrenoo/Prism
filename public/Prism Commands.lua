@@ -692,18 +692,14 @@ local function setupButtonClick()
     -- Read initial mic state (from env.lua)
     task.spawn(function()
         task.wait(0.5)
-        print("[VCB DEBUG] Attempting to read initial mic state...")
+        print("[VCB DEBUG] Forcing initial state to UNMUTED for first-click mute behavior.")
+        PM.VCBypasser.selfMuted = false
+        print("[VCB DEBUG] Applying unmute UI...")
+        applyUnmuteUI()
+
         local adi = getPlayerAudioInput(LP)
         if adi then
             print("[VCB DEBUG] AudioDeviceInput found. Current Active property: " .. tostring(adi.Active))
-            PM.VCBypasser.selfMuted = not adi.Active
-            if PM.VCBypasser.selfMuted then
-                print("[VCB DEBUG] Initial state is MUTED. Applying mute UI.")
-                applyMuteUI()
-            else
-                print("[VCB DEBUG] Initial state is UNMUTED. Applying unmute UI.")
-                applyUnmuteUI()
-            end
             -- Listen for external changes (from env.lua)
             print("[VCB DEBUG] Hooking Active property changed signal...")
             PM.VCBypasser.propertySignalConn = adi:GetPropertyChangedSignal("Active"):Connect(function()
@@ -736,19 +732,6 @@ local function setupButtonClick()
                 print("[VCB DEBUG] SUCCESS: VoiceChatInternal accepted the pause state.")
             else
                 print("[VCB DEBUG] FAILURE: VoiceChatInternal rejected the pause state.")
-            end
-        end)
-
-        -- Also try setting Active property as backup
-        pcall(function()
-            print("[VCB DEBUG] Attempting backup method via AudioDeviceInput...")
-            local adi = getPlayerAudioInput(LP)
-            if adi then
-                print("[VCB DEBUG] AudioDeviceInput found. Current Active value: " .. tostring(adi.Active))
-                local targetActive = not isMuted
-                print("[VCB DEBUG] Attempting to set Active to: " .. tostring(targetActive))
-                adi.Active = targetActive
-                print("[VCB DEBUG] After setting, Active value is: " .. tostring(adi.Active))
             end
         end)
 
