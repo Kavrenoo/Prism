@@ -49,6 +49,22 @@ local function registerCommand(name, desc, aliases, execute, excludeFromAutoExec
     }
 end
 
+-- Helper function to find AudioDeviceInput (from env.lua)
+local function getPlayerAudioInput(plr)
+    local adi = nil
+    pcall(function()
+        adi = plr:FindFirstChildOfClass("AudioDeviceInput")
+    end)
+    if not adi then
+        pcall(function()
+            for _,v in ipairs(plr:GetDescendants()) do
+                if v.ClassName == "AudioDeviceInput" then adi = v; break end
+            end
+        end)
+    end
+    return adi
+end
+
 -- ========== CHAT COMMAND HANDLING ==========
 
 local Players = game:GetService("Players")
@@ -123,6 +139,12 @@ local function cleanupPrism()
         if data.connection then pcall(function() data.connection:Disconnect() end) end
         if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
     end
+    for _, p in ipairs(Players:GetPlayers()) do
+        local adi = getPlayerAudioInput(p)
+        if adi then
+            pcall(function() adi.Muted = false end)
+        end
+    end
     PM.HiddenPlayers = {}
     
     -- Unmute all muted players
@@ -130,7 +152,7 @@ local function cleanupPrism()
         if data.connection then pcall(function() data.connection:Disconnect() end) end
     end
     for _, p in ipairs(Players:GetPlayers()) do
-        local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+        local adi = getPlayerAudioInput(p)
         if adi then
             pcall(function() adi.Muted = false end)
         end
@@ -650,13 +672,15 @@ local function setupButtonClick()
 
     PM.VCBypasser.buttonConn = btn.MouseButton1Click:Connect(function()
         PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
+        local isMuted = PM.VCBypasser.selfMuted
 
-        local adi = LP:FindFirstChildOfClass("AudioDeviceInput")
-        if adi then
-            pcall(function() adi.Muted = PM.VCBypasser.selfMuted end)
-        end
+        -- Use env.lua's approach to find and mute AudioDeviceInput
+        pcall(function()
+            local adi = getPlayerAudioInput(LP)
+            if adi then adi.Muted = isMuted end
+        end)
 
-        if PM.VCBypasser.selfMuted then
+        if isMuted then
             applyMuteUI()
         else
             applyUnmuteUI()
@@ -1065,12 +1089,14 @@ registerCommand("hide", "Hide a player", {}, function(args)
     end
     if not target then return end
     if PM.HiddenPlayers[target.UserId] then return end
-    local adi = target:FindFirstChildOfClass("AudioDeviceInput")
+    local adi = getPlayerAudioInput(target)
     if adi then pcall(function() adi.Muted = true end) end
     local savedState = nil
     if target.Character then savedState = applyHide(target.Character, nil) end
     local conn = target.CharacterAdded:Connect(function(char)
         task.wait(0.1)
+        local newAdi = getPlayerAudioInput(target)
+        if newAdi then pcall(function() newAdi.Muted = true end) end
         savedState = applyHide(char, savedState)
     end)
     PM.HiddenPlayers[target.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
@@ -1121,7 +1147,7 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
     -- Hide all currently existing players (unless manually unhidden)
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP and not PM.HiddenPlayers[p.UserId] then
-            local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+            local adi = getPlayerAudioInput(p)
             if adi then pcall(function() adi.Muted = true end) end
             local savedState = nil
             if p.Character then savedState = applyHide(p.Character, nil) end
@@ -1129,6 +1155,8 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
                 task.wait(0.1)
                 -- Skip if player was manually unhidden
                 if PM.HiddenPlayers[p.UserId] and PM.HiddenPlayers[p.UserId].manuallyUnhidden then return end
+                local newAdi = getPlayerAudioInput(p)
+                if newAdi then pcall(function() newAdi.Muted = true end) end
                 savedState = applyHide(char, savedState)
             end)
             PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
@@ -1138,7 +1166,7 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
     if not PM.HideAllPlayerAddedConn then
         PM.HideAllPlayerAddedConn = Players.PlayerAdded:Connect(function(p)
             if p ~= LP and not PM.HiddenPlayers[p.UserId] then
-                local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+                local adi = getPlayerAudioInput(p)
                 if adi then pcall(function() adi.Muted = true end) end
                 local savedState = nil
                 if p.Character then savedState = applyHide(p.Character, nil) end
@@ -1146,6 +1174,8 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
                     task.wait(0.1)
                     -- Skip if player was manually unhidden
                     if PM.HiddenPlayers[p.UserId] and PM.HiddenPlayers[p.UserId].manuallyUnhidden then return end
+                    local newAdi = getPlayerAudioInput(p)
+                    if newAdi then pcall(function() newAdi.Muted = true end) end
                     savedState = applyHide(char, savedState)
                 end)
                 PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
@@ -1214,7 +1244,8 @@ registerCommand("mute", "Mute a player's microphone", {}, function(args)
         end
     end
     if target then
-        local adi = target:FindFirstChildOfClass("AudioDeviceInput")
+        -- Use env.lua's approach to find AudioDeviceInput
+        local adi = getPlayerAudioInput(target)
         if adi then
             pcall(function() adi.Muted = true end)
             PM.MutedPlayers[target.UserId] = adi
@@ -1246,7 +1277,8 @@ registerCommand("unmute", "Unmute a player's microphone", {}, function(args)
         end
     end
     if target then
-        local adi = target:FindFirstChildOfClass("AudioDeviceInput")
+        -- Use env.lua's approach to find AudioDeviceInput
+        local adi = getPlayerAudioInput(target)
         if adi then
             pcall(function() adi.Muted = false end)
         end
@@ -1261,7 +1293,7 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
     -- Mute all currently existing players (unless manually unmuted)
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP and not PM.MutedPlayers[p.UserId] then
-            local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+            local adi = getPlayerAudioInput(p)
             if adi then
                 pcall(function() adi.Muted = true end)
             end
@@ -1270,7 +1302,7 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
                 task.wait(0.1)
                 -- Skip if player was manually unmuted
                 if PM.MutedPlayers[p.UserId] and PM.MutedPlayers[p.UserId].manuallyUnmuted then return end
-                local newAdi = p:FindFirstChildOfClass("AudioDeviceInput")
+                local newAdi = getPlayerAudioInput(p)
                 if newAdi then
                     pcall(function() newAdi.Muted = true end)
                 end
@@ -1282,7 +1314,7 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
     if not PM.MuteAllPlayerAddedConn then
         PM.MuteAllPlayerAddedConn = Players.PlayerAdded:Connect(function(p)
             if p ~= LP and not PM.MutedPlayers[p.UserId] then
-                local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+                local adi = getPlayerAudioInput(p)
                 if adi then
                     pcall(function() adi.Muted = true end)
                 end
@@ -1290,7 +1322,7 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
                     task.wait(0.1)
                     -- Skip if player was manually unmuted
                     if PM.MutedPlayers[p.UserId] and PM.MutedPlayers[p.UserId].manuallyUnmuted then return end
-                    local newAdi = p:FindFirstChildOfClass("AudioDeviceInput")
+                    local newAdi = getPlayerAudioInput(p)
                     if newAdi then
                         pcall(function() newAdi.Muted = true end)
                     end
@@ -1311,7 +1343,7 @@ registerCommand("unmuteall", "Unmute all players", {}, function(args)
         if data.connection then pcall(function() data.connection:Disconnect() end) end
         for _, p in ipairs(Players:GetPlayers()) do
             if p.UserId == uid then
-                local adi = p:FindFirstChildOfClass("AudioDeviceInput")
+                local adi = getPlayerAudioInput(p)
                 if adi then
                     pcall(function() adi.Muted = false end)
                 end
