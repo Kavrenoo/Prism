@@ -15,7 +15,6 @@
     animation replacer
     animation logger
     animation speeds
-    auto execute on game switch / server hop / rejoin
     shaders (with presets / time of day control / all axons shader controls)
     anti vcb muting others / self
     reanim
@@ -67,6 +66,177 @@ local function getPlayerAudioInput(plr)
         end)
     end
     return adi
+end
+
+-- SpeakerLight icons for talking detection
+local SPEAKER_MUTED = "rbxasset://textures/ui/VoiceChat/SpeakerLight/Muted.png"
+local SPEAKER_UNMUTED_LEVELS = {
+    "rbxasset://textures/ui/VoiceChat/SpeakerLight/Unmuted0.png",
+    "rbxasset://textures/ui/VoiceChat/SpeakerLight/Unmuted20.png",
+    "rbxasset://textures/ui/VoiceChat/SpeakerLight/Unmuted40.png",
+    "rbxasset://textures/ui/VoiceChat/SpeakerLight/Unmuted60.png",
+    "rbxasset://textures/ui/VoiceChat/SpeakerLight/Unmuted80.png",
+    "rbxasset://textures/ui/VoiceChat/SpeakerLight/Unmuted100.png"
+}
+
+-- Setup talking detection for a player
+local function setupTalkingDetection(plr)
+    if PM.VCBypasser.talkingDetectors[plr.UserId] then return end
+
+    local adi = getPlayerAudioInput(plr)
+    if not adi then return end
+
+    local char = plr.Character
+    if not char then return end
+
+    -- Create AudioAnalyzer and Wire
+    local analyzer = Instance.new("AudioAnalyzer")
+    analyzer.Name = plr.Name .. "_TalkingAnalyzer"
+    analyzer.Parent = char
+
+    local wire = Instance.new("Wire")
+    wire.Name = plr.Name .. "_TalkingWire"
+    wire.SourceInstance = adi
+    wire.TargetInstance = analyzer
+    wire.Parent = char
+
+    PM.VCBypasser.talkingDetectors[plr.UserId] = { analyzer = analyzer, wire = wire }
+    PM.VCBypasser.talkingStates[plr.UserId] = false
+
+    -- Monitor talking state
+    game:GetService("RunService").Heartbeat:Connect(function()
+        if not analyzer.Parent then return end
+        local isTalking = analyzer.RmsLevel > 0
+        PM.VCBypasser.talkingStates[plr.UserId] = isTalking
+    end)
+end
+
+-- Create player overlay with mute button and talking indicator
+local function createPlayerOverlay(plr)
+    if PM.VCBypasser.playerOverlays[plr.UserId] then return end
+
+    local char = plr.Character
+    if not char then return end
+    local head = char:FindFirstChild("Head")
+    if not head then return end
+
+    local bill = Instance.new("BillboardGui")
+    bill.Name = plr.Name .. "_VCBOverlay"
+    bill.Active = true
+    bill.AlwaysOnTop = true
+    bill.Size = UDim2.fromOffset(40, 40)
+    bill.StudsOffsetWorldSpace = Vector3.new(0, 3, 0)
+    bill.Adornee = head
+
+    -- Parent to CoreGui if possible, otherwise PlayerGui
+    local CoreGui = game:GetService("CoreGui")
+    if gethui then
+        bill.Parent = gethui()
+    elseif syn and syn.protect_gui then
+        syn.protect_gui(bill)
+        bill.Parent = CoreGui
+    else
+        bill.Parent = CoreGui
+    end
+
+    PM.VCBypasser.playerOverlays[plr.UserId] = bill
+
+    -- Background frame
+    local bg = Instance.new("Frame")
+    bg.Size = UDim2.fromScale(1, 1)
+    bg.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    bg.BackgroundTransparency = 0.3
+    bg.Parent = bill
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(1, 0)
+    corner.Parent = bg
+
+    -- Speaker icon
+    local speaker = Instance.new("ImageLabel")
+    speaker.Name = "SpeakerIcon"
+    speaker.Size = UDim2.fromScale(0.8, 0.8)
+    speaker.Position = UDim2.fromScale(0.1, 0.1)
+    speaker.BackgroundTransparency = 1
+    speaker.Image = SPEAKER_UNMUTED_LEVELS[1]
+    speaker.Parent = bill
+
+    -- Mute button
+    local muteBtn = Instance.new("ImageButton")
+    muteBtn.Name = "MuteButton"
+    muteBtn.Size = UDim2.fromScale(0.4, 0.4)
+    muteBtn.Position = UDim2.fromScale(0.6, 0.6)
+    muteBtn.BackgroundTransparency = 1
+    muteBtn.Image = SPEAKER_UNMUTED_LEVELS[1]
+    muteBtn.Parent = bill
+
+    -- Mute button click
+    muteBtn.MouseButton1Click:Connect(function()
+        PM.VCBypasser.mutedPlayers[plr.UserId] = not PM.VCBypasser.mutedPlayers[plr.UserId]
+        local isMuted = PM.VCBypasser.mutedPlayers[plr.UserId]
+
+        -- Apply mute
+        pcall(function()
+            local adi = getPlayerAudioInput(plr)
+            if adi then adi.Muted = isMuted end
+        end)
+
+        -- Update icon
+        muteBtn.Image = isMuted and SPEAKER_MUTED or SPEAKER_UNMUTED_LEVELS[1]
+    end)
+
+    -- Heartbeat for talking animation and updates
+    local RunService = game:GetService("RunService")
+    local lastUpdate = 0
+    local levelIndex = 1
+
+    RunService.Heartbeat:Connect(function()
+        if not bill.Parent then return end
+
+        -- Update adornee
+        if plr.Character and plr.Character:FindFirstChild("Head") then
+            bill.Adornee = plr.Character.Head
+        end
+
+        -- Update mute state
+        local isMuted = PM.VCBypasser.mutedPlayers[plr.UserId] or false
+        local adi = getPlayerAudioInput(plr)
+        if adi then
+            isMuted = adi.Muted or isMuted
+        end
+
+        -- Update talking animation
+        local isTalking = PM.VCBypasser.talkingStates[plr.UserId] or false
+        if isTalking and not isMuted then
+            -- Cycle through volume levels randomly
+            local now = tick()
+            if now - lastUpdate > 0.1 then
+                levelIndex = math.random(1, #SPEAKER_UNMUTED_LEVELS)
+                speaker.Image = SPEAKER_UNMUTED_LEVELS[levelIndex]
+                lastUpdate = now
+            end
+        else
+            -- Reset to base
+            speaker.Image = isMuted and SPEAKER_MUTED or SPEAKER_UNMUTED_LEVELS[1]
+        end
+
+        -- Update mute button
+        muteBtn.Image = isMuted and SPEAKER_MUTED or SPEAKER_UNMUTED_LEVELS[1]
+    end)
+end
+
+-- Remove player overlay
+local function removePlayerOverlay(plr)
+    if PM.VCBypasser.playerOverlays[plr.UserId] then
+        pcall(function() PM.VCBypasser.playerOverlays[plr.UserId]:Destroy() end)
+        PM.VCBypasser.playerOverlays[plr.UserId] = nil
+    end
+    if PM.VCBypasser.talkingDetectors[plr.UserId] then
+        pcall(function() PM.VCBypasser.talkingDetectors[plr.UserId].analyzer:Destroy() end)
+        pcall(function() PM.VCBypasser.talkingDetectors[plr.UserId].wire:Destroy() end)
+        PM.VCBypasser.talkingDetectors[plr.UserId] = nil
+    end
+    PM.VCBypasser.talkingStates[plr.UserId] = nil
+    PM.VCBypasser.mutedPlayers[plr.UserId] = nil
 end
 
 -- ========== CHAT COMMAND HANDLING ==========
@@ -481,7 +651,14 @@ PM.VCBypasser = {
     mouseEnterConn = nil,
     mouseLeaveConn = nil,
     sizeMonitorConn = nil,
-    propertySignalConn = nil
+    propertySignalConn = nil,
+    -- Muting others
+    mutedPlayers = {}, -- [userId] = bool
+    playerOverlays = {}, -- [userId] = BillboardGui
+    talkingDetectors = {}, -- [userId] = {AudioAnalyzer, Wire}
+    talkingStates = {}, -- [userId] = bool
+    playerAddedConn = nil,
+    playerRemovingConn = nil
 }
 
 local function getMicPath()
@@ -757,6 +934,35 @@ registerCommand("vcbypasser", "Bypass voice chat restrictions", {}, function(arg
     createMuteButton()
     setupButtonClick()
     setupSizeMonitor()
+
+    -- Setup player overlays and talking detection for all current players
+    for _, p in ipairs(Players:GetPlayers()) do
+        if p ~= LP then
+            task.spawn(function()
+                if not p.Character then p.CharacterAdded:Wait() end
+                task.wait(0.5)
+                setupTalkingDetection(p)
+                createPlayerOverlay(p)
+            end)
+        end
+    end
+
+    -- Setup for new players
+    PM.VCBypasser.playerAddedConn = Players.PlayerAdded:Connect(function(p)
+        if p ~= LP then
+            task.spawn(function()
+                if not p.Character then p.CharacterAdded:Wait() end
+                task.wait(0.5)
+                setupTalkingDetection(p)
+                createPlayerOverlay(p)
+            end)
+        end
+    end)
+
+    -- Cleanup on leave
+    PM.VCBypasser.playerRemovingConn = Players.PlayerRemoving:Connect(function(p)
+        removePlayerOverlay(p)
+    end)
 end, true)
 
 
@@ -1134,6 +1340,8 @@ registerCommand("hide", "Hide a player", {}, function(args)
         savedState = applyHide(char, savedState)
     end)
     PM.HiddenPlayers[target.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
+    -- Sync with VCBypasser state
+    PM.VCBypasser.mutedPlayers[target.UserId] = true
 end, true)
 
 registerCommand("unhide", "Unhide a player", {}, function(args)
@@ -1175,6 +1383,8 @@ registerCommand("unhide", "Unhide a player", {}, function(args)
     if PM.HiddenPlayers[target.UserId] then
         PM.HiddenPlayers[target.UserId].manuallyUnhidden = true
     end
+    -- Sync with VCBypasser state
+    PM.VCBypasser.mutedPlayers[target.UserId] = false
 end, true)
 
 registerCommand("hideall", "Hide all other players", {}, function(args)
@@ -1283,6 +1493,8 @@ registerCommand("mute", "Mute a player's microphone", {}, function(args)
         if adi then
             pcall(function() adi.Muted = true end)
             PM.MutedPlayers[target.UserId] = adi
+            -- Update VCBypasser state for overlay
+            PM.VCBypasser.mutedPlayers[target.UserId] = true
         end
     end
 end, true)
@@ -1320,6 +1532,8 @@ registerCommand("unmute", "Unmute a player's microphone", {}, function(args)
         if PM.MutedPlayers[target.UserId] then
             PM.MutedPlayers[target.UserId].manuallyUnmuted = true
         end
+        -- Update VCBypasser state for overlay
+        PM.VCBypasser.mutedPlayers[target.UserId] = false
     end
 end, true)
 
