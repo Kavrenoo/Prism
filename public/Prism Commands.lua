@@ -178,9 +178,9 @@ local function cleanupPrism()
 
     -- Cleanup Hitler Salute Tool
     if PM.HitlerSaluteRespawnConn then pcall(function() PM.HitlerSaluteRespawnConn:Disconnect() end); PM.HitlerSaluteRespawnConn = nil end
-    local salute = LP.Backpack:FindFirstChild("HitlerSalute")
+    local salute = LP.Backpack:FindFirstChild("Hitler Salute")
     if salute then pcall(function() salute:Destroy() end) end
-    local charSalute = LP.Character and LP.Character:FindFirstChild("HitlerSalute")
+    local charSalute = LP.Character and LP.Character:FindFirstChild("Hitler Salute")
     if charSalute then pcall(function() charSalute:Destroy() end) end
     
     -- Cleanup Walk On Air
@@ -341,7 +341,7 @@ local function cleanupPrism()
     
     -- Cleanup Backpack tools
     for _, obj in ipairs(LP.Backpack:GetChildren()) do
-        if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" or obj.Name == "HitlerSalute" then
+        if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" or obj.Name == "Hitler Salute" then
             pcall(function() obj:Destroy() end)
         end
     end
@@ -349,7 +349,7 @@ local function cleanupPrism()
     -- Cleanup Character tools
     if LP.Character then
         for _, obj in ipairs(LP.Character:GetChildren()) do
-            if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" or obj.Name == "HitlerSalute" then
+            if obj.Name:find("Prism") or obj.Name == "Teleport Tool" or obj.Name == "Jerk" or obj.Name == "Hitler Salute" then
                 pcall(function() obj:Destroy() end)
             end
         end
@@ -1648,9 +1648,9 @@ registerCommand("hitlersalute", "Hitler salute tool", {}, function(args)
             pcall(function() PM.HitlerSaluteRespawnConn:Disconnect() end)
             PM.HitlerSaluteRespawnConn = nil
         end
-        local salute = LP.Backpack:FindFirstChild("HitlerSalute")
+        local salute = LP.Backpack:FindFirstChild("Hitler Salute")
         if salute then pcall(function() salute:Destroy() end) end
-        local charSalute = LP.Character and LP.Character:FindFirstChild("HitlerSalute")
+        local charSalute = LP.Character and LP.Character:FindFirstChild("Hitler Salute")
         if charSalute then pcall(function() charSalute:Destroy() end) end
         return
     end
@@ -1661,9 +1661,9 @@ registerCommand("hitlersalute", "Hitler salute tool", {}, function(args)
         local hum = char:FindFirstChildOfClass("Humanoid")
         local bp = LP:FindFirstChild("Backpack")
         if not hum or not bp then return end
-        if bp:FindFirstChild("HitlerSalute") or char:FindFirstChild("HitlerSalute") then return end
+        if bp:FindFirstChild("Hitler Salute") or char:FindFirstChild("Hitler Salute") then return end
         local tool = Instance.new("Tool")
-        tool.Name = "HitlerSalute"
+        tool.Name = "Hitler Salute"
         tool.ToolTip = "Salute"
         tool.RequiresHandle = false
         tool.Parent = bp
