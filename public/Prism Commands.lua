@@ -55,21 +55,16 @@ local function getPlayerAudioInput(plr)
     local adi = nil
     pcall(function()
         adi = plr:FindFirstChildOfClass("AudioDeviceInput")
-        if adi then print("[VCB DEBUG] Found AudioDeviceInput via FindFirstChildOfClass: " .. tostring(adi)) end
     end)
     if not adi then
         pcall(function()
             for _,v in ipairs(plr:GetDescendants()) do
-                if v.ClassName == "AudioDeviceInput" then 
-                    adi = v; 
-                    print("[VCB DEBUG] Found AudioDeviceInput via descendants: " .. tostring(adi))
-                    break 
+                if v.ClassName == "AudioDeviceInput" then
+                    adi = v
+                    break
                 end
             end
         end)
-    end
-    if not adi then
-        print("[VCB DEBUG] AudioDeviceInput NOT FOUND for player: " .. plr.Name)
     end
     return adi
 end
@@ -692,18 +687,13 @@ local function setupButtonClick()
     -- Read initial mic state (from env.lua)
     task.spawn(function()
         task.wait(0.5)
-        print("[VCB DEBUG] Forcing initial state to UNMUTED for first-click mute behavior.")
         PM.VCBypasser.selfMuted = false
-        print("[VCB DEBUG] Applying unmute UI...")
         applyUnmuteUI()
 
         local adi = getPlayerAudioInput(LP)
         if adi then
-            print("[VCB DEBUG] AudioDeviceInput found. Current Active property: " .. tostring(adi.Active))
             -- Listen for external changes (from env.lua)
-            print("[VCB DEBUG] Hooking Active property changed signal...")
             PM.VCBypasser.propertySignalConn = adi:GetPropertyChangedSignal("Active"):Connect(function()
-                print("[VCB DEBUG] Active property changed externally. New value: " .. tostring(adi.Active))
                 PM.VCBypasser.selfMuted = not adi.Active
                 if PM.VCBypasser.selfMuted then
                     applyMuteUI()
@@ -711,38 +701,24 @@ local function setupButtonClick()
                     applyUnmuteUI()
                 end
             end)
-        else
-            print("[VCB DEBUG] FAILED to find AudioDeviceInput for initial state read.")
         end
     end)
 
     PM.VCBypasser.buttonConn = btn.MouseButton1Click:Connect(function()
-        print("[VCB DEBUG] === BUTTON CLICKED ===")
         PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
         local isMuted = PM.VCBypasser.selfMuted
-        print("[VCB DEBUG] Target mute state: " .. tostring(isMuted))
 
         -- Use VoiceChatInternal:PublishPause for real muting control
         pcall(function()
             local VoiceChatInternal = game:GetService("VoiceChatInternal")
-            print("[VCB DEBUG] Calling VoiceChatInternal:PublishPause(" .. tostring(isMuted) .. ")")
-            local success = VoiceChatInternal:PublishPause(isMuted)
-            print("[VCB DEBUG] PublishPause returned: " .. tostring(success))
-            if success then
-                print("[VCB DEBUG] SUCCESS: VoiceChatInternal accepted the pause state.")
-            else
-                print("[VCB DEBUG] FAILURE: VoiceChatInternal rejected the pause state.")
-            end
+            VoiceChatInternal:PublishPause(isMuted)
         end)
 
         if isMuted then
-            print("[VCB DEBUG] Applying mute UI...")
             applyMuteUI()
         else
-            print("[VCB DEBUG] Applying unmute UI...")
             applyUnmuteUI()
         end
-        print("[VCB DEBUG] === BUTTON CLICK HANDLER END ===")
     end)
 
     if highlighter then
