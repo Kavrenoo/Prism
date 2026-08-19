@@ -151,37 +151,26 @@ local function createPlayerOverlay(plr)
     corner.CornerRadius = UDim.new(1, 0)
     corner.Parent = bg
 
-    -- Speaker icon
-    local speaker = Instance.new("ImageLabel")
-    speaker.Name = "SpeakerIcon"
-    speaker.Size = UDim2.fromScale(0.8, 0.8)
-    speaker.Position = UDim2.fromScale(0.1, 0.1)
-    speaker.BackgroundTransparency = 1
-    speaker.Image = SPEAKER_UNMUTED_LEVELS[1]
-    speaker.Parent = bill
-
-    -- Mute button
+    -- Mute button (main icon, shows talking animation + mute state)
     local muteBtn = Instance.new("ImageButton")
     muteBtn.Name = "MuteButton"
-    muteBtn.Size = UDim2.fromScale(0.4, 0.4)
-    muteBtn.Position = UDim2.fromScale(0.6, 0.6)
+    muteBtn.Size = UDim2.fromScale(0.8, 0.8)
+    muteBtn.Position = UDim2.fromScale(0.1, 0.1)
     muteBtn.BackgroundTransparency = 1
     muteBtn.Image = SPEAKER_UNMUTED_LEVELS[1]
     muteBtn.Parent = bill
 
     -- Mute button click
     muteBtn.MouseButton1Click:Connect(function()
-        PM.VCBypasser.mutedPlayers[plr.UserId] = not PM.VCBypasser.mutedPlayers[plr.UserId]
-        local isMuted = PM.VCBypasser.mutedPlayers[plr.UserId]
-
-        -- Apply mute
-        pcall(function()
-            local adi = getPlayerAudioInput(plr)
-            if adi then adi.Muted = isMuted end
-        end)
-
-        -- Update icon
-        muteBtn.Image = isMuted and SPEAKER_MUTED or SPEAKER_UNMUTED_LEVELS[1]
+        local adi = getPlayerAudioInput(plr)
+        if adi then
+            local isMuted = not adi.Muted
+            pcall(function()
+                adi.Muted = isMuted
+                adi.Active = not isMuted
+            end)
+            PM.MutedPlayers[plr.UserId] = adi
+        end
     end)
 
     -- Heartbeat for talking animation and updates
@@ -197,11 +186,21 @@ local function createPlayerOverlay(plr)
             bill.Adornee = plr.Character.Head
         end
 
-        -- Update mute state
-        local isMuted = PM.VCBypasser.mutedPlayers[plr.UserId] or false
+        -- Distance check - only show within 100 studs
+        local LP = game:GetService("Players").LocalPlayer
+        local visible = false
+        if LP.Character and LP.Character:FindFirstChild("HumanoidRootPart")
+            and plr.Character and plr.Character:FindFirstChild("HumanoidRootPart") then
+            local dist = (LP.Character.HumanoidRootPart.Position - plr.Character.HumanoidRootPart.Position).Magnitude
+            visible = dist <= 100
+        end
+        bill.Enabled = visible
+
+        -- Update mute state - check both Muted and Active properties
         local adi = getPlayerAudioInput(plr)
+        local isMuted = false
         if adi then
-            isMuted = adi.Muted or isMuted
+            isMuted = adi.Muted or not adi.Active
         end
 
         -- Update talking animation
@@ -211,16 +210,13 @@ local function createPlayerOverlay(plr)
             local now = tick()
             if now - lastUpdate > 0.1 then
                 levelIndex = math.random(1, #SPEAKER_UNMUTED_LEVELS)
-                speaker.Image = SPEAKER_UNMUTED_LEVELS[levelIndex]
+                muteBtn.Image = SPEAKER_UNMUTED_LEVELS[levelIndex]
                 lastUpdate = now
             end
         else
             -- Reset to base
-            speaker.Image = isMuted and SPEAKER_MUTED or SPEAKER_UNMUTED_LEVELS[1]
+            muteBtn.Image = isMuted and SPEAKER_MUTED or SPEAKER_UNMUTED_LEVELS[1]
         end
-
-        -- Update mute button
-        muteBtn.Image = isMuted and SPEAKER_MUTED or SPEAKER_UNMUTED_LEVELS[1]
     end)
 end
 
@@ -236,7 +232,6 @@ local function removePlayerOverlay(plr)
         PM.VCBypasser.talkingDetectors[plr.UserId] = nil
     end
     PM.VCBypasser.talkingStates[plr.UserId] = nil
-    PM.VCBypasser.mutedPlayers[plr.UserId] = nil
 end
 
 -- ========== CHAT COMMAND HANDLING ==========
@@ -653,7 +648,6 @@ PM.VCBypasser = {
     sizeMonitorConn = nil,
     propertySignalConn = nil,
     -- Muting others
-    mutedPlayers = {}, -- [userId] = bool
     playerOverlays = {}, -- [userId] = BillboardGui
     talkingDetectors = {}, -- [userId] = {AudioAnalyzer, Wire}
     talkingStates = {}, -- [userId] = bool
@@ -1330,18 +1324,22 @@ registerCommand("hide", "Hide a player", {}, function(args)
     if not target then return end
     if PM.HiddenPlayers[target.UserId] then return end
     local adi = getPlayerAudioInput(target)
-    if adi then pcall(function() adi.Muted = true end) end
+    if adi then pcall(function()
+        adi.Muted = true
+        adi.Active = false
+    end) end
     local savedState = nil
     if target.Character then savedState = applyHide(target.Character, nil) end
     local conn = target.CharacterAdded:Connect(function(char)
         task.wait(0.1)
         local newAdi = getPlayerAudioInput(target)
-        if newAdi then pcall(function() newAdi.Muted = true end) end
+        if newAdi then pcall(function()
+            newAdi.Muted = true
+            newAdi.Active = false
+        end) end
         savedState = applyHide(char, savedState)
     end)
     PM.HiddenPlayers[target.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
-    -- Sync with VCBypasser state
-    PM.VCBypasser.mutedPlayers[target.UserId] = true
 end, true)
 
 registerCommand("unhide", "Unhide a player", {}, function(args)
@@ -1361,7 +1359,10 @@ registerCommand("unhide", "Unhide a player", {}, function(args)
     if not PM.HiddenPlayers[target.UserId] then return end
     local data = PM.HiddenPlayers[target.UserId]
     if data.connection then pcall(function() data.connection:Disconnect() end) end
-    if data.audioDevice then pcall(function() data.audioDevice.Muted = false end) end
+    if data.audioDevice then pcall(function()
+        data.audioDevice.Muted = false
+        data.audioDevice.Active = true
+    end) end
     if target.Character and data.savedState then
         local state = data.savedState
         pcall(function()
@@ -1383,8 +1384,6 @@ registerCommand("unhide", "Unhide a player", {}, function(args)
     if PM.HiddenPlayers[target.UserId] then
         PM.HiddenPlayers[target.UserId].manuallyUnhidden = true
     end
-    -- Sync with VCBypasser state
-    PM.VCBypasser.mutedPlayers[target.UserId] = false
 end, true)
 
 registerCommand("hideall", "Hide all other players", {}, function(args)
@@ -1392,7 +1391,10 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
     for _, p in ipairs(Players:GetPlayers()) do
         if p ~= LP and not PM.HiddenPlayers[p.UserId] then
             local adi = getPlayerAudioInput(p)
-            if adi then pcall(function() adi.Muted = true end) end
+            if adi then pcall(function()
+                adi.Muted = true
+                adi.Active = false
+            end) end
             local savedState = nil
             if p.Character then savedState = applyHide(p.Character, nil) end
             local conn = p.CharacterAdded:Connect(function(char)
@@ -1400,7 +1402,10 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
                 -- Skip if player was manually unhidden
                 if PM.HiddenPlayers[p.UserId] and PM.HiddenPlayers[p.UserId].manuallyUnhidden then return end
                 local newAdi = getPlayerAudioInput(p)
-                if newAdi then pcall(function() newAdi.Muted = true end) end
+                if newAdi then pcall(function()
+                    newAdi.Muted = true
+                    newAdi.Active = false
+                end) end
                 savedState = applyHide(char, savedState)
             end)
             PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
@@ -1411,7 +1416,10 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
         PM.HideAllPlayerAddedConn = Players.PlayerAdded:Connect(function(p)
             if p ~= LP and not PM.HiddenPlayers[p.UserId] then
                 local adi = getPlayerAudioInput(p)
-                if adi then pcall(function() adi.Muted = true end) end
+                if adi then pcall(function()
+                    adi.Muted = true
+                    adi.Active = false
+                end) end
                 local savedState = nil
                 if p.Character then savedState = applyHide(p.Character, nil) end
                 local conn = p.CharacterAdded:Connect(function(char)
@@ -1419,7 +1427,10 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
                     -- Skip if player was manually unhidden
                     if PM.HiddenPlayers[p.UserId] and PM.HiddenPlayers[p.UserId].manuallyUnhidden then return end
                     local newAdi = getPlayerAudioInput(p)
-                    if newAdi then pcall(function() newAdi.Muted = true end) end
+                    if newAdi then pcall(function()
+                        newAdi.Muted = true
+                        newAdi.Active = false
+                    end) end
                     savedState = applyHide(char, savedState)
                 end)
                 PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
@@ -1491,10 +1502,11 @@ registerCommand("mute", "Mute a player's microphone", {}, function(args)
         -- Use env.lua's approach to find AudioDeviceInput
         local adi = getPlayerAudioInput(target)
         if adi then
-            pcall(function() adi.Muted = true end)
+            pcall(function()
+                adi.Muted = true
+                adi.Active = false
+            end)
             PM.MutedPlayers[target.UserId] = adi
-            -- Update VCBypasser state for overlay
-            PM.VCBypasser.mutedPlayers[target.UserId] = true
         end
     end
 end, true)
@@ -1526,14 +1538,15 @@ registerCommand("unmute", "Unmute a player's microphone", {}, function(args)
         -- Use env.lua's approach to find AudioDeviceInput
         local adi = getPlayerAudioInput(target)
         if adi then
-            pcall(function() adi.Muted = false end)
+            pcall(function()
+                adi.Muted = false
+                adi.Active = true
+            end)
         end
         -- Mark as manually unmuted so muteall won't re-mute
         if PM.MutedPlayers[target.UserId] then
             PM.MutedPlayers[target.UserId].manuallyUnmuted = true
         end
-        -- Update VCBypasser state for overlay
-        PM.VCBypasser.mutedPlayers[target.UserId] = false
     end
 end, true)
 
@@ -1543,7 +1556,10 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
         if p ~= LP and not PM.MutedPlayers[p.UserId] then
             local adi = getPlayerAudioInput(p)
             if adi then
-                pcall(function() adi.Muted = true end)
+                pcall(function()
+                    adi.Muted = true
+                    adi.Active = false
+                end)
             end
             -- Hook CharacterAdded for respawns
             local conn = p.CharacterAdded:Connect(function(char)
@@ -1552,7 +1568,10 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
                 if PM.MutedPlayers[p.UserId] and PM.MutedPlayers[p.UserId].manuallyUnmuted then return end
                 local newAdi = getPlayerAudioInput(p)
                 if newAdi then
-                    pcall(function() newAdi.Muted = true end)
+                    pcall(function()
+                        newAdi.Muted = true
+                        newAdi.Active = false
+                    end)
                 end
             end)
             PM.MutedPlayers[p.UserId] = { connection = conn }
@@ -1564,7 +1583,10 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
             if p ~= LP and not PM.MutedPlayers[p.UserId] then
                 local adi = getPlayerAudioInput(p)
                 if adi then
-                    pcall(function() adi.Muted = true end)
+                    pcall(function()
+                        adi.Muted = true
+                        adi.Active = false
+                    end)
                 end
                 local conn = p.CharacterAdded:Connect(function(char)
                     task.wait(0.1)
@@ -1572,7 +1594,10 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
                     if PM.MutedPlayers[p.UserId] and PM.MutedPlayers[p.UserId].manuallyUnmuted then return end
                     local newAdi = getPlayerAudioInput(p)
                     if newAdi then
-                        pcall(function() newAdi.Muted = true end)
+                        pcall(function()
+                            newAdi.Muted = true
+                            newAdi.Active = false
+                        end)
                     end
                 end)
                 PM.MutedPlayers[p.UserId] = { connection = conn }
@@ -1593,7 +1618,10 @@ registerCommand("unmuteall", "Unmute all players", {}, function(args)
             if p.UserId == uid then
                 local adi = getPlayerAudioInput(p)
                 if adi then
-                    pcall(function() adi.Muted = false end)
+                    pcall(function()
+                        adi.Muted = false
+                        adi.Active = true
+                    end)
                 end
             end
         end
