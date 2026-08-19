@@ -1937,7 +1937,7 @@ PM.createMainGUI = function()
             PM.autoExecutePrism = state
             saveSettings()
             -- Setup/clear auto execute on teleport when toggle changes
-            local queueTeleport = queue_on_teleport or (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or (krnl and krnl.queue_on_teleport)
+            local queueTeleport = queue_on_teleport or queueonteleport or (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or (krnl and krnl.queue_on_teleport) or (is_sirius and is_sirius.queue_on_teleport)
             if queueTeleport and state then
                 pcall(function()
                     queueTeleport([[loadstring(game:HttpGet("https://prismscript.vercel.app/Prism.lua"))()]])
@@ -2439,7 +2439,7 @@ game:GetService("UserInputService").InputBegan:Connect(function(input, gameProce
 end)
 
 -- Auto execute prism on teleport (like Mono's auto load)
-local queueTeleport = queue_on_teleport or (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or (krnl and krnl.queue_on_teleport)
+local queueTeleport = queue_on_teleport or queueonteleport or (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or (krnl and krnl.queue_on_teleport) or (is_sirius and is_sirius.queue_on_teleport)
 
 if queueTeleport and PM.autoExecutePrism then
     pcall(function()

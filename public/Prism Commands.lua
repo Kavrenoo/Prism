@@ -23,7 +23,7 @@
     anti headsit / facebang / etc
     nametags
     join other prism users
-    fix muting for vcbypasser
+    fix muting other players with vcbypasser
 
 ]]
 -- Wait for PrismMain to be initialized by Main.lua
