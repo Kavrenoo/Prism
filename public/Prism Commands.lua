@@ -23,6 +23,7 @@
     anti headsit / facebang / etc
     nametags
     join other prism users
+    fix muting for vcbypasser
 
 ]]
 -- Wait for PrismMain to be initialized by Main.lua
@@ -54,13 +55,21 @@ local function getPlayerAudioInput(plr)
     local adi = nil
     pcall(function()
         adi = plr:FindFirstChildOfClass("AudioDeviceInput")
+        if adi then print("[VCB DEBUG] Found AudioDeviceInput via FindFirstChildOfClass: " .. tostring(adi)) end
     end)
     if not adi then
         pcall(function()
             for _,v in ipairs(plr:GetDescendants()) do
-                if v.ClassName == "AudioDeviceInput" then adi = v; break end
+                if v.ClassName == "AudioDeviceInput" then 
+                    adi = v; 
+                    print("[VCB DEBUG] Found AudioDeviceInput via descendants: " .. tostring(adi))
+                    break 
+                end
             end
         end)
+    end
+    if not adi then
+        print("[VCB DEBUG] AudioDeviceInput NOT FOUND for player: " .. plr.Name)
     end
     return adi
 end
@@ -683,16 +692,22 @@ local function setupButtonClick()
     -- Read initial mic state (from env.lua)
     task.spawn(function()
         task.wait(0.5)
+        print("[VCB DEBUG] Attempting to read initial mic state...")
         local adi = getPlayerAudioInput(LP)
         if adi then
+            print("[VCB DEBUG] AudioDeviceInput found. Current Muted property: " .. tostring(adi.Muted))
             PM.VCBypasser.selfMuted = adi.Muted
             if PM.VCBypasser.selfMuted then
+                print("[VCB DEBUG] Initial state is MUTED. Applying mute UI.")
                 applyMuteUI()
             else
+                print("[VCB DEBUG] Initial state is UNMUTED. Applying unmute UI.")
                 applyUnmuteUI()
             end
             -- Listen for external changes (from env.lua)
+            print("[VCB DEBUG] Hooking Muted property changed signal...")
             PM.VCBypasser.propertySignalConn = adi:GetPropertyChangedSignal("Muted"):Connect(function()
+                print("[VCB DEBUG] Muted property changed externally. New value: " .. tostring(adi.Muted))
                 PM.VCBypasser.selfMuted = adi.Muted
                 if PM.VCBypasser.selfMuted then
                     applyMuteUI()
@@ -700,24 +715,44 @@ local function setupButtonClick()
                     applyUnmuteUI()
                 end
             end)
+        else
+            print("[VCB DEBUG] FAILED to find AudioDeviceInput for initial state read.")
         end
     end)
 
     PM.VCBypasser.buttonConn = btn.MouseButton1Click:Connect(function()
+        print("[VCB DEBUG] === BUTTON CLICKED ===")
         PM.VCBypasser.selfMuted = not PM.VCBypasser.selfMuted
         local isMuted = PM.VCBypasser.selfMuted
+        print("[VCB DEBUG] Target mute state: " .. tostring(isMuted))
 
         -- Use env.lua's approach to find and mute AudioDeviceInput
         pcall(function()
+            print("[VCB DEBUG] Attempting to find AudioDeviceInput...")
             local adi = getPlayerAudioInput(LP)
-            if adi then adi.Muted = isMuted end
+            if adi then
+                print("[VCB DEBUG] AudioDeviceInput found. Current Muted value: " .. tostring(adi.Muted))
+                print("[VCB DEBUG] Attempting to set Muted to: " .. tostring(isMuted))
+                adi.Muted = isMuted
+                print("[VCB DEBUG] After setting, Muted value is: " .. tostring(adi.Muted))
+                if adi.Muted == isMuted then
+                    print("[VCB DEBUG] SUCCESS: Muted property was set correctly.")
+                else
+                    print("[VCB DEBUG] FAILURE: Muted property did not change. Property might be read-only or protected.")
+                end
+            else
+                print("[VCB DEBUG] FAILURE: Could not find AudioDeviceInput.")
+            end
         end)
 
         if isMuted then
+            print("[VCB DEBUG] Applying mute UI...")
             applyMuteUI()
         else
+            print("[VCB DEBUG] Applying unmute UI...")
             applyUnmuteUI()
         end
+        print("[VCB DEBUG] === BUTTON CLICK HANDLER END ===")
     end)
 
     if highlighter then
