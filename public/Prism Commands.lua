@@ -695,8 +695,8 @@ local function setupButtonClick()
         print("[VCB DEBUG] Attempting to read initial mic state...")
         local adi = getPlayerAudioInput(LP)
         if adi then
-            print("[VCB DEBUG] AudioDeviceInput found. Current Muted property: " .. tostring(adi.Muted))
-            PM.VCBypasser.selfMuted = adi.Muted
+            print("[VCB DEBUG] AudioDeviceInput found. Current Active property: " .. tostring(adi.Active))
+            PM.VCBypasser.selfMuted = not adi.Active
             if PM.VCBypasser.selfMuted then
                 print("[VCB DEBUG] Initial state is MUTED. Applying mute UI.")
                 applyMuteUI()
@@ -705,10 +705,10 @@ local function setupButtonClick()
                 applyUnmuteUI()
             end
             -- Listen for external changes (from env.lua)
-            print("[VCB DEBUG] Hooking Muted property changed signal...")
-            PM.VCBypasser.propertySignalConn = adi:GetPropertyChangedSignal("Muted"):Connect(function()
-                print("[VCB DEBUG] Muted property changed externally. New value: " .. tostring(adi.Muted))
-                PM.VCBypasser.selfMuted = adi.Muted
+            print("[VCB DEBUG] Hooking Active property changed signal...")
+            PM.VCBypasser.propertySignalConn = adi:GetPropertyChangedSignal("Active"):Connect(function()
+                print("[VCB DEBUG] Active property changed externally. New value: " .. tostring(adi.Active))
+                PM.VCBypasser.selfMuted = not adi.Active
                 if PM.VCBypasser.selfMuted then
                     applyMuteUI()
                 else
@@ -731,14 +731,15 @@ local function setupButtonClick()
             print("[VCB DEBUG] Attempting to find AudioDeviceInput...")
             local adi = getPlayerAudioInput(LP)
             if adi then
-                print("[VCB DEBUG] AudioDeviceInput found. Current Muted value: " .. tostring(adi.Muted))
-                print("[VCB DEBUG] Attempting to set Muted to: " .. tostring(isMuted))
-                adi.Muted = isMuted
-                print("[VCB DEBUG] After setting, Muted value is: " .. tostring(adi.Muted))
-                if adi.Muted == isMuted then
-                    print("[VCB DEBUG] SUCCESS: Muted property was set correctly.")
+                print("[VCB DEBUG] AudioDeviceInput found. Current Active value: " .. tostring(adi.Active))
+                local targetActive = not isMuted
+                print("[VCB DEBUG] Attempting to set Active to: " .. tostring(targetActive))
+                adi.Active = targetActive
+                print("[VCB DEBUG] After setting, Active value is: " .. tostring(adi.Active))
+                if adi.Active == targetActive then
+                    print("[VCB DEBUG] SUCCESS: Active property was set correctly.")
                 else
-                    print("[VCB DEBUG] FAILURE: Muted property did not change. Property might be read-only or protected.")
+                    print("[VCB DEBUG] FAILURE: Active property did not change. Property might be read-only or protected.")
                 end
             else
                 print("[VCB DEBUG] FAILURE: Could not find AudioDeviceInput.")
