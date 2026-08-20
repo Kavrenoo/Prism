@@ -3985,12 +3985,7 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         SettingsPanel.Position = UDim2.new(0, 8, 0, 86)
         SettingsPanel.BackgroundTransparency = 1
         SettingsPanel.Visible = false
-        SettingsPanel.ClipsDescendants = true
         SettingsPanel.Parent = ContentFrame
-
-        local SettingsListLayout = Instance.new("UIListLayout")
-        SettingsListLayout.Padding = UDim.new(0, 8)
-        SettingsListLayout.Parent = SettingsPanel
 
         -- Move While Emoting Toggle
         local MWESection = Instance.new("Frame")
@@ -4075,23 +4070,9 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         end
 
         local function StopCurrentEmote()
-            -- Stop the MWE tracked emote
             if PM.Emotes.currentEmoteTrack then
                 pcall(function() PM.Emotes.currentEmoteTrack:Stop() end)
                 PM.Emotes.currentEmoteTrack = nil
-            end
-
-            -- Stop all Action priority animations (emotes)
-            local char = LocalPlayer.Character
-            if char then
-                local hum = char:FindFirstChildOfClass("Humanoid")
-                if hum then
-                    for _, track in pairs(hum:GetPlayingAnimationTracks()) do
-                        if track.Priority == Enum.AnimationPriority.Action then
-                            pcall(function() track:Stop() end)
-                        end
-                    end
-                end
             end
         end
 
@@ -4181,112 +4162,6 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         if savedMWE then
             SetMWE(true)
         end
-
-        -- Stop Emote Section
-        local StopEmoteSection = Instance.new("Frame")
-        StopEmoteSection.Size = UDim2.new(1, 0, 0, 32)
-        StopEmoteSection.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-        StopEmoteSection.BackgroundTransparency = 0.4
-        StopEmoteSection.BorderSizePixel = 0
-        StopEmoteSection.Parent = SettingsPanel
-
-        local StopEmoteCorner = Instance.new("UICorner")
-        StopEmoteCorner.CornerRadius = UDim.new(0, 10)
-        StopEmoteCorner.Parent = StopEmoteSection
-
-        local StopEmoteLabel = Instance.new("TextLabel")
-        StopEmoteLabel.Size = UDim2.new(1, -150, 1, 0)
-        StopEmoteLabel.Position = UDim2.new(0, 12, 0, 0)
-        StopEmoteLabel.BackgroundTransparency = 1
-        StopEmoteLabel.Text = "Stop Emote"
-        StopEmoteLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
-        StopEmoteLabel.TextSize = 12
-        StopEmoteLabel.Font = Enum.Font.Gotham
-        StopEmoteLabel.TextXAlignment = Enum.TextXAlignment.Left
-        StopEmoteLabel.Parent = StopEmoteSection
-
-        local StopEmoteBtn = Instance.new("TextButton")
-        StopEmoteBtn.Name = "StopEmoteBtn"
-        StopEmoteBtn.Size = UDim2.new(0, 60, 0, 22)
-        StopEmoteBtn.Position = UDim2.new(1, -78, 0.5, -11)
-        StopEmoteBtn.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
-        StopEmoteBtn.BackgroundTransparency = 0.2
-        StopEmoteBtn.BorderSizePixel = 0
-        StopEmoteBtn.Text = "Stop"
-        StopEmoteBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-        StopEmoteBtn.TextSize = 11
-        StopEmoteBtn.Font = Enum.Font.GothamBold
-        StopEmoteBtn.Parent = StopEmoteSection
-
-        local StopEmoteBtnCorner = Instance.new("UICorner")
-        StopEmoteBtnCorner.CornerRadius = UDim.new(0, 6)
-        StopEmoteBtnCorner.Parent = StopEmoteBtn
-
-        local KeybindLabel = Instance.new("TextLabel")
-        KeybindLabel.Name = "KeybindLabel"
-        KeybindLabel.Size = UDim2.new(0, 50, 0, 22)
-        KeybindLabel.Position = UDim2.new(1, -130, 0.5, -11)
-        KeybindLabel.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-        KeybindLabel.BackgroundTransparency = 0.3
-        KeybindLabel.BorderSizePixel = 0
-        KeybindLabel.Text = "None"
-        KeybindLabel.TextColor3 = Color3.fromRGB(180, 180, 180)
-        KeybindLabel.TextSize = 10
-        KeybindLabel.Font = Enum.Font.GothamBold
-        KeybindLabel.Parent = StopEmoteSection
-
-        local KeybindLabelCorner = Instance.new("UICorner")
-        KeybindLabelCorner.CornerRadius = UDim.new(0, 4)
-        KeybindLabelCorner.Parent = KeybindLabel
-
-        local KeybindHit = Instance.new("TextButton")
-        KeybindHit.Size = UDim2.new(0, 54, 1, 0)
-        KeybindHit.Position = UDim2.new(1, -132, 0, 0)
-        KeybindHit.BackgroundTransparency = 1
-        KeybindHit.Text = ""
-        KeybindHit.Parent = StopEmoteSection
-
-        -- Keybind state
-        local stopEmoteKeybind = nil
-        local bindingKey = false
-
-        local function updateKeybindLabel()
-            KeybindLabel.Text = stopEmoteKeybind and stopEmoteKeybind.Name or "None"
-        end
-
-        KeybindHit.MouseButton1Click:Connect(function()
-            if bindingKey then return end
-            bindingKey = true
-            KeybindLabel.Text = "..."
-            KeybindLabel.TextColor3 = Color3.fromRGB(255, 200, 50)
-        end)
-
-        KeybindHit.MouseButton2Click:Connect(function()
-            stopEmoteKeybind = nil
-            updateKeybindLabel()
-        end)
-
-        StopEmoteBtn.MouseButton1Click:Connect(function()
-            StopCurrentEmote()
-        end)
-
-        UserInputService.InputBegan:Connect(function(input, gameProcessed)
-            if gameProcessed then return end
-
-            if bindingKey then
-                if input.UserInputType == Enum.UserInputType.Keyboard then
-                    stopEmoteKeybind = input.KeyCode
-                    bindingKey = false
-                    updateKeybindLabel()
-                    KeybindLabel.TextColor3 = Color3.fromRGB(180, 180, 180)
-                end
-                return
-            end
-
-            if stopEmoteKeybind and input.KeyCode == stopEmoteKeybind then
-                StopCurrentEmote()
-            end
-        end)
 
         -- Favorites functions
         local function isFavorite(emoteId)
