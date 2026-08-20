@@ -219,13 +219,13 @@ local function createPlayerOverlay(plr)
         else
             -- Show different colors based on mute state
             if myMuted then
-                -- Muted by you - dark gray
-                muteBtn.Image = SPEAKER_MUTED
-                muteBtn.ImageColor3 = Color3.fromRGB(100, 100, 100)
-            elseif selfMuted then
-                -- Self-muted - lighter gray
+                -- Muted by you - light gray
                 muteBtn.Image = SPEAKER_MUTED
                 muteBtn.ImageColor3 = Color3.fromRGB(180, 180, 180)
+            elseif selfMuted then
+                -- Self-muted - old color (white)
+                muteBtn.Image = SPEAKER_MUTED
+                muteBtn.ImageColor3 = Color3.fromRGB(255, 255, 255)
             else
                 -- Not muted - normal
                 muteBtn.Image = SPEAKER_UNMUTED_LEVELS[1]
