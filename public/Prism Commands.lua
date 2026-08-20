@@ -15,6 +15,7 @@
     animation replacer
     animation logger
     animation speeds
+    animation cloning
     shaders (with presets / time of day control / all axons shader controls)
     anti vcb muting others / self
     reanim
@@ -167,7 +168,7 @@ local function createPlayerOverlay(plr)
             local isMuted = not adi.Muted
             pcall(function()
                 adi.Muted = isMuted
-                adi.Active = not isMuted
+                -- Don't touch adi.Active - that's the player's self-mute state
             end)
             PM.MutedPlayers[plr.UserId] = adi
         end
@@ -1326,7 +1327,7 @@ registerCommand("hide", "Hide a player", {}, function(args)
     local adi = getPlayerAudioInput(target)
     if adi then pcall(function()
         adi.Muted = true
-        adi.Active = false
+        -- Don't touch adi.Active - that's the player's self-mute state
     end) end
     local savedState = nil
     if target.Character then savedState = applyHide(target.Character, nil) end
@@ -1335,19 +1336,15 @@ registerCommand("hide", "Hide a player", {}, function(args)
         local newAdi = getPlayerAudioInput(target)
         if newAdi then pcall(function()
             newAdi.Muted = true
-            newAdi.Active = false
+            -- Don't touch adi.Active - that's the player's self-mute state
         end) end
         savedState = applyHide(char, savedState)
-        -- Remove VCBypasser icon on respawn if active
-        if PM.VCBypasser.active then
-            removePlayerOverlay(target)
-        end
+        -- Remove VCBypasser icon on respawn
+        removePlayerOverlay(target)
     end)
     PM.HiddenPlayers[target.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
-    -- Hide the VCBypasser icon too if vcbypasser is active
-    if PM.VCBypasser.active then
-        removePlayerOverlay(target)
-    end
+    -- Hide the VCBypasser icon too
+    removePlayerOverlay(target)
 end, true)
 
 registerCommand("unhide", "Unhide a player", {}, function(args)
@@ -1410,7 +1407,7 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
             local adi = getPlayerAudioInput(p)
             if adi then pcall(function()
                 adi.Muted = true
-                adi.Active = false
+                -- Don't touch adi.Active - that's the player's self-mute state
             end) end
             local savedState = nil
             if p.Character then savedState = applyHide(p.Character, nil) end
@@ -1421,13 +1418,11 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
                 local newAdi = getPlayerAudioInput(p)
                 if newAdi then pcall(function()
                     newAdi.Muted = true
-                    newAdi.Active = false
+                    -- Don't touch adi.Active - that's the player's self-mute state
                 end) end
                 savedState = applyHide(char, savedState)
-                -- Remove VCBypasser icon on respawn if active
-                if PM.VCBypasser.active then
-                    removePlayerOverlay(p)
-                end
+                -- Remove VCBypasser icon on respawn
+                removePlayerOverlay(p)
             end)
             PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
         end
@@ -1439,7 +1434,7 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
                 local adi = getPlayerAudioInput(p)
                 if adi then pcall(function()
                     adi.Muted = true
-                    adi.Active = false
+                    -- Don't touch adi.Active - that's the player's self-mute state
                 end) end
                 local savedState = nil
                 if p.Character then savedState = applyHide(p.Character, nil) end
@@ -1450,13 +1445,11 @@ registerCommand("hideall", "Hide all other players", {}, function(args)
                     local newAdi = getPlayerAudioInput(p)
                     if newAdi then pcall(function()
                         newAdi.Muted = true
-                        newAdi.Active = false
+                        -- Don't touch adi.Active - that's the player's self-mute state
                     end) end
                     savedState = applyHide(char, savedState)
-                    -- Remove VCBypasser icon on respawn if active
-                    if PM.VCBypasser.active then
-                        removePlayerOverlay(p)
-                    end
+                    -- Remove VCBypasser icon on respawn
+                    removePlayerOverlay(p)
                 end)
                 PM.HiddenPlayers[p.UserId] = { connection = conn, audioDevice = adi, savedState = savedState }
             end
@@ -1545,7 +1538,7 @@ registerCommand("mute", "Mute a player's microphone", {}, function(args)
         if adi then
             pcall(function()
                 adi.Muted = true
-                adi.Active = false
+                -- Don't touch adi.Active - that's the player's self-mute state
             end)
             PM.MutedPlayers[target.UserId] = adi
         end
@@ -1604,7 +1597,7 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
             if adi then
                 pcall(function()
                     adi.Muted = true
-                    adi.Active = false
+                    -- Don't touch adi.Active - that's the player's self-mute state
                 end)
             end
             -- Hook CharacterAdded for respawns
@@ -1616,7 +1609,7 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
                 if newAdi then
                     pcall(function()
                         newAdi.Muted = true
-                        newAdi.Active = false
+                        -- Don't touch adi.Active - that's the player's self-mute state
                     end)
                 end
             end)
@@ -1631,7 +1624,7 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
                 if adi then
                     pcall(function()
                         adi.Muted = true
-                        adi.Active = false
+                        -- Don't touch adi.Active - that's the player's self-mute state
                     end)
                 end
                 local conn = p.CharacterAdded:Connect(function(char)
@@ -1642,7 +1635,7 @@ registerCommand("muteall", "Mute all other players", {}, function(args)
                     if newAdi then
                         pcall(function()
                             newAdi.Muted = true
-                            newAdi.Active = false
+                            -- Don't touch adi.Active - that's the player's self-mute state
                         end)
                     end
                 end)
