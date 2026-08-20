@@ -198,24 +198,39 @@ local function createPlayerOverlay(plr)
 
         -- Update mute state - check both Muted and Active properties
         local adi = getPlayerAudioInput(plr)
-        local isMuted = false
+        local myMuted = false
+        local selfMuted = false
         if adi then
-            isMuted = adi.Muted or not adi.Active
+            myMuted = adi.Muted
+            selfMuted = not adi.Active
         end
 
         -- Update talking animation
         local isTalking = PM.VCBypasser.talkingStates[plr.UserId] or false
-        if isTalking and not isMuted then
+        if isTalking and not myMuted and not selfMuted then
             -- Cycle through volume levels randomly
             local now = tick()
             if now - lastUpdate > 0.1 then
                 levelIndex = math.random(1, #SPEAKER_UNMUTED_LEVELS)
                 muteBtn.Image = SPEAKER_UNMUTED_LEVELS[levelIndex]
+                muteBtn.ImageColor3 = Color3.fromRGB(255, 255, 255)
                 lastUpdate = now
             end
         else
-            -- Reset to base
-            muteBtn.Image = isMuted and SPEAKER_MUTED or SPEAKER_UNMUTED_LEVELS[1]
+            -- Show different colors based on mute state
+            if myMuted then
+                -- Muted by you - dark gray
+                muteBtn.Image = SPEAKER_MUTED
+                muteBtn.ImageColor3 = Color3.fromRGB(100, 100, 100)
+            elseif selfMuted then
+                -- Self-muted - lighter gray
+                muteBtn.Image = SPEAKER_MUTED
+                muteBtn.ImageColor3 = Color3.fromRGB(180, 180, 180)
+            else
+                -- Not muted - normal
+                muteBtn.Image = SPEAKER_UNMUTED_LEVELS[1]
+                muteBtn.ImageColor3 = Color3.fromRGB(255, 255, 255)
+            end
         end
     end)
 end
