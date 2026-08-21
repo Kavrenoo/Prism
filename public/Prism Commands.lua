@@ -2365,7 +2365,7 @@ registerCommand("walkonair", "Walk on invisible platform with height control", {
         ToggleLabel.Size = UDim2.new(1, -100, 1, 0)
         ToggleLabel.Position = UDim2.new(0, 12, 0, 0)
         ToggleLabel.BackgroundTransparency = 1
-        ToggleLabel.Text = "Respawn Last Location"
+        ToggleLabel.Text = "Walk On Air"
         ToggleLabel.TextColor3 = Color3.fromRGB(220, 220, 220)
         ToggleLabel.TextSize = 12
         ToggleLabel.Font = Enum.Font.Gotham
