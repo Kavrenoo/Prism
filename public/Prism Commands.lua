@@ -23,6 +23,7 @@
     anti headsit / facebang / etc
     nametags
     join other prism users
+    better loading for emotes
 
 ]]
 -- Wait for PrismMain to be initialized by Main.lua
