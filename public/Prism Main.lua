@@ -75,6 +75,7 @@ PM.createMainGUI = function()
         Name = "PrismMainGui",
         DisplayOrder = 1000,
         ResetOnSpawn = false,
+        ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
     })
     
     PM.UI.Main = PM.mk("Frame", PM.UI.Gui, {

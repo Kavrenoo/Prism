@@ -127,6 +127,8 @@ local function createPlayerOverlay(plr)
     bill.Size = UDim2.fromOffset(40, 40)
     bill.StudsOffsetWorldSpace = Vector3.new(0, 3, 0)
     bill.Adornee = head
+    bill.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    bill.MaxDistance = 100
 
     -- Parent to CoreGui if possible, otherwise PlayerGui
     local CoreGui = game:GetService("CoreGui")
@@ -2177,6 +2179,7 @@ registerCommand("walkonair", "Walk on invisible platform with height control", {
         ScreenGui.Name = "Prism_WOAGUI"
         ScreenGui.ResetOnSpawn = false
         ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 1000
         PM.WOA.Gui = ScreenGui
 
         if syn and syn.protect_gui then
@@ -2557,6 +2560,7 @@ registerCommand("jump", "Jump power control with infinite jump", {}, function(ar
     ScreenGui.Name = "Prism_JumpGUI"
     ScreenGui.ResetOnSpawn = false
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui.DisplayOrder = 1000
     PM.Jump.Gui = ScreenGui
 
     if syn and syn.protect_gui then
@@ -3064,6 +3068,7 @@ registerCommand("antiall", "Anti Everything", {}, function(args)
         ScreenGui.Name = "Prism_AntiGUI"
         ScreenGui.ResetOnSpawn = false
         ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 1000
         ScreenGui.DisplayOrder = 999
 
         if syn and syn.protect_gui then
@@ -3538,6 +3543,7 @@ registerCommand("emotes", "All Emotes On Roblox", {}, function(args)
         ScreenGui.Name = "Prism_EmotesGUI"
         ScreenGui.ResetOnSpawn = false
         ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 1000
         ScreenGui.DisplayOrder = 999
 
         if syn and syn.protect_gui then
@@ -4553,6 +4559,7 @@ registerCommand("hamsterball", "Roll around in a ball", {}, function(args)
     ScreenGui.Name = "Prism_HamsterBallGUI"
     ScreenGui.ResetOnSpawn = false
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui.DisplayOrder = 1000
     ScreenGui.DisplayOrder = 999
 
     if syn and syn.protect_gui then
@@ -5081,6 +5088,7 @@ registerCommand("trip", "Trip your character", {}, function(args)
         ScreenGui.Name = "Prism_TripGUI"
         ScreenGui.ResetOnSpawn = false
         ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 1000
         ScreenGui.DisplayOrder = 999
 
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
@@ -5450,6 +5458,7 @@ registerCommand("gravity", "Control gravity", {}, function(args)
         ScreenGui.Name = "Prism_GravityGUI"
         ScreenGui.ResetOnSpawn = false
         ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 1000
         ScreenGui.DisplayOrder = 999
 
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
@@ -5830,6 +5839,7 @@ registerCommand("autoclicker", "Auto clicker with keybind", {}, function(args)
     ScreenGui.Name = "Prism_AutoClickerGUI"
     ScreenGui.ResetOnSpawn = false
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui.DisplayOrder = 1000
     ScreenGui.DisplayOrder = 999
 
     if syn and syn.protect_gui then
@@ -6278,6 +6288,7 @@ registerCommand("noclip", "Noclip with keybind", {}, function(args)
     ScreenGui.Name = "Prism_NoclipGUI"
     ScreenGui.ResetOnSpawn = false
     ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+    ScreenGui.DisplayOrder = 1000
     ScreenGui.DisplayOrder = 999
 
     if syn and syn.protect_gui then
@@ -6738,6 +6749,7 @@ registerCommand("speed", "WalkSpeed and CFrame speed control", {}, function(args
         ScreenGui.Name = "Prism_SpeedGUI"
         ScreenGui.ResetOnSpawn = false
         ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 1000
         ScreenGui.DisplayOrder = 999
 
         if syn and syn.protect_gui then
@@ -7238,6 +7250,7 @@ registerCommand("spin", "Spin your character", {}, function(args)
         ScreenGui.Name = "Prism_SpinGUI"
         ScreenGui.ResetOnSpawn = false
         ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 1000
         ScreenGui.DisplayOrder = 999
 
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
@@ -7703,6 +7716,7 @@ registerCommand("camera", "Camera controls", {}, function(args)
         ScreenGui.Name = "Prism_CameraGUI"
         ScreenGui.ResetOnSpawn = false
         ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 1000
         ScreenGui.DisplayOrder = 999
 
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
@@ -8214,6 +8228,7 @@ registerCommand("respawnlastlocation", "Respawn to last location with toggle", {
         ScreenGui.Name = "Prism_RespawnGUI"
         ScreenGui.ResetOnSpawn = false
         ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 1000
         PM.Respawn.Gui = ScreenGui
 
         if syn and syn.protect_gui then
@@ -8518,6 +8533,7 @@ registerCommand("fly", "Fly around", {}, function(args)
         ScreenGui.Name = "Prism_FlyGUI"
         ScreenGui.ResetOnSpawn = false
         ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        ScreenGui.DisplayOrder = 1000
         ScreenGui.DisplayOrder = 999
 
         local ok = pcall(function() ScreenGui.Parent = CoreGui end)
